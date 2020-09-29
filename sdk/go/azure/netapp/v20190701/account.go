@@ -23,7 +23,7 @@ type Account struct {
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -104,7 +104,7 @@ type accountState struct {
 	// Azure lifecycle management
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -119,7 +119,7 @@ type AccountState struct {
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringPtrInput
 	// Resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -138,7 +138,7 @@ type accountArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
@@ -152,7 +152,7 @@ type AccountArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 }
 
 func (AccountArgs) ElementType() reflect.Type {

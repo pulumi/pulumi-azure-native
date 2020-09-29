@@ -17,7 +17,7 @@ type ApiSchema struct {
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
 	// Properties of the Schema Document.
-	Document pulumi.MapOutput `pulumi:"document"`
+	Document pulumi.AnyOutput `pulumi:"document"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource type for API Management resource.
@@ -91,7 +91,7 @@ type apiSchemaState struct {
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType *string `pulumi:"contentType"`
 	// Properties of the Schema Document.
-	Document map[string]interface{} `pulumi:"document"`
+	Document interface{} `pulumi:"document"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Resource type for API Management resource.
@@ -102,7 +102,7 @@ type ApiSchemaState struct {
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType pulumi.StringPtrInput
 	// Properties of the Schema Document.
-	Document pulumi.MapInput
+	Document pulumi.Input
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Resource type for API Management resource.

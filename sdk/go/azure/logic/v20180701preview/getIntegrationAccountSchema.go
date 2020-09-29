@@ -44,7 +44,7 @@ type LookupIntegrationAccountSchemaResult struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The schema type.

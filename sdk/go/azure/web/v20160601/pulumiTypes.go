@@ -799,7 +799,7 @@ type ApiOAuthSettings struct {
 	// Identity provider
 	IdentityProvider *string `pulumi:"identityProvider"`
 	// Read only properties for this oauth setting.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Url
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// OAuth scopes
@@ -828,7 +828,7 @@ type ApiOAuthSettingsArgs struct {
 	// Identity provider
 	IdentityProvider pulumi.StringPtrInput `pulumi:"identityProvider"`
 	// Read only properties for this oauth setting.
-	Properties pulumi.MapInput `pulumi:"properties"`
+	Properties pulumi.Input `pulumi:"properties"`
 	// Url
 	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
 	// OAuth scopes
@@ -934,8 +934,8 @@ func (o ApiOAuthSettingsOutput) IdentityProvider() pulumi.StringPtrOutput {
 }
 
 // Read only properties for this oauth setting.
-func (o ApiOAuthSettingsOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettings) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettings) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
 // Url
@@ -1007,13 +1007,13 @@ func (o ApiOAuthSettingsPtrOutput) IdentityProvider() pulumi.StringPtrOutput {
 }
 
 // Read only properties for this oauth setting.
-func (o ApiOAuthSettingsPtrOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v *ApiOAuthSettings) map[string]interface{} {
+func (o ApiOAuthSettingsPtrOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApiOAuthSettings) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Properties
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Url
@@ -1039,9 +1039,9 @@ func (o ApiOAuthSettingsPtrOutput) Scopes() pulumi.StringArrayOutput {
 // OAuth settings for the API
 type ApiOAuthSettingsParameter struct {
 	// Options available to this parameter
-	Options map[string]interface{} `pulumi:"options"`
+	Options interface{} `pulumi:"options"`
 	// UI definitions per culture as caller can specify the culture
-	UiDefinition map[string]interface{} `pulumi:"uiDefinition"`
+	UiDefinition interface{} `pulumi:"uiDefinition"`
 	// Value of the setting
 	Value *string `pulumi:"value"`
 }
@@ -1060,9 +1060,9 @@ type ApiOAuthSettingsParameterInput interface {
 // OAuth settings for the API
 type ApiOAuthSettingsParameterArgs struct {
 	// Options available to this parameter
-	Options pulumi.MapInput `pulumi:"options"`
+	Options pulumi.Input `pulumi:"options"`
 	// UI definitions per culture as caller can specify the culture
-	UiDefinition pulumi.MapInput `pulumi:"uiDefinition"`
+	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
 	// Value of the setting
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -1120,13 +1120,13 @@ func (o ApiOAuthSettingsParameterOutput) ToApiOAuthSettingsParameterOutputWithCo
 }
 
 // Options available to this parameter
-func (o ApiOAuthSettingsParameterOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsParameter) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsParameterOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameter) interface{} { return v.Options }).(pulumi.AnyOutput)
 }
 
 // UI definitions per culture as caller can specify the culture
-func (o ApiOAuthSettingsParameterOutput) UiDefinition() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsParameter) map[string]interface{} { return v.UiDefinition }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsParameterOutput) UiDefinition() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameter) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
 
 // Value of the setting
@@ -1157,9 +1157,9 @@ func (o ApiOAuthSettingsParameterMapOutput) MapIndex(k pulumi.StringInput) ApiOA
 // OAuth settings for the API
 type ApiOAuthSettingsParameterResponse struct {
 	// Options available to this parameter
-	Options map[string]interface{} `pulumi:"options"`
+	Options interface{} `pulumi:"options"`
 	// UI definitions per culture as caller can specify the culture
-	UiDefinition map[string]interface{} `pulumi:"uiDefinition"`
+	UiDefinition interface{} `pulumi:"uiDefinition"`
 	// Value of the setting
 	Value *string `pulumi:"value"`
 }
@@ -1178,9 +1178,9 @@ type ApiOAuthSettingsParameterResponseInput interface {
 // OAuth settings for the API
 type ApiOAuthSettingsParameterResponseArgs struct {
 	// Options available to this parameter
-	Options pulumi.MapInput `pulumi:"options"`
+	Options pulumi.Input `pulumi:"options"`
 	// UI definitions per culture as caller can specify the culture
-	UiDefinition pulumi.MapInput `pulumi:"uiDefinition"`
+	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
 	// Value of the setting
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -1238,13 +1238,13 @@ func (o ApiOAuthSettingsParameterResponseOutput) ToApiOAuthSettingsParameterResp
 }
 
 // Options available to this parameter
-func (o ApiOAuthSettingsParameterResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsParameterResponseOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) interface{} { return v.Options }).(pulumi.AnyOutput)
 }
 
 // UI definitions per culture as caller can specify the culture
-func (o ApiOAuthSettingsParameterResponseOutput) UiDefinition() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) map[string]interface{} { return v.UiDefinition }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsParameterResponseOutput) UiDefinition() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
 
 // Value of the setting
@@ -1283,7 +1283,7 @@ type ApiOAuthSettingsResponse struct {
 	// Identity provider
 	IdentityProvider *string `pulumi:"identityProvider"`
 	// Read only properties for this oauth setting.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Url
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// OAuth scopes
@@ -1312,7 +1312,7 @@ type ApiOAuthSettingsResponseArgs struct {
 	// Identity provider
 	IdentityProvider pulumi.StringPtrInput `pulumi:"identityProvider"`
 	// Read only properties for this oauth setting.
-	Properties pulumi.MapInput `pulumi:"properties"`
+	Properties pulumi.Input `pulumi:"properties"`
 	// Url
 	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
 	// OAuth scopes
@@ -1420,8 +1420,8 @@ func (o ApiOAuthSettingsResponseOutput) IdentityProvider() pulumi.StringPtrOutpu
 }
 
 // Read only properties for this oauth setting.
-func (o ApiOAuthSettingsResponseOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsResponse) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsResponseOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
 // Url
@@ -1493,13 +1493,13 @@ func (o ApiOAuthSettingsResponsePtrOutput) IdentityProvider() pulumi.StringPtrOu
 }
 
 // Read only properties for this oauth setting.
-func (o ApiOAuthSettingsResponsePtrOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v *ApiOAuthSettingsResponse) map[string]interface{} {
+func (o ApiOAuthSettingsResponsePtrOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Properties
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Url
@@ -1536,7 +1536,7 @@ type ApiReference struct {
 	// The name of the API
 	Name *string `pulumi:"name"`
 	// The JSON representation of the swagger
-	Swagger map[string]interface{} `pulumi:"swagger"`
+	Swagger interface{} `pulumi:"swagger"`
 	// Resource reference type
 	Type *string `pulumi:"type"`
 }
@@ -1566,7 +1566,7 @@ type ApiReferenceArgs struct {
 	// The name of the API
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The JSON representation of the swagger
-	Swagger pulumi.MapInput `pulumi:"swagger"`
+	Swagger pulumi.Input `pulumi:"swagger"`
 	// Resource reference type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -1679,8 +1679,8 @@ func (o ApiReferenceOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The JSON representation of the swagger
-func (o ApiReferenceOutput) Swagger() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiReference) map[string]interface{} { return v.Swagger }).(pulumi.MapOutput)
+func (o ApiReferenceOutput) Swagger() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiReference) interface{} { return v.Swagger }).(pulumi.AnyOutput)
 }
 
 // Resource reference type
@@ -1767,13 +1767,13 @@ func (o ApiReferencePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The JSON representation of the swagger
-func (o ApiReferencePtrOutput) Swagger() pulumi.MapOutput {
-	return o.ApplyT(func(v *ApiReference) map[string]interface{} {
+func (o ApiReferencePtrOutput) Swagger() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApiReference) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Swagger
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Resource reference type
@@ -1800,7 +1800,7 @@ type ApiReferenceResponse struct {
 	// The name of the API
 	Name *string `pulumi:"name"`
 	// The JSON representation of the swagger
-	Swagger map[string]interface{} `pulumi:"swagger"`
+	Swagger interface{} `pulumi:"swagger"`
 	// Resource reference type
 	Type *string `pulumi:"type"`
 }
@@ -1830,7 +1830,7 @@ type ApiReferenceResponseArgs struct {
 	// The name of the API
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The JSON representation of the swagger
-	Swagger pulumi.MapInput `pulumi:"swagger"`
+	Swagger pulumi.Input `pulumi:"swagger"`
 	// Resource reference type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -1943,8 +1943,8 @@ func (o ApiReferenceResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The JSON representation of the swagger
-func (o ApiReferenceResponseOutput) Swagger() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiReferenceResponse) map[string]interface{} { return v.Swagger }).(pulumi.MapOutput)
+func (o ApiReferenceResponseOutput) Swagger() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiReferenceResponse) interface{} { return v.Swagger }).(pulumi.AnyOutput)
 }
 
 // Resource reference type
@@ -2031,13 +2031,13 @@ func (o ApiReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The JSON representation of the swagger
-func (o ApiReferenceResponsePtrOutput) Swagger() pulumi.MapOutput {
-	return o.ApplyT(func(v *ApiReferenceResponse) map[string]interface{} {
+func (o ApiReferenceResponsePtrOutput) Swagger() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApiReferenceResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Swagger
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Resource reference type
@@ -3115,7 +3115,7 @@ type ConnectionGatewayDefinitionProperties struct {
 	// The machine name of the gateway
 	MachineName *string `pulumi:"machineName"`
 	// The gateway status
-	Status map[string]interface{} `pulumi:"status"`
+	Status interface{} `pulumi:"status"`
 }
 
 // ConnectionGatewayDefinitionPropertiesInput is an input type that accepts ConnectionGatewayDefinitionPropertiesArgs and ConnectionGatewayDefinitionPropertiesOutput values.
@@ -3143,7 +3143,7 @@ type ConnectionGatewayDefinitionPropertiesArgs struct {
 	// The machine name of the gateway
 	MachineName pulumi.StringPtrInput `pulumi:"machineName"`
 	// The gateway status
-	Status pulumi.MapInput `pulumi:"status"`
+	Status pulumi.Input `pulumi:"status"`
 }
 
 func (ConnectionGatewayDefinitionPropertiesArgs) ElementType() reflect.Type {
@@ -3256,8 +3256,8 @@ func (o ConnectionGatewayDefinitionPropertiesOutput) MachineName() pulumi.String
 }
 
 // The gateway status
-func (o ConnectionGatewayDefinitionPropertiesOutput) Status() pulumi.MapOutput {
-	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) map[string]interface{} { return v.Status }).(pulumi.MapOutput)
+func (o ConnectionGatewayDefinitionPropertiesOutput) Status() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) interface{} { return v.Status }).(pulumi.AnyOutput)
 }
 
 type ConnectionGatewayDefinitionPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -3339,13 +3339,13 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) MachineName() pulumi.Str
 }
 
 // The gateway status
-func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Status() pulumi.MapOutput {
-	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) map[string]interface{} {
+func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Status() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type ConnectionGatewayDefinitionResponseProperties struct {
@@ -3362,7 +3362,7 @@ type ConnectionGatewayDefinitionResponseProperties struct {
 	// The machine name of the gateway
 	MachineName *string `pulumi:"machineName"`
 	// The gateway status
-	Status map[string]interface{} `pulumi:"status"`
+	Status interface{} `pulumi:"status"`
 }
 
 // ConnectionGatewayDefinitionResponsePropertiesInput is an input type that accepts ConnectionGatewayDefinitionResponsePropertiesArgs and ConnectionGatewayDefinitionResponsePropertiesOutput values.
@@ -3390,7 +3390,7 @@ type ConnectionGatewayDefinitionResponsePropertiesArgs struct {
 	// The machine name of the gateway
 	MachineName pulumi.StringPtrInput `pulumi:"machineName"`
 	// The gateway status
-	Status pulumi.MapInput `pulumi:"status"`
+	Status pulumi.Input `pulumi:"status"`
 }
 
 func (ConnectionGatewayDefinitionResponsePropertiesArgs) ElementType() reflect.Type {
@@ -3503,8 +3503,8 @@ func (o ConnectionGatewayDefinitionResponsePropertiesOutput) MachineName() pulum
 }
 
 // The gateway status
-func (o ConnectionGatewayDefinitionResponsePropertiesOutput) Status() pulumi.MapOutput {
-	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) map[string]interface{} { return v.Status }).(pulumi.MapOutput)
+func (o ConnectionGatewayDefinitionResponsePropertiesOutput) Status() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) interface{} { return v.Status }).(pulumi.AnyOutput)
 }
 
 type ConnectionGatewayDefinitionResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -3588,13 +3588,13 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) MachineName() pu
 }
 
 // The gateway status
-func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Status() pulumi.MapOutput {
-	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) map[string]interface{} {
+func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Status() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The gateway installation reference
@@ -4710,7 +4710,7 @@ type CustomApiPropertiesDefinition struct {
 	// Runtime URLs
 	RuntimeUrls []string `pulumi:"runtimeUrls"`
 	// The JSON representation of the swagger
-	Swagger map[string]interface{} `pulumi:"swagger"`
+	Swagger interface{} `pulumi:"swagger"`
 	// The WSDL definition
 	WsdlDefinition *WsdlDefinition `pulumi:"wsdlDefinition"`
 }
@@ -4749,7 +4749,7 @@ type CustomApiPropertiesDefinitionArgs struct {
 	// Runtime URLs
 	RuntimeUrls pulumi.StringArrayInput `pulumi:"runtimeUrls"`
 	// The JSON representation of the swagger
-	Swagger pulumi.MapInput `pulumi:"swagger"`
+	Swagger pulumi.Input `pulumi:"swagger"`
 	// The WSDL definition
 	WsdlDefinition WsdlDefinitionPtrInput `pulumi:"wsdlDefinition"`
 }
@@ -4883,8 +4883,8 @@ func (o CustomApiPropertiesDefinitionOutput) RuntimeUrls() pulumi.StringArrayOut
 }
 
 // The JSON representation of the swagger
-func (o CustomApiPropertiesDefinitionOutput) Swagger() pulumi.MapOutput {
-	return o.ApplyT(func(v CustomApiPropertiesDefinition) map[string]interface{} { return v.Swagger }).(pulumi.MapOutput)
+func (o CustomApiPropertiesDefinitionOutput) Swagger() pulumi.AnyOutput {
+	return o.ApplyT(func(v CustomApiPropertiesDefinition) interface{} { return v.Swagger }).(pulumi.AnyOutput)
 }
 
 // The WSDL definition
@@ -5011,13 +5011,13 @@ func (o CustomApiPropertiesDefinitionPtrOutput) RuntimeUrls() pulumi.StringArray
 }
 
 // The JSON representation of the swagger
-func (o CustomApiPropertiesDefinitionPtrOutput) Swagger() pulumi.MapOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinition) map[string]interface{} {
+func (o CustomApiPropertiesDefinitionPtrOutput) Swagger() pulumi.AnyOutput {
+	return o.ApplyT(func(v *CustomApiPropertiesDefinition) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Swagger
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The WSDL definition
@@ -5053,7 +5053,7 @@ type CustomApiPropertiesDefinitionResponse struct {
 	// Runtime URLs
 	RuntimeUrls []string `pulumi:"runtimeUrls"`
 	// The JSON representation of the swagger
-	Swagger map[string]interface{} `pulumi:"swagger"`
+	Swagger interface{} `pulumi:"swagger"`
 	// The WSDL definition
 	WsdlDefinition *WsdlDefinitionResponse `pulumi:"wsdlDefinition"`
 }
@@ -5092,7 +5092,7 @@ type CustomApiPropertiesDefinitionResponseArgs struct {
 	// Runtime URLs
 	RuntimeUrls pulumi.StringArrayInput `pulumi:"runtimeUrls"`
 	// The JSON representation of the swagger
-	Swagger pulumi.MapInput `pulumi:"swagger"`
+	Swagger pulumi.Input `pulumi:"swagger"`
 	// The WSDL definition
 	WsdlDefinition WsdlDefinitionResponsePtrInput `pulumi:"wsdlDefinition"`
 }
@@ -5230,8 +5230,8 @@ func (o CustomApiPropertiesDefinitionResponseOutput) RuntimeUrls() pulumi.String
 }
 
 // The JSON representation of the swagger
-func (o CustomApiPropertiesDefinitionResponseOutput) Swagger() pulumi.MapOutput {
-	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) map[string]interface{} { return v.Swagger }).(pulumi.MapOutput)
+func (o CustomApiPropertiesDefinitionResponseOutput) Swagger() pulumi.AnyOutput {
+	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) interface{} { return v.Swagger }).(pulumi.AnyOutput)
 }
 
 // The WSDL definition
@@ -5358,13 +5358,13 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) RuntimeUrls() pulumi.Str
 }
 
 // The JSON representation of the swagger
-func (o CustomApiPropertiesDefinitionResponsePtrOutput) Swagger() pulumi.MapOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) map[string]interface{} {
+func (o CustomApiPropertiesDefinitionResponsePtrOutput) Swagger() pulumi.AnyOutput {
+	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Swagger
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The WSDL definition

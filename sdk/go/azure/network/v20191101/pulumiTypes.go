@@ -15665,7 +15665,7 @@ type BastionActiveSessionResponse struct {
 	// A unique id for the session.
 	SessionId string `pulumi:"sessionId"`
 	// The time when the session started.
-	StartTime map[string]interface{} `pulumi:"startTime"`
+	StartTime interface{} `pulumi:"startTime"`
 	// The host name of the target.
 	TargetHostName string `pulumi:"targetHostName"`
 	// The IP Address of the target.
@@ -15702,7 +15702,7 @@ type BastionActiveSessionResponseArgs struct {
 	// A unique id for the session.
 	SessionId pulumi.StringInput `pulumi:"sessionId"`
 	// The time when the session started.
-	StartTime pulumi.MapInput `pulumi:"startTime"`
+	StartTime pulumi.Input `pulumi:"startTime"`
 	// The host name of the target.
 	TargetHostName pulumi.StringInput `pulumi:"targetHostName"`
 	// The IP Address of the target.
@@ -15790,8 +15790,8 @@ func (o BastionActiveSessionResponseOutput) SessionId() pulumi.StringOutput {
 }
 
 // The time when the session started.
-func (o BastionActiveSessionResponseOutput) StartTime() pulumi.MapOutput {
-	return o.ApplyT(func(v BastionActiveSessionResponse) map[string]interface{} { return v.StartTime }).(pulumi.MapOutput)
+func (o BastionActiveSessionResponseOutput) StartTime() pulumi.AnyOutput {
+	return o.ApplyT(func(v BastionActiveSessionResponse) interface{} { return v.StartTime }).(pulumi.AnyOutput)
 }
 
 // The host name of the target.

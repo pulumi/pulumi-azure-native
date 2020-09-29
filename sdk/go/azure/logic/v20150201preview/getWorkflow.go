@@ -31,7 +31,7 @@ type LookupWorkflowResult struct {
 	// Gets the created time.
 	CreatedTime string `pulumi:"createdTime"`
 	// Gets or sets the definition.
-	Definition map[string]interface{} `pulumi:"definition"`
+	Definition interface{} `pulumi:"definition"`
 	// Gets or sets the link to definition.
 	DefinitionLink *ContentLinkResponse `pulumi:"definitionLink"`
 	// Gets or sets the resource location.

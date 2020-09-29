@@ -50,7 +50,7 @@ type LookupCacheResult struct {
 	// Subnet used for the Cache.
 	Subnet *string `pulumi:"subnet"`
 	// ARM tags as name/value pairs.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type string `pulumi:"type"`
 	// Upgrade status of the Cache.

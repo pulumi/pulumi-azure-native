@@ -26,6 +26,8 @@ type Schedule struct {
 	ExpiryTimeOffsetMinutes pulumi.Float64PtrOutput `pulumi:"expiryTimeOffsetMinutes"`
 	// Gets or sets the frequency of the schedule.
 	Frequency pulumi.StringPtrOutput `pulumi:"frequency"`
+	// Gets or sets the interval of the schedule.
+	Interval pulumi.AnyOutput `pulumi:"interval"`
 	// Gets or sets a value indicating whether this schedule is enabled.
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 	// Gets or sets the last modified time.
@@ -110,6 +112,8 @@ type scheduleState struct {
 	ExpiryTimeOffsetMinutes *float64 `pulumi:"expiryTimeOffsetMinutes"`
 	// Gets or sets the frequency of the schedule.
 	Frequency *string `pulumi:"frequency"`
+	// Gets or sets the interval of the schedule.
+	Interval interface{} `pulumi:"interval"`
 	// Gets or sets a value indicating whether this schedule is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// Gets or sets the last modified time.
@@ -143,6 +147,8 @@ type ScheduleState struct {
 	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput
 	// Gets or sets the frequency of the schedule.
 	Frequency pulumi.StringPtrInput
+	// Gets or sets the interval of the schedule.
+	Interval pulumi.Input
 	// Gets or sets a value indicating whether this schedule is enabled.
 	IsEnabled pulumi.BoolPtrInput
 	// Gets or sets the last modified time.

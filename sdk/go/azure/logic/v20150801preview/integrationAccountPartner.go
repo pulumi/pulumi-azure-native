@@ -22,7 +22,7 @@ type IntegrationAccountPartner struct {
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The metadata.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The resource name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The partner type.
@@ -94,7 +94,7 @@ type integrationAccountPartnerState struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// The partner type.
@@ -115,7 +115,7 @@ type IntegrationAccountPartnerState struct {
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// The partner type.
@@ -140,7 +140,7 @@ type integrationAccountPartnerArgs struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// The integration account partner name.
@@ -166,7 +166,7 @@ type IntegrationAccountPartnerArgs struct {
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// The integration account partner name.

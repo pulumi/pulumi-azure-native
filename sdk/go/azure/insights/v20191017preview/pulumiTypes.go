@@ -1031,7 +1031,7 @@ type WorkbookTemplateLocalizedGallery struct {
 	// Workbook galleries supported by the template.
 	Galleries []WorkbookTemplateGallery `pulumi:"galleries"`
 	// Valid JSON object containing workbook template payload.
-	TemplateData map[string]interface{} `pulumi:"templateData"`
+	TemplateData interface{} `pulumi:"templateData"`
 }
 
 // WorkbookTemplateLocalizedGalleryInput is an input type that accepts WorkbookTemplateLocalizedGalleryArgs and WorkbookTemplateLocalizedGalleryOutput values.
@@ -1050,7 +1050,7 @@ type WorkbookTemplateLocalizedGalleryArgs struct {
 	// Workbook galleries supported by the template.
 	Galleries WorkbookTemplateGalleryArrayInput `pulumi:"galleries"`
 	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.MapInput `pulumi:"templateData"`
+	TemplateData pulumi.Input `pulumi:"templateData"`
 }
 
 func (WorkbookTemplateLocalizedGalleryArgs) ElementType() reflect.Type {
@@ -1111,8 +1111,8 @@ func (o WorkbookTemplateLocalizedGalleryOutput) Galleries() WorkbookTemplateGall
 }
 
 // Valid JSON object containing workbook template payload.
-func (o WorkbookTemplateLocalizedGalleryOutput) TemplateData() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkbookTemplateLocalizedGallery) map[string]interface{} { return v.TemplateData }).(pulumi.MapOutput)
+func (o WorkbookTemplateLocalizedGalleryOutput) TemplateData() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkbookTemplateLocalizedGallery) interface{} { return v.TemplateData }).(pulumi.AnyOutput)
 }
 
 type WorkbookTemplateLocalizedGalleryArrayOutput struct{ *pulumi.OutputState }
@@ -1140,7 +1140,7 @@ type WorkbookTemplateLocalizedGalleryResponse struct {
 	// Workbook galleries supported by the template.
 	Galleries []WorkbookTemplateGalleryResponse `pulumi:"galleries"`
 	// Valid JSON object containing workbook template payload.
-	TemplateData map[string]interface{} `pulumi:"templateData"`
+	TemplateData interface{} `pulumi:"templateData"`
 }
 
 // WorkbookTemplateLocalizedGalleryResponseInput is an input type that accepts WorkbookTemplateLocalizedGalleryResponseArgs and WorkbookTemplateLocalizedGalleryResponseOutput values.
@@ -1159,7 +1159,7 @@ type WorkbookTemplateLocalizedGalleryResponseArgs struct {
 	// Workbook galleries supported by the template.
 	Galleries WorkbookTemplateGalleryResponseArrayInput `pulumi:"galleries"`
 	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.MapInput `pulumi:"templateData"`
+	TemplateData pulumi.Input `pulumi:"templateData"`
 }
 
 func (WorkbookTemplateLocalizedGalleryResponseArgs) ElementType() reflect.Type {
@@ -1220,8 +1220,8 @@ func (o WorkbookTemplateLocalizedGalleryResponseOutput) Galleries() WorkbookTemp
 }
 
 // Valid JSON object containing workbook template payload.
-func (o WorkbookTemplateLocalizedGalleryResponseOutput) TemplateData() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkbookTemplateLocalizedGalleryResponse) map[string]interface{} { return v.TemplateData }).(pulumi.MapOutput)
+func (o WorkbookTemplateLocalizedGalleryResponseOutput) TemplateData() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkbookTemplateLocalizedGalleryResponse) interface{} { return v.TemplateData }).(pulumi.AnyOutput)
 }
 
 type WorkbookTemplateLocalizedGalleryResponseArrayOutput struct{ *pulumi.OutputState }

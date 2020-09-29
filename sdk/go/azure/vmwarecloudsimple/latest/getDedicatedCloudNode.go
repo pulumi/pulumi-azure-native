@@ -31,6 +31,8 @@ type LookupDedicatedCloudNodeResult struct {
 	AvailabilityZoneName string `pulumi:"availabilityZoneName"`
 	// VMWare Cloud Rack Name
 	CloudRackName string `pulumi:"cloudRackName"`
+	// date time the resource was created
+	Created interface{} `pulumi:"created"`
 	// Azure region
 	Location string `pulumi:"location"`
 	// SKU's name

@@ -32,7 +32,7 @@ type LookupPolicyAssignmentResult struct {
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The ID of the policy definition.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.

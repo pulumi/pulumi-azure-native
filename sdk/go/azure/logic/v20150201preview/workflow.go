@@ -20,7 +20,7 @@ type Workflow struct {
 	// Gets the created time.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// Gets or sets the definition.
-	Definition pulumi.MapOutput `pulumi:"definition"`
+	Definition pulumi.AnyOutput `pulumi:"definition"`
 	// Gets or sets the link to definition.
 	DefinitionLink ContentLinkResponsePtrOutput `pulumi:"definitionLink"`
 	// Gets or sets the resource location.
@@ -101,7 +101,7 @@ type workflowState struct {
 	// Gets the created time.
 	CreatedTime *string `pulumi:"createdTime"`
 	// Gets or sets the definition.
-	Definition map[string]interface{} `pulumi:"definition"`
+	Definition interface{} `pulumi:"definition"`
 	// Gets or sets the link to definition.
 	DefinitionLink *ContentLinkResponse `pulumi:"definitionLink"`
 	// Gets or sets the resource location.
@@ -134,7 +134,7 @@ type WorkflowState struct {
 	// Gets the created time.
 	CreatedTime pulumi.StringPtrInput
 	// Gets or sets the definition.
-	Definition pulumi.MapInput
+	Definition pulumi.Input
 	// Gets or sets the link to definition.
 	DefinitionLink ContentLinkResponsePtrInput
 	// Gets or sets the resource location.
@@ -165,7 +165,7 @@ func (WorkflowState) ElementType() reflect.Type {
 
 type workflowArgs struct {
 	// Gets or sets the definition.
-	Definition map[string]interface{} `pulumi:"definition"`
+	Definition interface{} `pulumi:"definition"`
 	// Gets or sets the link to definition.
 	DefinitionLink *ContentLink `pulumi:"definitionLink"`
 	// Gets or sets the resource id.
@@ -195,7 +195,7 @@ type workflowArgs struct {
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
 	// Gets or sets the definition.
-	Definition pulumi.MapInput
+	Definition pulumi.Input
 	// Gets or sets the link to definition.
 	DefinitionLink ContentLinkPtrInput
 	// Gets or sets the resource id.

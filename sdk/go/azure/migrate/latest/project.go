@@ -23,7 +23,7 @@ type Project struct {
 	// Properties of the project.
 	Properties ProjectPropertiesResponseOutput `pulumi:"properties"`
 	// Tags provided by Azure Tagging service.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// Type of the object = [Microsoft.Migrate/assessmentProjects].
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -77,7 +77,7 @@ type projectState struct {
 	// Properties of the project.
 	Properties *ProjectPropertiesResponse `pulumi:"properties"`
 	// Tags provided by Azure Tagging service.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Type of the object = [Microsoft.Migrate/assessmentProjects].
 	Type *string `pulumi:"type"`
 }
@@ -92,7 +92,7 @@ type ProjectState struct {
 	// Properties of the project.
 	Properties ProjectPropertiesResponsePtrInput
 	// Tags provided by Azure Tagging service.
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 	// Type of the object = [Microsoft.Migrate/assessmentProjects].
 	Type pulumi.StringPtrInput
 }
@@ -113,7 +113,7 @@ type projectArgs struct {
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags provided by Azure Tagging service.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -129,7 +129,7 @@ type ProjectArgs struct {
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName pulumi.StringInput
 	// Tags provided by Azure Tagging service.
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 }
 
 func (ProjectArgs) ElementType() reflect.Type {

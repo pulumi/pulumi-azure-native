@@ -16,7 +16,7 @@ type IntegrationAccountSchema struct {
 	// The changed time.
 	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
 	// The content.
-	Content pulumi.MapOutput `pulumi:"content"`
+	Content pulumi.AnyOutput `pulumi:"content"`
 	// The content link.
 	ContentLink IntegrationAccountContentLinkResponseOutput `pulumi:"contentLink"`
 	// The content type.
@@ -26,7 +26,7 @@ type IntegrationAccountSchema struct {
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The metadata.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The resource name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The schema type.
@@ -94,7 +94,7 @@ type integrationAccountSchemaState struct {
 	// The changed time.
 	ChangedTime *string `pulumi:"changedTime"`
 	// The content.
-	Content map[string]interface{} `pulumi:"content"`
+	Content interface{} `pulumi:"content"`
 	// The content link.
 	ContentLink *IntegrationAccountContentLinkResponse `pulumi:"contentLink"`
 	// The content type.
@@ -104,7 +104,7 @@ type integrationAccountSchemaState struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// The schema type.
@@ -121,7 +121,7 @@ type IntegrationAccountSchemaState struct {
 	// The changed time.
 	ChangedTime pulumi.StringPtrInput
 	// The content.
-	Content pulumi.MapInput
+	Content pulumi.Input
 	// The content link.
 	ContentLink IntegrationAccountContentLinkResponsePtrInput
 	// The content type.
@@ -131,7 +131,7 @@ type IntegrationAccountSchemaState struct {
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// The schema type.
@@ -150,7 +150,7 @@ func (IntegrationAccountSchemaState) ElementType() reflect.Type {
 
 type integrationAccountSchemaArgs struct {
 	// The content.
-	Content map[string]interface{} `pulumi:"content"`
+	Content interface{} `pulumi:"content"`
 	// The content type.
 	ContentType *string `pulumi:"contentType"`
 	// The resource id.
@@ -160,7 +160,7 @@ type integrationAccountSchemaArgs struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// The resource group name.
@@ -180,7 +180,7 @@ type integrationAccountSchemaArgs struct {
 // The set of arguments for constructing a IntegrationAccountSchema resource.
 type IntegrationAccountSchemaArgs struct {
 	// The content.
-	Content pulumi.MapInput
+	Content pulumi.Input
 	// The content type.
 	ContentType pulumi.StringPtrInput
 	// The resource id.
@@ -190,7 +190,7 @@ type IntegrationAccountSchemaArgs struct {
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// The resource group name.

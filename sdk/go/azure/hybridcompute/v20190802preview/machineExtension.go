@@ -27,13 +27,13 @@ type MachineExtension struct {
 	// The identity's principal id.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.MapOutput `pulumi:"protectedSettings"`
+	ProtectedSettings pulumi.AnyOutput `pulumi:"protectedSettings"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringPtrOutput `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings pulumi.MapOutput `pulumi:"settings"`
+	Settings pulumi.AnyOutput `pulumi:"settings"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The identity's tenant id.
@@ -115,13 +115,13 @@ type machineExtensionState struct {
 	// The identity's principal id.
 	PrincipalId *string `pulumi:"principalId"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the extension handler publisher.
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings map[string]interface{} `pulumi:"settings"`
+	Settings interface{} `pulumi:"settings"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The identity's tenant id.
@@ -146,13 +146,13 @@ type MachineExtensionState struct {
 	// The identity's principal id.
 	PrincipalId pulumi.StringPtrInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.MapInput
+	ProtectedSettings pulumi.Input
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringPtrInput
 	// Json formatted public settings for the extension.
-	Settings pulumi.MapInput
+	Settings pulumi.Input
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// The identity's tenant id.
@@ -181,13 +181,13 @@ type machineExtensionArgs struct {
 	// The name of the machine where the extension should be created or updated.
 	Name string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
 	// The name of the extension handler publisher.
 	Publisher *string `pulumi:"publisher"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Json formatted public settings for the extension.
-	Settings map[string]interface{} `pulumi:"settings"`
+	Settings interface{} `pulumi:"settings"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The identity type.
@@ -211,13 +211,13 @@ type MachineExtensionArgs struct {
 	// The name of the machine where the extension should be created or updated.
 	Name pulumi.StringInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.MapInput
+	ProtectedSettings pulumi.Input
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Json formatted public settings for the extension.
-	Settings pulumi.MapInput
+	Settings pulumi.Input
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// The identity type.

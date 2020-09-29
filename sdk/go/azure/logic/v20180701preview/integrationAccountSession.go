@@ -17,7 +17,7 @@ type IntegrationAccountSession struct {
 	// The changed time.
 	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
 	// The session content.
-	Content pulumi.MapOutput `pulumi:"content"`
+	Content pulumi.AnyOutput `pulumi:"content"`
 	// The created time.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The resource location.
@@ -82,7 +82,7 @@ type integrationAccountSessionState struct {
 	// The changed time.
 	ChangedTime *string `pulumi:"changedTime"`
 	// The session content.
-	Content map[string]interface{} `pulumi:"content"`
+	Content interface{} `pulumi:"content"`
 	// The created time.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The resource location.
@@ -99,7 +99,7 @@ type IntegrationAccountSessionState struct {
 	// The changed time.
 	ChangedTime pulumi.StringPtrInput
 	// The session content.
-	Content pulumi.MapInput
+	Content pulumi.Input
 	// The created time.
 	CreatedTime pulumi.StringPtrInput
 	// The resource location.
@@ -118,7 +118,7 @@ func (IntegrationAccountSessionState) ElementType() reflect.Type {
 
 type integrationAccountSessionArgs struct {
 	// The session content.
-	Content map[string]interface{} `pulumi:"content"`
+	Content interface{} `pulumi:"content"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
@@ -134,7 +134,7 @@ type integrationAccountSessionArgs struct {
 // The set of arguments for constructing a IntegrationAccountSession resource.
 type IntegrationAccountSessionArgs struct {
 	// The session content.
-	Content pulumi.MapInput
+	Content pulumi.Input
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.

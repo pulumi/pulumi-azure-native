@@ -29,9 +29,9 @@ type LookupWorkspaceCollectionResult struct {
 	// Workspace collection name
 	Name *string `pulumi:"name"`
 	// Properties
-	Properties map[string]interface{} `pulumi:"properties"`
-	Sku        *AzureSkuResponse      `pulumi:"sku"`
-	Tags       map[string]string      `pulumi:"tags"`
+	Properties interface{}       `pulumi:"properties"`
+	Sku        *AzureSkuResponse `pulumi:"sku"`
+	Tags       map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }

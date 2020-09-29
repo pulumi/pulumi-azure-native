@@ -21,13 +21,13 @@ type VirtualMachineScaleSetExtension struct {
 	// The name of the extension.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.MapOutput `pulumi:"protectedSettings"`
+	ProtectedSettings pulumi.AnyOutput `pulumi:"protectedSettings"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringPtrOutput `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings pulumi.MapOutput `pulumi:"settings"`
+	Settings pulumi.AnyOutput `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -108,13 +108,13 @@ type virtualMachineScaleSetExtensionState struct {
 	// The name of the extension.
 	Name *string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the extension handler publisher.
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings map[string]interface{} `pulumi:"settings"`
+	Settings interface{} `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -129,13 +129,13 @@ type VirtualMachineScaleSetExtensionState struct {
 	// The name of the extension.
 	Name pulumi.StringPtrInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.MapInput
+	ProtectedSettings pulumi.Input
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringPtrInput
 	// Json formatted public settings for the extension.
-	Settings pulumi.MapInput
+	Settings pulumi.Input
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type pulumi.StringPtrInput
 	// Specifies the version of the script handler.
@@ -154,13 +154,13 @@ type virtualMachineScaleSetExtensionArgs struct {
 	// The name of the extension.
 	Name *string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
 	// The name of the extension handler publisher.
 	Publisher *string `pulumi:"publisher"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Json formatted public settings for the extension.
-	Settings map[string]interface{} `pulumi:"settings"`
+	Settings interface{} `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -180,13 +180,13 @@ type VirtualMachineScaleSetExtensionArgs struct {
 	// The name of the extension.
 	Name pulumi.StringPtrInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.MapInput
+	ProtectedSettings pulumi.Input
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Json formatted public settings for the extension.
-	Settings pulumi.MapInput
+	Settings pulumi.Input
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type pulumi.StringPtrInput
 	// Specifies the version of the script handler.

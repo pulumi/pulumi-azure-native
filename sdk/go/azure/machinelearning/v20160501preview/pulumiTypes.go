@@ -467,7 +467,7 @@ func (o AssetLocationResponseOutput) Uri() pulumi.StringOutput {
 // Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
 type ColumnSpecification struct {
 	// If the data type is categorical, this provides the list of accepted categories.
-	Enum []map[string]interface{} `pulumi:"enum"`
+	Enum []interface{} `pulumi:"enum"`
 	// Additional format information for the data type.
 	Format *string `pulumi:"format"`
 	// Data type of the column.
@@ -492,7 +492,7 @@ type ColumnSpecificationInput interface {
 // Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
 type ColumnSpecificationArgs struct {
 	// If the data type is categorical, this provides the list of accepted categories.
-	Enum pulumi.MapArrayInput `pulumi:"enum"`
+	Enum pulumi.ArrayInput `pulumi:"enum"`
 	// Additional format information for the data type.
 	Format pulumi.StringPtrInput `pulumi:"format"`
 	// Data type of the column.
@@ -556,8 +556,8 @@ func (o ColumnSpecificationOutput) ToColumnSpecificationOutputWithContext(ctx co
 }
 
 // If the data type is categorical, this provides the list of accepted categories.
-func (o ColumnSpecificationOutput) Enum() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ColumnSpecification) []map[string]interface{} { return v.Enum }).(pulumi.MapArrayOutput)
+func (o ColumnSpecificationOutput) Enum() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ColumnSpecification) []interface{} { return v.Enum }).(pulumi.ArrayOutput)
 }
 
 // Additional format information for the data type.
@@ -603,7 +603,7 @@ func (o ColumnSpecificationMapOutput) MapIndex(k pulumi.StringInput) ColumnSpeci
 // Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
 type ColumnSpecificationResponse struct {
 	// If the data type is categorical, this provides the list of accepted categories.
-	Enum []map[string]interface{} `pulumi:"enum"`
+	Enum []interface{} `pulumi:"enum"`
 	// Additional format information for the data type.
 	Format *string `pulumi:"format"`
 	// Data type of the column.
@@ -628,7 +628,7 @@ type ColumnSpecificationResponseInput interface {
 // Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
 type ColumnSpecificationResponseArgs struct {
 	// If the data type is categorical, this provides the list of accepted categories.
-	Enum pulumi.MapArrayInput `pulumi:"enum"`
+	Enum pulumi.ArrayInput `pulumi:"enum"`
 	// Additional format information for the data type.
 	Format pulumi.StringPtrInput `pulumi:"format"`
 	// Data type of the column.
@@ -692,8 +692,8 @@ func (o ColumnSpecificationResponseOutput) ToColumnSpecificationResponseOutputWi
 }
 
 // If the data type is categorical, this provides the list of accepted categories.
-func (o ColumnSpecificationResponseOutput) Enum() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ColumnSpecificationResponse) []map[string]interface{} { return v.Enum }).(pulumi.MapArrayOutput)
+func (o ColumnSpecificationResponseOutput) Enum() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ColumnSpecificationResponse) []interface{} { return v.Enum }).(pulumi.ArrayOutput)
 }
 
 // Additional format information for the data type.
@@ -1618,9 +1618,9 @@ func (o DiagnosticsConfigurationResponsePtrOutput) Level() pulumi.StringPtrOutpu
 // Sample input data for the service's input(s).
 type ExampleRequest struct {
 	// Sample input data for the web service's global parameters
-	GlobalParameters map[string]map[string]interface{} `pulumi:"globalParameters"`
+	GlobalParameters map[string]interface{} `pulumi:"globalParameters"`
 	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs map[string][][]map[string]interface{} `pulumi:"inputs"`
+	Inputs map[string][][]interface{} `pulumi:"inputs"`
 }
 
 // ExampleRequestInput is an input type that accepts ExampleRequestArgs and ExampleRequestOutput values.
@@ -1637,9 +1637,9 @@ type ExampleRequestInput interface {
 // Sample input data for the service's input(s).
 type ExampleRequestArgs struct {
 	// Sample input data for the web service's global parameters
-	GlobalParameters pulumi.MapMapInput `pulumi:"globalParameters"`
+	GlobalParameters pulumi.MapInput `pulumi:"globalParameters"`
 	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs pulumi.MapArrayArrayMapInput `pulumi:"inputs"`
+	Inputs pulumi.ArrayArrayMapInput `pulumi:"inputs"`
 }
 
 func (ExampleRequestArgs) ElementType() reflect.Type {
@@ -1721,13 +1721,13 @@ func (o ExampleRequestOutput) ToExampleRequestPtrOutputWithContext(ctx context.C
 }
 
 // Sample input data for the web service's global parameters
-func (o ExampleRequestOutput) GlobalParameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v ExampleRequest) map[string]map[string]interface{} { return v.GlobalParameters }).(pulumi.MapMapOutput)
+func (o ExampleRequestOutput) GlobalParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v ExampleRequest) map[string]interface{} { return v.GlobalParameters }).(pulumi.MapOutput)
 }
 
 // Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-func (o ExampleRequestOutput) Inputs() pulumi.MapArrayArrayMapOutput {
-	return o.ApplyT(func(v ExampleRequest) map[string][][]map[string]interface{} { return v.Inputs }).(pulumi.MapArrayArrayMapOutput)
+func (o ExampleRequestOutput) Inputs() pulumi.ArrayArrayMapOutput {
+	return o.ApplyT(func(v ExampleRequest) map[string][][]interface{} { return v.Inputs }).(pulumi.ArrayArrayMapOutput)
 }
 
 type ExampleRequestPtrOutput struct{ *pulumi.OutputState }
@@ -1749,31 +1749,31 @@ func (o ExampleRequestPtrOutput) Elem() ExampleRequestOutput {
 }
 
 // Sample input data for the web service's global parameters
-func (o ExampleRequestPtrOutput) GlobalParameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v *ExampleRequest) map[string]map[string]interface{} {
+func (o ExampleRequestPtrOutput) GlobalParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *ExampleRequest) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.GlobalParameters
-	}).(pulumi.MapMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-func (o ExampleRequestPtrOutput) Inputs() pulumi.MapArrayArrayMapOutput {
-	return o.ApplyT(func(v *ExampleRequest) map[string][][]map[string]interface{} {
+func (o ExampleRequestPtrOutput) Inputs() pulumi.ArrayArrayMapOutput {
+	return o.ApplyT(func(v *ExampleRequest) map[string][][]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Inputs
-	}).(pulumi.MapArrayArrayMapOutput)
+	}).(pulumi.ArrayArrayMapOutput)
 }
 
 // Sample input data for the service's input(s).
 type ExampleRequestResponse struct {
 	// Sample input data for the web service's global parameters
-	GlobalParameters map[string]map[string]interface{} `pulumi:"globalParameters"`
+	GlobalParameters map[string]interface{} `pulumi:"globalParameters"`
 	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs map[string][][]map[string]interface{} `pulumi:"inputs"`
+	Inputs map[string][][]interface{} `pulumi:"inputs"`
 }
 
 // ExampleRequestResponseInput is an input type that accepts ExampleRequestResponseArgs and ExampleRequestResponseOutput values.
@@ -1790,9 +1790,9 @@ type ExampleRequestResponseInput interface {
 // Sample input data for the service's input(s).
 type ExampleRequestResponseArgs struct {
 	// Sample input data for the web service's global parameters
-	GlobalParameters pulumi.MapMapInput `pulumi:"globalParameters"`
+	GlobalParameters pulumi.MapInput `pulumi:"globalParameters"`
 	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs pulumi.MapArrayArrayMapInput `pulumi:"inputs"`
+	Inputs pulumi.ArrayArrayMapInput `pulumi:"inputs"`
 }
 
 func (ExampleRequestResponseArgs) ElementType() reflect.Type {
@@ -1874,13 +1874,13 @@ func (o ExampleRequestResponseOutput) ToExampleRequestResponsePtrOutputWithConte
 }
 
 // Sample input data for the web service's global parameters
-func (o ExampleRequestResponseOutput) GlobalParameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v ExampleRequestResponse) map[string]map[string]interface{} { return v.GlobalParameters }).(pulumi.MapMapOutput)
+func (o ExampleRequestResponseOutput) GlobalParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v ExampleRequestResponse) map[string]interface{} { return v.GlobalParameters }).(pulumi.MapOutput)
 }
 
 // Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-func (o ExampleRequestResponseOutput) Inputs() pulumi.MapArrayArrayMapOutput {
-	return o.ApplyT(func(v ExampleRequestResponse) map[string][][]map[string]interface{} { return v.Inputs }).(pulumi.MapArrayArrayMapOutput)
+func (o ExampleRequestResponseOutput) Inputs() pulumi.ArrayArrayMapOutput {
+	return o.ApplyT(func(v ExampleRequestResponse) map[string][][]interface{} { return v.Inputs }).(pulumi.ArrayArrayMapOutput)
 }
 
 type ExampleRequestResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1902,23 +1902,23 @@ func (o ExampleRequestResponsePtrOutput) Elem() ExampleRequestResponseOutput {
 }
 
 // Sample input data for the web service's global parameters
-func (o ExampleRequestResponsePtrOutput) GlobalParameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v *ExampleRequestResponse) map[string]map[string]interface{} {
+func (o ExampleRequestResponsePtrOutput) GlobalParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *ExampleRequestResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.GlobalParameters
-	}).(pulumi.MapMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-func (o ExampleRequestResponsePtrOutput) Inputs() pulumi.MapArrayArrayMapOutput {
-	return o.ApplyT(func(v *ExampleRequestResponse) map[string][][]map[string]interface{} {
+func (o ExampleRequestResponsePtrOutput) Inputs() pulumi.ArrayArrayMapOutput {
+	return o.ApplyT(func(v *ExampleRequestResponse) map[string][][]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Inputs
-	}).(pulumi.MapArrayArrayMapOutput)
+	}).(pulumi.ArrayArrayMapOutput)
 }
 
 // Defines an edge within the web service's graph.

@@ -17,7 +17,7 @@ type JobDefinition struct {
 	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
 	CustomerSecrets CustomerSecretResponseArrayOutput `pulumi:"customerSecrets"`
 	// A generic json used differently by each data service type.
-	DataServiceInput pulumi.MapOutput `pulumi:"dataServiceInput"`
+	DataServiceInput pulumi.AnyOutput `pulumi:"dataServiceInput"`
 	// Data Sink Id associated to the job definition.
 	DataSinkId pulumi.StringOutput `pulumi:"dataSinkId"`
 	// Data Source Id associated to the job definition.
@@ -99,7 +99,7 @@ type jobDefinitionState struct {
 	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
 	CustomerSecrets []CustomerSecretResponse `pulumi:"customerSecrets"`
 	// A generic json used differently by each data service type.
-	DataServiceInput map[string]interface{} `pulumi:"dataServiceInput"`
+	DataServiceInput interface{} `pulumi:"dataServiceInput"`
 	// Data Sink Id associated to the job definition.
 	DataSinkId *string `pulumi:"dataSinkId"`
 	// Data Source Id associated to the job definition.
@@ -124,7 +124,7 @@ type JobDefinitionState struct {
 	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
 	CustomerSecrets CustomerSecretResponseArrayInput
 	// A generic json used differently by each data service type.
-	DataServiceInput pulumi.MapInput
+	DataServiceInput pulumi.Input
 	// Data Sink Id associated to the job definition.
 	DataSinkId pulumi.StringPtrInput
 	// Data Source Id associated to the job definition.
@@ -155,7 +155,7 @@ type jobDefinitionArgs struct {
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName string `pulumi:"dataManagerName"`
 	// A generic json used differently by each data service type.
-	DataServiceInput map[string]interface{} `pulumi:"dataServiceInput"`
+	DataServiceInput interface{} `pulumi:"dataServiceInput"`
 	// The data service type of the job definition.
 	DataServiceName string `pulumi:"dataServiceName"`
 	// Data Sink Id associated to the job definition.
@@ -185,7 +185,7 @@ type JobDefinitionArgs struct {
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName pulumi.StringInput
 	// A generic json used differently by each data service type.
-	DataServiceInput pulumi.MapInput
+	DataServiceInput pulumi.Input
 	// The data service type of the job definition.
 	DataServiceName pulumi.StringInput
 	// Data Sink Id associated to the job definition.

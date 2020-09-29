@@ -1478,6 +1478,10 @@ func (o ParameterDefinitionMapOutput) MapIndex(k pulumi.StringInput) ParameterDe
 
 // Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponse struct {
+	// Array of allowed values for this parameter.
+	AllowedValues []interface{} `pulumi:"allowedValues"`
+	// Default Value for this parameter.
+	DefaultValue interface{} `pulumi:"defaultValue"`
 	// Description of this parameter/resourceGroup.
 	Description *string `pulumi:"description"`
 	// DisplayName of this parameter/resourceGroup.
@@ -1501,6 +1505,10 @@ type ParameterDefinitionResponseInput interface {
 
 // Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponseArgs struct {
+	// Array of allowed values for this parameter.
+	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
+	// Default Value for this parameter.
+	DefaultValue pulumi.Input `pulumi:"defaultValue"`
 	// Description of this parameter/resourceGroup.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// DisplayName of this parameter/resourceGroup.
@@ -1563,6 +1571,16 @@ func (o ParameterDefinitionResponseOutput) ToParameterDefinitionResponseOutputWi
 	return o
 }
 
+// Array of allowed values for this parameter.
+func (o ParameterDefinitionResponseOutput) AllowedValues() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ParameterDefinitionResponse) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
+}
+
+// Default Value for this parameter.
+func (o ParameterDefinitionResponseOutput) DefaultValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterDefinitionResponse) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
+}
+
 // Description of this parameter/resourceGroup.
 func (o ParameterDefinitionResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -1608,7 +1626,7 @@ type ParameterValue struct {
 	// Parameter value as reference type.
 	Reference *SecretValueReference `pulumi:"reference"`
 	// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-	Value map[string]interface{} `pulumi:"value"`
+	Value interface{} `pulumi:"value"`
 }
 
 // ParameterValueInput is an input type that accepts ParameterValueArgs and ParameterValueOutput values.
@@ -1627,7 +1645,7 @@ type ParameterValueArgs struct {
 	// Parameter value as reference type.
 	Reference SecretValueReferencePtrInput `pulumi:"reference"`
 	// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-	Value pulumi.MapInput `pulumi:"value"`
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (ParameterValueArgs) ElementType() reflect.Type {
@@ -1688,8 +1706,8 @@ func (o ParameterValueOutput) Reference() SecretValueReferencePtrOutput {
 }
 
 // Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-func (o ParameterValueOutput) Value() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterValue) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+func (o ParameterValueOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterValue) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type ParameterValueMapOutput struct{ *pulumi.OutputState }
@@ -1717,7 +1735,7 @@ type ParameterValueResponse struct {
 	// Parameter value as reference type.
 	Reference *SecretValueReferenceResponse `pulumi:"reference"`
 	// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-	Value map[string]interface{} `pulumi:"value"`
+	Value interface{} `pulumi:"value"`
 }
 
 // ParameterValueResponseInput is an input type that accepts ParameterValueResponseArgs and ParameterValueResponseOutput values.
@@ -1736,7 +1754,7 @@ type ParameterValueResponseArgs struct {
 	// Parameter value as reference type.
 	Reference SecretValueReferenceResponsePtrInput `pulumi:"reference"`
 	// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-	Value pulumi.MapInput `pulumi:"value"`
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (ParameterValueResponseArgs) ElementType() reflect.Type {
@@ -1797,8 +1815,8 @@ func (o ParameterValueResponseOutput) Reference() SecretValueReferenceResponsePt
 }
 
 // Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-func (o ParameterValueResponseOutput) Value() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterValueResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+func (o ParameterValueResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterValueResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type ParameterValueResponseMapOutput struct{ *pulumi.OutputState }

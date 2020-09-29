@@ -42,13 +42,13 @@ type LookupVirtualMachineScaleSetVMExtensionResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The name of the extension handler publisher.
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings map[string]interface{} `pulumi:"settings"`
+	Settings interface{} `pulumi:"settings"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

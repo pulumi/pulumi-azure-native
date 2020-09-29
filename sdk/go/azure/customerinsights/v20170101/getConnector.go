@@ -32,7 +32,7 @@ type LookupConnectorResult struct {
 	// Name of the connector.
 	ConnectorName *string `pulumi:"connectorName"`
 	// The connector properties.
-	ConnectorProperties map[string]map[string]interface{} `pulumi:"connectorProperties"`
+	ConnectorProperties map[string]interface{} `pulumi:"connectorProperties"`
 	// Type of connector.
 	ConnectorType string `pulumi:"connectorType"`
 	// The created time.

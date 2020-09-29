@@ -2398,13 +2398,13 @@ func (o ConnectToSourceSqlServerTaskOutputLoginLevelResponseOutput) ResultType()
 // Task level output for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskOutputTaskLevelResponse struct {
 	// Source agent jobs as a map from agent job name to id.
-	AgentJobs string `pulumi:"agentJobs"`
+	AgentJobs map[string]string `pulumi:"agentJobs"`
 	// Source databases as a map from database name to database id
-	Databases string `pulumi:"databases"`
+	Databases map[string]string `pulumi:"databases"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Source logins as a map from login name to login id.
-	Logins string `pulumi:"logins"`
+	Logins map[string]string `pulumi:"logins"`
 	// Type of result - database level or task level
 	ResultType string `pulumi:"resultType"`
 	// Source server brand version
@@ -2429,13 +2429,13 @@ type ConnectToSourceSqlServerTaskOutputTaskLevelResponseInput interface {
 // Task level output for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs struct {
 	// Source agent jobs as a map from agent job name to id.
-	AgentJobs pulumi.StringInput `pulumi:"agentJobs"`
+	AgentJobs pulumi.StringMapInput `pulumi:"agentJobs"`
 	// Source databases as a map from database name to database id
-	Databases pulumi.StringInput `pulumi:"databases"`
+	Databases pulumi.StringMapInput `pulumi:"databases"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Source logins as a map from login name to login id.
-	Logins pulumi.StringInput `pulumi:"logins"`
+	Logins pulumi.StringMapInput `pulumi:"logins"`
 	// Type of result - database level or task level
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 	// Source server brand version
@@ -2474,13 +2474,13 @@ func (o ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput) ToConnectToSo
 }
 
 // Source agent jobs as a map from agent job name to id.
-func (o ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput) AgentJobs() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskOutputTaskLevelResponse) string { return v.AgentJobs }).(pulumi.StringOutput)
+func (o ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput) AgentJobs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectToSourceSqlServerTaskOutputTaskLevelResponse) map[string]string { return v.AgentJobs }).(pulumi.StringMapOutput)
 }
 
 // Source databases as a map from database name to database id
-func (o ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput) Databases() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskOutputTaskLevelResponse) string { return v.Databases }).(pulumi.StringOutput)
+func (o ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput) Databases() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectToSourceSqlServerTaskOutputTaskLevelResponse) map[string]string { return v.Databases }).(pulumi.StringMapOutput)
 }
 
 // Result identifier
@@ -2489,8 +2489,8 @@ func (o ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput) Id() pulumi.S
 }
 
 // Source logins as a map from login name to login id.
-func (o ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput) Logins() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskOutputTaskLevelResponse) string { return v.Logins }).(pulumi.StringOutput)
+func (o ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput) Logins() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectToSourceSqlServerTaskOutputTaskLevelResponse) map[string]string { return v.Logins }).(pulumi.StringMapOutput)
 }
 
 // Type of result - database level or task level
@@ -4202,7 +4202,7 @@ func (o ConnectToTargetSqlDbTaskInputResponsePtrOutput) TargetConnectionInfo() S
 // Output for the task that validates connection to SQL DB and target server requirements
 type ConnectToTargetSqlDbTaskOutputResponse struct {
 	// Source databases as a map from database name to database id
-	Databases string `pulumi:"databases"`
+	Databases map[string]string `pulumi:"databases"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Target server brand version
@@ -4225,7 +4225,7 @@ type ConnectToTargetSqlDbTaskOutputResponseInput interface {
 // Output for the task that validates connection to SQL DB and target server requirements
 type ConnectToTargetSqlDbTaskOutputResponseArgs struct {
 	// Source databases as a map from database name to database id
-	Databases pulumi.StringInput `pulumi:"databases"`
+	Databases pulumi.StringMapInput `pulumi:"databases"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Target server brand version
@@ -4287,8 +4287,8 @@ func (o ConnectToTargetSqlDbTaskOutputResponseOutput) ToConnectToTargetSqlDbTask
 }
 
 // Source databases as a map from database name to database id
-func (o ConnectToTargetSqlDbTaskOutputResponseOutput) Databases() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlDbTaskOutputResponse) string { return v.Databases }).(pulumi.StringOutput)
+func (o ConnectToTargetSqlDbTaskOutputResponseOutput) Databases() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectToTargetSqlDbTaskOutputResponse) map[string]string { return v.Databases }).(pulumi.StringMapOutput)
 }
 
 // Result identifier
@@ -6221,6 +6221,178 @@ func (o DataIntegrityValidationResultResponseOutput) ValidationErrors() Validati
 	return o.ApplyT(func(v DataIntegrityValidationResultResponse) ValidationErrorResponse { return v.ValidationErrors }).(ValidationErrorResponseOutput)
 }
 
+// Basic summary of a data item migration
+type DataItemMigrationSummaryResultResponse struct {
+	// Migration end time
+	EndedOn string `pulumi:"endedOn"`
+	// Wildcard string prefix to use for querying all errors of the item
+	ErrorPrefix string `pulumi:"errorPrefix"`
+	// Number of successfully completed items
+	ItemsCompletedCount int `pulumi:"itemsCompletedCount"`
+	// Number of items
+	ItemsCount int `pulumi:"itemsCount"`
+	// Name of the item
+	Name string `pulumi:"name"`
+	// Wildcard string prefix to use for querying all sub-tem results of the item
+	ResultPrefix string `pulumi:"resultPrefix"`
+	// Migration start time
+	StartedOn string `pulumi:"startedOn"`
+	// Current state of migration
+	State string `pulumi:"state"`
+	// Status message
+	StatusMessage string `pulumi:"statusMessage"`
+}
+
+// DataItemMigrationSummaryResultResponseInput is an input type that accepts DataItemMigrationSummaryResultResponseArgs and DataItemMigrationSummaryResultResponseOutput values.
+// You can construct a concrete instance of `DataItemMigrationSummaryResultResponseInput` via:
+//
+//          DataItemMigrationSummaryResultResponseArgs{...}
+type DataItemMigrationSummaryResultResponseInput interface {
+	pulumi.Input
+
+	ToDataItemMigrationSummaryResultResponseOutput() DataItemMigrationSummaryResultResponseOutput
+	ToDataItemMigrationSummaryResultResponseOutputWithContext(context.Context) DataItemMigrationSummaryResultResponseOutput
+}
+
+// Basic summary of a data item migration
+type DataItemMigrationSummaryResultResponseArgs struct {
+	// Migration end time
+	EndedOn pulumi.StringInput `pulumi:"endedOn"`
+	// Wildcard string prefix to use for querying all errors of the item
+	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
+	// Number of successfully completed items
+	ItemsCompletedCount pulumi.IntInput `pulumi:"itemsCompletedCount"`
+	// Number of items
+	ItemsCount pulumi.IntInput `pulumi:"itemsCount"`
+	// Name of the item
+	Name pulumi.StringInput `pulumi:"name"`
+	// Wildcard string prefix to use for querying all sub-tem results of the item
+	ResultPrefix pulumi.StringInput `pulumi:"resultPrefix"`
+	// Migration start time
+	StartedOn pulumi.StringInput `pulumi:"startedOn"`
+	// Current state of migration
+	State pulumi.StringInput `pulumi:"state"`
+	// Status message
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
+}
+
+func (DataItemMigrationSummaryResultResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataItemMigrationSummaryResultResponse)(nil)).Elem()
+}
+
+func (i DataItemMigrationSummaryResultResponseArgs) ToDataItemMigrationSummaryResultResponseOutput() DataItemMigrationSummaryResultResponseOutput {
+	return i.ToDataItemMigrationSummaryResultResponseOutputWithContext(context.Background())
+}
+
+func (i DataItemMigrationSummaryResultResponseArgs) ToDataItemMigrationSummaryResultResponseOutputWithContext(ctx context.Context) DataItemMigrationSummaryResultResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataItemMigrationSummaryResultResponseOutput)
+}
+
+// DataItemMigrationSummaryResultResponseMapInput is an input type that accepts DataItemMigrationSummaryResultResponseMap and DataItemMigrationSummaryResultResponseMapOutput values.
+// You can construct a concrete instance of `DataItemMigrationSummaryResultResponseMapInput` via:
+//
+//          DataItemMigrationSummaryResultResponseMap{ "key": DataItemMigrationSummaryResultResponseArgs{...} }
+type DataItemMigrationSummaryResultResponseMapInput interface {
+	pulumi.Input
+
+	ToDataItemMigrationSummaryResultResponseMapOutput() DataItemMigrationSummaryResultResponseMapOutput
+	ToDataItemMigrationSummaryResultResponseMapOutputWithContext(context.Context) DataItemMigrationSummaryResultResponseMapOutput
+}
+
+type DataItemMigrationSummaryResultResponseMap map[string]DataItemMigrationSummaryResultResponseInput
+
+func (DataItemMigrationSummaryResultResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DataItemMigrationSummaryResultResponse)(nil)).Elem()
+}
+
+func (i DataItemMigrationSummaryResultResponseMap) ToDataItemMigrationSummaryResultResponseMapOutput() DataItemMigrationSummaryResultResponseMapOutput {
+	return i.ToDataItemMigrationSummaryResultResponseMapOutputWithContext(context.Background())
+}
+
+func (i DataItemMigrationSummaryResultResponseMap) ToDataItemMigrationSummaryResultResponseMapOutputWithContext(ctx context.Context) DataItemMigrationSummaryResultResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataItemMigrationSummaryResultResponseMapOutput)
+}
+
+// Basic summary of a data item migration
+type DataItemMigrationSummaryResultResponseOutput struct{ *pulumi.OutputState }
+
+func (DataItemMigrationSummaryResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataItemMigrationSummaryResultResponse)(nil)).Elem()
+}
+
+func (o DataItemMigrationSummaryResultResponseOutput) ToDataItemMigrationSummaryResultResponseOutput() DataItemMigrationSummaryResultResponseOutput {
+	return o
+}
+
+func (o DataItemMigrationSummaryResultResponseOutput) ToDataItemMigrationSummaryResultResponseOutputWithContext(ctx context.Context) DataItemMigrationSummaryResultResponseOutput {
+	return o
+}
+
+// Migration end time
+func (o DataItemMigrationSummaryResultResponseOutput) EndedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) string { return v.EndedOn }).(pulumi.StringOutput)
+}
+
+// Wildcard string prefix to use for querying all errors of the item
+func (o DataItemMigrationSummaryResultResponseOutput) ErrorPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) string { return v.ErrorPrefix }).(pulumi.StringOutput)
+}
+
+// Number of successfully completed items
+func (o DataItemMigrationSummaryResultResponseOutput) ItemsCompletedCount() pulumi.IntOutput {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) int { return v.ItemsCompletedCount }).(pulumi.IntOutput)
+}
+
+// Number of items
+func (o DataItemMigrationSummaryResultResponseOutput) ItemsCount() pulumi.IntOutput {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) int { return v.ItemsCount }).(pulumi.IntOutput)
+}
+
+// Name of the item
+func (o DataItemMigrationSummaryResultResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Wildcard string prefix to use for querying all sub-tem results of the item
+func (o DataItemMigrationSummaryResultResponseOutput) ResultPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) string { return v.ResultPrefix }).(pulumi.StringOutput)
+}
+
+// Migration start time
+func (o DataItemMigrationSummaryResultResponseOutput) StartedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) string { return v.StartedOn }).(pulumi.StringOutput)
+}
+
+// Current state of migration
+func (o DataItemMigrationSummaryResultResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Status message
+func (o DataItemMigrationSummaryResultResponseOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v DataItemMigrationSummaryResultResponse) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+type DataItemMigrationSummaryResultResponseMapOutput struct{ *pulumi.OutputState }
+
+func (DataItemMigrationSummaryResultResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DataItemMigrationSummaryResultResponse)(nil)).Elem()
+}
+
+func (o DataItemMigrationSummaryResultResponseMapOutput) ToDataItemMigrationSummaryResultResponseMapOutput() DataItemMigrationSummaryResultResponseMapOutput {
+	return o
+}
+
+func (o DataItemMigrationSummaryResultResponseMapOutput) ToDataItemMigrationSummaryResultResponseMapOutputWithContext(ctx context.Context) DataItemMigrationSummaryResultResponseMapOutput {
+	return o
+}
+
+func (o DataItemMigrationSummaryResultResponseMapOutput) MapIndex(k pulumi.StringInput) DataItemMigrationSummaryResultResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataItemMigrationSummaryResultResponse {
+		return vs[0].(map[string]DataItemMigrationSummaryResultResponse)[vs[1].(string)]
+	}).(DataItemMigrationSummaryResultResponseOutput)
+}
+
 // Information about backup files when existing backup mode is used.
 type DatabaseBackupInfoResponse struct {
 	// The list of backup files for the current database.
@@ -6840,6 +7012,296 @@ func (o DatabaseInfoResponseArrayOutput) Index(i pulumi.IntInput) DatabaseInfoRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseInfoResponse {
 		return vs[0].([]DatabaseInfoResponse)[vs[1].(int)]
 	}).(DatabaseInfoResponseOutput)
+}
+
+// Summary of database results in the migration
+type DatabaseSummaryResultResponse struct {
+	// Migration end time
+	EndedOn string `pulumi:"endedOn"`
+	// Wildcard string prefix to use for querying all errors of the item
+	ErrorPrefix string `pulumi:"errorPrefix"`
+	// Number of successfully completed items
+	ItemsCompletedCount int `pulumi:"itemsCompletedCount"`
+	// Number of items
+	ItemsCount int `pulumi:"itemsCount"`
+	// Name of the item
+	Name string `pulumi:"name"`
+	// Wildcard string prefix to use for querying all sub-tem results of the item
+	ResultPrefix string `pulumi:"resultPrefix"`
+	// Size of the database in megabytes
+	SizeMB float64 `pulumi:"sizeMB"`
+	// Migration start time
+	StartedOn string `pulumi:"startedOn"`
+	// Current state of migration
+	State string `pulumi:"state"`
+	// Status message
+	StatusMessage string `pulumi:"statusMessage"`
+}
+
+// DatabaseSummaryResultResponseInput is an input type that accepts DatabaseSummaryResultResponseArgs and DatabaseSummaryResultResponseOutput values.
+// You can construct a concrete instance of `DatabaseSummaryResultResponseInput` via:
+//
+//          DatabaseSummaryResultResponseArgs{...}
+type DatabaseSummaryResultResponseInput interface {
+	pulumi.Input
+
+	ToDatabaseSummaryResultResponseOutput() DatabaseSummaryResultResponseOutput
+	ToDatabaseSummaryResultResponseOutputWithContext(context.Context) DatabaseSummaryResultResponseOutput
+}
+
+// Summary of database results in the migration
+type DatabaseSummaryResultResponseArgs struct {
+	// Migration end time
+	EndedOn pulumi.StringInput `pulumi:"endedOn"`
+	// Wildcard string prefix to use for querying all errors of the item
+	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
+	// Number of successfully completed items
+	ItemsCompletedCount pulumi.IntInput `pulumi:"itemsCompletedCount"`
+	// Number of items
+	ItemsCount pulumi.IntInput `pulumi:"itemsCount"`
+	// Name of the item
+	Name pulumi.StringInput `pulumi:"name"`
+	// Wildcard string prefix to use for querying all sub-tem results of the item
+	ResultPrefix pulumi.StringInput `pulumi:"resultPrefix"`
+	// Size of the database in megabytes
+	SizeMB pulumi.Float64Input `pulumi:"sizeMB"`
+	// Migration start time
+	StartedOn pulumi.StringInput `pulumi:"startedOn"`
+	// Current state of migration
+	State pulumi.StringInput `pulumi:"state"`
+	// Status message
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
+}
+
+func (DatabaseSummaryResultResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseSummaryResultResponse)(nil)).Elem()
+}
+
+func (i DatabaseSummaryResultResponseArgs) ToDatabaseSummaryResultResponseOutput() DatabaseSummaryResultResponseOutput {
+	return i.ToDatabaseSummaryResultResponseOutputWithContext(context.Background())
+}
+
+func (i DatabaseSummaryResultResponseArgs) ToDatabaseSummaryResultResponseOutputWithContext(ctx context.Context) DatabaseSummaryResultResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseSummaryResultResponseOutput)
+}
+
+// DatabaseSummaryResultResponseMapInput is an input type that accepts DatabaseSummaryResultResponseMap and DatabaseSummaryResultResponseMapOutput values.
+// You can construct a concrete instance of `DatabaseSummaryResultResponseMapInput` via:
+//
+//          DatabaseSummaryResultResponseMap{ "key": DatabaseSummaryResultResponseArgs{...} }
+type DatabaseSummaryResultResponseMapInput interface {
+	pulumi.Input
+
+	ToDatabaseSummaryResultResponseMapOutput() DatabaseSummaryResultResponseMapOutput
+	ToDatabaseSummaryResultResponseMapOutputWithContext(context.Context) DatabaseSummaryResultResponseMapOutput
+}
+
+type DatabaseSummaryResultResponseMap map[string]DatabaseSummaryResultResponseInput
+
+func (DatabaseSummaryResultResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DatabaseSummaryResultResponse)(nil)).Elem()
+}
+
+func (i DatabaseSummaryResultResponseMap) ToDatabaseSummaryResultResponseMapOutput() DatabaseSummaryResultResponseMapOutput {
+	return i.ToDatabaseSummaryResultResponseMapOutputWithContext(context.Background())
+}
+
+func (i DatabaseSummaryResultResponseMap) ToDatabaseSummaryResultResponseMapOutputWithContext(ctx context.Context) DatabaseSummaryResultResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseSummaryResultResponseMapOutput)
+}
+
+// Summary of database results in the migration
+type DatabaseSummaryResultResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseSummaryResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseSummaryResultResponse)(nil)).Elem()
+}
+
+func (o DatabaseSummaryResultResponseOutput) ToDatabaseSummaryResultResponseOutput() DatabaseSummaryResultResponseOutput {
+	return o
+}
+
+func (o DatabaseSummaryResultResponseOutput) ToDatabaseSummaryResultResponseOutputWithContext(ctx context.Context) DatabaseSummaryResultResponseOutput {
+	return o
+}
+
+// Migration end time
+func (o DatabaseSummaryResultResponseOutput) EndedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) string { return v.EndedOn }).(pulumi.StringOutput)
+}
+
+// Wildcard string prefix to use for querying all errors of the item
+func (o DatabaseSummaryResultResponseOutput) ErrorPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) string { return v.ErrorPrefix }).(pulumi.StringOutput)
+}
+
+// Number of successfully completed items
+func (o DatabaseSummaryResultResponseOutput) ItemsCompletedCount() pulumi.IntOutput {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) int { return v.ItemsCompletedCount }).(pulumi.IntOutput)
+}
+
+// Number of items
+func (o DatabaseSummaryResultResponseOutput) ItemsCount() pulumi.IntOutput {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) int { return v.ItemsCount }).(pulumi.IntOutput)
+}
+
+// Name of the item
+func (o DatabaseSummaryResultResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Wildcard string prefix to use for querying all sub-tem results of the item
+func (o DatabaseSummaryResultResponseOutput) ResultPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) string { return v.ResultPrefix }).(pulumi.StringOutput)
+}
+
+// Size of the database in megabytes
+func (o DatabaseSummaryResultResponseOutput) SizeMB() pulumi.Float64Output {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) float64 { return v.SizeMB }).(pulumi.Float64Output)
+}
+
+// Migration start time
+func (o DatabaseSummaryResultResponseOutput) StartedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) string { return v.StartedOn }).(pulumi.StringOutput)
+}
+
+// Current state of migration
+func (o DatabaseSummaryResultResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Status message
+func (o DatabaseSummaryResultResponseOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseSummaryResultResponse) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+type DatabaseSummaryResultResponseMapOutput struct{ *pulumi.OutputState }
+
+func (DatabaseSummaryResultResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DatabaseSummaryResultResponse)(nil)).Elem()
+}
+
+func (o DatabaseSummaryResultResponseMapOutput) ToDatabaseSummaryResultResponseMapOutput() DatabaseSummaryResultResponseMapOutput {
+	return o
+}
+
+func (o DatabaseSummaryResultResponseMapOutput) ToDatabaseSummaryResultResponseMapOutputWithContext(ctx context.Context) DatabaseSummaryResultResponseMapOutput {
+	return o
+}
+
+func (o DatabaseSummaryResultResponseMapOutput) MapIndex(k pulumi.StringInput) DatabaseSummaryResultResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatabaseSummaryResultResponse {
+		return vs[0].(map[string]DatabaseSummaryResultResponse)[vs[1].(string)]
+	}).(DatabaseSummaryResultResponseOutput)
+}
+
+// Table properties
+type DatabaseTableResponse struct {
+	// Indicates whether table is empty or not
+	HasRows bool `pulumi:"hasRows"`
+	// Schema-qualified name of the table
+	Name string `pulumi:"name"`
+}
+
+// DatabaseTableResponseInput is an input type that accepts DatabaseTableResponseArgs and DatabaseTableResponseOutput values.
+// You can construct a concrete instance of `DatabaseTableResponseInput` via:
+//
+//          DatabaseTableResponseArgs{...}
+type DatabaseTableResponseInput interface {
+	pulumi.Input
+
+	ToDatabaseTableResponseOutput() DatabaseTableResponseOutput
+	ToDatabaseTableResponseOutputWithContext(context.Context) DatabaseTableResponseOutput
+}
+
+// Table properties
+type DatabaseTableResponseArgs struct {
+	// Indicates whether table is empty or not
+	HasRows pulumi.BoolInput `pulumi:"hasRows"`
+	// Schema-qualified name of the table
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DatabaseTableResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponse)(nil)).Elem()
+}
+
+func (i DatabaseTableResponseArgs) ToDatabaseTableResponseOutput() DatabaseTableResponseOutput {
+	return i.ToDatabaseTableResponseOutputWithContext(context.Background())
+}
+
+func (i DatabaseTableResponseArgs) ToDatabaseTableResponseOutputWithContext(ctx context.Context) DatabaseTableResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTableResponseOutput)
+}
+
+// DatabaseTableResponseArrayInput is an input type that accepts DatabaseTableResponseArray and DatabaseTableResponseArrayOutput values.
+// You can construct a concrete instance of `DatabaseTableResponseArrayInput` via:
+//
+//          DatabaseTableResponseArray{ DatabaseTableResponseArgs{...} }
+type DatabaseTableResponseArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseTableResponseArrayOutput() DatabaseTableResponseArrayOutput
+	ToDatabaseTableResponseArrayOutputWithContext(context.Context) DatabaseTableResponseArrayOutput
+}
+
+type DatabaseTableResponseArray []DatabaseTableResponseInput
+
+func (DatabaseTableResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseTableResponse)(nil)).Elem()
+}
+
+func (i DatabaseTableResponseArray) ToDatabaseTableResponseArrayOutput() DatabaseTableResponseArrayOutput {
+	return i.ToDatabaseTableResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseTableResponseArray) ToDatabaseTableResponseArrayOutputWithContext(ctx context.Context) DatabaseTableResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTableResponseArrayOutput)
+}
+
+// Table properties
+type DatabaseTableResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTableResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponse)(nil)).Elem()
+}
+
+func (o DatabaseTableResponseOutput) ToDatabaseTableResponseOutput() DatabaseTableResponseOutput {
+	return o
+}
+
+func (o DatabaseTableResponseOutput) ToDatabaseTableResponseOutputWithContext(ctx context.Context) DatabaseTableResponseOutput {
+	return o
+}
+
+// Indicates whether table is empty or not
+func (o DatabaseTableResponseOutput) HasRows() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatabaseTableResponse) bool { return v.HasRows }).(pulumi.BoolOutput)
+}
+
+// Schema-qualified name of the table
+func (o DatabaseTableResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseTableResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DatabaseTableResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTableResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseTableResponse)(nil)).Elem()
+}
+
+func (o DatabaseTableResponseArrayOutput) ToDatabaseTableResponseArrayOutput() DatabaseTableResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArrayOutput) ToDatabaseTableResponseArrayOutputWithContext(ctx context.Context) DatabaseTableResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArrayOutput) Index(i pulumi.IntInput) DatabaseTableResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseTableResponse {
+		return vs[0].([]DatabaseTableResponse)[vs[1].(int)]
+	}).(DatabaseTableResponseOutput)
 }
 
 // Description about the errors happen while performing migration validation
@@ -7635,7 +8097,7 @@ func (o GetTdeCertificatesSqlTaskInputResponsePtrOutput) SelectedCertificates() 
 // Output of the task that gets TDE certificates in Base64 encoded format.
 type GetTdeCertificatesSqlTaskOutputResponse struct {
 	// Mapping from certificate name to base 64 encoded format.
-	Base64EncodedCertificates string `pulumi:"base64EncodedCertificates"`
+	Base64EncodedCertificates map[string][]string `pulumi:"base64EncodedCertificates"`
 	// Validation errors
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
 }
@@ -7654,7 +8116,7 @@ type GetTdeCertificatesSqlTaskOutputResponseInput interface {
 // Output of the task that gets TDE certificates in Base64 encoded format.
 type GetTdeCertificatesSqlTaskOutputResponseArgs struct {
 	// Mapping from certificate name to base 64 encoded format.
-	Base64EncodedCertificates pulumi.StringInput `pulumi:"base64EncodedCertificates"`
+	Base64EncodedCertificates pulumi.StringArrayMapInput `pulumi:"base64EncodedCertificates"`
 	// Validation errors
 	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
 }
@@ -7712,8 +8174,10 @@ func (o GetTdeCertificatesSqlTaskOutputResponseOutput) ToGetTdeCertificatesSqlTa
 }
 
 // Mapping from certificate name to base 64 encoded format.
-func (o GetTdeCertificatesSqlTaskOutputResponseOutput) Base64EncodedCertificates() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTdeCertificatesSqlTaskOutputResponse) string { return v.Base64EncodedCertificates }).(pulumi.StringOutput)
+func (o GetTdeCertificatesSqlTaskOutputResponseOutput) Base64EncodedCertificates() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v GetTdeCertificatesSqlTaskOutputResponse) map[string][]string {
+		return v.Base64EncodedCertificates
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Validation errors
@@ -8296,11 +8760,11 @@ func (o GetUserTablesSqlSyncTaskInputResponsePtrOutput) TargetConnectionInfo() S
 // Output of the task that collects user tables for the given list of databases
 type GetUserTablesSqlSyncTaskOutputResponse struct {
 	// Mapping from database name to list of source tables
-	DatabasesToSourceTables string `pulumi:"databasesToSourceTables"`
+	DatabasesToSourceTables map[string][]DatabaseTableResponse `pulumi:"databasesToSourceTables"`
 	// Mapping from database name to list of target tables
-	DatabasesToTargetTables string `pulumi:"databasesToTargetTables"`
+	DatabasesToTargetTables map[string][]DatabaseTableResponse `pulumi:"databasesToTargetTables"`
 	// Mapping from database name to list of validation errors
-	TableValidationErrors string `pulumi:"tableValidationErrors"`
+	TableValidationErrors map[string][]string `pulumi:"tableValidationErrors"`
 	// Validation errors
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
 }
@@ -8319,11 +8783,11 @@ type GetUserTablesSqlSyncTaskOutputResponseInput interface {
 // Output of the task that collects user tables for the given list of databases
 type GetUserTablesSqlSyncTaskOutputResponseArgs struct {
 	// Mapping from database name to list of source tables
-	DatabasesToSourceTables pulumi.StringInput `pulumi:"databasesToSourceTables"`
+	DatabasesToSourceTables DatabaseTableResponseArrayMapInput `pulumi:"databasesToSourceTables"`
 	// Mapping from database name to list of target tables
-	DatabasesToTargetTables pulumi.StringInput `pulumi:"databasesToTargetTables"`
+	DatabasesToTargetTables DatabaseTableResponseArrayMapInput `pulumi:"databasesToTargetTables"`
 	// Mapping from database name to list of validation errors
-	TableValidationErrors pulumi.StringInput `pulumi:"tableValidationErrors"`
+	TableValidationErrors pulumi.StringArrayMapInput `pulumi:"tableValidationErrors"`
 	// Validation errors
 	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
 }
@@ -8381,18 +8845,22 @@ func (o GetUserTablesSqlSyncTaskOutputResponseOutput) ToGetUserTablesSqlSyncTask
 }
 
 // Mapping from database name to list of source tables
-func (o GetUserTablesSqlSyncTaskOutputResponseOutput) DatabasesToSourceTables() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserTablesSqlSyncTaskOutputResponse) string { return v.DatabasesToSourceTables }).(pulumi.StringOutput)
+func (o GetUserTablesSqlSyncTaskOutputResponseOutput) DatabasesToSourceTables() DatabaseTableResponseArrayMapOutput {
+	return o.ApplyT(func(v GetUserTablesSqlSyncTaskOutputResponse) map[string][]DatabaseTableResponse {
+		return v.DatabasesToSourceTables
+	}).(DatabaseTableResponseArrayMapOutput)
 }
 
 // Mapping from database name to list of target tables
-func (o GetUserTablesSqlSyncTaskOutputResponseOutput) DatabasesToTargetTables() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserTablesSqlSyncTaskOutputResponse) string { return v.DatabasesToTargetTables }).(pulumi.StringOutput)
+func (o GetUserTablesSqlSyncTaskOutputResponseOutput) DatabasesToTargetTables() DatabaseTableResponseArrayMapOutput {
+	return o.ApplyT(func(v GetUserTablesSqlSyncTaskOutputResponse) map[string][]DatabaseTableResponse {
+		return v.DatabasesToTargetTables
+	}).(DatabaseTableResponseArrayMapOutput)
 }
 
 // Mapping from database name to list of validation errors
-func (o GetUserTablesSqlSyncTaskOutputResponseOutput) TableValidationErrors() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserTablesSqlSyncTaskOutputResponse) string { return v.TableValidationErrors }).(pulumi.StringOutput)
+func (o GetUserTablesSqlSyncTaskOutputResponseOutput) TableValidationErrors() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v GetUserTablesSqlSyncTaskOutputResponse) map[string][]string { return v.TableValidationErrors }).(pulumi.StringArrayMapOutput)
 }
 
 // Validation errors
@@ -8899,7 +9367,7 @@ func (o GetUserTablesSqlTaskInputResponsePtrOutput) SelectedDatabases() pulumi.S
 // Output of the task that collects user tables for the given list of databases
 type GetUserTablesSqlTaskOutputResponse struct {
 	// Mapping from database name to list of tables
-	DatabasesToTables string `pulumi:"databasesToTables"`
+	DatabasesToTables map[string][]DatabaseTableResponse `pulumi:"databasesToTables"`
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Validation errors
@@ -8920,7 +9388,7 @@ type GetUserTablesSqlTaskOutputResponseInput interface {
 // Output of the task that collects user tables for the given list of databases
 type GetUserTablesSqlTaskOutputResponseArgs struct {
 	// Mapping from database name to list of tables
-	DatabasesToTables pulumi.StringInput `pulumi:"databasesToTables"`
+	DatabasesToTables DatabaseTableResponseArrayMapInput `pulumi:"databasesToTables"`
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Validation errors
@@ -8980,8 +9448,10 @@ func (o GetUserTablesSqlTaskOutputResponseOutput) ToGetUserTablesSqlTaskOutputRe
 }
 
 // Mapping from database name to list of tables
-func (o GetUserTablesSqlTaskOutputResponseOutput) DatabasesToTables() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserTablesSqlTaskOutputResponse) string { return v.DatabasesToTables }).(pulumi.StringOutput)
+func (o GetUserTablesSqlTaskOutputResponseOutput) DatabasesToTables() DatabaseTableResponseArrayMapOutput {
+	return o.ApplyT(func(v GetUserTablesSqlTaskOutputResponse) map[string][]DatabaseTableResponse {
+		return v.DatabasesToTables
+	}).(DatabaseTableResponseArrayMapOutput)
 }
 
 // Result identifier
@@ -15054,7 +15524,7 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse struct {
 	// Number of successfully completed objects
 	NumberOfObjectsCompleted int `pulumi:"numberOfObjectsCompleted"`
 	// Summary of object results in the migration
-	ObjectSummary string `pulumi:"objectSummary"`
+	ObjectSummary map[string]DataItemMigrationSummaryResultResponse `pulumi:"objectSummary"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
 	ResultPrefix string `pulumi:"resultPrefix"`
 	// Result type
@@ -15101,7 +15571,7 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs struct {
 	// Number of successfully completed objects
 	NumberOfObjectsCompleted pulumi.IntInput `pulumi:"numberOfObjectsCompleted"`
 	// Summary of object results in the migration
-	ObjectSummary pulumi.StringInput `pulumi:"objectSummary"`
+	ObjectSummary DataItemMigrationSummaryResultResponseMapInput `pulumi:"objectSummary"`
 	// Wildcard string prefix to use for querying all sub-tem results of the item
 	ResultPrefix pulumi.StringInput `pulumi:"resultPrefix"`
 	// Result type
@@ -15191,8 +15661,10 @@ func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) NumberOfObje
 }
 
 // Summary of object results in the migration
-func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) ObjectSummary() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) string { return v.ObjectSummary }).(pulumi.StringOutput)
+func (o MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput) ObjectSummary() DataItemMigrationSummaryResultResponseMapOutput {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse) map[string]DataItemMigrationSummaryResultResponse {
+		return v.ObjectSummary
+	}).(DataItemMigrationSummaryResultResponseMapOutput)
 }
 
 // Wildcard string prefix to use for querying all sub-tem results of the item
@@ -15462,9 +15934,9 @@ func (o MigrateSqlServerSqlDbTaskOutputErrorResponseOutput) ResultType() pulumi.
 // Migration level result for Sql server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse struct {
 	// Summary of database results in the migration
-	DatabaseSummary string `pulumi:"databaseSummary"`
+	DatabaseSummary map[string]DatabaseSummaryResultResponse `pulumi:"databaseSummary"`
 	// Selected databases as a map from database name to database id
-	Databases string `pulumi:"databases"`
+	Databases map[string]string `pulumi:"databases"`
 	// Duration of task execution in seconds.
 	DurationInSeconds int `pulumi:"durationInSeconds"`
 	// Migration end time
@@ -15509,9 +15981,9 @@ type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseInput interface {
 // Migration level result for Sql server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs struct {
 	// Summary of database results in the migration
-	DatabaseSummary pulumi.StringInput `pulumi:"databaseSummary"`
+	DatabaseSummary DatabaseSummaryResultResponseMapInput `pulumi:"databaseSummary"`
 	// Selected databases as a map from database name to database id
-	Databases pulumi.StringInput `pulumi:"databases"`
+	Databases pulumi.StringMapInput `pulumi:"databases"`
 	// Duration of task execution in seconds.
 	DurationInSeconds pulumi.IntInput `pulumi:"durationInSeconds"`
 	// Migration end time
@@ -15570,13 +16042,15 @@ func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) ToMigrateSq
 }
 
 // Summary of database results in the migration
-func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) DatabaseSummary() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse) string { return v.DatabaseSummary }).(pulumi.StringOutput)
+func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) DatabaseSummary() DatabaseSummaryResultResponseMapOutput {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse) map[string]DatabaseSummaryResultResponse {
+		return v.DatabaseSummary
+	}).(DatabaseSummaryResultResponseMapOutput)
 }
 
 // Selected databases as a map from database name to database id
-func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) Databases() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse) string { return v.Databases }).(pulumi.StringOutput)
+func (o MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput) Databases() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse) map[string]string { return v.Databases }).(pulumi.StringMapOutput)
 }
 
 // Duration of task execution in seconds.
@@ -18352,9 +18826,9 @@ func (o MigrateSqlServerSqlMITaskOutputLoginLevelResponseOutput) State() pulumi.
 
 type MigrateSqlServerSqlMITaskOutputMigrationLevelResponse struct {
 	// Selected agent jobs as a map from name to id
-	AgentJobs string `pulumi:"agentJobs"`
+	AgentJobs map[string]string `pulumi:"agentJobs"`
 	// Selected databases as a map from database name to database id
-	Databases string `pulumi:"databases"`
+	Databases map[string]string `pulumi:"databases"`
 	// Migration end time
 	EndedOn string `pulumi:"endedOn"`
 	// Migration exceptions and warnings.
@@ -18362,7 +18836,7 @@ type MigrateSqlServerSqlMITaskOutputMigrationLevelResponse struct {
 	// Result identifier
 	Id string `pulumi:"id"`
 	// Selected logins as a map from name to id
-	Logins string `pulumi:"logins"`
+	Logins map[string]string `pulumi:"logins"`
 	// Migration progress message
 	Message string `pulumi:"message"`
 	// List of orphaned users.
@@ -18370,7 +18844,7 @@ type MigrateSqlServerSqlMITaskOutputMigrationLevelResponse struct {
 	// Result type
 	ResultType string `pulumi:"resultType"`
 	// Map of server role migration results.
-	ServerRoleResults string `pulumi:"serverRoleResults"`
+	ServerRoleResults map[string]StartMigrationScenarioServerRoleResultResponse `pulumi:"serverRoleResults"`
 	// Source server brand version
 	SourceServerBrandVersion string `pulumi:"sourceServerBrandVersion"`
 	// Source server version
@@ -18400,9 +18874,9 @@ type MigrateSqlServerSqlMITaskOutputMigrationLevelResponseInput interface {
 
 type MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs struct {
 	// Selected agent jobs as a map from name to id
-	AgentJobs pulumi.StringInput `pulumi:"agentJobs"`
+	AgentJobs pulumi.StringMapInput `pulumi:"agentJobs"`
 	// Selected databases as a map from database name to database id
-	Databases pulumi.StringInput `pulumi:"databases"`
+	Databases pulumi.StringMapInput `pulumi:"databases"`
 	// Migration end time
 	EndedOn pulumi.StringInput `pulumi:"endedOn"`
 	// Migration exceptions and warnings.
@@ -18410,7 +18884,7 @@ type MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs struct {
 	// Result identifier
 	Id pulumi.StringInput `pulumi:"id"`
 	// Selected logins as a map from name to id
-	Logins pulumi.StringInput `pulumi:"logins"`
+	Logins pulumi.StringMapInput `pulumi:"logins"`
 	// Migration progress message
 	Message pulumi.StringInput `pulumi:"message"`
 	// List of orphaned users.
@@ -18418,7 +18892,7 @@ type MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs struct {
 	// Result type
 	ResultType pulumi.StringInput `pulumi:"resultType"`
 	// Map of server role migration results.
-	ServerRoleResults pulumi.StringInput `pulumi:"serverRoleResults"`
+	ServerRoleResults StartMigrationScenarioServerRoleResultResponseMapInput `pulumi:"serverRoleResults"`
 	// Source server brand version
 	SourceServerBrandVersion pulumi.StringInput `pulumi:"sourceServerBrandVersion"`
 	// Source server version
@@ -18462,13 +18936,13 @@ func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) ToMigrateSq
 }
 
 // Selected agent jobs as a map from name to id
-func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) AgentJobs() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskOutputMigrationLevelResponse) string { return v.AgentJobs }).(pulumi.StringOutput)
+func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) AgentJobs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MigrateSqlServerSqlMITaskOutputMigrationLevelResponse) map[string]string { return v.AgentJobs }).(pulumi.StringMapOutput)
 }
 
 // Selected databases as a map from database name to database id
-func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) Databases() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskOutputMigrationLevelResponse) string { return v.Databases }).(pulumi.StringOutput)
+func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) Databases() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MigrateSqlServerSqlMITaskOutputMigrationLevelResponse) map[string]string { return v.Databases }).(pulumi.StringMapOutput)
 }
 
 // Migration end time
@@ -18489,8 +18963,8 @@ func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) Id() pulumi
 }
 
 // Selected logins as a map from name to id
-func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) Logins() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskOutputMigrationLevelResponse) string { return v.Logins }).(pulumi.StringOutput)
+func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) Logins() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MigrateSqlServerSqlMITaskOutputMigrationLevelResponse) map[string]string { return v.Logins }).(pulumi.StringMapOutput)
 }
 
 // Migration progress message
@@ -18511,8 +18985,10 @@ func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) ResultType(
 }
 
 // Map of server role migration results.
-func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) ServerRoleResults() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskOutputMigrationLevelResponse) string { return v.ServerRoleResults }).(pulumi.StringOutput)
+func (o MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput) ServerRoleResults() StartMigrationScenarioServerRoleResultResponseMapOutput {
+	return o.ApplyT(func(v MigrateSqlServerSqlMITaskOutputMigrationLevelResponse) map[string]StartMigrationScenarioServerRoleResultResponse {
+		return v.ServerRoleResults
+	}).(StartMigrationScenarioServerRoleResultResponseMapOutput)
 }
 
 // Source server brand version
@@ -22421,6 +22897,126 @@ func (o SqlConnectionInfoResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Server role migration result
+type StartMigrationScenarioServerRoleResultResponse struct {
+	// Migration exceptions and warnings.
+	ExceptionsAndWarnings []ReportableExceptionResponse `pulumi:"exceptionsAndWarnings"`
+	// Name of server role.
+	Name string `pulumi:"name"`
+	// Current state of migration
+	State string `pulumi:"state"`
+}
+
+// StartMigrationScenarioServerRoleResultResponseInput is an input type that accepts StartMigrationScenarioServerRoleResultResponseArgs and StartMigrationScenarioServerRoleResultResponseOutput values.
+// You can construct a concrete instance of `StartMigrationScenarioServerRoleResultResponseInput` via:
+//
+//          StartMigrationScenarioServerRoleResultResponseArgs{...}
+type StartMigrationScenarioServerRoleResultResponseInput interface {
+	pulumi.Input
+
+	ToStartMigrationScenarioServerRoleResultResponseOutput() StartMigrationScenarioServerRoleResultResponseOutput
+	ToStartMigrationScenarioServerRoleResultResponseOutputWithContext(context.Context) StartMigrationScenarioServerRoleResultResponseOutput
+}
+
+// Server role migration result
+type StartMigrationScenarioServerRoleResultResponseArgs struct {
+	// Migration exceptions and warnings.
+	ExceptionsAndWarnings ReportableExceptionResponseArrayInput `pulumi:"exceptionsAndWarnings"`
+	// Name of server role.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Current state of migration
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (StartMigrationScenarioServerRoleResultResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StartMigrationScenarioServerRoleResultResponse)(nil)).Elem()
+}
+
+func (i StartMigrationScenarioServerRoleResultResponseArgs) ToStartMigrationScenarioServerRoleResultResponseOutput() StartMigrationScenarioServerRoleResultResponseOutput {
+	return i.ToStartMigrationScenarioServerRoleResultResponseOutputWithContext(context.Background())
+}
+
+func (i StartMigrationScenarioServerRoleResultResponseArgs) ToStartMigrationScenarioServerRoleResultResponseOutputWithContext(ctx context.Context) StartMigrationScenarioServerRoleResultResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StartMigrationScenarioServerRoleResultResponseOutput)
+}
+
+// StartMigrationScenarioServerRoleResultResponseMapInput is an input type that accepts StartMigrationScenarioServerRoleResultResponseMap and StartMigrationScenarioServerRoleResultResponseMapOutput values.
+// You can construct a concrete instance of `StartMigrationScenarioServerRoleResultResponseMapInput` via:
+//
+//          StartMigrationScenarioServerRoleResultResponseMap{ "key": StartMigrationScenarioServerRoleResultResponseArgs{...} }
+type StartMigrationScenarioServerRoleResultResponseMapInput interface {
+	pulumi.Input
+
+	ToStartMigrationScenarioServerRoleResultResponseMapOutput() StartMigrationScenarioServerRoleResultResponseMapOutput
+	ToStartMigrationScenarioServerRoleResultResponseMapOutputWithContext(context.Context) StartMigrationScenarioServerRoleResultResponseMapOutput
+}
+
+type StartMigrationScenarioServerRoleResultResponseMap map[string]StartMigrationScenarioServerRoleResultResponseInput
+
+func (StartMigrationScenarioServerRoleResultResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StartMigrationScenarioServerRoleResultResponse)(nil)).Elem()
+}
+
+func (i StartMigrationScenarioServerRoleResultResponseMap) ToStartMigrationScenarioServerRoleResultResponseMapOutput() StartMigrationScenarioServerRoleResultResponseMapOutput {
+	return i.ToStartMigrationScenarioServerRoleResultResponseMapOutputWithContext(context.Background())
+}
+
+func (i StartMigrationScenarioServerRoleResultResponseMap) ToStartMigrationScenarioServerRoleResultResponseMapOutputWithContext(ctx context.Context) StartMigrationScenarioServerRoleResultResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StartMigrationScenarioServerRoleResultResponseMapOutput)
+}
+
+// Server role migration result
+type StartMigrationScenarioServerRoleResultResponseOutput struct{ *pulumi.OutputState }
+
+func (StartMigrationScenarioServerRoleResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StartMigrationScenarioServerRoleResultResponse)(nil)).Elem()
+}
+
+func (o StartMigrationScenarioServerRoleResultResponseOutput) ToStartMigrationScenarioServerRoleResultResponseOutput() StartMigrationScenarioServerRoleResultResponseOutput {
+	return o
+}
+
+func (o StartMigrationScenarioServerRoleResultResponseOutput) ToStartMigrationScenarioServerRoleResultResponseOutputWithContext(ctx context.Context) StartMigrationScenarioServerRoleResultResponseOutput {
+	return o
+}
+
+// Migration exceptions and warnings.
+func (o StartMigrationScenarioServerRoleResultResponseOutput) ExceptionsAndWarnings() ReportableExceptionResponseArrayOutput {
+	return o.ApplyT(func(v StartMigrationScenarioServerRoleResultResponse) []ReportableExceptionResponse {
+		return v.ExceptionsAndWarnings
+	}).(ReportableExceptionResponseArrayOutput)
+}
+
+// Name of server role.
+func (o StartMigrationScenarioServerRoleResultResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StartMigrationScenarioServerRoleResultResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Current state of migration
+func (o StartMigrationScenarioServerRoleResultResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v StartMigrationScenarioServerRoleResultResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+type StartMigrationScenarioServerRoleResultResponseMapOutput struct{ *pulumi.OutputState }
+
+func (StartMigrationScenarioServerRoleResultResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StartMigrationScenarioServerRoleResultResponse)(nil)).Elem()
+}
+
+func (o StartMigrationScenarioServerRoleResultResponseMapOutput) ToStartMigrationScenarioServerRoleResultResponseMapOutput() StartMigrationScenarioServerRoleResultResponseMapOutput {
+	return o
+}
+
+func (o StartMigrationScenarioServerRoleResultResponseMapOutput) ToStartMigrationScenarioServerRoleResultResponseMapOutputWithContext(ctx context.Context) StartMigrationScenarioServerRoleResultResponseMapOutput {
+	return o
+}
+
+func (o StartMigrationScenarioServerRoleResultResponseMapOutput) MapIndex(k pulumi.StringInput) StartMigrationScenarioServerRoleResultResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StartMigrationScenarioServerRoleResultResponse {
+		return vs[0].(map[string]StartMigrationScenarioServerRoleResultResponse)[vs[1].(string)]
+	}).(StartMigrationScenarioServerRoleResultResponseOutput)
+}
+
 // Database migration errors for online migration
 type SyncMigrationDatabaseErrorEventResponse struct {
 	// Event text.
@@ -25082,6 +25678,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectToTargetSqlSqlDbSyncTaskPropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DataIntegrityValidationResultResponseOutput{})
+	pulumi.RegisterOutputType(DataItemMigrationSummaryResultResponseOutput{})
+	pulumi.RegisterOutputType(DataItemMigrationSummaryResultResponseMapOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupInfoResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(DatabaseFileInfoResponseOutput{})
@@ -25090,6 +25688,10 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseInfoArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseSummaryResultResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseSummaryResultResponseMapOutput{})
+	pulumi.RegisterOutputType(DatabaseTableResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseTableResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExecutionStatisticsResponseOutput{})
 	pulumi.RegisterOutputType(FileShareOutput{})
 	pulumi.RegisterOutputType(FileSharePtrOutput{})
@@ -25254,6 +25856,8 @@ func init() {
 	pulumi.RegisterOutputType(SqlConnectionInfoPtrOutput{})
 	pulumi.RegisterOutputType(SqlConnectionInfoResponseOutput{})
 	pulumi.RegisterOutputType(SqlConnectionInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(StartMigrationScenarioServerRoleResultResponseOutput{})
+	pulumi.RegisterOutputType(StartMigrationScenarioServerRoleResultResponseMapOutput{})
 	pulumi.RegisterOutputType(SyncMigrationDatabaseErrorEventResponseOutput{})
 	pulumi.RegisterOutputType(SyncMigrationDatabaseErrorEventResponseArrayOutput{})
 	pulumi.RegisterOutputType(ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput{})

@@ -30,7 +30,7 @@ type LookupPipelineResult struct {
 	// List of activities in pipeline.
 	Activities []interface{} `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations []map[string]interface{} `pulumi:"annotations"`
+	Annotations []interface{} `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency *int `pulumi:"concurrency"`
 	// The description of the pipeline.

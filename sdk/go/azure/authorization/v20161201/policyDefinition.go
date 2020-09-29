@@ -19,15 +19,15 @@ type PolicyDefinition struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The policy definition metadata.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the policy definition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapOutput `pulumi:"parameters"`
+	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule pulumi.MapOutput `pulumi:"policyRule"`
+	PolicyRule pulumi.AnyOutput `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
 }
@@ -101,15 +101,15 @@ type policyDefinitionState struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy definition metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy definition.
 	Name *string `pulumi:"name"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -120,15 +120,15 @@ type PolicyDefinitionState struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput
 	// The policy definition metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
 	Mode pulumi.StringPtrInput
 	// The name of the policy definition.
 	Name pulumi.StringPtrInput
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapInput
+	Parameters pulumi.Input
 	// The policy rule.
-	PolicyRule pulumi.MapInput
+	PolicyRule pulumi.Input
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType pulumi.StringPtrInput
 }
@@ -143,15 +143,15 @@ type policyDefinitionArgs struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy definition metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
 	Mode *string `pulumi:"mode"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The name of the policy definition to create.
 	PolicyDefinitionName string `pulumi:"policyDefinitionName"`
 	// The policy rule.
-	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -163,15 +163,15 @@ type PolicyDefinitionArgs struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput
 	// The policy definition metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
 	Mode pulumi.StringPtrInput
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapInput
+	Parameters pulumi.Input
 	// The name of the policy definition to create.
 	PolicyDefinitionName pulumi.StringInput
 	// The policy rule.
-	PolicyRule pulumi.MapInput
+	PolicyRule pulumi.Input
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType pulumi.StringPtrInput
 }

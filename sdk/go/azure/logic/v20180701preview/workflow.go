@@ -21,7 +21,7 @@ type Workflow struct {
 	// Gets the created time.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-	Definition pulumi.MapOutput `pulumi:"definition"`
+	Definition pulumi.AnyOutput `pulumi:"definition"`
 	// The integration account.
 	IntegrationAccount ResourceReferenceResponsePtrOutput `pulumi:"integrationAccount"`
 	// The resource location.
@@ -100,7 +100,7 @@ type workflowState struct {
 	// Gets the created time.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-	Definition map[string]interface{} `pulumi:"definition"`
+	Definition interface{} `pulumi:"definition"`
 	// The integration account.
 	IntegrationAccount *ResourceReferenceResponse `pulumi:"integrationAccount"`
 	// The resource location.
@@ -131,7 +131,7 @@ type WorkflowState struct {
 	// Gets the created time.
 	CreatedTime pulumi.StringPtrInput
 	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-	Definition pulumi.MapInput
+	Definition pulumi.Input
 	// The integration account.
 	IntegrationAccount ResourceReferenceResponsePtrInput
 	// The resource location.
@@ -160,7 +160,7 @@ func (WorkflowState) ElementType() reflect.Type {
 
 type workflowArgs struct {
 	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-	Definition map[string]interface{} `pulumi:"definition"`
+	Definition interface{} `pulumi:"definition"`
 	// The integration account.
 	IntegrationAccount *ResourceReference `pulumi:"integrationAccount"`
 	// The resource location.
@@ -182,7 +182,7 @@ type workflowArgs struct {
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
 	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-	Definition pulumi.MapInput
+	Definition pulumi.Input
 	// The integration account.
 	IntegrationAccount ResourceReferencePtrInput
 	// The resource location.

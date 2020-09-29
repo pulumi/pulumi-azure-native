@@ -36,7 +36,7 @@ type LookupVirtualMachineScaleSetExtensionResult struct {
 	// The name of the extension.
 	Name *string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// The provisioning state, which only appears in the response.
@@ -44,7 +44,7 @@ type LookupVirtualMachineScaleSetExtensionResult struct {
 	// The name of the extension handler publisher.
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings map[string]interface{} `pulumi:"settings"`
+	Settings interface{} `pulumi:"settings"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// Specifies the version of the script handler.

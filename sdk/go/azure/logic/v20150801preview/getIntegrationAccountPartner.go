@@ -35,7 +35,7 @@ type LookupIntegrationAccountPartnerResult struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// The partner type.

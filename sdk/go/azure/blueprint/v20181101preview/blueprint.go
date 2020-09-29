@@ -19,7 +19,7 @@ type Blueprint struct {
 	// One-liner string explain this resource.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Layout view of the blueprint definition for UI reference.
-	Layout pulumi.MapOutput `pulumi:"layout"`
+	Layout pulumi.AnyOutput `pulumi:"layout"`
 	// Name of this resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parameters required by this blueprint definition.
@@ -33,7 +33,7 @@ type Blueprint struct {
 	// Type of this resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Published versions of this blueprint definition.
-	Versions pulumi.MapOutput `pulumi:"versions"`
+	Versions pulumi.AnyOutput `pulumi:"versions"`
 }
 
 // NewBlueprint registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ type blueprintState struct {
 	// One-liner string explain this resource.
 	DisplayName *string `pulumi:"displayName"`
 	// Layout view of the blueprint definition for UI reference.
-	Layout map[string]interface{} `pulumi:"layout"`
+	Layout interface{} `pulumi:"layout"`
 	// Name of this resource.
 	Name *string `pulumi:"name"`
 	// Parameters required by this blueprint definition.
@@ -92,7 +92,7 @@ type blueprintState struct {
 	// Type of this resource.
 	Type *string `pulumi:"type"`
 	// Published versions of this blueprint definition.
-	Versions map[string]interface{} `pulumi:"versions"`
+	Versions interface{} `pulumi:"versions"`
 }
 
 type BlueprintState struct {
@@ -101,7 +101,7 @@ type BlueprintState struct {
 	// One-liner string explain this resource.
 	DisplayName pulumi.StringPtrInput
 	// Layout view of the blueprint definition for UI reference.
-	Layout pulumi.MapInput
+	Layout pulumi.Input
 	// Name of this resource.
 	Name pulumi.StringPtrInput
 	// Parameters required by this blueprint definition.
@@ -115,7 +115,7 @@ type BlueprintState struct {
 	// Type of this resource.
 	Type pulumi.StringPtrInput
 	// Published versions of this blueprint definition.
-	Versions pulumi.MapInput
+	Versions pulumi.Input
 }
 
 func (BlueprintState) ElementType() reflect.Type {
@@ -130,7 +130,7 @@ type blueprintArgs struct {
 	// One-liner string explain this resource.
 	DisplayName *string `pulumi:"displayName"`
 	// Layout view of the blueprint definition for UI reference.
-	Layout map[string]interface{} `pulumi:"layout"`
+	Layout interface{} `pulumi:"layout"`
 	// Parameters required by this blueprint definition.
 	Parameters map[string]ParameterDefinition `pulumi:"parameters"`
 	// Resource group placeholders defined by this blueprint definition.
@@ -140,7 +140,7 @@ type blueprintArgs struct {
 	// The scope where this blueprint definition can be assigned.
 	TargetScope string `pulumi:"targetScope"`
 	// Published versions of this blueprint definition.
-	Versions map[string]interface{} `pulumi:"versions"`
+	Versions interface{} `pulumi:"versions"`
 }
 
 // The set of arguments for constructing a Blueprint resource.
@@ -152,7 +152,7 @@ type BlueprintArgs struct {
 	// One-liner string explain this resource.
 	DisplayName pulumi.StringPtrInput
 	// Layout view of the blueprint definition for UI reference.
-	Layout pulumi.MapInput
+	Layout pulumi.Input
 	// Parameters required by this blueprint definition.
 	Parameters ParameterDefinitionMapInput
 	// Resource group placeholders defined by this blueprint definition.
@@ -162,7 +162,7 @@ type BlueprintArgs struct {
 	// The scope where this blueprint definition can be assigned.
 	TargetScope pulumi.StringInput
 	// Published versions of this blueprint definition.
-	Versions pulumi.MapInput
+	Versions pulumi.Input
 }
 
 func (BlueprintArgs) ElementType() reflect.Type {

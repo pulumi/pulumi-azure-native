@@ -28,7 +28,7 @@ type LookupWebAppFunctionArgs struct {
 // Web Job Information.
 type LookupWebAppFunctionResult struct {
 	// Config information.
-	Config map[string]interface{} `pulumi:"config"`
+	Config interface{} `pulumi:"config"`
 	// Config URI.
 	ConfigHref *string `pulumi:"configHref"`
 	// File list.

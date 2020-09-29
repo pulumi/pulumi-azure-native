@@ -46,7 +46,7 @@ type LookupSmartDetectorAlertRuleResult struct {
 	// The alert rule state.
 	State string `pulumi:"state"`
 	// The resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// The alert rule throttling information.
 	Throttling *ThrottlingInformationResponse `pulumi:"throttling"`
 	// The resource type.

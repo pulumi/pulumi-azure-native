@@ -2981,7 +2981,7 @@ type Volume struct {
 	// The name of the Azure File volume.
 	AzureFile *AzureFileVolume `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir map[string]interface{} `pulumi:"emptyDir"`
+	EmptyDir interface{} `pulumi:"emptyDir"`
 	// The name of the volume.
 	Name string `pulumi:"name"`
 }
@@ -3002,7 +3002,7 @@ type VolumeArgs struct {
 	// The name of the Azure File volume.
 	AzureFile AzureFileVolumePtrInput `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir pulumi.MapInput `pulumi:"emptyDir"`
+	EmptyDir pulumi.Input `pulumi:"emptyDir"`
 	// The name of the volume.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -3065,8 +3065,8 @@ func (o VolumeOutput) AzureFile() AzureFileVolumePtrOutput {
 }
 
 // The empty directory volume.
-func (o VolumeOutput) EmptyDir() pulumi.MapOutput {
-	return o.ApplyT(func(v Volume) map[string]interface{} { return v.EmptyDir }).(pulumi.MapOutput)
+func (o VolumeOutput) EmptyDir() pulumi.AnyOutput {
+	return o.ApplyT(func(v Volume) interface{} { return v.EmptyDir }).(pulumi.AnyOutput)
 }
 
 // The name of the volume.
@@ -3335,7 +3335,7 @@ type VolumeResponse struct {
 	// The name of the Azure File volume.
 	AzureFile *AzureFileVolumeResponse `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir map[string]interface{} `pulumi:"emptyDir"`
+	EmptyDir interface{} `pulumi:"emptyDir"`
 	// The name of the volume.
 	Name string `pulumi:"name"`
 }
@@ -3356,7 +3356,7 @@ type VolumeResponseArgs struct {
 	// The name of the Azure File volume.
 	AzureFile AzureFileVolumeResponsePtrInput `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir pulumi.MapInput `pulumi:"emptyDir"`
+	EmptyDir pulumi.Input `pulumi:"emptyDir"`
 	// The name of the volume.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -3419,8 +3419,8 @@ func (o VolumeResponseOutput) AzureFile() AzureFileVolumeResponsePtrOutput {
 }
 
 // The empty directory volume.
-func (o VolumeResponseOutput) EmptyDir() pulumi.MapOutput {
-	return o.ApplyT(func(v VolumeResponse) map[string]interface{} { return v.EmptyDir }).(pulumi.MapOutput)
+func (o VolumeResponseOutput) EmptyDir() pulumi.AnyOutput {
+	return o.ApplyT(func(v VolumeResponse) interface{} { return v.EmptyDir }).(pulumi.AnyOutput)
 }
 
 // The name of the volume.

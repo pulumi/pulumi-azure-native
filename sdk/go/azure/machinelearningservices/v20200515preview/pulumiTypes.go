@@ -39,7 +39,7 @@ type ACIServiceResponseResponse struct {
 	// The name of the Azure location/region.
 	Location *string `pulumi:"location"`
 	// Details on the models and configurations.
-	ModelConfigMap map[string]map[string]interface{} `pulumi:"modelConfigMap"`
+	ModelConfigMap map[string]interface{} `pulumi:"modelConfigMap"`
 	// The list of models.
 	Models []ModelResponse `pulumi:"models"`
 	// The service property dictionary. Properties are immutable.
@@ -104,7 +104,7 @@ type ACIServiceResponseResponseArgs struct {
 	// The name of the Azure location/region.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Details on the models and configurations.
-	ModelConfigMap pulumi.MapMapInput `pulumi:"modelConfigMap"`
+	ModelConfigMap pulumi.MapInput `pulumi:"modelConfigMap"`
 	// The list of models.
 	Models ModelResponseArrayInput `pulumi:"models"`
 	// The service property dictionary. Properties are immutable.
@@ -228,8 +228,8 @@ func (o ACIServiceResponseResponseOutput) Location() pulumi.StringPtrOutput {
 }
 
 // Details on the models and configurations.
-func (o ACIServiceResponseResponseOutput) ModelConfigMap() pulumi.MapMapOutput {
-	return o.ApplyT(func(v ACIServiceResponseResponse) map[string]map[string]interface{} { return v.ModelConfigMap }).(pulumi.MapMapOutput)
+func (o ACIServiceResponseResponseOutput) ModelConfigMap() pulumi.MapOutput {
+	return o.ApplyT(func(v ACIServiceResponseResponse) map[string]interface{} { return v.ModelConfigMap }).(pulumi.MapOutput)
 }
 
 // The list of models.
@@ -9417,7 +9417,7 @@ func (o ModelEnvironmentDefinitionDockerPtrOutput) BaseImageRegistry() ModelDock
 type ModelEnvironmentDefinitionPython struct {
 	BaseCondaEnvironment *string `pulumi:"baseCondaEnvironment"`
 	// A JObject containing Conda dependencies.
-	CondaDependencies map[string]interface{} `pulumi:"condaDependencies"`
+	CondaDependencies interface{} `pulumi:"condaDependencies"`
 	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
 	InterpreterPath *string `pulumi:"interpreterPath"`
 	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
@@ -9439,7 +9439,7 @@ type ModelEnvironmentDefinitionPythonInput interface {
 type ModelEnvironmentDefinitionPythonArgs struct {
 	BaseCondaEnvironment pulumi.StringPtrInput `pulumi:"baseCondaEnvironment"`
 	// A JObject containing Conda dependencies.
-	CondaDependencies pulumi.MapInput `pulumi:"condaDependencies"`
+	CondaDependencies pulumi.Input `pulumi:"condaDependencies"`
 	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
 	InterpreterPath pulumi.StringPtrInput `pulumi:"interpreterPath"`
 	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
@@ -9528,8 +9528,8 @@ func (o ModelEnvironmentDefinitionPythonOutput) BaseCondaEnvironment() pulumi.St
 }
 
 // A JObject containing Conda dependencies.
-func (o ModelEnvironmentDefinitionPythonOutput) CondaDependencies() pulumi.MapOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionPython) map[string]interface{} { return v.CondaDependencies }).(pulumi.MapOutput)
+func (o ModelEnvironmentDefinitionPythonOutput) CondaDependencies() pulumi.AnyOutput {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionPython) interface{} { return v.CondaDependencies }).(pulumi.AnyOutput)
 }
 
 // The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
@@ -9570,13 +9570,13 @@ func (o ModelEnvironmentDefinitionPythonPtrOutput) BaseCondaEnvironment() pulumi
 }
 
 // A JObject containing Conda dependencies.
-func (o ModelEnvironmentDefinitionPythonPtrOutput) CondaDependencies() pulumi.MapOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) map[string]interface{} {
+func (o ModelEnvironmentDefinitionPythonPtrOutput) CondaDependencies() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.CondaDependencies
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
@@ -10050,7 +10050,7 @@ func (o ModelEnvironmentDefinitionResponseResponseDockerPtrOutput) BaseImageRegi
 type ModelEnvironmentDefinitionResponseResponsePython struct {
 	BaseCondaEnvironment *string `pulumi:"baseCondaEnvironment"`
 	// A JObject containing Conda dependencies.
-	CondaDependencies map[string]interface{} `pulumi:"condaDependencies"`
+	CondaDependencies interface{} `pulumi:"condaDependencies"`
 	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
 	InterpreterPath *string `pulumi:"interpreterPath"`
 	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
@@ -10072,7 +10072,7 @@ type ModelEnvironmentDefinitionResponseResponsePythonInput interface {
 type ModelEnvironmentDefinitionResponseResponsePythonArgs struct {
 	BaseCondaEnvironment pulumi.StringPtrInput `pulumi:"baseCondaEnvironment"`
 	// A JObject containing Conda dependencies.
-	CondaDependencies pulumi.MapInput `pulumi:"condaDependencies"`
+	CondaDependencies pulumi.Input `pulumi:"condaDependencies"`
 	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
 	InterpreterPath pulumi.StringPtrInput `pulumi:"interpreterPath"`
 	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
@@ -10161,10 +10161,8 @@ func (o ModelEnvironmentDefinitionResponseResponsePythonOutput) BaseCondaEnviron
 }
 
 // A JObject containing Conda dependencies.
-func (o ModelEnvironmentDefinitionResponseResponsePythonOutput) CondaDependencies() pulumi.MapOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionResponseResponsePython) map[string]interface{} {
-		return v.CondaDependencies
-	}).(pulumi.MapOutput)
+func (o ModelEnvironmentDefinitionResponseResponsePythonOutput) CondaDependencies() pulumi.AnyOutput {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionResponseResponsePython) interface{} { return v.CondaDependencies }).(pulumi.AnyOutput)
 }
 
 // The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
@@ -10207,13 +10205,13 @@ func (o ModelEnvironmentDefinitionResponseResponsePythonPtrOutput) BaseCondaEnvi
 }
 
 // A JObject containing Conda dependencies.
-func (o ModelEnvironmentDefinitionResponseResponsePythonPtrOutput) CondaDependencies() pulumi.MapOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionResponseResponsePython) map[string]interface{} {
+func (o ModelEnvironmentDefinitionResponseResponsePythonPtrOutput) CondaDependencies() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ModelEnvironmentDefinitionResponseResponsePython) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.CondaDependencies
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.

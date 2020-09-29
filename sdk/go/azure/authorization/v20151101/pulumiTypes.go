@@ -361,7 +361,7 @@ type PolicyDefinitionProperties struct {
 	// Gets or sets the policy definition display name.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy rule json.
-	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	PolicyRule interface{} `pulumi:"policyRule"`
 }
 
 // PolicyDefinitionPropertiesInput is an input type that accepts PolicyDefinitionPropertiesArgs and PolicyDefinitionPropertiesOutput values.
@@ -382,7 +382,7 @@ type PolicyDefinitionPropertiesArgs struct {
 	// Gets or sets the policy definition display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy rule json.
-	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
+	PolicyRule pulumi.Input `pulumi:"policyRule"`
 }
 
 func (PolicyDefinitionPropertiesArgs) ElementType() reflect.Type {
@@ -474,8 +474,8 @@ func (o PolicyDefinitionPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 }
 
 // The policy rule json.
-func (o PolicyDefinitionPropertiesOutput) PolicyRule() pulumi.MapOutput {
-	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]interface{} { return v.PolicyRule }).(pulumi.MapOutput)
+func (o PolicyDefinitionPropertiesOutput) PolicyRule() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyDefinitionProperties) interface{} { return v.PolicyRule }).(pulumi.AnyOutput)
 }
 
 type PolicyDefinitionPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -517,13 +517,13 @@ func (o PolicyDefinitionPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutpu
 }
 
 // The policy rule json.
-func (o PolicyDefinitionPropertiesPtrOutput) PolicyRule() pulumi.MapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]interface{} {
+func (o PolicyDefinitionPropertiesPtrOutput) PolicyRule() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinitionProperties) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.PolicyRule
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Policy definition properties.
@@ -533,7 +533,7 @@ type PolicyDefinitionPropertiesResponse struct {
 	// Gets or sets the policy definition display name.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy rule json.
-	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	PolicyRule interface{} `pulumi:"policyRule"`
 }
 
 // PolicyDefinitionPropertiesResponseInput is an input type that accepts PolicyDefinitionPropertiesResponseArgs and PolicyDefinitionPropertiesResponseOutput values.
@@ -554,7 +554,7 @@ type PolicyDefinitionPropertiesResponseArgs struct {
 	// Gets or sets the policy definition display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy rule json.
-	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
+	PolicyRule pulumi.Input `pulumi:"policyRule"`
 }
 
 func (PolicyDefinitionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -646,8 +646,8 @@ func (o PolicyDefinitionPropertiesResponseOutput) DisplayName() pulumi.StringPtr
 }
 
 // The policy rule json.
-func (o PolicyDefinitionPropertiesResponseOutput) PolicyRule() pulumi.MapOutput {
-	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]interface{} { return v.PolicyRule }).(pulumi.MapOutput)
+func (o PolicyDefinitionPropertiesResponseOutput) PolicyRule() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) interface{} { return v.PolicyRule }).(pulumi.AnyOutput)
 }
 
 type PolicyDefinitionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -689,13 +689,13 @@ func (o PolicyDefinitionPropertiesResponsePtrOutput) DisplayName() pulumi.String
 }
 
 // The policy rule json.
-func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyRule() pulumi.MapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]interface{} {
+func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyRule() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.PolicyRule
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 func init() {

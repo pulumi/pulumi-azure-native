@@ -30,13 +30,13 @@ type LookupPolicyAssignmentResult struct {
 	// The display name of the policy assignment.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy assignment metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name string `pulumi:"name"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.

@@ -3244,7 +3244,7 @@ type ClusterDefinition struct {
 	// The versions of different services in the cluster.
 	ComponentVersion map[string]string `pulumi:"componentVersion"`
 	// The cluster configurations.
-	Configurations map[string]interface{} `pulumi:"configurations"`
+	Configurations interface{} `pulumi:"configurations"`
 	// The type of cluster.
 	Kind *string `pulumi:"kind"`
 }
@@ -3267,7 +3267,7 @@ type ClusterDefinitionArgs struct {
 	// The versions of different services in the cluster.
 	ComponentVersion pulumi.StringMapInput `pulumi:"componentVersion"`
 	// The cluster configurations.
-	Configurations pulumi.MapInput `pulumi:"configurations"`
+	Configurations pulumi.Input `pulumi:"configurations"`
 	// The type of cluster.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 }
@@ -3361,8 +3361,8 @@ func (o ClusterDefinitionOutput) ComponentVersion() pulumi.StringMapOutput {
 }
 
 // The cluster configurations.
-func (o ClusterDefinitionOutput) Configurations() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterDefinition) map[string]interface{} { return v.Configurations }).(pulumi.MapOutput)
+func (o ClusterDefinitionOutput) Configurations() pulumi.AnyOutput {
+	return o.ApplyT(func(v ClusterDefinition) interface{} { return v.Configurations }).(pulumi.AnyOutput)
 }
 
 // The type of cluster.
@@ -3409,13 +3409,13 @@ func (o ClusterDefinitionPtrOutput) ComponentVersion() pulumi.StringMapOutput {
 }
 
 // The cluster configurations.
-func (o ClusterDefinitionPtrOutput) Configurations() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterDefinition) map[string]interface{} {
+func (o ClusterDefinitionPtrOutput) Configurations() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ClusterDefinition) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Configurations
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The type of cluster.
@@ -3435,7 +3435,7 @@ type ClusterDefinitionResponse struct {
 	// The versions of different services in the cluster.
 	ComponentVersion map[string]string `pulumi:"componentVersion"`
 	// The cluster configurations.
-	Configurations map[string]interface{} `pulumi:"configurations"`
+	Configurations interface{} `pulumi:"configurations"`
 	// The type of cluster.
 	Kind *string `pulumi:"kind"`
 }
@@ -3458,7 +3458,7 @@ type ClusterDefinitionResponseArgs struct {
 	// The versions of different services in the cluster.
 	ComponentVersion pulumi.StringMapInput `pulumi:"componentVersion"`
 	// The cluster configurations.
-	Configurations pulumi.MapInput `pulumi:"configurations"`
+	Configurations pulumi.Input `pulumi:"configurations"`
 	// The type of cluster.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 }
@@ -3552,8 +3552,8 @@ func (o ClusterDefinitionResponseOutput) ComponentVersion() pulumi.StringMapOutp
 }
 
 // The cluster configurations.
-func (o ClusterDefinitionResponseOutput) Configurations() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterDefinitionResponse) map[string]interface{} { return v.Configurations }).(pulumi.MapOutput)
+func (o ClusterDefinitionResponseOutput) Configurations() pulumi.AnyOutput {
+	return o.ApplyT(func(v ClusterDefinitionResponse) interface{} { return v.Configurations }).(pulumi.AnyOutput)
 }
 
 // The type of cluster.
@@ -3600,13 +3600,13 @@ func (o ClusterDefinitionResponsePtrOutput) ComponentVersion() pulumi.StringMapO
 }
 
 // The cluster configurations.
-func (o ClusterDefinitionResponsePtrOutput) Configurations() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterDefinitionResponse) map[string]interface{} {
+func (o ClusterDefinitionResponsePtrOutput) Configurations() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ClusterDefinitionResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Configurations
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The type of cluster.

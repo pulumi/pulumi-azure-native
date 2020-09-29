@@ -17,7 +17,7 @@ type Pipeline struct {
 	// List of activities in pipeline.
 	Activities pulumi.ArrayOutput `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.MapArrayOutput `pulumi:"annotations"`
+	Annotations pulumi.ArrayOutput `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency pulumi.IntPtrOutput `pulumi:"concurrency"`
 	// The description of the pipeline.
@@ -31,7 +31,7 @@ type Pipeline struct {
 	// List of parameters for pipeline.
 	Parameters ParameterSpecificationResponseMapOutput `pulumi:"parameters"`
 	// Dimensions emitted by Pipeline.
-	RunDimensions pulumi.MapMapOutput `pulumi:"runDimensions"`
+	RunDimensions pulumi.MapOutput `pulumi:"runDimensions"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// List of variables for pipeline.
@@ -87,7 +87,7 @@ type pipelineState struct {
 	// List of activities in pipeline.
 	Activities []interface{} `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations []map[string]interface{} `pulumi:"annotations"`
+	Annotations []interface{} `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency *int `pulumi:"concurrency"`
 	// The description of the pipeline.
@@ -101,7 +101,7 @@ type pipelineState struct {
 	// List of parameters for pipeline.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Dimensions emitted by Pipeline.
-	RunDimensions map[string]map[string]interface{} `pulumi:"runDimensions"`
+	RunDimensions map[string]interface{} `pulumi:"runDimensions"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 	// List of variables for pipeline.
@@ -112,7 +112,7 @@ type PipelineState struct {
 	// List of activities in pipeline.
 	Activities pulumi.ArrayInput
 	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.MapArrayInput
+	Annotations pulumi.ArrayInput
 	// The max number of concurrent runs for the pipeline.
 	Concurrency pulumi.IntPtrInput
 	// The description of the pipeline.
@@ -126,7 +126,7 @@ type PipelineState struct {
 	// List of parameters for pipeline.
 	Parameters ParameterSpecificationResponseMapInput
 	// Dimensions emitted by Pipeline.
-	RunDimensions pulumi.MapMapInput
+	RunDimensions pulumi.MapInput
 	// The resource type.
 	Type pulumi.StringPtrInput
 	// List of variables for pipeline.
@@ -141,7 +141,7 @@ type pipelineArgs struct {
 	// List of activities in pipeline.
 	Activities []interface{} `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations []map[string]interface{} `pulumi:"annotations"`
+	Annotations []interface{} `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency *int `pulumi:"concurrency"`
 	// The description of the pipeline.
@@ -157,7 +157,7 @@ type pipelineArgs struct {
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Dimensions emitted by Pipeline.
-	RunDimensions map[string]map[string]interface{} `pulumi:"runDimensions"`
+	RunDimensions map[string]interface{} `pulumi:"runDimensions"`
 	// List of variables for pipeline.
 	Variables map[string]VariableSpecification `pulumi:"variables"`
 }
@@ -167,7 +167,7 @@ type PipelineArgs struct {
 	// List of activities in pipeline.
 	Activities pulumi.ArrayInput
 	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.MapArrayInput
+	Annotations pulumi.ArrayInput
 	// The max number of concurrent runs for the pipeline.
 	Concurrency pulumi.IntPtrInput
 	// The description of the pipeline.
@@ -183,7 +183,7 @@ type PipelineArgs struct {
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Dimensions emitted by Pipeline.
-	RunDimensions pulumi.MapMapInput
+	RunDimensions pulumi.MapInput
 	// List of variables for pipeline.
 	Variables VariableSpecificationMapInput
 }

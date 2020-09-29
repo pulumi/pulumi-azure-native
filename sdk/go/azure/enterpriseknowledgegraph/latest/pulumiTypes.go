@@ -15,7 +15,7 @@ type EnterpriseKnowledgeGraphProperties struct {
 	// The description of the EnterpriseKnowledgeGraph
 	Description *string `pulumi:"description"`
 	// Specifies the metadata  of the resource.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The state of EnterpriseKnowledgeGraph provisioning
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
@@ -36,7 +36,7 @@ type EnterpriseKnowledgeGraphPropertiesArgs struct {
 	// The description of the EnterpriseKnowledgeGraph
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies the metadata  of the resource.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// The state of EnterpriseKnowledgeGraph provisioning
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
@@ -125,8 +125,8 @@ func (o EnterpriseKnowledgeGraphPropertiesOutput) Description() pulumi.StringPtr
 }
 
 // Specifies the metadata  of the resource.
-func (o EnterpriseKnowledgeGraphPropertiesOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v EnterpriseKnowledgeGraphProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o EnterpriseKnowledgeGraphPropertiesOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v EnterpriseKnowledgeGraphProperties) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // The state of EnterpriseKnowledgeGraph provisioning
@@ -163,13 +163,13 @@ func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) Description() pulumi.String
 }
 
 // Specifies the metadata  of the resource.
-func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v *EnterpriseKnowledgeGraphProperties) map[string]interface{} {
+func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EnterpriseKnowledgeGraphProperties) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The state of EnterpriseKnowledgeGraph provisioning
@@ -187,7 +187,7 @@ type EnterpriseKnowledgeGraphPropertiesResponse struct {
 	// The description of the EnterpriseKnowledgeGraph
 	Description *string `pulumi:"description"`
 	// Specifies the metadata  of the resource.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The state of EnterpriseKnowledgeGraph provisioning
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
@@ -208,7 +208,7 @@ type EnterpriseKnowledgeGraphPropertiesResponseArgs struct {
 	// The description of the EnterpriseKnowledgeGraph
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies the metadata  of the resource.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// The state of EnterpriseKnowledgeGraph provisioning
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
@@ -297,8 +297,8 @@ func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) Description() pulumi.S
 }
 
 // Specifies the metadata  of the resource.
-func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v EnterpriseKnowledgeGraphPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v EnterpriseKnowledgeGraphPropertiesResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // The state of EnterpriseKnowledgeGraph provisioning
@@ -337,13 +337,13 @@ func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Description() pulum
 }
 
 // Specifies the metadata  of the resource.
-func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v *EnterpriseKnowledgeGraphPropertiesResponse) map[string]interface{} {
+func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EnterpriseKnowledgeGraphPropertiesResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The state of EnterpriseKnowledgeGraph provisioning

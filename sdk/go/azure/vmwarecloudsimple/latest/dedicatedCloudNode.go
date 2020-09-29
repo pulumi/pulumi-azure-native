@@ -20,6 +20,8 @@ type DedicatedCloudNode struct {
 	AvailabilityZoneName pulumi.StringOutput `pulumi:"availabilityZoneName"`
 	// VMWare Cloud Rack Name
 	CloudRackName pulumi.StringOutput `pulumi:"cloudRackName"`
+	// date time the resource was created
+	Created pulumi.AnyOutput `pulumi:"created"`
 	// Azure region
 	Location pulumi.StringOutput `pulumi:"location"`
 	// SKU's name
@@ -117,6 +119,8 @@ type dedicatedCloudNodeState struct {
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
 	// VMWare Cloud Rack Name
 	CloudRackName *string `pulumi:"cloudRackName"`
+	// date time the resource was created
+	Created interface{} `pulumi:"created"`
 	// Azure region
 	Location *string `pulumi:"location"`
 	// SKU's name
@@ -154,6 +158,8 @@ type DedicatedCloudNodeState struct {
 	AvailabilityZoneName pulumi.StringPtrInput
 	// VMWare Cloud Rack Name
 	CloudRackName pulumi.StringPtrInput
+	// date time the resource was created
+	Created pulumi.Input
 	// Azure region
 	Location pulumi.StringPtrInput
 	// SKU's name

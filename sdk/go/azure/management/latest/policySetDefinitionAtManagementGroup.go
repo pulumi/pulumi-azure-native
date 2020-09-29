@@ -19,7 +19,7 @@ type PolicySetDefinitionAtManagementGroup struct {
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The name of the policy set definition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The policy set definition parameters that can be used in policy definition references.
@@ -100,7 +100,7 @@ type policySetDefinitionAtManagementGroupState struct {
 	// The display name of the policy set definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The name of the policy set definition.
 	Name *string `pulumi:"name"`
 	// The policy set definition parameters that can be used in policy definition references.
@@ -121,7 +121,7 @@ type PolicySetDefinitionAtManagementGroupState struct {
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringPtrInput
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The name of the policy set definition.
 	Name pulumi.StringPtrInput
 	// The policy set definition parameters that can be used in policy definition references.
@@ -148,7 +148,7 @@ type policySetDefinitionAtManagementGroupArgs struct {
 	// The ID of the management group.
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters map[string]ParameterDefinitionsValue `pulumi:"parameters"`
 	// The metadata describing groups of policy definition references within the policy set definition.
@@ -170,7 +170,7 @@ type PolicySetDefinitionAtManagementGroupArgs struct {
 	// The ID of the management group.
 	ManagementGroupId pulumi.StringInput
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters ParameterDefinitionsValueMapInput
 	// The metadata describing groups of policy definition references within the policy set definition.

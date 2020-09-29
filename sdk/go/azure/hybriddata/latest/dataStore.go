@@ -19,7 +19,7 @@ type DataStore struct {
 	// The arm id of the data store type.
 	DataStoreTypeId pulumi.StringOutput `pulumi:"dataStoreTypeId"`
 	// A generic json used differently by each data source type.
-	ExtendedProperties pulumi.MapOutput `pulumi:"extendedProperties"`
+	ExtendedProperties pulumi.AnyOutput `pulumi:"extendedProperties"`
 	// Name of the object.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Arm Id for the manager resource to which the data source is associated. This is optional.
@@ -87,7 +87,7 @@ type dataStoreState struct {
 	// The arm id of the data store type.
 	DataStoreTypeId *string `pulumi:"dataStoreTypeId"`
 	// A generic json used differently by each data source type.
-	ExtendedProperties map[string]interface{} `pulumi:"extendedProperties"`
+	ExtendedProperties interface{} `pulumi:"extendedProperties"`
 	// Name of the object.
 	Name *string `pulumi:"name"`
 	// Arm Id for the manager resource to which the data source is associated. This is optional.
@@ -104,7 +104,7 @@ type DataStoreState struct {
 	// The arm id of the data store type.
 	DataStoreTypeId pulumi.StringPtrInput
 	// A generic json used differently by each data source type.
-	ExtendedProperties pulumi.MapInput
+	ExtendedProperties pulumi.Input
 	// Name of the object.
 	Name pulumi.StringPtrInput
 	// Arm Id for the manager resource to which the data source is associated. This is optional.
@@ -129,7 +129,7 @@ type dataStoreArgs struct {
 	// The arm id of the data store type.
 	DataStoreTypeId string `pulumi:"dataStoreTypeId"`
 	// A generic json used differently by each data source type.
-	ExtendedProperties map[string]interface{} `pulumi:"extendedProperties"`
+	ExtendedProperties interface{} `pulumi:"extendedProperties"`
 	// Arm Id for the manager resource to which the data source is associated. This is optional.
 	RepositoryId *string `pulumi:"repositoryId"`
 	// The Resource Group Name
@@ -149,7 +149,7 @@ type DataStoreArgs struct {
 	// The arm id of the data store type.
 	DataStoreTypeId pulumi.StringInput
 	// A generic json used differently by each data source type.
-	ExtendedProperties pulumi.MapInput
+	ExtendedProperties pulumi.Input
 	// Arm Id for the manager resource to which the data source is associated. This is optional.
 	RepositoryId pulumi.StringPtrInput
 	// The Resource Group Name

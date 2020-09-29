@@ -17,7 +17,7 @@ type ApiSchema struct {
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions pulumi.MapOutput `pulumi:"definitions"`
+	Definitions pulumi.AnyOutput `pulumi:"definitions"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource type for API Management resource.
@@ -93,7 +93,7 @@ type apiSchemaState struct {
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType *string `pulumi:"contentType"`
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions map[string]interface{} `pulumi:"definitions"`
+	Definitions interface{} `pulumi:"definitions"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Resource type for API Management resource.
@@ -106,7 +106,7 @@ type ApiSchemaState struct {
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType pulumi.StringPtrInput
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions pulumi.MapInput
+	Definitions pulumi.Input
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Resource type for API Management resource.
@@ -125,7 +125,7 @@ type apiSchemaArgs struct {
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType string `pulumi:"contentType"`
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions map[string]interface{} `pulumi:"definitions"`
+	Definitions interface{} `pulumi:"definitions"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Schema identifier within an API. Must be unique in the current API Management service instance.
@@ -143,7 +143,7 @@ type ApiSchemaArgs struct {
 	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
 	ContentType pulumi.StringInput
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions pulumi.MapInput
+	Definitions pulumi.Input
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Schema identifier within an API. Must be unique in the current API Management service instance.

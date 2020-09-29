@@ -665,11 +665,11 @@ type CmdkeySetup struct {
 	// The password of data source access.
 	Password SecureString `pulumi:"password"`
 	// The server name of data source access.
-	TargetName map[string]interface{} `pulumi:"targetName"`
+	TargetName interface{} `pulumi:"targetName"`
 	// The type of custom setup.
 	Type string `pulumi:"type"`
 	// The user name of data source access.
-	UserName map[string]interface{} `pulumi:"userName"`
+	UserName interface{} `pulumi:"userName"`
 }
 
 // CmdkeySetupInput is an input type that accepts CmdkeySetupArgs and CmdkeySetupOutput values.
@@ -688,11 +688,11 @@ type CmdkeySetupArgs struct {
 	// The password of data source access.
 	Password SecureStringInput `pulumi:"password"`
 	// The server name of data source access.
-	TargetName pulumi.MapInput `pulumi:"targetName"`
+	TargetName pulumi.Input `pulumi:"targetName"`
 	// The type of custom setup.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user name of data source access.
-	UserName pulumi.MapInput `pulumi:"userName"`
+	UserName pulumi.Input `pulumi:"userName"`
 }
 
 func (CmdkeySetupArgs) ElementType() reflect.Type {
@@ -728,8 +728,8 @@ func (o CmdkeySetupOutput) Password() SecureStringOutput {
 }
 
 // The server name of data source access.
-func (o CmdkeySetupOutput) TargetName() pulumi.MapOutput {
-	return o.ApplyT(func(v CmdkeySetup) map[string]interface{} { return v.TargetName }).(pulumi.MapOutput)
+func (o CmdkeySetupOutput) TargetName() pulumi.AnyOutput {
+	return o.ApplyT(func(v CmdkeySetup) interface{} { return v.TargetName }).(pulumi.AnyOutput)
 }
 
 // The type of custom setup.
@@ -738,8 +738,8 @@ func (o CmdkeySetupOutput) Type() pulumi.StringOutput {
 }
 
 // The user name of data source access.
-func (o CmdkeySetupOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v CmdkeySetup) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
+func (o CmdkeySetupOutput) UserName() pulumi.AnyOutput {
+	return o.ApplyT(func(v CmdkeySetup) interface{} { return v.UserName }).(pulumi.AnyOutput)
 }
 
 // The custom setup of running cmdkey commands.
@@ -747,11 +747,11 @@ type CmdkeySetupResponse struct {
 	// The password of data source access.
 	Password SecureStringResponse `pulumi:"password"`
 	// The server name of data source access.
-	TargetName map[string]interface{} `pulumi:"targetName"`
+	TargetName interface{} `pulumi:"targetName"`
 	// The type of custom setup.
 	Type string `pulumi:"type"`
 	// The user name of data source access.
-	UserName map[string]interface{} `pulumi:"userName"`
+	UserName interface{} `pulumi:"userName"`
 }
 
 // CmdkeySetupResponseInput is an input type that accepts CmdkeySetupResponseArgs and CmdkeySetupResponseOutput values.
@@ -770,11 +770,11 @@ type CmdkeySetupResponseArgs struct {
 	// The password of data source access.
 	Password SecureStringResponseInput `pulumi:"password"`
 	// The server name of data source access.
-	TargetName pulumi.MapInput `pulumi:"targetName"`
+	TargetName pulumi.Input `pulumi:"targetName"`
 	// The type of custom setup.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user name of data source access.
-	UserName pulumi.MapInput `pulumi:"userName"`
+	UserName pulumi.Input `pulumi:"userName"`
 }
 
 func (CmdkeySetupResponseArgs) ElementType() reflect.Type {
@@ -810,8 +810,8 @@ func (o CmdkeySetupResponseOutput) Password() SecureStringResponseOutput {
 }
 
 // The server name of data source access.
-func (o CmdkeySetupResponseOutput) TargetName() pulumi.MapOutput {
-	return o.ApplyT(func(v CmdkeySetupResponse) map[string]interface{} { return v.TargetName }).(pulumi.MapOutput)
+func (o CmdkeySetupResponseOutput) TargetName() pulumi.AnyOutput {
+	return o.ApplyT(func(v CmdkeySetupResponse) interface{} { return v.TargetName }).(pulumi.AnyOutput)
 }
 
 // The type of custom setup.
@@ -820,8 +820,8 @@ func (o CmdkeySetupResponseOutput) Type() pulumi.StringOutput {
 }
 
 // The user name of data source access.
-func (o CmdkeySetupResponseOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v CmdkeySetupResponse) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
+func (o CmdkeySetupResponseOutput) UserName() pulumi.AnyOutput {
+	return o.ApplyT(func(v CmdkeySetupResponse) interface{} { return v.UserName }).(pulumi.AnyOutput)
 }
 
 // The custom setup of installing 3rd party components.

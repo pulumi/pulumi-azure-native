@@ -40,7 +40,7 @@ type LookupPoolResult struct {
 	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
 	Size int `pulumi:"size"`
 	// Resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

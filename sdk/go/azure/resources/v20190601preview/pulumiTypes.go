@@ -246,7 +246,7 @@ type TemplateSpecTemplateArtifact struct {
 	// A filesystem safe relative path of the artifact.
 	Path string `pulumi:"path"`
 	// The Azure Resource Manager template.
-	Template map[string]interface{} `pulumi:"template"`
+	Template interface{} `pulumi:"template"`
 }
 
 // TemplateSpecTemplateArtifactInput is an input type that accepts TemplateSpecTemplateArtifactArgs and TemplateSpecTemplateArtifactOutput values.
@@ -267,7 +267,7 @@ type TemplateSpecTemplateArtifactArgs struct {
 	// A filesystem safe relative path of the artifact.
 	Path pulumi.StringInput `pulumi:"path"`
 	// The Azure Resource Manager template.
-	Template pulumi.MapInput `pulumi:"template"`
+	Template pulumi.Input `pulumi:"template"`
 }
 
 func (TemplateSpecTemplateArtifactArgs) ElementType() reflect.Type {
@@ -333,8 +333,8 @@ func (o TemplateSpecTemplateArtifactOutput) Path() pulumi.StringOutput {
 }
 
 // The Azure Resource Manager template.
-func (o TemplateSpecTemplateArtifactOutput) Template() pulumi.MapOutput {
-	return o.ApplyT(func(v TemplateSpecTemplateArtifact) map[string]interface{} { return v.Template }).(pulumi.MapOutput)
+func (o TemplateSpecTemplateArtifactOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifact) interface{} { return v.Template }).(pulumi.AnyOutput)
 }
 
 type TemplateSpecTemplateArtifactArrayOutput struct{ *pulumi.OutputState }
@@ -364,7 +364,7 @@ type TemplateSpecTemplateArtifactResponse struct {
 	// A filesystem safe relative path of the artifact.
 	Path string `pulumi:"path"`
 	// The Azure Resource Manager template.
-	Template map[string]interface{} `pulumi:"template"`
+	Template interface{} `pulumi:"template"`
 }
 
 // TemplateSpecTemplateArtifactResponseInput is an input type that accepts TemplateSpecTemplateArtifactResponseArgs and TemplateSpecTemplateArtifactResponseOutput values.
@@ -385,7 +385,7 @@ type TemplateSpecTemplateArtifactResponseArgs struct {
 	// A filesystem safe relative path of the artifact.
 	Path pulumi.StringInput `pulumi:"path"`
 	// The Azure Resource Manager template.
-	Template pulumi.MapInput `pulumi:"template"`
+	Template pulumi.Input `pulumi:"template"`
 }
 
 func (TemplateSpecTemplateArtifactResponseArgs) ElementType() reflect.Type {
@@ -451,8 +451,8 @@ func (o TemplateSpecTemplateArtifactResponseOutput) Path() pulumi.StringOutput {
 }
 
 // The Azure Resource Manager template.
-func (o TemplateSpecTemplateArtifactResponseOutput) Template() pulumi.MapOutput {
-	return o.ApplyT(func(v TemplateSpecTemplateArtifactResponse) map[string]interface{} { return v.Template }).(pulumi.MapOutput)
+func (o TemplateSpecTemplateArtifactResponseOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifactResponse) interface{} { return v.Template }).(pulumi.AnyOutput)
 }
 
 type TemplateSpecTemplateArtifactResponseArrayOutput struct{ *pulumi.OutputState }

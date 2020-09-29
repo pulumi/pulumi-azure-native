@@ -29,7 +29,7 @@ type IntegrationAccountMap struct {
 	// The map type.
 	MapType pulumi.StringOutput `pulumi:"mapType"`
 	// The metadata.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// Gets the resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The parameters schema of integration account map.
@@ -110,7 +110,7 @@ type integrationAccountMapState struct {
 	// The map type.
 	MapType *string `pulumi:"mapType"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
 	// The parameters schema of integration account map.
@@ -137,7 +137,7 @@ type IntegrationAccountMapState struct {
 	// The map type.
 	MapType pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// Gets the resource name.
 	Name pulumi.StringPtrInput
 	// The parameters schema of integration account map.
@@ -166,7 +166,7 @@ type integrationAccountMapArgs struct {
 	// The map type.
 	MapType string `pulumi:"mapType"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The parameters schema of integration account map.
 	ParametersSchema *IntegrationAccountMapPropertiesParametersSchema `pulumi:"parametersSchema"`
 	// The resource group name.
@@ -190,7 +190,7 @@ type IntegrationAccountMapArgs struct {
 	// The map type.
 	MapType pulumi.StringInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The parameters schema of integration account map.
 	ParametersSchema IntegrationAccountMapPropertiesParametersSchemaPtrInput
 	// The resource group name.

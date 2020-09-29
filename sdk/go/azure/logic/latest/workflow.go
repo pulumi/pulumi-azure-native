@@ -23,7 +23,7 @@ type Workflow struct {
 	// Gets the created time.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The definition.
-	Definition pulumi.MapOutput `pulumi:"definition"`
+	Definition pulumi.AnyOutput `pulumi:"definition"`
 	// The endpoints configuration.
 	EndpointsConfiguration FlowEndpointsConfigurationResponsePtrOutput `pulumi:"endpointsConfiguration"`
 	// The integration account.
@@ -108,7 +108,7 @@ type workflowState struct {
 	// Gets the created time.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The definition.
-	Definition map[string]interface{} `pulumi:"definition"`
+	Definition interface{} `pulumi:"definition"`
 	// The endpoints configuration.
 	EndpointsConfiguration *FlowEndpointsConfigurationResponse `pulumi:"endpointsConfiguration"`
 	// The integration account.
@@ -145,7 +145,7 @@ type WorkflowState struct {
 	// Gets the created time.
 	CreatedTime pulumi.StringPtrInput
 	// The definition.
-	Definition pulumi.MapInput
+	Definition pulumi.Input
 	// The endpoints configuration.
 	EndpointsConfiguration FlowEndpointsConfigurationResponsePtrInput
 	// The integration account.
@@ -180,7 +180,7 @@ type workflowArgs struct {
 	// The access control configuration.
 	AccessControl *FlowAccessControlConfiguration `pulumi:"accessControl"`
 	// The definition.
-	Definition map[string]interface{} `pulumi:"definition"`
+	Definition interface{} `pulumi:"definition"`
 	// The endpoints configuration.
 	EndpointsConfiguration *FlowEndpointsConfiguration `pulumi:"endpointsConfiguration"`
 	// The integration account.
@@ -206,7 +206,7 @@ type WorkflowArgs struct {
 	// The access control configuration.
 	AccessControl FlowAccessControlConfigurationPtrInput
 	// The definition.
-	Definition pulumi.MapInput
+	Definition pulumi.Input
 	// The endpoints configuration.
 	EndpointsConfiguration FlowEndpointsConfigurationPtrInput
 	// The integration account.

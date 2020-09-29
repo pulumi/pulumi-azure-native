@@ -19,7 +19,7 @@ type Workspace struct {
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsResponsePtrOutput `pulumi:"defaultDataLakeStorage"`
 	// Workspace level configs and feature flags
-	ExtraProperties pulumi.MapMapOutput `pulumi:"extraProperties"`
+	ExtraProperties pulumi.MapOutput `pulumi:"extraProperties"`
 	// Identity of the workspace
 	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -88,7 +88,7 @@ type workspaceState struct {
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage *DataLakeStorageAccountDetailsResponse `pulumi:"defaultDataLakeStorage"`
 	// Workspace level configs and feature flags
-	ExtraProperties map[string]map[string]interface{} `pulumi:"extraProperties"`
+	ExtraProperties map[string]interface{} `pulumi:"extraProperties"`
 	// Identity of the workspace
 	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -121,7 +121,7 @@ type WorkspaceState struct {
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsResponsePtrInput
 	// Workspace level configs and feature flags
-	ExtraProperties pulumi.MapMapInput
+	ExtraProperties pulumi.MapInput
 	// Identity of the workspace
 	Identity ManagedIdentityResponsePtrInput
 	// The geo-location where the resource lives

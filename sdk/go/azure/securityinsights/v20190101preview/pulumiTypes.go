@@ -1905,7 +1905,7 @@ type WatchlistItem struct {
 	// The time the watchlist item was created
 	CreatedTimeUtc *string `pulumi:"createdTimeUtc"`
 	// A key-value pair for a watchlist item entity mapping
-	EntityMapping map[string]interface{} `pulumi:"entityMapping"`
+	EntityMapping interface{} `pulumi:"entityMapping"`
 	// The last time the watchlist item was updated
 	LastUpdatedTimeUtc *string `pulumi:"lastUpdatedTimeUtc"`
 	// The tenantId to which this watchlist item belongs to
@@ -1919,7 +1919,7 @@ type WatchlistItem struct {
 	// Name of the watchlist item
 	WatchlistItemName *string `pulumi:"watchlistItemName"`
 	// A key-value pair for a watchlist item
-	WatchlistItemPair map[string]interface{} `pulumi:"watchlistItemPair"`
+	WatchlistItemPair interface{} `pulumi:"watchlistItemPair"`
 	// The type of the watchlist item
 	WatchlistItemType *string `pulumi:"watchlistItemType"`
 }
@@ -1942,7 +1942,7 @@ type WatchlistItemArgs struct {
 	// The time the watchlist item was created
 	CreatedTimeUtc pulumi.StringPtrInput `pulumi:"createdTimeUtc"`
 	// A key-value pair for a watchlist item entity mapping
-	EntityMapping pulumi.MapInput `pulumi:"entityMapping"`
+	EntityMapping pulumi.Input `pulumi:"entityMapping"`
 	// The last time the watchlist item was updated
 	LastUpdatedTimeUtc pulumi.StringPtrInput `pulumi:"lastUpdatedTimeUtc"`
 	// The tenantId to which this watchlist item belongs to
@@ -1956,7 +1956,7 @@ type WatchlistItemArgs struct {
 	// Name of the watchlist item
 	WatchlistItemName pulumi.StringPtrInput `pulumi:"watchlistItemName"`
 	// A key-value pair for a watchlist item
-	WatchlistItemPair pulumi.MapInput `pulumi:"watchlistItemPair"`
+	WatchlistItemPair pulumi.Input `pulumi:"watchlistItemPair"`
 	// The type of the watchlist item
 	WatchlistItemType pulumi.StringPtrInput `pulumi:"watchlistItemType"`
 }
@@ -2024,8 +2024,8 @@ func (o WatchlistItemOutput) CreatedTimeUtc() pulumi.StringPtrOutput {
 }
 
 // A key-value pair for a watchlist item entity mapping
-func (o WatchlistItemOutput) EntityMapping() pulumi.MapOutput {
-	return o.ApplyT(func(v WatchlistItem) map[string]interface{} { return v.EntityMapping }).(pulumi.MapOutput)
+func (o WatchlistItemOutput) EntityMapping() pulumi.AnyOutput {
+	return o.ApplyT(func(v WatchlistItem) interface{} { return v.EntityMapping }).(pulumi.AnyOutput)
 }
 
 // The last time the watchlist item was updated
@@ -2059,8 +2059,8 @@ func (o WatchlistItemOutput) WatchlistItemName() pulumi.StringPtrOutput {
 }
 
 // A key-value pair for a watchlist item
-func (o WatchlistItemOutput) WatchlistItemPair() pulumi.MapOutput {
-	return o.ApplyT(func(v WatchlistItem) map[string]interface{} { return v.WatchlistItemPair }).(pulumi.MapOutput)
+func (o WatchlistItemOutput) WatchlistItemPair() pulumi.AnyOutput {
+	return o.ApplyT(func(v WatchlistItem) interface{} { return v.WatchlistItemPair }).(pulumi.AnyOutput)
 }
 
 // The type of the watchlist item
@@ -2095,7 +2095,7 @@ type WatchlistItemResponse struct {
 	// The time the watchlist item was created
 	CreatedTimeUtc *string `pulumi:"createdTimeUtc"`
 	// A key-value pair for a watchlist item entity mapping
-	EntityMapping map[string]interface{} `pulumi:"entityMapping"`
+	EntityMapping interface{} `pulumi:"entityMapping"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// The last time the watchlist item was updated
@@ -2115,7 +2115,7 @@ type WatchlistItemResponse struct {
 	// Name of the watchlist item
 	WatchlistItemName *string `pulumi:"watchlistItemName"`
 	// A key-value pair for a watchlist item
-	WatchlistItemPair map[string]interface{} `pulumi:"watchlistItemPair"`
+	WatchlistItemPair interface{} `pulumi:"watchlistItemPair"`
 	// The type of the watchlist item
 	WatchlistItemType *string `pulumi:"watchlistItemType"`
 }
@@ -2138,7 +2138,7 @@ type WatchlistItemResponseArgs struct {
 	// The time the watchlist item was created
 	CreatedTimeUtc pulumi.StringPtrInput `pulumi:"createdTimeUtc"`
 	// A key-value pair for a watchlist item entity mapping
-	EntityMapping pulumi.MapInput `pulumi:"entityMapping"`
+	EntityMapping pulumi.Input `pulumi:"entityMapping"`
 	// Azure resource Id
 	Id pulumi.StringInput `pulumi:"id"`
 	// The last time the watchlist item was updated
@@ -2158,7 +2158,7 @@ type WatchlistItemResponseArgs struct {
 	// Name of the watchlist item
 	WatchlistItemName pulumi.StringPtrInput `pulumi:"watchlistItemName"`
 	// A key-value pair for a watchlist item
-	WatchlistItemPair pulumi.MapInput `pulumi:"watchlistItemPair"`
+	WatchlistItemPair pulumi.Input `pulumi:"watchlistItemPair"`
 	// The type of the watchlist item
 	WatchlistItemType pulumi.StringPtrInput `pulumi:"watchlistItemType"`
 }
@@ -2226,8 +2226,8 @@ func (o WatchlistItemResponseOutput) CreatedTimeUtc() pulumi.StringPtrOutput {
 }
 
 // A key-value pair for a watchlist item entity mapping
-func (o WatchlistItemResponseOutput) EntityMapping() pulumi.MapOutput {
-	return o.ApplyT(func(v WatchlistItemResponse) map[string]interface{} { return v.EntityMapping }).(pulumi.MapOutput)
+func (o WatchlistItemResponseOutput) EntityMapping() pulumi.AnyOutput {
+	return o.ApplyT(func(v WatchlistItemResponse) interface{} { return v.EntityMapping }).(pulumi.AnyOutput)
 }
 
 // Azure resource Id
@@ -2276,8 +2276,8 @@ func (o WatchlistItemResponseOutput) WatchlistItemName() pulumi.StringPtrOutput 
 }
 
 // A key-value pair for a watchlist item
-func (o WatchlistItemResponseOutput) WatchlistItemPair() pulumi.MapOutput {
-	return o.ApplyT(func(v WatchlistItemResponse) map[string]interface{} { return v.WatchlistItemPair }).(pulumi.MapOutput)
+func (o WatchlistItemResponseOutput) WatchlistItemPair() pulumi.AnyOutput {
+	return o.ApplyT(func(v WatchlistItemResponse) interface{} { return v.WatchlistItemPair }).(pulumi.AnyOutput)
 }
 
 // The type of the watchlist item

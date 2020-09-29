@@ -34,7 +34,7 @@ type LookupAccountResult struct {
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

@@ -19,9 +19,9 @@ type VendorSkus struct {
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The parameters for the managed application to be supplied by vendor.
-	ManagedApplicationParameters pulumi.MapOutput `pulumi:"managedApplicationParameters"`
+	ManagedApplicationParameters pulumi.AnyOutput `pulumi:"managedApplicationParameters"`
 	// The template for the managed application deployment.
-	ManagedApplicationTemplate pulumi.MapOutput `pulumi:"managedApplicationTemplate"`
+	ManagedApplicationTemplate pulumi.AnyOutput `pulumi:"managedApplicationTemplate"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates if the vendor sku is in preview mode.
@@ -77,9 +77,9 @@ type vendorSkusState struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The parameters for the managed application to be supplied by vendor.
-	ManagedApplicationParameters map[string]interface{} `pulumi:"managedApplicationParameters"`
+	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The template for the managed application deployment.
-	ManagedApplicationTemplate map[string]interface{} `pulumi:"managedApplicationTemplate"`
+	ManagedApplicationTemplate interface{} `pulumi:"managedApplicationTemplate"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Indicates if the vendor sku is in preview mode.
@@ -102,9 +102,9 @@ type VendorSkusState struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The parameters for the managed application to be supplied by vendor.
-	ManagedApplicationParameters pulumi.MapInput
+	ManagedApplicationParameters pulumi.Input
 	// The template for the managed application deployment.
-	ManagedApplicationTemplate pulumi.MapInput
+	ManagedApplicationTemplate pulumi.Input
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Indicates if the vendor sku is in preview mode.
@@ -131,9 +131,9 @@ type vendorSkusArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The parameters for the managed application to be supplied by vendor.
-	ManagedApplicationParameters map[string]interface{} `pulumi:"managedApplicationParameters"`
+	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The template for the managed application deployment.
-	ManagedApplicationTemplate map[string]interface{} `pulumi:"managedApplicationTemplate"`
+	ManagedApplicationTemplate interface{} `pulumi:"managedApplicationTemplate"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview *bool `pulumi:"preview"`
 	// The name of the sku.
@@ -155,9 +155,9 @@ type VendorSkusArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The parameters for the managed application to be supplied by vendor.
-	ManagedApplicationParameters pulumi.MapInput
+	ManagedApplicationParameters pulumi.Input
 	// The template for the managed application deployment.
-	ManagedApplicationTemplate pulumi.MapInput
+	ManagedApplicationTemplate pulumi.Input
 	// Indicates if the vendor sku is in preview mode.
 	Preview pulumi.BoolPtrInput
 	// The name of the sku.

@@ -19,7 +19,7 @@ type Dashboard struct {
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The dashboard metadata.
-	Metadata pulumi.MapMapOutput `pulumi:"metadata"`
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource tags
@@ -82,7 +82,7 @@ type dashboardState struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The dashboard metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Resource tags
@@ -97,7 +97,7 @@ type DashboardState struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The dashboard metadata.
-	Metadata pulumi.MapMapInput
+	Metadata pulumi.MapInput
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Resource tags
@@ -118,7 +118,7 @@ type dashboardArgs struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// The dashboard metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -134,7 +134,7 @@ type DashboardArgs struct {
 	// Resource location
 	Location pulumi.StringInput
 	// The dashboard metadata.
-	Metadata pulumi.MapMapInput
+	Metadata pulumi.MapInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

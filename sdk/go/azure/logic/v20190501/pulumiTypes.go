@@ -6148,7 +6148,7 @@ type ApiResourcePropertiesResponse struct {
 	// The category.
 	Category *string `pulumi:"category"`
 	// The connection parameters.
-	ConnectionParameters map[string]map[string]interface{} `pulumi:"connectionParameters"`
+	ConnectionParameters map[string]interface{} `pulumi:"connectionParameters"`
 	// The api general information.
 	GeneralInformation *ApiResourceGeneralInformationResponse `pulumi:"generalInformation"`
 	// The integration service environment reference.
@@ -6189,7 +6189,7 @@ type ApiResourcePropertiesResponseArgs struct {
 	// The category.
 	Category pulumi.StringPtrInput `pulumi:"category"`
 	// The connection parameters.
-	ConnectionParameters pulumi.MapMapInput `pulumi:"connectionParameters"`
+	ConnectionParameters pulumi.MapInput `pulumi:"connectionParameters"`
 	// The api general information.
 	GeneralInformation ApiResourceGeneralInformationResponsePtrInput `pulumi:"generalInformation"`
 	// The integration service environment reference.
@@ -6310,8 +6310,8 @@ func (o ApiResourcePropertiesResponseOutput) Category() pulumi.StringPtrOutput {
 }
 
 // The connection parameters.
-func (o ApiResourcePropertiesResponseOutput) ConnectionParameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) map[string]map[string]interface{} { return v.ConnectionParameters }).(pulumi.MapMapOutput)
+func (o ApiResourcePropertiesResponseOutput) ConnectionParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesResponse) map[string]interface{} { return v.ConnectionParameters }).(pulumi.MapOutput)
 }
 
 // The api general information.
@@ -6422,13 +6422,13 @@ func (o ApiResourcePropertiesResponsePtrOutput) Category() pulumi.StringPtrOutpu
 }
 
 // The connection parameters.
-func (o ApiResourcePropertiesResponsePtrOutput) ConnectionParameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) map[string]map[string]interface{} {
+func (o ApiResourcePropertiesResponsePtrOutput) ConnectionParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApiResourcePropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ConnectionParameters
-	}).(pulumi.MapMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The api general information.
@@ -6809,13 +6809,15 @@ type AssemblyPropertiesResponse struct {
 	// The assembly version.
 	AssemblyVersion *string `pulumi:"assemblyVersion"`
 	// The artifact changed time.
-	ChangedTime *string `pulumi:"changedTime"`
+	ChangedTime *string     `pulumi:"changedTime"`
+	Content     interface{} `pulumi:"content"`
 	// The content link.
 	ContentLink *ContentLinkResponse `pulumi:"contentLink"`
 	// The content type.
 	ContentType *string `pulumi:"contentType"`
 	// The artifact creation time.
-	CreatedTime *string `pulumi:"createdTime"`
+	CreatedTime *string     `pulumi:"createdTime"`
+	Metadata    interface{} `pulumi:"metadata"`
 }
 
 // AssemblyPropertiesResponseInput is an input type that accepts AssemblyPropertiesResponseArgs and AssemblyPropertiesResponseOutput values.
@@ -6841,12 +6843,14 @@ type AssemblyPropertiesResponseArgs struct {
 	AssemblyVersion pulumi.StringPtrInput `pulumi:"assemblyVersion"`
 	// The artifact changed time.
 	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
+	Content     pulumi.Input          `pulumi:"content"`
 	// The content link.
 	ContentLink ContentLinkResponsePtrInput `pulumi:"contentLink"`
 	// The content type.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	// The artifact creation time.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	Metadata    pulumi.Input          `pulumi:"metadata"`
 }
 
 func (AssemblyPropertiesResponseArgs) ElementType() reflect.Type {
@@ -6952,6 +6956,10 @@ func (o AssemblyPropertiesResponseOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
 
+func (o AssemblyPropertiesResponseOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v AssemblyPropertiesResponse) interface{} { return v.Content }).(pulumi.AnyOutput)
+}
+
 // The content link.
 func (o AssemblyPropertiesResponseOutput) ContentLink() ContentLinkResponsePtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *ContentLinkResponse { return v.ContentLink }).(ContentLinkResponsePtrOutput)
@@ -6965,6 +6973,10 @@ func (o AssemblyPropertiesResponseOutput) ContentType() pulumi.StringPtrOutput {
 // The artifact creation time.
 func (o AssemblyPropertiesResponseOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o AssemblyPropertiesResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v AssemblyPropertiesResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 type AssemblyPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -7035,6 +7047,15 @@ func (o AssemblyPropertiesResponsePtrOutput) ChangedTime() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o AssemblyPropertiesResponsePtrOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AssemblyPropertiesResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.AnyOutput)
+}
+
 // The content link.
 func (o AssemblyPropertiesResponsePtrOutput) ContentLink() ContentLinkResponsePtrOutput {
 	return o.ApplyT(func(v *AssemblyPropertiesResponse) *ContentLinkResponse {
@@ -7063,6 +7084,15 @@ func (o AssemblyPropertiesResponsePtrOutput) CreatedTime() pulumi.StringPtrOutpu
 		}
 		return v.CreatedTime
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o AssemblyPropertiesResponsePtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AssemblyPropertiesResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(pulumi.AnyOutput)
 }
 
 // The azure resource error info.
@@ -7763,7 +7793,8 @@ type BatchConfigurationPropertiesResponse struct {
 	// The artifact changed time.
 	ChangedTime *string `pulumi:"changedTime"`
 	// The artifact creation time.
-	CreatedTime *string `pulumi:"createdTime"`
+	CreatedTime *string     `pulumi:"createdTime"`
+	Metadata    interface{} `pulumi:"metadata"`
 	// The batch release criteria.
 	ReleaseCriteria BatchReleaseCriteriaResponse `pulumi:"releaseCriteria"`
 }
@@ -7787,6 +7818,7 @@ type BatchConfigurationPropertiesResponseArgs struct {
 	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
 	// The artifact creation time.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	Metadata    pulumi.Input          `pulumi:"metadata"`
 	// The batch release criteria.
 	ReleaseCriteria BatchReleaseCriteriaResponseInput `pulumi:"releaseCriteria"`
 }
@@ -7884,6 +7916,10 @@ func (o BatchConfigurationPropertiesResponseOutput) CreatedTime() pulumi.StringP
 	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+func (o BatchConfigurationPropertiesResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
 // The batch release criteria.
 func (o BatchConfigurationPropertiesResponseOutput) ReleaseCriteria() BatchReleaseCriteriaResponseOutput {
 	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) BatchReleaseCriteriaResponse { return v.ReleaseCriteria }).(BatchReleaseCriteriaResponseOutput)
@@ -7935,6 +7971,15 @@ func (o BatchConfigurationPropertiesResponsePtrOutput) CreatedTime() pulumi.Stri
 		}
 		return v.CreatedTime
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o BatchConfigurationPropertiesResponsePtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(pulumi.AnyOutput)
 }
 
 // The batch release criteria.
@@ -9002,7 +9047,7 @@ type ContentLink struct {
 	// The content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The content link URI.
 	Uri *string `pulumi:"uri"`
 }
@@ -9027,7 +9072,7 @@ type ContentLinkArgs struct {
 	// The content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// The content link URI.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
@@ -9126,8 +9171,8 @@ func (o ContentLinkOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o ContentLinkOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v ContentLink) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o ContentLinkOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v ContentLink) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // The content link URI.
@@ -9184,13 +9229,13 @@ func (o ContentLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o ContentLinkPtrOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v *ContentLink) map[string]interface{} {
+func (o ContentLinkPtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ContentLink) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The content link URI.
@@ -9212,7 +9257,7 @@ type ContentLinkResponse struct {
 	// The content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The content link URI.
 	Uri *string `pulumi:"uri"`
 }
@@ -9237,7 +9282,7 @@ type ContentLinkResponseArgs struct {
 	// The content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// The content link URI.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
@@ -9336,8 +9381,8 @@ func (o ContentLinkResponseOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o ContentLinkResponseOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v ContentLinkResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o ContentLinkResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v ContentLinkResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // The content link URI.
@@ -9394,13 +9439,13 @@ func (o ContentLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o ContentLinkResponsePtrOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) map[string]interface{} {
+func (o ContentLinkResponsePtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ContentLinkResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The content link URI.
@@ -16772,7 +16817,8 @@ type ExpressionResponse struct {
 	// The sub expressions.
 	Subexpressions []ExpressionResponse `pulumi:"subexpressions"`
 	// The text.
-	Text *string `pulumi:"text"`
+	Text  *string     `pulumi:"text"`
+	Value interface{} `pulumi:"value"`
 }
 
 // ExpressionResponseInput is an input type that accepts ExpressionResponseArgs and ExpressionResponseOutput values.
@@ -16793,7 +16839,8 @@ type ExpressionResponseArgs struct {
 	// The sub expressions.
 	Subexpressions ExpressionResponseArrayInput `pulumi:"subexpressions"`
 	// The text.
-	Text pulumi.StringPtrInput `pulumi:"text"`
+	Text  pulumi.StringPtrInput `pulumi:"text"`
+	Value pulumi.Input          `pulumi:"value"`
 }
 
 func (ExpressionResponseArgs) ElementType() reflect.Type {
@@ -16863,6 +16910,10 @@ func (o ExpressionResponseOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressionResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
+func (o ExpressionResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ExpressionResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
 type ExpressionResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (ExpressionResponseArrayOutput) ElementType() reflect.Type {
@@ -16892,7 +16943,8 @@ type ExpressionRootResponse struct {
 	// The sub expressions.
 	Subexpressions []ExpressionResponse `pulumi:"subexpressions"`
 	// The text.
-	Text *string `pulumi:"text"`
+	Text  *string     `pulumi:"text"`
+	Value interface{} `pulumi:"value"`
 }
 
 // ExpressionRootResponseInput is an input type that accepts ExpressionRootResponseArgs and ExpressionRootResponseOutput values.
@@ -16915,7 +16967,8 @@ type ExpressionRootResponseArgs struct {
 	// The sub expressions.
 	Subexpressions ExpressionResponseArrayInput `pulumi:"subexpressions"`
 	// The text.
-	Text pulumi.StringPtrInput `pulumi:"text"`
+	Text  pulumi.StringPtrInput `pulumi:"text"`
+	Value pulumi.Input          `pulumi:"value"`
 }
 
 func (ExpressionRootResponseArgs) ElementType() reflect.Type {
@@ -16988,6 +17041,10 @@ func (o ExpressionRootResponseOutput) Subexpressions() ExpressionResponseArrayOu
 // The text.
 func (o ExpressionRootResponseOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressionRootResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressionRootResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type ExpressionRootResponseArrayOutput struct{ *pulumi.OutputState }
@@ -24219,11 +24276,11 @@ type WorkflowParameter struct {
 	// The description.
 	Description *string `pulumi:"description"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The type.
 	Type *string `pulumi:"type"`
 	// The value.
-	Value map[string]interface{} `pulumi:"value"`
+	Value interface{} `pulumi:"value"`
 }
 
 // WorkflowParameterInput is an input type that accepts WorkflowParameterArgs and WorkflowParameterOutput values.
@@ -24242,11 +24299,11 @@ type WorkflowParameterArgs struct {
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// The type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The value.
-	Value pulumi.MapInput `pulumi:"value"`
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (WorkflowParameterArgs) ElementType() reflect.Type {
@@ -24307,8 +24364,8 @@ func (o WorkflowParameterOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o WorkflowParameterOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkflowParameter) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o WorkflowParameterOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameter) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // The type.
@@ -24317,8 +24374,8 @@ func (o WorkflowParameterOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The value.
-func (o WorkflowParameterOutput) Value() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkflowParameter) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+func (o WorkflowParameterOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameter) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type WorkflowParameterMapOutput struct{ *pulumi.OutputState }
@@ -24346,11 +24403,11 @@ type WorkflowParameterResponse struct {
 	// The description.
 	Description *string `pulumi:"description"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The type.
 	Type *string `pulumi:"type"`
 	// The value.
-	Value map[string]interface{} `pulumi:"value"`
+	Value interface{} `pulumi:"value"`
 }
 
 // WorkflowParameterResponseInput is an input type that accepts WorkflowParameterResponseArgs and WorkflowParameterResponseOutput values.
@@ -24369,11 +24426,11 @@ type WorkflowParameterResponseArgs struct {
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// The type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The value.
-	Value pulumi.MapInput `pulumi:"value"`
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (WorkflowParameterResponseArgs) ElementType() reflect.Type {
@@ -24434,8 +24491,8 @@ func (o WorkflowParameterResponseOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o WorkflowParameterResponseOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkflowParameterResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o WorkflowParameterResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameterResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // The type.
@@ -24444,8 +24501,8 @@ func (o WorkflowParameterResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The value.
-func (o WorkflowParameterResponseOutput) Value() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkflowParameterResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+func (o WorkflowParameterResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameterResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type WorkflowParameterResponseMapOutput struct{ *pulumi.OutputState }

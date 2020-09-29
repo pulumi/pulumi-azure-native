@@ -44,7 +44,7 @@ type LookupResourceResult struct {
 	// The plan of the resource.
 	Plan *PlanResponse `pulumi:"plan"`
 	// The resource properties.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags

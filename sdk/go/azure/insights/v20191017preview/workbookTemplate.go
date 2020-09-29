@@ -29,7 +29,7 @@ type WorkbookTemplate struct {
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.MapOutput `pulumi:"templateData"`
+	TemplateData pulumi.AnyOutput `pulumi:"templateData"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -92,7 +92,7 @@ type workbookTemplateState struct {
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Valid JSON object containing workbook template payload.
-	TemplateData map[string]interface{} `pulumi:"templateData"`
+	TemplateData interface{} `pulumi:"templateData"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
 }
@@ -113,7 +113,7 @@ type WorkbookTemplateState struct {
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.MapInput
+	TemplateData pulumi.Input
 	// Azure resource type
 	Type pulumi.StringPtrInput
 }
@@ -140,7 +140,7 @@ type workbookTemplateArgs struct {
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Valid JSON object containing workbook template payload.
-	TemplateData map[string]interface{} `pulumi:"templateData"`
+	TemplateData interface{} `pulumi:"templateData"`
 }
 
 // The set of arguments for constructing a WorkbookTemplate resource.
@@ -162,7 +162,7 @@ type WorkbookTemplateArgs struct {
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.MapInput
+	TemplateData pulumi.Input
 }
 
 func (WorkbookTemplateArgs) ElementType() reflect.Type {

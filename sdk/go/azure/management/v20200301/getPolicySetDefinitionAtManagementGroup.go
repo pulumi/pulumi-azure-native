@@ -30,7 +30,7 @@ type LookupPolicySetDefinitionAtManagementGroupResult struct {
 	// The display name of the policy set definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The name of the policy set definition.
 	Name string `pulumi:"name"`
 	// The policy set definition parameters that can be used in policy definition references.

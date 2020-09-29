@@ -12730,7 +12730,7 @@ type IntegrationAccountContentLinkResponse struct {
 	// The content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The content link URI.
 	Uri *string `pulumi:"uri"`
 }
@@ -12754,7 +12754,7 @@ type IntegrationAccountContentLinkResponseArgs struct {
 	// The content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// The content link URI.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
@@ -12854,8 +12854,8 @@ func (o IntegrationAccountContentLinkResponseOutput) ContentVersion() pulumi.Str
 }
 
 // The metadata.
-func (o IntegrationAccountContentLinkResponseOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v IntegrationAccountContentLinkResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o IntegrationAccountContentLinkResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v IntegrationAccountContentLinkResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // The content link URI.
@@ -12912,13 +12912,13 @@ func (o IntegrationAccountContentLinkResponsePtrOutput) ContentVersion() pulumi.
 }
 
 // The metadata.
-func (o IntegrationAccountContentLinkResponsePtrOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v *IntegrationAccountContentLinkResponse) map[string]interface{} {
+func (o IntegrationAccountContentLinkResponsePtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationAccountContentLinkResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The content link URI.

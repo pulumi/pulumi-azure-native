@@ -43,7 +43,7 @@ type Project struct {
 	// Provisioning state of the project.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Tags provided by Azure Tagging service.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// Type of the object = [Microsoft.Migrate/projects].
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
@@ -119,7 +119,7 @@ type projectState struct {
 	// Provisioning state of the project.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Tags provided by Azure Tagging service.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Type of the object = [Microsoft.Migrate/projects].
 	Type *string `pulumi:"type"`
 	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
@@ -156,7 +156,7 @@ type ProjectState struct {
 	// Provisioning state of the project.
 	ProvisioningState pulumi.StringPtrInput
 	// Tags provided by Azure Tagging service.
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 	// Type of the object = [Microsoft.Migrate/projects].
 	Type pulumi.StringPtrInput
 	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
@@ -183,7 +183,7 @@ type projectArgs struct {
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags provided by Azure Tagging service.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -203,7 +203,7 @@ type ProjectArgs struct {
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName pulumi.StringInput
 	// Tags provided by Azure Tagging service.
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 }
 
 func (ProjectArgs) ElementType() reflect.Type {

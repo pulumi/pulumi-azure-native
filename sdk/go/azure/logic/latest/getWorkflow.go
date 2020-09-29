@@ -34,7 +34,7 @@ type LookupWorkflowResult struct {
 	// Gets the created time.
 	CreatedTime string `pulumi:"createdTime"`
 	// The definition.
-	Definition map[string]interface{} `pulumi:"definition"`
+	Definition interface{} `pulumi:"definition"`
 	// The endpoints configuration.
 	EndpointsConfiguration *FlowEndpointsConfigurationResponse `pulumi:"endpointsConfiguration"`
 	// The integration account.

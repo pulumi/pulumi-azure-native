@@ -42,7 +42,7 @@ type LookupIntegrationAccountMapResult struct {
 	// The map type.
 	MapType string `pulumi:"mapType"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The parameters schema of integration account map.

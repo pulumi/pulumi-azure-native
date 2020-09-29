@@ -33,7 +33,7 @@ type Agreement struct {
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The metadata.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// Gets the resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource tags.
@@ -131,7 +131,7 @@ type agreementState struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
 	// The resource tags.
@@ -160,7 +160,7 @@ type AgreementState struct {
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// Gets the resource name.
 	Name pulumi.StringPtrInput
 	// The resource tags.
@@ -193,7 +193,7 @@ type agreementArgs struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -221,7 +221,7 @@ type AgreementArgs struct {
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

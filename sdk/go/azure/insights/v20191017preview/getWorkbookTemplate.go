@@ -40,7 +40,7 @@ type LookupWorkbookTemplateResult struct {
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Valid JSON object containing workbook template payload.
-	TemplateData map[string]interface{} `pulumi:"templateData"`
+	TemplateData interface{} `pulumi:"templateData"`
 	// Azure resource type
 	Type string `pulumi:"type"`
 }

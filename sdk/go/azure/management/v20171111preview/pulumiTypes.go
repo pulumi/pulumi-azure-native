@@ -310,6 +310,10 @@ func (o ParameterDefinitionMapOutput) MapIndex(k pulumi.StringInput) ParameterDe
 
 // Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponse struct {
+	// Array of allowed values for this parameter.
+	AllowedValues []interface{} `pulumi:"allowedValues"`
+	// Default Value for this parameter.
+	DefaultValue interface{} `pulumi:"defaultValue"`
 	// Description of this parameter/resourceGroup.
 	Description *string `pulumi:"description"`
 	// DisplayName of this parameter/resourceGroup.
@@ -333,6 +337,10 @@ type ParameterDefinitionResponseInput interface {
 
 // Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponseArgs struct {
+	// Array of allowed values for this parameter.
+	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
+	// Default Value for this parameter.
+	DefaultValue pulumi.Input `pulumi:"defaultValue"`
 	// Description of this parameter/resourceGroup.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// DisplayName of this parameter/resourceGroup.
@@ -393,6 +401,16 @@ func (o ParameterDefinitionResponseOutput) ToParameterDefinitionResponseOutput()
 
 func (o ParameterDefinitionResponseOutput) ToParameterDefinitionResponseOutputWithContext(ctx context.Context) ParameterDefinitionResponseOutput {
 	return o
+}
+
+// Array of allowed values for this parameter.
+func (o ParameterDefinitionResponseOutput) AllowedValues() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ParameterDefinitionResponse) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
+}
+
+// Default Value for this parameter.
+func (o ParameterDefinitionResponseOutput) DefaultValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterDefinitionResponse) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
 // Description of this parameter/resourceGroup.

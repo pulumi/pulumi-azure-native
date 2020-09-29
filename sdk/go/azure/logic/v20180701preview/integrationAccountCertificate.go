@@ -23,7 +23,7 @@ type IntegrationAccountCertificate struct {
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The metadata.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// Gets the resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The public certificate.
@@ -95,7 +95,7 @@ type integrationAccountCertificateState struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
 	// The public certificate.
@@ -116,7 +116,7 @@ type IntegrationAccountCertificateState struct {
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// Gets the resource name.
 	Name pulumi.StringPtrInput
 	// The public certificate.
@@ -141,7 +141,7 @@ type integrationAccountCertificateArgs struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The public certificate.
 	PublicCertificate *string `pulumi:"publicCertificate"`
 	// The resource group name.
@@ -161,7 +161,7 @@ type IntegrationAccountCertificateArgs struct {
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The public certificate.
 	PublicCertificate pulumi.StringPtrInput
 	// The resource group name.

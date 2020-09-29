@@ -30,9 +30,9 @@ type LookupVendorSkusResult struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The parameters for the managed application to be supplied by vendor.
-	ManagedApplicationParameters map[string]interface{} `pulumi:"managedApplicationParameters"`
+	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The template for the managed application deployment.
-	ManagedApplicationTemplate map[string]interface{} `pulumi:"managedApplicationTemplate"`
+	ManagedApplicationTemplate interface{} `pulumi:"managedApplicationTemplate"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Indicates if the vendor sku is in preview mode.

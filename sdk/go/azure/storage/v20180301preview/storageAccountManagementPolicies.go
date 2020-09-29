@@ -19,7 +19,7 @@ type StorageAccountManagementPolicies struct {
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy pulumi.MapOutput `pulumi:"policy"`
+	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -84,7 +84,7 @@ type storageAccountManagementPoliciesState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy map[string]interface{} `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
@@ -95,7 +95,7 @@ type StorageAccountManagementPoliciesState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy pulumi.MapInput
+	Policy pulumi.Input
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }
@@ -110,7 +110,7 @@ type storageAccountManagementPoliciesArgs struct {
 	// The name of the Storage Account Management Policy. It should always be 'default'
 	ManagementPolicyName string `pulumi:"managementPolicyName"`
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy map[string]interface{} `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -122,7 +122,7 @@ type StorageAccountManagementPoliciesArgs struct {
 	// The name of the Storage Account Management Policy. It should always be 'default'
 	ManagementPolicyName pulumi.StringInput
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy pulumi.MapInput
+	Policy pulumi.Input
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

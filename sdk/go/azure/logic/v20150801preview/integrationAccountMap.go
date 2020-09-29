@@ -16,7 +16,7 @@ type IntegrationAccountMap struct {
 	// The changed time.
 	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
 	// The content.
-	Content pulumi.MapOutput `pulumi:"content"`
+	Content pulumi.AnyOutput `pulumi:"content"`
 	// The content link.
 	ContentLink IntegrationAccountContentLinkResponseOutput `pulumi:"contentLink"`
 	// The content type.
@@ -28,7 +28,7 @@ type IntegrationAccountMap struct {
 	// The map type.
 	MapType pulumi.StringPtrOutput `pulumi:"mapType"`
 	// The metadata.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The resource name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The resource tags.
@@ -92,7 +92,7 @@ type integrationAccountMapState struct {
 	// The changed time.
 	ChangedTime *string `pulumi:"changedTime"`
 	// The content.
-	Content map[string]interface{} `pulumi:"content"`
+	Content interface{} `pulumi:"content"`
 	// The content link.
 	ContentLink *IntegrationAccountContentLinkResponse `pulumi:"contentLink"`
 	// The content type.
@@ -104,7 +104,7 @@ type integrationAccountMapState struct {
 	// The map type.
 	MapType *string `pulumi:"mapType"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// The resource tags.
@@ -117,7 +117,7 @@ type IntegrationAccountMapState struct {
 	// The changed time.
 	ChangedTime pulumi.StringPtrInput
 	// The content.
-	Content pulumi.MapInput
+	Content pulumi.Input
 	// The content link.
 	ContentLink IntegrationAccountContentLinkResponsePtrInput
 	// The content type.
@@ -129,7 +129,7 @@ type IntegrationAccountMapState struct {
 	// The map type.
 	MapType pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// The resource tags.
@@ -144,7 +144,7 @@ func (IntegrationAccountMapState) ElementType() reflect.Type {
 
 type integrationAccountMapArgs struct {
 	// The content.
-	Content map[string]interface{} `pulumi:"content"`
+	Content interface{} `pulumi:"content"`
 	// The content type.
 	ContentType *string `pulumi:"contentType"`
 	// The resource id.
@@ -158,7 +158,7 @@ type integrationAccountMapArgs struct {
 	// The map type.
 	MapType *string `pulumi:"mapType"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// The resource group name.
@@ -172,7 +172,7 @@ type integrationAccountMapArgs struct {
 // The set of arguments for constructing a IntegrationAccountMap resource.
 type IntegrationAccountMapArgs struct {
 	// The content.
-	Content pulumi.MapInput
+	Content pulumi.Input
 	// The content type.
 	ContentType pulumi.StringPtrInput
 	// The resource id.
@@ -186,7 +186,7 @@ type IntegrationAccountMapArgs struct {
 	// The map type.
 	MapType pulumi.StringPtrInput
 	// The metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// The resource group name.

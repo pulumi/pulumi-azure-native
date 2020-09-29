@@ -1216,7 +1216,7 @@ type ExtensionDataSource struct {
 	// The name of the VM extension.
 	ExtensionName string `pulumi:"extensionName"`
 	// The extension settings. The format is specific for particular extension.
-	ExtensionSettings map[string]interface{} `pulumi:"extensionSettings"`
+	ExtensionSettings interface{} `pulumi:"extensionSettings"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
 	Name string `pulumi:"name"`
@@ -1242,7 +1242,7 @@ type ExtensionDataSourceArgs struct {
 	// The name of the VM extension.
 	ExtensionName pulumi.StringInput `pulumi:"extensionName"`
 	// The extension settings. The format is specific for particular extension.
-	ExtensionSettings pulumi.MapInput `pulumi:"extensionSettings"`
+	ExtensionSettings pulumi.Input `pulumi:"extensionSettings"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1310,8 +1310,8 @@ func (o ExtensionDataSourceOutput) ExtensionName() pulumi.StringOutput {
 }
 
 // The extension settings. The format is specific for particular extension.
-func (o ExtensionDataSourceOutput) ExtensionSettings() pulumi.MapOutput {
-	return o.ApplyT(func(v ExtensionDataSource) map[string]interface{} { return v.ExtensionSettings }).(pulumi.MapOutput)
+func (o ExtensionDataSourceOutput) ExtensionSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v ExtensionDataSource) interface{} { return v.ExtensionSettings }).(pulumi.AnyOutput)
 }
 
 // A friendly name for the data source.
@@ -1352,7 +1352,7 @@ type ExtensionDataSourceResponse struct {
 	// The name of the VM extension.
 	ExtensionName string `pulumi:"extensionName"`
 	// The extension settings. The format is specific for particular extension.
-	ExtensionSettings map[string]interface{} `pulumi:"extensionSettings"`
+	ExtensionSettings interface{} `pulumi:"extensionSettings"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
 	Name string `pulumi:"name"`
@@ -1378,7 +1378,7 @@ type ExtensionDataSourceResponseArgs struct {
 	// The name of the VM extension.
 	ExtensionName pulumi.StringInput `pulumi:"extensionName"`
 	// The extension settings. The format is specific for particular extension.
-	ExtensionSettings pulumi.MapInput `pulumi:"extensionSettings"`
+	ExtensionSettings pulumi.Input `pulumi:"extensionSettings"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1446,8 +1446,8 @@ func (o ExtensionDataSourceResponseOutput) ExtensionName() pulumi.StringOutput {
 }
 
 // The extension settings. The format is specific for particular extension.
-func (o ExtensionDataSourceResponseOutput) ExtensionSettings() pulumi.MapOutput {
-	return o.ApplyT(func(v ExtensionDataSourceResponse) map[string]interface{} { return v.ExtensionSettings }).(pulumi.MapOutput)
+func (o ExtensionDataSourceResponseOutput) ExtensionSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v ExtensionDataSourceResponse) interface{} { return v.ExtensionSettings }).(pulumi.AnyOutput)
 }
 
 // A friendly name for the data source.

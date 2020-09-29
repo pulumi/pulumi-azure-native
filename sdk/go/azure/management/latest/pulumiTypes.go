@@ -1411,11 +1411,11 @@ type DeploymentProperties struct {
 	// The deployment on error behavior.
 	OnErrorDeployment *OnErrorDeployment `pulumi:"onErrorDeployment"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
 	ParametersLink *ParametersLink `pulumi:"parametersLink"`
 	// The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-	Template map[string]interface{} `pulumi:"template"`
+	Template interface{} `pulumi:"template"`
 	// The URI of the template. Use either the templateLink property or the template property, but not both.
 	TemplateLink *TemplateLink `pulumi:"templateLink"`
 }
@@ -1440,11 +1440,11 @@ type DeploymentPropertiesArgs struct {
 	// The deployment on error behavior.
 	OnErrorDeployment OnErrorDeploymentPtrInput `pulumi:"onErrorDeployment"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.MapInput `pulumi:"parameters"`
+	Parameters pulumi.Input `pulumi:"parameters"`
 	// The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
 	ParametersLink ParametersLinkPtrInput `pulumi:"parametersLink"`
 	// The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-	Template pulumi.MapInput `pulumi:"template"`
+	Template pulumi.Input `pulumi:"template"`
 	// The URI of the template. Use either the templateLink property or the template property, but not both.
 	TemplateLink TemplateLinkPtrInput `pulumi:"templateLink"`
 }
@@ -1543,8 +1543,8 @@ func (o DeploymentPropertiesOutput) OnErrorDeployment() OnErrorDeploymentPtrOutp
 }
 
 // Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
-func (o DeploymentPropertiesOutput) Parameters() pulumi.MapOutput {
-	return o.ApplyT(func(v DeploymentProperties) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+func (o DeploymentPropertiesOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentProperties) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
 // The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
@@ -1553,8 +1553,8 @@ func (o DeploymentPropertiesOutput) ParametersLink() ParametersLinkPtrOutput {
 }
 
 // The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-func (o DeploymentPropertiesOutput) Template() pulumi.MapOutput {
-	return o.ApplyT(func(v DeploymentProperties) map[string]interface{} { return v.Template }).(pulumi.MapOutput)
+func (o DeploymentPropertiesOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentProperties) interface{} { return v.Template }).(pulumi.AnyOutput)
 }
 
 // The URI of the template. Use either the templateLink property or the template property, but not both.
@@ -1611,13 +1611,13 @@ func (o DeploymentPropertiesPtrOutput) OnErrorDeployment() OnErrorDeploymentPtrO
 }
 
 // Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
-func (o DeploymentPropertiesPtrOutput) Parameters() pulumi.MapOutput {
-	return o.ApplyT(func(v *DeploymentProperties) map[string]interface{} {
+func (o DeploymentPropertiesPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeploymentProperties) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
@@ -1631,13 +1631,13 @@ func (o DeploymentPropertiesPtrOutput) ParametersLink() ParametersLinkPtrOutput 
 }
 
 // The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-func (o DeploymentPropertiesPtrOutput) Template() pulumi.MapOutput {
-	return o.ApplyT(func(v *DeploymentProperties) map[string]interface{} {
+func (o DeploymentPropertiesPtrOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeploymentProperties) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Template
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The URI of the template. Use either the templateLink property or the template property, but not both.
@@ -1669,9 +1669,9 @@ type DeploymentPropertiesExtendedResponse struct {
 	// Array of provisioned resources.
 	OutputResources []ResourceReferenceResponse `pulumi:"outputResources"`
 	// Key/value pairs that represent deployment output.
-	Outputs map[string]interface{} `pulumi:"outputs"`
+	Outputs interface{} `pulumi:"outputs"`
 	// Deployment parameters.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The URI referencing the parameters.
 	ParametersLink ParametersLinkResponse `pulumi:"parametersLink"`
 	// The list of resource providers needed for the deployment.
@@ -1718,9 +1718,9 @@ type DeploymentPropertiesExtendedResponseArgs struct {
 	// Array of provisioned resources.
 	OutputResources ResourceReferenceResponseArrayInput `pulumi:"outputResources"`
 	// Key/value pairs that represent deployment output.
-	Outputs pulumi.MapInput `pulumi:"outputs"`
+	Outputs pulumi.Input `pulumi:"outputs"`
 	// Deployment parameters.
-	Parameters pulumi.MapInput `pulumi:"parameters"`
+	Parameters pulumi.Input `pulumi:"parameters"`
 	// The URI referencing the parameters.
 	ParametersLink ParametersLinkResponseInput `pulumi:"parametersLink"`
 	// The list of resource providers needed for the deployment.
@@ -1858,13 +1858,13 @@ func (o DeploymentPropertiesExtendedResponseOutput) OutputResources() ResourceRe
 }
 
 // Key/value pairs that represent deployment output.
-func (o DeploymentPropertiesExtendedResponseOutput) Outputs() pulumi.MapOutput {
-	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]interface{} { return v.Outputs }).(pulumi.MapOutput)
+func (o DeploymentPropertiesExtendedResponseOutput) Outputs() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) interface{} { return v.Outputs }).(pulumi.AnyOutput)
 }
 
 // Deployment parameters.
-func (o DeploymentPropertiesExtendedResponseOutput) Parameters() pulumi.MapOutput {
-	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+func (o DeploymentPropertiesExtendedResponseOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
 // The URI referencing the parameters.
@@ -2001,23 +2001,23 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) OutputResources() Resourc
 }
 
 // Key/value pairs that represent deployment output.
-func (o DeploymentPropertiesExtendedResponsePtrOutput) Outputs() pulumi.MapOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]interface{} {
+func (o DeploymentPropertiesExtendedResponsePtrOutput) Outputs() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Outputs
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Deployment parameters.
-func (o DeploymentPropertiesExtendedResponsePtrOutput) Parameters() pulumi.MapOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]interface{} {
+func (o DeploymentPropertiesExtendedResponsePtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The URI referencing the parameters.
@@ -2566,7 +2566,7 @@ func (o EntityParentGroupInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
 // The resource management error additional info.
 type ErrorAdditionalInfoResponse struct {
 	// The additional info.
-	Info map[string]interface{} `pulumi:"info"`
+	Info interface{} `pulumi:"info"`
 	// The additional info type.
 	Type string `pulumi:"type"`
 }
@@ -2585,7 +2585,7 @@ type ErrorAdditionalInfoResponseInput interface {
 // The resource management error additional info.
 type ErrorAdditionalInfoResponseArgs struct {
 	// The additional info.
-	Info pulumi.MapInput `pulumi:"info"`
+	Info pulumi.Input `pulumi:"info"`
 	// The additional info type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2643,8 +2643,8 @@ func (o ErrorAdditionalInfoResponseOutput) ToErrorAdditionalInfoResponseOutputWi
 }
 
 // The additional info.
-func (o ErrorAdditionalInfoResponseOutput) Info() pulumi.MapOutput {
-	return o.ApplyT(func(v ErrorAdditionalInfoResponse) map[string]interface{} { return v.Info }).(pulumi.MapOutput)
+func (o ErrorAdditionalInfoResponseOutput) Info() pulumi.AnyOutput {
+	return o.ApplyT(func(v ErrorAdditionalInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
 }
 
 // The additional info type.
@@ -3691,9 +3691,9 @@ func (o OnErrorDeploymentExtendedResponsePtrOutput) Type() pulumi.StringPtrOutpu
 // The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValue struct {
 	// The allowed values for the parameter.
-	AllowedValues []map[string]interface{} `pulumi:"allowedValues"`
+	AllowedValues []interface{} `pulumi:"allowedValues"`
 	// The default value for the parameter if no value is provided.
-	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
+	DefaultValue interface{} `pulumi:"defaultValue"`
 	// General metadata for the parameter.
 	Metadata *ParameterDefinitionsValueMetadata `pulumi:"metadata"`
 	// The data type of the parameter.
@@ -3714,9 +3714,9 @@ type ParameterDefinitionsValueInput interface {
 // The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueArgs struct {
 	// The allowed values for the parameter.
-	AllowedValues pulumi.MapArrayInput `pulumi:"allowedValues"`
+	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
 	// The default value for the parameter if no value is provided.
-	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
+	DefaultValue pulumi.Input `pulumi:"defaultValue"`
 	// General metadata for the parameter.
 	Metadata ParameterDefinitionsValueMetadataPtrInput `pulumi:"metadata"`
 	// The data type of the parameter.
@@ -3776,13 +3776,13 @@ func (o ParameterDefinitionsValueOutput) ToParameterDefinitionsValueOutputWithCo
 }
 
 // The allowed values for the parameter.
-func (o ParameterDefinitionsValueOutput) AllowedValues() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValue) []map[string]interface{} { return v.AllowedValues }).(pulumi.MapArrayOutput)
+func (o ParameterDefinitionsValueOutput) AllowedValues() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValue) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
 }
 
 // The default value for the parameter if no value is provided.
-func (o ParameterDefinitionsValueOutput) DefaultValue() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValue) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
+func (o ParameterDefinitionsValueOutput) DefaultValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValue) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
 // General metadata for the parameter.
@@ -3971,9 +3971,9 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) DisplayName() pulumi.StringP
 // The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueResponse struct {
 	// The allowed values for the parameter.
-	AllowedValues []map[string]interface{} `pulumi:"allowedValues"`
+	AllowedValues []interface{} `pulumi:"allowedValues"`
 	// The default value for the parameter if no value is provided.
-	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
+	DefaultValue interface{} `pulumi:"defaultValue"`
 	// General metadata for the parameter.
 	Metadata *ParameterDefinitionsValueResponseMetadata `pulumi:"metadata"`
 	// The data type of the parameter.
@@ -3994,9 +3994,9 @@ type ParameterDefinitionsValueResponseInput interface {
 // The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueResponseArgs struct {
 	// The allowed values for the parameter.
-	AllowedValues pulumi.MapArrayInput `pulumi:"allowedValues"`
+	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
 	// The default value for the parameter if no value is provided.
-	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
+	DefaultValue pulumi.Input `pulumi:"defaultValue"`
 	// General metadata for the parameter.
 	Metadata ParameterDefinitionsValueResponseMetadataPtrInput `pulumi:"metadata"`
 	// The data type of the parameter.
@@ -4056,13 +4056,13 @@ func (o ParameterDefinitionsValueResponseOutput) ToParameterDefinitionsValueResp
 }
 
 // The allowed values for the parameter.
-func (o ParameterDefinitionsValueResponseOutput) AllowedValues() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValueResponse) []map[string]interface{} { return v.AllowedValues }).(pulumi.MapArrayOutput)
+func (o ParameterDefinitionsValueResponseOutput) AllowedValues() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponse) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
 }
 
 // The default value for the parameter if no value is provided.
-func (o ParameterDefinitionsValueResponseOutput) DefaultValue() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValueResponse) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
+func (o ParameterDefinitionsValueResponseOutput) DefaultValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponse) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
 // General metadata for the parameter.
@@ -4255,7 +4255,7 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) DisplayName() pulumi
 // The value of a parameter.
 type ParameterValuesValue struct {
 	// The value of the parameter.
-	Value map[string]interface{} `pulumi:"value"`
+	Value interface{} `pulumi:"value"`
 }
 
 // ParameterValuesValueInput is an input type that accepts ParameterValuesValueArgs and ParameterValuesValueOutput values.
@@ -4272,7 +4272,7 @@ type ParameterValuesValueInput interface {
 // The value of a parameter.
 type ParameterValuesValueArgs struct {
 	// The value of the parameter.
-	Value pulumi.MapInput `pulumi:"value"`
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (ParameterValuesValueArgs) ElementType() reflect.Type {
@@ -4328,8 +4328,8 @@ func (o ParameterValuesValueOutput) ToParameterValuesValueOutputWithContext(ctx 
 }
 
 // The value of the parameter.
-func (o ParameterValuesValueOutput) Value() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterValuesValue) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+func (o ParameterValuesValueOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterValuesValue) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type ParameterValuesValueMapOutput struct{ *pulumi.OutputState }
@@ -4355,7 +4355,7 @@ func (o ParameterValuesValueMapOutput) MapIndex(k pulumi.StringInput) ParameterV
 // The value of a parameter.
 type ParameterValuesValueResponse struct {
 	// The value of the parameter.
-	Value map[string]interface{} `pulumi:"value"`
+	Value interface{} `pulumi:"value"`
 }
 
 // ParameterValuesValueResponseInput is an input type that accepts ParameterValuesValueResponseArgs and ParameterValuesValueResponseOutput values.
@@ -4372,7 +4372,7 @@ type ParameterValuesValueResponseInput interface {
 // The value of a parameter.
 type ParameterValuesValueResponseArgs struct {
 	// The value of the parameter.
-	Value pulumi.MapInput `pulumi:"value"`
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (ParameterValuesValueResponseArgs) ElementType() reflect.Type {
@@ -4428,8 +4428,8 @@ func (o ParameterValuesValueResponseOutput) ToParameterValuesValueResponseOutput
 }
 
 // The value of the parameter.
-func (o ParameterValuesValueResponseOutput) Value() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterValuesValueResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+func (o ParameterValuesValueResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterValuesValueResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type ParameterValuesValueResponseMapOutput struct{ *pulumi.OutputState }

@@ -319,9 +319,9 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValue struct {
 	// The allowed values for the parameter.
-	AllowedValues []map[string]interface{} `pulumi:"allowedValues"`
+	AllowedValues []interface{} `pulumi:"allowedValues"`
 	// The default value for the parameter if no value is provided.
-	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
+	DefaultValue interface{} `pulumi:"defaultValue"`
 	// General metadata for the parameter.
 	Metadata *ParameterDefinitionsValueMetadata `pulumi:"metadata"`
 	// The data type of the parameter.
@@ -342,9 +342,9 @@ type ParameterDefinitionsValueInput interface {
 // The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueArgs struct {
 	// The allowed values for the parameter.
-	AllowedValues pulumi.MapArrayInput `pulumi:"allowedValues"`
+	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
 	// The default value for the parameter if no value is provided.
-	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
+	DefaultValue pulumi.Input `pulumi:"defaultValue"`
 	// General metadata for the parameter.
 	Metadata ParameterDefinitionsValueMetadataPtrInput `pulumi:"metadata"`
 	// The data type of the parameter.
@@ -404,13 +404,13 @@ func (o ParameterDefinitionsValueOutput) ToParameterDefinitionsValueOutputWithCo
 }
 
 // The allowed values for the parameter.
-func (o ParameterDefinitionsValueOutput) AllowedValues() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValue) []map[string]interface{} { return v.AllowedValues }).(pulumi.MapArrayOutput)
+func (o ParameterDefinitionsValueOutput) AllowedValues() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValue) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
 }
 
 // The default value for the parameter if no value is provided.
-func (o ParameterDefinitionsValueOutput) DefaultValue() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValue) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
+func (o ParameterDefinitionsValueOutput) DefaultValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValue) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
 // General metadata for the parameter.
@@ -599,9 +599,9 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) DisplayName() pulumi.StringP
 // The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueResponse struct {
 	// The allowed values for the parameter.
-	AllowedValues []map[string]interface{} `pulumi:"allowedValues"`
+	AllowedValues []interface{} `pulumi:"allowedValues"`
 	// The default value for the parameter if no value is provided.
-	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
+	DefaultValue interface{} `pulumi:"defaultValue"`
 	// General metadata for the parameter.
 	Metadata *ParameterDefinitionsValueResponseMetadata `pulumi:"metadata"`
 	// The data type of the parameter.
@@ -622,9 +622,9 @@ type ParameterDefinitionsValueResponseInput interface {
 // The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValueResponseArgs struct {
 	// The allowed values for the parameter.
-	AllowedValues pulumi.MapArrayInput `pulumi:"allowedValues"`
+	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
 	// The default value for the parameter if no value is provided.
-	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
+	DefaultValue pulumi.Input `pulumi:"defaultValue"`
 	// General metadata for the parameter.
 	Metadata ParameterDefinitionsValueResponseMetadataPtrInput `pulumi:"metadata"`
 	// The data type of the parameter.
@@ -684,13 +684,13 @@ func (o ParameterDefinitionsValueResponseOutput) ToParameterDefinitionsValueResp
 }
 
 // The allowed values for the parameter.
-func (o ParameterDefinitionsValueResponseOutput) AllowedValues() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValueResponse) []map[string]interface{} { return v.AllowedValues }).(pulumi.MapArrayOutput)
+func (o ParameterDefinitionsValueResponseOutput) AllowedValues() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponse) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
 }
 
 // The default value for the parameter if no value is provided.
-func (o ParameterDefinitionsValueResponseOutput) DefaultValue() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValueResponse) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
+func (o ParameterDefinitionsValueResponseOutput) DefaultValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponse) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
 // General metadata for the parameter.
@@ -883,7 +883,7 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) DisplayName() pulumi
 // The value of a parameter.
 type ParameterValuesValue struct {
 	// The value of the parameter.
-	Value map[string]interface{} `pulumi:"value"`
+	Value interface{} `pulumi:"value"`
 }
 
 // ParameterValuesValueInput is an input type that accepts ParameterValuesValueArgs and ParameterValuesValueOutput values.
@@ -900,7 +900,7 @@ type ParameterValuesValueInput interface {
 // The value of a parameter.
 type ParameterValuesValueArgs struct {
 	// The value of the parameter.
-	Value pulumi.MapInput `pulumi:"value"`
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (ParameterValuesValueArgs) ElementType() reflect.Type {
@@ -956,8 +956,8 @@ func (o ParameterValuesValueOutput) ToParameterValuesValueOutputWithContext(ctx 
 }
 
 // The value of the parameter.
-func (o ParameterValuesValueOutput) Value() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterValuesValue) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+func (o ParameterValuesValueOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterValuesValue) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type ParameterValuesValueMapOutput struct{ *pulumi.OutputState }
@@ -983,7 +983,7 @@ func (o ParameterValuesValueMapOutput) MapIndex(k pulumi.StringInput) ParameterV
 // The value of a parameter.
 type ParameterValuesValueResponse struct {
 	// The value of the parameter.
-	Value map[string]interface{} `pulumi:"value"`
+	Value interface{} `pulumi:"value"`
 }
 
 // ParameterValuesValueResponseInput is an input type that accepts ParameterValuesValueResponseArgs and ParameterValuesValueResponseOutput values.
@@ -1000,7 +1000,7 @@ type ParameterValuesValueResponseInput interface {
 // The value of a parameter.
 type ParameterValuesValueResponseArgs struct {
 	// The value of the parameter.
-	Value pulumi.MapInput `pulumi:"value"`
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (ParameterValuesValueResponseArgs) ElementType() reflect.Type {
@@ -1056,8 +1056,8 @@ func (o ParameterValuesValueResponseOutput) ToParameterValuesValueResponseOutput
 }
 
 // The value of the parameter.
-func (o ParameterValuesValueResponseOutput) Value() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterValuesValueResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+func (o ParameterValuesValueResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterValuesValueResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type ParameterValuesValueResponseMapOutput struct{ *pulumi.OutputState }

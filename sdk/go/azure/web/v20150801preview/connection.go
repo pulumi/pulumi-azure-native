@@ -32,13 +32,13 @@ type Connection struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
-	Metadata pulumi.MapOutput    `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput    `pulumi:"metadata"`
 	// Resource Name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Tokens/Claim
-	NonSecretParameterValues pulumi.MapMapOutput `pulumi:"nonSecretParameterValues"`
+	NonSecretParameterValues pulumi.MapOutput `pulumi:"nonSecretParameterValues"`
 	// Tokens/Claim
-	ParameterValues pulumi.MapMapOutput `pulumi:"parameterValues"`
+	ParameterValues pulumi.MapOutput `pulumi:"parameterValues"`
 	// Status of the connection
 	Statuses ConnectionStatusResponseArrayOutput `pulumi:"statuses"`
 	// Resource tags
@@ -111,14 +111,14 @@ type connectionState struct {
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
-	Location *string                `pulumi:"location"`
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Location *string     `pulumi:"location"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// Tokens/Claim
-	NonSecretParameterValues map[string]map[string]interface{} `pulumi:"nonSecretParameterValues"`
+	NonSecretParameterValues map[string]interface{} `pulumi:"nonSecretParameterValues"`
 	// Tokens/Claim
-	ParameterValues map[string]map[string]interface{} `pulumi:"parameterValues"`
+	ParameterValues map[string]interface{} `pulumi:"parameterValues"`
 	// Status of the connection
 	Statuses []ConnectionStatusResponse `pulumi:"statuses"`
 	// Resource tags
@@ -147,13 +147,13 @@ type ConnectionState struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// Resource Name
 	Name pulumi.StringPtrInput
 	// Tokens/Claim
-	NonSecretParameterValues pulumi.MapMapInput
+	NonSecretParameterValues pulumi.MapInput
 	// Tokens/Claim
-	ParameterValues pulumi.MapMapInput
+	ParameterValues pulumi.MapInput
 	// Status of the connection
 	Statuses ConnectionStatusResponseArrayInput
 	// Resource tags
@@ -189,14 +189,14 @@ type connectionArgs struct {
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
-	Location string                 `pulumi:"location"`
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Location string      `pulumi:"location"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// Tokens/Claim
-	NonSecretParameterValues map[string]map[string]interface{} `pulumi:"nonSecretParameterValues"`
+	NonSecretParameterValues map[string]interface{} `pulumi:"nonSecretParameterValues"`
 	// Tokens/Claim
-	ParameterValues map[string]map[string]interface{} `pulumi:"parameterValues"`
+	ParameterValues map[string]interface{} `pulumi:"parameterValues"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Status of the connection
@@ -232,13 +232,13 @@ type ConnectionArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// Resource Name
 	Name pulumi.StringPtrInput
 	// Tokens/Claim
-	NonSecretParameterValues pulumi.MapMapInput
+	NonSecretParameterValues pulumi.MapInput
 	// Tokens/Claim
-	ParameterValues pulumi.MapMapInput
+	ParameterValues pulumi.MapInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Status of the connection
