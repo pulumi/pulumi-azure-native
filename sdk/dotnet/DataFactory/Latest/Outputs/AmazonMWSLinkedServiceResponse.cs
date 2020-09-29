@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The access key id used to access data.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> AccessKeyId;
+        public readonly object AccessKeyId;
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -32,15 +32,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Endpoint;
+        public readonly object Endpoint;
         /// <summary>
         /// The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
         /// </summary>
-        public readonly ImmutableDictionary<string, object> MarketplaceID;
+        public readonly object MarketplaceID;
         /// <summary>
         /// The Amazon MWS authentication token.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The Amazon seller ID.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> SellerID;
+        public readonly object SellerID;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -64,31 +64,31 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseEncryptedEndpoints;
+        public readonly object? UseEncryptedEndpoints;
         /// <summary>
         /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseHostVerification;
+        public readonly object? UseHostVerification;
         /// <summary>
         /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UsePeerVerification;
+        public readonly object? UsePeerVerification;
 
         [OutputConstructor]
         private AmazonMWSLinkedServiceResponse(
-            ImmutableDictionary<string, object> accessKeyId,
+            object accessKeyId,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object> endpoint,
+            object endpoint,
 
-            ImmutableDictionary<string, object> marketplaceID,
+            object marketplaceID,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? mwsAuthToken,
 
@@ -96,15 +96,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? secretKey,
 
-            ImmutableDictionary<string, object> sellerID,
+            object sellerID,
 
             string type,
 
-            ImmutableDictionary<string, object>? useEncryptedEndpoints,
+            object? useEncryptedEndpoints,
 
-            ImmutableDictionary<string, object>? useHostVerification,
+            object? useHostVerification,
 
-            ImmutableDictionary<string, object>? usePeerVerification)
+            object? usePeerVerification)
         {
             AccessKeyId = accessKeyId;
             Annotations = annotations;

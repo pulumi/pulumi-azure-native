@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Url;
+        public readonly object Url;
 
         [OutputConstructor]
         private WebAnonymousAuthenticationResponse(
             string authenticationType,
 
-            ImmutableDictionary<string, object> url)
+            object url)
         {
             AuthenticationType = authenticationType;
             Url = url;

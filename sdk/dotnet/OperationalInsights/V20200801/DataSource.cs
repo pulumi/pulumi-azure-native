@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
         /// The data source properties in raw json format, each kind of data source have it's own schema.
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -119,17 +119,11 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
 
-        [Input("properties", required: true)]
-        private InputMap<object>? _properties;
-
         /// <summary>
         /// The data source properties in raw json format, each kind of data source have it's own schema.
         /// </summary>
-        public InputMap<object> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
-        }
+        [Input("properties", required: true)]
+        public Input<object> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

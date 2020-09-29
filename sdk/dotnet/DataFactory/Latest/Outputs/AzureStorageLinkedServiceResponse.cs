@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ConnectionString;
+        public readonly object? ConnectionString;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SasUri;
+        public readonly object? SasUri;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         private AzureStorageLinkedServiceResponse(
             Outputs.AzureKeyVaultSecretReferenceResponse? accountKey,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object>? connectionString,
+            object? connectionString,
 
             string? description,
 
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             Outputs.AzureKeyVaultSecretReferenceResponse? sasToken,
 
-            ImmutableDictionary<string, object>? sasUri,
+            object? sasUri,
 
             string type)
         {

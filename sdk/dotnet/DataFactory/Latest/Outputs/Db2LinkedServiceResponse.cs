@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// AuthenticationType to be used for connection. It is mutually exclusive with connectionString property.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Certificate Common Name when TLS is enabled. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? CertificateCommonName;
+        public readonly object? CertificateCommonName;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The connection string. It is mutually exclusive with server, database, authenticationType, userName, packageCollection and certificateCommonName property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ConnectionString;
+        public readonly object? ConnectionString;
         /// <summary>
         /// Database name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Database;
+        public readonly object? Database;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -44,11 +44,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Under where packages are created when querying database. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? PackageCollection;
+        public readonly object? PackageCollection;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Server name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Server;
+        public readonly object? Server;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -68,37 +68,37 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Username for authentication. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Username;
+        public readonly object? Username;
 
         [OutputConstructor]
         private Db2LinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             string? authenticationType,
 
-            ImmutableDictionary<string, object>? certificateCommonName,
+            object? certificateCommonName,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object>? connectionString,
+            object? connectionString,
 
-            ImmutableDictionary<string, object>? database,
+            object? database,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? packageCollection,
+            object? packageCollection,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
-            ImmutableDictionary<string, object>? server,
+            object? server,
 
             string type,
 
-            ImmutableDictionary<string, object>? username)
+            object? username)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;

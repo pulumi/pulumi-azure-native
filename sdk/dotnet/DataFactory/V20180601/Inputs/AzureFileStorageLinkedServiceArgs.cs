@@ -22,14 +22,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? AccountKey { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("connectionString")]
-        private InputMap<object>? _connectionString;
-
         /// <summary>
         /// The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public InputMap<object> ConnectionString
-        {
-            get => _connectionString ?? (_connectionString = new InputMap<object>());
-            set => _connectionString = value;
-        }
+        [Input("connectionString")]
+        public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
         /// Linked service description.
@@ -57,41 +51,23 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("fileShare")]
-        private InputMap<object>? _fileShare;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The azure file share name. It is required when auth with accountKey/sasToken. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> FileShare
-        {
-            get => _fileShare ?? (_fileShare = new InputMap<object>());
-            set => _fileShare = value;
-        }
-
-        [Input("host")]
-        private InputMap<object>? _host;
+        [Input("fileShare")]
+        public Input<object>? FileShare { get; set; }
 
         /// <summary>
         /// Host name of the server. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Host
-        {
-            get => _host ?? (_host = new InputMap<object>());
-            set => _host = value;
-        }
+        [Input("host")]
+        public Input<object>? Host { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -117,29 +93,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("sasToken")]
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? SasToken { get; set; }
 
-        [Input("sasUri")]
-        private InputMap<object>? _sasUri;
-
         /// <summary>
         /// SAS URI of the Azure File resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public InputMap<object> SasUri
-        {
-            get => _sasUri ?? (_sasUri = new InputMap<object>());
-            set => _sasUri = value;
-        }
-
-        [Input("snapshot")]
-        private InputMap<object>? _snapshot;
+        [Input("sasUri")]
+        public Input<object>? SasUri { get; set; }
 
         /// <summary>
         /// The azure file share snapshot version. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Snapshot
-        {
-            get => _snapshot ?? (_snapshot = new InputMap<object>());
-            set => _snapshot = value;
-        }
+        [Input("snapshot")]
+        public Input<object>? Snapshot { get; set; }
 
         /// <summary>
         /// Type of linked service.
@@ -147,17 +111,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("userId")]
-        private InputMap<object>? _userId;
-
         /// <summary>
         /// User ID to logon the server. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> UserId
-        {
-            get => _userId ?? (_userId = new InputMap<object>());
-            set => _userId = value;
-        }
+        [Input("userId")]
+        public Input<object>? UserId { get; set; }
 
         public AzureFileStorageLinkedServiceArgs()
         {

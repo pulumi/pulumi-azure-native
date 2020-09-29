@@ -60,13 +60,13 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         /// Name and value pairs that define the appliance outputs.
         /// </summary>
         [Output("outputs")]
-        public Output<ImmutableDictionary<string, object>> Outputs { get; private set; } = null!;
+        public Output<object> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// Name and value pairs that define the appliance parameters. It can be a JObject or a well formed JSON string.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, object>?> Parameters { get; private set; } = null!;
+        public Output<object?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The plan information.
@@ -191,17 +191,11 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         [Input("managedResourceGroupId", required: true)]
         public Input<string> ManagedResourceGroupId { get; set; } = null!;
 
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Name and value pairs that define the appliance parameters. It can be a JObject or a well formed JSON string.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// The plan information.

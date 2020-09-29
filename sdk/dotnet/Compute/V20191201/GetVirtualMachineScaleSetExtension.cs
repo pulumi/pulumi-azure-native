@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ProtectedSettings;
+        public readonly object? ProtectedSettings;
         /// <summary>
         /// Collection of extension names after which this extension needs to be provisioned.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// <summary>
         /// Json formatted public settings for the extension.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Settings;
+        public readonly object? Settings;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 
             string? name,
 
-            ImmutableDictionary<string, object>? protectedSettings,
+            object? protectedSettings,
 
             ImmutableArray<string> provisionAfterExtensions,
 
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 
             string? publisher,
 
-            ImmutableDictionary<string, object>? settings,
+            object? settings,
 
             string type,
 

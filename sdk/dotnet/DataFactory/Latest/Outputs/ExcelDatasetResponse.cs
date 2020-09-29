@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The data compression method used for the json dataset.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? FirstRowAsHeader;
+        public readonly object? FirstRowAsHeader;
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The null value string. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NullValue;
+        public readonly object? NullValue;
         /// <summary>
         /// Parameters for dataset.
         /// </summary>
@@ -52,19 +52,19 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The partial data of one sheet. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Range;
+        public readonly object? Range;
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Schema;
+        public readonly object? Schema;
         /// <summary>
         /// The sheet of excel file. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> SheetName;
+        public readonly object SheetName;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Structure;
+        public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
         /// </summary>
@@ -72,13 +72,13 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
         [OutputConstructor]
         private ExcelDatasetResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Union<Outputs.DatasetTarCompressionResponse, Union<Outputs.DatasetTarGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>>>? compression,
 
             string? description,
 
-            ImmutableDictionary<string, object>? firstRowAsHeader,
+            object? firstRowAsHeader,
 
             Outputs.DatasetResponseFolder? folder,
 
@@ -86,17 +86,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             Union<Outputs.AmazonS3LocationResponse, Union<Outputs.AzureBlobFSLocationResponse, Union<Outputs.AzureBlobStorageLocationResponse, Union<Outputs.AzureDataLakeStoreLocationResponse, Union<Outputs.AzureFileStorageLocationResponse, Union<Outputs.FileServerLocationResponse, Union<Outputs.FtpServerLocationResponse, Union<Outputs.GoogleCloudStorageLocationResponse, Union<Outputs.HdfsLocationResponse, Union<Outputs.HttpServerLocationResponse, Outputs.SftpLocationResponse>>>>>>>>>> location,
 
-            ImmutableDictionary<string, object>? nullValue,
+            object? nullValue,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? range,
+            object? range,
 
-            ImmutableDictionary<string, object>? schema,
+            object? schema,
 
-            ImmutableDictionary<string, object> sheetName,
+            object sheetName,
 
-            ImmutableDictionary<string, object>? structure,
+            object? structure,
 
             string type)
         {

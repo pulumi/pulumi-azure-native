@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         /// </summary>
         [Output("definition")]
-        public Output<ImmutableDictionary<string, object>?> Definition { get; private set; } = null!;
+        public Output<object?> Definition { get; private set; } = null!;
 
         /// <summary>
         /// The integration account.
@@ -150,17 +150,11 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
 
     public sealed class WorkflowArgs : Pulumi.ResourceArgs
     {
-        [Input("definition")]
-        private InputMap<object>? _definition;
-
         /// <summary>
         /// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         /// </summary>
-        public InputMap<object> Definition
-        {
-            get => _definition ?? (_definition = new InputMap<object>());
-            set => _definition = value;
-        }
+        [Input("definition")]
+        public Input<object>? Definition { get; set; }
 
         /// <summary>
         /// The resource location.

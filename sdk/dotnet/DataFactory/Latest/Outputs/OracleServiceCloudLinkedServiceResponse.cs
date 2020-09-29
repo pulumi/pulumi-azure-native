@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -28,11 +28,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The URL of the Oracle Service Cloud instance.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Host;
+        public readonly object Host;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -48,31 +48,31 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseEncryptedEndpoints;
+        public readonly object? UseEncryptedEndpoints;
         /// <summary>
         /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseHostVerification;
+        public readonly object? UseHostVerification;
         /// <summary>
         /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UsePeerVerification;
+        public readonly object? UsePeerVerification;
         /// <summary>
         /// The user name that you use to access Oracle Service Cloud server.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Username;
+        public readonly object Username;
 
         [OutputConstructor]
         private OracleServiceCloudLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object> host,
+            object host,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
@@ -80,13 +80,13 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             string type,
 
-            ImmutableDictionary<string, object>? useEncryptedEndpoints,
+            object? useEncryptedEndpoints,
 
-            ImmutableDictionary<string, object>? useHostVerification,
+            object? useHostVerification,
 
-            ImmutableDictionary<string, object>? usePeerVerification,
+            object? usePeerVerification,
 
-            ImmutableDictionary<string, object> username)
+            object username)
         {
             Annotations = annotations;
             ConnectVia = connectVia;

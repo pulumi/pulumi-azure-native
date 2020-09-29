@@ -15,27 +15,21 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     /// </summary>
     public sealed class AmazonMWSLinkedServiceArgs : Pulumi.ResourceArgs
     {
-        [Input("accessKeyId", required: true)]
-        private InputMap<object>? _accessKeyId;
-
         /// <summary>
         /// The access key id used to access data.
         /// </summary>
-        public InputMap<object> AccessKeyId
-        {
-            get => _accessKeyId ?? (_accessKeyId = new InputMap<object>());
-            set => _accessKeyId = value;
-        }
+        [Input("accessKeyId", required: true)]
+        public Input<object> AccessKeyId { get; set; } = null!;
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -51,41 +45,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("endpoint", required: true)]
-        private InputMap<object>? _endpoint;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
         /// </summary>
-        public InputMap<object> Endpoint
-        {
-            get => _endpoint ?? (_endpoint = new InputMap<object>());
-            set => _endpoint = value;
-        }
-
-        [Input("marketplaceID", required: true)]
-        private InputMap<object>? _marketplaceID;
+        [Input("endpoint", required: true)]
+        public Input<object> Endpoint { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
         /// </summary>
-        public InputMap<object> MarketplaceID
-        {
-            get => _marketplaceID ?? (_marketplaceID = new InputMap<object>());
-            set => _marketplaceID = value;
-        }
+        [Input("marketplaceID", required: true)]
+        public Input<object> MarketplaceID { get; set; } = null!;
 
         /// <summary>
         /// The Amazon MWS authentication token.
@@ -111,17 +87,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("secretKey")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? SecretKey { get; set; }
 
-        [Input("sellerID", required: true)]
-        private InputMap<object>? _sellerID;
-
         /// <summary>
         /// The Amazon seller ID.
         /// </summary>
-        public InputMap<object> SellerID
-        {
-            get => _sellerID ?? (_sellerID = new InputMap<object>());
-            set => _sellerID = value;
-        }
+        [Input("sellerID", required: true)]
+        public Input<object> SellerID { get; set; } = null!;
 
         /// <summary>
         /// Type of linked service.
@@ -129,41 +99,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("useEncryptedEndpoints")]
-        private InputMap<object>? _useEncryptedEndpoints;
-
         /// <summary>
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         /// </summary>
-        public InputMap<object> UseEncryptedEndpoints
-        {
-            get => _useEncryptedEndpoints ?? (_useEncryptedEndpoints = new InputMap<object>());
-            set => _useEncryptedEndpoints = value;
-        }
-
-        [Input("useHostVerification")]
-        private InputMap<object>? _useHostVerification;
+        [Input("useEncryptedEndpoints")]
+        public Input<object>? UseEncryptedEndpoints { get; set; }
 
         /// <summary>
         /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public InputMap<object> UseHostVerification
-        {
-            get => _useHostVerification ?? (_useHostVerification = new InputMap<object>());
-            set => _useHostVerification = value;
-        }
-
-        [Input("usePeerVerification")]
-        private InputMap<object>? _usePeerVerification;
+        [Input("useHostVerification")]
+        public Input<object>? UseHostVerification { get; set; }
 
         /// <summary>
         /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public InputMap<object> UsePeerVerification
-        {
-            get => _usePeerVerification ?? (_usePeerVerification = new InputMap<object>());
-            set => _usePeerVerification = value;
-        }
+        [Input("usePeerVerification")]
+        public Input<object>? UsePeerVerification { get; set; }
 
         public AmazonMWSLinkedServiceArgs()
         {

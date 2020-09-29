@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class GoogleAdWordsLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -33,29 +33,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
 
-        [Input("clientCustomerID", required: true)]
-        private InputMap<object>? _clientCustomerID;
-
         /// <summary>
         /// The Client customer ID of the AdWords account that you want to fetch report data for.
         /// </summary>
-        public InputMap<object> ClientCustomerID
-        {
-            get => _clientCustomerID ?? (_clientCustomerID = new InputMap<object>());
-            set => _clientCustomerID = value;
-        }
-
-        [Input("clientId")]
-        private InputMap<object>? _clientId;
+        [Input("clientCustomerID", required: true)]
+        public Input<object> ClientCustomerID { get; set; } = null!;
 
         /// <summary>
         /// The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ClientId
-        {
-            get => _clientId ?? (_clientId = new InputMap<object>());
-            set => _clientId = value;
-        }
+        [Input("clientId")]
+        public Input<object>? ClientId { get; set; }
 
         /// <summary>
         /// The client secret of the google application used to acquire the refresh token.
@@ -81,41 +69,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("developerToken", required: true)]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> DeveloperToken { get; set; } = null!;
 
-        [Input("email")]
-        private InputMap<object>? _email;
-
         /// <summary>
         /// The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
         /// </summary>
-        public InputMap<object> Email
-        {
-            get => _email ?? (_email = new InputMap<object>());
-            set => _email = value;
-        }
-
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
+        [Input("email")]
+        public Input<object>? Email { get; set; }
 
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("keyFilePath")]
-        private InputMap<object>? _keyFilePath;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
         /// </summary>
-        public InputMap<object> KeyFilePath
-        {
-            get => _keyFilePath ?? (_keyFilePath = new InputMap<object>());
-            set => _keyFilePath = value;
-        }
+        [Input("keyFilePath")]
+        public Input<object>? KeyFilePath { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -135,17 +105,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("refreshToken")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? RefreshToken { get; set; }
 
-        [Input("trustedCertPath")]
-        private InputMap<object>? _trustedCertPath;
-
         /// <summary>
         /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         /// </summary>
-        public InputMap<object> TrustedCertPath
-        {
-            get => _trustedCertPath ?? (_trustedCertPath = new InputMap<object>());
-            set => _trustedCertPath = value;
-        }
+        [Input("trustedCertPath")]
+        public Input<object>? TrustedCertPath { get; set; }
 
         /// <summary>
         /// Type of linked service.
@@ -153,17 +117,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("useSystemTrustStore")]
-        private InputMap<object>? _useSystemTrustStore;
-
         /// <summary>
         /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         /// </summary>
-        public InputMap<object> UseSystemTrustStore
-        {
-            get => _useSystemTrustStore ?? (_useSystemTrustStore = new InputMap<object>());
-            set => _useSystemTrustStore = value;
-        }
+        [Input("useSystemTrustStore")]
+        public Input<object>? UseSystemTrustStore { get; set; }
 
         public GoogleAdWordsLinkedServiceArgs()
         {

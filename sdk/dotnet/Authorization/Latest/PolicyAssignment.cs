@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the policy assignment.
@@ -181,17 +181,11 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         [Input("notScopes")]
         private InputList<string>? _notScopes;

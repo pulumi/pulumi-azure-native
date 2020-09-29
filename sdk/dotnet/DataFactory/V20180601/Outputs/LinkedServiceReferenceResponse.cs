@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Arguments for LinkedService.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? Parameters;
+        public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
         /// Reference LinkedService name.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private LinkedServiceReferenceResponse(
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? parameters,
+            ImmutableDictionary<string, object>? parameters,
 
             string referenceName,
 

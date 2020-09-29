@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class AmazonS3DatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("bucketName", required: true)]
-        private InputMap<object>? _bucketName;
 
         /// <summary>
         /// The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> BucketName
-        {
-            get => _bucketName ?? (_bucketName = new InputMap<object>());
-            set => _bucketName = value;
-        }
+        [Input("bucketName", required: true)]
+        public Input<object> BucketName { get; set; } = null!;
 
         /// <summary>
         /// The data compression method used for the Amazon S3 object.
@@ -63,17 +57,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("format")]
         public InputUnion<Inputs.AvroFormatArgs, InputUnion<Inputs.JsonFormatArgs, InputUnion<Inputs.OrcFormatArgs, InputUnion<Inputs.ParquetFormatArgs, Inputs.TextFormatArgs>>>>? Format { get; set; }
 
-        [Input("key")]
-        private InputMap<object>? _key;
-
         /// <summary>
         /// The key of the Amazon S3 object. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Key
-        {
-            get => _key ?? (_key = new InputMap<object>());
-            set => _key = value;
-        }
+        [Input("key")]
+        public Input<object>? Key { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -81,29 +69,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("linkedServiceName", required: true)]
         public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
 
-        [Input("modifiedDatetimeEnd")]
-        private InputMap<object>? _modifiedDatetimeEnd;
-
         /// <summary>
         /// The end of S3 object's modified datetime. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ModifiedDatetimeEnd
-        {
-            get => _modifiedDatetimeEnd ?? (_modifiedDatetimeEnd = new InputMap<object>());
-            set => _modifiedDatetimeEnd = value;
-        }
-
-        [Input("modifiedDatetimeStart")]
-        private InputMap<object>? _modifiedDatetimeStart;
+        [Input("modifiedDatetimeEnd")]
+        public Input<object>? ModifiedDatetimeEnd { get; set; }
 
         /// <summary>
         /// The start of S3 object's modified datetime. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ModifiedDatetimeStart
-        {
-            get => _modifiedDatetimeStart ?? (_modifiedDatetimeStart = new InputMap<object>());
-            set => _modifiedDatetimeStart = value;
-        }
+        [Input("modifiedDatetimeStart")]
+        public Input<object>? ModifiedDatetimeStart { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -117,41 +93,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             set => _parameters = value;
         }
 
-        [Input("prefix")]
-        private InputMap<object>? _prefix;
-
         /// <summary>
         /// The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Prefix
-        {
-            get => _prefix ?? (_prefix = new InputMap<object>());
-            set => _prefix = value;
-        }
-
-        [Input("schema")]
-        private InputMap<object>? _schema;
+        [Input("prefix")]
+        public Input<object>? Prefix { get; set; }
 
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public InputMap<object> Schema
-        {
-            get => _schema ?? (_schema = new InputMap<object>());
-            set => _schema = value;
-        }
-
-        [Input("structure")]
-        private InputMap<object>? _structure;
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.
@@ -159,17 +117,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("version")]
-        private InputMap<object>? _version;
-
         /// <summary>
         /// The version for the S3 object. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Version
-        {
-            get => _version ?? (_version = new InputMap<object>());
-            set => _version = value;
-        }
+        [Input("version")]
+        public Input<object>? Version { get; set; }
 
         public AmazonS3DatasetArgs()
         {

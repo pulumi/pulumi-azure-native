@@ -33,6 +33,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
         /// The artifact changed time.
         /// </summary>
         public readonly string? ChangedTime;
+        public readonly object? Content;
         /// <summary>
         /// The content link.
         /// </summary>
@@ -45,6 +46,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
         /// The artifact creation time.
         /// </summary>
         public readonly string? CreatedTime;
+        public readonly object? Metadata;
 
         [OutputConstructor]
         private AssemblyPropertiesResponse(
@@ -58,20 +60,26 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
 
             string? changedTime,
 
+            object? content,
+
             Outputs.ContentLinkResponse? contentLink,
 
             string? contentType,
 
-            string? createdTime)
+            string? createdTime,
+
+            object? metadata)
         {
             AssemblyCulture = assemblyCulture;
             AssemblyName = assemblyName;
             AssemblyPublicKeyToken = assemblyPublicKeyToken;
             AssemblyVersion = assemblyVersion;
             ChangedTime = changedTime;
+            Content = content;
             ContentLink = contentLink;
             ContentType = contentType;
             CreatedTime = createdTime;
+            Metadata = metadata;
         }
     }
 }

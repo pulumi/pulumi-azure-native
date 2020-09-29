@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the policy set definition.
@@ -135,17 +135,11 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterDefinitionsValueArgs>? _parameters;

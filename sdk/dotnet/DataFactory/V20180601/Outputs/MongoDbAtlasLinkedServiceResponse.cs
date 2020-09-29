@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ConnectionString;
+        public readonly object ConnectionString;
         /// <summary>
         /// The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Database;
+        public readonly object Database;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -44,13 +44,13 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private MongoDbAtlasLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object> connectionString,
+            object connectionString,
 
-            ImmutableDictionary<string, object> database,
+            object database,
 
             string? description,
 

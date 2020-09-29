@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The company ID of the QuickBooks company to authorize.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? CompanyId;
+        public readonly object? CompanyId;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Properties used to connect to QuickBooks. It is mutually exclusive with any other properties in the linked service. Type: object.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ConnectionProperties;
+        public readonly object? ConnectionProperties;
         /// <summary>
         /// The consumer key for OAuth 1.0 authentication.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ConsumerKey;
+        public readonly object? ConsumerKey;
         /// <summary>
         /// The consumer secret for OAuth 1.0 authentication.
         /// </summary>
@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Endpoint;
+        public readonly object? Endpoint;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseEncryptedEndpoints;
+        public readonly object? UseEncryptedEndpoints;
 
         [OutputConstructor]
         private QuickBooksLinkedServiceResponse(
@@ -76,29 +76,29 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? accessTokenSecret,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object>? companyId,
+            object? companyId,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object>? connectionProperties,
+            object? connectionProperties,
 
-            ImmutableDictionary<string, object>? consumerKey,
+            object? consumerKey,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? consumerSecret,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? endpoint,
+            object? endpoint,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             string type,
 
-            ImmutableDictionary<string, object>? useEncryptedEndpoints)
+            object? useEncryptedEndpoints)
         {
             AccessToken = accessToken;
             AccessTokenSecret = accessTokenSecret;

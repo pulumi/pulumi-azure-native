@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
         [Output("createUiDefinition")]
-        public Output<ImmutableDictionary<string, object>?> CreateUiDefinition { get; private set; } = null!;
+        public Output<object?> CreateUiDefinition { get; private set; } = null!;
 
         /// <summary>
         /// The managed application deployment policy.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
         /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         /// </summary>
         [Output("mainTemplate")]
-        public Output<ImmutableDictionary<string, object>?> MainTemplate { get; private set; } = null!;
+        public Output<object?> MainTemplate { get; private set; } = null!;
 
         /// <summary>
         /// ID of the resource that manages this resource.
@@ -222,17 +222,11 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
             set => _authorizations = value;
         }
 
-        [Input("createUiDefinition")]
-        private InputMap<object>? _createUiDefinition;
-
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
-        public InputMap<object> CreateUiDefinition
-        {
-            get => _createUiDefinition ?? (_createUiDefinition = new InputMap<object>());
-            set => _createUiDefinition = value;
-        }
+        [Input("createUiDefinition")]
+        public Input<object>? CreateUiDefinition { get; set; }
 
         /// <summary>
         /// The managed application deployment policy.
@@ -276,17 +270,11 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
         [Input("lockingPolicy")]
         public Input<Inputs.ApplicationPackageLockingPolicyDefinitionArgs>? LockingPolicy { get; set; }
 
-        [Input("mainTemplate")]
-        private InputMap<object>? _mainTemplate;
-
         /// <summary>
         /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         /// </summary>
-        public InputMap<object> MainTemplate
-        {
-            get => _mainTemplate ?? (_mainTemplate = new InputMap<object>());
-            set => _mainTemplate = value;
-        }
+        [Input("mainTemplate")]
+        public Input<object>? MainTemplate { get; set; }
 
         /// <summary>
         /// ID of the resource that manages this resource.

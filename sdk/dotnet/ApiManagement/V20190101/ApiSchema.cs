@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// Properties of the Schema Document.
         /// </summary>
         [Output("document")]
-        public Output<ImmutableDictionary<string, object>?> Document { get; private set; } = null!;
+        public Output<object?> Document { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.

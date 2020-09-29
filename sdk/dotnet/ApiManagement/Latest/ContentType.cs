@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Content type schema.
         /// </summary>
         [Output("schema")]
-        public Output<ImmutableDictionary<string, object>?> Schema { get; private set; } = null!;
+        public Output<object?> Schema { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

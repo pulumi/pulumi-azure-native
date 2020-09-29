@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class AzureKeyVaultLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("baseUrl", required: true)]
-        private InputMap<object>? _baseUrl;
 
         /// <summary>
         /// The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> BaseUrl
-        {
-            get => _baseUrl ?? (_baseUrl = new InputMap<object>());
-            set => _baseUrl = value;
-        }
+        [Input("baseUrl", required: true)]
+        public Input<object> BaseUrl { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.

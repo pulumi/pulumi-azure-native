@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview.Outputs
         /// <summary>
         /// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Value;
+        public readonly object? Value;
 
         [OutputConstructor]
         private ParameterValueResponse(
             Outputs.SecretValueReferenceResponse? reference,
 
-            ImmutableDictionary<string, object>? value)
+            object? value)
         {
             Reference = reference;
             Value = value;

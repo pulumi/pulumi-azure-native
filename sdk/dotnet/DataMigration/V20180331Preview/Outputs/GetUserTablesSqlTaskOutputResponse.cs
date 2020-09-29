@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
         /// <summary>
         /// Mapping from database name to list of tables
         /// </summary>
-        public readonly string DatabasesToTables;
+        public readonly ImmutableDictionary<string, ImmutableArray<Outputs.DatabaseTableResponse>> DatabasesToTables;
         /// <summary>
         /// Result identifier
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
 
         [OutputConstructor]
         private GetUserTablesSqlTaskOutputResponse(
-            string databasesToTables,
+            ImmutableDictionary<string, ImmutableArray<Outputs.DatabaseTableResponse>> databasesToTables,
 
             string id,
 

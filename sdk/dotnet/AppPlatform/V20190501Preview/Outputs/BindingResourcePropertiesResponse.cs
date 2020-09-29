@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview.Outputs
         /// <summary>
         /// Binding parameters of the Binding resource
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? BindingParameters;
+        public readonly ImmutableDictionary<string, object>? BindingParameters;
         /// <summary>
         /// Creation time of the Binding resource
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview.Outputs
 
         [OutputConstructor]
         private BindingResourcePropertiesResponse(
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? bindingParameters,
+            ImmutableDictionary<string, object>? bindingParameters,
 
             string createdAt,
 

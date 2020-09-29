@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Portal.V20181001Preview
         /// <summary>
         /// The dashboard metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Portal.V20181001Preview
 
             string location,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             string name,
 

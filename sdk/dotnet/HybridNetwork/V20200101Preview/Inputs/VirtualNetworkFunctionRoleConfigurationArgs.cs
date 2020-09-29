@@ -51,29 +51,17 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Inputs
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }
 
-        [Input("userDataParameters")]
-        private InputMap<object>? _userDataParameters;
-
         /// <summary>
         /// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
         /// </summary>
-        public InputMap<object> UserDataParameters
-        {
-            get => _userDataParameters ?? (_userDataParameters = new InputMap<object>());
-            set => _userDataParameters = value;
-        }
-
-        [Input("userDataTemplate")]
-        private InputMap<object>? _userDataTemplate;
+        [Input("userDataParameters")]
+        public Input<object>? UserDataParameters { get; set; }
 
         /// <summary>
         /// The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
         /// </summary>
-        public InputMap<object> UserDataTemplate
-        {
-            get => _userDataTemplate ?? (_userDataTemplate = new InputMap<object>());
-            set => _userDataTemplate = value;
-        }
+        [Input("userDataTemplate")]
+        public Input<object>? UserDataTemplate { get; set; }
 
         /// <summary>
         /// The size of the virtual machine.

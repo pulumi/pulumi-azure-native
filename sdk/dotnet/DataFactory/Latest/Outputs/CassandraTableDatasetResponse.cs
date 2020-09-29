@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Keyspace;
+        public readonly object? Keyspace;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -40,15 +40,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Schema;
+        public readonly object? Schema;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Structure;
+        public readonly object? Structure;
         /// <summary>
         /// The table name of the Cassandra database. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? TableName;
+        public readonly object? TableName;
         /// <summary>
         /// Type of dataset.
         /// </summary>
@@ -56,23 +56,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
         [OutputConstructor]
         private CassandraTableDatasetResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             string? description,
 
             Outputs.DatasetResponseFolder? folder,
 
-            ImmutableDictionary<string, object>? keyspace,
+            object? keyspace,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? schema,
+            object? schema,
 
-            ImmutableDictionary<string, object>? structure,
+            object? structure,
 
-            ImmutableDictionary<string, object>? tableName,
+            object? tableName,
 
             string type)
         {

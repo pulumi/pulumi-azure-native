@@ -21,41 +21,29 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("accessKey")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? AccessKey { get; set; }
 
-        [Input("accountName", required: true)]
-        private InputMap<object>? _accountName;
-
         /// <summary>
         /// The Azure Batch account name. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AccountName
-        {
-            get => _accountName ?? (_accountName = new InputMap<object>());
-            set => _accountName = value;
-        }
+        [Input("accountName", required: true)]
+        public Input<object> AccountName { get; set; } = null!;
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("batchUri", required: true)]
-        private InputMap<object>? _batchUri;
 
         /// <summary>
         /// The Azure Batch URI. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> BatchUri
-        {
-            get => _batchUri ?? (_batchUri = new InputMap<object>());
-            set => _batchUri = value;
-        }
+        [Input("batchUri", required: true)]
+        public Input<object> BatchUri { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -69,17 +57,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The Azure Storage linked service reference.
@@ -99,17 +81,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             set => _parameters = value;
         }
 
-        [Input("poolName", required: true)]
-        private InputMap<object>? _poolName;
-
         /// <summary>
         /// The Azure Batch pool name. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> PoolName
-        {
-            get => _poolName ?? (_poolName = new InputMap<object>());
-            set => _poolName = value;
-        }
+        [Input("poolName", required: true)]
+        public Input<object> PoolName { get; set; } = null!;
 
         /// <summary>
         /// Type of linked service.

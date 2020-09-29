@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> BaseUrl;
+        public readonly object BaseUrl;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -40,9 +40,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
         [OutputConstructor]
         private AzureKeyVaultLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object> baseUrl,
+            object baseUrl,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 

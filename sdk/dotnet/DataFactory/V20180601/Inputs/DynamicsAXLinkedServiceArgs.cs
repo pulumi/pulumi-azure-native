@@ -15,27 +15,21 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class DynamicsAXLinkedServiceArgs : Pulumi.ResourceArgs
     {
-        [Input("aadResourceId", required: true)]
-        private InputMap<object>? _aadResourceId;
-
         /// <summary>
         /// Specify the resource you are requesting authorization. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AadResourceId
-        {
-            get => _aadResourceId ?? (_aadResourceId = new InputMap<object>());
-            set => _aadResourceId = value;
-        }
+        [Input("aadResourceId", required: true)]
+        public Input<object> AadResourceId { get; set; } = null!;
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -51,17 +45,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -75,17 +63,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
             set => _parameters = value;
         }
 
-        [Input("servicePrincipalId", required: true)]
-        private InputMap<object>? _servicePrincipalId;
-
         /// <summary>
         /// Specify the application's client ID. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ServicePrincipalId
-        {
-            get => _servicePrincipalId ?? (_servicePrincipalId = new InputMap<object>());
-            set => _servicePrincipalId = value;
-        }
+        [Input("servicePrincipalId", required: true)]
+        public Input<object> ServicePrincipalId { get; set; } = null!;
 
         /// <summary>
         /// Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or reference a secret stored in Azure Key Vault. Type: string (or Expression with resultType string).
@@ -93,17 +75,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("servicePrincipalKey", required: true)]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> ServicePrincipalKey { get; set; } = null!;
 
-        [Input("tenant", required: true)]
-        private InputMap<object>? _tenant;
-
         /// <summary>
         /// Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Tenant
-        {
-            get => _tenant ?? (_tenant = new InputMap<object>());
-            set => _tenant = value;
-        }
+        [Input("tenant", required: true)]
+        public Input<object> Tenant { get; set; } = null!;
 
         /// <summary>
         /// Type of linked service.
@@ -111,17 +87,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("url", required: true)]
-        private InputMap<object>? _url;
-
         /// <summary>
         /// The Dynamics AX (or Dynamics 365 Finance and Operations) instance OData endpoint.
         /// </summary>
-        public InputMap<object> Url
-        {
-            get => _url ?? (_url = new InputMap<object>());
-            set => _url = value;
-        }
+        [Input("url", required: true)]
+        public Input<object> Url { get; set; } = null!;
 
         public DynamicsAXLinkedServiceArgs()
         {

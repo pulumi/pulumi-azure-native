@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The database name of delta table. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Database;
+        public readonly object? Database;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -40,15 +40,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Schema;
+        public readonly object? Schema;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Structure;
+        public readonly object? Structure;
         /// <summary>
         /// The name of delta table. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Table;
+        public readonly object? Table;
         /// <summary>
         /// Type of dataset.
         /// </summary>
@@ -56,9 +56,9 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
         [OutputConstructor]
         private AzureDatabricksDeltaLakeDatasetResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object>? database,
+            object? database,
 
             string? description,
 
@@ -68,11 +68,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? schema,
+            object? schema,
 
-            ImmutableDictionary<string, object>? structure,
+            object? structure,
 
-            ImmutableDictionary<string, object>? table,
+            object? table,
 
             string type)
         {

@@ -15,137 +15,71 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class TextFormatArgs : Pulumi.ResourceArgs
     {
-        [Input("columnDelimiter")]
-        private InputMap<object>? _columnDelimiter;
-
         /// <summary>
         /// The column delimiter. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ColumnDelimiter
-        {
-            get => _columnDelimiter ?? (_columnDelimiter = new InputMap<object>());
-            set => _columnDelimiter = value;
-        }
-
-        [Input("deserializer")]
-        private InputMap<object>? _deserializer;
+        [Input("columnDelimiter")]
+        public Input<object>? ColumnDelimiter { get; set; }
 
         /// <summary>
         /// Deserializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Deserializer
-        {
-            get => _deserializer ?? (_deserializer = new InputMap<object>());
-            set => _deserializer = value;
-        }
-
-        [Input("encodingName")]
-        private InputMap<object>? _encodingName;
+        [Input("deserializer")]
+        public Input<object>? Deserializer { get; set; }
 
         /// <summary>
         /// The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncodingName
-        {
-            get => _encodingName ?? (_encodingName = new InputMap<object>());
-            set => _encodingName = value;
-        }
-
-        [Input("escapeChar")]
-        private InputMap<object>? _escapeChar;
+        [Input("encodingName")]
+        public Input<object>? EncodingName { get; set; }
 
         /// <summary>
         /// The escape character. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EscapeChar
-        {
-            get => _escapeChar ?? (_escapeChar = new InputMap<object>());
-            set => _escapeChar = value;
-        }
-
-        [Input("firstRowAsHeader")]
-        private InputMap<object>? _firstRowAsHeader;
+        [Input("escapeChar")]
+        public Input<object>? EscapeChar { get; set; }
 
         /// <summary>
         /// When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public InputMap<object> FirstRowAsHeader
-        {
-            get => _firstRowAsHeader ?? (_firstRowAsHeader = new InputMap<object>());
-            set => _firstRowAsHeader = value;
-        }
-
-        [Input("nullValue")]
-        private InputMap<object>? _nullValue;
+        [Input("firstRowAsHeader")]
+        public Input<object>? FirstRowAsHeader { get; set; }
 
         /// <summary>
         /// The null value string. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NullValue
-        {
-            get => _nullValue ?? (_nullValue = new InputMap<object>());
-            set => _nullValue = value;
-        }
-
-        [Input("quoteChar")]
-        private InputMap<object>? _quoteChar;
+        [Input("nullValue")]
+        public Input<object>? NullValue { get; set; }
 
         /// <summary>
         /// The quote character. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> QuoteChar
-        {
-            get => _quoteChar ?? (_quoteChar = new InputMap<object>());
-            set => _quoteChar = value;
-        }
-
-        [Input("rowDelimiter")]
-        private InputMap<object>? _rowDelimiter;
+        [Input("quoteChar")]
+        public Input<object>? QuoteChar { get; set; }
 
         /// <summary>
         /// The row delimiter. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> RowDelimiter
-        {
-            get => _rowDelimiter ?? (_rowDelimiter = new InputMap<object>());
-            set => _rowDelimiter = value;
-        }
-
-        [Input("serializer")]
-        private InputMap<object>? _serializer;
+        [Input("rowDelimiter")]
+        public Input<object>? RowDelimiter { get; set; }
 
         /// <summary>
         /// Serializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Serializer
-        {
-            get => _serializer ?? (_serializer = new InputMap<object>());
-            set => _serializer = value;
-        }
-
-        [Input("skipLineCount")]
-        private InputMap<object>? _skipLineCount;
+        [Input("serializer")]
+        public Input<object>? Serializer { get; set; }
 
         /// <summary>
         /// The number of lines/rows to be skipped when parsing text files. The default value is 0. Type: integer (or Expression with resultType integer).
         /// </summary>
-        public InputMap<object> SkipLineCount
-        {
-            get => _skipLineCount ?? (_skipLineCount = new InputMap<object>());
-            set => _skipLineCount = value;
-        }
-
-        [Input("treatEmptyAsNull")]
-        private InputMap<object>? _treatEmptyAsNull;
+        [Input("skipLineCount")]
+        public Input<object>? SkipLineCount { get; set; }
 
         /// <summary>
         /// Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public InputMap<object> TreatEmptyAsNull
-        {
-            get => _treatEmptyAsNull ?? (_treatEmptyAsNull = new InputMap<object>());
-            set => _treatEmptyAsNull = value;
-        }
+        [Input("treatEmptyAsNull")]
+        public Input<object>? TreatEmptyAsNull { get; set; }
 
         /// <summary>
         /// Type of dataset storage format.

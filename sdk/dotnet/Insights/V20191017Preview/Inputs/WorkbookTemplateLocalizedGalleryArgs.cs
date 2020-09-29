@@ -27,17 +27,11 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview.Inputs
             set => _galleries = value;
         }
 
-        [Input("templateData")]
-        private InputMap<object>? _templateData;
-
         /// <summary>
         /// Valid JSON object containing workbook template payload.
         /// </summary>
-        public InputMap<object> TemplateData
-        {
-            get => _templateData ?? (_templateData = new InputMap<object>());
-            set => _templateData = value;
-        }
+        [Input("templateData")]
+        public Input<object>? TemplateData { get; set; }
 
         public WorkbookTemplateLocalizedGalleryArgs()
         {

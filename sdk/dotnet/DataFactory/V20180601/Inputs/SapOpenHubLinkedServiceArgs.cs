@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class SapOpenHubLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("clientId")]
-        private InputMap<object>? _clientId;
 
         /// <summary>
         /// Client ID of the client on the BW system where the open hub destination is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ClientId
-        {
-            get => _clientId ?? (_clientId = new InputMap<object>());
-            set => _clientId = value;
-        }
+        [Input("clientId")]
+        public Input<object>? ClientId { get; set; }
 
         /// <summary>
         /// The integration runtime reference.
@@ -51,65 +45,35 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("language")]
-        private InputMap<object>? _language;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// Language of the BW system where the open hub destination is located. The default value is EN. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Language
-        {
-            get => _language ?? (_language = new InputMap<object>());
-            set => _language = value;
-        }
-
-        [Input("logonGroup")]
-        private InputMap<object>? _logonGroup;
+        [Input("language")]
+        public Input<object>? Language { get; set; }
 
         /// <summary>
         /// The Logon Group for the SAP System. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> LogonGroup
-        {
-            get => _logonGroup ?? (_logonGroup = new InputMap<object>());
-            set => _logonGroup = value;
-        }
-
-        [Input("messageServer")]
-        private InputMap<object>? _messageServer;
+        [Input("logonGroup")]
+        public Input<object>? LogonGroup { get; set; }
 
         /// <summary>
         /// The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> MessageServer
-        {
-            get => _messageServer ?? (_messageServer = new InputMap<object>());
-            set => _messageServer = value;
-        }
-
-        [Input("messageServerService")]
-        private InputMap<object>? _messageServerService;
+        [Input("messageServer")]
+        public Input<object>? MessageServer { get; set; }
 
         /// <summary>
         /// The service name or port number of the Message Server. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> MessageServerService
-        {
-            get => _messageServerService ?? (_messageServerService = new InputMap<object>());
-            set => _messageServerService = value;
-        }
+        [Input("messageServerService")]
+        public Input<object>? MessageServerService { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -129,41 +93,23 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("password")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
 
-        [Input("server")]
-        private InputMap<object>? _server;
-
         /// <summary>
         /// Host name of the SAP BW instance where the open hub destination is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Server
-        {
-            get => _server ?? (_server = new InputMap<object>());
-            set => _server = value;
-        }
-
-        [Input("systemId")]
-        private InputMap<object>? _systemId;
+        [Input("server")]
+        public Input<object>? Server { get; set; }
 
         /// <summary>
         /// SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> SystemId
-        {
-            get => _systemId ?? (_systemId = new InputMap<object>());
-            set => _systemId = value;
-        }
-
-        [Input("systemNumber")]
-        private InputMap<object>? _systemNumber;
+        [Input("systemId")]
+        public Input<object>? SystemId { get; set; }
 
         /// <summary>
         /// System number of the BW system where the open hub destination is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> SystemNumber
-        {
-            get => _systemNumber ?? (_systemNumber = new InputMap<object>());
-            set => _systemNumber = value;
-        }
+        [Input("systemNumber")]
+        public Input<object>? SystemNumber { get; set; }
 
         /// <summary>
         /// Type of linked service.
@@ -171,17 +117,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("userName")]
-        private InputMap<object>? _userName;
-
         /// <summary>
         /// Username to access the SAP BW server where the open hub destination is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> UserName
-        {
-            get => _userName ?? (_userName = new InputMap<object>());
-            set => _userName = value;
-        }
+        [Input("userName")]
+        public Input<object>? UserName { get; set; }
 
         public SapOpenHubLinkedServiceArgs()
         {

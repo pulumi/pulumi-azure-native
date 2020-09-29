@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -28,11 +28,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Azure ML Service workspace name. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> MlWorkspaceName;
+        public readonly object MlWorkspaceName;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -40,11 +40,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Azure ML Service workspace resource group name. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ResourceGroupName;
+        public readonly object ResourceGroupName;
         /// <summary>
         /// The ID of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ServicePrincipalId;
+        public readonly object? ServicePrincipalId;
         /// <summary>
         /// The key of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline.
         /// </summary>
@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Azure ML Service workspace subscription ID. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> SubscriptionId;
+        public readonly object SubscriptionId;
         /// <summary>
         /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tenant;
+        public readonly object? Tenant;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -64,27 +64,27 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private AzureMLServiceLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object> mlWorkspaceName,
+            object mlWorkspaceName,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object> resourceGroupName,
+            object resourceGroupName,
 
-            ImmutableDictionary<string, object>? servicePrincipalId,
+            object? servicePrincipalId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
 
-            ImmutableDictionary<string, object> subscriptionId,
+            object subscriptionId,
 
-            ImmutableDictionary<string, object>? tenant,
+            object? tenant,
 
             string type)
         {

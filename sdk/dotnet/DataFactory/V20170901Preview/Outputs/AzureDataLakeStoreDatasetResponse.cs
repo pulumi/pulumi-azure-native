@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The data compression method used for the item(s) in the Azure Data Lake Store.
         /// </summary>
@@ -28,11 +28,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? FileName;
+        public readonly object? FileName;
         /// <summary>
         /// Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> FolderPath;
+        public readonly object FolderPath;
         /// <summary>
         /// The format of the Data Lake Store.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Structure;
+        public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
         /// </summary>
@@ -56,15 +56,15 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
         [OutputConstructor]
         private AzureDataLakeStoreDatasetResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>? compression,
 
             string? description,
 
-            ImmutableDictionary<string, object>? fileName,
+            object? fileName,
 
-            ImmutableDictionary<string, object> folderPath,
+            object folderPath,
 
             Union<Outputs.AvroFormatResponse, Union<Outputs.JsonFormatResponse, Union<Outputs.OrcFormatResponse, Union<Outputs.ParquetFormatResponse, Outputs.TextFormatResponse>>>>? format,
 
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? structure,
+            object? structure,
 
             string type)
         {

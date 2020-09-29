@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
         /// <summary>
         /// The JSON representation of the swagger
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Swagger;
+        public readonly object? Swagger;
         /// <summary>
         /// The WSDL definition
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
 
             ImmutableArray<string> runtimeUrls,
 
-            ImmutableDictionary<string, object>? swagger,
+            object? swagger,
 
             Outputs.WsdlDefinitionResponse? wsdlDefinition)
         {

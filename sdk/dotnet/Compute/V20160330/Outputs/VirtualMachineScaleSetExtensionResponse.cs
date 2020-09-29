@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160330.Outputs
         /// <summary>
         /// Json formatted protected settings for the extension.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ProtectedSettings;
+        public readonly object? ProtectedSettings;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160330.Outputs
         /// <summary>
         /// Json formatted public settings for the extension.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Settings;
+        public readonly object? Settings;
         /// <summary>
         /// The type of the extension handler.
         /// </summary>
@@ -58,13 +58,13 @@ namespace Pulumi.AzureNextGen.Compute.V20160330.Outputs
 
             string? name,
 
-            ImmutableDictionary<string, object>? protectedSettings,
+            object? protectedSettings,
 
             string provisioningState,
 
             string? publisher,
 
-            ImmutableDictionary<string, object>? settings,
+            object? settings,
 
             string? type,
 

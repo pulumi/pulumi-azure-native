@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601.Outputs
         /// <summary>
         /// The JSON representation of the swagger
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Swagger;
+        public readonly object? Swagger;
         /// <summary>
         /// Resource reference type
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601.Outputs
 
             string? name,
 
-            ImmutableDictionary<string, object>? swagger,
+            object? swagger,
 
             string? type)
         {

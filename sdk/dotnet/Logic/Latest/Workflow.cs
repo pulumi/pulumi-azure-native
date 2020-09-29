@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// The definition.
         /// </summary>
         [Output("definition")]
-        public Output<ImmutableDictionary<string, object>?> Definition { get; private set; } = null!;
+        public Output<object?> Definition { get; private set; } = null!;
 
         /// <summary>
         /// The endpoints configuration.
@@ -174,17 +174,11 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         [Input("accessControl")]
         public Input<Inputs.FlowAccessControlConfigurationArgs>? AccessControl { get; set; }
 
-        [Input("definition")]
-        private InputMap<object>? _definition;
-
         /// <summary>
         /// The definition.
         /// </summary>
-        public InputMap<object> Definition
-        {
-            get => _definition ?? (_definition = new InputMap<object>());
-            set => _definition = value;
-        }
+        [Input("definition")]
+        public Input<object>? Definition { get; set; }
 
         /// <summary>
         /// The endpoints configuration.

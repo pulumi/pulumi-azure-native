@@ -22,28 +22,22 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? AccessToken { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("clusterId")]
-        private InputMap<object>? _clusterId;
 
         /// <summary>
         /// The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ClusterId
-        {
-            get => _clusterId ?? (_clusterId = new InputMap<object>());
-            set => _clusterId = value;
-        }
+        [Input("clusterId")]
+        public Input<object>? ClusterId { get; set; }
 
         /// <summary>
         /// The integration runtime reference.
@@ -57,29 +51,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("domain", required: true)]
-        private InputMap<object>? _domain;
-
         /// <summary>
         /// &lt;REGION&gt;.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Domain
-        {
-            get => _domain ?? (_domain = new InputMap<object>());
-            set => _domain = value;
-        }
-
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
+        [Input("domain", required: true)]
+        public Input<object> Domain { get; set; } = null!;
 
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

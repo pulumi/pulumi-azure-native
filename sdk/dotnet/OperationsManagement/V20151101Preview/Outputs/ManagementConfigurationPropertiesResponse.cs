@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview.Outputs
         /// <summary>
         /// The Json object containing the ARM template to deploy
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Template;
+        public readonly object Template;
 
         [OutputConstructor]
         private ManagementConfigurationPropertiesResponse(
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview.Outputs
 
             string provisioningState,
 
-            ImmutableDictionary<string, object> template)
+            object template)
         {
             ApplicationId = applicationId;
             Parameters = parameters;

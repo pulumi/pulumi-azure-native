@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> AccountName;
+        public readonly object AccountName;
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? DataLakeAnalyticsUri;
+        public readonly object? DataLakeAnalyticsUri;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -44,11 +44,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ResourceGroupName;
+        public readonly object? ResourceGroupName;
         /// <summary>
         /// The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ServicePrincipalId;
+        public readonly object? ServicePrincipalId;
         /// <summary>
         /// The Key of the application used to authenticate against the Azure Data Lake Analytics account.
         /// </summary>
@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SubscriptionId;
+        public readonly object? SubscriptionId;
         /// <summary>
         /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tenant;
+        public readonly object Tenant;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -68,29 +68,29 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
         [OutputConstructor]
         private AzureDataLakeAnalyticsLinkedServiceResponse(
-            ImmutableDictionary<string, object> accountName,
+            object accountName,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object>? dataLakeAnalyticsUri,
+            object? dataLakeAnalyticsUri,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? resourceGroupName,
+            object? resourceGroupName,
 
-            ImmutableDictionary<string, object>? servicePrincipalId,
+            object? servicePrincipalId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
 
-            ImmutableDictionary<string, object>? subscriptionId,
+            object? subscriptionId,
 
-            ImmutableDictionary<string, object> tenant,
+            object tenant,
 
             string type)
         {

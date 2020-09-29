@@ -27,29 +27,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("password", required: true)]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> Password { get; set; } = null!;
 
-        [Input("url", required: true)]
-        private InputMap<object>? _url;
-
         /// <summary>
         /// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Url
-        {
-            get => _url ?? (_url = new InputMap<object>());
-            set => _url = value;
-        }
-
-        [Input("username", required: true)]
-        private InputMap<object>? _username;
+        [Input("url", required: true)]
+        public Input<object> Url { get; set; } = null!;
 
         /// <summary>
         /// User name for Basic authentication. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Username
-        {
-            get => _username ?? (_username = new InputMap<object>());
-            set => _username = value;
-        }
+        [Input("username", required: true)]
+        public Input<object> Username { get; set; } = null!;
 
         public WebBasicAuthenticationArgs()
         {

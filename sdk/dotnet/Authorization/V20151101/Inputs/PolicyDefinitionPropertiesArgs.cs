@@ -27,17 +27,11 @@ namespace Pulumi.AzureNextGen.Authorization.V20151101.Inputs
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        [Input("policyRule")]
-        private InputMap<object>? _policyRule;
-
         /// <summary>
         /// The policy rule json.
         /// </summary>
-        public InputMap<object> PolicyRule
-        {
-            get => _policyRule ?? (_policyRule = new InputMap<object>());
-            set => _policyRule = value;
-        }
+        [Input("policyRule")]
+        public Input<object>? PolicyRule { get; set; }
 
         public PolicyDefinitionPropertiesArgs()
         {

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview.Inputs
     public sealed class MarkdownPartMetadataArgs : Pulumi.ResourceArgs
     {
         [Input("inputs")]
-        private InputList<ImmutableDictionary<string, object>>? _inputs;
+        private InputList<object>? _inputs;
 
         /// <summary>
         /// Input to dashboard part.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Inputs
+        public InputList<object> Inputs
         {
-            get => _inputs ?? (_inputs = new InputList<ImmutableDictionary<string, object>>());
+            get => _inputs ?? (_inputs = new InputList<object>());
             set => _inputs = value;
         }
 

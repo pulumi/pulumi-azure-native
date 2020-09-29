@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest.Outputs
         /// <summary>
         /// The empty directory volume.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EmptyDir;
+        public readonly object? EmptyDir;
         /// <summary>
         /// The git repo volume.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest.Outputs
         private VolumeResponse(
             Outputs.AzureFileVolumeResponse? azureFile,
 
-            ImmutableDictionary<string, object>? emptyDir,
+            object? emptyDir,
 
             Outputs.GitRepoVolumeResponse? gitRepo,
 

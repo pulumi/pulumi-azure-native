@@ -15,29 +15,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     /// </summary>
     public sealed class OrcFormatArgs : Pulumi.ResourceArgs
     {
-        [Input("deserializer")]
-        private InputMap<object>? _deserializer;
-
         /// <summary>
         /// Deserializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Deserializer
-        {
-            get => _deserializer ?? (_deserializer = new InputMap<object>());
-            set => _deserializer = value;
-        }
-
-        [Input("serializer")]
-        private InputMap<object>? _serializer;
+        [Input("deserializer")]
+        public Input<object>? Deserializer { get; set; }
 
         /// <summary>
         /// Serializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Serializer
-        {
-            get => _serializer ?? (_serializer = new InputMap<object>());
-            set => _serializer = value;
-        }
+        [Input("serializer")]
+        public Input<object>? Serializer { get; set; }
 
         /// <summary>
         /// Type of dataset storage format.

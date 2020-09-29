@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.Compute.V20160330.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("protectedSettings")]
-        private InputMap<object>? _protectedSettings;
-
         /// <summary>
         /// Json formatted protected settings for the extension.
         /// </summary>
-        public InputMap<object> ProtectedSettings
-        {
-            get => _protectedSettings ?? (_protectedSettings = new InputMap<object>());
-            set => _protectedSettings = value;
-        }
+        [Input("protectedSettings")]
+        public Input<object>? ProtectedSettings { get; set; }
 
         /// <summary>
         /// The name of the extension handler publisher.
@@ -51,17 +45,11 @@ namespace Pulumi.AzureNextGen.Compute.V20160330.Inputs
         [Input("publisher")]
         public Input<string>? Publisher { get; set; }
 
-        [Input("settings")]
-        private InputMap<object>? _settings;
-
         /// <summary>
         /// Json formatted public settings for the extension.
         /// </summary>
-        public InputMap<object> Settings
-        {
-            get => _settings ?? (_settings = new InputMap<object>());
-            set => _settings = value;
-        }
+        [Input("settings")]
+        public Input<object>? Settings { get; set; }
 
         /// <summary>
         /// The type of the extension handler.

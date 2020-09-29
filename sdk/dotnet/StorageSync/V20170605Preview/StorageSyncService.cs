@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
         /// The tags of the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource
@@ -126,17 +126,11 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
         [Input("storageSyncServiceName", required: true)]
         public Input<string> StorageSyncServiceName { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<object>? _tags;
-
         /// <summary>
         /// The tags of the resource.
         /// </summary>
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
+        [Input("tags")]
+        public Input<object>? Tags { get; set; }
 
         public StorageSyncServiceArgs()
         {

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Pipeline parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? Parameters;
+        public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
         /// Pipeline reference.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
         [OutputConstructor]
         private TriggerPipelineReferenceResponse(
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? parameters,
+            ImmutableDictionary<string, object>? parameters,
 
             Outputs.PipelineReferenceResponse? pipelineReference)
         {

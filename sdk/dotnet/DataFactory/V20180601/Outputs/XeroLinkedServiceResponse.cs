@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Properties used to connect to Xero. It is mutually exclusive with any other properties in the linked service. Type: object.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ConnectionProperties;
+        public readonly object? ConnectionProperties;
         /// <summary>
         /// The consumer key associated with the Xero application.
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The endpoint of the Xero server. (i.e. api.xero.com)
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Host;
+        public readonly object? Host;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -57,31 +57,31 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseEncryptedEndpoints;
+        public readonly object? UseEncryptedEndpoints;
         /// <summary>
         /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseHostVerification;
+        public readonly object? UseHostVerification;
         /// <summary>
         /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UsePeerVerification;
+        public readonly object? UsePeerVerification;
 
         [OutputConstructor]
         private XeroLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object>? connectionProperties,
+            object? connectionProperties,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? consumerKey,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? host,
+            object? host,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
@@ -89,11 +89,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             string type,
 
-            ImmutableDictionary<string, object>? useEncryptedEndpoints,
+            object? useEncryptedEndpoints,
 
-            ImmutableDictionary<string, object>? useHostVerification,
+            object? useHostVerification,
 
-            ImmutableDictionary<string, object>? usePeerVerification)
+            object? usePeerVerification)
         {
             Annotations = annotations;
             ConnectVia = connectVia;

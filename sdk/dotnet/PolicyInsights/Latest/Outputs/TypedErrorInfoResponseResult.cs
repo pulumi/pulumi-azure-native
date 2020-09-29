@@ -14,13 +14,21 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest.Outputs
     public sealed class TypedErrorInfoResponseResult
     {
         /// <summary>
+        /// The scenario specific error details.
+        /// </summary>
+        public readonly object Info;
+        /// <summary>
         /// The type of included error details.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
-        private TypedErrorInfoResponseResult(string type)
+        private TypedErrorInfoResponseResult(
+            object info,
+
+            string type)
         {
+            Info = info;
             Type = type;
         }
     }

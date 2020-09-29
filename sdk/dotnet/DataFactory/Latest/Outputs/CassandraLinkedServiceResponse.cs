@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AuthenticationType;
+        public readonly object? AuthenticationType;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Host name for connection. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Host;
+        public readonly object Host;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The port for the connection. Type: integer (or Expression with resultType integer).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Port;
+        public readonly object? Port;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -56,31 +56,31 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Username for authentication. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Username;
+        public readonly object? Username;
 
         [OutputConstructor]
         private CassandraLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object>? authenticationType,
+            object? authenticationType,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object> host,
+            object host,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
-            ImmutableDictionary<string, object>? port,
+            object? port,
 
             string type,
 
-            ImmutableDictionary<string, object>? username)
+            object? username)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;

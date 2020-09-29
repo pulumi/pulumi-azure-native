@@ -87,17 +87,11 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Inputs
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// Free form object for the data caller wants to store
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// Resource Name

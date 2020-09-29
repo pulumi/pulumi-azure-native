@@ -15,27 +15,21 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class RestResourceDatasetArgs : Pulumi.ResourceArgs
     {
-        [Input("additionalHeaders")]
-        private InputMap<object>? _additionalHeaders;
-
         /// <summary>
         /// The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AdditionalHeaders
-        {
-            get => _additionalHeaders ?? (_additionalHeaders = new InputMap<object>());
-            set => _additionalHeaders = value;
-        }
+        [Input("additionalHeaders")]
+        public Input<object>? AdditionalHeaders { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -57,17 +51,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("linkedServiceName", required: true)]
         public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
 
-        [Input("paginationRules")]
-        private InputMap<object>? _paginationRules;
-
         /// <summary>
         /// The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> PaginationRules
-        {
-            get => _paginationRules ?? (_paginationRules = new InputMap<object>());
-            set => _paginationRules = value;
-        }
+        [Input("paginationRules")]
+        public Input<object>? PaginationRules { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -81,65 +69,35 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
             set => _parameters = value;
         }
 
-        [Input("relativeUrl")]
-        private InputMap<object>? _relativeUrl;
-
         /// <summary>
         /// The relative URL to the resource that the RESTful API provides. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> RelativeUrl
-        {
-            get => _relativeUrl ?? (_relativeUrl = new InputMap<object>());
-            set => _relativeUrl = value;
-        }
-
-        [Input("requestBody")]
-        private InputMap<object>? _requestBody;
+        [Input("relativeUrl")]
+        public Input<object>? RelativeUrl { get; set; }
 
         /// <summary>
         /// The HTTP request body to the RESTful API if requestMethod is POST. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> RequestBody
-        {
-            get => _requestBody ?? (_requestBody = new InputMap<object>());
-            set => _requestBody = value;
-        }
-
-        [Input("requestMethod")]
-        private InputMap<object>? _requestMethod;
+        [Input("requestBody")]
+        public Input<object>? RequestBody { get; set; }
 
         /// <summary>
         /// The HTTP method used to call the RESTful API. The default is GET. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> RequestMethod
-        {
-            get => _requestMethod ?? (_requestMethod = new InputMap<object>());
-            set => _requestMethod = value;
-        }
-
-        [Input("schema")]
-        private InputMap<object>? _schema;
+        [Input("requestMethod")]
+        public Input<object>? RequestMethod { get; set; }
 
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public InputMap<object> Schema
-        {
-            get => _schema ?? (_schema = new InputMap<object>());
-            set => _schema = value;
-        }
-
-        [Input("structure")]
-        private InputMap<object>? _structure;
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.

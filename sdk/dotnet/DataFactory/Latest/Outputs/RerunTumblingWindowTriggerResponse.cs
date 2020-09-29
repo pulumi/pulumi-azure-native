@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the trigger.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// Trigger description.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The parent trigger reference.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ParentTrigger;
+        public readonly object ParentTrigger;
         /// <summary>
         /// The end time for the time period for which restatement is initiated. Only UTC time is currently supported.
         /// </summary>
@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
         [OutputConstructor]
         private RerunTumblingWindowTriggerResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             string? description,
 
-            ImmutableDictionary<string, object> parentTrigger,
+            object parentTrigger,
 
             string requestedEndTime,
 

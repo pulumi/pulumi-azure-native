@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         /// <summary>
         /// Valid JSON object containing workbook template payload.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> TemplateData;
+        public readonly object TemplateData;
         /// <summary>
         /// Azure resource type
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableDictionary<string, object> templateData,
+            object templateData,
 
             string type)
         {

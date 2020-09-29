@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> SecretName;
+        public readonly object SecretName;
         /// <summary>
         /// The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SecretVersion;
+        public readonly object? SecretVersion;
         /// <summary>
         /// The Azure Key Vault linked service reference.
         /// </summary>
@@ -32,9 +32,9 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
         [OutputConstructor]
         private AzureKeyVaultSecretReferenceResponse(
-            ImmutableDictionary<string, object> secretName,
+            object secretName,
 
-            ImmutableDictionary<string, object>? secretVersion,
+            object? secretVersion,
 
             Outputs.LinkedServiceReferenceResponse store,
 

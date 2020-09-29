@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Outputs
         /// <summary>
         /// Gets or sets the metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// Gets or sets the content link URI.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Outputs
 
             string? contentVersion,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string? uri)
         {

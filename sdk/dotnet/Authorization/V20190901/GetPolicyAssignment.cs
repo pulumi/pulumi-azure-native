@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20190901
         /// <summary>
         /// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The name of the policy assignment.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20190901
 
             string? location,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string name,
 

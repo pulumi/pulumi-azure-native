@@ -12,17 +12,11 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Inputs
 
     public sealed class WorkflowParameterArgs : Pulumi.ResourceArgs
     {
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// Gets or sets the metadata.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// Gets or sets the type.
@@ -30,17 +24,11 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        [Input("value")]
-        private InputMap<object>? _value;
-
         /// <summary>
         /// Gets or sets the value.
         /// </summary>
-        public InputMap<object> Value
-        {
-            get => _value ?? (_value = new InputMap<object>());
-            set => _value = value;
-        }
+        [Input("value")]
+        public Input<object>? Value { get; set; }
 
         public WorkflowParameterArgs()
         {

@@ -20,11 +20,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The id of an existing interactive cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ClusterId;
+        public readonly object? ClusterId;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// &lt;REGION&gt;.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Domain;
+        public readonly object Domain;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -54,17 +54,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         private AzureDatabricksDeltaLakeLinkedServiceResponse(
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? accessToken,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object>? clusterId,
+            object? clusterId,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object> domain,
+            object domain,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 

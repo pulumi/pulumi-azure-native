@@ -16,15 +16,15 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// Mapping from database name to list of source tables
         /// </summary>
-        public readonly string DatabasesToSourceTables;
+        public readonly ImmutableDictionary<string, ImmutableArray<Outputs.DatabaseTableResponse>> DatabasesToSourceTables;
         /// <summary>
         /// Mapping from database name to list of target tables
         /// </summary>
-        public readonly string DatabasesToTargetTables;
+        public readonly ImmutableDictionary<string, ImmutableArray<Outputs.DatabaseTableResponse>> DatabasesToTargetTables;
         /// <summary>
         /// Mapping from database name to list of validation errors
         /// </summary>
-        public readonly string TableValidationErrors;
+        public readonly ImmutableDictionary<string, ImmutableArray<string>> TableValidationErrors;
         /// <summary>
         /// Validation errors
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
         [OutputConstructor]
         private GetUserTablesSqlSyncTaskOutputResponse(
-            string databasesToSourceTables,
+            ImmutableDictionary<string, ImmutableArray<Outputs.DatabaseTableResponse>> databasesToSourceTables,
 
-            string databasesToTargetTables,
+            ImmutableDictionary<string, ImmutableArray<Outputs.DatabaseTableResponse>> databasesToTargetTables,
 
-            string tableValidationErrors,
+            ImmutableDictionary<string, ImmutableArray<string>> tableValidationErrors,
 
             ImmutableArray<Outputs.ReportableExceptionResponse> validationErrors)
         {

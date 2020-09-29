@@ -16,15 +16,15 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// Source agent jobs as a map from agent job name to id.
         /// </summary>
-        public readonly string AgentJobs;
+        public readonly ImmutableDictionary<string, string> AgentJobs;
         /// <summary>
         /// Mapping from database name to TDE certificate name, if applicable
         /// </summary>
-        public readonly string DatabaseTdeCertificateMapping;
+        public readonly ImmutableDictionary<string, string> DatabaseTdeCertificateMapping;
         /// <summary>
         /// Source databases as a map from database name to database id
         /// </summary>
-        public readonly string Databases;
+        public readonly ImmutableDictionary<string, string> Databases;
         /// <summary>
         /// Result identifier
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// Source logins as a map from login name to login id.
         /// </summary>
-        public readonly string Logins;
+        public readonly ImmutableDictionary<string, string> Logins;
         /// <summary>
         /// Type of result - database level or task level
         /// </summary>
@@ -52,15 +52,15 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
         [OutputConstructor]
         private ConnectToSourceSqlServerTaskOutputTaskLevelResponse(
-            string agentJobs,
+            ImmutableDictionary<string, string> agentJobs,
 
-            string databaseTdeCertificateMapping,
+            ImmutableDictionary<string, string> databaseTdeCertificateMapping,
 
-            string databases,
+            ImmutableDictionary<string, string> databases,
 
             string id,
 
-            string logins,
+            ImmutableDictionary<string, string> logins,
 
             string resultType,
 

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The authentication type to be used to connect to the SAP HANA server.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Host name of the SAP HANA server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Server;
+        public readonly object Server;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Username to access the SAP HANA server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserName;
+        public readonly object? UserName;
 
         [OutputConstructor]
         private SapHanaLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             string? authenticationType,
 
@@ -64,17 +64,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
-            ImmutableDictionary<string, object> server,
+            object server,
 
             string type,
 
-            ImmutableDictionary<string, object>? userName)
+            object? userName)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;

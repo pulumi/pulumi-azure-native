@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Deserializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Deserializer;
+        public readonly object? Deserializer;
         /// <summary>
         /// Serializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Serializer;
+        public readonly object? Serializer;
         /// <summary>
         /// Type of dataset storage format.
         /// </summary>
@@ -28,9 +28,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
         [OutputConstructor]
         private OrcFormatResponse(
-            ImmutableDictionary<string, object>? deserializer,
+            object? deserializer,
 
-            ImmutableDictionary<string, object>? serializer,
+            object? serializer,
 
             string type)
         {

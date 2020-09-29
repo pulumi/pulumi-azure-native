@@ -21,17 +21,11 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Inputs
         [Input("connectionDisplayName")]
         public Input<string>? ConnectionDisplayName { get; set; }
 
-        [Input("connectionPortalUrl")]
-        private InputMap<object>? _connectionPortalUrl;
-
         /// <summary>
         /// ConnectionPortalUrl
         /// </summary>
-        public InputMap<object> ConnectionPortalUrl
-        {
-            get => _connectionPortalUrl ?? (_connectionPortalUrl = new InputMap<object>());
-            set => _connectionPortalUrl = value;
-        }
+        [Input("connectionPortalUrl")]
+        public Input<object>? ConnectionPortalUrl { get; set; }
 
         /// <summary>
         /// Description

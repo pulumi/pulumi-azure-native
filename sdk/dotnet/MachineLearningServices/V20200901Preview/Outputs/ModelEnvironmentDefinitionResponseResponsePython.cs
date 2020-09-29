@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.Outputs
         /// <summary>
         /// A JObject containing Conda dependencies.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? CondaDependencies;
+        public readonly object? CondaDependencies;
         /// <summary>
         /// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.Outputs
         private ModelEnvironmentDefinitionResponseResponsePython(
             string? baseCondaEnvironment,
 
-            ImmutableDictionary<string, object>? condaDependencies,
+            object? condaDependencies,
 
             string? interpreterPath,
 

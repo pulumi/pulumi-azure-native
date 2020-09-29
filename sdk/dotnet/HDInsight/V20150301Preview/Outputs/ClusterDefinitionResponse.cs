@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
         /// <summary>
         /// The cluster configurations.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Configurations;
+        public readonly object? Configurations;
         /// <summary>
         /// The type of cluster.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
 
             ImmutableDictionary<string, string>? componentVersion,
 
-            ImmutableDictionary<string, object>? configurations,
+            object? configurations,
 
             string? kind)
         {

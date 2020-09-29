@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20161201
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// The ID of the policy definition.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20161201
 
             string? name,
 
-            ImmutableDictionary<string, object>? parameters,
+            object? parameters,
 
             string? policyDefinitionId,
 

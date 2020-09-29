@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// The Azure Resource Manager template content.
         /// </summary>
         [Output("template")]
-        public Output<ImmutableDictionary<string, object>?> Template { get; private set; } = null!;
+        public Output<object?> Template { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.
@@ -149,17 +149,11 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
             set => _tags = value;
         }
 
-        [Input("template")]
-        private InputMap<object>? _template;
-
         /// <summary>
         /// The Azure Resource Manager template content.
         /// </summary>
-        public InputMap<object> Template
-        {
-            get => _template ?? (_template = new InputMap<object>());
-            set => _template = value;
-        }
+        [Input("template")]
+        public Input<object>? Template { get; set; }
 
         /// <summary>
         /// Name of the Template Spec.

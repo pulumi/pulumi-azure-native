@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -32,31 +32,31 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// &lt;REGION&gt;.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Domain;
+        public readonly object Domain;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ExistingClusterId;
+        public readonly object? ExistingClusterId;
         /// <summary>
         /// The node types of new cluster. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NewClusterNodeType;
+        public readonly object? NewClusterNodeType;
         /// <summary>
         /// Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NewClusterNumOfWorker;
+        public readonly object? NewClusterNumOfWorker;
         /// <summary>
         /// a set of optional, user-specified Spark configuration key-value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? NewClusterSparkConf;
+        public readonly ImmutableDictionary<string, object>? NewClusterSparkConf;
         /// <summary>
         /// The Spark version of new cluster. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NewClusterVersion;
+        public readonly object? NewClusterVersion;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -70,25 +70,25 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         private AzureDatabricksLinkedServiceResponse(
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> accessToken,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object> domain,
+            object domain,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? existingClusterId,
+            object? existingClusterId,
 
-            ImmutableDictionary<string, object>? newClusterNodeType,
+            object? newClusterNodeType,
 
-            ImmutableDictionary<string, object>? newClusterNumOfWorker,
+            object? newClusterNumOfWorker,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? newClusterSparkConf,
+            ImmutableDictionary<string, object>? newClusterSparkConf,
 
-            ImmutableDictionary<string, object>? newClusterVersion,
+            object? newClusterVersion,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 

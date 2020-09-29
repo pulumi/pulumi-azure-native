@@ -93,17 +93,11 @@ namespace Pulumi.AzureNextGen.Web.V20160601.Inputs
             set => _runtimeUrls = value;
         }
 
-        [Input("swagger")]
-        private InputMap<object>? _swagger;
-
         /// <summary>
         /// The JSON representation of the swagger
         /// </summary>
-        public InputMap<object> Swagger
-        {
-            get => _swagger ?? (_swagger = new InputMap<object>());
-            set => _swagger = value;
-        }
+        [Input("swagger")]
+        public Input<object>? Swagger { get; set; }
 
         /// <summary>
         /// The WSDL definition

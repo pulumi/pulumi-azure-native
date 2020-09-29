@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class AzureSearchLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// Admin Key for Azure Search service
@@ -75,17 +69,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("url", required: true)]
-        private InputMap<object>? _url;
-
         /// <summary>
         /// URL for Azure Search service. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Url
-        {
-            get => _url ?? (_url = new InputMap<object>());
-            set => _url = value;
-        }
+        [Input("url", required: true)]
+        public Input<object> Url { get; set; } = null!;
 
         public AzureSearchLinkedServiceArgs()
         {

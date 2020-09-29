@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Insights.V20190901Preview
         /// <summary>
         /// Additional properties that can be set for the query.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Properties;
+        public readonly object Properties;
         /// <summary>
         /// The related metadata items for the function.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Insights.V20190901Preview
 
             string name,
 
-            ImmutableDictionary<string, object> properties,
+            object properties,
 
             Outputs.LogAnalyticsQueryPackQueryPropertiesResponseRelated? related,
 

@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AdditionalHeaders;
+        public readonly object? AdditionalHeaders;
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? PaginationRules;
+        public readonly object? PaginationRules;
         /// <summary>
         /// Parameters for dataset.
         /// </summary>
@@ -44,23 +44,23 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The relative URL to the resource that the RESTful API provides. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RelativeUrl;
+        public readonly object? RelativeUrl;
         /// <summary>
         /// The HTTP request body to the RESTful API if requestMethod is POST. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RequestBody;
+        public readonly object? RequestBody;
         /// <summary>
         /// The HTTP method used to call the RESTful API. The default is GET. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RequestMethod;
+        public readonly object? RequestMethod;
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Schema;
+        public readonly object? Schema;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Structure;
+        public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
         /// </summary>
@@ -68,9 +68,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private RestResourceDatasetResponse(
-            ImmutableDictionary<string, object>? additionalHeaders,
+            object? additionalHeaders,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             string? description,
 
@@ -78,19 +78,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
-            ImmutableDictionary<string, object>? paginationRules,
+            object? paginationRules,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? relativeUrl,
+            object? relativeUrl,
 
-            ImmutableDictionary<string, object>? requestBody,
+            object? requestBody,
 
-            ImmutableDictionary<string, object>? requestMethod,
+            object? requestMethod,
 
-            ImmutableDictionary<string, object>? schema,
+            object? schema,
 
-            ImmutableDictionary<string, object>? structure,
+            object? structure,
 
             string type)
         {

@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
         /// <summary>
         /// The tags of the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly object? Tags;
         /// <summary>
         /// The type of the resource
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
 
             string storageSyncServiceUid,
 
-            ImmutableDictionary<string, object>? tags,
+            object? tags,
 
             string type)
         {

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180315Preview.Outputs
         /// <summary>
         /// Selected databases as a map from database name to database id
         /// </summary>
-        public readonly string Databases;
+        public readonly ImmutableDictionary<string, string> Databases;
         /// <summary>
         /// Migration end time
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180315Preview.Outputs
 
         [OutputConstructor]
         private MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(
-            string databases,
+            ImmutableDictionary<string, string> databases,
 
             string endedOn,
 

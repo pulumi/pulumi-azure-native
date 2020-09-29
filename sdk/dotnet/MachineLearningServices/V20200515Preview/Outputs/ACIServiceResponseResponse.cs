@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Outputs
         /// <summary>
         /// Details on the models and configurations.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>> ModelConfigMap;
+        public readonly ImmutableDictionary<string, object> ModelConfigMap;
         /// <summary>
         /// The list of models.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Outputs
 
             string? location,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>> modelConfigMap,
+            ImmutableDictionary<string, object> modelConfigMap,
 
             ImmutableArray<Outputs.ModelResponse> models,
 

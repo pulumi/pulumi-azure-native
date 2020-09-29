@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest.Outputs
         /// <summary>
         /// The detector's parameters.'
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? Parameters;
+        public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
         /// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest.Outputs
 
             string? name,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? parameters,
+            ImmutableDictionary<string, object>? parameters,
 
             ImmutableArray<string> supportedResourceTypes)
         {

@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class SalesforceLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("apiVersion")]
-        private InputMap<object>? _apiVersion;
 
         /// <summary>
         /// The Salesforce API version used in ADF. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ApiVersion
-        {
-            get => _apiVersion ?? (_apiVersion = new InputMap<object>());
-            set => _apiVersion = value;
-        }
+        [Input("apiVersion")]
+        public Input<object>? ApiVersion { get; set; }
 
         /// <summary>
         /// The integration runtime reference.
@@ -51,29 +45,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("environmentUrl")]
-        private InputMap<object>? _environmentUrl;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EnvironmentUrl
-        {
-            get => _environmentUrl ?? (_environmentUrl = new InputMap<object>());
-            set => _environmentUrl = value;
-        }
+        [Input("environmentUrl")]
+        public Input<object>? EnvironmentUrl { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -105,17 +87,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("username")]
-        private InputMap<object>? _username;
-
         /// <summary>
         /// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Username
-        {
-            get => _username ?? (_username = new InputMap<object>());
-            set => _username = value;
-        }
+        [Input("username")]
+        public Input<object>? Username { get; set; }
 
         public SalesforceLinkedServiceArgs()
         {

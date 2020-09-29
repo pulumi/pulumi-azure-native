@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// Config information.
         /// </summary>
         [Output("config")]
-        public Output<ImmutableDictionary<string, object>?> Config { get; private set; } = null!;
+        public Output<object?> Config { get; private set; } = null!;
 
         /// <summary>
         /// Config URI.
@@ -163,17 +163,11 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 
     public sealed class WebAppFunctionArgs : Pulumi.ResourceArgs
     {
-        [Input("config")]
-        private InputMap<object>? _config;
-
         /// <summary>
         /// Config information.
         /// </summary>
-        public InputMap<object> Config
-        {
-            get => _config ?? (_config = new InputMap<object>());
-            set => _config = value;
-        }
+        [Input("config")]
+        public Input<object>? Config { get; set; }
 
         /// <summary>
         /// Config URI.

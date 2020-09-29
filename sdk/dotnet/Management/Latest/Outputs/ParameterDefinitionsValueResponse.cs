@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.Management.Latest.Outputs
         /// <summary>
         /// The allowed values for the parameter.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> AllowedValues;
+        public readonly ImmutableArray<object> AllowedValues;
         /// <summary>
         /// The default value for the parameter if no value is provided.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? DefaultValue;
+        public readonly object? DefaultValue;
         /// <summary>
         /// General metadata for the parameter.
         /// </summary>
@@ -32,9 +32,9 @@ namespace Pulumi.AzureNextGen.Management.Latest.Outputs
 
         [OutputConstructor]
         private ParameterDefinitionsValueResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> allowedValues,
+            ImmutableArray<object> allowedValues,
 
-            ImmutableDictionary<string, object>? defaultValue,
+            object? defaultValue,
 
             Outputs.ParameterDefinitionsValueResponseMetadata? metadata,
 

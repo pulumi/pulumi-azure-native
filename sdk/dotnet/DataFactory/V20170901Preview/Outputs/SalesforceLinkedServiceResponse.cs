@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -28,11 +28,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EnvironmentUrl;
+        public readonly object? EnvironmentUrl;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -52,19 +52,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Username;
+        public readonly object? Username;
 
         [OutputConstructor]
         private SalesforceLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? environmentUrl,
+            object? environmentUrl,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
             string type,
 
-            ImmutableDictionary<string, object>? username)
+            object? username)
         {
             Annotations = annotations;
             ConnectVia = connectVia;

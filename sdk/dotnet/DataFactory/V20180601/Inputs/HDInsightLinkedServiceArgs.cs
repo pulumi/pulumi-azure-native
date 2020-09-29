@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class HDInsightLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("clusterUri", required: true)]
-        private InputMap<object>? _clusterUri;
 
         /// <summary>
         /// HDInsight cluster URI. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ClusterUri
-        {
-            get => _clusterUri ?? (_clusterUri = new InputMap<object>());
-            set => _clusterUri = value;
-        }
+        [Input("clusterUri", required: true)]
+        public Input<object> ClusterUri { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -51,29 +45,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("fileSystem")]
-        private InputMap<object>? _fileSystem;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// Specify the FileSystem if the main storage for the HDInsight is ADLS Gen2. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> FileSystem
-        {
-            get => _fileSystem ?? (_fileSystem = new InputMap<object>());
-            set => _fileSystem = value;
-        }
+        [Input("fileSystem")]
+        public Input<object>? FileSystem { get; set; }
 
         /// <summary>
         /// A reference to the Azure SQL linked service that points to the HCatalog database.
@@ -81,17 +63,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("hcatalogLinkedServiceName")]
         public Input<Inputs.LinkedServiceReferenceArgs>? HcatalogLinkedServiceName { get; set; }
 
-        [Input("isEspEnabled")]
-        private InputMap<object>? _isEspEnabled;
-
         /// <summary>
         /// Specify if the HDInsight is created with ESP (Enterprise Security Package). Type: Boolean.
         /// </summary>
-        public InputMap<object> IsEspEnabled
-        {
-            get => _isEspEnabled ?? (_isEspEnabled = new InputMap<object>());
-            set => _isEspEnabled = value;
-        }
+        [Input("isEspEnabled")]
+        public Input<object>? IsEspEnabled { get; set; }
 
         /// <summary>
         /// The Azure Storage linked service reference.
@@ -123,17 +99,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("userName")]
-        private InputMap<object>? _userName;
-
         /// <summary>
         /// HDInsight cluster user name. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> UserName
-        {
-            get => _userName ?? (_userName = new InputMap<object>());
-            set => _userName = value;
-        }
+        [Input("userName")]
+        public Input<object>? UserName { get; set; }
 
         public HDInsightLinkedServiceArgs()
         {

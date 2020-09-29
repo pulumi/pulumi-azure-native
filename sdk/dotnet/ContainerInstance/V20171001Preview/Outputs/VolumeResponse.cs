@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20171001Preview.Outputs
         /// <summary>
         /// The empty directory volume.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EmptyDir;
+        public readonly object? EmptyDir;
         /// <summary>
         /// The name of the volume.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20171001Preview.Outputs
         private VolumeResponse(
             Outputs.AzureFileVolumeResponse? azureFile,
 
-            ImmutableDictionary<string, object>? emptyDir,
+            object? emptyDir,
 
             string name)
         {

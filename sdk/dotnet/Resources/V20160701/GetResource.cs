@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Resources.V20160701
         /// <summary>
         /// The resource properties.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Properties;
+        public readonly object Properties;
         /// <summary>
         /// The sku of the resource.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Resources.V20160701
 
             Outputs.PlanResponse? plan,
 
-            ImmutableDictionary<string, object> properties,
+            object properties,
 
             Outputs.SkuResponse? sku,
 

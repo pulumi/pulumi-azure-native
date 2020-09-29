@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The data compression method used for the item(s) in the Azure Data Lake Store.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? FileName;
+        public readonly object? FileName;
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? FolderPath;
+        public readonly object? FolderPath;
         /// <summary>
         /// The format of the Data Lake Store.
         /// </summary>
@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Schema;
+        public readonly object? Schema;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Structure;
+        public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
         /// </summary>
@@ -64,17 +64,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
         [OutputConstructor]
         private AzureDataLakeStoreDatasetResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Union<Outputs.DatasetTarCompressionResponse, Union<Outputs.DatasetTarGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>>>? compression,
 
             string? description,
 
-            ImmutableDictionary<string, object>? fileName,
+            object? fileName,
 
             Outputs.DatasetResponseFolder? folder,
 
-            ImmutableDictionary<string, object>? folderPath,
+            object? folderPath,
 
             Union<Outputs.AvroFormatResponse, Union<Outputs.JsonFormatResponse, Union<Outputs.OrcFormatResponse, Union<Outputs.ParquetFormatResponse, Outputs.TextFormatResponse>>>>? format,
 
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? schema,
+            object? schema,
 
-            ImmutableDictionary<string, object>? structure,
+            object? structure,
 
             string type)
         {

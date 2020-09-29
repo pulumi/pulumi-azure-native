@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
         /// <summary>
         /// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Policy;
+        public readonly object? Policy;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
 
             string name,
 
-            ImmutableDictionary<string, object>? policy,
+            object? policy,
 
             string type)
         {

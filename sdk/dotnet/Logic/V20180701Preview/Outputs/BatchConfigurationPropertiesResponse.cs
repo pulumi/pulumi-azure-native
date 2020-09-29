@@ -25,6 +25,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Outputs
         /// The artifact creation time.
         /// </summary>
         public readonly string? CreatedTime;
+        public readonly object? Metadata;
         /// <summary>
         /// The batch release criteria.
         /// </summary>
@@ -38,11 +39,14 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Outputs
 
             string? createdTime,
 
+            object? metadata,
+
             Outputs.BatchReleaseCriteriaResponse releaseCriteria)
         {
             BatchGroupName = batchGroupName;
             ChangedTime = changedTime;
             CreatedTime = createdTime;
+            Metadata = metadata;
             ReleaseCriteria = releaseCriteria;
         }
     }

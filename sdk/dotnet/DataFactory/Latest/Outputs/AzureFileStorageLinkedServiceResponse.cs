@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ConnectionString;
+        public readonly object? ConnectionString;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -36,15 +36,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The azure file share name. It is required when auth with accountKey/sasToken. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? FileShare;
+        public readonly object? FileShare;
         /// <summary>
         /// Host name of the server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Host;
+        public readonly object? Host;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// SAS URI of the Azure File resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SasUri;
+        public readonly object? SasUri;
         /// <summary>
         /// The azure file share snapshot version. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Snapshot;
+        public readonly object? Snapshot;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -72,25 +72,25 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// User ID to logon the server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserId;
+        public readonly object? UserId;
 
         [OutputConstructor]
         private AzureFileStorageLinkedServiceResponse(
             Outputs.AzureKeyVaultSecretReferenceResponse? accountKey,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object>? connectionString,
+            object? connectionString,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? fileShare,
+            object? fileShare,
 
-            ImmutableDictionary<string, object>? host,
+            object? host,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
@@ -98,13 +98,13 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             Outputs.AzureKeyVaultSecretReferenceResponse? sasToken,
 
-            ImmutableDictionary<string, object>? sasUri,
+            object? sasUri,
 
-            ImmutableDictionary<string, object>? snapshot,
+            object? snapshot,
 
             string type,
 
-            ImmutableDictionary<string, object>? userId)
+            object? userId)
         {
             AccountKey = accountKey;
             Annotations = annotations;

@@ -21,17 +21,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
 
-        [Input("url", required: true)]
-        private InputMap<object>? _url;
-
         /// <summary>
         /// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Url
-        {
-            get => _url ?? (_url = new InputMap<object>());
-            set => _url = value;
-        }
+        [Input("url", required: true)]
+        public Input<object> Url { get; set; } = null!;
 
         public WebAnonymousAuthenticationArgs()
         {

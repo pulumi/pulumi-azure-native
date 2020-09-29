@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// Layout view of the blueprint definition for UI reference.
         /// </summary>
         [Output("layout")]
-        public Output<ImmutableDictionary<string, object>?> Layout { get; private set; } = null!;
+        public Output<object?> Layout { get; private set; } = null!;
 
         /// <summary>
         /// Name of this resource.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// Published versions of this blueprint definition.
         /// </summary>
         [Output("versions")]
-        public Output<ImmutableDictionary<string, object>?> Versions { get; private set; } = null!;
+        public Output<object?> Versions { get; private set; } = null!;
 
 
         /// <summary>
@@ -137,17 +137,11 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        [Input("layout")]
-        private InputMap<object>? _layout;
-
         /// <summary>
         /// Layout view of the blueprint definition for UI reference.
         /// </summary>
-        public InputMap<object> Layout
-        {
-            get => _layout ?? (_layout = new InputMap<object>());
-            set => _layout = value;
-        }
+        [Input("layout")]
+        public Input<object>? Layout { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterDefinitionArgs>? _parameters;
@@ -185,17 +179,11 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         [Input("targetScope", required: true)]
         public Input<string> TargetScope { get; set; } = null!;
 
-        [Input("versions")]
-        private InputMap<object>? _versions;
-
         /// <summary>
         /// Published versions of this blueprint definition.
         /// </summary>
-        public InputMap<object> Versions
-        {
-            get => _versions ?? (_versions = new InputMap<object>());
-            set => _versions = value;
-        }
+        [Input("versions")]
+        public Input<object>? Versions { get; set; }
 
         public BlueprintArgs()
         {

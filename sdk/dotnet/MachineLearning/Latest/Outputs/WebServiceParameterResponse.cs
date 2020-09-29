@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest.Outputs
         /// <summary>
         /// The parameter value
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Value;
+        public readonly object? Value;
 
         [OutputConstructor]
         private WebServiceParameterResponse(
             string? certificateThumbprint,
 
-            ImmutableDictionary<string, object>? value)
+            object? value)
         {
             CertificateThumbprint = certificateThumbprint;
             Value = value;

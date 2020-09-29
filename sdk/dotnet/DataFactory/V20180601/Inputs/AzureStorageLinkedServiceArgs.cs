@@ -22,14 +22,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? AccountKey { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("connectionString")]
-        private InputMap<object>? _connectionString;
-
         /// <summary>
         /// The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public InputMap<object> ConnectionString
-        {
-            get => _connectionString ?? (_connectionString = new InputMap<object>());
-            set => _connectionString = value;
-        }
+        [Input("connectionString")]
+        public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
         /// Linked service description.
@@ -81,17 +75,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("sasToken")]
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? SasToken { get; set; }
 
-        [Input("sasUri")]
-        private InputMap<object>? _sasUri;
-
         /// <summary>
         /// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public InputMap<object> SasUri
-        {
-            get => _sasUri ?? (_sasUri = new InputMap<object>());
-            set => _sasUri = value;
-        }
+        [Input("sasUri")]
+        public Input<object>? SasUri { get; set; }
 
         /// <summary>
         /// Type of linked service.

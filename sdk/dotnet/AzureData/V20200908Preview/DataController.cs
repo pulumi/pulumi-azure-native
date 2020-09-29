@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
         /// The raw kubernetes information
         /// </summary>
         [Output("k8sRaw")]
-        public Output<ImmutableDictionary<string, object>?> K8sRaw { get; private set; } = null!;
+        public Output<object?> K8sRaw { get; private set; } = null!;
 
         /// <summary>
         /// Last uploaded date from on premise cluster. Defaults to current date time
@@ -114,17 +114,11 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
         [Input("dataControllerName", required: true)]
         public Input<string> DataControllerName { get; set; } = null!;
 
-        [Input("k8sRaw")]
-        private InputMap<object>? _k8sRaw;
-
         /// <summary>
         /// The raw kubernetes information
         /// </summary>
-        public InputMap<object> K8sRaw
-        {
-            get => _k8sRaw ?? (_k8sRaw = new InputMap<object>());
-            set => _k8sRaw = value;
-        }
+        [Input("k8sRaw")]
+        public Input<object>? K8sRaw { get; set; }
 
         /// <summary>
         /// Last uploaded date from on premise cluster. Defaults to current date time

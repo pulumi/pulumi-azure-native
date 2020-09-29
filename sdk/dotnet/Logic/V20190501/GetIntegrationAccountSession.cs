@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The session content.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Content;
+        public readonly object? Content;
         /// <summary>
         /// The created time.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         private GetIntegrationAccountSessionResult(
             string changedTime,
 
-            ImmutableDictionary<string, object>? content,
+            object? content,
 
             string createdTime,
 

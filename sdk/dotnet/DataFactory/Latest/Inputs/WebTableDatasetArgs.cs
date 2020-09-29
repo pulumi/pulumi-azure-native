@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class WebTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("folder")]
         public Input<Inputs.DatasetFolderArgs>? Folder { get; set; }
 
-        [Input("index", required: true)]
-        private InputMap<object>? _index;
-
         /// <summary>
         /// The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
-        public InputMap<object> Index
-        {
-            get => _index ?? (_index = new InputMap<object>());
-            set => _index = value;
-        }
+        [Input("index", required: true)]
+        public Input<object> Index { get; set; } = null!;
 
         /// <summary>
         /// Linked service reference.
@@ -69,41 +63,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             set => _parameters = value;
         }
 
-        [Input("path")]
-        private InputMap<object>? _path;
-
         /// <summary>
         /// The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Path
-        {
-            get => _path ?? (_path = new InputMap<object>());
-            set => _path = value;
-        }
-
-        [Input("schema")]
-        private InputMap<object>? _schema;
+        [Input("path")]
+        public Input<object>? Path { get; set; }
 
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public InputMap<object> Schema
-        {
-            get => _schema ?? (_schema = new InputMap<object>());
-            set => _schema = value;
-        }
-
-        [Input("structure")]
-        private InputMap<object>? _structure;
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.

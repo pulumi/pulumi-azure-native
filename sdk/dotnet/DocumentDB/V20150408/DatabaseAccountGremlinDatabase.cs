@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        [Output("ts")]
+        public Output<object?> Ts { get; private set; } = null!;
+
+        /// <summary>
         /// The type of Azure resource.
         /// </summary>
         [Output("type")]

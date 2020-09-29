@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
             set => _componentVersion = value;
         }
 
-        [Input("configurations")]
-        private InputMap<object>? _configurations;
-
         /// <summary>
         /// The cluster configurations.
         /// </summary>
-        public InputMap<object> Configurations
-        {
-            get => _configurations ?? (_configurations = new InputMap<object>());
-            set => _configurations = value;
-        }
+        [Input("configurations")]
+        public Input<object>? Configurations { get; set; }
 
         /// <summary>
         /// The type of cluster.

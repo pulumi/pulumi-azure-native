@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
         /// <summary>
         /// Job Stage Details
         /// </summary>
-        public readonly ImmutableDictionary<string, object> JobStageDetails;
+        public readonly object JobStageDetails;
         /// <summary>
         /// Name of the job stage.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
         private JobStagesResponse(
             string displayName,
 
-            ImmutableDictionary<string, object> jobStageDetails,
+            object jobStageDetails,
 
             string stageName,
 

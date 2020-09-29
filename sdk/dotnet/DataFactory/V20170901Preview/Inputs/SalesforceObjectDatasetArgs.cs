@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
     public sealed class SalesforceObjectDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("linkedServiceName", required: true)]
         public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
 
-        [Input("objectApiName")]
-        private InputMap<object>? _objectApiName;
-
         /// <summary>
         /// The Salesforce object API name. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ObjectApiName
-        {
-            get => _objectApiName ?? (_objectApiName = new InputMap<object>());
-            set => _objectApiName = value;
-        }
+        [Input("objectApiName")]
+        public Input<object>? ObjectApiName { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -63,17 +57,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
             set => _parameters = value;
         }
 
-        [Input("structure")]
-        private InputMap<object>? _structure;
-
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.

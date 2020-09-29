@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.Resources.V20180501.Inputs
         [Input("onErrorDeployment")]
         public Input<Inputs.OnErrorDeploymentArgs>? OnErrorDeployment { get; set; }
 
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
@@ -51,17 +45,11 @@ namespace Pulumi.AzureNextGen.Resources.V20180501.Inputs
         [Input("parametersLink")]
         public Input<Inputs.ParametersLinkArgs>? ParametersLink { get; set; }
 
-        [Input("template")]
-        private InputMap<object>? _template;
-
         /// <summary>
         /// The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
         /// </summary>
-        public InputMap<object> Template
-        {
-            get => _template ?? (_template = new InputMap<object>());
-            set => _template = value;
-        }
+        [Input("template")]
+        public Input<object>? Template { get; set; }
 
         /// <summary>
         /// The URI of the template. Use either the templateLink property or the template property, but not both.

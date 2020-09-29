@@ -16,15 +16,15 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AllowSelfSignedServerCert;
+        public readonly object? AllowSelfSignedServerCert;
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// Database to verify the username and password. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AuthSource;
+        public readonly object? AuthSource;
         /// <summary>
         /// The authentication type to be used to connect to the MongoDB database.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> DatabaseName;
+        public readonly object DatabaseName;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -44,11 +44,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EnableSsl;
+        public readonly object? EnableSsl;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Port;
+        public readonly object? Port;
         /// <summary>
         /// The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Server;
+        public readonly object Server;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -72,39 +72,39 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Username for authentication. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Username;
+        public readonly object? Username;
 
         [OutputConstructor]
         private MongoDbLinkedServiceResponse(
-            ImmutableDictionary<string, object>? allowSelfSignedServerCert,
+            object? allowSelfSignedServerCert,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object>? authSource,
+            object? authSource,
 
             string? authenticationType,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object> databaseName,
+            object databaseName,
 
             string? description,
 
-            ImmutableDictionary<string, object>? enableSsl,
+            object? enableSsl,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
-            ImmutableDictionary<string, object>? port,
+            object? port,
 
-            ImmutableDictionary<string, object> server,
+            object server,
 
             string type,
 
-            ImmutableDictionary<string, object>? username)
+            object? username)
         {
             AllowSelfSignedServerCert = allowSelfSignedServerCert;
             Annotations = annotations;

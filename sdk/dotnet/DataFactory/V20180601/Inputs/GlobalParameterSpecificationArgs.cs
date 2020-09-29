@@ -21,17 +21,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("value", required: true)]
-        private InputMap<object>? _value;
-
         /// <summary>
         /// Value of parameter.
         /// </summary>
-        public InputMap<object> Value
-        {
-            get => _value ?? (_value = new InputMap<object>());
-            set => _value = value;
-        }
+        [Input("value", required: true)]
+        public Input<object> Value { get; set; } = null!;
 
         public GlobalParameterSpecificationArgs()
         {

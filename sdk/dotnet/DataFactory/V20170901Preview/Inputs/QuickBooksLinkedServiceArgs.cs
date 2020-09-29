@@ -28,28 +28,22 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> AccessTokenSecret { get; set; } = null!;
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("companyId", required: true)]
-        private InputMap<object>? _companyId;
 
         /// <summary>
         /// The company ID of the QuickBooks company to authorize.
         /// </summary>
-        public InputMap<object> CompanyId
-        {
-            get => _companyId ?? (_companyId = new InputMap<object>());
-            set => _companyId = value;
-        }
+        [Input("companyId", required: true)]
+        public Input<object> CompanyId { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -57,17 +51,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("consumerKey", required: true)]
-        private InputMap<object>? _consumerKey;
-
         /// <summary>
         /// The consumer key for OAuth 1.0 authentication.
         /// </summary>
-        public InputMap<object> ConsumerKey
-        {
-            get => _consumerKey ?? (_consumerKey = new InputMap<object>());
-            set => _consumerKey = value;
-        }
+        [Input("consumerKey", required: true)]
+        public Input<object> ConsumerKey { get; set; } = null!;
 
         /// <summary>
         /// The consumer secret for OAuth 1.0 authentication.
@@ -81,29 +69,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("endpoint", required: true)]
-        private InputMap<object>? _endpoint;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         /// </summary>
-        public InputMap<object> Endpoint
-        {
-            get => _endpoint ?? (_endpoint = new InputMap<object>());
-            set => _endpoint = value;
-        }
+        [Input("endpoint", required: true)]
+        public Input<object> Endpoint { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -123,17 +99,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("useEncryptedEndpoints")]
-        private InputMap<object>? _useEncryptedEndpoints;
-
         /// <summary>
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         /// </summary>
-        public InputMap<object> UseEncryptedEndpoints
-        {
-            get => _useEncryptedEndpoints ?? (_useEncryptedEndpoints = new InputMap<object>());
-            set => _useEncryptedEndpoints = value;
-        }
+        [Input("useEncryptedEndpoints")]
+        public Input<object>? UseEncryptedEndpoints { get; set; }
 
         public QuickBooksLinkedServiceArgs()
         {

@@ -29,6 +29,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212.Outputs
         /// A system generated property. A unique identifier.
         /// </summary>
         public readonly string Rid;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly object Ts;
 
         [OutputConstructor]
         private SqlStoredProcedureGetPropertiesResponseResource(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212.Outputs
 
             string id,
 
-            string rid)
+            string rid,
+
+            object ts)
         {
             Body = body;
             Etag = etag;
             Id = id;
             Rid = rid;
+            Ts = ts;
         }
     }
 }

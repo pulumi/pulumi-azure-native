@@ -21,17 +21,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("value", required: true)]
-        private InputMap<object>? _value;
-
         /// <summary>
         /// User property value. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Value
-        {
-            get => _value ?? (_value = new InputMap<object>());
-            set => _value = value;
-        }
+        [Input("value", required: true)]
+        public Input<object> Value { get; set; } = null!;
 
         public UserPropertyArgs()
         {

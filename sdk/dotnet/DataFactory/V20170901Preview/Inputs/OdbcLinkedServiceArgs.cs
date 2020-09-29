@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
     public sealed class OdbcLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("authenticationType")]
-        private InputMap<object>? _authenticationType;
 
         /// <summary>
         /// Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AuthenticationType
-        {
-            get => _authenticationType ?? (_authenticationType = new InputMap<object>());
-            set => _authenticationType = value;
-        }
+        [Input("authenticationType")]
+        public Input<object>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The integration runtime reference.
@@ -45,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("connectionString", required: true)]
-        private InputMap<object>? _connectionString;
-
         /// <summary>
         /// The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public InputMap<object> ConnectionString
-        {
-            get => _connectionString ?? (_connectionString = new InputMap<object>());
-            set => _connectionString = value;
-        }
+        [Input("connectionString", required: true)]
+        public Input<object> ConnectionString { get; set; } = null!;
 
         /// <summary>
         /// The access credential portion of the connection string specified in driver-specific property-value format.
@@ -69,17 +57,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -105,17 +87,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("userName")]
-        private InputMap<object>? _userName;
-
         /// <summary>
         /// User name for Basic authentication. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> UserName
-        {
-            get => _userName ?? (_userName = new InputMap<object>());
-            set => _userName = value;
-        }
+        [Input("userName")]
+        public Input<object>? UserName { get; set; }
 
         public OdbcLinkedServiceArgs()
         {

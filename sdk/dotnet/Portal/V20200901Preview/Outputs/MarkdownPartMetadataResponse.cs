@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview.Outputs
         /// <summary>
         /// Input to dashboard part.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Inputs;
+        public readonly ImmutableArray<object> Inputs;
         /// <summary>
         /// Markdown part settings.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview.Outputs
 
         [OutputConstructor]
         private MarkdownPartMetadataResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> inputs,
+            ImmutableArray<object> inputs,
 
             Outputs.MarkdownPartMetadataResponseSettings? settings,
 

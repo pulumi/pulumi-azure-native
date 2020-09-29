@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         /// </summary>
@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The Client customer ID of the AdWords account that you want to fetch report data for.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ClientCustomerID;
+        public readonly object ClientCustomerID;
         /// <summary>
         /// The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ClientId;
+        public readonly object? ClientId;
         /// <summary>
         /// The client secret of the google application used to acquire the refresh token.
         /// </summary>
@@ -48,15 +48,15 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Email;
+        public readonly object? Email;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? KeyFilePath;
+        public readonly object? KeyFilePath;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? TrustedCertPath;
+        public readonly object? TrustedCertPath;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -76,17 +76,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseSystemTrustStore;
+        public readonly object? UseSystemTrustStore;
 
         [OutputConstructor]
         private GoogleAdWordsLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             string authenticationType,
 
-            ImmutableDictionary<string, object> clientCustomerID,
+            object clientCustomerID,
 
-            ImmutableDictionary<string, object>? clientId,
+            object? clientId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clientSecret,
 
@@ -96,21 +96,21 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> developerToken,
 
-            ImmutableDictionary<string, object>? email,
+            object? email,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? keyFilePath,
+            object? keyFilePath,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? refreshToken,
 
-            ImmutableDictionary<string, object>? trustedCertPath,
+            object? trustedCertPath,
 
             string type,
 
-            ImmutableDictionary<string, object>? useSystemTrustStore)
+            object? useSystemTrustStore)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;

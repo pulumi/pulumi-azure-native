@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// The content.
         /// </summary>
         [Output("content")]
-        public Output<ImmutableDictionary<string, object>?> Content { get; private set; } = null!;
+        public Output<object?> Content { get; private set; } = null!;
 
         /// <summary>
         /// The content link.
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// The metadata.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The resource name.
@@ -129,17 +129,11 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
 
     public sealed class IntegrationAccountMapArgs : Pulumi.ResourceArgs
     {
-        [Input("content")]
-        private InputMap<object>? _content;
-
         /// <summary>
         /// The content.
         /// </summary>
-        public InputMap<object> Content
-        {
-            get => _content ?? (_content = new InputMap<object>());
-            set => _content = value;
-        }
+        [Input("content")]
+        public Input<object>? Content { get; set; }
 
         /// <summary>
         /// The content type.
@@ -177,17 +171,11 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         [Input("mapType")]
         public Input<string>? MapType { get; set; }
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// The metadata.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The resource name.

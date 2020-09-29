@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// The parameters for the managed application.
         /// </summary>
         [Output("managedApplicationParameters")]
-        public Output<ImmutableDictionary<string, object>?> ManagedApplicationParameters { get; private set; } = null!;
+        public Output<object?> ManagedApplicationParameters { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -167,17 +167,11 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("managedApplicationParameters")]
-        private InputMap<object>? _managedApplicationParameters;
-
         /// <summary>
         /// The parameters for the managed application.
         /// </summary>
-        public InputMap<object> ManagedApplicationParameters
-        {
-            get => _managedApplicationParameters ?? (_managedApplicationParameters = new InputMap<object>());
-            set => _managedApplicationParameters = value;
-        }
+        [Input("managedApplicationParameters")]
+        public Input<object>? ManagedApplicationParameters { get; set; }
 
         /// <summary>
         /// The name of the resource group.

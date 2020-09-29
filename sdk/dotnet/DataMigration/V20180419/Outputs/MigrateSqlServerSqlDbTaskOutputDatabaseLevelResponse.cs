@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
         /// <summary>
         /// Summary of object results in the migration
         /// </summary>
-        public readonly string ObjectSummary;
+        public readonly ImmutableDictionary<string, Outputs.DataItemMigrationSummaryResultResponse> ObjectSummary;
         /// <summary>
         /// Wildcard string prefix to use for querying all sub-tem results of the item
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Outputs
 
             int numberOfObjectsCompleted,
 
-            string objectSummary,
+            ImmutableDictionary<string, Outputs.DataItemMigrationSummaryResultResponse> objectSummary,
 
             string resultPrefix,
 

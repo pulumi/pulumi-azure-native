@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190501
         /// <summary>
         /// Resource tags
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly object? Tags;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190501
 
             int size,
 
-            ImmutableDictionary<string, object>? tags,
+            object? tags,
 
             string type)
         {

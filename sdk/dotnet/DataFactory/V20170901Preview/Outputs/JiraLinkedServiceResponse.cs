@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -28,11 +28,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The IP address or host name of the Jira service. (e.g. jira.example.com)
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Host;
+        public readonly object Host;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Port;
+        public readonly object? Port;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -52,47 +52,47 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseEncryptedEndpoints;
+        public readonly object? UseEncryptedEndpoints;
         /// <summary>
         /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseHostVerification;
+        public readonly object? UseHostVerification;
         /// <summary>
         /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UsePeerVerification;
+        public readonly object? UsePeerVerification;
         /// <summary>
         /// The user name that you use to access Jira Service.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Username;
+        public readonly object Username;
 
         [OutputConstructor]
         private JiraLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object> host,
+            object host,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
-            ImmutableDictionary<string, object>? port,
+            object? port,
 
             string type,
 
-            ImmutableDictionary<string, object>? useEncryptedEndpoints,
+            object? useEncryptedEndpoints,
 
-            ImmutableDictionary<string, object>? useHostVerification,
+            object? useHostVerification,
 
-            ImmutableDictionary<string, object>? usePeerVerification,
+            object? usePeerVerification,
 
-            ImmutableDictionary<string, object> username)
+            object username)
         {
             Annotations = annotations;
             ConnectVia = connectVia;

@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// <summary>
         /// Layout view of the blueprint definition for UI reference.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Layout;
+        public readonly object? Layout;
         /// <summary>
         /// Name of this resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// <summary>
         /// Published versions of this blueprint definition.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Versions;
+        public readonly object? Versions;
 
         [OutputConstructor]
         private GetBlueprintResult(
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
 
             string? displayName,
 
-            ImmutableDictionary<string, object>? layout,
+            object? layout,
 
             string name,
 
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
 
             string type,
 
-            ImmutableDictionary<string, object>? versions)
+            object? versions)
         {
             Description = description;
             DisplayName = displayName;

@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20180402
         /// <summary>
         /// Sync Health Status
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SyncStatus;
+        public readonly object? SyncStatus;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20180402
 
             string? serverResourceId,
 
-            ImmutableDictionary<string, object>? syncStatus,
+            object? syncStatus,
 
             string type,
 

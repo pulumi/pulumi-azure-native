@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.Management.V20180301.Inputs
     /// </summary>
     public sealed class PolicyDefinitionReferenceArgs : Pulumi.ResourceArgs
     {
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// The ID of the policy definition or policy set definition.

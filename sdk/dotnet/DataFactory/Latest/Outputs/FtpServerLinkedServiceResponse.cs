@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The authentication type to be used to connect to the FTP server.
         /// </summary>
@@ -32,19 +32,19 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EnableServerCertificateValidation;
+        public readonly object? EnableServerCertificateValidation;
         /// <summary>
         /// If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EnableSsl;
+        public readonly object? EnableSsl;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Host name of the FTP server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Host;
+        public readonly object Host;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Port;
+        public readonly object? Port;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -64,11 +64,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Username to logon the FTP server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserName;
+        public readonly object? UserName;
 
         [OutputConstructor]
         private FtpServerLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             string? authenticationType,
 
@@ -76,23 +76,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, object>? enableServerCertificateValidation,
+            object? enableServerCertificateValidation,
 
-            ImmutableDictionary<string, object>? enableSsl,
+            object? enableSsl,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object> host,
+            object host,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
-            ImmutableDictionary<string, object>? port,
+            object? port,
 
             string type,
 
-            ImmutableDictionary<string, object>? userName)
+            object? userName)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;

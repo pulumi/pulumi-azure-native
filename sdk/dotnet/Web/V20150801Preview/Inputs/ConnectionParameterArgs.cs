@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Inputs
     /// </summary>
     public sealed class ConnectionParameterArgs : Pulumi.ResourceArgs
     {
-        [Input("defaultValue")]
-        private InputMap<object>? _defaultValue;
-
         /// <summary>
         /// Default parameter value
         /// </summary>
-        public InputMap<object> DefaultValue
-        {
-            get => _defaultValue ?? (_defaultValue = new InputMap<object>());
-            set => _defaultValue = value;
-        }
+        [Input("defaultValue")]
+        public Input<object>? DefaultValue { get; set; }
 
         /// <summary>
         /// Settings defining OAuth flow for the back end provider
@@ -39,17 +33,11 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        [Input("uiDefinition")]
-        private InputMap<object>? _uiDefinition;
-
         /// <summary>
         /// UI definitions
         /// </summary>
-        public InputMap<object> UiDefinition
-        {
-            get => _uiDefinition ?? (_uiDefinition = new InputMap<object>());
-            set => _uiDefinition = value;
-        }
+        [Input("uiDefinition")]
+        public Input<object>? UiDefinition { get; set; }
 
         public ConnectionParameterArgs()
         {

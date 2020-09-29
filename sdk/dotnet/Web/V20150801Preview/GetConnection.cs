@@ -75,7 +75,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         /// Resource Location
         /// </summary>
         public readonly string Location;
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// Resource Name
         /// </summary>
@@ -83,11 +83,11 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         /// <summary>
         /// Tokens/Claim
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? NonSecretParameterValues;
+        public readonly ImmutableDictionary<string, object>? NonSecretParameterValues;
         /// <summary>
         /// Tokens/Claim
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? ParameterValues;
+        public readonly ImmutableDictionary<string, object>? ParameterValues;
         /// <summary>
         /// Status of the connection
         /// </summary>
@@ -122,13 +122,13 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
 
             string location,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string? name,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? nonSecretParameterValues,
+            ImmutableDictionary<string, object>? nonSecretParameterValues,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? parameterValues,
+            ImmutableDictionary<string, object>? parameterValues,
 
             ImmutableArray<Outputs.ConnectionStatusResponse> statuses,
 

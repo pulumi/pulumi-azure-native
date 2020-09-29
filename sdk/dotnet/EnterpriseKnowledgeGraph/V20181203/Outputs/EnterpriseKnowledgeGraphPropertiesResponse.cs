@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.V20181203.Outputs
         /// <summary>
         /// Specifies the metadata  of the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The state of EnterpriseKnowledgeGraph provisioning
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.V20181203.Outputs
         private EnterpriseKnowledgeGraphPropertiesResponse(
             string? description,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string? provisioningState)
         {

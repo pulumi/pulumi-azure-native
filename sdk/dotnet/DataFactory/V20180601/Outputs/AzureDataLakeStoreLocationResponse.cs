@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Specify the file name of dataset. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? FileName;
+        public readonly object? FileName;
         /// <summary>
         /// Specify the folder path of dataset. Type: string (or Expression with resultType string)
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? FolderPath;
+        public readonly object? FolderPath;
         /// <summary>
         /// Type of dataset storage location.
         /// </summary>
@@ -28,9 +28,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private AzureDataLakeStoreLocationResponse(
-            ImmutableDictionary<string, object>? fileName,
+            object? fileName,
 
-            ImmutableDictionary<string, object>? folderPath,
+            object? folderPath,
 
             string type)
         {

@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// HDInsight cluster URI. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ClusterUri;
+        public readonly object ClusterUri;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// A reference to the Azure SQL linked service that points to the HCatalog database.
         /// </summary>
@@ -56,19 +56,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// HDInsight cluster user name. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserName;
+        public readonly object? UserName;
 
         [OutputConstructor]
         private HDInsightLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object> clusterUri,
+            object clusterUri,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
             Outputs.LinkedServiceReferenceResponse? hcatalogLinkedServiceName,
 
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
             string type,
 
-            ImmutableDictionary<string, object>? userName)
+            object? userName)
         {
             Annotations = annotations;
             ClusterUri = clusterUri;

@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Url;
+        public readonly object Url;
         /// <summary>
         /// User name for Basic authentication. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Username;
+        public readonly object Username;
 
         [OutputConstructor]
         private WebBasicAuthenticationResponse(
@@ -36,9 +36,9 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> password,
 
-            ImmutableDictionary<string, object> url,
+            object url,
 
-            ImmutableDictionary<string, object> username)
+            object username)
         {
             AuthenticationType = authenticationType;
             Password = password;

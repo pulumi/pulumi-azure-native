@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class DelimitedTextDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("columnDelimiter")]
-        private InputMap<object>? _columnDelimiter;
 
         /// <summary>
         /// The column delimiter. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ColumnDelimiter
-        {
-            get => _columnDelimiter ?? (_columnDelimiter = new InputMap<object>());
-            set => _columnDelimiter = value;
-        }
+        [Input("columnDelimiter")]
+        public Input<object>? ColumnDelimiter { get; set; }
 
         [Input("compressionCodec")]
         public Input<string>? CompressionCodec { get; set; }
@@ -54,41 +48,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encodingName")]
-        private InputMap<object>? _encodingName;
-
         /// <summary>
         /// The code page name of the preferred encoding. If miss, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncodingName
-        {
-            get => _encodingName ?? (_encodingName = new InputMap<object>());
-            set => _encodingName = value;
-        }
-
-        [Input("escapeChar")]
-        private InputMap<object>? _escapeChar;
+        [Input("encodingName")]
+        public Input<object>? EncodingName { get; set; }
 
         /// <summary>
         /// The escape character. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EscapeChar
-        {
-            get => _escapeChar ?? (_escapeChar = new InputMap<object>());
-            set => _escapeChar = value;
-        }
-
-        [Input("firstRowAsHeader")]
-        private InputMap<object>? _firstRowAsHeader;
+        [Input("escapeChar")]
+        public Input<object>? EscapeChar { get; set; }
 
         /// <summary>
         /// When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public InputMap<object> FirstRowAsHeader
-        {
-            get => _firstRowAsHeader ?? (_firstRowAsHeader = new InputMap<object>());
-            set => _firstRowAsHeader = value;
-        }
+        [Input("firstRowAsHeader")]
+        public Input<object>? FirstRowAsHeader { get; set; }
 
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -108,17 +84,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("location", required: true)]
         public InputUnion<Inputs.AmazonS3LocationArgs, InputUnion<Inputs.AzureBlobFSLocationArgs, InputUnion<Inputs.AzureBlobStorageLocationArgs, InputUnion<Inputs.AzureDataLakeStoreLocationArgs, InputUnion<Inputs.AzureFileStorageLocationArgs, InputUnion<Inputs.FileServerLocationArgs, InputUnion<Inputs.FtpServerLocationArgs, InputUnion<Inputs.GoogleCloudStorageLocationArgs, InputUnion<Inputs.HdfsLocationArgs, InputUnion<Inputs.HttpServerLocationArgs, Inputs.SftpLocationArgs>>>>>>>>>> Location { get; set; } = null!;
 
-        [Input("nullValue")]
-        private InputMap<object>? _nullValue;
-
         /// <summary>
         /// The null value string. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NullValue
-        {
-            get => _nullValue ?? (_nullValue = new InputMap<object>());
-            set => _nullValue = value;
-        }
+        [Input("nullValue")]
+        public Input<object>? NullValue { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -132,53 +102,29 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             set => _parameters = value;
         }
 
-        [Input("quoteChar")]
-        private InputMap<object>? _quoteChar;
-
         /// <summary>
         /// The quote character. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> QuoteChar
-        {
-            get => _quoteChar ?? (_quoteChar = new InputMap<object>());
-            set => _quoteChar = value;
-        }
-
-        [Input("rowDelimiter")]
-        private InputMap<object>? _rowDelimiter;
+        [Input("quoteChar")]
+        public Input<object>? QuoteChar { get; set; }
 
         /// <summary>
         /// The row delimiter. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> RowDelimiter
-        {
-            get => _rowDelimiter ?? (_rowDelimiter = new InputMap<object>());
-            set => _rowDelimiter = value;
-        }
-
-        [Input("schema")]
-        private InputMap<object>? _schema;
+        [Input("rowDelimiter")]
+        public Input<object>? RowDelimiter { get; set; }
 
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public InputMap<object> Schema
-        {
-            get => _schema ?? (_schema = new InputMap<object>());
-            set => _schema = value;
-        }
-
-        [Input("structure")]
-        private InputMap<object>? _structure;
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.

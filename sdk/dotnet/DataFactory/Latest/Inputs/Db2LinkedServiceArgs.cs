@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class Db2LinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
 
-        [Input("certificateCommonName")]
-        private InputMap<object>? _certificateCommonName;
-
         /// <summary>
         /// Certificate Common Name when TLS is enabled. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> CertificateCommonName
-        {
-            get => _certificateCommonName ?? (_certificateCommonName = new InputMap<object>());
-            set => _certificateCommonName = value;
-        }
+        [Input("certificateCommonName")]
+        public Input<object>? CertificateCommonName { get; set; }
 
         /// <summary>
         /// The integration runtime reference.
@@ -51,29 +45,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("connectionString")]
-        private InputMap<object>? _connectionString;
-
         /// <summary>
         /// The connection string. It is mutually exclusive with server, database, authenticationType, userName, packageCollection and certificateCommonName property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public InputMap<object> ConnectionString
-        {
-            get => _connectionString ?? (_connectionString = new InputMap<object>());
-            set => _connectionString = value;
-        }
-
-        [Input("database")]
-        private InputMap<object>? _database;
+        [Input("connectionString")]
+        public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
         /// Database name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Database
-        {
-            get => _database ?? (_database = new InputMap<object>());
-            set => _database = value;
-        }
+        [Input("database")]
+        public Input<object>? Database { get; set; }
 
         /// <summary>
         /// Linked service description.
@@ -81,29 +63,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("packageCollection")]
-        private InputMap<object>? _packageCollection;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// Under where packages are created when querying database. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> PackageCollection
-        {
-            get => _packageCollection ?? (_packageCollection = new InputMap<object>());
-            set => _packageCollection = value;
-        }
+        [Input("packageCollection")]
+        public Input<object>? PackageCollection { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -123,17 +93,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("password")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
 
-        [Input("server")]
-        private InputMap<object>? _server;
-
         /// <summary>
         /// Server name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Server
-        {
-            get => _server ?? (_server = new InputMap<object>());
-            set => _server = value;
-        }
+        [Input("server")]
+        public Input<object>? Server { get; set; }
 
         /// <summary>
         /// Type of linked service.
@@ -141,17 +105,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("username")]
-        private InputMap<object>? _username;
-
         /// <summary>
         /// Username for authentication. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Username
-        {
-            get => _username ?? (_username = new InputMap<object>());
-            set => _username = value;
-        }
+        [Input("username")]
+        public Input<object>? Username { get; set; }
 
         public Db2LinkedServiceArgs()
         {

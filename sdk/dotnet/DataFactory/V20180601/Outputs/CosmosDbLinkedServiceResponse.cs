@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The endpoint of the Azure CosmosDB account. Type: string (or Expression with resultType string)
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AccountEndpoint;
+        public readonly object? AccountEndpoint;
         /// <summary>
         /// The account key of the Azure CosmosDB account. Type: SecureString or AzureKeyVaultSecretReference.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ConnectionString;
+        public readonly object? ConnectionString;
         /// <summary>
         /// The name of the database. Type: string (or Expression with resultType string)
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Database;
+        public readonly object? Database;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -56,21 +56,21 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private CosmosDbLinkedServiceResponse(
-            ImmutableDictionary<string, object>? accountEndpoint,
+            object? accountEndpoint,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? accountKey,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object>? connectionString,
+            object? connectionString,
 
-            ImmutableDictionary<string, object>? database,
+            object? database,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 

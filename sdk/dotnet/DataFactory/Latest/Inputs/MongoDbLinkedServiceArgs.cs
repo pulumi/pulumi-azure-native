@@ -15,41 +15,29 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     /// </summary>
     public sealed class MongoDbLinkedServiceArgs : Pulumi.ResourceArgs
     {
-        [Input("allowSelfSignedServerCert")]
-        private InputMap<object>? _allowSelfSignedServerCert;
-
         /// <summary>
         /// Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public InputMap<object> AllowSelfSignedServerCert
-        {
-            get => _allowSelfSignedServerCert ?? (_allowSelfSignedServerCert = new InputMap<object>());
-            set => _allowSelfSignedServerCert = value;
-        }
+        [Input("allowSelfSignedServerCert")]
+        public Input<object>? AllowSelfSignedServerCert { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("authSource")]
-        private InputMap<object>? _authSource;
 
         /// <summary>
         /// Database to verify the username and password. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AuthSource
-        {
-            get => _authSource ?? (_authSource = new InputMap<object>());
-            set => _authSource = value;
-        }
+        [Input("authSource")]
+        public Input<object>? AuthSource { get; set; }
 
         /// <summary>
         /// The authentication type to be used to connect to the MongoDB database.
@@ -63,17 +51,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("databaseName", required: true)]
-        private InputMap<object>? _databaseName;
-
         /// <summary>
         /// The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> DatabaseName
-        {
-            get => _databaseName ?? (_databaseName = new InputMap<object>());
-            set => _databaseName = value;
-        }
+        [Input("databaseName", required: true)]
+        public Input<object> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// Linked service description.
@@ -81,29 +63,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("enableSsl")]
-        private InputMap<object>? _enableSsl;
-
         /// <summary>
         /// Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public InputMap<object> EnableSsl
-        {
-            get => _enableSsl ?? (_enableSsl = new InputMap<object>());
-            set => _enableSsl = value;
-        }
-
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
+        [Input("enableSsl")]
+        public Input<object>? EnableSsl { get; set; }
 
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -123,29 +93,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("password")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
 
-        [Input("port")]
-        private InputMap<object>? _port;
-
         /// <summary>
         /// The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
-        public InputMap<object> Port
-        {
-            get => _port ?? (_port = new InputMap<object>());
-            set => _port = value;
-        }
-
-        [Input("server", required: true)]
-        private InputMap<object>? _server;
+        [Input("port")]
+        public Input<object>? Port { get; set; }
 
         /// <summary>
         /// The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Server
-        {
-            get => _server ?? (_server = new InputMap<object>());
-            set => _server = value;
-        }
+        [Input("server", required: true)]
+        public Input<object> Server { get; set; } = null!;
 
         /// <summary>
         /// Type of linked service.
@@ -153,17 +111,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("username")]
-        private InputMap<object>? _username;
-
         /// <summary>
         /// Username for authentication. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Username
-        {
-            get => _username ?? (_username = new InputMap<object>());
-            set => _username = value;
-        }
+        [Input("username")]
+        public Input<object>? Username { get; set; }
 
         public MongoDbLinkedServiceArgs()
         {

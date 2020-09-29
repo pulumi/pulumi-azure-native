@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class XmlDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encodingName")]
-        private InputMap<object>? _encodingName;
-
         /// <summary>
         /// The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncodingName
-        {
-            get => _encodingName ?? (_encodingName = new InputMap<object>());
-            set => _encodingName = value;
-        }
+        [Input("encodingName")]
+        public Input<object>? EncodingName { get; set; }
 
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -69,17 +63,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("location", required: true)]
         public InputUnion<Inputs.AmazonS3LocationArgs, InputUnion<Inputs.AzureBlobFSLocationArgs, InputUnion<Inputs.AzureBlobStorageLocationArgs, InputUnion<Inputs.AzureDataLakeStoreLocationArgs, InputUnion<Inputs.AzureFileStorageLocationArgs, InputUnion<Inputs.FileServerLocationArgs, InputUnion<Inputs.FtpServerLocationArgs, InputUnion<Inputs.GoogleCloudStorageLocationArgs, InputUnion<Inputs.HdfsLocationArgs, InputUnion<Inputs.HttpServerLocationArgs, Inputs.SftpLocationArgs>>>>>>>>>> Location { get; set; } = null!;
 
-        [Input("nullValue")]
-        private InputMap<object>? _nullValue;
-
         /// <summary>
         /// The null value string. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NullValue
-        {
-            get => _nullValue ?? (_nullValue = new InputMap<object>());
-            set => _nullValue = value;
-        }
+        [Input("nullValue")]
+        public Input<object>? NullValue { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -93,29 +81,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             set => _parameters = value;
         }
 
-        [Input("schema")]
-        private InputMap<object>? _schema;
-
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public InputMap<object> Schema
-        {
-            get => _schema ?? (_schema = new InputMap<object>());
-            set => _schema = value;
-        }
-
-        [Input("structure")]
-        private InputMap<object>? _structure;
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.

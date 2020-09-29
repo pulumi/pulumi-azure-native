@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The definition.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Definition;
+        public readonly object? Definition;
         /// <summary>
         /// The endpoints configuration.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 
             string createdTime,
 
-            ImmutableDictionary<string, object>? definition,
+            object? definition,
 
             Outputs.FlowEndpointsConfigurationResponse? endpointsConfiguration,
 

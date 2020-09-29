@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Portal.V20150801Preview
         /// The dashboard metadata.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, ImmutableDictionary<string, object>>?> Metadata { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -126,14 +126,14 @@ namespace Pulumi.AzureNextGen.Portal.V20150801Preview
         public Input<string> Location { get; set; } = null!;
 
         [Input("metadata")]
-        private InputMap<ImmutableDictionary<string, object>>? _metadata;
+        private InputMap<object>? _metadata;
 
         /// <summary>
         /// The dashboard metadata.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> Metadata
+        public InputMap<object> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<ImmutableDictionary<string, object>>());
+            get => _metadata ?? (_metadata = new InputMap<object>());
             set => _metadata = value;
         }
 

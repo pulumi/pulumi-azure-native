@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// <summary>
         /// Tags provided by Azure Tagging service.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly object? Tags;
         /// <summary>
         /// Type of the object = [Microsoft.Migrate/projects].
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
 
             string? provisioningState,
 
-            ImmutableDictionary<string, object>? tags,
+            object? tags,
 
             string type,
 

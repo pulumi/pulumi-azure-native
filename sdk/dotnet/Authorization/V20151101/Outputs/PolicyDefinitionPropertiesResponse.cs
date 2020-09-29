@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20151101.Outputs
         /// <summary>
         /// The policy rule json.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? PolicyRule;
+        public readonly object? PolicyRule;
 
         [OutputConstructor]
         private PolicyDefinitionPropertiesResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20151101.Outputs
 
             string? displayName,
 
-            ImmutableDictionary<string, object>? policyRule)
+            object? policyRule)
         {
             Description = description;
             DisplayName = displayName;

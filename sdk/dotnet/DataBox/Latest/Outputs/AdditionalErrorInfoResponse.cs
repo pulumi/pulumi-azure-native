@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
         /// <summary>
         /// Additional error info.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Info;
+        public readonly object? Info;
         /// <summary>
         /// Additional error type.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
 
         [OutputConstructor]
         private AdditionalErrorInfoResponse(
-            ImmutableDictionary<string, object>? info,
+            object? info,
 
             string? type)
         {

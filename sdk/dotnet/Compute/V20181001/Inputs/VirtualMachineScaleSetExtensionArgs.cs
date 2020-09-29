@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.Compute.V20181001.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("protectedSettings")]
-        private InputMap<object>? _protectedSettings;
-
         /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
-        public InputMap<object> ProtectedSettings
-        {
-            get => _protectedSettings ?? (_protectedSettings = new InputMap<object>());
-            set => _protectedSettings = value;
-        }
+        [Input("protectedSettings")]
+        public Input<object>? ProtectedSettings { get; set; }
 
         [Input("provisionAfterExtensions")]
         private InputList<string>? _provisionAfterExtensions;
@@ -63,17 +57,11 @@ namespace Pulumi.AzureNextGen.Compute.V20181001.Inputs
         [Input("publisher")]
         public Input<string>? Publisher { get; set; }
 
-        [Input("settings")]
-        private InputMap<object>? _settings;
-
         /// <summary>
         /// Json formatted public settings for the extension.
         /// </summary>
-        public InputMap<object> Settings
-        {
-            get => _settings ?? (_settings = new InputMap<object>());
-            set => _settings = value;
-        }
+        [Input("settings")]
+        public Input<object>? Settings { get; set; }
 
         /// <summary>
         /// Specifies the type of the extension; an example is "CustomScriptExtension".

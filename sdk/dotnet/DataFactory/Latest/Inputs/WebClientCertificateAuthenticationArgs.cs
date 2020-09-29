@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("pfx", required: true)]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> Pfx { get; set; } = null!;
 
-        [Input("url", required: true)]
-        private InputMap<object>? _url;
-
         /// <summary>
         /// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Url
-        {
-            get => _url ?? (_url = new InputMap<object>());
-            set => _url = value;
-        }
+        [Input("url", required: true)]
+        public Input<object> Url { get; set; } = null!;
 
         public WebClientCertificateAuthenticationArgs()
         {

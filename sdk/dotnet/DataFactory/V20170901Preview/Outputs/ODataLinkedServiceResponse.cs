@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// Type of authentication used to connect to the OData service.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -48,15 +48,15 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The URL of the OData service endpoint. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Url;
+        public readonly object Url;
         /// <summary>
         /// User name of the OData service. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserName;
+        public readonly object? UserName;
 
         [OutputConstructor]
         private ODataLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             string? authenticationType,
 
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
@@ -72,9 +72,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
             string type,
 
-            ImmutableDictionary<string, object> url,
+            object url,
 
-            ImmutableDictionary<string, object>? userName)
+            object? userName)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;

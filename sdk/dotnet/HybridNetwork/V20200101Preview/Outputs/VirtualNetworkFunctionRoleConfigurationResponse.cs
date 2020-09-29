@@ -36,11 +36,11 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Outputs
         /// <summary>
         /// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserDataParameters;
+        public readonly object? UserDataParameters;
         /// <summary>
         /// The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserDataTemplate;
+        public readonly object? UserDataTemplate;
         /// <summary>
         /// The size of the virtual machine.
         /// </summary>
@@ -58,9 +58,9 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Outputs
 
             string? roleType,
 
-            ImmutableDictionary<string, object>? userDataParameters,
+            object? userDataParameters,
 
-            ImmutableDictionary<string, object>? userDataTemplate,
+            object? userDataTemplate,
 
             string? virtualMachineSize)
         {

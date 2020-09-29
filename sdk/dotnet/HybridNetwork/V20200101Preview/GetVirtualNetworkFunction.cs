@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// The parameters for the managed application.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ManagedApplicationParameters;
+        public readonly object? ManagedApplicationParameters;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             Outputs.SubResourceResponse managedApplication,
 
-            ImmutableDictionary<string, object>? managedApplicationParameters,
+            object? managedApplicationParameters,
 
             string name,
 

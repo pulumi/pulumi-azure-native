@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Config information.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Config;
+        public readonly object? Config;
         /// <summary>
         /// Config URI.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
         [OutputConstructor]
         private GetWebAppInstanceFunctionSlotResult(
-            ImmutableDictionary<string, object>? config,
+            object? config,
 
             string? configHref,
 

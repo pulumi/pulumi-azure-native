@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview.Outputs
         /// <summary>
         /// The Azure Resource Manager template.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Template;
+        public readonly object Template;
 
         [OutputConstructor]
         private TemplateSpecTemplateArtifactResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview.Outputs
 
             string path,
 
-            ImmutableDictionary<string, object> template)
+            object template)
         {
             Kind = kind;
             Path = path;

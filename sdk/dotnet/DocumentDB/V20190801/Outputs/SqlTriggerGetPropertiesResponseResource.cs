@@ -37,6 +37,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801.Outputs
         /// Type of the Trigger
         /// </summary>
         public readonly string? TriggerType;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly object Ts;
 
         [OutputConstructor]
         private SqlTriggerGetPropertiesResponseResource(
@@ -50,7 +54,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801.Outputs
 
             string? triggerOperation,
 
-            string? triggerType)
+            string? triggerType,
+
+            object ts)
         {
             Body = body;
             Etag = etag;
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801.Outputs
             Rid = rid;
             TriggerOperation = triggerOperation;
             TriggerType = triggerType;
+            Ts = ts;
         }
     }
 }

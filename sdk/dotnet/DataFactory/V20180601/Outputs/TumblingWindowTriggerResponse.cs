@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the trigger.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Delay;
+        public readonly object? Delay;
         /// <summary>
         /// Triggers that this trigger depends on. Only tumbling window triggers are supported.
         /// </summary>
@@ -68,9 +68,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private TumblingWindowTriggerResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object>? delay,
+            object? delay,
 
             ImmutableArray<Union<Outputs.SelfDependencyTumblingWindowTriggerReferenceResponse, Outputs.TriggerDependencyReferenceResponse>> dependsOn,
 

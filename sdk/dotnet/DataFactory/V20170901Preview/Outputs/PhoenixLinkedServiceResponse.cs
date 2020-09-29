@@ -16,15 +16,15 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AllowHostNameCNMismatch;
+        public readonly object? AllowHostNameCNMismatch;
         /// <summary>
         /// Specifies whether to allow self-signed certificates from the server. The default value is false.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AllowSelfSignedServerCert;
+        public readonly object? AllowSelfSignedServerCert;
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The authentication mechanism used to connect to the Phoenix server.
         /// </summary>
@@ -40,19 +40,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EnableSsl;
+        public readonly object? EnableSsl;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Host;
+        public readonly object Host;
         /// <summary>
         /// The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? HttpPath;
+        public readonly object? HttpPath;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -64,11 +64,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Port;
+        public readonly object? Port;
         /// <summary>
         /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? TrustedCertPath;
+        public readonly object? TrustedCertPath;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -76,19 +76,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseSystemTrustStore;
+        public readonly object? UseSystemTrustStore;
         /// <summary>
         /// The user name used to connect to the Phoenix server.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Username;
+        public readonly object? Username;
 
         [OutputConstructor]
         private PhoenixLinkedServiceResponse(
-            ImmutableDictionary<string, object>? allowHostNameCNMismatch,
+            object? allowHostNameCNMismatch,
 
-            ImmutableDictionary<string, object>? allowSelfSignedServerCert,
+            object? allowSelfSignedServerCert,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             string authenticationType,
 
@@ -96,27 +96,27 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, object>? enableSsl,
+            object? enableSsl,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object> host,
+            object host,
 
-            ImmutableDictionary<string, object>? httpPath,
+            object? httpPath,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
-            ImmutableDictionary<string, object>? port,
+            object? port,
 
-            ImmutableDictionary<string, object>? trustedCertPath,
+            object? trustedCertPath,
 
             string type,
 
-            ImmutableDictionary<string, object>? useSystemTrustStore,
+            object? useSystemTrustStore,
 
-            ImmutableDictionary<string, object>? username)
+            object? username)
         {
             AllowHostNameCNMismatch = allowHostNameCNMismatch;
             AllowSelfSignedServerCert = allowSelfSignedServerCert;

@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview.Outputs
         /// <summary>
         /// The dashboard part's metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The dashboard's part row span.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview.Outputs
         private DashboardPartsResponsePosition(
             int colSpan,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             int rowSpan,
 

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Delay;
+        public readonly object? Delay;
         /// <summary>
         /// Trigger description.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
         [OutputConstructor]
         private TumblingWindowTriggerResponse(
-            ImmutableDictionary<string, object>? delay,
+            object? delay,
 
             string? description,
 

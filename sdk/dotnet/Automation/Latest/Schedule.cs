@@ -51,6 +51,12 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         public Output<string?> Frequency { get; private set; } = null!;
 
         /// <summary>
+        /// Gets or sets the interval of the schedule.
+        /// </summary>
+        [Output("interval")]
+        public Output<object?> Interval { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets a value indicating whether this schedule is enabled.
         /// </summary>
         [Output("isEnabled")]

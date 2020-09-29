@@ -15,41 +15,23 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class AmazonS3LocationArgs : Pulumi.ResourceArgs
     {
-        [Input("bucketName")]
-        private InputMap<object>? _bucketName;
-
         /// <summary>
         /// Specify the bucketName of amazon S3. Type: string (or Expression with resultType string)
         /// </summary>
-        public InputMap<object> BucketName
-        {
-            get => _bucketName ?? (_bucketName = new InputMap<object>());
-            set => _bucketName = value;
-        }
-
-        [Input("fileName")]
-        private InputMap<object>? _fileName;
+        [Input("bucketName")]
+        public Input<object>? BucketName { get; set; }
 
         /// <summary>
         /// Specify the file name of dataset. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> FileName
-        {
-            get => _fileName ?? (_fileName = new InputMap<object>());
-            set => _fileName = value;
-        }
-
-        [Input("folderPath")]
-        private InputMap<object>? _folderPath;
+        [Input("fileName")]
+        public Input<object>? FileName { get; set; }
 
         /// <summary>
         /// Specify the folder path of dataset. Type: string (or Expression with resultType string)
         /// </summary>
-        public InputMap<object> FolderPath
-        {
-            get => _folderPath ?? (_folderPath = new InputMap<object>());
-            set => _folderPath = value;
-        }
+        [Input("folderPath")]
+        public Input<object>? FolderPath { get; set; }
 
         /// <summary>
         /// Type of dataset storage location.
@@ -57,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("version")]
-        private InputMap<object>? _version;
-
         /// <summary>
         /// Specify the version of amazon S3. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Version
-        {
-            get => _version ?? (_version = new InputMap<object>());
-            set => _version = value;
-        }
+        [Input("version")]
+        public Input<object>? Version { get; set; }
 
         public AmazonS3LocationArgs()
         {

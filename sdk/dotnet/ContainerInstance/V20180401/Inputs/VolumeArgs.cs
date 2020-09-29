@@ -21,17 +21,11 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180401.Inputs
         [Input("azureFile")]
         public Input<Inputs.AzureFileVolumeArgs>? AzureFile { get; set; }
 
-        [Input("emptyDir")]
-        private InputMap<object>? _emptyDir;
-
         /// <summary>
         /// The empty directory volume.
         /// </summary>
-        public InputMap<object> EmptyDir
-        {
-            get => _emptyDir ?? (_emptyDir = new InputMap<object>());
-            set => _emptyDir = value;
-        }
+        [Input("emptyDir")]
+        public Input<object>? EmptyDir { get; set; }
 
         /// <summary>
         /// The git repo volume.

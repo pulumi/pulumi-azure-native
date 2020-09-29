@@ -15,27 +15,21 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     /// </summary>
     public sealed class AmazonS3LinkedServiceArgs : Pulumi.ResourceArgs
     {
-        [Input("accessKeyId")]
-        private InputMap<object>? _accessKeyId;
-
         /// <summary>
         /// The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AccessKeyId
-        {
-            get => _accessKeyId ?? (_accessKeyId = new InputMap<object>());
-            set => _accessKeyId = value;
-        }
+        [Input("accessKeyId")]
+        public Input<object>? AccessKeyId { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -51,17 +45,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -81,17 +69,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("secretAccessKey")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? SecretAccessKey { get; set; }
 
-        [Input("serviceUrl")]
-        private InputMap<object>? _serviceUrl;
-
         /// <summary>
         /// This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ServiceUrl
-        {
-            get => _serviceUrl ?? (_serviceUrl = new InputMap<object>());
-            set => _serviceUrl = value;
-        }
+        [Input("serviceUrl")]
+        public Input<object>? ServiceUrl { get; set; }
 
         /// <summary>
         /// Type of linked service.

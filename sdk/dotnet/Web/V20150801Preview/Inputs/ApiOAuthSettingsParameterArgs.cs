@@ -15,29 +15,17 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Inputs
     /// </summary>
     public sealed class ApiOAuthSettingsParameterArgs : Pulumi.ResourceArgs
     {
-        [Input("options")]
-        private InputMap<object>? _options;
-
         /// <summary>
         /// Read only: Options available to this parameter
         /// </summary>
-        public InputMap<object> Options
-        {
-            get => _options ?? (_options = new InputMap<object>());
-            set => _options = value;
-        }
-
-        [Input("uiDefinition")]
-        private InputMap<object>? _uiDefinition;
+        [Input("options")]
+        public Input<object>? Options { get; set; }
 
         /// <summary>
         /// UI definitions per culture as caller can specify the culture
         /// </summary>
-        public InputMap<object> UiDefinition
-        {
-            get => _uiDefinition ?? (_uiDefinition = new InputMap<object>());
-            set => _uiDefinition = value;
-        }
+        [Input("uiDefinition")]
+        public Input<object>? UiDefinition { get; set; }
 
         /// <summary>
         /// Value

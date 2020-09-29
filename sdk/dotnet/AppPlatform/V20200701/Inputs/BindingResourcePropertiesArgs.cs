@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701.Inputs
     public sealed class BindingResourcePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("bindingParameters")]
-        private InputMap<ImmutableDictionary<string, object>>? _bindingParameters;
+        private InputMap<object>? _bindingParameters;
 
         /// <summary>
         /// Binding parameters of the Binding resource
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> BindingParameters
+        public InputMap<object> BindingParameters
         {
-            get => _bindingParameters ?? (_bindingParameters = new InputMap<ImmutableDictionary<string, object>>());
+            get => _bindingParameters ?? (_bindingParameters = new InputMap<object>());
             set => _bindingParameters = value;
         }
 

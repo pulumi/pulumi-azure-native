@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class AzureDataExplorerLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("database", required: true)]
-        private InputMap<object>? _database;
-
         /// <summary>
         /// Database name for connection. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Database
-        {
-            get => _database ?? (_database = new InputMap<object>());
-            set => _database = value;
-        }
+        [Input("database", required: true)]
+        public Input<object> Database { get; set; } = null!;
 
         /// <summary>
         /// Linked service description.
@@ -51,17 +45,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("endpoint", required: true)]
-        private InputMap<object>? _endpoint;
-
         /// <summary>
         /// The endpoint of Azure Data Explorer (the engine's endpoint). URL will be in the format https://&lt;clusterName&gt;.&lt;regionName&gt;.kusto.windows.net. Type: string (or Expression with resultType string)
         /// </summary>
-        public InputMap<object> Endpoint
-        {
-            get => _endpoint ?? (_endpoint = new InputMap<object>());
-            set => _endpoint = value;
-        }
+        [Input("endpoint", required: true)]
+        public Input<object> Endpoint { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -75,17 +63,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
             set => _parameters = value;
         }
 
-        [Input("servicePrincipalId", required: true)]
-        private InputMap<object>? _servicePrincipalId;
-
         /// <summary>
         /// The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ServicePrincipalId
-        {
-            get => _servicePrincipalId ?? (_servicePrincipalId = new InputMap<object>());
-            set => _servicePrincipalId = value;
-        }
+        [Input("servicePrincipalId", required: true)]
+        public Input<object> ServicePrincipalId { get; set; } = null!;
 
         /// <summary>
         /// The key of the service principal used to authenticate against Kusto.
@@ -93,17 +75,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("servicePrincipalKey", required: true)]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> ServicePrincipalKey { get; set; } = null!;
 
-        [Input("tenant", required: true)]
-        private InputMap<object>? _tenant;
-
         /// <summary>
         /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Tenant
-        {
-            get => _tenant ?? (_tenant = new InputMap<object>());
-            set => _tenant = value;
-        }
+        [Input("tenant", required: true)]
+        public Input<object> Tenant { get; set; } = null!;
 
         /// <summary>
         /// Type of linked service.

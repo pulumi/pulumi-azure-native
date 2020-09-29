@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20200301
         /// ARM tags as name/value pairs.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Type of the Cache; Microsoft.StorageCache/Cache
@@ -221,17 +221,11 @@ namespace Pulumi.AzureNextGen.StorageCache.V20200301
         [Input("subnet")]
         public Input<string>? Subnet { get; set; }
 
-        [Input("tags")]
-        private InputMap<object>? _tags;
-
         /// <summary>
         /// ARM tags as name/value pairs.
         /// </summary>
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
+        [Input("tags")]
+        public Input<object>? Tags { get; set; }
 
         public CacheArgs()
         {

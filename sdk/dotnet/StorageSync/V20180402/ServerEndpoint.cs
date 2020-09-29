@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20180402
         /// Sync Health Status
         /// </summary>
         [Output("syncStatus")]
-        public Output<ImmutableDictionary<string, object>?> SyncStatus { get; private set; } = null!;
+        public Output<object?> SyncStatus { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

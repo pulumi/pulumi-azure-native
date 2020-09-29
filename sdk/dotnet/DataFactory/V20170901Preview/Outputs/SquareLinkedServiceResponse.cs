@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The client ID associated with your Square application.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ClientId;
+        public readonly object ClientId;
         /// <summary>
         /// The client secret associated with your Square application.
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The URL of the Square instance. (i.e. mystore.mysquare.com)
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Host;
+        public readonly object Host;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
         /// </summary>
-        public readonly ImmutableDictionary<string, object> RedirectUri;
+        public readonly object RedirectUri;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -56,21 +56,21 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseEncryptedEndpoints;
+        public readonly object? UseEncryptedEndpoints;
         /// <summary>
         /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseHostVerification;
+        public readonly object? UseHostVerification;
         /// <summary>
         /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UsePeerVerification;
+        public readonly object? UsePeerVerification;
 
         [OutputConstructor]
         private SquareLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object> clientId,
+            object clientId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clientSecret,
 
@@ -78,21 +78,21 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object> host,
+            object host,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object> redirectUri,
+            object redirectUri,
 
             string type,
 
-            ImmutableDictionary<string, object>? useEncryptedEndpoints,
+            object? useEncryptedEndpoints,
 
-            ImmutableDictionary<string, object>? useHostVerification,
+            object? useHostVerification,
 
-            ImmutableDictionary<string, object>? usePeerVerification)
+            object? usePeerVerification)
         {
             Annotations = annotations;
             ClientId = clientId;

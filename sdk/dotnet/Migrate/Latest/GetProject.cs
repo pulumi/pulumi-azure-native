@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         /// <summary>
         /// Tags provided by Azure Tagging service.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly object? Tags;
         /// <summary>
         /// Type of the object = [Microsoft.Migrate/assessmentProjects].
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
 
             Outputs.ProjectPropertiesResponse properties,
 
-            ImmutableDictionary<string, object>? tags,
+            object? tags,
 
             string type)
         {

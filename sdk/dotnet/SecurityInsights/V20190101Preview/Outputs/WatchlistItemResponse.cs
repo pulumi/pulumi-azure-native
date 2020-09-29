@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.Outputs
         /// <summary>
         /// A key-value pair for a watchlist item entity mapping
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EntityMapping;
+        public readonly object? EntityMapping;
         /// <summary>
         /// Azure resource Id
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.Outputs
         /// <summary>
         /// A key-value pair for a watchlist item
         /// </summary>
-        public readonly ImmutableDictionary<string, object> WatchlistItemPair;
+        public readonly object WatchlistItemPair;
         /// <summary>
         /// The type of the watchlist item
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.Outputs
 
             string? createdTimeUtc,
 
-            ImmutableDictionary<string, object>? entityMapping,
+            object? entityMapping,
 
             string id,
 
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.Outputs
 
             string? watchlistItemName,
 
-            ImmutableDictionary<string, object> watchlistItemPair,
+            object watchlistItemPair,
 
             string? watchlistItemType)
         {

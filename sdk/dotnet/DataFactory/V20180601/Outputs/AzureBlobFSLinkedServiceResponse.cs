@@ -16,15 +16,15 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Account key for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AccountKey;
+        public readonly object? AccountKey;
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AzureCloudType;
+        public readonly object? AzureCloudType;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The ID of the application used to authenticate against the Azure Data Lake Storage Gen2 account. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ServicePrincipalId;
+        public readonly object? ServicePrincipalId;
         /// <summary>
         /// The Key of the application used to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tenant;
+        public readonly object? Tenant;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -60,33 +60,33 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Url;
+        public readonly object Url;
 
         [OutputConstructor]
         private AzureBlobFSLinkedServiceResponse(
-            ImmutableDictionary<string, object>? accountKey,
+            object? accountKey,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object>? azureCloudType,
+            object? azureCloudType,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? servicePrincipalId,
+            object? servicePrincipalId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
 
-            ImmutableDictionary<string, object>? tenant,
+            object? tenant,
 
             string type,
 
-            ImmutableDictionary<string, object> url)
+            object url)
         {
             AccountKey = accountKey;
             Annotations = annotations;

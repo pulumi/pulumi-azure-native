@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180315Preview.Outputs
         /// <summary>
         /// Source databases as a map from database name to database id
         /// </summary>
-        public readonly string Databases;
+        public readonly ImmutableDictionary<string, string> Databases;
         /// <summary>
         /// Result identifier
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180315Preview.Outputs
 
         [OutputConstructor]
         private ConnectToTargetSqlDbTaskOutputResponse(
-            string databases,
+            ImmutableDictionary<string, string> databases,
 
             string id,
 

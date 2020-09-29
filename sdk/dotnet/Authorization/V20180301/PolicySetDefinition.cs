@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
         /// The policy set definition metadata.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the policy set definition.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
         /// The policy set definition parameters that can be used in policy definition references.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, object>?> Parameters { get; private set; } = null!;
+        public Output<object?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// An array of policy definition references.
@@ -129,29 +129,17 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// The policy set definition metadata.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
-
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The policy set definition parameters that can be used in policy definition references.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         [Input("policyDefinitions", required: true)]
         private InputList<Inputs.PolicyDefinitionReferenceArgs>? _policyDefinitions;

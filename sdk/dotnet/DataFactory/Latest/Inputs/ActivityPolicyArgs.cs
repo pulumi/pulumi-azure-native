@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     /// </summary>
     public sealed class ActivityPolicyArgs : Pulumi.ResourceArgs
     {
-        [Input("retry")]
-        private InputMap<object>? _retry;
-
         /// <summary>
         /// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
-        public InputMap<object> Retry
-        {
-            get => _retry ?? (_retry = new InputMap<object>());
-            set => _retry = value;
-        }
+        [Input("retry")]
+        public Input<object>? Retry { get; set; }
 
         /// <summary>
         /// Interval between each retry attempt (in seconds). The default is 30 sec.
@@ -45,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("secureOutput")]
         public Input<bool>? SecureOutput { get; set; }
 
-        [Input("timeout")]
-        private InputMap<object>? _timeout;
-
         /// <summary>
         /// Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
-        public InputMap<object> Timeout
-        {
-            get => _timeout ?? (_timeout = new InputMap<object>());
-            set => _timeout = value;
-        }
+        [Input("timeout")]
+        public Input<object>? Timeout { get; set; }
 
         public ActivityPolicyArgs()
         {

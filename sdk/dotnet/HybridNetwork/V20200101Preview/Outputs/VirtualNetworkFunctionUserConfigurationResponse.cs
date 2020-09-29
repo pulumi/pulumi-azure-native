@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Outputs
         /// <summary>
         /// The user data parameters from the customer.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserDataParameters;
+        public readonly object? UserDataParameters;
 
         [OutputConstructor]
         private VirtualNetworkFunctionUserConfigurationResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Outputs
 
             string? roleName,
 
-            ImmutableDictionary<string, object>? userDataParameters)
+            object? userDataParameters)
         {
             NetworkInterfaces = networkInterfaces;
             RoleName = roleName;

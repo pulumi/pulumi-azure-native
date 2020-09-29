@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// <summary>
         /// The data source properties in raw json format, each kind of data source have it's own schema.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Properties;
+        public readonly object Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
 
             string name,
 
-            ImmutableDictionary<string, object> properties,
+            object properties,
 
             ImmutableDictionary<string, string>? tags,
 
