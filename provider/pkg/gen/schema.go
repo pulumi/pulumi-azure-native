@@ -323,7 +323,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 
 	pkg.Language["csharp"] = rawMessage(map[string]interface{}{
 		"packageReferences": map[string]string{
-			"Pulumi":                       "2.*",
+			"Pulumi":                       "2.11.0-alpha.1601308802",
 			"System.Collections.Immutable": "1.6.0",
 		},
 		"namespaces": csharpNamespaces,
@@ -999,44 +999,22 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 	// Type specification specifies either a primitive type (e.g. 'string') or a reference to a separately defined
 	// strongly-typed object. Either `primitiveTypeName` or `referencedTypeName` should be filled, but not both.
-	var tok, primitiveTypeName, referencedTypeName string
+	var primitiveTypeName string
+	if len(resolvedSchema.Type) > 0 {
+		primitiveTypeName = resolvedSchema.Type[0]
+	}
 	switch {
 	case len(resolvedSchema.Properties) > 0 || len(resolvedSchema.AllOf) > 0:
 		ptr := schema.Ref.GetPointer()
+		var tok string
 		if ptr != nil && !ptr.IsEmpty() {
 			tok = m.typeName(resolvedSchema.ReferenceContext, isOutput)
 		} else {
 			// Inline properties have no type in the Open API schema, so we use parent type's name + property name.
 			tok = m.typeName(context, isOutput) + strings.Title(propertyName)
 		}
-	case len(resolvedSchema.Enum) > 0:
-		// Default Enum properties to strings if the type isn't specified.
-		primitiveTypeName = "string"
-		if len(resolvedSchema.Type) > 0 && resolvedSchema.Type[0] != "object" {
-			primitiveTypeName = resolvedSchema.Type[0]
-		}
-	case len(resolvedSchema.Type) > 0:
-		primitiveTypeName = resolvedSchema.Type[0]
-	case resolvedSchema.AdditionalProperties != nil:
-		// Additional properties suggest a dictionary.
-		primitiveTypeName = "object"
-	case isOutput:
-		// No type is specified for an output property. Ignore it, otherwise we may not be able to deserialize
-		// it when a payload of an unexpected shape comes (particularly, in typed runtimes like .NET).
-		// We may want to change those serializers in the future to get the symmetry of inputs/outputs.
-		// See https://github.com/pulumi/pulumi/issues/5446
-		return nil, nil
-	default:
-		// Open API v2:
-		// > A schema without a type matches any data type – numbers, strings, objects, and so on.
-		// No type is specified for an input property. Treat it as an "any" type.
-		return &pschema.TypeSpec{
-			Ref: "pulumi.json#/Any",
-		}, nil
-	}
 
-	// If an object type is referenced, add its definition to the type map.
-	if tok != "" {
+		// If an object type is referenced, add its definition to the type map.
 		discriminatedType, ok, err := m.genDiscriminatedType(resolvedSchema, isOutput)
 		if err != nil {
 			return nil, err
@@ -1045,7 +1023,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			return discriminatedType, nil
 		}
 
-		referencedTypeName = fmt.Sprintf("#/types/%s", tok)
+		referencedTypeName := fmt.Sprintf("#/types/%s", tok)
 
 		if _, ok := m.visitedTypes[tok]; !ok {
 			m.visitedTypes[tok] = true
@@ -1075,36 +1053,20 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 				RequiredProperties: props.requiredProperties.SortedValues(),
 			}
 		}
-	}
+		return &pschema.TypeSpec{
+			Type: "object",
+			Ref:  referencedTypeName,
+		}, nil
 
-	// Define the type of maps (untyped objects).
-	var additionalProperties *pschema.TypeSpec
-	if primitiveTypeName == "object" {
-		if resolvedSchema.AdditionalProperties != nil && resolvedSchema.AdditionalProperties.Schema != nil {
-			additionalProperties, err = m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput)
-			if err != nil {
-				return nil, err
-			}
-
-			// Don't generate a type definition for a typed dictionary with empty value type.
-			if additionalProperties == nil {
-				return nil, nil
-			}
-		} else {
-			additionalProperties = &pschema.TypeSpec{
-				Ref: "pulumi.json#/Any",
-			}
+	case len(resolvedSchema.Enum) > 0:
+		if primitiveTypeName == "" || primitiveTypeName == "object" {
+			// Default Enum properties to strings if the type isn't specified.
+			primitiveTypeName = "string"
 		}
-	}
+		return &pschema.TypeSpec{Type: primitiveTypeName}, nil
 
-	result := pschema.TypeSpec{
-		Type:                 primitiveTypeName,
-		AdditionalProperties: additionalProperties,
-		Ref:                  referencedTypeName,
-	}
-
-	// Resolve the element type for array types.
-	if resolvedSchema.Items != nil && resolvedSchema.Items.Schema != nil {
+	case resolvedSchema.Items != nil && resolvedSchema.Items.Schema != nil:
+		// Resolve the element type for array types.
 		itemsSpec, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, isOutput)
 		if err != nil {
 			return nil, err
@@ -1115,10 +1077,40 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			return nil, nil
 		}
 
-		result.Items = &itemsSpec.TypeSpec
-	}
+		return &pschema.TypeSpec{
+			Type:  "array",
+			Items: &itemsSpec.TypeSpec,
+		}, nil
 
-	return &result, nil
+	case resolvedSchema.AdditionalProperties != nil && resolvedSchema.AdditionalProperties.Schema != nil:
+		// Define the type of maps (untyped objects).
+		additionalProperties, err := m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput)
+		if err != nil {
+			return nil, err
+		}
+
+		// Don't generate a type definition for a typed dictionary with empty value type.
+		if additionalProperties == nil {
+			return nil, nil
+		}
+
+		return &pschema.TypeSpec{
+			Type:                 "object",
+			AdditionalProperties: additionalProperties,
+		}, nil
+
+	case primitiveTypeName == "" || primitiveTypeName == "object":
+		// Open API v2:
+		// > A schema without a type matches any data type – numbers, strings, objects, and so on.
+		// Azure uses a 'naked' object type for the same purpose: to specify 'any' type.
+		return &pschema.TypeSpec{
+			Ref: "pulumi.json#/Any",
+		}, nil
+
+	default:
+		// Primitive type ('string', 'integer', etc.)
+		return &pschema.TypeSpec{Type: primitiveTypeName}, nil
+	}
 }
 
 // genDiscriminatedType generates polymorphic types (base type and subtypes) if the schema specifies a discriminator property.
