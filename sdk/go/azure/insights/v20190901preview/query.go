@@ -25,7 +25,7 @@ type Query struct {
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Additional properties that can be set for the query.
-	Properties pulumi.MapOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The related metadata items for the function.
 	Related LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput `pulumi:"related"`
 	// Read only system data
@@ -94,7 +94,7 @@ type queryState struct {
 	// Azure resource name
 	Name *string `pulumi:"name"`
 	// Additional properties that can be set for the query.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The related metadata items for the function.
 	Related *LogAnalyticsQueryPackQueryPropertiesResponseRelated `pulumi:"related"`
 	// Read only system data
@@ -121,7 +121,7 @@ type QueryState struct {
 	// Azure resource name
 	Name pulumi.StringPtrInput
 	// Additional properties that can be set for the query.
-	Properties pulumi.MapInput
+	Properties pulumi.Input
 	// The related metadata items for the function.
 	Related LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrInput
 	// Read only system data
@@ -150,7 +150,7 @@ type queryArgs struct {
 	// The id of a specific query defined in the Log Analytics QueryPack
 	Id string `pulumi:"id"`
 	// Additional properties that can be set for the query.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the Log Analytics QueryPack resource.
 	QueryPackName string `pulumi:"queryPackName"`
 	// The related metadata items for the function.
@@ -172,7 +172,7 @@ type QueryArgs struct {
 	// The id of a specific query defined in the Log Analytics QueryPack
 	Id pulumi.StringInput
 	// Additional properties that can be set for the query.
-	Properties pulumi.MapInput
+	Properties pulumi.Input
 	// The name of the Log Analytics QueryPack resource.
 	QueryPackName pulumi.StringInput
 	// The related metadata items for the function.

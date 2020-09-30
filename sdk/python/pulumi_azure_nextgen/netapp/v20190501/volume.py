@@ -28,7 +28,7 @@ class Volume(pulumi.CustomResource):
                  service_level: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 tags: Optional[Any] = None,
                  usage_threshold: Optional[pulumi.Input[int]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -50,7 +50,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] service_level: The service level of the file system
         :param pulumi.Input[str] snapshot_id: UUID v4 used to identify the Snapshot
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        :param pulumi.Input[Mapping[str, Any]] tags: Resource tags
+        :param Any tags: Resource tags
         :param pulumi.Input[int] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         :param pulumi.Input[str] volume_name: The name of the volume
         """
@@ -230,7 +230,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         """
         Resource tags
         """

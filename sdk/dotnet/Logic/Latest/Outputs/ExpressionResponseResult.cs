@@ -25,6 +25,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
         /// The text.
         /// </summary>
         public readonly string? Text;
+        public readonly object? Value;
 
         [OutputConstructor]
         private ExpressionResponseResult(
@@ -32,11 +33,14 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
 
             ImmutableArray<Outputs.ExpressionResponseResult> subexpressions,
 
-            string? text)
+            string? text,
+
+            object? value)
         {
             Error = error;
             Subexpressions = subexpressions;
             Text = text;
+            Value = value;
         }
     }
 }

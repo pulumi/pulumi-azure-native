@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// A comma-separated list of public BigQuery projects to access.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AdditionalProjects;
+        public readonly object? AdditionalProjects;
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ClientId;
+        public readonly object? ClientId;
         /// <summary>
         /// The client secret of the google application used to acquire the refresh token.
         /// </summary>
@@ -44,15 +44,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Email;
+        public readonly object? Email;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? KeyFilePath;
+        public readonly object? KeyFilePath;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The default BigQuery project to query against.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Project;
+        public readonly object Project;
         /// <summary>
         /// The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RequestGoogleDriveScope;
+        public readonly object? RequestGoogleDriveScope;
         /// <summary>
         /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? TrustedCertPath;
+        public readonly object? TrustedCertPath;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -80,17 +80,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UseSystemTrustStore;
+        public readonly object? UseSystemTrustStore;
 
         [OutputConstructor]
         private GoogleBigQueryLinkedServiceResponse(
-            ImmutableDictionary<string, object>? additionalProjects,
+            object? additionalProjects,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             string authenticationType,
 
-            ImmutableDictionary<string, object>? clientId,
+            object? clientId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clientSecret,
 
@@ -98,25 +98,25 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, object>? email,
+            object? email,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? keyFilePath,
+            object? keyFilePath,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object> project,
+            object project,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? refreshToken,
 
-            ImmutableDictionary<string, object>? requestGoogleDriveScope,
+            object? requestGoogleDriveScope,
 
-            ImmutableDictionary<string, object>? trustedCertPath,
+            object? trustedCertPath,
 
             string type,
 
-            ImmutableDictionary<string, object>? useSystemTrustStore)
+            object? useSystemTrustStore)
         {
             AdditionalProjects = additionalProjects;
             Annotations = annotations;

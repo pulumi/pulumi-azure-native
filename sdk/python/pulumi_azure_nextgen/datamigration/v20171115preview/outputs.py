@@ -17,8 +17,11 @@ __all__ = [
     'ConnectToTargetSqlDbTaskInputResponse',
     'ConnectToTargetSqlDbTaskOutputResponse',
     'ConnectToTargetSqlDbTaskPropertiesResponse',
+    'DataItemMigrationSummaryResultResponse',
     'DatabaseFileInfoResponse',
     'DatabaseInfoResponse',
+    'DatabaseSummaryResultResponse',
+    'DatabaseTableResponse',
     'GetUserTablesSqlTaskInputResponse',
     'GetUserTablesSqlTaskOutputResponse',
     'GetUserTablesSqlTaskPropertiesResponse',
@@ -173,7 +176,7 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
     Task level output for the task that validates connection to SQL Server and also validates source server requirements
     """
     def __init__(__self__, *,
-                 databases: str,
+                 databases: Mapping[str, str],
                  id: str,
                  result_type: str,
                  source_server_brand_version: str,
@@ -181,7 +184,7 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Task level output for the task that validates connection to SQL Server and also validates source server requirements
-        :param str databases: Source databases as a map from database name to database id
+        :param Mapping[str, str] databases: Source databases as a map from database name to database id
         :param str id: Result identifier
         :param str result_type: Type of result - database level or task level
         :param str source_server_brand_version: Source server brand version
@@ -197,7 +200,7 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
 
     @property
     @pulumi.getter
-    def databases(self) -> str:
+    def databases(self) -> Mapping[str, str]:
         """
         Source databases as a map from database name to database id
         """
@@ -348,13 +351,13 @@ class ConnectToTargetSqlDbTaskOutputResponse(dict):
     Output for the task that validates connection to SQL DB and target server requirements
     """
     def __init__(__self__, *,
-                 databases: str,
+                 databases: Mapping[str, str],
                  id: str,
                  target_server_brand_version: str,
                  target_server_version: str):
         """
         Output for the task that validates connection to SQL DB and target server requirements
-        :param str databases: Source databases as a map from database name to database id
+        :param Mapping[str, str] databases: Source databases as a map from database name to database id
         :param str id: Result identifier
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Version of the target server
@@ -366,7 +369,7 @@ class ConnectToTargetSqlDbTaskOutputResponse(dict):
 
     @property
     @pulumi.getter
-    def databases(self) -> str:
+    def databases(self) -> Mapping[str, str]:
         """
         Source databases as a map from database name to database id
         """
@@ -465,6 +468,119 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
         Task input
         """
         return pulumi.get(self, "input")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataItemMigrationSummaryResultResponse(dict):
+    """
+    Basic summary of a data item migration
+    """
+    def __init__(__self__, *,
+                 ended_on: str,
+                 error_prefix: str,
+                 items_completed_count: int,
+                 items_count: int,
+                 name: str,
+                 result_prefix: str,
+                 started_on: str,
+                 state: str,
+                 status_message: str):
+        """
+        Basic summary of a data item migration
+        :param str ended_on: Migration end time
+        :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
+        :param int items_completed_count: Number of successfully completed items
+        :param int items_count: Number of items
+        :param str name: Name of the item
+        :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
+        :param str started_on: Migration start time
+        :param str state: Current state of migration
+        :param str status_message: Status message
+        """
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "error_prefix", error_prefix)
+        pulumi.set(__self__, "items_completed_count", items_completed_count)
+        pulumi.set(__self__, "items_count", items_count)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "result_prefix", result_prefix)
+        pulumi.set(__self__, "started_on", started_on)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> str:
+        """
+        Migration end time
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter(name="errorPrefix")
+    def error_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all errors of the item
+        """
+        return pulumi.get(self, "error_prefix")
+
+    @property
+    @pulumi.getter(name="itemsCompletedCount")
+    def items_completed_count(self) -> int:
+        """
+        Number of successfully completed items
+        """
+        return pulumi.get(self, "items_completed_count")
+
+    @property
+    @pulumi.getter(name="itemsCount")
+    def items_count(self) -> int:
+        """
+        Number of items
+        """
+        return pulumi.get(self, "items_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the item
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resultPrefix")
+    def result_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all sub-tem results of the item
+        """
+        return pulumi.get(self, "result_prefix")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Migration start time
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Current state of migration
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Status message
+        """
+        return pulumi.get(self, "status_message")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -594,6 +710,166 @@ class DatabaseInfoResponse(dict):
 
 
 @pulumi.output_type
+class DatabaseSummaryResultResponse(dict):
+    """
+    Summary of database results in the migration
+    """
+    def __init__(__self__, *,
+                 ended_on: str,
+                 error_prefix: str,
+                 items_completed_count: int,
+                 items_count: int,
+                 name: str,
+                 result_prefix: str,
+                 size_mb: float,
+                 started_on: str,
+                 state: str,
+                 status_message: str):
+        """
+        Summary of database results in the migration
+        :param str ended_on: Migration end time
+        :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
+        :param int items_completed_count: Number of successfully completed items
+        :param int items_count: Number of items
+        :param str name: Name of the item
+        :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
+        :param float size_mb: Size of the database in megabytes
+        :param str started_on: Migration start time
+        :param str state: Current state of migration
+        :param str status_message: Status message
+        """
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "error_prefix", error_prefix)
+        pulumi.set(__self__, "items_completed_count", items_completed_count)
+        pulumi.set(__self__, "items_count", items_count)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "result_prefix", result_prefix)
+        pulumi.set(__self__, "size_mb", size_mb)
+        pulumi.set(__self__, "started_on", started_on)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> str:
+        """
+        Migration end time
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter(name="errorPrefix")
+    def error_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all errors of the item
+        """
+        return pulumi.get(self, "error_prefix")
+
+    @property
+    @pulumi.getter(name="itemsCompletedCount")
+    def items_completed_count(self) -> int:
+        """
+        Number of successfully completed items
+        """
+        return pulumi.get(self, "items_completed_count")
+
+    @property
+    @pulumi.getter(name="itemsCount")
+    def items_count(self) -> int:
+        """
+        Number of items
+        """
+        return pulumi.get(self, "items_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the item
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resultPrefix")
+    def result_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all sub-tem results of the item
+        """
+        return pulumi.get(self, "result_prefix")
+
+    @property
+    @pulumi.getter(name="sizeMB")
+    def size_mb(self) -> float:
+        """
+        Size of the database in megabytes
+        """
+        return pulumi.get(self, "size_mb")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Migration start time
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Current state of migration
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Status message
+        """
+        return pulumi.get(self, "status_message")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DatabaseTableResponse(dict):
+    """
+    Table properties
+    """
+    def __init__(__self__, *,
+                 has_rows: bool,
+                 name: str):
+        """
+        Table properties
+        :param bool has_rows: Indicates whether table is empty or not
+        :param str name: Schema-qualified name of the table
+        """
+        pulumi.set(__self__, "has_rows", has_rows)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="hasRows")
+    def has_rows(self) -> bool:
+        """
+        Indicates whether table is empty or not
+        """
+        return pulumi.get(self, "has_rows")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Schema-qualified name of the table
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class GetUserTablesSqlTaskInputResponse(dict):
     """
     Input for the task that collects user tables for the given list of databases
@@ -635,12 +911,12 @@ class GetUserTablesSqlTaskOutputResponse(dict):
     Output of the task that collects user tables for the given list of databases
     """
     def __init__(__self__, *,
-                 databases_to_tables: str,
+                 databases_to_tables: Mapping[str, Sequence['outputs.DatabaseTableResponse']],
                  id: str,
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output of the task that collects user tables for the given list of databases
-        :param str databases_to_tables: Mapping from database name to list of tables
+        :param Mapping[str, Sequence['DatabaseTableResponseArgs']] databases_to_tables: Mapping from database name to list of tables
         :param str id: Result identifier
         :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
         """
@@ -650,7 +926,7 @@ class GetUserTablesSqlTaskOutputResponse(dict):
 
     @property
     @pulumi.getter(name="databasesToTables")
-    def databases_to_tables(self) -> str:
+    def databases_to_tables(self) -> Mapping[str, Sequence['outputs.DatabaseTableResponse']]:
         """
         Mapping from database name to list of tables
         """
@@ -886,7 +1162,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
                  message: str,
                  number_of_objects: int,
                  number_of_objects_completed: int,
-                 object_summary: str,
+                 object_summary: Mapping[str, 'outputs.DataItemMigrationSummaryResultResponse'],
                  result_prefix: str,
                  result_type: str,
                  stage: str,
@@ -904,7 +1180,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
         :param str message: Migration progress message
         :param int number_of_objects: Number of objects
         :param int number_of_objects_completed: Number of successfully completed objects
-        :param str object_summary: Summary of object results in the migration
+        :param Mapping[str, 'DataItemMigrationSummaryResultResponseArgs'] object_summary: Summary of object results in the migration
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str result_type: Result type
         :param str stage: Migration stage that this database is in
@@ -1003,7 +1279,7 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
 
     @property
     @pulumi.getter(name="objectSummary")
-    def object_summary(self) -> str:
+    def object_summary(self) -> Mapping[str, 'outputs.DataItemMigrationSummaryResultResponse']:
         """
         Summary of object results in the migration
         """
@@ -1150,8 +1426,8 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
     Migration level result for Sql server to Azure Sql DB migration.
     """
     def __init__(__self__, *,
-                 database_summary: str,
-                 databases: str,
+                 database_summary: Mapping[str, 'outputs.DatabaseSummaryResultResponse'],
+                 databases: Mapping[str, str],
                  duration_in_seconds: int,
                  ended_on: str,
                  exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
@@ -1168,8 +1444,8 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
                  migration_report_result: Optional['outputs.MigrationReportResultResponse'] = None):
         """
         Migration level result for Sql server to Azure Sql DB migration.
-        :param str database_summary: Summary of database results in the migration
-        :param str databases: Selected databases as a map from database name to database id
+        :param Mapping[str, 'DatabaseSummaryResultResponseArgs'] database_summary: Summary of database results in the migration
+        :param Mapping[str, str] databases: Selected databases as a map from database name to database id
         :param int duration_in_seconds: Duration of task execution in seconds.
         :param str ended_on: Migration end time
         :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
@@ -1205,7 +1481,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
 
     @property
     @pulumi.getter(name="databaseSummary")
-    def database_summary(self) -> str:
+    def database_summary(self) -> Mapping[str, 'outputs.DatabaseSummaryResultResponse']:
         """
         Summary of database results in the migration
         """
@@ -1213,7 +1489,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
 
     @property
     @pulumi.getter
-    def databases(self) -> str:
+    def databases(self) -> Mapping[str, str]:
         """
         Selected databases as a map from database name to database id
         """

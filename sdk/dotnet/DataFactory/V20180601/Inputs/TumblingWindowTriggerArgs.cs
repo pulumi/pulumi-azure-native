@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class TumblingWindowTriggerArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the trigger.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("delay")]
-        private InputMap<object>? _delay;
 
         /// <summary>
         /// Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
-        public InputMap<object> Delay
-        {
-            get => _delay ?? (_delay = new InputMap<object>());
-            set => _delay = value;
-        }
+        [Input("delay")]
+        public Input<object>? Delay { get; set; }
 
         [Input("dependsOn")]
         private InputList<Union<Inputs.SelfDependencyTumblingWindowTriggerReferenceArgs, Inputs.TriggerDependencyReferenceArgs>>? _dependsOn;

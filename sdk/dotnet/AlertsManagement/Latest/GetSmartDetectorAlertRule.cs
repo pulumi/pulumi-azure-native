@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
         /// <summary>
         /// The resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly object? Tags;
         /// <summary>
         /// The alert rule throttling information.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
 
             string state,
 
-            ImmutableDictionary<string, object>? tags,
+            object? tags,
 
             Outputs.ThrottlingInformationResponse? throttling,
 

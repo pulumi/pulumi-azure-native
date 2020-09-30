@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Value of parameter.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Value;
+        public readonly object Value;
 
         [OutputConstructor]
         private GlobalParameterSpecificationResponse(
             string type,
 
-            ImmutableDictionary<string, object> value)
+            object value)
         {
             Type = type;
             Value = value;

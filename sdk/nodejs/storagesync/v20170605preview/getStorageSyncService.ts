@@ -54,7 +54,7 @@ export interface GetStorageSyncServiceResult {
     /**
      * The tags of the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: any;
     /**
      * The type of the resource
      */

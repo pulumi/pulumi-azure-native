@@ -1532,7 +1532,7 @@ class JobStagesResponse(dict):
     def __init__(__self__, *,
                  display_name: str,
                  error_details: Sequence['outputs.JobErrorDetailsResponse'],
-                 job_stage_details: Mapping[str, Any],
+                 job_stage_details: Any,
                  stage_name: str,
                  stage_status: str,
                  stage_time: str):
@@ -1540,7 +1540,7 @@ class JobStagesResponse(dict):
         Job stages.
         :param str display_name: Display name of the job stage.
         :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for the stage.
-        :param Mapping[str, Any] job_stage_details: Job Stage Details
+        :param Any job_stage_details: Job Stage Details
         :param str stage_name: Name of the job stage.
         :param str stage_status: Status of the job stage.
         :param str stage_time: Time for the job stage in UTC ISO 8601 format.
@@ -1570,7 +1570,7 @@ class JobStagesResponse(dict):
 
     @property
     @pulumi.getter(name="jobStageDetails")
-    def job_stage_details(self) -> Mapping[str, Any]:
+    def job_stage_details(self) -> Any:
         """
         Job Stage Details
         """

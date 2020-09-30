@@ -171,6 +171,14 @@ class Schedule(pulumi.CustomResource):
         return pulumi.get(self, "frequency")
 
     @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Gets or sets the interval of the schedule.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """

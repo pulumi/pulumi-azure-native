@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Management.V20190601
         /// The policy definition metadata.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
@@ -48,13 +48,13 @@ namespace Pulumi.AzureNextGen.Management.V20190601
         /// Required if a parameter is used in policy rule.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, object>?> Parameters { get; private set; } = null!;
+        public Output<object?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The policy rule.
         /// </summary>
         [Output("policyRule")]
-        public Output<ImmutableDictionary<string, object>?> PolicyRule { get; private set; } = null!;
+        public Output<object?> PolicyRule { get; private set; } = null!;
 
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -141,17 +141,11 @@ namespace Pulumi.AzureNextGen.Management.V20190601
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// The policy definition metadata.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
@@ -159,17 +153,11 @@ namespace Pulumi.AzureNextGen.Management.V20190601
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// The name of the policy definition to create.
@@ -177,17 +165,11 @@ namespace Pulumi.AzureNextGen.Management.V20190601
         [Input("policyDefinitionName", required: true)]
         public Input<string> PolicyDefinitionName { get; set; } = null!;
 
-        [Input("policyRule")]
-        private InputMap<object>? _policyRule;
-
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public InputMap<object> PolicyRule
-        {
-            get => _policyRule ?? (_policyRule = new InputMap<object>());
-            set => _policyRule = value;
-        }
+        [Input("policyRule")]
+        public Input<object>? PolicyRule { get; set; }
 
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

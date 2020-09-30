@@ -25,7 +25,7 @@ type PolicyAssignment struct {
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The policy's excluded scopes.
@@ -123,7 +123,7 @@ type policyAssignmentState struct {
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location *string `pulumi:"location"`
 	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
 	// The policy's excluded scopes.
@@ -152,7 +152,7 @@ type PolicyAssignmentState struct {
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location pulumi.StringPtrInput
 	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The name of the policy assignment.
 	Name pulumi.StringPtrInput
 	// The policy's excluded scopes.
@@ -185,7 +185,7 @@ type policyAssignmentArgs struct {
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location *string `pulumi:"location"`
 	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
@@ -213,7 +213,7 @@ type PolicyAssignmentArgs struct {
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location pulumi.StringPtrInput
 	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput
 	// The parameter values for the assigned policy rule. The keys are the parameter names.

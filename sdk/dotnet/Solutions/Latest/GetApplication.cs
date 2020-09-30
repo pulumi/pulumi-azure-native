@@ -98,11 +98,11 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <summary>
         /// Name and value pairs that define the managed application outputs.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Outputs;
+        public readonly object Outputs;
         /// <summary>
         /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// The plan information.
         /// </summary>
@@ -166,9 +166,9 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
 
             string name,
 
-            ImmutableDictionary<string, object> outputs,
+            object outputs,
 
-            ImmutableDictionary<string, object>? parameters,
+            object? parameters,
 
             Outputs.PlanResponse? plan,
 

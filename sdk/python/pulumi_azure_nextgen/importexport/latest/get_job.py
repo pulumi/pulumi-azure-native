@@ -74,7 +74,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> Optional[Any]:
         """
         Specifies the tags that are assigned to the job.
         """

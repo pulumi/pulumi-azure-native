@@ -40,7 +40,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
     /**
      * The content.
      */
-    public readonly content!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly content!: pulumi.Output<any | undefined>;
     /**
      * The content link.
      */
@@ -60,7 +60,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
     /**
      * The metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * The resource name.
      */
@@ -151,7 +151,7 @@ export interface IntegrationAccountSchemaArgs {
     /**
      * The content.
      */
-    readonly content?: pulumi.Input<{[key: string]: any}>;
+    readonly content?: any;
     /**
      * The content type.
      */
@@ -171,7 +171,7 @@ export interface IntegrationAccountSchemaArgs {
     /**
      * The metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: any;
     /**
      * The resource name.
      */

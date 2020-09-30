@@ -30,7 +30,7 @@ type LookupPolicyDefinitionResult struct {
 	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
 	Name *string `pulumi:"name"`
 	// The policy rule.
-	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType *string `pulumi:"policyType"`
 }

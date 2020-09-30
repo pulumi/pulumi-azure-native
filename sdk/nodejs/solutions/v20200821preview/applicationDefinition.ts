@@ -47,7 +47,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
-    public readonly createUiDefinition!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly createUiDefinition!: pulumi.Output<any | undefined>;
     /**
      * The managed application deployment policy.
      */
@@ -79,7 +79,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
     /**
      * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
      */
-    public readonly mainTemplate!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly mainTemplate!: pulumi.Output<any | undefined>;
     /**
      * ID of the resource that manages this resource.
      */
@@ -218,7 +218,7 @@ export interface ApplicationDefinitionArgs {
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
-    readonly createUiDefinition?: pulumi.Input<{[key: string]: any}>;
+    readonly createUiDefinition?: any;
     /**
      * The managed application deployment policy.
      */
@@ -250,7 +250,7 @@ export interface ApplicationDefinitionArgs {
     /**
      * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
      */
-    readonly mainTemplate?: pulumi.Input<{[key: string]: any}>;
+    readonly mainTemplate?: any;
     /**
      * ID of the resource that manages this resource.
      */

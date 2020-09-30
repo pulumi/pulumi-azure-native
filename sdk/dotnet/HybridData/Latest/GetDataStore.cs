@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         /// <summary>
         /// A generic json used differently by each data source type.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ExtendedProperties;
+        public readonly object? ExtendedProperties;
         /// <summary>
         /// Name of the object.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
 
             string dataStoreTypeId,
 
-            ImmutableDictionary<string, object>? extendedProperties,
+            object? extendedProperties,
 
             string name,
 

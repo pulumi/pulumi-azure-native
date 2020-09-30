@@ -19,8 +19,8 @@ class VendorSkus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_application_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 managed_application_template: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 managed_application_parameters: Optional[Any] = None,
+                 managed_application_template: Optional[Any] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  sku_type: Optional[pulumi.Input[str]] = None,
@@ -37,8 +37,8 @@ class VendorSkus(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_mode: Sku deployment mode.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Mapping[str, Any]] managed_application_parameters: The parameters for the managed application to be supplied by vendor.
-        :param pulumi.Input[Mapping[str, Any]] managed_application_template: The template for the managed application deployment.
+        :param Any managed_application_parameters: The parameters for the managed application to be supplied by vendor.
+        :param Any managed_application_template: The template for the managed application deployment.
         :param pulumi.Input[bool] preview: Indicates if the vendor sku is in preview mode.
         :param pulumi.Input[str] sku_name: The name of the sku.
         :param pulumi.Input[str] sku_type: Sku type.
@@ -122,7 +122,7 @@ class VendorSkus(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedApplicationParameters")
-    def managed_application_parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def managed_application_parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         The parameters for the managed application to be supplied by vendor.
         """
@@ -130,7 +130,7 @@ class VendorSkus(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedApplicationTemplate")
-    def managed_application_template(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def managed_application_template(self) -> pulumi.Output[Optional[Any]]:
         """
         The template for the managed application deployment.
         """

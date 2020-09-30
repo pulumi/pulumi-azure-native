@@ -18,17 +18,11 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Inputs
         [Input("baseCondaEnvironment")]
         public Input<string>? BaseCondaEnvironment { get; set; }
 
-        [Input("condaDependencies")]
-        private InputMap<object>? _condaDependencies;
-
         /// <summary>
         /// A JObject containing Conda dependencies.
         /// </summary>
-        public InputMap<object> CondaDependencies
-        {
-            get => _condaDependencies ?? (_condaDependencies = new InputMap<object>());
-            set => _condaDependencies = value;
-        }
+        [Input("condaDependencies")]
+        public Input<object>? CondaDependencies { get; set; }
 
         /// <summary>
         /// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.

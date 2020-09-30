@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// <summary>
         /// Properties of a guest configuration assignment resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Properties;
+        public readonly object Properties;
         /// <summary>
         /// Compliance reason and reason code for a resource.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         private AssignmentReportResourceResponse(
             string complianceStatus,
 
-            ImmutableDictionary<string, object> properties,
+            object properties,
 
             ImmutableArray<Outputs.AssignmentReportResourceComplianceReasonResponse> reasons,
 

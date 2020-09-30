@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         /// <summary>
         /// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
 
             string? expiresOn,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string name,
 

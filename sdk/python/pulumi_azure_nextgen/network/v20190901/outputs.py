@@ -4657,7 +4657,7 @@ class BastionActiveSessionResponseResult(dict):
                  resource_type: str,
                  session_duration_in_mins: float,
                  session_id: str,
-                 start_time: Mapping[str, Any],
+                 start_time: Any,
                  target_host_name: str,
                  target_ip_address: str,
                  target_resource_group: str,
@@ -4670,7 +4670,7 @@ class BastionActiveSessionResponseResult(dict):
         :param str resource_type: The type of the resource.
         :param float session_duration_in_mins: Duration in mins the session has been active.
         :param str session_id: A unique id for the session.
-        :param Mapping[str, Any] start_time: The time when the session started.
+        :param Any start_time: The time when the session started.
         :param str target_host_name: The host name of the target.
         :param str target_ip_address: The IP Address of the target.
         :param str target_resource_group: The resource group of the target.
@@ -4724,7 +4724,7 @@ class BastionActiveSessionResponseResult(dict):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Mapping[str, Any]:
+    def start_time(self) -> Any:
         """
         The time when the session started.
         """

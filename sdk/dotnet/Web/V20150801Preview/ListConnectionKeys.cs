@@ -94,13 +94,13 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         /// <summary>
         /// Tokens/Claim
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? ParameterValues;
+        public readonly ImmutableDictionary<string, object>? ParameterValues;
 
         [OutputConstructor]
         private ListConnectionKeysResult(
             string? connectionKey,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? parameterValues)
+            ImmutableDictionary<string, object>? parameterValues)
         {
             ConnectionKey = connectionKey;
             ParameterValues = parameterValues;

@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// The session content.
         /// </summary>
         [Output("content")]
-        public Output<ImmutableDictionary<string, object>?> Content { get; private set; } = null!;
+        public Output<object?> Content { get; private set; } = null!;
 
         /// <summary>
         /// The created time.
@@ -107,17 +107,11 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 
     public sealed class IntegrationAccountSessionArgs : Pulumi.ResourceArgs
     {
-        [Input("content")]
-        private InputMap<object>? _content;
-
         /// <summary>
         /// The session content.
         /// </summary>
-        public InputMap<object> Content
-        {
-            get => _content ?? (_content = new InputMap<object>());
-            set => _content = value;
-        }
+        [Input("content")]
+        public Input<object>? Content { get; set; }
 
         /// <summary>
         /// The integration account name.

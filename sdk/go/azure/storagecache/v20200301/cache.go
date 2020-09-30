@@ -39,7 +39,7 @@ type Cache struct {
 	// Subnet used for the Cache.
 	Subnet pulumi.StringPtrOutput `pulumi:"subnet"`
 	// ARM tags as name/value pairs.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Upgrade status of the Cache.
@@ -117,7 +117,7 @@ type cacheState struct {
 	// Subnet used for the Cache.
 	Subnet *string `pulumi:"subnet"`
 	// ARM tags as name/value pairs.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type *string `pulumi:"type"`
 	// Upgrade status of the Cache.
@@ -150,7 +150,7 @@ type CacheState struct {
 	// Subnet used for the Cache.
 	Subnet pulumi.StringPtrInput
 	// ARM tags as name/value pairs.
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type pulumi.StringPtrInput
 	// Upgrade status of the Cache.
@@ -185,7 +185,7 @@ type cacheArgs struct {
 	// Subnet used for the Cache.
 	Subnet *string `pulumi:"subnet"`
 	// ARM tags as name/value pairs.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cache resource.
@@ -213,7 +213,7 @@ type CacheArgs struct {
 	// Subnet used for the Cache.
 	Subnet pulumi.StringPtrInput
 	// ARM tags as name/value pairs.
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 }
 
 func (CacheArgs) ElementType() reflect.Type {

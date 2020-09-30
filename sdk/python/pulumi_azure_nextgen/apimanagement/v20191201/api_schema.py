@@ -17,7 +17,7 @@ class ApiSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
-                 definitions: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 definitions: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class ApiSchema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[str] content_type: Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
-        :param pulumi.Input[Mapping[str, Any]] definitions: Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+        :param Any definitions: Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] schema_id: Schema identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -110,7 +110,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definitions(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def definitions(self) -> pulumi.Output[Optional[Any]]:
         """
         Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         """

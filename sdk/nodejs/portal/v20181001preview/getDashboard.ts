@@ -46,7 +46,7 @@ export interface GetDashboardResult {
     /**
      * The dashboard metadata.
      */
-    readonly metadata?: {[key: string]: {[key: string]: any}};
+    readonly metadata?: {[key: string]: any};
     /**
      * Resource name
      */

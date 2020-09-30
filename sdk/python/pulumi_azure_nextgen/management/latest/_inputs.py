@@ -101,18 +101,18 @@ class DeploymentPropertiesArgs:
                  mode: pulumi.Input[str],
                  debug_setting: Optional[pulumi.Input['DebugSettingArgs']] = None,
                  on_error_deployment: Optional[pulumi.Input['OnErrorDeploymentArgs']] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 parameters: Optional[Any] = None,
                  parameters_link: Optional[pulumi.Input['ParametersLinkArgs']] = None,
-                 template: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 template: Optional[Any] = None,
                  template_link: Optional[pulumi.Input['TemplateLinkArgs']] = None):
         """
         Deployment properties.
         :param pulumi.Input[str] mode: The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
         :param pulumi.Input['DebugSettingArgs'] debug_setting: The debug setting of the deployment.
         :param pulumi.Input['OnErrorDeploymentArgs'] on_error_deployment: The deployment on error behavior.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+        :param Any parameters: Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
         :param pulumi.Input['ParametersLinkArgs'] parameters_link: The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
-        :param pulumi.Input[Mapping[str, Any]] template: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
+        :param Any template: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
         :param pulumi.Input['TemplateLinkArgs'] template_link: The URI of the template. Use either the templateLink property or the template property, but not both.
         """
         pulumi.set(__self__, "mode", mode)
@@ -167,14 +167,14 @@ class DeploymentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -191,14 +191,14 @@ class DeploymentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def template(self) -> Optional[Any]:
         """
         The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def template(self, value: Optional[Any]):
         pulumi.set(self, "template", value)
 
     @property
@@ -257,14 +257,14 @@ class OnErrorDeploymentArgs:
 @pulumi.input_type
 class ParameterDefinitionsValueArgs:
     def __init__(__self__, *,
-                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 default_value: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 default_value: Optional[Any] = None,
                  metadata: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The definition of a parameter that can be provided to the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] allowed_values: The allowed values for the parameter.
-        :param pulumi.Input[Mapping[str, Any]] default_value: The default value for the parameter if no value is provided.
+        :param pulumi.Input[Sequence[Any]] allowed_values: The allowed values for the parameter.
+        :param Any default_value: The default value for the parameter if no value is provided.
         :param pulumi.Input['ParameterDefinitionsValueMetadataArgs'] metadata: General metadata for the parameter.
         :param pulumi.Input[str] type: The data type of the parameter.
         """
@@ -279,26 +279,26 @@ class ParameterDefinitionsValueArgs:
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         The allowed values for the parameter.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "allowed_values", value)
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def default_value(self) -> Optional[Any]:
         """
         The default value for the parameter if no value is provided.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def default_value(self, value: Optional[Any]):
         pulumi.set(self, "default_value", value)
 
     @property
@@ -369,24 +369,24 @@ class ParameterDefinitionsValueMetadataArgs:
 @pulumi.input_type
 class ParameterValuesValueArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 value: Optional[Any] = None):
         """
         The value of a parameter.
-        :param pulumi.Input[Mapping[str, Any]] value: The value of the parameter.
+        :param Any value: The value of the parameter.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def value(self) -> Optional[Any]:
         """
         The value of the parameter.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def value(self, value: Optional[Any]):
         pulumi.set(self, "value", value)
 
 

@@ -1299,6 +1299,8 @@ type AzureInternalMonitoringPipelineSinkDescriptionResponse struct {
 	AutoKeyConfigUrl *string `pulumi:"autoKeyConfigUrl"`
 	// A description of the sink.
 	Description *string `pulumi:"description"`
+	// Azure Internal monitoring agent fluentd configuration.
+	FluentdConfigUrl interface{} `pulumi:"fluentdConfigUrl"`
 	// The kind of DiagnosticsSink.
 	Kind string `pulumi:"kind"`
 	// Azure Internal monitoring agent configuration.
@@ -1328,6 +1330,8 @@ type AzureInternalMonitoringPipelineSinkDescriptionResponseArgs struct {
 	AutoKeyConfigUrl pulumi.StringPtrInput `pulumi:"autoKeyConfigUrl"`
 	// A description of the sink.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Azure Internal monitoring agent fluentd configuration.
+	FluentdConfigUrl pulumi.Input `pulumi:"fluentdConfigUrl"`
 	// The kind of DiagnosticsSink.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Azure Internal monitoring agent configuration.
@@ -1403,6 +1407,11 @@ func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) AutoKeyCon
 // A description of the sink.
 func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring agent fluentd configuration.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) FluentdConfigUrl() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) interface{} { return v.FluentdConfigUrl }).(pulumi.AnyOutput)
 }
 
 // The kind of DiagnosticsSink.

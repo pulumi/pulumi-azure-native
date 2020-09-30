@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
         /// <summary>
         /// The raw kubernetes information
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? K8sRaw;
+        public readonly object? K8sRaw;
         /// <summary>
         /// Last uploaded date from on premise cluster. Defaults to current date time
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
 
         [OutputConstructor]
         private GetDataControllerResult(
-            ImmutableDictionary<string, object>? k8sRaw,
+            object? k8sRaw,
 
             string? lastUploadedDate,
 

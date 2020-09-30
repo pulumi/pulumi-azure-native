@@ -107,12 +107,12 @@ class TemplateSpecTemplateArtifactResponse(dict):
     def __init__(__self__, *,
                  kind: str,
                  path: str,
-                 template: Mapping[str, Any]):
+                 template: Any):
         """
         Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
         :param str kind: The kind of artifact.
         :param str path: A filesystem safe relative path of the artifact.
-        :param Mapping[str, Any] template: The Azure Resource Manager template.
+        :param Any template: The Azure Resource Manager template.
         """
         pulumi.set(__self__, "kind", 'template')
         pulumi.set(__self__, "path", path)
@@ -136,7 +136,7 @@ class TemplateSpecTemplateArtifactResponse(dict):
 
     @property
     @pulumi.getter
-    def template(self) -> Mapping[str, Any]:
+    def template(self) -> Any:
         """
         The Azure Resource Manager template.
         """

@@ -123,7 +123,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="syncStatus")
-    def sync_status(self) -> Optional[Mapping[str, Any]]:
+    def sync_status(self) -> Optional[Any]:
         """
         Sync Health Status
         """

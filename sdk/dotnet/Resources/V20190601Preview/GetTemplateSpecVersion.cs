@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// <summary>
         /// The Azure Resource Manager template content.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Template;
+        public readonly object? Template;
         /// <summary>
         /// Type of this resource.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableDictionary<string, object>? template,
+            object? template,
 
             string type)
         {

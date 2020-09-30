@@ -59,7 +59,7 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
     /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    public readonly protectedSettings!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly protectedSettings!: pulumi.Output<any | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -71,7 +71,7 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
     /**
      * Json formatted public settings for the extension.
      */
-    public readonly settings!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly settings!: pulumi.Output<any | undefined>;
     /**
      * Resource tags
      */
@@ -180,7 +180,7 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
     /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    readonly protectedSettings?: pulumi.Input<{[key: string]: any}>;
+    readonly protectedSettings?: any;
     /**
      * The name of the extension handler publisher.
      */
@@ -192,7 +192,7 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
     /**
      * Json formatted public settings for the extension.
      */
-    readonly settings?: pulumi.Input<{[key: string]: any}>;
+    readonly settings?: any;
     /**
      * Resource tags
      */

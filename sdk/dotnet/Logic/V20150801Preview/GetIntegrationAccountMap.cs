@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// <summary>
         /// The content.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Content;
+        public readonly object? Content;
         /// <summary>
         /// The content link.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The resource name.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         private GetIntegrationAccountMapResult(
             string changedTime,
 
-            ImmutableDictionary<string, object>? content,
+            object? content,
 
             Outputs.IntegrationAccountContentLinkResponse contentLink,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
 
             string? mapType,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string? name,
 

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         /// </summary>
         public readonly string Rid;
         /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly object Ts;
+        /// <summary>
         /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         /// </summary>
         public readonly Outputs.UniqueKeyPolicyResponse? UniqueKeyPolicy;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
 
             string rid,
 
+            object ts,
+
             Outputs.UniqueKeyPolicyResponse? uniqueKeyPolicy)
         {
             AnalyticalStorageTtl = analyticalStorageTtl;
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
             IndexingPolicy = indexingPolicy;
             PartitionKey = partitionKey;
             Rid = rid;
+            Ts = ts;
             UniqueKeyPolicy = uniqueKeyPolicy;
         }
     }

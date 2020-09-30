@@ -74,7 +74,7 @@ class GetVirtualMachineScaleSetExtensionResult:
 
     @property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[Mapping[str, Any]]:
+    def protected_settings(self) -> Optional[Any]:
         """
         The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         """
@@ -98,7 +98,7 @@ class GetVirtualMachineScaleSetExtensionResult:
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[Mapping[str, Any]]:
+    def settings(self) -> Optional[Any]:
         """
         Json formatted public settings for the extension.
         """

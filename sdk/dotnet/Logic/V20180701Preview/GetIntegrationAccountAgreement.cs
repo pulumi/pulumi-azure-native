@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// Gets the resource name.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             string? location,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string name,
 

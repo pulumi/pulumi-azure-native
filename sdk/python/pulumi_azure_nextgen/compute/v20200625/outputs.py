@@ -102,13 +102,13 @@ class AssignmentReportResourceResponse(dict):
     """
     def __init__(__self__, *,
                  compliance_status: str,
-                 properties: Mapping[str, Any],
+                 properties: Any,
                  resource_id: str,
                  reasons: Optional[Sequence['outputs.AssignmentReportResourceComplianceReasonResponse']] = None):
         """
         The guest configuration assignment resource.
         :param str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
-        :param Mapping[str, Any] properties: Properties of a guest configuration assignment resource.
+        :param Any properties: Properties of a guest configuration assignment resource.
         :param str resource_id: Name of the guest configuration assignment resource setting.
         :param Sequence['AssignmentReportResourceComplianceReasonResponseArgs'] reasons: Compliance reason and reason code for a resource.
         """
@@ -128,7 +128,7 @@ class AssignmentReportResourceResponse(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, Any]:
+    def properties(self) -> Any:
         """
         Properties of a guest configuration assignment resource.
         """

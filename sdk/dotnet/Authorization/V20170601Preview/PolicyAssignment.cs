@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20170601Preview
         /// The policy assignment metadata.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the policy assignment.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20170601Preview
         /// Required if a parameter is used in policy rule.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, object>?> Parameters { get; private set; } = null!;
+        public Output<object?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the policy definition.
@@ -145,17 +145,11 @@ namespace Pulumi.AzureNextGen.Authorization.V20170601Preview
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// The policy assignment metadata.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         [Input("notScopes")]
         private InputList<string>? _notScopes;
@@ -169,17 +163,11 @@ namespace Pulumi.AzureNextGen.Authorization.V20170601Preview
             set => _notScopes = value;
         }
 
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// The name of the policy assignment.

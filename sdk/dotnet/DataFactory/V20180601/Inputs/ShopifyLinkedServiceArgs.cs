@@ -22,14 +22,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? AccessToken { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -45,29 +45,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("host", required: true)]
-        private InputMap<object>? _host;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         /// </summary>
-        public InputMap<object> Host
-        {
-            get => _host ?? (_host = new InputMap<object>());
-            set => _host = value;
-        }
+        [Input("host", required: true)]
+        public Input<object> Host { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -87,41 +75,23 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("useEncryptedEndpoints")]
-        private InputMap<object>? _useEncryptedEndpoints;
-
         /// <summary>
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         /// </summary>
-        public InputMap<object> UseEncryptedEndpoints
-        {
-            get => _useEncryptedEndpoints ?? (_useEncryptedEndpoints = new InputMap<object>());
-            set => _useEncryptedEndpoints = value;
-        }
-
-        [Input("useHostVerification")]
-        private InputMap<object>? _useHostVerification;
+        [Input("useEncryptedEndpoints")]
+        public Input<object>? UseEncryptedEndpoints { get; set; }
 
         /// <summary>
         /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public InputMap<object> UseHostVerification
-        {
-            get => _useHostVerification ?? (_useHostVerification = new InputMap<object>());
-            set => _useHostVerification = value;
-        }
-
-        [Input("usePeerVerification")]
-        private InputMap<object>? _usePeerVerification;
+        [Input("useHostVerification")]
+        public Input<object>? UseHostVerification { get; set; }
 
         /// <summary>
         /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public InputMap<object> UsePeerVerification
-        {
-            get => _usePeerVerification ?? (_usePeerVerification = new InputMap<object>());
-            set => _usePeerVerification = value;
-        }
+        [Input("usePeerVerification")]
+        public Input<object>? UsePeerVerification { get; set; }
 
         public ShopifyLinkedServiceArgs()
         {

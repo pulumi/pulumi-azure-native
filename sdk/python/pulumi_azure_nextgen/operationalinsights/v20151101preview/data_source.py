@@ -18,7 +18,7 @@ class DataSource(pulumi.CustomResource):
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 properties: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] data_source_name: The name of the datasource resource.
         :param pulumi.Input[str] e_tag: The ETag of the data source.
         :param pulumi.Input[str] kind: The kind of the DataSource.
-        :param pulumi.Input[Mapping[str, Any]] properties: The data source properties in raw json format, each kind of data source have it's own schema.
+        :param Any properties: The data source properties in raw json format, each kind of data source have it's own schema.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to get. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] workspace_name: Name of the Log Analytics Workspace that will contain the datasource
@@ -126,7 +126,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[Mapping[str, Any]]:
+    def properties(self) -> pulumi.Output[Any]:
         """
         The data source properties in raw json format, each kind of data source have it's own schema.
         """

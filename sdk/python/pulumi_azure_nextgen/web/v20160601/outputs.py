@@ -186,13 +186,13 @@ class ApiOAuthSettingsParameterResponse(dict):
     OAuth settings for the API
     """
     def __init__(__self__, *,
-                 options: Optional[Mapping[str, Any]] = None,
-                 ui_definition: Optional[Mapping[str, Any]] = None,
+                 options: Optional[Any] = None,
+                 ui_definition: Optional[Any] = None,
                  value: Optional[str] = None):
         """
         OAuth settings for the API
-        :param Mapping[str, Any] options: Options available to this parameter
-        :param Mapping[str, Any] ui_definition: UI definitions per culture as caller can specify the culture
+        :param Any options: Options available to this parameter
+        :param Any ui_definition: UI definitions per culture as caller can specify the culture
         :param str value: Value of the setting
         """
         if options is not None:
@@ -204,7 +204,7 @@ class ApiOAuthSettingsParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[Mapping[str, Any]]:
+    def options(self) -> Optional[Any]:
         """
         Options available to this parameter
         """
@@ -212,7 +212,7 @@ class ApiOAuthSettingsParameterResponse(dict):
 
     @property
     @pulumi.getter(name="uiDefinition")
-    def ui_definition(self) -> Optional[Mapping[str, Any]]:
+    def ui_definition(self) -> Optional[Any]:
         """
         UI definitions per culture as caller can specify the culture
         """
@@ -240,7 +240,7 @@ class ApiOAuthSettingsResponse(dict):
                  client_secret: Optional[str] = None,
                  custom_parameters: Optional[Mapping[str, 'outputs.ApiOAuthSettingsParameterResponse']] = None,
                  identity_provider: Optional[str] = None,
-                 properties: Optional[Mapping[str, Any]] = None,
+                 properties: Optional[Any] = None,
                  redirect_url: Optional[str] = None,
                  scopes: Optional[Sequence[str]] = None):
         """
@@ -249,7 +249,7 @@ class ApiOAuthSettingsResponse(dict):
         :param str client_secret: Client Secret needed for OAuth
         :param Mapping[str, 'ApiOAuthSettingsParameterResponseArgs'] custom_parameters: OAuth parameters key is the name of parameter
         :param str identity_provider: Identity provider
-        :param Mapping[str, Any] properties: Read only properties for this oauth setting.
+        :param Any properties: Read only properties for this oauth setting.
         :param str redirect_url: Url
         :param Sequence[str] scopes: OAuth scopes
         """
@@ -302,7 +302,7 @@ class ApiOAuthSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, Any]]:
+    def properties(self) -> Optional[Any]:
         """
         Read only properties for this oauth setting.
         """
@@ -337,7 +337,7 @@ class ApiReferenceResponse(dict):
                  icon_uri: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 swagger: Optional[Mapping[str, Any]] = None,
+                 swagger: Optional[Any] = None,
                  type: Optional[str] = None):
         """
         :param str brand_color: Brand color
@@ -346,7 +346,7 @@ class ApiReferenceResponse(dict):
         :param str icon_uri: The icon URI
         :param str id: Resource reference id
         :param str name: The name of the API
-        :param Mapping[str, Any] swagger: The JSON representation of the swagger
+        :param Any swagger: The JSON representation of the swagger
         :param str type: Resource reference type
         """
         if brand_color is not None:
@@ -416,7 +416,7 @@ class ApiReferenceResponse(dict):
 
     @property
     @pulumi.getter
-    def swagger(self) -> Optional[Mapping[str, Any]]:
+    def swagger(self) -> Optional[Any]:
         """
         The JSON representation of the swagger
         """
@@ -614,7 +614,7 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  machine_name: Optional[str] = None,
-                 status: Optional[Mapping[str, Any]] = None):
+                 status: Optional[Any] = None):
         """
         :param str backend_uri: The URI of the backend
         :param 'ConnectionGatewayReferenceResponseArgs' connection_gateway_installation: The gateway installation reference
@@ -622,7 +622,7 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
         :param str description: The gateway description
         :param str display_name: The gateway display name
         :param str machine_name: The machine name of the gateway
-        :param Mapping[str, Any] status: The gateway status
+        :param Any status: The gateway status
         """
         if backend_uri is not None:
             pulumi.set(__self__, "backend_uri", backend_uri)
@@ -689,7 +689,7 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[Mapping[str, Any]]:
+    def status(self) -> Optional[Any]:
         """
         The gateway status
         """
@@ -924,7 +924,7 @@ class CustomApiPropertiesDefinitionResponse(dict):
                  display_name: Optional[str] = None,
                  icon_uri: Optional[str] = None,
                  runtime_urls: Optional[Sequence[str]] = None,
-                 swagger: Optional[Mapping[str, Any]] = None,
+                 swagger: Optional[Any] = None,
                  wsdl_definition: Optional['outputs.WsdlDefinitionResponse'] = None):
         """
         Custom API properties
@@ -938,7 +938,7 @@ class CustomApiPropertiesDefinitionResponse(dict):
         :param str display_name: The display name
         :param str icon_uri: The icon URI
         :param Sequence[str] runtime_urls: Runtime URLs
-        :param Mapping[str, Any] swagger: The JSON representation of the swagger
+        :param Any swagger: The JSON representation of the swagger
         :param 'WsdlDefinitionResponseArgs' wsdl_definition: The WSDL definition
         """
         if api_definitions is not None:
@@ -1048,7 +1048,7 @@ class CustomApiPropertiesDefinitionResponse(dict):
 
     @property
     @pulumi.getter
-    def swagger(self) -> Optional[Mapping[str, Any]]:
+    def swagger(self) -> Optional[Any]:
         """
         The JSON representation of the swagger
         """

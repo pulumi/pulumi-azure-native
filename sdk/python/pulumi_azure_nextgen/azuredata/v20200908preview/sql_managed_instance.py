@@ -20,7 +20,7 @@ class SqlManagedInstance(pulumi.CustomResource):
                  data_controller_id: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  instance_endpoint: Optional[pulumi.Input[str]] = None,
-                 k8s_raw: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 k8s_raw: Optional[Any] = None,
                  last_uploaded_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class SqlManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] data_controller_id: null
         :param pulumi.Input[str] end_time: The instance end time
         :param pulumi.Input[str] instance_endpoint: The on premise instance endpoint
-        :param pulumi.Input[Mapping[str, Any]] k8s_raw: The raw kubernetes information
+        :param Any k8s_raw: The raw kubernetes information
         :param pulumi.Input[str] last_uploaded_date: Last uploaded date from on premise cluster. Defaults to current date time
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group
@@ -147,7 +147,7 @@ class SqlManagedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="k8sRaw")
-    def k8s_raw(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def k8s_raw(self) -> pulumi.Output[Optional[Any]]:
         """
         The raw kubernetes information
         """

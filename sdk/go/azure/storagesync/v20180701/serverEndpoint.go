@@ -31,7 +31,7 @@ type ServerEndpoint struct {
 	// Server Resource Id.
 	ServerResourceId pulumi.StringPtrOutput `pulumi:"serverResourceId"`
 	// Sync Health Status
-	SyncStatus pulumi.MapOutput `pulumi:"syncStatus"`
+	SyncStatus pulumi.AnyOutput `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays pulumi.IntPtrOutput `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -130,7 +130,7 @@ type serverEndpointState struct {
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Sync Health Status
-	SyncStatus map[string]interface{} `pulumi:"syncStatus"`
+	SyncStatus interface{} `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -157,7 +157,7 @@ type ServerEndpointState struct {
 	// Server Resource Id.
 	ServerResourceId pulumi.StringPtrInput
 	// Sync Health Status
-	SyncStatus pulumi.MapInput
+	SyncStatus pulumi.Input
 	// Tier files older than days.
 	TierFilesOlderThanDays pulumi.IntPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

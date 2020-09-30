@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The server name of data source access.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> TargetName;
+        public readonly object TargetName;
         /// <summary>
         /// The type of custom setup.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The user name of data source access.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> UserName;
+        public readonly object UserName;
 
         [OutputConstructor]
         private CmdkeySetupResponse(
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> password,
 
-            ImmutableDictionary<string, object> targetName,
+            object targetName,
 
             string type,
 
-            ImmutableDictionary<string, object> userName)
+            object userName)
         {
             Password = password;
             TargetName = targetName;

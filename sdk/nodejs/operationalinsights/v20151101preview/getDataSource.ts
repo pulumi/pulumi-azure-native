@@ -55,7 +55,7 @@ export interface GetDataSourceResult {
     /**
      * The data source properties in raw json format, each kind of data source have it's own schema.
      */
-    readonly properties: {[key: string]: any};
+    readonly properties: any;
     /**
      * Resource tags
      */

@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         /// Valid JSON object containing workbook template payload.
         /// </summary>
         [Output("templateData")]
-        public Output<ImmutableDictionary<string, object>> TemplateData { get; private set; } = null!;
+        public Output<object> TemplateData { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type
@@ -179,17 +179,11 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
             set => _tags = value;
         }
 
-        [Input("templateData", required: true)]
-        private InputMap<object>? _templateData;
-
         /// <summary>
         /// Valid JSON object containing workbook template payload.
         /// </summary>
-        public InputMap<object> TemplateData
-        {
-            get => _templateData ?? (_templateData = new InputMap<object>());
-            set => _templateData = value;
-        }
+        [Input("templateData", required: true)]
+        public Input<object> TemplateData { get; set; } = null!;
 
         public WorkbookTemplateArgs()
         {

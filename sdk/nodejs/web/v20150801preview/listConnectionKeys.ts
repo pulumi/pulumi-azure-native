@@ -74,5 +74,5 @@ export interface ListConnectionKeysResult {
     /**
      * Tokens/Claim
      */
-    readonly parameterValues?: {[key: string]: {[key: string]: any}};
+    readonly parameterValues?: {[key: string]: any};
 }

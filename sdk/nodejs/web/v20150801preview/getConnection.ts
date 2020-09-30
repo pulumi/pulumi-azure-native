@@ -71,7 +71,7 @@ export interface GetConnectionResult {
      * Resource Location
      */
     readonly location: string;
-    readonly metadata?: {[key: string]: any};
+    readonly metadata?: any;
     /**
      * Resource Name
      */
@@ -79,11 +79,11 @@ export interface GetConnectionResult {
     /**
      * Tokens/Claim
      */
-    readonly nonSecretParameterValues?: {[key: string]: {[key: string]: any}};
+    readonly nonSecretParameterValues?: {[key: string]: any};
     /**
      * Tokens/Claim
      */
-    readonly parameterValues?: {[key: string]: {[key: string]: any}};
+    readonly parameterValues?: {[key: string]: any};
     /**
      * Status of the connection
      */

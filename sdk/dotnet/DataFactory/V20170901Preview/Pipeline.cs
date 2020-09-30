@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
         [Output("annotations")]
-        public Output<ImmutableArray<ImmutableDictionary<string, object>>> Annotations { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Annotations { get; private set; } = null!;
 
         /// <summary>
         /// The max number of concurrent runs for the pipeline.
@@ -125,14 +125,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 

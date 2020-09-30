@@ -30,7 +30,7 @@ type LookupWebAppInstanceFunctionSlotArgs struct {
 // Web Job Information.
 type LookupWebAppInstanceFunctionSlotResult struct {
 	// Config information.
-	Config map[string]interface{} `pulumi:"config"`
+	Config interface{} `pulumi:"config"`
 	// Config URI.
 	ConfigHref *string `pulumi:"configHref"`
 	// File list.

@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class TumblingWindowTriggerArgs : Pulumi.ResourceArgs
     {
-        [Input("delay")]
-        private InputMap<object>? _delay;
-
         /// <summary>
         /// Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
-        public InputMap<object> Delay
-        {
-            get => _delay ?? (_delay = new InputMap<object>());
-            set => _delay = value;
-        }
+        [Input("delay")]
+        public Input<object>? Delay { get; set; }
 
         /// <summary>
         /// Trigger description.

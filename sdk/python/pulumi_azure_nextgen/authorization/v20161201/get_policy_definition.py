@@ -63,7 +63,7 @@ class GetPolicyDefinitionResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The policy definition metadata.
         """
@@ -87,7 +87,7 @@ class GetPolicyDefinitionResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Required if a parameter is used in policy rule.
         """
@@ -95,7 +95,7 @@ class GetPolicyDefinitionResult:
 
     @property
     @pulumi.getter(name="policyRule")
-    def policy_rule(self) -> Optional[Mapping[str, Any]]:
+    def policy_rule(self) -> Optional[Any]:
         """
         The policy rule.
         """

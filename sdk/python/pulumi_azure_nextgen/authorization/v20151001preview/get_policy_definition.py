@@ -62,7 +62,7 @@ class GetPolicyDefinitionResult:
 
     @property
     @pulumi.getter(name="policyRule")
-    def policy_rule(self) -> Optional[Mapping[str, Any]]:
+    def policy_rule(self) -> Optional[Any]:
         """
         The policy rule.
         """

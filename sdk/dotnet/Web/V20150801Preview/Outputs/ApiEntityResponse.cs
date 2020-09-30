@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Outputs
         /// <summary>
         /// Free form object for the data caller wants to store
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// Resource Name
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Outputs
 
             string location,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string? name,
 

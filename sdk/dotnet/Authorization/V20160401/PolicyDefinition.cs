@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20160401
         /// The policy rule.
         /// </summary>
         [Output("policyRule")]
-        public Output<ImmutableDictionary<string, object>?> PolicyRule { get; private set; } = null!;
+        public Output<object?> PolicyRule { get; private set; } = null!;
 
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -126,17 +126,11 @@ namespace Pulumi.AzureNextGen.Authorization.V20160401
         [Input("policyDefinitionName", required: true)]
         public Input<string> PolicyDefinitionName { get; set; } = null!;
 
-        [Input("policyRule")]
-        private InputMap<object>? _policyRule;
-
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public InputMap<object> PolicyRule
-        {
-            get => _policyRule ?? (_policyRule = new InputMap<object>());
-            set => _policyRule = value;
-        }
+        [Input("policyRule")]
+        public Input<object>? PolicyRule { get; set; }
 
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

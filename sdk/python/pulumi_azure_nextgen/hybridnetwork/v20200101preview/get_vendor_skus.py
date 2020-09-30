@@ -73,7 +73,7 @@ class GetVendorSkusResult:
 
     @property
     @pulumi.getter(name="managedApplicationParameters")
-    def managed_application_parameters(self) -> Optional[Mapping[str, Any]]:
+    def managed_application_parameters(self) -> Optional[Any]:
         """
         The parameters for the managed application to be supplied by vendor.
         """
@@ -81,7 +81,7 @@ class GetVendorSkusResult:
 
     @property
     @pulumi.getter(name="managedApplicationTemplate")
-    def managed_application_template(self) -> Optional[Mapping[str, Any]]:
+    def managed_application_template(self) -> Optional[Any]:
         """
         The template for the managed application deployment.
         """

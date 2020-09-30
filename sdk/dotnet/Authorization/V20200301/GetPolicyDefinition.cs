@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301
         /// <summary>
         /// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? PolicyRule;
+        public readonly object? PolicyRule;
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301
 
             string? displayName,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string? mode,
 
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301
 
             ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponse>? parameters,
 
-            ImmutableDictionary<string, object>? policyRule,
+            object? policyRule,
 
             string? policyType,
 

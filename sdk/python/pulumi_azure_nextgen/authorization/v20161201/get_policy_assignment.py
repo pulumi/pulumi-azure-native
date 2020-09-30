@@ -68,7 +68,7 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Required if a parameter is used in policy rule.
         """

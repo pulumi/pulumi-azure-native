@@ -14,6 +14,14 @@ namespace Pulumi.AzureNextGen.Management.V20171111Preview.Outputs
     public sealed class ParameterDefinitionResponse
     {
         /// <summary>
+        /// Array of allowed values for this parameter.
+        /// </summary>
+        public readonly ImmutableArray<object> AllowedValues;
+        /// <summary>
+        /// Default Value for this parameter.
+        /// </summary>
+        public readonly object? DefaultValue;
+        /// <summary>
         /// Description of this parameter/resourceGroup.
         /// </summary>
         public readonly string? Description;
@@ -32,6 +40,10 @@ namespace Pulumi.AzureNextGen.Management.V20171111Preview.Outputs
 
         [OutputConstructor]
         private ParameterDefinitionResponse(
+            ImmutableArray<object> allowedValues,
+
+            object? defaultValue,
+
             string? description,
 
             string? displayName,
@@ -40,6 +52,8 @@ namespace Pulumi.AzureNextGen.Management.V20171111Preview.Outputs
 
             string type)
         {
+            AllowedValues = allowedValues;
+            DefaultValue = defaultValue;
             Description = description;
             DisplayName = displayName;
             StrongType = strongType;

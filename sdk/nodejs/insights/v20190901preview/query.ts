@@ -59,7 +59,7 @@ export class Query extends pulumi.CustomResource {
     /**
      * Additional properties that can be set for the query.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: any}>;
+    public readonly properties!: pulumi.Output<any>;
     /**
      * The related metadata items for the function.
      */
@@ -173,7 +173,7 @@ export interface QueryArgs {
     /**
      * Additional properties that can be set for the query.
      */
-    readonly properties?: pulumi.Input<{[key: string]: any}>;
+    readonly properties?: any;
     /**
      * The name of the Log Analytics QueryPack resource.
      */

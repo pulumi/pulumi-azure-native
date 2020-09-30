@@ -15,29 +15,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     /// </summary>
     public sealed class JsonFormatArgs : Pulumi.ResourceArgs
     {
-        [Input("deserializer")]
-        private InputMap<object>? _deserializer;
-
         /// <summary>
         /// Deserializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Deserializer
-        {
-            get => _deserializer ?? (_deserializer = new InputMap<object>());
-            set => _deserializer = value;
-        }
-
-        [Input("encodingName")]
-        private InputMap<object>? _encodingName;
+        [Input("deserializer")]
+        public Input<object>? Deserializer { get; set; }
 
         /// <summary>
         /// The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncodingName
-        {
-            get => _encodingName ?? (_encodingName = new InputMap<object>());
-            set => _encodingName = value;
-        }
+        [Input("encodingName")]
+        public Input<object>? EncodingName { get; set; }
 
         /// <summary>
         /// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
@@ -45,53 +33,29 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("filePattern")]
         public Input<string>? FilePattern { get; set; }
 
-        [Input("jsonNodeReference")]
-        private InputMap<object>? _jsonNodeReference;
-
         /// <summary>
         /// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> JsonNodeReference
-        {
-            get => _jsonNodeReference ?? (_jsonNodeReference = new InputMap<object>());
-            set => _jsonNodeReference = value;
-        }
-
-        [Input("jsonPathDefinition")]
-        private InputMap<object>? _jsonPathDefinition;
+        [Input("jsonNodeReference")]
+        public Input<object>? JsonNodeReference { get; set; }
 
         /// <summary>
         /// The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
         /// </summary>
-        public InputMap<object> JsonPathDefinition
-        {
-            get => _jsonPathDefinition ?? (_jsonPathDefinition = new InputMap<object>());
-            set => _jsonPathDefinition = value;
-        }
-
-        [Input("nestingSeparator")]
-        private InputMap<object>? _nestingSeparator;
+        [Input("jsonPathDefinition")]
+        public Input<object>? JsonPathDefinition { get; set; }
 
         /// <summary>
         /// The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NestingSeparator
-        {
-            get => _nestingSeparator ?? (_nestingSeparator = new InputMap<object>());
-            set => _nestingSeparator = value;
-        }
-
-        [Input("serializer")]
-        private InputMap<object>? _serializer;
+        [Input("nestingSeparator")]
+        public Input<object>? NestingSeparator { get; set; }
 
         /// <summary>
         /// Serializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Serializer
-        {
-            get => _serializer ?? (_serializer = new InputMap<object>());
-            set => _serializer = value;
-        }
+        [Input("serializer")]
+        public Input<object>? Serializer { get; set; }
 
         /// <summary>
         /// Type of dataset storage format.

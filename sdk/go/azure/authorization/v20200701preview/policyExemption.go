@@ -23,7 +23,7 @@ type PolicyExemption struct {
 	// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
 	ExpiresOn pulumi.StringPtrOutput `pulumi:"expiresOn"`
 	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the policy assignment that is being exempted.
@@ -85,7 +85,7 @@ type policyExemptionState struct {
 	// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
 	ExpiresOn *string `pulumi:"expiresOn"`
 	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The ID of the policy assignment that is being exempted.
@@ -108,7 +108,7 @@ type PolicyExemptionState struct {
 	// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
 	ExpiresOn pulumi.StringPtrInput
 	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The ID of the policy assignment that is being exempted.
@@ -135,7 +135,7 @@ type policyExemptionArgs struct {
 	// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
 	ExpiresOn *string `pulumi:"expiresOn"`
 	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The ID of the policy assignment that is being exempted.
 	PolicyAssignmentId string `pulumi:"policyAssignmentId"`
 	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
@@ -157,7 +157,7 @@ type PolicyExemptionArgs struct {
 	// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
 	ExpiresOn pulumi.StringPtrInput
 	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The ID of the policy assignment that is being exempted.
 	PolicyAssignmentId pulumi.StringInput
 	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.

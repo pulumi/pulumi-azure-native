@@ -15,27 +15,21 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class AmazonS3LinkedServiceArgs : Pulumi.ResourceArgs
     {
-        [Input("accessKeyId")]
-        private InputMap<object>? _accessKeyId;
-
         /// <summary>
         /// The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AccessKeyId
-        {
-            get => _accessKeyId ?? (_accessKeyId = new InputMap<object>());
-            set => _accessKeyId = value;
-        }
+        [Input("accessKeyId")]
+        public Input<object>? AccessKeyId { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -51,17 +45,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

@@ -103,7 +103,7 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         """

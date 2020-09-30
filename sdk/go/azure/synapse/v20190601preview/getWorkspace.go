@@ -30,7 +30,7 @@ type LookupWorkspaceResult struct {
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage *DataLakeStorageAccountDetailsResponse `pulumi:"defaultDataLakeStorage"`
 	// Workspace level configs and feature flags
-	ExtraProperties map[string]map[string]interface{} `pulumi:"extraProperties"`
+	ExtraProperties map[string]interface{} `pulumi:"extraProperties"`
 	// Identity of the workspace
 	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives

@@ -46,7 +46,7 @@ export interface GetWorkspaceResult {
     /**
      * Workspace level configs and feature flags
      */
-    readonly extraProperties: {[key: string]: {[key: string]: any}};
+    readonly extraProperties: {[key: string]: any};
     /**
      * Identity of the workspace
      */

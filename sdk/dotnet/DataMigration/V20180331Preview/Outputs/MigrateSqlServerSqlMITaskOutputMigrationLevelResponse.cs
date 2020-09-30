@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
         /// <summary>
         /// Selected agent jobs as a map from name to id
         /// </summary>
-        public readonly string AgentJobs;
+        public readonly ImmutableDictionary<string, string> AgentJobs;
         /// <summary>
         /// Selected databases as a map from database name to database id
         /// </summary>
-        public readonly string Databases;
+        public readonly ImmutableDictionary<string, string> Databases;
         /// <summary>
         /// Migration end time
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
         /// <summary>
         /// Selected logins as a map from name to id
         /// </summary>
-        public readonly string Logins;
+        public readonly ImmutableDictionary<string, string> Logins;
         /// <summary>
         /// Migration progress message
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
         /// <summary>
         /// Map of users to database name of orphaned users.
         /// </summary>
-        public readonly string OrphanedUsers;
+        public readonly ImmutableDictionary<string, string> OrphanedUsers;
         /// <summary>
         /// Result type
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
         /// <summary>
         /// Map of server role migration results.
         /// </summary>
-        public readonly string ServerRoleResults;
+        public readonly ImmutableDictionary<string, Outputs.StartMigrationScenarioServerRoleResultResponse> ServerRoleResults;
         /// <summary>
         /// Source server brand version
         /// </summary>
@@ -84,9 +84,9 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
 
         [OutputConstructor]
         private MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(
-            string agentJobs,
+            ImmutableDictionary<string, string> agentJobs,
 
-            string databases,
+            ImmutableDictionary<string, string> databases,
 
             string endedOn,
 
@@ -94,15 +94,15 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
 
             string id,
 
-            string logins,
+            ImmutableDictionary<string, string> logins,
 
             string message,
 
-            string orphanedUsers,
+            ImmutableDictionary<string, string> orphanedUsers,
 
             string resultType,
 
-            string serverRoleResults,
+            ImmutableDictionary<string, Outputs.StartMigrationScenarioServerRoleResultResponse> serverRoleResults,
 
             string sourceServerBrandVersion,
 

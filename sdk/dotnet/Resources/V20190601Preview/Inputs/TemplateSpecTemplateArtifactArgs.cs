@@ -27,17 +27,11 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview.Inputs
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
-        [Input("template", required: true)]
-        private InputMap<object>? _template;
-
         /// <summary>
         /// The Azure Resource Manager template.
         /// </summary>
-        public InputMap<object> Template
-        {
-            get => _template ?? (_template = new InputMap<object>());
-            set => _template = value;
-        }
+        [Input("template", required: true)]
+        public Input<object> Template { get; set; } = null!;
 
         public TemplateSpecTemplateArtifactArgs()
         {

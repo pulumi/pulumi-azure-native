@@ -66,7 +66,7 @@ export interface GetWorkbookTemplateResult {
     /**
      * Valid JSON object containing workbook template payload.
      */
-    readonly templateData: {[key: string]: any};
+    readonly templateData: any;
     /**
      * Azure resource type
      */

@@ -53,7 +53,7 @@ export class StorageSyncService extends pulumi.CustomResource {
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<any | undefined>;
     /**
      * The type of the resource
      */
@@ -123,5 +123,5 @@ export interface StorageSyncServiceArgs {
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: any;
 }

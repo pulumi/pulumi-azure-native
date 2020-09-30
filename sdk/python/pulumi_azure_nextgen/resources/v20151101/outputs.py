@@ -142,12 +142,12 @@ class DeploymentPropertiesExtendedResponse(dict):
                  correlation_id: Optional[str] = None,
                  dependencies: Optional[Sequence['outputs.DependencyResponse']] = None,
                  mode: Optional[str] = None,
-                 outputs: Optional[Mapping[str, Any]] = None,
-                 parameters: Optional[Mapping[str, Any]] = None,
+                 outputs: Optional[Any] = None,
+                 parameters: Optional[Any] = None,
                  parameters_link: Optional['outputs.ParametersLinkResponse'] = None,
                  providers: Optional[Sequence['outputs.ProviderResponse']] = None,
                  provisioning_state: Optional[str] = None,
-                 template: Optional[Mapping[str, Any]] = None,
+                 template: Optional[Any] = None,
                  template_link: Optional['outputs.TemplateLinkResponse'] = None,
                  timestamp: Optional[str] = None):
         """
@@ -155,12 +155,12 @@ class DeploymentPropertiesExtendedResponse(dict):
         :param str correlation_id: Gets or sets the correlation ID of the deployment.
         :param Sequence['DependencyResponseArgs'] dependencies: Gets the list of deployment dependencies.
         :param str mode: Gets or sets the deployment mode.
-        :param Mapping[str, Any] outputs: Gets or sets key/value pairs that represent deployment output.
-        :param Mapping[str, Any] parameters: Deployment parameters. Use only one of Parameters or ParametersLink.
+        :param Any outputs: Gets or sets key/value pairs that represent deployment output.
+        :param Any parameters: Deployment parameters. Use only one of Parameters or ParametersLink.
         :param 'ParametersLinkResponseArgs' parameters_link: Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
         :param Sequence['ProviderResponseArgs'] providers: Gets the list of resource providers needed for the deployment.
         :param str provisioning_state: Gets or sets the state of the provisioning.
-        :param Mapping[str, Any] template: Gets or sets the template content. Use only one of Template or TemplateLink.
+        :param Any template: Gets or sets the template content. Use only one of Template or TemplateLink.
         :param 'TemplateLinkResponseArgs' template_link: Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
         :param str timestamp: Gets or sets the timestamp of the template deployment.
         """
@@ -213,7 +213,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[Mapping[str, Any]]:
+    def outputs(self) -> Optional[Any]:
         """
         Gets or sets key/value pairs that represent deployment output.
         """
@@ -221,7 +221,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Deployment parameters. Use only one of Parameters or ParametersLink.
         """
@@ -253,7 +253,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[Mapping[str, Any]]:
+    def template(self) -> Optional[Any]:
         """
         Gets or sets the template content. Use only one of Template or TemplateLink.
         """

@@ -41,7 +41,7 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
     /**
      * The session content.
      */
-    public readonly content!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly content!: pulumi.Output<any | undefined>;
     /**
      * The created time.
      */
@@ -121,7 +121,7 @@ export interface IntegrationAccountSessionArgs {
     /**
      * The session content.
      */
-    readonly content?: pulumi.Input<{[key: string]: any}>;
+    readonly content?: any;
     /**
      * The integration account name.
      */

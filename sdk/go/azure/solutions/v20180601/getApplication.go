@@ -40,9 +40,9 @@ type LookupApplicationResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Name and value pairs that define the managed application outputs.
-	Outputs map[string]interface{} `pulumi:"outputs"`
+	Outputs interface{} `pulumi:"outputs"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The plan information.
 	Plan *PlanResponse `pulumi:"plan"`
 	// The managed application provisioning state.

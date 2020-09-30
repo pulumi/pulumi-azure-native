@@ -18,11 +18,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// ...
         /// request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AdditionalHeaders;
+        public readonly object? AdditionalHeaders;
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The data compression method used on files.
         /// </summary>
@@ -50,23 +50,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RelativeUrl;
+        public readonly object? RelativeUrl;
         /// <summary>
         /// The body for the HTTP request. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RequestBody;
+        public readonly object? RequestBody;
         /// <summary>
         /// The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RequestMethod;
+        public readonly object? RequestMethod;
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Schema;
+        public readonly object? Schema;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Structure;
+        public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
         /// </summary>
@@ -74,9 +74,9 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
         [OutputConstructor]
         private HttpDatasetResponse(
-            ImmutableDictionary<string, object>? additionalHeaders,
+            object? additionalHeaders,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Union<Outputs.DatasetTarCompressionResponse, Union<Outputs.DatasetTarGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>>>? compression,
 
@@ -90,15 +90,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? relativeUrl,
+            object? relativeUrl,
 
-            ImmutableDictionary<string, object>? requestBody,
+            object? requestBody,
 
-            ImmutableDictionary<string, object>? requestMethod,
+            object? requestMethod,
 
-            ImmutableDictionary<string, object>? schema,
+            object? schema,
 
-            ImmutableDictionary<string, object>? structure,
+            object? structure,
 
             string type)
         {

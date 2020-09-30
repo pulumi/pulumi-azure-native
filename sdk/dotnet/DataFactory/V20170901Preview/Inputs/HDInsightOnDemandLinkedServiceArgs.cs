@@ -28,28 +28,22 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("clusterNamePrefix")]
-        private InputMap<object>? _clusterNamePrefix;
 
         /// <summary>
         /// The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ClusterNamePrefix
-        {
-            get => _clusterNamePrefix ?? (_clusterNamePrefix = new InputMap<object>());
-            set => _clusterNamePrefix = value;
-        }
+        [Input("clusterNamePrefix")]
+        public Input<object>? ClusterNamePrefix { get; set; }
 
         /// <summary>
         /// The password to access the cluster.
@@ -57,29 +51,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("clusterPassword")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ClusterPassword { get; set; }
 
-        [Input("clusterResourceGroup", required: true)]
-        private InputMap<object>? _clusterResourceGroup;
-
         /// <summary>
         /// The resource group where the cluster belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ClusterResourceGroup
-        {
-            get => _clusterResourceGroup ?? (_clusterResourceGroup = new InputMap<object>());
-            set => _clusterResourceGroup = value;
-        }
-
-        [Input("clusterSize", required: true)]
-        private InputMap<object>? _clusterSize;
+        [Input("clusterResourceGroup", required: true)]
+        public Input<object> ClusterResourceGroup { get; set; } = null!;
 
         /// <summary>
         /// Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ClusterSize
-        {
-            get => _clusterSize ?? (_clusterSize = new InputMap<object>());
-            set => _clusterSize = value;
-        }
+        [Input("clusterSize", required: true)]
+        public Input<object> ClusterSize { get; set; } = null!;
 
         /// <summary>
         /// The password to SSH remotely connect cluster’s node (for Linux).
@@ -87,41 +69,23 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("clusterSshPassword")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ClusterSshPassword { get; set; }
 
-        [Input("clusterSshUserName")]
-        private InputMap<object>? _clusterSshUserName;
-
         /// <summary>
         /// The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ClusterSshUserName
-        {
-            get => _clusterSshUserName ?? (_clusterSshUserName = new InputMap<object>());
-            set => _clusterSshUserName = value;
-        }
-
-        [Input("clusterType")]
-        private InputMap<object>? _clusterType;
+        [Input("clusterSshUserName")]
+        public Input<object>? ClusterSshUserName { get; set; }
 
         /// <summary>
         /// The cluster type. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ClusterType
-        {
-            get => _clusterType ?? (_clusterType = new InputMap<object>());
-            set => _clusterType = value;
-        }
-
-        [Input("clusterUserName")]
-        private InputMap<object>? _clusterUserName;
+        [Input("clusterType")]
+        public Input<object>? ClusterType { get; set; }
 
         /// <summary>
         /// The username to access the cluster. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ClusterUserName
-        {
-            get => _clusterUserName ?? (_clusterUserName = new InputMap<object>());
-            set => _clusterUserName = value;
-        }
+        [Input("clusterUserName")]
+        public Input<object>? ClusterUserName { get; set; }
 
         /// <summary>
         /// The integration runtime reference.
@@ -129,29 +93,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("coreConfiguration")]
-        private InputMap<object>? _coreConfiguration;
-
         /// <summary>
         /// Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
         /// </summary>
-        public InputMap<object> CoreConfiguration
-        {
-            get => _coreConfiguration ?? (_coreConfiguration = new InputMap<object>());
-            set => _coreConfiguration = value;
-        }
-
-        [Input("dataNodeSize")]
-        private InputMap<object>? _dataNodeSize;
+        [Input("coreConfiguration")]
+        public Input<object>? CoreConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the size of the data node for the HDInsight cluster.
         /// </summary>
-        public InputMap<object> DataNodeSize
-        {
-            get => _dataNodeSize ?? (_dataNodeSize = new InputMap<object>());
-            set => _dataNodeSize = value;
-        }
+        [Input("dataNodeSize")]
+        public Input<object>? DataNodeSize { get; set; }
 
         /// <summary>
         /// Linked service description.
@@ -159,29 +111,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("hBaseConfiguration")]
-        private InputMap<object>? _hBaseConfiguration;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
         /// </summary>
-        public InputMap<object> HBaseConfiguration
-        {
-            get => _hBaseConfiguration ?? (_hBaseConfiguration = new InputMap<object>());
-            set => _hBaseConfiguration = value;
-        }
+        [Input("hBaseConfiguration")]
+        public Input<object>? HBaseConfiguration { get; set; }
 
         /// <summary>
         /// The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
@@ -189,53 +129,29 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("hcatalogLinkedServiceName")]
         public Input<Inputs.LinkedServiceReferenceArgs>? HcatalogLinkedServiceName { get; set; }
 
-        [Input("hdfsConfiguration")]
-        private InputMap<object>? _hdfsConfiguration;
-
         /// <summary>
         /// Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
         /// </summary>
-        public InputMap<object> HdfsConfiguration
-        {
-            get => _hdfsConfiguration ?? (_hdfsConfiguration = new InputMap<object>());
-            set => _hdfsConfiguration = value;
-        }
-
-        [Input("headNodeSize")]
-        private InputMap<object>? _headNodeSize;
+        [Input("hdfsConfiguration")]
+        public Input<object>? HdfsConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the size of the head node for the HDInsight cluster.
         /// </summary>
-        public InputMap<object> HeadNodeSize
-        {
-            get => _headNodeSize ?? (_headNodeSize = new InputMap<object>());
-            set => _headNodeSize = value;
-        }
-
-        [Input("hiveConfiguration")]
-        private InputMap<object>? _hiveConfiguration;
+        [Input("headNodeSize")]
+        public Input<object>? HeadNodeSize { get; set; }
 
         /// <summary>
         /// Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
         /// </summary>
-        public InputMap<object> HiveConfiguration
-        {
-            get => _hiveConfiguration ?? (_hiveConfiguration = new InputMap<object>());
-            set => _hiveConfiguration = value;
-        }
-
-        [Input("hostSubscriptionId", required: true)]
-        private InputMap<object>? _hostSubscriptionId;
+        [Input("hiveConfiguration")]
+        public Input<object>? HiveConfiguration { get; set; }
 
         /// <summary>
         /// The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> HostSubscriptionId
-        {
-            get => _hostSubscriptionId ?? (_hostSubscriptionId = new InputMap<object>());
-            set => _hostSubscriptionId = value;
-        }
+        [Input("hostSubscriptionId", required: true)]
+        public Input<object> HostSubscriptionId { get; set; } = null!;
 
         /// <summary>
         /// Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
@@ -243,29 +159,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("linkedServiceName", required: true)]
         public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
 
-        [Input("mapReduceConfiguration")]
-        private InputMap<object>? _mapReduceConfiguration;
-
         /// <summary>
         /// Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
         /// </summary>
-        public InputMap<object> MapReduceConfiguration
-        {
-            get => _mapReduceConfiguration ?? (_mapReduceConfiguration = new InputMap<object>());
-            set => _mapReduceConfiguration = value;
-        }
-
-        [Input("oozieConfiguration")]
-        private InputMap<object>? _oozieConfiguration;
+        [Input("mapReduceConfiguration")]
+        public Input<object>? MapReduceConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
         /// </summary>
-        public InputMap<object> OozieConfiguration
-        {
-            get => _oozieConfiguration ?? (_oozieConfiguration = new InputMap<object>());
-            set => _oozieConfiguration = value;
-        }
+        [Input("oozieConfiguration")]
+        public Input<object>? OozieConfiguration { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -279,17 +183,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
             set => _parameters = value;
         }
 
-        [Input("servicePrincipalId")]
-        private InputMap<object>? _servicePrincipalId;
-
         /// <summary>
         /// The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ServicePrincipalId
-        {
-            get => _servicePrincipalId ?? (_servicePrincipalId = new InputMap<object>());
-            set => _servicePrincipalId = value;
-        }
+        [Input("servicePrincipalId")]
+        public Input<object>? ServicePrincipalId { get; set; }
 
         /// <summary>
         /// The key for the service principal id.
@@ -297,53 +195,29 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("servicePrincipalKey")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
 
-        [Input("sparkVersion")]
-        private InputMap<object>? _sparkVersion;
-
         /// <summary>
         /// The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> SparkVersion
-        {
-            get => _sparkVersion ?? (_sparkVersion = new InputMap<object>());
-            set => _sparkVersion = value;
-        }
-
-        [Input("stormConfiguration")]
-        private InputMap<object>? _stormConfiguration;
+        [Input("sparkVersion")]
+        public Input<object>? SparkVersion { get; set; }
 
         /// <summary>
         /// Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
         /// </summary>
-        public InputMap<object> StormConfiguration
-        {
-            get => _stormConfiguration ?? (_stormConfiguration = new InputMap<object>());
-            set => _stormConfiguration = value;
-        }
-
-        [Input("tenant", required: true)]
-        private InputMap<object>? _tenant;
+        [Input("stormConfiguration")]
+        public Input<object>? StormConfiguration { get; set; }
 
         /// <summary>
         /// The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Tenant
-        {
-            get => _tenant ?? (_tenant = new InputMap<object>());
-            set => _tenant = value;
-        }
-
-        [Input("timeToLive", required: true)]
-        private InputMap<object>? _timeToLive;
+        [Input("tenant", required: true)]
+        public Input<object> Tenant { get; set; } = null!;
 
         /// <summary>
         /// The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> TimeToLive
-        {
-            get => _timeToLive ?? (_timeToLive = new InputMap<object>());
-            set => _timeToLive = value;
-        }
+        [Input("timeToLive", required: true)]
+        public Input<object> TimeToLive { get; set; } = null!;
 
         /// <summary>
         /// Type of linked service.
@@ -351,41 +225,23 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("version", required: true)]
-        private InputMap<object>? _version;
-
         /// <summary>
         /// Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Version
-        {
-            get => _version ?? (_version = new InputMap<object>());
-            set => _version = value;
-        }
-
-        [Input("yarnConfiguration")]
-        private InputMap<object>? _yarnConfiguration;
+        [Input("version", required: true)]
+        public Input<object> Version { get; set; } = null!;
 
         /// <summary>
         /// Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
         /// </summary>
-        public InputMap<object> YarnConfiguration
-        {
-            get => _yarnConfiguration ?? (_yarnConfiguration = new InputMap<object>());
-            set => _yarnConfiguration = value;
-        }
-
-        [Input("zookeeperNodeSize")]
-        private InputMap<object>? _zookeeperNodeSize;
+        [Input("yarnConfiguration")]
+        public Input<object>? YarnConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the size of the Zoo Keeper node for the HDInsight cluster.
         /// </summary>
-        public InputMap<object> ZookeeperNodeSize
-        {
-            get => _zookeeperNodeSize ?? (_zookeeperNodeSize = new InputMap<object>());
-            set => _zookeeperNodeSize = value;
-        }
+        [Input("zookeeperNodeSize")]
+        public Input<object>? ZookeeperNodeSize { get; set; }
 
         public HDInsightOnDemandLinkedServiceArgs()
         {

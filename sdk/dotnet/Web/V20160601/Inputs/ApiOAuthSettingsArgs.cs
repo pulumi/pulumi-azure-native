@@ -45,17 +45,11 @@ namespace Pulumi.AzureNextGen.Web.V20160601.Inputs
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }
 
-        [Input("properties")]
-        private InputMap<object>? _properties;
-
         /// <summary>
         /// Read only properties for this oauth setting.
         /// </summary>
-        public InputMap<object> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
-        }
+        [Input("properties")]
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// Url

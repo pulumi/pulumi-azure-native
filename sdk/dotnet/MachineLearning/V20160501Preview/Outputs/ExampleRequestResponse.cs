@@ -16,17 +16,17 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview.Outputs
         /// <summary>
         /// Sample input data for the web service's global parameters
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? GlobalParameters;
+        public readonly ImmutableDictionary<string, object>? GlobalParameters;
         /// <summary>
         /// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableArray<ImmutableArray<ImmutableDictionary<string, object>>>>? Inputs;
+        public readonly ImmutableDictionary<string, ImmutableArray<ImmutableArray<object>>>? Inputs;
 
         [OutputConstructor]
         private ExampleRequestResponse(
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? globalParameters,
+            ImmutableDictionary<string, object>? globalParameters,
 
-            ImmutableDictionary<string, ImmutableArray<ImmutableArray<ImmutableDictionary<string, object>>>>? inputs)
+            ImmutableDictionary<string, ImmutableArray<ImmutableArray<object>>>? inputs)
         {
             GlobalParameters = globalParameters;
             Inputs = inputs;

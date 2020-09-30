@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Content type schema.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Schema;
+        public readonly object? Schema;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 
             string name,
 
-            ImmutableDictionary<string, object>? schema,
+            object? schema,
 
             string type,
 

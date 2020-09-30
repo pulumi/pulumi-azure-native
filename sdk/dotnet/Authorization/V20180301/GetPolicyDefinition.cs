@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
         /// <summary>
         /// The policy definition metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
         /// </summary>
@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? PolicyRule;
+        public readonly object? PolicyRule;
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         /// </summary>
@@ -76,15 +76,15 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
 
             string? displayName,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string? mode,
 
             string name,
 
-            ImmutableDictionary<string, object>? parameters,
+            object? parameters,
 
-            ImmutableDictionary<string, object>? policyRule,
+            object? policyRule,
 
             string? policyType,
 

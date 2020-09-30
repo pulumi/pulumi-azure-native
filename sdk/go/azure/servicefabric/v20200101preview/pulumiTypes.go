@@ -4641,13 +4641,13 @@ type VMSSExtension struct {
 	// The name of the extension.
 	Name string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// The name of the extension handler publisher.
 	Publisher string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings map[string]interface{} `pulumi:"settings"`
+	Settings interface{} `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type string `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -4674,13 +4674,13 @@ type VMSSExtensionArgs struct {
 	// The name of the extension.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
+	ProtectedSettings pulumi.Input `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings pulumi.MapInput `pulumi:"settings"`
+	Settings pulumi.Input `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -4755,8 +4755,8 @@ func (o VMSSExtensionOutput) Name() pulumi.StringOutput {
 }
 
 // The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VMSSExtensionOutput) ProtectedSettings() pulumi.MapOutput {
-	return o.ApplyT(func(v VMSSExtension) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
+func (o VMSSExtensionOutput) ProtectedSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v VMSSExtension) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
 }
 
 // Collection of extension names after which this extension needs to be provisioned.
@@ -4770,8 +4770,8 @@ func (o VMSSExtensionOutput) Publisher() pulumi.StringOutput {
 }
 
 // Json formatted public settings for the extension.
-func (o VMSSExtensionOutput) Settings() pulumi.MapOutput {
-	return o.ApplyT(func(v VMSSExtension) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
+func (o VMSSExtensionOutput) Settings() pulumi.AnyOutput {
+	return o.ApplyT(func(v VMSSExtension) interface{} { return v.Settings }).(pulumi.AnyOutput)
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -4813,7 +4813,7 @@ type VMSSExtensionResponse struct {
 	// The name of the extension.
 	Name string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// The provisioning state, which only appears in the response.
@@ -4821,7 +4821,7 @@ type VMSSExtensionResponse struct {
 	// The name of the extension handler publisher.
 	Publisher string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings map[string]interface{} `pulumi:"settings"`
+	Settings interface{} `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type string `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -4848,7 +4848,7 @@ type VMSSExtensionResponseArgs struct {
 	// The name of the extension.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
+	ProtectedSettings pulumi.Input `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
 	// The provisioning state, which only appears in the response.
@@ -4856,7 +4856,7 @@ type VMSSExtensionResponseArgs struct {
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings pulumi.MapInput `pulumi:"settings"`
+	Settings pulumi.Input `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -4931,8 +4931,8 @@ func (o VMSSExtensionResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VMSSExtensionResponseOutput) ProtectedSettings() pulumi.MapOutput {
-	return o.ApplyT(func(v VMSSExtensionResponse) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
+func (o VMSSExtensionResponseOutput) ProtectedSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
 }
 
 // Collection of extension names after which this extension needs to be provisioned.
@@ -4951,8 +4951,8 @@ func (o VMSSExtensionResponseOutput) Publisher() pulumi.StringOutput {
 }
 
 // Json formatted public settings for the extension.
-func (o VMSSExtensionResponseOutput) Settings() pulumi.MapOutput {
-	return o.ApplyT(func(v VMSSExtensionResponse) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
+func (o VMSSExtensionResponseOutput) Settings() pulumi.AnyOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) interface{} { return v.Settings }).(pulumi.AnyOutput)
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".

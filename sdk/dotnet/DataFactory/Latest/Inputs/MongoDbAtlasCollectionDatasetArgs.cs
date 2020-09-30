@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class MongoDbAtlasCollectionDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("collection", required: true)]
-        private InputMap<object>? _collection;
 
         /// <summary>
         /// The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Collection
-        {
-            get => _collection ?? (_collection = new InputMap<object>());
-            set => _collection = value;
-        }
+        [Input("collection", required: true)]
+        public Input<object> Collection { get; set; } = null!;
 
         /// <summary>
         /// Dataset description.
@@ -69,29 +63,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             set => _parameters = value;
         }
 
-        [Input("schema")]
-        private InputMap<object>? _schema;
-
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public InputMap<object> Schema
-        {
-            get => _schema ?? (_schema = new InputMap<object>());
-            set => _schema = value;
-        }
-
-        [Input("structure")]
-        private InputMap<object>? _structure;
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.

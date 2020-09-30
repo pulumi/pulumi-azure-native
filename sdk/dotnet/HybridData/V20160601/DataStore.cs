@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         /// A generic json used differently by each data source type.
         /// </summary>
         [Output("extendedProperties")]
-        public Output<ImmutableDictionary<string, object>?> ExtendedProperties { get; private set; } = null!;
+        public Output<object?> ExtendedProperties { get; private set; } = null!;
 
         /// <summary>
         /// Name of the object.
@@ -136,17 +136,11 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         [Input("dataStoreTypeId", required: true)]
         public Input<string> DataStoreTypeId { get; set; } = null!;
 
-        [Input("extendedProperties")]
-        private InputMap<object>? _extendedProperties;
-
         /// <summary>
         /// A generic json used differently by each data source type.
         /// </summary>
-        public InputMap<object> ExtendedProperties
-        {
-            get => _extendedProperties ?? (_extendedProperties = new InputMap<object>());
-            set => _extendedProperties = value;
-        }
+        [Input("extendedProperties")]
+        public Input<object>? ExtendedProperties { get; set; }
 
         /// <summary>
         /// Arm Id for the manager resource to which the data source is associated. This is optional.

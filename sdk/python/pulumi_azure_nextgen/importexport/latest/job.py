@@ -21,7 +21,7 @@ class Job(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['JobDetailsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 tags: Optional[Any] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +34,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the job should be created
         :param pulumi.Input[pulumi.InputType['JobDetailsArgs']] properties: Specifies the job properties
         :param pulumi.Input[str] resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
-        :param pulumi.Input[Mapping[str, Any]] tags: Specifies the tags that will be assigned to the job.
+        :param Any tags: Specifies the tags that will be assigned to the job.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,7 +125,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         """
         Specifies the tags that are assigned to the job.
         """

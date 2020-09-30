@@ -105,7 +105,7 @@ class ContentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schema(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def schema(self) -> pulumi.Output[Optional[Any]]:
         """
         Content type schema.
         """

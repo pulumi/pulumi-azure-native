@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> BucketName;
+        public readonly object BucketName;
         /// <summary>
         /// The data compression method used for the Amazon S3 object.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The key of the Amazon S3 object. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Key;
+        public readonly object? Key;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The end of S3 object's modified datetime. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ModifiedDatetimeEnd;
+        public readonly object? ModifiedDatetimeEnd;
         /// <summary>
         /// The start of S3 object's modified datetime. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ModifiedDatetimeStart;
+        public readonly object? ModifiedDatetimeStart;
         /// <summary>
         /// Parameters for dataset.
         /// </summary>
@@ -60,15 +60,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Prefix;
+        public readonly object? Prefix;
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Schema;
+        public readonly object? Schema;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Structure;
+        public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
         /// </summary>
@@ -76,13 +76,13 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The version for the S3 object. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Version;
+        public readonly object? Version;
 
         [OutputConstructor]
         private AmazonS3DatasetResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object> bucketName,
+            object bucketName,
 
             Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Union<Outputs.DatasetTarCompressionResponse, Union<Outputs.DatasetTarGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>>>? compression,
 
@@ -92,25 +92,25 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             Union<Outputs.AvroFormatResponse, Union<Outputs.JsonFormatResponse, Union<Outputs.OrcFormatResponse, Union<Outputs.ParquetFormatResponse, Outputs.TextFormatResponse>>>>? format,
 
-            ImmutableDictionary<string, object>? key,
+            object? key,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
-            ImmutableDictionary<string, object>? modifiedDatetimeEnd,
+            object? modifiedDatetimeEnd,
 
-            ImmutableDictionary<string, object>? modifiedDatetimeStart,
+            object? modifiedDatetimeStart,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? prefix,
+            object? prefix,
 
-            ImmutableDictionary<string, object>? schema,
+            object? schema,
 
-            ImmutableDictionary<string, object>? structure,
+            object? structure,
 
             string type,
 
-            ImmutableDictionary<string, object>? version)
+            object? version)
         {
             Annotations = annotations;
             BucketName = bucketName;

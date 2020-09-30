@@ -251,11 +251,11 @@ class DeploymentPropertiesExtendedResponse(dict):
                  dependencies: Optional[Sequence['outputs.DependencyResponse']] = None,
                  mode: Optional[str] = None,
                  on_error_deployment: Optional['outputs.OnErrorDeploymentExtendedResponse'] = None,
-                 outputs: Optional[Mapping[str, Any]] = None,
-                 parameters: Optional[Mapping[str, Any]] = None,
+                 outputs: Optional[Any] = None,
+                 parameters: Optional[Any] = None,
                  parameters_link: Optional['outputs.ParametersLinkResponse'] = None,
                  providers: Optional[Sequence['outputs.ProviderResponse']] = None,
-                 template: Optional[Mapping[str, Any]] = None,
+                 template: Optional[Any] = None,
                  template_link: Optional['outputs.TemplateLinkResponse'] = None):
         """
         Deployment properties with additional details.
@@ -266,11 +266,11 @@ class DeploymentPropertiesExtendedResponse(dict):
         :param Sequence['DependencyResponseArgs'] dependencies: The list of deployment dependencies.
         :param str mode: The deployment mode. Possible values are Incremental and Complete.
         :param 'OnErrorDeploymentExtendedResponseArgs' on_error_deployment: The deployment on error behavior.
-        :param Mapping[str, Any] outputs: Key/value pairs that represent deployment output.
-        :param Mapping[str, Any] parameters: Deployment parameters. Use only one of Parameters or ParametersLink.
+        :param Any outputs: Key/value pairs that represent deployment output.
+        :param Any parameters: Deployment parameters. Use only one of Parameters or ParametersLink.
         :param 'ParametersLinkResponseArgs' parameters_link: The URI referencing the parameters. Use only one of Parameters or ParametersLink.
         :param Sequence['ProviderResponseArgs'] providers: The list of resource providers needed for the deployment.
-        :param Mapping[str, Any] template: The template content. Use only one of Template or TemplateLink.
+        :param Any template: The template content. Use only one of Template or TemplateLink.
         :param 'TemplateLinkResponseArgs' template_link: The URI referencing the template. Use only one of Template or TemplateLink.
         """
         pulumi.set(__self__, "correlation_id", correlation_id)
@@ -355,7 +355,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[Mapping[str, Any]]:
+    def outputs(self) -> Optional[Any]:
         """
         Key/value pairs that represent deployment output.
         """
@@ -363,7 +363,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Deployment parameters. Use only one of Parameters or ParametersLink.
         """
@@ -387,7 +387,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[Mapping[str, Any]]:
+    def template(self) -> Optional[Any]:
         """
         The template content. Use only one of Template or TemplateLink.
         """

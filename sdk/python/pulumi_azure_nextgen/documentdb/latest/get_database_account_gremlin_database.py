@@ -19,7 +19,7 @@ class GetDatabaseAccountGremlinDatabaseResult:
     """
     An Azure Cosmos DB Gremlin database.
     """
-    def __init__(__self__, etag=None, location=None, name=None, rid=None, tags=None, type=None):
+    def __init__(__self__, etag=None, location=None, name=None, rid=None, tags=None, ts=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -35,6 +35,9 @@ class GetDatabaseAccountGremlinDatabaseResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if ts and not isinstance(ts, dict):
+            raise TypeError("Expected argument 'ts' to be a dict")
+        pulumi.set(__self__, "ts", ts)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -81,6 +84,14 @@ class GetDatabaseAccountGremlinDatabaseResult:
 
     @property
     @pulumi.getter
+    def ts(self) -> Optional[Any]:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of Azure resource.
@@ -99,6 +110,7 @@ class AwaitableGetDatabaseAccountGremlinDatabaseResult(GetDatabaseAccountGremlin
             name=self.name,
             rid=self.rid,
             tags=self.tags,
+            ts=self.ts,
             type=self.type)
 
 
@@ -129,4 +141,5 @@ def get_database_account_gremlin_database(account_name: Optional[str] = None,
         name=__ret__.name,
         rid=__ret__.rid,
         tags=__ret__.tags,
+        ts=__ret__.ts,
         type=__ret__.type)

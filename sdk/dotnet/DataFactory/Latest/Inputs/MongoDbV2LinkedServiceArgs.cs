@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class MongoDbV2LinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -33,29 +33,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("connectionString", required: true)]
-        private InputMap<object>? _connectionString;
-
         /// <summary>
         /// The MongoDB connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public InputMap<object> ConnectionString
-        {
-            get => _connectionString ?? (_connectionString = new InputMap<object>());
-            set => _connectionString = value;
-        }
-
-        [Input("database", required: true)]
-        private InputMap<object>? _database;
+        [Input("connectionString", required: true)]
+        public Input<object> ConnectionString { get; set; } = null!;
 
         /// <summary>
         /// The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Database
-        {
-            get => _database ?? (_database = new InputMap<object>());
-            set => _database = value;
-        }
+        [Input("database", required: true)]
+        public Input<object> Database { get; set; } = null!;
 
         /// <summary>
         /// Linked service description.

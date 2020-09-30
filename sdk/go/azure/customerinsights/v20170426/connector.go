@@ -19,7 +19,7 @@ type Connector struct {
 	// Name of the connector.
 	ConnectorName pulumi.StringPtrOutput `pulumi:"connectorName"`
 	// The connector properties.
-	ConnectorProperties pulumi.MapMapOutput `pulumi:"connectorProperties"`
+	ConnectorProperties pulumi.MapOutput `pulumi:"connectorProperties"`
 	// Type of connector.
 	ConnectorType pulumi.StringOutput `pulumi:"connectorType"`
 	// The created time.
@@ -99,7 +99,7 @@ type connectorState struct {
 	// Name of the connector.
 	ConnectorName *string `pulumi:"connectorName"`
 	// The connector properties.
-	ConnectorProperties map[string]map[string]interface{} `pulumi:"connectorProperties"`
+	ConnectorProperties map[string]interface{} `pulumi:"connectorProperties"`
 	// Type of connector.
 	ConnectorType *string `pulumi:"connectorType"`
 	// The created time.
@@ -128,7 +128,7 @@ type ConnectorState struct {
 	// Name of the connector.
 	ConnectorName pulumi.StringPtrInput
 	// The connector properties.
-	ConnectorProperties pulumi.MapMapInput
+	ConnectorProperties pulumi.MapInput
 	// Type of connector.
 	ConnectorType pulumi.StringPtrInput
 	// The created time.
@@ -159,7 +159,7 @@ type connectorArgs struct {
 	// Name of the connector.
 	ConnectorName string `pulumi:"connectorName"`
 	// The connector properties.
-	ConnectorProperties map[string]map[string]interface{} `pulumi:"connectorProperties"`
+	ConnectorProperties map[string]interface{} `pulumi:"connectorProperties"`
 	// Type of connector.
 	ConnectorType string `pulumi:"connectorType"`
 	// Description of the connector.
@@ -179,7 +179,7 @@ type ConnectorArgs struct {
 	// Name of the connector.
 	ConnectorName pulumi.StringInput
 	// The connector properties.
-	ConnectorProperties pulumi.MapMapInput
+	ConnectorProperties pulumi.MapInput
 	// Type of connector.
 	ConnectorType pulumi.StringInput
 	// Description of the connector.

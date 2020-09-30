@@ -27,7 +27,7 @@ type TemplateSpecVersion struct {
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure Resource Manager template content.
-	Template pulumi.MapOutput `pulumi:"template"`
+	Template pulumi.AnyOutput `pulumi:"template"`
 	// Type of this resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -85,7 +85,7 @@ type templateSpecVersionState struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Resource Manager template content.
-	Template map[string]interface{} `pulumi:"template"`
+	Template interface{} `pulumi:"template"`
 	// Type of this resource.
 	Type *string `pulumi:"type"`
 }
@@ -104,7 +104,7 @@ type TemplateSpecVersionState struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The Azure Resource Manager template content.
-	Template pulumi.MapInput
+	Template pulumi.Input
 	// Type of this resource.
 	Type pulumi.StringPtrInput
 }
@@ -125,7 +125,7 @@ type templateSpecVersionArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Resource Manager template content.
-	Template map[string]interface{} `pulumi:"template"`
+	Template interface{} `pulumi:"template"`
 	// Name of the Template Spec.
 	TemplateSpecName string `pulumi:"templateSpecName"`
 	// The version of the Template Spec.
@@ -145,7 +145,7 @@ type TemplateSpecVersionArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The Azure Resource Manager template content.
-	Template pulumi.MapInput
+	Template pulumi.Input
 	// Name of the Template Spec.
 	TemplateSpecName pulumi.StringInput
 	// The version of the Template Spec.

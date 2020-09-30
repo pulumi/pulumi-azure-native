@@ -23,13 +23,13 @@ type PolicyAssignment struct {
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The policy assignment metadata.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapOutput `pulumi:"parameters"`
+	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -119,13 +119,13 @@ type policyAssignmentState struct {
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location *string `pulumi:"location"`
 	// The policy assignment metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -146,13 +146,13 @@ type PolicyAssignmentState struct {
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location pulumi.StringPtrInput
 	// The policy assignment metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The name of the policy assignment.
 	Name pulumi.StringPtrInput
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapInput
+	Parameters pulumi.Input
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The scope for the policy assignment.
@@ -177,11 +177,11 @@ type policyAssignmentArgs struct {
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location *string `pulumi:"location"`
 	// The policy assignment metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The name of the policy assignment.
 	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
 	// The ID of the policy definition or policy set definition being assigned.
@@ -203,11 +203,11 @@ type PolicyAssignmentArgs struct {
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location pulumi.StringPtrInput
 	// The policy assignment metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapInput
+	Parameters pulumi.Input
 	// The name of the policy assignment.
 	PolicyAssignmentName pulumi.StringInput
 	// The ID of the policy definition or policy set definition being assigned.

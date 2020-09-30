@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// Gets the resource name.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 
             string mapType,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string name,
 

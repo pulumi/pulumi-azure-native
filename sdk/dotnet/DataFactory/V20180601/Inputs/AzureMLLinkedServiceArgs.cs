@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class AzureMLLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -45,29 +45,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("mlEndpoint", required: true)]
-        private InputMap<object>? _mlEndpoint;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The Batch Execution REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> MlEndpoint
-        {
-            get => _mlEndpoint ?? (_mlEndpoint = new InputMap<object>());
-            set => _mlEndpoint = value;
-        }
+        [Input("mlEndpoint", required: true)]
+        public Input<object> MlEndpoint { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -81,17 +69,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
             set => _parameters = value;
         }
 
-        [Input("servicePrincipalId")]
-        private InputMap<object>? _servicePrincipalId;
-
         /// <summary>
         /// The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML Studio web service. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ServicePrincipalId
-        {
-            get => _servicePrincipalId ?? (_servicePrincipalId = new InputMap<object>());
-            set => _servicePrincipalId = value;
-        }
+        [Input("servicePrincipalId")]
+        public Input<object>? ServicePrincipalId { get; set; }
 
         /// <summary>
         /// The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML Studio web service.
@@ -99,17 +81,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("servicePrincipalKey")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
 
-        [Input("tenant")]
-        private InputMap<object>? _tenant;
-
         /// <summary>
         /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Tenant
-        {
-            get => _tenant ?? (_tenant = new InputMap<object>());
-            set => _tenant = value;
-        }
+        [Input("tenant")]
+        public Input<object>? Tenant { get; set; }
 
         /// <summary>
         /// Type of linked service.
@@ -117,17 +93,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("updateResourceEndpoint")]
-        private InputMap<object>? _updateResourceEndpoint;
-
         /// <summary>
         /// The Update Resource REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> UpdateResourceEndpoint
-        {
-            get => _updateResourceEndpoint ?? (_updateResourceEndpoint = new InputMap<object>());
-            set => _updateResourceEndpoint = value;
-        }
+        [Input("updateResourceEndpoint")]
+        public Input<object>? UpdateResourceEndpoint { get; set; }
 
         public AzureMLLinkedServiceArgs()
         {

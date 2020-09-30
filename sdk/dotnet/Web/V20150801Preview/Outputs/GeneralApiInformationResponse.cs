@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Outputs
         /// <summary>
         /// ConnectionPortalUrl
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ConnectionPortalUrl;
+        public readonly object? ConnectionPortalUrl;
         /// <summary>
         /// Description
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Outputs
         private GeneralApiInformationResponse(
             string? connectionDisplayName,
 
-            ImmutableDictionary<string, object>? connectionPortalUrl,
+            object? connectionPortalUrl,
 
             string? description,
 

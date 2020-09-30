@@ -125,7 +125,7 @@ class GetApplianceResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, Any]:
+    def outputs(self) -> Any:
         """
         Name and value pairs that define the appliance outputs.
         """
@@ -133,7 +133,7 @@ class GetApplianceResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Name and value pairs that define the appliance parameters. It can be a JObject or a well formed JSON string.
         """

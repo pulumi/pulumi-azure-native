@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// <summary>
         /// Mapping from certificate name to base 64 encoded format.
         /// </summary>
-        public readonly string Base64EncodedCertificates;
+        public readonly ImmutableDictionary<string, ImmutableArray<string>> Base64EncodedCertificates;
         /// <summary>
         /// Validation errors
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
         [OutputConstructor]
         private GetTdeCertificatesSqlTaskOutputResponse(
-            string base64EncodedCertificates,
+            ImmutableDictionary<string, ImmutableArray<string>> base64EncodedCertificates,
 
             ImmutableArray<Outputs.ReportableExceptionResponse> validationErrors)
         {

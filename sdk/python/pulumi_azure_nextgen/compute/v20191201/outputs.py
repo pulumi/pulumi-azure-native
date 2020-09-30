@@ -3649,9 +3649,9 @@ class VirtualMachineExtensionResponse(dict):
                  auto_upgrade_minor_version: Optional[bool] = None,
                  force_update_tag: Optional[str] = None,
                  instance_view: Optional['outputs.VirtualMachineExtensionInstanceViewResponse'] = None,
-                 protected_settings: Optional[Mapping[str, Any]] = None,
+                 protected_settings: Optional[Any] = None,
                  publisher: Optional[str] = None,
-                 settings: Optional[Mapping[str, Any]] = None,
+                 settings: Optional[Any] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  type_handler_version: Optional[str] = None):
         """
@@ -3664,9 +3664,9 @@ class VirtualMachineExtensionResponse(dict):
         :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param str force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param 'VirtualMachineExtensionInstanceViewResponseArgs' instance_view: The virtual machine extension instance view.
-        :param Mapping[str, Any] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param str publisher: The name of the extension handler publisher.
-        :param Mapping[str, Any] settings: Json formatted public settings for the extension.
+        :param Any settings: Json formatted public settings for the extension.
         :param Mapping[str, str] tags: Resource tags
         :param str type_handler_version: Specifies the version of the script handler.
         """
@@ -3758,7 +3758,7 @@ class VirtualMachineExtensionResponse(dict):
 
     @property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[Mapping[str, Any]]:
+    def protected_settings(self) -> Optional[Any]:
         """
         The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         """
@@ -3774,7 +3774,7 @@ class VirtualMachineExtensionResponse(dict):
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[Mapping[str, Any]]:
+    def settings(self) -> Optional[Any]:
         """
         Json formatted public settings for the extension.
         """
@@ -4245,10 +4245,10 @@ class VirtualMachineScaleSetExtensionResponse(dict):
                  auto_upgrade_minor_version: Optional[bool] = None,
                  force_update_tag: Optional[str] = None,
                  name: Optional[str] = None,
-                 protected_settings: Optional[Mapping[str, Any]] = None,
+                 protected_settings: Optional[Any] = None,
                  provision_after_extensions: Optional[Sequence[str]] = None,
                  publisher: Optional[str] = None,
-                 settings: Optional[Mapping[str, Any]] = None,
+                 settings: Optional[Any] = None,
                  type_handler_version: Optional[str] = None):
         """
         Describes a Virtual Machine Scale Set Extension.
@@ -4258,10 +4258,10 @@ class VirtualMachineScaleSetExtensionResponse(dict):
         :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param str force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         :param str name: The name of the extension.
-        :param Mapping[str, Any] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param Sequence[str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param str publisher: The name of the extension handler publisher.
-        :param Mapping[str, Any] settings: Json formatted public settings for the extension.
+        :param Any settings: Json formatted public settings for the extension.
         :param str type_handler_version: Specifies the version of the script handler.
         """
         pulumi.set(__self__, "id", id)
@@ -4334,7 +4334,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
 
     @property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[Mapping[str, Any]]:
+    def protected_settings(self) -> Optional[Any]:
         """
         The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         """
@@ -4358,7 +4358,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[Mapping[str, Any]]:
+    def settings(self) -> Optional[Any]:
         """
         Json formatted public settings for the extension.
         """

@@ -15,7 +15,7 @@ type WebAppInstanceFunctionSlot struct {
 	pulumi.CustomResourceState
 
 	// Config information.
-	Config pulumi.MapOutput `pulumi:"config"`
+	Config pulumi.AnyOutput `pulumi:"config"`
 	// Config URI.
 	ConfigHref pulumi.StringPtrOutput `pulumi:"configHref"`
 	// File list.
@@ -99,7 +99,7 @@ func GetWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 // Input properties used for looking up and filtering WebAppInstanceFunctionSlot resources.
 type webAppInstanceFunctionSlotState struct {
 	// Config information.
-	Config map[string]interface{} `pulumi:"config"`
+	Config interface{} `pulumi:"config"`
 	// Config URI.
 	ConfigHref *string `pulumi:"configHref"`
 	// File list.
@@ -126,7 +126,7 @@ type webAppInstanceFunctionSlotState struct {
 
 type WebAppInstanceFunctionSlotState struct {
 	// Config information.
-	Config pulumi.MapInput
+	Config pulumi.Input
 	// Config URI.
 	ConfigHref pulumi.StringPtrInput
 	// File list.
@@ -157,7 +157,7 @@ func (WebAppInstanceFunctionSlotState) ElementType() reflect.Type {
 
 type webAppInstanceFunctionSlotArgs struct {
 	// Config information.
-	Config map[string]interface{} `pulumi:"config"`
+	Config interface{} `pulumi:"config"`
 	// Config URI.
 	ConfigHref *string `pulumi:"configHref"`
 	// File list.
@@ -187,7 +187,7 @@ type webAppInstanceFunctionSlotArgs struct {
 // The set of arguments for constructing a WebAppInstanceFunctionSlot resource.
 type WebAppInstanceFunctionSlotArgs struct {
 	// Config information.
-	Config pulumi.MapInput
+	Config pulumi.Input
 	// Config URI.
 	ConfigHref pulumi.StringPtrInput
 	// File list.

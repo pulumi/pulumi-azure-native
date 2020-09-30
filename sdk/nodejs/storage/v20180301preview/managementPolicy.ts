@@ -45,7 +45,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
     /**
      * The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */
-    public readonly policy!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly policy!: pulumi.Output<any | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -111,7 +111,7 @@ export interface ManagementPolicyArgs {
     /**
      * The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */
-    readonly policy?: pulumi.Input<{[key: string]: any}>;
+    readonly policy?: any;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

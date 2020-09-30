@@ -20,7 +20,7 @@ class VirtualNetworkFunction(pulumi.CustomResource):
                  device: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_application_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 managed_application_parameters: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -38,7 +38,7 @@ class VirtualNetworkFunction(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] device: The reference to the hybrid network device.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Mapping[str, Any]] managed_application_parameters: The parameters for the managed application.
+        :param Any managed_application_parameters: The parameters for the managed application.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] sku_name: The sku name for the hybrid network virtual network function.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -142,7 +142,7 @@ class VirtualNetworkFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedApplicationParameters")
-    def managed_application_parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def managed_application_parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         The parameters for the managed application.
         """

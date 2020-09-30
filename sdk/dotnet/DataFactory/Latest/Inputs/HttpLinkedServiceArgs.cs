@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class HttpLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
 
-        [Input("certThumbprint")]
-        private InputMap<object>? _certThumbprint;
-
         /// <summary>
         /// Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> CertThumbprint
-        {
-            get => _certThumbprint ?? (_certThumbprint = new InputMap<object>());
-            set => _certThumbprint = value;
-        }
+        [Input("certThumbprint")]
+        public Input<object>? CertThumbprint { get; set; }
 
         /// <summary>
         /// The integration runtime reference.
@@ -57,41 +51,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("embeddedCertData")]
-        private InputMap<object>? _embeddedCertData;
-
         /// <summary>
         /// Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EmbeddedCertData
-        {
-            get => _embeddedCertData ?? (_embeddedCertData = new InputMap<object>());
-            set => _embeddedCertData = value;
-        }
-
-        [Input("enableServerCertificateValidation")]
-        private InputMap<object>? _enableServerCertificateValidation;
+        [Input("embeddedCertData")]
+        public Input<object>? EmbeddedCertData { get; set; }
 
         /// <summary>
         /// If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public InputMap<object> EnableServerCertificateValidation
-        {
-            get => _enableServerCertificateValidation ?? (_enableServerCertificateValidation = new InputMap<object>());
-            set => _enableServerCertificateValidation = value;
-        }
-
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
+        [Input("enableServerCertificateValidation")]
+        public Input<object>? EnableServerCertificateValidation { get; set; }
 
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -117,29 +93,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("url", required: true)]
-        private InputMap<object>? _url;
-
         /// <summary>
         /// The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Url
-        {
-            get => _url ?? (_url = new InputMap<object>());
-            set => _url = value;
-        }
-
-        [Input("userName")]
-        private InputMap<object>? _userName;
+        [Input("url", required: true)]
+        public Input<object> Url { get; set; } = null!;
 
         /// <summary>
         /// User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> UserName
-        {
-            get => _userName ?? (_userName = new InputMap<object>());
-            set => _userName = value;
-        }
+        [Input("userName")]
+        public Input<object>? UserName { get; set; }
 
         public HttpLinkedServiceArgs()
         {

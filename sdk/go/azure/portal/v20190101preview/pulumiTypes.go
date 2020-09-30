@@ -13,7 +13,7 @@ import (
 // A dashboard lens.
 type DashboardLens struct {
 	// The dashboard len's metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The lens order.
 	Order int `pulumi:"order"`
 	// The dashboard parts.
@@ -34,7 +34,7 @@ type DashboardLensInput interface {
 // A dashboard lens.
 type DashboardLensArgs struct {
 	// The dashboard len's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The lens order.
 	Order pulumi.IntInput `pulumi:"order"`
 	// The dashboard parts.
@@ -94,8 +94,8 @@ func (o DashboardLensOutput) ToDashboardLensOutputWithContext(ctx context.Contex
 }
 
 // The dashboard len's metadata.
-func (o DashboardLensOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardLens) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
+func (o DashboardLensOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardLens) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The lens order.
@@ -131,7 +131,7 @@ func (o DashboardLensMapOutput) MapIndex(k pulumi.StringInput) DashboardLensOutp
 // A dashboard lens.
 type DashboardLensResponse struct {
 	// The dashboard len's metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The lens order.
 	Order int `pulumi:"order"`
 	// The dashboard parts.
@@ -152,7 +152,7 @@ type DashboardLensResponseInput interface {
 // A dashboard lens.
 type DashboardLensResponseArgs struct {
 	// The dashboard len's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The lens order.
 	Order pulumi.IntInput `pulumi:"order"`
 	// The dashboard parts.
@@ -212,8 +212,8 @@ func (o DashboardLensResponseOutput) ToDashboardLensResponseOutputWithContext(ct
 }
 
 // The dashboard len's metadata.
-func (o DashboardLensResponseOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardLensResponse) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
+func (o DashboardLensResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardLensResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The lens order.
@@ -249,7 +249,7 @@ func (o DashboardLensResponseMapOutput) MapIndex(k pulumi.StringInput) Dashboard
 // A dashboard part.
 type DashboardParts struct {
 	// The dashboard part's metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The dashboard's part position.
 	Position DashboardPartsPosition `pulumi:"position"`
 }
@@ -268,7 +268,7 @@ type DashboardPartsInput interface {
 // A dashboard part.
 type DashboardPartsArgs struct {
 	// The dashboard part's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The dashboard's part position.
 	Position DashboardPartsPositionInput `pulumi:"position"`
 }
@@ -326,8 +326,8 @@ func (o DashboardPartsOutput) ToDashboardPartsOutputWithContext(ctx context.Cont
 }
 
 // The dashboard part's metadata.
-func (o DashboardPartsOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardParts) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
+func (o DashboardPartsOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardParts) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The dashboard's part position.
@@ -360,7 +360,7 @@ type DashboardPartsPosition struct {
 	// The dashboard's part column span.
 	ColSpan int `pulumi:"colSpan"`
 	// The dashboard part's metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The dashboard's part row span.
 	RowSpan int `pulumi:"rowSpan"`
 	// The dashboard's part x coordinate.
@@ -385,7 +385,7 @@ type DashboardPartsPositionArgs struct {
 	// The dashboard's part column span.
 	ColSpan pulumi.IntInput `pulumi:"colSpan"`
 	// The dashboard part's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The dashboard's part row span.
 	RowSpan pulumi.IntInput `pulumi:"rowSpan"`
 	// The dashboard's part x coordinate.
@@ -427,8 +427,8 @@ func (o DashboardPartsPositionOutput) ColSpan() pulumi.IntOutput {
 }
 
 // The dashboard part's metadata.
-func (o DashboardPartsPositionOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardPartsPosition) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
+func (o DashboardPartsPositionOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardPartsPosition) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The dashboard's part row span.
@@ -449,7 +449,7 @@ func (o DashboardPartsPositionOutput) Y() pulumi.IntOutput {
 // A dashboard part.
 type DashboardPartsResponse struct {
 	// The dashboard part's metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The dashboard's part position.
 	Position DashboardPartsResponsePosition `pulumi:"position"`
 }
@@ -468,7 +468,7 @@ type DashboardPartsResponseInput interface {
 // A dashboard part.
 type DashboardPartsResponseArgs struct {
 	// The dashboard part's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The dashboard's part position.
 	Position DashboardPartsResponsePositionInput `pulumi:"position"`
 }
@@ -526,8 +526,8 @@ func (o DashboardPartsResponseOutput) ToDashboardPartsResponseOutputWithContext(
 }
 
 // The dashboard part's metadata.
-func (o DashboardPartsResponseOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardPartsResponse) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
+func (o DashboardPartsResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardPartsResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The dashboard's part position.
@@ -560,7 +560,7 @@ type DashboardPartsResponsePosition struct {
 	// The dashboard's part column span.
 	ColSpan int `pulumi:"colSpan"`
 	// The dashboard part's metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The dashboard's part row span.
 	RowSpan int `pulumi:"rowSpan"`
 	// The dashboard's part x coordinate.
@@ -585,7 +585,7 @@ type DashboardPartsResponsePositionArgs struct {
 	// The dashboard's part column span.
 	ColSpan pulumi.IntInput `pulumi:"colSpan"`
 	// The dashboard part's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The dashboard's part row span.
 	RowSpan pulumi.IntInput `pulumi:"rowSpan"`
 	// The dashboard's part x coordinate.
@@ -627,8 +627,8 @@ func (o DashboardPartsResponsePositionOutput) ColSpan() pulumi.IntOutput {
 }
 
 // The dashboard part's metadata.
-func (o DashboardPartsResponsePositionOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardPartsResponsePosition) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
+func (o DashboardPartsResponsePositionOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardPartsResponsePosition) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The dashboard's part row span.

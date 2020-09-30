@@ -15,7 +15,7 @@ type DataController struct {
 	pulumi.CustomResourceState
 
 	// The raw kubernetes information
-	K8sRaw pulumi.MapOutput `pulumi:"k8sRaw"`
+	K8sRaw pulumi.AnyOutput `pulumi:"k8sRaw"`
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrOutput `pulumi:"lastUploadedDate"`
 	// The geo-location where the resource lives
@@ -79,7 +79,7 @@ func GetDataController(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DataController resources.
 type dataControllerState struct {
 	// The raw kubernetes information
-	K8sRaw map[string]interface{} `pulumi:"k8sRaw"`
+	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// The geo-location where the resource lives
@@ -98,7 +98,7 @@ type dataControllerState struct {
 
 type DataControllerState struct {
 	// The raw kubernetes information
-	K8sRaw pulumi.MapInput
+	K8sRaw pulumi.Input
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput
 	// The geo-location where the resource lives
@@ -122,7 +122,7 @@ func (DataControllerState) ElementType() reflect.Type {
 type dataControllerArgs struct {
 	DataControllerName string `pulumi:"dataControllerName"`
 	// The raw kubernetes information
-	K8sRaw map[string]interface{} `pulumi:"k8sRaw"`
+	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// The geo-location where the resource lives
@@ -139,7 +139,7 @@ type dataControllerArgs struct {
 type DataControllerArgs struct {
 	DataControllerName pulumi.StringInput
 	// The raw kubernetes information
-	K8sRaw pulumi.MapInput
+	K8sRaw pulumi.Input
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput
 	// The geo-location where the resource lives

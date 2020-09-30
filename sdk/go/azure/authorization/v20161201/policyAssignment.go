@@ -21,7 +21,7 @@ type PolicyAssignment struct {
 	// The name of the policy assignment.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapOutput `pulumi:"parameters"`
+	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// The ID of the policy definition.
 	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -107,7 +107,7 @@ type policyAssignmentState struct {
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The ID of the policy definition.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -124,7 +124,7 @@ type PolicyAssignmentState struct {
 	// The name of the policy assignment.
 	Name pulumi.StringPtrInput
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapInput
+	Parameters pulumi.Input
 	// The ID of the policy definition.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The scope for the policy assignment.
@@ -145,7 +145,7 @@ type policyAssignmentArgs struct {
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The name of the policy assignment.
 	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
 	// The ID of the policy definition.
@@ -165,7 +165,7 @@ type PolicyAssignmentArgs struct {
 	// The name of the policy assignment.
 	Name pulumi.StringPtrInput
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapInput
+	Parameters pulumi.Input
 	// The name of the policy assignment.
 	PolicyAssignmentName pulumi.StringInput
 	// The ID of the policy definition.

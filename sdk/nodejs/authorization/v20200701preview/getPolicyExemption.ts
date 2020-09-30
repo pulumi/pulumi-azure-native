@@ -54,7 +54,7 @@ export interface GetPolicyExemptionResult {
     /**
      * The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    readonly metadata?: {[key: string]: any};
+    readonly metadata?: any;
     /**
      * The name of the resource
      */

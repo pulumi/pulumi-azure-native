@@ -30,7 +30,7 @@ type LookupDashboardResult struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// The dashboard metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Resource tags

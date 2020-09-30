@@ -84,13 +84,13 @@ class ManagementConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  parameters: pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgs']]],
                  parent_resource_type: pulumi.Input[str],
-                 template: pulumi.Input[Mapping[str, Any]],
+                 template: Any,
                  application_id: Optional[pulumi.Input[str]] = None):
         """
         ManagementConfiguration properties supported by the OperationsManagement resource provider.
         :param pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgs']]] parameters: Parameters to run the ARM template
         :param pulumi.Input[str] parent_resource_type: The type of the parent resource.
-        :param pulumi.Input[Mapping[str, Any]] template: The Json object containing the ARM template to deploy
+        :param Any template: The Json object containing the ARM template to deploy
         :param pulumi.Input[str] application_id: The applicationId of the appliance for this Management.
         """
         pulumi.set(__self__, "parameters", parameters)
@@ -125,14 +125,14 @@ class ManagementConfigurationPropertiesArgs:
 
     @property
     @pulumi.getter
-    def template(self) -> pulumi.Input[Mapping[str, Any]]:
+    def template(self) -> Any:
         """
         The Json object containing the ARM template to deploy
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: pulumi.Input[Mapping[str, Any]]):
+    def template(self, value: Any):
         pulumi.set(self, "template", value)
 
     @property

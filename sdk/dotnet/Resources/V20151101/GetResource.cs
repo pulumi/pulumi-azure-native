@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
         /// <summary>
         /// Gets or sets the resource properties.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Properties;
+        public readonly object Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
 
             Outputs.PlanResponse? plan,
 
-            ImmutableDictionary<string, object> properties,
+            object properties,
 
             ImmutableDictionary<string, string>? tags,
 

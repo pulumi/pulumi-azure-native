@@ -34,7 +34,7 @@ type LookupSqlManagedInstanceResult struct {
 	// The on premise instance endpoint
 	InstanceEndpoint *string `pulumi:"instanceEndpoint"`
 	// The raw kubernetes information
-	K8sRaw map[string]interface{} `pulumi:"k8sRaw"`
+	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// The geo-location where the resource lives

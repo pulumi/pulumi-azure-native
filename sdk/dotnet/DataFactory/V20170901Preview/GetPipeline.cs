@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The max number of concurrent runs for the pipeline.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         private GetPipelineResult(
             ImmutableArray<Union<Outputs.ControlActivityResponse, Outputs.ExecutionActivityResponse>> activities,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             int? concurrency,
 

@@ -70,7 +70,7 @@ class GetBlueprintResult:
 
     @property
     @pulumi.getter
-    def layout(self) -> Optional[Mapping[str, Any]]:
+    def layout(self) -> Optional[Any]:
         """
         Layout view of the blueprint definition for UI reference.
         """
@@ -126,7 +126,7 @@ class GetBlueprintResult:
 
     @property
     @pulumi.getter
-    def versions(self) -> Optional[Mapping[str, Any]]:
+    def versions(self) -> Optional[Any]:
         """
         Published versions of this blueprint definition.
         """

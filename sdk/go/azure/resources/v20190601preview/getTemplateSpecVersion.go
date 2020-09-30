@@ -40,7 +40,7 @@ type LookupTemplateSpecVersionResult struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Resource Manager template content.
-	Template map[string]interface{} `pulumi:"template"`
+	Template interface{} `pulumi:"template"`
 	// Type of this resource.
 	Type string `pulumi:"type"`
 }

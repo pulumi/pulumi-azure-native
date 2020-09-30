@@ -2734,13 +2734,13 @@ class IntegrationAccountContentLinkResponse(dict):
                  content_hash: Optional['outputs.IntegrationAccountContentHashResponse'] = None,
                  content_size: Optional[int] = None,
                  content_version: Optional[str] = None,
-                 metadata: Optional[Mapping[str, Any]] = None,
+                 metadata: Optional[Any] = None,
                  uri: Optional[str] = None):
         """
         :param 'IntegrationAccountContentHashResponseArgs' content_hash: The content hash.
         :param int content_size: The content size.
         :param str content_version: The content version.
-        :param Mapping[str, Any] metadata: The metadata.
+        :param Any metadata: The metadata.
         :param str uri: The content link URI.
         """
         if content_hash is not None:
@@ -2780,7 +2780,7 @@ class IntegrationAccountContentLinkResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The metadata.
         """

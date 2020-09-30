@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Retry;
+        public readonly object? Retry;
         /// <summary>
         /// Interval between each retry attempt (in seconds). The default is 30 sec.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Timeout;
+        public readonly object? Timeout;
 
         [OutputConstructor]
         private ActivityPolicyResponse(
-            ImmutableDictionary<string, object>? retry,
+            object? retry,
 
             int? retryIntervalInSeconds,
 
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             bool? secureOutput,
 
-            ImmutableDictionary<string, object>? timeout)
+            object? timeout)
         {
             Retry = retry;
             RetryIntervalInSeconds = retryIntervalInSeconds;

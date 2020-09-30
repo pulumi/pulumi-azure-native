@@ -43,7 +43,7 @@ class GetApiSchemaResult:
 
     @property
     @pulumi.getter
-    def document(self) -> Optional[Mapping[str, Any]]:
+    def document(self) -> Optional[Any]:
         """
         Properties of the Schema Document.
         """

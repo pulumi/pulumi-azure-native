@@ -33,7 +33,7 @@ type ApiEntity struct {
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Free form object for the data caller wants to store
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// the URL path of this API when exposed via APIM
@@ -84,7 +84,7 @@ type ApiEntityArgs struct {
 	// Resource Location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Free form object for the data caller wants to store
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// Resource Name
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// the URL path of this API when exposed via APIM
@@ -230,8 +230,8 @@ func (o ApiEntityOutput) Location() pulumi.StringOutput {
 }
 
 // Free form object for the data caller wants to store
-func (o ApiEntityOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiEntity) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o ApiEntityOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiEntity) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // Resource Name
@@ -388,13 +388,13 @@ func (o ApiEntityPtrOutput) Location() pulumi.StringPtrOutput {
 }
 
 // Free form object for the data caller wants to store
-func (o ApiEntityPtrOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v *ApiEntity) map[string]interface{} {
+func (o ApiEntityPtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApiEntity) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Resource Name
@@ -490,7 +490,7 @@ type ApiEntityResponse struct {
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Free form object for the data caller wants to store
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// the URL path of this API when exposed via APIM
@@ -541,7 +541,7 @@ type ApiEntityResponseArgs struct {
 	// Resource Location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Free form object for the data caller wants to store
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// Resource Name
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// the URL path of this API when exposed via APIM
@@ -687,8 +687,8 @@ func (o ApiEntityResponseOutput) Location() pulumi.StringOutput {
 }
 
 // Free form object for the data caller wants to store
-func (o ApiEntityResponseOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiEntityResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o ApiEntityResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiEntityResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // Resource Name
@@ -845,13 +845,13 @@ func (o ApiEntityResponsePtrOutput) Location() pulumi.StringPtrOutput {
 }
 
 // Free form object for the data caller wants to store
-func (o ApiEntityResponsePtrOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v *ApiEntityResponse) map[string]interface{} {
+func (o ApiEntityResponsePtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApiEntityResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Resource Name
@@ -935,7 +935,7 @@ type ApiOAuthSettings struct {
 	// Identity provider
 	IdentityProvider *string `pulumi:"identityProvider"`
 	// Read only properties for this oauth setting.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Url
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// OAuth scopes
@@ -964,7 +964,7 @@ type ApiOAuthSettingsArgs struct {
 	// Identity provider
 	IdentityProvider pulumi.StringPtrInput `pulumi:"identityProvider"`
 	// Read only properties for this oauth setting.
-	Properties pulumi.MapInput `pulumi:"properties"`
+	Properties pulumi.Input `pulumi:"properties"`
 	// Url
 	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
 	// OAuth scopes
@@ -1070,8 +1070,8 @@ func (o ApiOAuthSettingsOutput) IdentityProvider() pulumi.StringPtrOutput {
 }
 
 // Read only properties for this oauth setting.
-func (o ApiOAuthSettingsOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettings) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettings) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
 // Url
@@ -1143,13 +1143,13 @@ func (o ApiOAuthSettingsPtrOutput) IdentityProvider() pulumi.StringPtrOutput {
 }
 
 // Read only properties for this oauth setting.
-func (o ApiOAuthSettingsPtrOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v *ApiOAuthSettings) map[string]interface{} {
+func (o ApiOAuthSettingsPtrOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApiOAuthSettings) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Properties
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Url
@@ -1175,9 +1175,9 @@ func (o ApiOAuthSettingsPtrOutput) Scopes() pulumi.StringArrayOutput {
 // OAuth Settings Parameter
 type ApiOAuthSettingsParameter struct {
 	// Read only: Options available to this parameter
-	Options map[string]interface{} `pulumi:"options"`
+	Options interface{} `pulumi:"options"`
 	// UI definitions per culture as caller can specify the culture
-	UiDefinition map[string]interface{} `pulumi:"uiDefinition"`
+	UiDefinition interface{} `pulumi:"uiDefinition"`
 	// Value
 	Value *string `pulumi:"value"`
 }
@@ -1196,9 +1196,9 @@ type ApiOAuthSettingsParameterInput interface {
 // OAuth Settings Parameter
 type ApiOAuthSettingsParameterArgs struct {
 	// Read only: Options available to this parameter
-	Options pulumi.MapInput `pulumi:"options"`
+	Options pulumi.Input `pulumi:"options"`
 	// UI definitions per culture as caller can specify the culture
-	UiDefinition pulumi.MapInput `pulumi:"uiDefinition"`
+	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
 	// Value
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -1256,13 +1256,13 @@ func (o ApiOAuthSettingsParameterOutput) ToApiOAuthSettingsParameterOutputWithCo
 }
 
 // Read only: Options available to this parameter
-func (o ApiOAuthSettingsParameterOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsParameter) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsParameterOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameter) interface{} { return v.Options }).(pulumi.AnyOutput)
 }
 
 // UI definitions per culture as caller can specify the culture
-func (o ApiOAuthSettingsParameterOutput) UiDefinition() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsParameter) map[string]interface{} { return v.UiDefinition }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsParameterOutput) UiDefinition() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameter) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
 
 // Value
@@ -1293,9 +1293,9 @@ func (o ApiOAuthSettingsParameterMapOutput) MapIndex(k pulumi.StringInput) ApiOA
 // OAuth Settings Parameter
 type ApiOAuthSettingsParameterResponse struct {
 	// Read only: Options available to this parameter
-	Options map[string]interface{} `pulumi:"options"`
+	Options interface{} `pulumi:"options"`
 	// UI definitions per culture as caller can specify the culture
-	UiDefinition map[string]interface{} `pulumi:"uiDefinition"`
+	UiDefinition interface{} `pulumi:"uiDefinition"`
 	// Value
 	Value *string `pulumi:"value"`
 }
@@ -1314,9 +1314,9 @@ type ApiOAuthSettingsParameterResponseInput interface {
 // OAuth Settings Parameter
 type ApiOAuthSettingsParameterResponseArgs struct {
 	// Read only: Options available to this parameter
-	Options pulumi.MapInput `pulumi:"options"`
+	Options pulumi.Input `pulumi:"options"`
 	// UI definitions per culture as caller can specify the culture
-	UiDefinition pulumi.MapInput `pulumi:"uiDefinition"`
+	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
 	// Value
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -1374,13 +1374,13 @@ func (o ApiOAuthSettingsParameterResponseOutput) ToApiOAuthSettingsParameterResp
 }
 
 // Read only: Options available to this parameter
-func (o ApiOAuthSettingsParameterResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsParameterResponseOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) interface{} { return v.Options }).(pulumi.AnyOutput)
 }
 
 // UI definitions per culture as caller can specify the culture
-func (o ApiOAuthSettingsParameterResponseOutput) UiDefinition() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) map[string]interface{} { return v.UiDefinition }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsParameterResponseOutput) UiDefinition() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
 
 // Value
@@ -1419,7 +1419,7 @@ type ApiOAuthSettingsResponse struct {
 	// Identity provider
 	IdentityProvider *string `pulumi:"identityProvider"`
 	// Read only properties for this oauth setting.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Url
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// OAuth scopes
@@ -1448,7 +1448,7 @@ type ApiOAuthSettingsResponseArgs struct {
 	// Identity provider
 	IdentityProvider pulumi.StringPtrInput `pulumi:"identityProvider"`
 	// Read only properties for this oauth setting.
-	Properties pulumi.MapInput `pulumi:"properties"`
+	Properties pulumi.Input `pulumi:"properties"`
 	// Url
 	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
 	// OAuth scopes
@@ -1556,8 +1556,8 @@ func (o ApiOAuthSettingsResponseOutput) IdentityProvider() pulumi.StringPtrOutpu
 }
 
 // Read only properties for this oauth setting.
-func (o ApiOAuthSettingsResponseOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsResponse) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+func (o ApiOAuthSettingsResponseOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
 // Url
@@ -1629,13 +1629,13 @@ func (o ApiOAuthSettingsResponsePtrOutput) IdentityProvider() pulumi.StringPtrOu
 }
 
 // Read only properties for this oauth setting.
-func (o ApiOAuthSettingsResponsePtrOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v *ApiOAuthSettingsResponse) map[string]interface{} {
+func (o ApiOAuthSettingsResponsePtrOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Properties
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Url
@@ -3649,13 +3649,13 @@ func (o ConnectionErrorResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // connection provider parameters
 type ConnectionParameter struct {
 	// Default parameter value
-	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
+	DefaultValue interface{} `pulumi:"defaultValue"`
 	// Settings defining OAuth flow for the back end provider
 	OAuthSettings *ApiOAuthSettings `pulumi:"oAuthSettings"`
 	// Type of the parameter
 	Type *string `pulumi:"type"`
 	// UI definitions
-	UiDefinition map[string]interface{} `pulumi:"uiDefinition"`
+	UiDefinition interface{} `pulumi:"uiDefinition"`
 }
 
 // ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
@@ -3672,13 +3672,13 @@ type ConnectionParameterInput interface {
 // connection provider parameters
 type ConnectionParameterArgs struct {
 	// Default parameter value
-	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
+	DefaultValue pulumi.Input `pulumi:"defaultValue"`
 	// Settings defining OAuth flow for the back end provider
 	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
 	// Type of the parameter
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// UI definitions
-	UiDefinition pulumi.MapInput `pulumi:"uiDefinition"`
+	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
 }
 
 func (ConnectionParameterArgs) ElementType() reflect.Type {
@@ -3734,8 +3734,8 @@ func (o ConnectionParameterOutput) ToConnectionParameterOutputWithContext(ctx co
 }
 
 // Default parameter value
-func (o ConnectionParameterOutput) DefaultValue() pulumi.MapOutput {
-	return o.ApplyT(func(v ConnectionParameter) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
+func (o ConnectionParameterOutput) DefaultValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionParameter) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
 // Settings defining OAuth flow for the back end provider
@@ -3749,8 +3749,8 @@ func (o ConnectionParameterOutput) Type() pulumi.StringPtrOutput {
 }
 
 // UI definitions
-func (o ConnectionParameterOutput) UiDefinition() pulumi.MapOutput {
-	return o.ApplyT(func(v ConnectionParameter) map[string]interface{} { return v.UiDefinition }).(pulumi.MapOutput)
+func (o ConnectionParameterOutput) UiDefinition() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionParameter) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
 
 type ConnectionParameterMapOutput struct{ *pulumi.OutputState }
@@ -3776,13 +3776,13 @@ func (o ConnectionParameterMapOutput) MapIndex(k pulumi.StringInput) ConnectionP
 // connection provider parameters
 type ConnectionParameterResponse struct {
 	// Default parameter value
-	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
+	DefaultValue interface{} `pulumi:"defaultValue"`
 	// Settings defining OAuth flow for the back end provider
 	OAuthSettings *ApiOAuthSettingsResponse `pulumi:"oAuthSettings"`
 	// Type of the parameter
 	Type *string `pulumi:"type"`
 	// UI definitions
-	UiDefinition map[string]interface{} `pulumi:"uiDefinition"`
+	UiDefinition interface{} `pulumi:"uiDefinition"`
 }
 
 // ConnectionParameterResponseInput is an input type that accepts ConnectionParameterResponseArgs and ConnectionParameterResponseOutput values.
@@ -3799,13 +3799,13 @@ type ConnectionParameterResponseInput interface {
 // connection provider parameters
 type ConnectionParameterResponseArgs struct {
 	// Default parameter value
-	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
+	DefaultValue pulumi.Input `pulumi:"defaultValue"`
 	// Settings defining OAuth flow for the back end provider
 	OAuthSettings ApiOAuthSettingsResponsePtrInput `pulumi:"oAuthSettings"`
 	// Type of the parameter
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// UI definitions
-	UiDefinition pulumi.MapInput `pulumi:"uiDefinition"`
+	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
 }
 
 func (ConnectionParameterResponseArgs) ElementType() reflect.Type {
@@ -3861,8 +3861,8 @@ func (o ConnectionParameterResponseOutput) ToConnectionParameterResponseOutputWi
 }
 
 // Default parameter value
-func (o ConnectionParameterResponseOutput) DefaultValue() pulumi.MapOutput {
-	return o.ApplyT(func(v ConnectionParameterResponse) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
+func (o ConnectionParameterResponseOutput) DefaultValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionParameterResponse) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
 // Settings defining OAuth flow for the back end provider
@@ -3876,8 +3876,8 @@ func (o ConnectionParameterResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // UI definitions
-func (o ConnectionParameterResponseOutput) UiDefinition() pulumi.MapOutput {
-	return o.ApplyT(func(v ConnectionParameterResponse) map[string]interface{} { return v.UiDefinition }).(pulumi.MapOutput)
+func (o ConnectionParameterResponseOutput) UiDefinition() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionParameterResponse) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
 
 type ConnectionParameterResponseMapOutput struct{ *pulumi.OutputState }
@@ -5313,7 +5313,7 @@ type GeneralApiInformation struct {
 	// DefaultConnectionNameTemplate
 	ConnectionDisplayName *string `pulumi:"connectionDisplayName"`
 	// ConnectionPortalUrl
-	ConnectionPortalUrl map[string]interface{} `pulumi:"connectionPortalUrl"`
+	ConnectionPortalUrl interface{} `pulumi:"connectionPortalUrl"`
 	// Description
 	Description *string `pulumi:"description"`
 	// Display Name
@@ -5352,7 +5352,7 @@ type GeneralApiInformationArgs struct {
 	// DefaultConnectionNameTemplate
 	ConnectionDisplayName pulumi.StringPtrInput `pulumi:"connectionDisplayName"`
 	// ConnectionPortalUrl
-	ConnectionPortalUrl pulumi.MapInput `pulumi:"connectionPortalUrl"`
+	ConnectionPortalUrl pulumi.Input `pulumi:"connectionPortalUrl"`
 	// Description
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Display Name
@@ -5459,8 +5459,8 @@ func (o GeneralApiInformationOutput) ConnectionDisplayName() pulumi.StringPtrOut
 }
 
 // ConnectionPortalUrl
-func (o GeneralApiInformationOutput) ConnectionPortalUrl() pulumi.MapOutput {
-	return o.ApplyT(func(v GeneralApiInformation) map[string]interface{} { return v.ConnectionPortalUrl }).(pulumi.MapOutput)
+func (o GeneralApiInformationOutput) ConnectionPortalUrl() pulumi.AnyOutput {
+	return o.ApplyT(func(v GeneralApiInformation) interface{} { return v.ConnectionPortalUrl }).(pulumi.AnyOutput)
 }
 
 // Description
@@ -5542,13 +5542,13 @@ func (o GeneralApiInformationPtrOutput) ConnectionDisplayName() pulumi.StringPtr
 }
 
 // ConnectionPortalUrl
-func (o GeneralApiInformationPtrOutput) ConnectionPortalUrl() pulumi.MapOutput {
-	return o.ApplyT(func(v *GeneralApiInformation) map[string]interface{} {
+func (o GeneralApiInformationPtrOutput) ConnectionPortalUrl() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GeneralApiInformation) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ConnectionPortalUrl
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Description
@@ -5656,7 +5656,7 @@ type GeneralApiInformationResponse struct {
 	// DefaultConnectionNameTemplate
 	ConnectionDisplayName *string `pulumi:"connectionDisplayName"`
 	// ConnectionPortalUrl
-	ConnectionPortalUrl map[string]interface{} `pulumi:"connectionPortalUrl"`
+	ConnectionPortalUrl interface{} `pulumi:"connectionPortalUrl"`
 	// Description
 	Description *string `pulumi:"description"`
 	// Display Name
@@ -5695,7 +5695,7 @@ type GeneralApiInformationResponseArgs struct {
 	// DefaultConnectionNameTemplate
 	ConnectionDisplayName pulumi.StringPtrInput `pulumi:"connectionDisplayName"`
 	// ConnectionPortalUrl
-	ConnectionPortalUrl pulumi.MapInput `pulumi:"connectionPortalUrl"`
+	ConnectionPortalUrl pulumi.Input `pulumi:"connectionPortalUrl"`
 	// Description
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Display Name
@@ -5802,8 +5802,8 @@ func (o GeneralApiInformationResponseOutput) ConnectionDisplayName() pulumi.Stri
 }
 
 // ConnectionPortalUrl
-func (o GeneralApiInformationResponseOutput) ConnectionPortalUrl() pulumi.MapOutput {
-	return o.ApplyT(func(v GeneralApiInformationResponse) map[string]interface{} { return v.ConnectionPortalUrl }).(pulumi.MapOutput)
+func (o GeneralApiInformationResponseOutput) ConnectionPortalUrl() pulumi.AnyOutput {
+	return o.ApplyT(func(v GeneralApiInformationResponse) interface{} { return v.ConnectionPortalUrl }).(pulumi.AnyOutput)
 }
 
 // Description
@@ -5885,13 +5885,13 @@ func (o GeneralApiInformationResponsePtrOutput) ConnectionDisplayName() pulumi.S
 }
 
 // ConnectionPortalUrl
-func (o GeneralApiInformationResponsePtrOutput) ConnectionPortalUrl() pulumi.MapOutput {
-	return o.ApplyT(func(v *GeneralApiInformationResponse) map[string]interface{} {
+func (o GeneralApiInformationResponsePtrOutput) ConnectionPortalUrl() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GeneralApiInformationResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ConnectionPortalUrl
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Description

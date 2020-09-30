@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class SharePointOnlineListLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -63,17 +57,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             set => _parameters = value;
         }
 
-        [Input("servicePrincipalId", required: true)]
-        private InputMap<object>? _servicePrincipalId;
-
         /// <summary>
         /// The application (client) ID of your application registered in Azure Active Directory. Make sure to grant SharePoint site permission to this application. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ServicePrincipalId
-        {
-            get => _servicePrincipalId ?? (_servicePrincipalId = new InputMap<object>());
-            set => _servicePrincipalId = value;
-        }
+        [Input("servicePrincipalId", required: true)]
+        public Input<object> ServicePrincipalId { get; set; } = null!;
 
         /// <summary>
         /// The client secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
@@ -81,29 +69,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("servicePrincipalKey", required: true)]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> ServicePrincipalKey { get; set; } = null!;
 
-        [Input("siteUrl", required: true)]
-        private InputMap<object>? _siteUrl;
-
         /// <summary>
         /// The URL of the SharePoint Online site. For example, https://contoso.sharepoint.com/sites/siteName. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> SiteUrl
-        {
-            get => _siteUrl ?? (_siteUrl = new InputMap<object>());
-            set => _siteUrl = value;
-        }
-
-        [Input("tenantId", required: true)]
-        private InputMap<object>? _tenantId;
+        [Input("siteUrl", required: true)]
+        public Input<object> SiteUrl { get; set; } = null!;
 
         /// <summary>
         /// The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> TenantId
-        {
-            get => _tenantId ?? (_tenantId = new InputMap<object>());
-            set => _tenantId = value;
-        }
+        [Input("tenantId", required: true)]
+        public Input<object> TenantId { get; set; } = null!;
 
         /// <summary>
         /// Type of linked service.

@@ -63,7 +63,7 @@ export class Resource extends pulumi.CustomResource {
     /**
      * The resource properties.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: any}>;
+    public readonly properties!: pulumi.Output<any>;
     /**
      * The sku of the resource.
      */
@@ -173,7 +173,7 @@ export interface ResourceArgs {
     /**
      * The resource properties.
      */
-    readonly properties?: pulumi.Input<{[key: string]: any}>;
+    readonly properties?: any;
     /**
      * The name of the resource group. The name is case insensitive.
      */

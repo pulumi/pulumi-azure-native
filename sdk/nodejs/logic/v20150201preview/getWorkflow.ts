@@ -47,7 +47,7 @@ export interface GetWorkflowResult {
     /**
      * Gets or sets the definition.
      */
-    readonly definition?: {[key: string]: any};
+    readonly definition?: any;
     /**
      * Gets or sets the link to definition.
      */

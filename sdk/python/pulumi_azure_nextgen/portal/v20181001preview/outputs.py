@@ -23,12 +23,12 @@ class DashboardLensResponse(dict):
     def __init__(__self__, *,
                  order: int,
                  parts: Mapping[str, 'outputs.DashboardPartsResponse'],
-                 metadata: Optional[Mapping[str, Mapping[str, Any]]] = None):
+                 metadata: Optional[Mapping[str, Any]] = None):
         """
         A dashboard lens.
         :param int order: The lens order.
         :param Mapping[str, 'DashboardPartsResponseArgs'] parts: The dashboard parts.
-        :param Mapping[str, Mapping[str, Any]] metadata: The dashboard len's metadata.
+        :param Mapping[str, Any] metadata: The dashboard len's metadata.
         """
         pulumi.set(__self__, "order", order)
         pulumi.set(__self__, "parts", parts)
@@ -53,7 +53,7 @@ class DashboardLensResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Mapping[str, Any]]:
         """
         The dashboard len's metadata.
         """
@@ -70,11 +70,11 @@ class DashboardPartsResponse(dict):
     """
     def __init__(__self__, *,
                  position: 'outputs.DashboardPartsResponsePosition',
-                 metadata: Optional[Mapping[str, Mapping[str, Any]]] = None):
+                 metadata: Optional[Mapping[str, Any]] = None):
         """
         A dashboard part.
         :param 'DashboardPartsResponsePositionArgs' position: The dashboard's part position.
-        :param Mapping[str, Mapping[str, Any]] metadata: The dashboard part's metadata.
+        :param Mapping[str, Any] metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "position", position)
         if metadata is not None:
@@ -90,7 +90,7 @@ class DashboardPartsResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Mapping[str, Any]]:
         """
         The dashboard part's metadata.
         """
@@ -110,14 +110,14 @@ class DashboardPartsResponsePosition(dict):
                  row_span: int,
                  x: int,
                  y: int,
-                 metadata: Optional[Mapping[str, Mapping[str, Any]]] = None):
+                 metadata: Optional[Mapping[str, Any]] = None):
         """
         The dashboard's part position.
         :param int col_span: The dashboard's part column span.
         :param int row_span: The dashboard's part row span.
         :param int x: The dashboard's part x coordinate.
         :param int y: The dashboard's part y coordinate.
-        :param Mapping[str, Mapping[str, Any]] metadata: The dashboard part's metadata.
+        :param Mapping[str, Any] metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "col_span", col_span)
         pulumi.set(__self__, "row_span", row_span)
@@ -160,7 +160,7 @@ class DashboardPartsResponsePosition(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Mapping[str, Any]]:
         """
         The dashboard part's metadata.
         """

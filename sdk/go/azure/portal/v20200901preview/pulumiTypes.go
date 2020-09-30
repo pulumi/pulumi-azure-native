@@ -13,7 +13,7 @@ import (
 // A dashboard lens.
 type DashboardLens struct {
 	// The dashboard len's metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The lens order.
 	Order int `pulumi:"order"`
 	// The dashboard parts.
@@ -34,7 +34,7 @@ type DashboardLensInput interface {
 // A dashboard lens.
 type DashboardLensArgs struct {
 	// The dashboard len's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The lens order.
 	Order pulumi.IntInput `pulumi:"order"`
 	// The dashboard parts.
@@ -94,8 +94,8 @@ func (o DashboardLensOutput) ToDashboardLensOutputWithContext(ctx context.Contex
 }
 
 // The dashboard len's metadata.
-func (o DashboardLensOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardLens) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
+func (o DashboardLensOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardLens) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The lens order.
@@ -131,7 +131,7 @@ func (o DashboardLensArrayOutput) Index(i pulumi.IntInput) DashboardLensOutput {
 // A dashboard lens.
 type DashboardLensResponse struct {
 	// The dashboard len's metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The lens order.
 	Order int `pulumi:"order"`
 	// The dashboard parts.
@@ -152,7 +152,7 @@ type DashboardLensResponseInput interface {
 // A dashboard lens.
 type DashboardLensResponseArgs struct {
 	// The dashboard len's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The lens order.
 	Order pulumi.IntInput `pulumi:"order"`
 	// The dashboard parts.
@@ -212,8 +212,8 @@ func (o DashboardLensResponseOutput) ToDashboardLensResponseOutputWithContext(ct
 }
 
 // The dashboard len's metadata.
-func (o DashboardLensResponseOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardLensResponse) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
+func (o DashboardLensResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardLensResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The lens order.
@@ -360,7 +360,7 @@ type DashboardPartsPosition struct {
 	// The dashboard's part column span.
 	ColSpan int `pulumi:"colSpan"`
 	// The dashboard part's metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The dashboard's part row span.
 	RowSpan int `pulumi:"rowSpan"`
 	// The dashboard's part x coordinate.
@@ -385,7 +385,7 @@ type DashboardPartsPositionArgs struct {
 	// The dashboard's part column span.
 	ColSpan pulumi.IntInput `pulumi:"colSpan"`
 	// The dashboard part's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The dashboard's part row span.
 	RowSpan pulumi.IntInput `pulumi:"rowSpan"`
 	// The dashboard's part x coordinate.
@@ -427,8 +427,8 @@ func (o DashboardPartsPositionOutput) ColSpan() pulumi.IntOutput {
 }
 
 // The dashboard part's metadata.
-func (o DashboardPartsPositionOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardPartsPosition) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
+func (o DashboardPartsPositionOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardPartsPosition) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The dashboard's part row span.
@@ -560,7 +560,7 @@ type DashboardPartsResponsePosition struct {
 	// The dashboard's part column span.
 	ColSpan int `pulumi:"colSpan"`
 	// The dashboard part's metadata.
-	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The dashboard's part row span.
 	RowSpan int `pulumi:"rowSpan"`
 	// The dashboard's part x coordinate.
@@ -585,7 +585,7 @@ type DashboardPartsResponsePositionArgs struct {
 	// The dashboard's part column span.
 	ColSpan pulumi.IntInput `pulumi:"colSpan"`
 	// The dashboard part's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The dashboard's part row span.
 	RowSpan pulumi.IntInput `pulumi:"rowSpan"`
 	// The dashboard's part x coordinate.
@@ -627,8 +627,8 @@ func (o DashboardPartsResponsePositionOutput) ColSpan() pulumi.IntOutput {
 }
 
 // The dashboard part's metadata.
-func (o DashboardPartsResponsePositionOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardPartsResponsePosition) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
+func (o DashboardPartsResponsePositionOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardPartsResponsePosition) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The dashboard's part row span.
@@ -649,7 +649,7 @@ func (o DashboardPartsResponsePositionOutput) Y() pulumi.IntOutput {
 // Markdown part metadata.
 type MarkdownPartMetadata struct {
 	// Input to dashboard part.
-	Inputs []map[string]interface{} `pulumi:"inputs"`
+	Inputs []interface{} `pulumi:"inputs"`
 	// Markdown part settings.
 	Settings *MarkdownPartMetadataSettings `pulumi:"settings"`
 	// The type of dashboard part.
@@ -670,7 +670,7 @@ type MarkdownPartMetadataInput interface {
 // Markdown part metadata.
 type MarkdownPartMetadataArgs struct {
 	// Input to dashboard part.
-	Inputs pulumi.MapArrayInput `pulumi:"inputs"`
+	Inputs pulumi.ArrayInput `pulumi:"inputs"`
 	// Markdown part settings.
 	Settings MarkdownPartMetadataSettingsPtrInput `pulumi:"settings"`
 	// The type of dashboard part.
@@ -756,8 +756,8 @@ func (o MarkdownPartMetadataOutput) ToMarkdownPartMetadataPtrOutputWithContext(c
 }
 
 // Input to dashboard part.
-func (o MarkdownPartMetadataOutput) Inputs() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MarkdownPartMetadata) []map[string]interface{} { return v.Inputs }).(pulumi.MapArrayOutput)
+func (o MarkdownPartMetadataOutput) Inputs() pulumi.ArrayOutput {
+	return o.ApplyT(func(v MarkdownPartMetadata) []interface{} { return v.Inputs }).(pulumi.ArrayOutput)
 }
 
 // Markdown part settings.
@@ -789,13 +789,13 @@ func (o MarkdownPartMetadataPtrOutput) Elem() MarkdownPartMetadataOutput {
 }
 
 // Input to dashboard part.
-func (o MarkdownPartMetadataPtrOutput) Inputs() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadata) []map[string]interface{} {
+func (o MarkdownPartMetadataPtrOutput) Inputs() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *MarkdownPartMetadata) []interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Inputs
-	}).(pulumi.MapArrayOutput)
+	}).(pulumi.ArrayOutput)
 }
 
 // Markdown part settings.
@@ -955,7 +955,7 @@ func (o MarkdownPartMetadataContentPtrOutput) Settings() MarkdownPartMetadataSet
 // Markdown part metadata.
 type MarkdownPartMetadataResponse struct {
 	// Input to dashboard part.
-	Inputs []map[string]interface{} `pulumi:"inputs"`
+	Inputs []interface{} `pulumi:"inputs"`
 	// Markdown part settings.
 	Settings *MarkdownPartMetadataResponseSettings `pulumi:"settings"`
 	// The type of dashboard part.
@@ -976,7 +976,7 @@ type MarkdownPartMetadataResponseInput interface {
 // Markdown part metadata.
 type MarkdownPartMetadataResponseArgs struct {
 	// Input to dashboard part.
-	Inputs pulumi.MapArrayInput `pulumi:"inputs"`
+	Inputs pulumi.ArrayInput `pulumi:"inputs"`
 	// Markdown part settings.
 	Settings MarkdownPartMetadataResponseSettingsPtrInput `pulumi:"settings"`
 	// The type of dashboard part.
@@ -1062,8 +1062,8 @@ func (o MarkdownPartMetadataResponseOutput) ToMarkdownPartMetadataResponsePtrOut
 }
 
 // Input to dashboard part.
-func (o MarkdownPartMetadataResponseOutput) Inputs() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MarkdownPartMetadataResponse) []map[string]interface{} { return v.Inputs }).(pulumi.MapArrayOutput)
+func (o MarkdownPartMetadataResponseOutput) Inputs() pulumi.ArrayOutput {
+	return o.ApplyT(func(v MarkdownPartMetadataResponse) []interface{} { return v.Inputs }).(pulumi.ArrayOutput)
 }
 
 // Markdown part settings.
@@ -1095,13 +1095,13 @@ func (o MarkdownPartMetadataResponsePtrOutput) Elem() MarkdownPartMetadataRespon
 }
 
 // Input to dashboard part.
-func (o MarkdownPartMetadataResponsePtrOutput) Inputs() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataResponse) []map[string]interface{} {
+func (o MarkdownPartMetadataResponsePtrOutput) Inputs() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *MarkdownPartMetadataResponse) []interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Inputs
-	}).(pulumi.MapArrayOutput)
+	}).(pulumi.ArrayOutput)
 }
 
 // Markdown part settings.

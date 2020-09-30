@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     /// </summary>
     public sealed class RetryPolicyArgs : Pulumi.ResourceArgs
     {
-        [Input("count")]
-        private InputMap<object>? _count;
-
         /// <summary>
         /// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
-        public InputMap<object> Count
-        {
-            get => _count ?? (_count = new InputMap<object>());
-            set => _count = value;
-        }
+        [Input("count")]
+        public Input<object>? Count { get; set; }
 
         /// <summary>
         /// Interval between retries in seconds. Default is 30.

@@ -19,12 +19,12 @@ class DashboardLensArgs:
     def __init__(__self__, *,
                  order: pulumi.Input[int],
                  parts: pulumi.Input[Mapping[str, pulumi.Input['DashboardPartsArgs']]],
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None):
+                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         A dashboard lens.
         :param pulumi.Input[int] order: The lens order.
         :param pulumi.Input[Mapping[str, pulumi.Input['DashboardPartsArgs']]] parts: The dashboard parts.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] metadata: The dashboard len's metadata.
+        :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard len's metadata.
         """
         pulumi.set(__self__, "order", order)
         pulumi.set(__self__, "parts", parts)
@@ -57,14 +57,14 @@ class DashboardLensArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The dashboard len's metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "metadata", value)
 
 
@@ -72,11 +72,11 @@ class DashboardLensArgs:
 class DashboardPartsArgs:
     def __init__(__self__, *,
                  position: pulumi.Input['DashboardPartsPositionArgs'],
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None):
+                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         A dashboard part.
         :param pulumi.Input['DashboardPartsPositionArgs'] position: The dashboard's part position.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] metadata: The dashboard part's metadata.
+        :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "position", position)
         if metadata is not None:
@@ -96,14 +96,14 @@ class DashboardPartsArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The dashboard part's metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "metadata", value)
 
 
@@ -114,14 +114,14 @@ class DashboardPartsPositionArgs:
                  row_span: pulumi.Input[int],
                  x: pulumi.Input[int],
                  y: pulumi.Input[int],
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None):
+                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         The dashboard's part position.
         :param pulumi.Input[int] col_span: The dashboard's part column span.
         :param pulumi.Input[int] row_span: The dashboard's part row span.
         :param pulumi.Input[int] x: The dashboard's part x coordinate.
         :param pulumi.Input[int] y: The dashboard's part y coordinate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] metadata: The dashboard part's metadata.
+        :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "col_span", col_span)
         pulumi.set(__self__, "row_span", row_span)
@@ -180,14 +180,14 @@ class DashboardPartsPositionArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The dashboard part's metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "metadata", value)
 
 

@@ -196,7 +196,7 @@ class ExtensionDataSourceResponse(dict):
                  extension_name: str,
                  name: str,
                  streams: Sequence[str],
-                 extension_settings: Optional[Mapping[str, Any]] = None):
+                 extension_settings: Optional[Any] = None):
         """
         Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
         Collected from either Windows and Linux machines, depending on which extension is defined.
@@ -205,7 +205,7 @@ class ExtensionDataSourceResponse(dict):
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        :param Mapping[str, Any] extension_settings: The extension settings. The format is specific for particular extension.
+        :param Any extension_settings: The extension settings. The format is specific for particular extension.
         """
         pulumi.set(__self__, "extension_name", extension_name)
         pulumi.set(__self__, "name", name)
@@ -241,7 +241,7 @@ class ExtensionDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="extensionSettings")
-    def extension_settings(self) -> Optional[Mapping[str, Any]]:
+    def extension_settings(self) -> Optional[Any]:
         """
         The extension settings. The format is specific for particular extension.
         """

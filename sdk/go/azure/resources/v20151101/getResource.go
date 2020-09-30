@@ -38,7 +38,7 @@ type LookupResourceResult struct {
 	// Gets or sets the plan of the resource.
 	Plan *PlanResponse `pulumi:"plan"`
 	// Gets or sets the resource properties.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

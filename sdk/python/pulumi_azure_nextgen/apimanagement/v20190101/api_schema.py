@@ -108,7 +108,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def document(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def document(self) -> pulumi.Output[Optional[Any]]:
         """
         Properties of the Schema Document.
         """

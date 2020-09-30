@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// Client ID of the client on the BW system where the open hub destination is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ClientId;
+        public readonly object? ClientId;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -32,23 +32,23 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Language of the BW system where the open hub destination is located. The default value is EN. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Language;
+        public readonly object? Language;
         /// <summary>
         /// The Logon Group for the SAP System. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? LogonGroup;
+        public readonly object? LogonGroup;
         /// <summary>
         /// The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? MessageServer;
+        public readonly object? MessageServer;
         /// <summary>
         /// The service name or port number of the Message Server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? MessageServerService;
+        public readonly object? MessageServerService;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -60,15 +60,15 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Host name of the SAP BW instance where the open hub destination is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Server;
+        public readonly object? Server;
         /// <summary>
         /// SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SystemId;
+        public readonly object? SystemId;
         /// <summary>
         /// System number of the BW system where the open hub destination is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SystemNumber;
+        public readonly object? SystemNumber;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -76,41 +76,41 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Username to access the SAP BW server where the open hub destination is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserName;
+        public readonly object? UserName;
 
         [OutputConstructor]
         private SapOpenHubLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object>? clientId,
+            object? clientId,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? language,
+            object? language,
 
-            ImmutableDictionary<string, object>? logonGroup,
+            object? logonGroup,
 
-            ImmutableDictionary<string, object>? messageServer,
+            object? messageServer,
 
-            ImmutableDictionary<string, object>? messageServerService,
+            object? messageServerService,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
-            ImmutableDictionary<string, object>? server,
+            object? server,
 
-            ImmutableDictionary<string, object>? systemId,
+            object? systemId,
 
-            ImmutableDictionary<string, object>? systemNumber,
+            object? systemNumber,
 
             string type,
 
-            ImmutableDictionary<string, object>? userName)
+            object? userName)
         {
             Annotations = annotations;
             ClientId = clientId;

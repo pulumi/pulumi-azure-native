@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Outputs
         /// <summary>
         /// Additional Properties.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? AdditionalProperties;
+        public readonly ImmutableDictionary<string, object>? AdditionalProperties;
         /// <summary>
         /// Azure path for Azure Blob or File
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Outputs
 
         [OutputConstructor]
         private DatasetResponseDataPath(
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? additionalProperties,
+            ImmutableDictionary<string, object>? additionalProperties,
 
             string azureFilePath,
 

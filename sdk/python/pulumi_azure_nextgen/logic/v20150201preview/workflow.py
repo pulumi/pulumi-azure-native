@@ -17,7 +17,7 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 definition: Optional[Any] = None,
                  definition_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -37,7 +37,7 @@ class Workflow(pulumi.CustomResource):
         Create a Workflow resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] definition: Gets or sets the definition.
+        :param Any definition: Gets or sets the definition.
         :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] definition_link: Gets or sets the link to definition.
         :param pulumi.Input[str] id: Gets or sets the resource id.
         :param pulumi.Input[str] location: Gets or sets the resource location.
@@ -142,7 +142,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def definition(self) -> pulumi.Output[Optional[Any]]:
         """
         Gets or sets the definition.
         """

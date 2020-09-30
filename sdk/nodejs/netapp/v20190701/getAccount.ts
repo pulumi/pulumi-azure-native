@@ -54,7 +54,7 @@ export interface GetAccountResult {
     /**
      * Resource tags
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: any;
     /**
      * Resource type
      */

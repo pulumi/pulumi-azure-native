@@ -148,15 +148,15 @@ class CmdkeySetupResponse(dict):
     """
     def __init__(__self__, *,
                  password: 'outputs.SecureStringResponse',
-                 target_name: Mapping[str, Any],
+                 target_name: Any,
                  type: str,
-                 user_name: Mapping[str, Any]):
+                 user_name: Any):
         """
         The custom setup of running cmdkey commands.
         :param 'SecureStringResponseArgs' password: The password of data source access.
-        :param Mapping[str, Any] target_name: The server name of data source access.
+        :param Any target_name: The server name of data source access.
         :param str type: The type of custom setup.
-        :param Mapping[str, Any] user_name: The user name of data source access.
+        :param Any user_name: The user name of data source access.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "target_name", target_name)
@@ -173,7 +173,7 @@ class CmdkeySetupResponse(dict):
 
     @property
     @pulumi.getter(name="targetName")
-    def target_name(self) -> Mapping[str, Any]:
+    def target_name(self) -> Any:
         """
         The server name of data source access.
         """
@@ -189,7 +189,7 @@ class CmdkeySetupResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Mapping[str, Any]:
+    def user_name(self) -> Any:
         """
         The user name of data source access.
         """

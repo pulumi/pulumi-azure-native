@@ -50,11 +50,11 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// The parameters for the managed application to be supplied by vendor.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ManagedApplicationParameters;
+        public readonly object? ManagedApplicationParameters;
         /// <summary>
         /// The template for the managed application deployment.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ManagedApplicationTemplate;
+        public readonly object? ManagedApplicationTemplate;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -90,9 +90,9 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             string? location,
 
-            ImmutableDictionary<string, object>? managedApplicationParameters,
+            object? managedApplicationParameters,
 
-            ImmutableDictionary<string, object>? managedApplicationTemplate,
+            object? managedApplicationTemplate,
 
             string name,
 

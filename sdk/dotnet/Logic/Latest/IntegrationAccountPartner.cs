@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// The metadata.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Gets the resource name.
@@ -138,17 +138,11 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// The metadata.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The integration account partner name.

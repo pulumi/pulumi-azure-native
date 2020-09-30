@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Default value of variable.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? DefaultValue;
+        public readonly object? DefaultValue;
         /// <summary>
         /// Variable type.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private VariableSpecificationResponse(
-            ImmutableDictionary<string, object>? defaultValue,
+            object? defaultValue,
 
             string type)
         {

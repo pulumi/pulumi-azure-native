@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Count;
+        public readonly object? Count;
         /// <summary>
         /// Interval between retries in seconds. Default is 30.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private RetryPolicyResponse(
-            ImmutableDictionary<string, object>? count,
+            object? count,
 
             int? intervalInSeconds)
         {

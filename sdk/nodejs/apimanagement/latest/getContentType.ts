@@ -51,7 +51,7 @@ export interface GetContentTypeResult {
     /**
      * Content type schema.
      */
-    readonly schema?: {[key: string]: any};
+    readonly schema?: any;
     /**
      * Resource type for API Management resource.
      */

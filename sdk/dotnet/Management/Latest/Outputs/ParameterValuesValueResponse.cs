@@ -16,10 +16,10 @@ namespace Pulumi.AzureNextGen.Management.Latest.Outputs
         /// <summary>
         /// The value of the parameter.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Value;
+        public readonly object? Value;
 
         [OutputConstructor]
-        private ParameterValuesValueResponse(ImmutableDictionary<string, object>? value)
+        private ParameterValuesValueResponse(object? value)
         {
             Value = value;
         }

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Url;
+        public readonly object Url;
 
         [OutputConstructor]
         private WebClientCertificateAuthenticationResponse(
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> pfx,
 
-            ImmutableDictionary<string, object> url)
+            object url)
         {
             AuthenticationType = authenticationType;
             Password = password;

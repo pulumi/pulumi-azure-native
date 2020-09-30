@@ -47,7 +47,7 @@ export interface GetIntegrationAccountSessionResult {
     /**
      * The session content.
      */
-    readonly content?: {[key: string]: any};
+    readonly content?: any;
     /**
      * The created time.
      */

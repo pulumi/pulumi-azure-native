@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20170101.Outputs
         /// <summary>
         /// If the data type is categorical, this provides the list of accepted categories.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Enum;
+        public readonly ImmutableArray<object> Enum;
         /// <summary>
         /// Additional format information for the data type.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20170101.Outputs
 
         [OutputConstructor]
         private ColumnSpecificationResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> @enum,
+            ImmutableArray<object> @enum,
 
             string? format,
 

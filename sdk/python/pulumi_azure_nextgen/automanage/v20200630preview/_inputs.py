@@ -43,7 +43,7 @@ class AccountIdentityArgs:
 class ConfigurationProfilePreferenceAntiMalwareArgs:
     def __init__(__self__, *,
                  enable_real_time_protection: Optional[pulumi.Input[str]] = None,
-                 exclusions: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 exclusions: Optional[Any] = None,
                  run_scheduled_scan: Optional[pulumi.Input[str]] = None,
                  scan_day: Optional[pulumi.Input[str]] = None,
                  scan_time_in_minutes: Optional[pulumi.Input[str]] = None,
@@ -51,7 +51,7 @@ class ConfigurationProfilePreferenceAntiMalwareArgs:
         """
         Automanage configuration profile Antimalware preferences.
         :param pulumi.Input[str] enable_real_time_protection: Enables or disables Real Time Protection
-        :param pulumi.Input[Mapping[str, Any]] exclusions: Extensions, Paths and Processes that must be excluded from scan
+        :param Any exclusions: Extensions, Paths and Processes that must be excluded from scan
         :param pulumi.Input[str] run_scheduled_scan: Enables or disables a periodic scan for antimalware
         :param pulumi.Input[str] scan_day: Schedule scan settings day
         :param pulumi.Input[str] scan_time_in_minutes: Schedule scan settings time
@@ -84,14 +84,14 @@ class ConfigurationProfilePreferenceAntiMalwareArgs:
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def exclusions(self) -> Optional[Any]:
         """
         Extensions, Paths and Processes that must be excluded from scan
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def exclusions(self, value: Optional[Any]):
         pulumi.set(self, "exclusions", value)
 
     @property

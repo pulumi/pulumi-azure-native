@@ -20,12 +20,12 @@ class Blueprint(pulumi.CustomResource):
                  blueprint_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 layout: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 layout: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]]] = None,
                  resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  target_scope: Optional[pulumi.Input[str]] = None,
-                 versions: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 versions: Optional[Any] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -37,12 +37,12 @@ class Blueprint(pulumi.CustomResource):
         :param pulumi.Input[str] blueprint_name: Name of the blueprint definition.
         :param pulumi.Input[str] description: Multi-line explain this resource.
         :param pulumi.Input[str] display_name: One-liner string explain this resource.
-        :param pulumi.Input[Mapping[str, Any]] layout: Layout view of the blueprint definition for UI reference.
+        :param Any layout: Layout view of the blueprint definition for UI reference.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]] parameters: Parameters required by this blueprint definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]] resource_groups: Resource group placeholders defined by this blueprint definition.
         :param pulumi.Input[str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         :param pulumi.Input[str] target_scope: The scope where this blueprint definition can be assigned.
-        :param pulumi.Input[Mapping[str, Any]] versions: Published versions of this blueprint definition.
+        :param Any versions: Published versions of this blueprint definition.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,7 +121,7 @@ class Blueprint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def layout(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def layout(self) -> pulumi.Output[Optional[Any]]:
         """
         Layout view of the blueprint definition for UI reference.
         """
@@ -177,7 +177,7 @@ class Blueprint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def versions(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def versions(self) -> pulumi.Output[Optional[Any]]:
         """
         Published versions of this blueprint definition.
         """

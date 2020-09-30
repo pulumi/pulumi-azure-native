@@ -19,7 +19,7 @@ type ApplicationDefinition struct {
 	// The managed application provider authorizations.
 	Authorizations ApplicationProviderAuthorizationResponseArrayOutput `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition pulumi.MapOutput `pulumi:"createUiDefinition"`
+	CreateUiDefinition pulumi.AnyOutput `pulumi:"createUiDefinition"`
 	// The managed application definition description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The managed application definition display name.
@@ -33,7 +33,7 @@ type ApplicationDefinition struct {
 	// The managed application lock level.
 	LockLevel pulumi.StringOutput `pulumi:"lockLevel"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate pulumi.MapOutput `pulumi:"mainTemplate"`
+	MainTemplate pulumi.AnyOutput `pulumi:"mainTemplate"`
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
 	// Resource name
@@ -108,7 +108,7 @@ type applicationDefinitionState struct {
 	// The managed application provider authorizations.
 	Authorizations []ApplicationProviderAuthorizationResponse `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition map[string]interface{} `pulumi:"createUiDefinition"`
+	CreateUiDefinition interface{} `pulumi:"createUiDefinition"`
 	// The managed application definition description.
 	Description *string `pulumi:"description"`
 	// The managed application definition display name.
@@ -122,7 +122,7 @@ type applicationDefinitionState struct {
 	// The managed application lock level.
 	LockLevel *string `pulumi:"lockLevel"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate map[string]interface{} `pulumi:"mainTemplate"`
+	MainTemplate interface{} `pulumi:"mainTemplate"`
 	// ID of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
 	// Resource name
@@ -143,7 +143,7 @@ type ApplicationDefinitionState struct {
 	// The managed application provider authorizations.
 	Authorizations ApplicationProviderAuthorizationResponseArrayInput
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition pulumi.MapInput
+	CreateUiDefinition pulumi.Input
 	// The managed application definition description.
 	Description pulumi.StringPtrInput
 	// The managed application definition display name.
@@ -157,7 +157,7 @@ type ApplicationDefinitionState struct {
 	// The managed application lock level.
 	LockLevel pulumi.StringPtrInput
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate pulumi.MapInput
+	MainTemplate pulumi.Input
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrInput
 	// Resource name
@@ -184,7 +184,7 @@ type applicationDefinitionArgs struct {
 	// The managed application provider authorizations.
 	Authorizations []ApplicationProviderAuthorization `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition map[string]interface{} `pulumi:"createUiDefinition"`
+	CreateUiDefinition interface{} `pulumi:"createUiDefinition"`
 	// The managed application definition description.
 	Description *string `pulumi:"description"`
 	// The managed application definition display name.
@@ -198,7 +198,7 @@ type applicationDefinitionArgs struct {
 	// The managed application lock level.
 	LockLevel string `pulumi:"lockLevel"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate map[string]interface{} `pulumi:"mainTemplate"`
+	MainTemplate interface{} `pulumi:"mainTemplate"`
 	// ID of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The managed application definition package file Uri. Use this element
@@ -220,7 +220,7 @@ type ApplicationDefinitionArgs struct {
 	// The managed application provider authorizations.
 	Authorizations ApplicationProviderAuthorizationArrayInput
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition pulumi.MapInput
+	CreateUiDefinition pulumi.Input
 	// The managed application definition description.
 	Description pulumi.StringPtrInput
 	// The managed application definition display name.
@@ -234,7 +234,7 @@ type ApplicationDefinitionArgs struct {
 	// The managed application lock level.
 	LockLevel pulumi.StringInput
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate pulumi.MapInput
+	MainTemplate pulumi.Input
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrInput
 	// The managed application definition package file Uri. Use this element

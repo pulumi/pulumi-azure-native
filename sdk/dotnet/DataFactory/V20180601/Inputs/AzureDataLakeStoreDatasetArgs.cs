@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class AzureDataLakeStoreDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("fileName")]
-        private InputMap<object>? _fileName;
-
         /// <summary>
         /// The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> FileName
-        {
-            get => _fileName ?? (_fileName = new InputMap<object>());
-            set => _fileName = value;
-        }
+        [Input("fileName")]
+        public Input<object>? FileName { get; set; }
 
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -57,17 +51,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("folder")]
         public Input<Inputs.DatasetFolderArgs>? Folder { get; set; }
 
-        [Input("folderPath")]
-        private InputMap<object>? _folderPath;
-
         /// <summary>
         /// Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> FolderPath
-        {
-            get => _folderPath ?? (_folderPath = new InputMap<object>());
-            set => _folderPath = value;
-        }
+        [Input("folderPath")]
+        public Input<object>? FolderPath { get; set; }
 
         /// <summary>
         /// The format of the Data Lake Store.
@@ -93,29 +81,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
             set => _parameters = value;
         }
 
-        [Input("schema")]
-        private InputMap<object>? _schema;
-
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public InputMap<object> Schema
-        {
-            get => _schema ?? (_schema = new InputMap<object>());
-            set => _schema = value;
-        }
-
-        [Input("structure")]
-        private InputMap<object>? _structure;
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.

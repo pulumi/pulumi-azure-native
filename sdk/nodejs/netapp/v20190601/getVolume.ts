@@ -96,7 +96,7 @@ export interface GetVolumeResult {
     /**
      * Resource tags
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: any;
     /**
      * Resource type
      */

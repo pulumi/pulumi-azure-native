@@ -66,7 +66,7 @@ class GetResourceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, Any]:
+    def properties(self) -> Any:
         """
         Gets or sets the resource properties.
         """

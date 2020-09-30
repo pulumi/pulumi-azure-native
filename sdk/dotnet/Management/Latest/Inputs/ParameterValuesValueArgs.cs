@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.Management.Latest.Inputs
     /// </summary>
     public sealed class ParameterValuesValueArgs : Pulumi.ResourceArgs
     {
-        [Input("value")]
-        private InputMap<object>? _value;
-
         /// <summary>
         /// The value of the parameter.
         /// </summary>
-        public InputMap<object> Value
-        {
-            get => _value ?? (_value = new InputMap<object>());
-            set => _value = value;
-        }
+        [Input("value")]
+        public Input<object>? Value { get; set; }
 
         public ParameterValuesValueArgs()
         {

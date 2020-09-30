@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
         /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ProtectedSettings;
+        public readonly object? ProtectedSettings;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
         /// <summary>
         /// Json formatted public settings for the extension.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Settings;
+        public readonly object? Settings;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -106,13 +106,13 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
 
             string name,
 
-            ImmutableDictionary<string, object>? protectedSettings,
+            object? protectedSettings,
 
             string provisioningState,
 
             string? publisher,
 
-            ImmutableDictionary<string, object>? settings,
+            object? settings,
 
             ImmutableDictionary<string, string>? tags,
 

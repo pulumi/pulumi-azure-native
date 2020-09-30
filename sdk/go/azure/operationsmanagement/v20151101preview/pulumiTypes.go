@@ -505,7 +505,7 @@ type ManagementConfigurationProperties struct {
 	// The type of the parent resource.
 	ParentResourceType string `pulumi:"parentResourceType"`
 	// The Json object containing the ARM template to deploy
-	Template map[string]interface{} `pulumi:"template"`
+	Template interface{} `pulumi:"template"`
 }
 
 // ManagementConfigurationPropertiesInput is an input type that accepts ManagementConfigurationPropertiesArgs and ManagementConfigurationPropertiesOutput values.
@@ -528,7 +528,7 @@ type ManagementConfigurationPropertiesArgs struct {
 	// The type of the parent resource.
 	ParentResourceType pulumi.StringInput `pulumi:"parentResourceType"`
 	// The Json object containing the ARM template to deploy
-	Template pulumi.MapInput `pulumi:"template"`
+	Template pulumi.Input `pulumi:"template"`
 }
 
 func (ManagementConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -625,8 +625,8 @@ func (o ManagementConfigurationPropertiesOutput) ParentResourceType() pulumi.Str
 }
 
 // The Json object containing the ARM template to deploy
-func (o ManagementConfigurationPropertiesOutput) Template() pulumi.MapOutput {
-	return o.ApplyT(func(v ManagementConfigurationProperties) map[string]interface{} { return v.Template }).(pulumi.MapOutput)
+func (o ManagementConfigurationPropertiesOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v ManagementConfigurationProperties) interface{} { return v.Template }).(pulumi.AnyOutput)
 }
 
 type ManagementConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -678,13 +678,13 @@ func (o ManagementConfigurationPropertiesPtrOutput) ParentResourceType() pulumi.
 }
 
 // The Json object containing the ARM template to deploy
-func (o ManagementConfigurationPropertiesPtrOutput) Template() pulumi.MapOutput {
-	return o.ApplyT(func(v *ManagementConfigurationProperties) map[string]interface{} {
+func (o ManagementConfigurationPropertiesPtrOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ManagementConfigurationProperties) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Template
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // ManagementConfiguration properties supported by the OperationsManagement resource provider.
@@ -698,7 +698,7 @@ type ManagementConfigurationPropertiesResponse struct {
 	// The provisioning state for the ManagementConfiguration.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The Json object containing the ARM template to deploy
-	Template map[string]interface{} `pulumi:"template"`
+	Template interface{} `pulumi:"template"`
 }
 
 // ManagementConfigurationPropertiesResponseInput is an input type that accepts ManagementConfigurationPropertiesResponseArgs and ManagementConfigurationPropertiesResponseOutput values.
@@ -723,7 +723,7 @@ type ManagementConfigurationPropertiesResponseArgs struct {
 	// The provisioning state for the ManagementConfiguration.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The Json object containing the ARM template to deploy
-	Template pulumi.MapInput `pulumi:"template"`
+	Template pulumi.Input `pulumi:"template"`
 }
 
 func (ManagementConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
@@ -825,8 +825,8 @@ func (o ManagementConfigurationPropertiesResponseOutput) ProvisioningState() pul
 }
 
 // The Json object containing the ARM template to deploy
-func (o ManagementConfigurationPropertiesResponseOutput) Template() pulumi.MapOutput {
-	return o.ApplyT(func(v ManagementConfigurationPropertiesResponse) map[string]interface{} { return v.Template }).(pulumi.MapOutput)
+func (o ManagementConfigurationPropertiesResponseOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v ManagementConfigurationPropertiesResponse) interface{} { return v.Template }).(pulumi.AnyOutput)
 }
 
 type ManagementConfigurationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -890,13 +890,13 @@ func (o ManagementConfigurationPropertiesResponsePtrOutput) ProvisioningState() 
 }
 
 // The Json object containing the ARM template to deploy
-func (o ManagementConfigurationPropertiesResponsePtrOutput) Template() pulumi.MapOutput {
-	return o.ApplyT(func(v *ManagementConfigurationPropertiesResponse) map[string]interface{} {
+func (o ManagementConfigurationPropertiesResponsePtrOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ManagementConfigurationPropertiesResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Template
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Plan for solution object supported by the OperationsManagement resource provider.

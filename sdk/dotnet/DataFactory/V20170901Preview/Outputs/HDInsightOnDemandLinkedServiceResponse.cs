@@ -20,11 +20,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ClusterNamePrefix;
+        public readonly object? ClusterNamePrefix;
         /// <summary>
         /// The password to access the cluster.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The resource group where the cluster belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ClusterResourceGroup;
+        public readonly object ClusterResourceGroup;
         /// <summary>
         /// Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ClusterSize;
+        public readonly object ClusterSize;
         /// <summary>
         /// The password to SSH remotely connect cluster’s node (for Linux).
         /// </summary>
@@ -44,15 +44,15 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ClusterSshUserName;
+        public readonly object? ClusterSshUserName;
         /// <summary>
         /// The cluster type. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ClusterType;
+        public readonly object? ClusterType;
         /// <summary>
         /// The username to access the cluster. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ClusterUserName;
+        public readonly object? ClusterUserName;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? CoreConfiguration;
+        public readonly object? CoreConfiguration;
         /// <summary>
         /// Specifies the size of the data node for the HDInsight cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? DataNodeSize;
+        public readonly object? DataNodeSize;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -72,11 +72,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? HBaseConfiguration;
+        public readonly object? HBaseConfiguration;
         /// <summary>
         /// The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
         /// </summary>
@@ -84,19 +84,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? HdfsConfiguration;
+        public readonly object? HdfsConfiguration;
         /// <summary>
         /// Specifies the size of the head node for the HDInsight cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? HeadNodeSize;
+        public readonly object? HeadNodeSize;
         /// <summary>
         /// Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? HiveConfiguration;
+        public readonly object? HiveConfiguration;
         /// <summary>
         /// The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> HostSubscriptionId;
+        public readonly object HostSubscriptionId;
         /// <summary>
         /// Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
         /// </summary>
@@ -104,11 +104,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? MapReduceConfiguration;
+        public readonly object? MapReduceConfiguration;
         /// <summary>
         /// Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? OozieConfiguration;
+        public readonly object? OozieConfiguration;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ServicePrincipalId;
+        public readonly object? ServicePrincipalId;
         /// <summary>
         /// The key for the service principal id.
         /// </summary>
@@ -124,19 +124,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SparkVersion;
+        public readonly object? SparkVersion;
         /// <summary>
         /// Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? StormConfiguration;
+        public readonly object? StormConfiguration;
         /// <summary>
         /// The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tenant;
+        public readonly object Tenant;
         /// <summary>
         /// The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> TimeToLive;
+        public readonly object TimeToLive;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -144,87 +144,87 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Version;
+        public readonly object Version;
         /// <summary>
         /// Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? YarnConfiguration;
+        public readonly object? YarnConfiguration;
         /// <summary>
         /// Specifies the size of the Zoo Keeper node for the HDInsight cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ZookeeperNodeSize;
+        public readonly object? ZookeeperNodeSize;
 
         [OutputConstructor]
         private HDInsightOnDemandLinkedServiceResponse(
             ImmutableArray<Outputs.LinkedServiceReferenceResponse> additionalLinkedServiceNames,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object>? clusterNamePrefix,
+            object? clusterNamePrefix,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clusterPassword,
 
-            ImmutableDictionary<string, object> clusterResourceGroup,
+            object clusterResourceGroup,
 
-            ImmutableDictionary<string, object> clusterSize,
+            object clusterSize,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clusterSshPassword,
 
-            ImmutableDictionary<string, object>? clusterSshUserName,
+            object? clusterSshUserName,
 
-            ImmutableDictionary<string, object>? clusterType,
+            object? clusterType,
 
-            ImmutableDictionary<string, object>? clusterUserName,
+            object? clusterUserName,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            ImmutableDictionary<string, object>? coreConfiguration,
+            object? coreConfiguration,
 
-            ImmutableDictionary<string, object>? dataNodeSize,
+            object? dataNodeSize,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? hBaseConfiguration,
+            object? hBaseConfiguration,
 
             Outputs.LinkedServiceReferenceResponse? hcatalogLinkedServiceName,
 
-            ImmutableDictionary<string, object>? hdfsConfiguration,
+            object? hdfsConfiguration,
 
-            ImmutableDictionary<string, object>? headNodeSize,
+            object? headNodeSize,
 
-            ImmutableDictionary<string, object>? hiveConfiguration,
+            object? hiveConfiguration,
 
-            ImmutableDictionary<string, object> hostSubscriptionId,
+            object hostSubscriptionId,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
-            ImmutableDictionary<string, object>? mapReduceConfiguration,
+            object? mapReduceConfiguration,
 
-            ImmutableDictionary<string, object>? oozieConfiguration,
+            object? oozieConfiguration,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? servicePrincipalId,
+            object? servicePrincipalId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
 
-            ImmutableDictionary<string, object>? sparkVersion,
+            object? sparkVersion,
 
-            ImmutableDictionary<string, object>? stormConfiguration,
+            object? stormConfiguration,
 
-            ImmutableDictionary<string, object> tenant,
+            object tenant,
 
-            ImmutableDictionary<string, object> timeToLive,
+            object timeToLive,
 
             string type,
 
-            ImmutableDictionary<string, object> version,
+            object version,
 
-            ImmutableDictionary<string, object>? yarnConfiguration,
+            object? yarnConfiguration,
 
-            ImmutableDictionary<string, object>? zookeeperNodeSize)
+            object? zookeeperNodeSize)
         {
             AdditionalLinkedServiceNames = additionalLinkedServiceNames;
             Annotations = annotations;

@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Resources.V20160201
         /// The resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the resource.
@@ -172,17 +172,11 @@ namespace Pulumi.AzureNextGen.Resources.V20160201
         [Input("plan")]
         public Input<Inputs.PlanArgs>? Plan { get; set; }
 
-        [Input("properties")]
-        private InputMap<object>? _properties;
-
         /// <summary>
         /// The resource properties.
         /// </summary>
-        public InputMap<object> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
-        }
+        [Input("properties")]
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

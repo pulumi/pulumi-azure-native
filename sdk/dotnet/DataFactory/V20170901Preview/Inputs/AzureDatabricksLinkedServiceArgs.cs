@@ -22,14 +22,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> AccessToken { get; set; } = null!;
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -45,89 +45,53 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("domain", required: true)]
-        private InputMap<object>? _domain;
-
         /// <summary>
         /// &lt;REGION&gt;.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Domain
-        {
-            get => _domain ?? (_domain = new InputMap<object>());
-            set => _domain = value;
-        }
-
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
+        [Input("domain", required: true)]
+        public Input<object> Domain { get; set; } = null!;
 
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("existingClusterId")]
-        private InputMap<object>? _existingClusterId;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ExistingClusterId
-        {
-            get => _existingClusterId ?? (_existingClusterId = new InputMap<object>());
-            set => _existingClusterId = value;
-        }
-
-        [Input("newClusterNodeType")]
-        private InputMap<object>? _newClusterNodeType;
+        [Input("existingClusterId")]
+        public Input<object>? ExistingClusterId { get; set; }
 
         /// <summary>
         /// The node types of new cluster. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NewClusterNodeType
-        {
-            get => _newClusterNodeType ?? (_newClusterNodeType = new InputMap<object>());
-            set => _newClusterNodeType = value;
-        }
-
-        [Input("newClusterNumOfWorker")]
-        private InputMap<object>? _newClusterNumOfWorker;
+        [Input("newClusterNodeType")]
+        public Input<object>? NewClusterNodeType { get; set; }
 
         /// <summary>
         /// Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NewClusterNumOfWorker
-        {
-            get => _newClusterNumOfWorker ?? (_newClusterNumOfWorker = new InputMap<object>());
-            set => _newClusterNumOfWorker = value;
-        }
+        [Input("newClusterNumOfWorker")]
+        public Input<object>? NewClusterNumOfWorker { get; set; }
 
         [Input("newClusterSparkConf")]
-        private InputMap<ImmutableDictionary<string, object>>? _newClusterSparkConf;
+        private InputMap<object>? _newClusterSparkConf;
 
         /// <summary>
         /// a set of optional, user-specified Spark configuration key-value pairs.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> NewClusterSparkConf
+        public InputMap<object> NewClusterSparkConf
         {
-            get => _newClusterSparkConf ?? (_newClusterSparkConf = new InputMap<ImmutableDictionary<string, object>>());
+            get => _newClusterSparkConf ?? (_newClusterSparkConf = new InputMap<object>());
             set => _newClusterSparkConf = value;
         }
-
-        [Input("newClusterVersion")]
-        private InputMap<object>? _newClusterVersion;
 
         /// <summary>
         /// The Spark version of new cluster. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NewClusterVersion
-        {
-            get => _newClusterVersion ?? (_newClusterVersion = new InputMap<object>());
-            set => _newClusterVersion = value;
-        }
+        [Input("newClusterVersion")]
+        public Input<object>? NewClusterVersion { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

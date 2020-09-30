@@ -107,7 +107,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter
-    def definition(self) -> Optional[Mapping[str, Any]]:
+    def definition(self) -> Optional[Any]:
         """
         The definition.
         """

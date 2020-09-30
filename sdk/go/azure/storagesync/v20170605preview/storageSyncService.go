@@ -23,7 +23,7 @@ type StorageSyncService struct {
 	// Storage Sync service Uid
 	StorageSyncServiceUid pulumi.StringOutput `pulumi:"storageSyncServiceUid"`
 	// The tags of the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// The type of the resource
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -104,7 +104,7 @@ type storageSyncServiceState struct {
 	// Storage Sync service Uid
 	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
 	// The tags of the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// The type of the resource
 	Type *string `pulumi:"type"`
 }
@@ -119,7 +119,7 @@ type StorageSyncServiceState struct {
 	// Storage Sync service Uid
 	StorageSyncServiceUid pulumi.StringPtrInput
 	// The tags of the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 	// The type of the resource
 	Type pulumi.StringPtrInput
 }
@@ -136,7 +136,7 @@ type storageSyncServiceArgs struct {
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 	// The tags of the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageSyncService resource.
@@ -148,7 +148,7 @@ type StorageSyncServiceArgs struct {
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName pulumi.StringInput
 	// The tags of the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 }
 
 func (StorageSyncServiceArgs) ElementType() reflect.Type {

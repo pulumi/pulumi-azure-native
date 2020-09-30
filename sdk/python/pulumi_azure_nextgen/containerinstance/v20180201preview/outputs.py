@@ -894,14 +894,14 @@ class VolumeResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  azure_file: Optional['outputs.AzureFileVolumeResponse'] = None,
-                 empty_dir: Optional[Mapping[str, Any]] = None,
+                 empty_dir: Optional[Any] = None,
                  git_repo: Optional['outputs.GitRepoVolumeResponse'] = None,
                  secret: Optional[Mapping[str, str]] = None):
         """
         The properties of the volume.
         :param str name: The name of the volume.
         :param 'AzureFileVolumeResponseArgs' azure_file: The Azure File volume.
-        :param Mapping[str, Any] empty_dir: The empty directory volume.
+        :param Any empty_dir: The empty directory volume.
         :param 'GitRepoVolumeResponseArgs' git_repo: The git repo volume.
         :param Mapping[str, str] secret: The secret volume.
         """
@@ -933,7 +933,7 @@ class VolumeResponse(dict):
 
     @property
     @pulumi.getter(name="emptyDir")
-    def empty_dir(self) -> Optional[Mapping[str, Any]]:
+    def empty_dir(self) -> Optional[Any]:
         """
         The empty directory volume.
         """

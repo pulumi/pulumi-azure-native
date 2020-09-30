@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     /// </summary>
     public sealed class ODataLinkedServiceArgs : Pulumi.ResourceArgs
     {
-        [Input("aadResourceId")]
-        private InputMap<object>? _aadResourceId;
-
         /// <summary>
         /// Specify the resource you are requesting authorization to use Directory. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AadResourceId
-        {
-            get => _aadResourceId ?? (_aadResourceId = new InputMap<object>());
-            set => _aadResourceId = value;
-        }
+        [Input("aadResourceId")]
+        public Input<object>? AadResourceId { get; set; }
 
         /// <summary>
         /// Specify the credential type (key or cert) is used for service principal.
@@ -34,14 +28,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         public Input<string>? AadServicePrincipalCredentialType { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -51,17 +45,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
 
-        [Input("azureCloudType")]
-        private InputMap<object>? _azureCloudType;
-
         /// <summary>
         /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AzureCloudType
-        {
-            get => _azureCloudType ?? (_azureCloudType = new InputMap<object>());
-            set => _azureCloudType = value;
-        }
+        [Input("azureCloudType")]
+        public Input<object>? AzureCloudType { get; set; }
 
         /// <summary>
         /// The integration runtime reference.
@@ -75,17 +63,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -117,17 +99,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("servicePrincipalEmbeddedCertPassword")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalEmbeddedCertPassword { get; set; }
 
-        [Input("servicePrincipalId")]
-        private InputMap<object>? _servicePrincipalId;
-
         /// <summary>
         /// Specify the application id of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ServicePrincipalId
-        {
-            get => _servicePrincipalId ?? (_servicePrincipalId = new InputMap<object>());
-            set => _servicePrincipalId = value;
-        }
+        [Input("servicePrincipalId")]
+        public Input<object>? ServicePrincipalId { get; set; }
 
         /// <summary>
         /// Specify the secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
@@ -135,17 +111,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("servicePrincipalKey")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
 
-        [Input("tenant")]
-        private InputMap<object>? _tenant;
-
         /// <summary>
         /// Specify the tenant information (domain name or tenant ID) under which your application resides. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Tenant
-        {
-            get => _tenant ?? (_tenant = new InputMap<object>());
-            set => _tenant = value;
-        }
+        [Input("tenant")]
+        public Input<object>? Tenant { get; set; }
 
         /// <summary>
         /// Type of linked service.
@@ -153,29 +123,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("url", required: true)]
-        private InputMap<object>? _url;
-
         /// <summary>
         /// The URL of the OData service endpoint. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Url
-        {
-            get => _url ?? (_url = new InputMap<object>());
-            set => _url = value;
-        }
-
-        [Input("userName")]
-        private InputMap<object>? _userName;
+        [Input("url", required: true)]
+        public Input<object> Url { get; set; } = null!;
 
         /// <summary>
         /// User name of the OData service. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> UserName
-        {
-            get => _userName ?? (_userName = new InputMap<object>());
-            set => _userName = value;
-        }
+        [Input("userName")]
+        public Input<object>? UserName { get; set; }
 
         public ODataLinkedServiceArgs()
         {

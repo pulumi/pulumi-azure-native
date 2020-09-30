@@ -88,6 +88,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160331
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly object? Ts;
+        /// <summary>
         /// The type of Azure resource.
         /// </summary>
         public readonly string Type;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160331
 
             ImmutableDictionary<string, string>? tags,
 
+            object? ts,
+
             string type,
 
             Outputs.UniqueKeyPolicyResponse? uniqueKeyPolicy)
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160331
             PartitionKey = partitionKey;
             Rid = rid;
             Tags = tags;
+            Ts = ts;
             Type = type;
             UniqueKeyPolicy = uniqueKeyPolicy;
         }

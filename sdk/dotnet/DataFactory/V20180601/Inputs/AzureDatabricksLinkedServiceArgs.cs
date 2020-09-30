@@ -22,14 +22,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> AccessToken { get; set; } = null!;
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -45,173 +45,107 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("domain", required: true)]
-        private InputMap<object>? _domain;
-
         /// <summary>
         /// &lt;REGION&gt;.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Domain
-        {
-            get => _domain ?? (_domain = new InputMap<object>());
-            set => _domain = value;
-        }
-
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
+        [Input("domain", required: true)]
+        public Input<object> Domain { get; set; } = null!;
 
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("existingClusterId")]
-        private InputMap<object>? _existingClusterId;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The id of an existing interactive cluster that will be used for all runs of this activity. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ExistingClusterId
-        {
-            get => _existingClusterId ?? (_existingClusterId = new InputMap<object>());
-            set => _existingClusterId = value;
-        }
-
-        [Input("instancePoolId")]
-        private InputMap<object>? _instancePoolId;
+        [Input("existingClusterId")]
+        public Input<object>? ExistingClusterId { get; set; }
 
         /// <summary>
         /// The id of an existing instance pool that will be used for all runs of this activity. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> InstancePoolId
-        {
-            get => _instancePoolId ?? (_instancePoolId = new InputMap<object>());
-            set => _instancePoolId = value;
-        }
+        [Input("instancePoolId")]
+        public Input<object>? InstancePoolId { get; set; }
 
         [Input("newClusterCustomTags")]
-        private InputMap<ImmutableDictionary<string, object>>? _newClusterCustomTags;
+        private InputMap<object>? _newClusterCustomTags;
 
         /// <summary>
         /// Additional tags for cluster resources. This property is ignored in instance pool configurations.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> NewClusterCustomTags
+        public InputMap<object> NewClusterCustomTags
         {
-            get => _newClusterCustomTags ?? (_newClusterCustomTags = new InputMap<ImmutableDictionary<string, object>>());
+            get => _newClusterCustomTags ?? (_newClusterCustomTags = new InputMap<object>());
             set => _newClusterCustomTags = value;
         }
-
-        [Input("newClusterDriverNodeType")]
-        private InputMap<object>? _newClusterDriverNodeType;
 
         /// <summary>
         /// The driver node type for the new job cluster. This property is ignored in instance pool configurations. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NewClusterDriverNodeType
-        {
-            get => _newClusterDriverNodeType ?? (_newClusterDriverNodeType = new InputMap<object>());
-            set => _newClusterDriverNodeType = value;
-        }
-
-        [Input("newClusterEnableElasticDisk")]
-        private InputMap<object>? _newClusterEnableElasticDisk;
+        [Input("newClusterDriverNodeType")]
+        public Input<object>? NewClusterDriverNodeType { get; set; }
 
         /// <summary>
         /// Enable the elastic disk on the new cluster. This property is now ignored, and takes the default elastic disk behavior in Databricks (elastic disks are always enabled). Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public InputMap<object> NewClusterEnableElasticDisk
-        {
-            get => _newClusterEnableElasticDisk ?? (_newClusterEnableElasticDisk = new InputMap<object>());
-            set => _newClusterEnableElasticDisk = value;
-        }
-
-        [Input("newClusterInitScripts")]
-        private InputMap<object>? _newClusterInitScripts;
+        [Input("newClusterEnableElasticDisk")]
+        public Input<object>? NewClusterEnableElasticDisk { get; set; }
 
         /// <summary>
         /// User-defined initialization scripts for the new cluster. Type: array of strings (or Expression with resultType array of strings).
         /// </summary>
-        public InputMap<object> NewClusterInitScripts
-        {
-            get => _newClusterInitScripts ?? (_newClusterInitScripts = new InputMap<object>());
-            set => _newClusterInitScripts = value;
-        }
-
-        [Input("newClusterLogDestination")]
-        private InputMap<object>? _newClusterLogDestination;
+        [Input("newClusterInitScripts")]
+        public Input<object>? NewClusterInitScripts { get; set; }
 
         /// <summary>
         /// Specify a location to deliver Spark driver, worker, and event logs. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NewClusterLogDestination
-        {
-            get => _newClusterLogDestination ?? (_newClusterLogDestination = new InputMap<object>());
-            set => _newClusterLogDestination = value;
-        }
-
-        [Input("newClusterNodeType")]
-        private InputMap<object>? _newClusterNodeType;
+        [Input("newClusterLogDestination")]
+        public Input<object>? NewClusterLogDestination { get; set; }
 
         /// <summary>
         /// The node type of the new job cluster. This property is required if newClusterVersion is specified and instancePoolId is not specified. If instancePoolId is specified, this property is ignored. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NewClusterNodeType
-        {
-            get => _newClusterNodeType ?? (_newClusterNodeType = new InputMap<object>());
-            set => _newClusterNodeType = value;
-        }
-
-        [Input("newClusterNumOfWorker")]
-        private InputMap<object>? _newClusterNumOfWorker;
+        [Input("newClusterNodeType")]
+        public Input<object>? NewClusterNodeType { get; set; }
 
         /// <summary>
         /// If not using an existing interactive cluster, this specifies the number of worker nodes to use for the new job cluster or instance pool. For new job clusters, this a string-formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 (min) to 10 (max). For instance pools, this is a string-formatted Int32, and can only specify a fixed number of worker nodes, such as '2'. Required if newClusterVersion is specified. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NewClusterNumOfWorker
-        {
-            get => _newClusterNumOfWorker ?? (_newClusterNumOfWorker = new InputMap<object>());
-            set => _newClusterNumOfWorker = value;
-        }
+        [Input("newClusterNumOfWorker")]
+        public Input<object>? NewClusterNumOfWorker { get; set; }
 
         [Input("newClusterSparkConf")]
-        private InputMap<ImmutableDictionary<string, object>>? _newClusterSparkConf;
+        private InputMap<object>? _newClusterSparkConf;
 
         /// <summary>
         /// A set of optional, user-specified Spark configuration key-value pairs.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> NewClusterSparkConf
+        public InputMap<object> NewClusterSparkConf
         {
-            get => _newClusterSparkConf ?? (_newClusterSparkConf = new InputMap<ImmutableDictionary<string, object>>());
+            get => _newClusterSparkConf ?? (_newClusterSparkConf = new InputMap<object>());
             set => _newClusterSparkConf = value;
         }
 
         [Input("newClusterSparkEnvVars")]
-        private InputMap<ImmutableDictionary<string, object>>? _newClusterSparkEnvVars;
+        private InputMap<object>? _newClusterSparkEnvVars;
 
         /// <summary>
         /// A set of optional, user-specified Spark environment variables key-value pairs.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> NewClusterSparkEnvVars
+        public InputMap<object> NewClusterSparkEnvVars
         {
-            get => _newClusterSparkEnvVars ?? (_newClusterSparkEnvVars = new InputMap<ImmutableDictionary<string, object>>());
+            get => _newClusterSparkEnvVars ?? (_newClusterSparkEnvVars = new InputMap<object>());
             set => _newClusterSparkEnvVars = value;
         }
-
-        [Input("newClusterVersion")]
-        private InputMap<object>? _newClusterVersion;
 
         /// <summary>
         /// If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NewClusterVersion
-        {
-            get => _newClusterVersion ?? (_newClusterVersion = new InputMap<object>());
-            set => _newClusterVersion = value;
-        }
+        [Input("newClusterVersion")]
+        public Input<object>? NewClusterVersion { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

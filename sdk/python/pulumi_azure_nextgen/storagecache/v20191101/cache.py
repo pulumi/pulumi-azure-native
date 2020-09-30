@@ -24,7 +24,7 @@ class Cache(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['CacheSkuArgs']]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 tags: Optional[Any] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,7 +40,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Target resource group.
         :param pulumi.Input[pulumi.InputType['CacheSkuArgs']] sku: SKU for the Cache.
         :param pulumi.Input[str] subnet: Subnet used for the Cache.
-        :param pulumi.Input[Mapping[str, Any]] tags: ARM tags as name/value pairs.
+        :param Any tags: ARM tags as name/value pairs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -168,7 +168,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         """
         ARM tags as name/value pairs.
         """

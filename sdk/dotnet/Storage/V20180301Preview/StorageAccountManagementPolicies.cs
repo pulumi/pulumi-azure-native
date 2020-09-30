@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
         /// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         /// </summary>
         [Output("policy")]
-        public Output<ImmutableDictionary<string, object>?> Policy { get; private set; } = null!;
+        public Output<object?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -103,17 +103,11 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
         [Input("managementPolicyName", required: true)]
         public Input<string> ManagementPolicyName { get; set; } = null!;
 
-        [Input("policy")]
-        private InputMap<object>? _policy;
-
         /// <summary>
         /// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         /// </summary>
-        public InputMap<object> Policy
-        {
-            get => _policy ?? (_policy = new InputMap<object>());
-            set => _policy = value;
-        }
+        [Input("policy")]
+        public Input<object>? Policy { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

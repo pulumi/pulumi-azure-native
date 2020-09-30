@@ -55,7 +55,7 @@ export class VirtualNetworkFunction extends pulumi.CustomResource {
     /**
      * The parameters for the managed application.
      */
-    public readonly managedApplicationParameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly managedApplicationParameters!: pulumi.Output<any | undefined>;
     /**
      * Resource name.
      */
@@ -177,7 +177,7 @@ export interface VirtualNetworkFunctionArgs {
     /**
      * The parameters for the managed application.
      */
-    readonly managedApplicationParameters?: pulumi.Input<{[key: string]: any}>;
+    readonly managedApplicationParameters?: any;
     /**
      * The name of the resource group.
      */

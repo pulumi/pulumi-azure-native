@@ -34,7 +34,7 @@ class ListConnectionKeysResult:
 
     @property
     @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def parameter_values(self) -> Optional[Mapping[str, Any]]:
         """
         Tokens/Claim
         """

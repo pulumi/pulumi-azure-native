@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
     public sealed class FileShareDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,41 +39,23 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("fileFilter")]
-        private InputMap<object>? _fileFilter;
-
         /// <summary>
         /// Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> FileFilter
-        {
-            get => _fileFilter ?? (_fileFilter = new InputMap<object>());
-            set => _fileFilter = value;
-        }
-
-        [Input("fileName")]
-        private InputMap<object>? _fileName;
+        [Input("fileFilter")]
+        public Input<object>? FileFilter { get; set; }
 
         /// <summary>
         /// The name of the on-premises file system. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> FileName
-        {
-            get => _fileName ?? (_fileName = new InputMap<object>());
-            set => _fileName = value;
-        }
-
-        [Input("folderPath")]
-        private InputMap<object>? _folderPath;
+        [Input("fileName")]
+        public Input<object>? FileName { get; set; }
 
         /// <summary>
         /// The path of the on-premises file system. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> FolderPath
-        {
-            get => _folderPath ?? (_folderPath = new InputMap<object>());
-            set => _folderPath = value;
-        }
+        [Input("folderPath")]
+        public Input<object>? FolderPath { get; set; }
 
         /// <summary>
         /// The format of the files.
@@ -99,17 +81,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
             set => _parameters = value;
         }
 
-        [Input("structure")]
-        private InputMap<object>? _structure;
-
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.

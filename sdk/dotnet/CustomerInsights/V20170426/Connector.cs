@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// The connector properties.
         /// </summary>
         [Output("connectorProperties")]
-        public Output<ImmutableDictionary<string, ImmutableDictionary<string, object>>> ConnectorProperties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>> ConnectorProperties { get; private set; } = null!;
 
         /// <summary>
         /// Type of connector.
@@ -149,14 +149,14 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         public Input<string> ConnectorName { get; set; } = null!;
 
         [Input("connectorProperties", required: true)]
-        private InputMap<ImmutableDictionary<string, object>>? _connectorProperties;
+        private InputMap<object>? _connectorProperties;
 
         /// <summary>
         /// The connector properties.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> ConnectorProperties
+        public InputMap<object> ConnectorProperties
         {
-            get => _connectorProperties ?? (_connectorProperties = new InputMap<ImmutableDictionary<string, object>>());
+            get => _connectorProperties ?? (_connectorProperties = new InputMap<object>());
             set => _connectorProperties = value;
         }
 

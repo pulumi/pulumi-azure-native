@@ -17,7 +17,7 @@ class StorageAccountManagementPolicies(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  management_policy_name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 policy: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -29,7 +29,7 @@ class StorageAccountManagementPolicies(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
-        :param pulumi.Input[Mapping[str, Any]] policy: The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param Any policy: The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
         if __name__ is not None:
@@ -106,7 +106,7 @@ class StorageAccountManagementPolicies(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """

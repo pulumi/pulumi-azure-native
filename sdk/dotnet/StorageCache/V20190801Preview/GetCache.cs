@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
         /// <summary>
         /// ARM tags as name/value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly object? Tags;
         /// <summary>
         /// Type for the cache; Microsoft.StorageCache/Cache
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
 
             string? subnet,
 
-            ImmutableDictionary<string, object>? tags,
+            object? tags,
 
             string type,
 

@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// Workspace level configs and feature flags
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>> ExtraProperties;
+        public readonly ImmutableDictionary<string, object> ExtraProperties;
         /// <summary>
         /// Identity of the workspace
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             Outputs.DataLakeStorageAccountDetailsResponse? defaultDataLakeStorage,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>> extraProperties,
+            ImmutableDictionary<string, object> extraProperties,
 
             Outputs.ManagedIdentityResponse? identity,
 

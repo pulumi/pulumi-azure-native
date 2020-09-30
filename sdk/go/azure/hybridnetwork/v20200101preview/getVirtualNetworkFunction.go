@@ -34,7 +34,7 @@ type LookupVirtualNetworkFunctionResult struct {
 	// The resource URI of the managed application.
 	ManagedApplication SubResourceResponse `pulumi:"managedApplication"`
 	// The parameters for the managed application.
-	ManagedApplicationParameters map[string]interface{} `pulumi:"managedApplicationParameters"`
+	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state of the hybrid network virtual network function resource.

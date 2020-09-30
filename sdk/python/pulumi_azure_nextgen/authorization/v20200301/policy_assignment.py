@@ -22,7 +22,7 @@ class PolicyAssignment(pulumi.CustomResource):
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValuesValueArgs']]]]] = None,
                  policy_assignment_name: Optional[pulumi.Input[str]] = None,
@@ -42,7 +42,7 @@ class PolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] enforcement_mode: The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The managed identity associated with the policy assignment.
         :param pulumi.Input[str] location: The location of the policy assignment. Only required when utilizing managed identity.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        :param Any metadata: The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: The policy's excluded scopes.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValuesValueArgs']]]] parameters: The parameter values for the assigned policy rule. The keys are the parameter names.
         :param pulumi.Input[str] policy_assignment_name: The name of the policy assignment.
@@ -153,7 +153,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         """

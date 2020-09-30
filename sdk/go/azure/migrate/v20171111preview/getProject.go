@@ -46,7 +46,7 @@ type LookupProjectResult struct {
 	// Provisioning state of the project.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Tags provided by Azure Tagging service.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Type of the object = [Microsoft.Migrate/projects].
 	Type string `pulumi:"type"`
 	// Time when this project was last updated. Date-Time represented in ISO-8601 format.

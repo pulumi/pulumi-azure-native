@@ -22,17 +22,11 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview.Inputs
         [Input("extensionName", required: true)]
         public Input<string> ExtensionName { get; set; } = null!;
 
-        [Input("extensionSettings")]
-        private InputMap<object>? _extensionSettings;
-
         /// <summary>
         /// The extension settings. The format is specific for particular extension.
         /// </summary>
-        public InputMap<object> ExtensionSettings
-        {
-            get => _extensionSettings ?? (_extensionSettings = new InputMap<object>());
-            set => _extensionSettings = value;
-        }
+        [Input("extensionSettings")]
+        public Input<object>? ExtensionSettings { get; set; }
 
         /// <summary>
         /// A friendly name for the data source. 

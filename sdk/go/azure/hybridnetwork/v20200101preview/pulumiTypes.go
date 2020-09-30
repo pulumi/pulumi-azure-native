@@ -1606,9 +1606,9 @@ type VirtualNetworkFunctionRoleConfiguration struct {
 	// Role type.
 	RoleType *string `pulumi:"roleType"`
 	// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-	UserDataParameters map[string]interface{} `pulumi:"userDataParameters"`
+	UserDataParameters interface{} `pulumi:"userDataParameters"`
 	// The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
-	UserDataTemplate map[string]interface{} `pulumi:"userDataTemplate"`
+	UserDataTemplate interface{} `pulumi:"userDataTemplate"`
 	// The size of the virtual machine.
 	VirtualMachineSize *string `pulumi:"virtualMachineSize"`
 }
@@ -1637,9 +1637,9 @@ type VirtualNetworkFunctionRoleConfigurationArgs struct {
 	// Role type.
 	RoleType pulumi.StringPtrInput `pulumi:"roleType"`
 	// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-	UserDataParameters pulumi.MapInput `pulumi:"userDataParameters"`
+	UserDataParameters pulumi.Input `pulumi:"userDataParameters"`
 	// The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
-	UserDataTemplate pulumi.MapInput `pulumi:"userDataTemplate"`
+	UserDataTemplate pulumi.Input `pulumi:"userDataTemplate"`
 	// The size of the virtual machine.
 	VirtualMachineSize pulumi.StringPtrInput `pulumi:"virtualMachineSize"`
 }
@@ -1722,13 +1722,13 @@ func (o VirtualNetworkFunctionRoleConfigurationOutput) RoleType() pulumi.StringP
 }
 
 // The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-func (o VirtualNetworkFunctionRoleConfigurationOutput) UserDataParameters() pulumi.MapOutput {
-	return o.ApplyT(func(v VirtualNetworkFunctionRoleConfiguration) map[string]interface{} { return v.UserDataParameters }).(pulumi.MapOutput)
+func (o VirtualNetworkFunctionRoleConfigurationOutput) UserDataParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v VirtualNetworkFunctionRoleConfiguration) interface{} { return v.UserDataParameters }).(pulumi.AnyOutput)
 }
 
 // The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
-func (o VirtualNetworkFunctionRoleConfigurationOutput) UserDataTemplate() pulumi.MapOutput {
-	return o.ApplyT(func(v VirtualNetworkFunctionRoleConfiguration) map[string]interface{} { return v.UserDataTemplate }).(pulumi.MapOutput)
+func (o VirtualNetworkFunctionRoleConfigurationOutput) UserDataTemplate() pulumi.AnyOutput {
+	return o.ApplyT(func(v VirtualNetworkFunctionRoleConfiguration) interface{} { return v.UserDataTemplate }).(pulumi.AnyOutput)
 }
 
 // The size of the virtual machine.
@@ -1769,9 +1769,9 @@ type VirtualNetworkFunctionRoleConfigurationResponse struct {
 	// Role type.
 	RoleType *string `pulumi:"roleType"`
 	// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-	UserDataParameters map[string]interface{} `pulumi:"userDataParameters"`
+	UserDataParameters interface{} `pulumi:"userDataParameters"`
 	// The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
-	UserDataTemplate map[string]interface{} `pulumi:"userDataTemplate"`
+	UserDataTemplate interface{} `pulumi:"userDataTemplate"`
 	// The size of the virtual machine.
 	VirtualMachineSize *string `pulumi:"virtualMachineSize"`
 }
@@ -1800,9 +1800,9 @@ type VirtualNetworkFunctionRoleConfigurationResponseArgs struct {
 	// Role type.
 	RoleType pulumi.StringPtrInput `pulumi:"roleType"`
 	// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-	UserDataParameters pulumi.MapInput `pulumi:"userDataParameters"`
+	UserDataParameters pulumi.Input `pulumi:"userDataParameters"`
 	// The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
-	UserDataTemplate pulumi.MapInput `pulumi:"userDataTemplate"`
+	UserDataTemplate pulumi.Input `pulumi:"userDataTemplate"`
 	// The size of the virtual machine.
 	VirtualMachineSize pulumi.StringPtrInput `pulumi:"virtualMachineSize"`
 }
@@ -1889,17 +1889,13 @@ func (o VirtualNetworkFunctionRoleConfigurationResponseOutput) RoleType() pulumi
 }
 
 // The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
-func (o VirtualNetworkFunctionRoleConfigurationResponseOutput) UserDataParameters() pulumi.MapOutput {
-	return o.ApplyT(func(v VirtualNetworkFunctionRoleConfigurationResponse) map[string]interface{} {
-		return v.UserDataParameters
-	}).(pulumi.MapOutput)
+func (o VirtualNetworkFunctionRoleConfigurationResponseOutput) UserDataParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v VirtualNetworkFunctionRoleConfigurationResponse) interface{} { return v.UserDataParameters }).(pulumi.AnyOutput)
 }
 
 // The user data template for customers. This is json scheme template describing the format and data type of user data parameters.
-func (o VirtualNetworkFunctionRoleConfigurationResponseOutput) UserDataTemplate() pulumi.MapOutput {
-	return o.ApplyT(func(v VirtualNetworkFunctionRoleConfigurationResponse) map[string]interface{} {
-		return v.UserDataTemplate
-	}).(pulumi.MapOutput)
+func (o VirtualNetworkFunctionRoleConfigurationResponseOutput) UserDataTemplate() pulumi.AnyOutput {
+	return o.ApplyT(func(v VirtualNetworkFunctionRoleConfigurationResponse) interface{} { return v.UserDataTemplate }).(pulumi.AnyOutput)
 }
 
 // The size of the virtual machine.
@@ -2206,7 +2202,7 @@ type VirtualNetworkFunctionUserConfiguration struct {
 	// The name of the virtual network function role.
 	RoleName *string `pulumi:"roleName"`
 	// The user data parameters from the customer.
-	UserDataParameters map[string]interface{} `pulumi:"userDataParameters"`
+	UserDataParameters interface{} `pulumi:"userDataParameters"`
 }
 
 // VirtualNetworkFunctionUserConfigurationInput is an input type that accepts VirtualNetworkFunctionUserConfigurationArgs and VirtualNetworkFunctionUserConfigurationOutput values.
@@ -2227,7 +2223,7 @@ type VirtualNetworkFunctionUserConfigurationArgs struct {
 	// The name of the virtual network function role.
 	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
 	// The user data parameters from the customer.
-	UserDataParameters pulumi.MapInput `pulumi:"userDataParameters"`
+	UserDataParameters pulumi.Input `pulumi:"userDataParameters"`
 }
 
 func (VirtualNetworkFunctionUserConfigurationArgs) ElementType() reflect.Type {
@@ -2293,8 +2289,8 @@ func (o VirtualNetworkFunctionUserConfigurationOutput) RoleName() pulumi.StringP
 }
 
 // The user data parameters from the customer.
-func (o VirtualNetworkFunctionUserConfigurationOutput) UserDataParameters() pulumi.MapOutput {
-	return o.ApplyT(func(v VirtualNetworkFunctionUserConfiguration) map[string]interface{} { return v.UserDataParameters }).(pulumi.MapOutput)
+func (o VirtualNetworkFunctionUserConfigurationOutput) UserDataParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v VirtualNetworkFunctionUserConfiguration) interface{} { return v.UserDataParameters }).(pulumi.AnyOutput)
 }
 
 type VirtualNetworkFunctionUserConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -2324,7 +2320,7 @@ type VirtualNetworkFunctionUserConfigurationResponse struct {
 	// The name of the virtual network function role.
 	RoleName *string `pulumi:"roleName"`
 	// The user data parameters from the customer.
-	UserDataParameters map[string]interface{} `pulumi:"userDataParameters"`
+	UserDataParameters interface{} `pulumi:"userDataParameters"`
 }
 
 // VirtualNetworkFunctionUserConfigurationResponseInput is an input type that accepts VirtualNetworkFunctionUserConfigurationResponseArgs and VirtualNetworkFunctionUserConfigurationResponseOutput values.
@@ -2345,7 +2341,7 @@ type VirtualNetworkFunctionUserConfigurationResponseArgs struct {
 	// The name of the virtual network function role.
 	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
 	// The user data parameters from the customer.
-	UserDataParameters pulumi.MapInput `pulumi:"userDataParameters"`
+	UserDataParameters pulumi.Input `pulumi:"userDataParameters"`
 }
 
 func (VirtualNetworkFunctionUserConfigurationResponseArgs) ElementType() reflect.Type {
@@ -2413,10 +2409,8 @@ func (o VirtualNetworkFunctionUserConfigurationResponseOutput) RoleName() pulumi
 }
 
 // The user data parameters from the customer.
-func (o VirtualNetworkFunctionUserConfigurationResponseOutput) UserDataParameters() pulumi.MapOutput {
-	return o.ApplyT(func(v VirtualNetworkFunctionUserConfigurationResponse) map[string]interface{} {
-		return v.UserDataParameters
-	}).(pulumi.MapOutput)
+func (o VirtualNetworkFunctionUserConfigurationResponseOutput) UserDataParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v VirtualNetworkFunctionUserConfigurationResponse) interface{} { return v.UserDataParameters }).(pulumi.AnyOutput)
 }
 
 type VirtualNetworkFunctionUserConfigurationResponseArrayOutput struct{ *pulumi.OutputState }

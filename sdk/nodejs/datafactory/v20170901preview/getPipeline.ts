@@ -47,7 +47,7 @@ export interface GetPipelineResult {
     /**
      * List of tags that can be used for describing the Pipeline.
      */
-    readonly annotations?: {[key: string]: any}[];
+    readonly annotations?: any[];
     /**
      * The max number of concurrent runs for the pipeline.
      */

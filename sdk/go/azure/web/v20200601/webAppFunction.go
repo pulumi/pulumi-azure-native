@@ -15,7 +15,7 @@ type WebAppFunction struct {
 	pulumi.CustomResourceState
 
 	// Config information.
-	Config pulumi.MapOutput `pulumi:"config"`
+	Config pulumi.AnyOutput `pulumi:"config"`
 	// Config URI.
 	ConfigHref pulumi.StringPtrOutput `pulumi:"configHref"`
 	// File list.
@@ -104,7 +104,7 @@ func GetWebAppFunction(ctx *pulumi.Context,
 // Input properties used for looking up and filtering WebAppFunction resources.
 type webAppFunctionState struct {
 	// Config information.
-	Config map[string]interface{} `pulumi:"config"`
+	Config interface{} `pulumi:"config"`
 	// Config URI.
 	ConfigHref *string `pulumi:"configHref"`
 	// File list.
@@ -139,7 +139,7 @@ type webAppFunctionState struct {
 
 type WebAppFunctionState struct {
 	// Config information.
-	Config pulumi.MapInput
+	Config pulumi.Input
 	// Config URI.
 	ConfigHref pulumi.StringPtrInput
 	// File list.
@@ -178,7 +178,7 @@ func (WebAppFunctionState) ElementType() reflect.Type {
 
 type webAppFunctionArgs struct {
 	// Config information.
-	Config map[string]interface{} `pulumi:"config"`
+	Config interface{} `pulumi:"config"`
 	// Config URI.
 	ConfigHref *string `pulumi:"configHref"`
 	// File list.
@@ -216,7 +216,7 @@ type webAppFunctionArgs struct {
 // The set of arguments for constructing a WebAppFunction resource.
 type WebAppFunctionArgs struct {
 	// Config information.
-	Config pulumi.MapInput
+	Config pulumi.Input
 	// Config URI.
 	ConfigHref pulumi.StringPtrInput
 	// File list.

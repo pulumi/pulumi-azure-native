@@ -28,7 +28,7 @@ type LookupPolicyDefinitionResult struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy definition.
@@ -36,7 +36,7 @@ type LookupPolicyDefinitionResult struct {
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
 	Parameters map[string]ParameterDefinitionsValueResponse `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).

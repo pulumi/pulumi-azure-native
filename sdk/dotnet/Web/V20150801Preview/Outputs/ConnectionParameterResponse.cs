@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Outputs
         /// <summary>
         /// Default parameter value
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? DefaultValue;
+        public readonly object? DefaultValue;
         /// <summary>
         /// Settings defining OAuth flow for the back end provider
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Outputs
         /// <summary>
         /// UI definitions
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UiDefinition;
+        public readonly object? UiDefinition;
 
         [OutputConstructor]
         private ConnectionParameterResponse(
-            ImmutableDictionary<string, object>? defaultValue,
+            object? defaultValue,
 
             Outputs.ApiOAuthSettingsResponse? oAuthSettings,
 
             string? type,
 
-            ImmutableDictionary<string, object>? uiDefinition)
+            object? uiDefinition)
         {
             DefaultValue = defaultValue;
             OAuthSettings = oAuthSettings;

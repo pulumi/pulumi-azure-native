@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// <summary>
         /// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Definition;
+        public readonly object? Definition;
         /// <summary>
         /// The integration account.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             string createdTime,
 
-            ImmutableDictionary<string, object>? definition,
+            object? definition,
 
             Outputs.ResourceReferenceResponse? integrationAccount,
 

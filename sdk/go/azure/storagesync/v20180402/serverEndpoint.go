@@ -31,7 +31,7 @@ type ServerEndpoint struct {
 	// Server Resource Id.
 	ServerResourceId pulumi.StringPtrOutput `pulumi:"serverResourceId"`
 	// Sync Health Status
-	SyncStatus pulumi.MapOutput `pulumi:"syncStatus"`
+	SyncStatus pulumi.AnyOutput `pulumi:"syncStatus"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
@@ -128,7 +128,7 @@ type serverEndpointState struct {
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Sync Health Status
-	SyncStatus map[string]interface{} `pulumi:"syncStatus"`
+	SyncStatus interface{} `pulumi:"syncStatus"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
@@ -153,7 +153,7 @@ type ServerEndpointState struct {
 	// Server Resource Id.
 	ServerResourceId pulumi.StringPtrInput
 	// Sync Health Status
-	SyncStatus pulumi.MapInput
+	SyncStatus pulumi.Input
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.

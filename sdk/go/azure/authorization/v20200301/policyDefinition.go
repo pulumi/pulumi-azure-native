@@ -19,7 +19,7 @@ type PolicyDefinition struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the policy definition.
@@ -27,7 +27,7 @@ type PolicyDefinition struct {
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
 	Parameters ParameterDefinitionsValueResponseMapOutput `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule pulumi.MapOutput `pulumi:"policyRule"`
+	PolicyRule pulumi.AnyOutput `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
@@ -103,7 +103,7 @@ type policyDefinitionState struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy definition.
@@ -111,7 +111,7 @@ type policyDefinitionState struct {
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
 	Parameters map[string]ParameterDefinitionsValueResponse `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
@@ -124,7 +124,7 @@ type PolicyDefinitionState struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput
 	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode pulumi.StringPtrInput
 	// The name of the policy definition.
@@ -132,7 +132,7 @@ type PolicyDefinitionState struct {
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
 	Parameters ParameterDefinitionsValueResponseMapInput
 	// The policy rule.
-	PolicyRule pulumi.MapInput
+	PolicyRule pulumi.Input
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType pulumi.StringPtrInput
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
@@ -149,7 +149,7 @@ type policyDefinitionArgs struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode *string `pulumi:"mode"`
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
@@ -157,7 +157,7 @@ type policyDefinitionArgs struct {
 	// The name of the policy definition to create.
 	PolicyDefinitionName string `pulumi:"policyDefinitionName"`
 	// The policy rule.
-	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -169,7 +169,7 @@ type PolicyDefinitionArgs struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput
 	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode pulumi.StringPtrInput
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
@@ -177,7 +177,7 @@ type PolicyDefinitionArgs struct {
 	// The name of the policy definition to create.
 	PolicyDefinitionName pulumi.StringInput
 	// The policy rule.
-	PolicyRule pulumi.MapInput
+	PolicyRule pulumi.Input
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType pulumi.StringPtrInput
 }

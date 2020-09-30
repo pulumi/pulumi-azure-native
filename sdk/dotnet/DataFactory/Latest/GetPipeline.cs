@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The max number of concurrent runs for the pipeline.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? RunDimensions;
+        public readonly ImmutableDictionary<string, object>? RunDimensions;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         private GetPipelineResult(
             ImmutableArray<Union<Outputs.ControlActivityResponse, Outputs.ExecutionActivityResponse>> activities,
 
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
             int? concurrency,
 
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? runDimensions,
+            ImmutableDictionary<string, object>? runDimensions,
 
             string type,
 

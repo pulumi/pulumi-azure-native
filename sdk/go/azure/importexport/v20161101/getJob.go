@@ -32,7 +32,7 @@ type LookupJobResult struct {
 	// Specifies the job properties
 	Properties JobDetailsResponse `pulumi:"properties"`
 	// Specifies the tags that are assigned to the job.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Specifies the type of the job resource.
 	Type string `pulumi:"type"`
 }

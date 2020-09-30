@@ -210,14 +210,14 @@ class BlobLocationArgs:
 class ColumnSpecificationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 enum: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 enum: Optional[pulumi.Input[Sequence[Any]]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  x_ms_isnullable: Optional[pulumi.Input[bool]] = None,
                  x_ms_isordered: Optional[pulumi.Input[bool]] = None):
         """
         Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
         :param pulumi.Input[str] type: Data type of the column.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] enum: If the data type is categorical, this provides the list of accepted categories.
+        :param pulumi.Input[Sequence[Any]] enum: If the data type is categorical, this provides the list of accepted categories.
         :param pulumi.Input[str] format: Additional format information for the data type.
         :param pulumi.Input[bool] x_ms_isnullable: Flag indicating if the type supports null values or not.
         :param pulumi.Input[bool] x_ms_isordered: Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
@@ -246,14 +246,14 @@ class ColumnSpecificationArgs:
 
     @property
     @pulumi.getter
-    def enum(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def enum(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         If the data type is categorical, this provides the list of accepted categories.
         """
         return pulumi.get(self, "enum")
 
     @enum.setter
-    def enum(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def enum(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "enum", value)
 
     @property
@@ -358,12 +358,12 @@ class DiagnosticsConfigurationArgs:
 @pulumi.input_type
 class ExampleRequestArgs:
     def __init__(__self__, *,
-                 global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
-                 inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]]]]] = None):
+                 global_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[Any]]]]]]] = None):
         """
         Sample input data for the service's input(s).
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] global_parameters: Sample input data for the web service's global parameters
-        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]]]] inputs: Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+        :param pulumi.Input[Mapping[str, Any]] global_parameters: Sample input data for the web service's global parameters
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[Any]]]]]] inputs: Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         """
         if global_parameters is not None:
             pulumi.set(__self__, "global_parameters", global_parameters)
@@ -372,26 +372,26 @@ class ExampleRequestArgs:
 
     @property
     @pulumi.getter(name="globalParameters")
-    def global_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def global_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Sample input data for the web service's global parameters
         """
         return pulumi.get(self, "global_parameters")
 
     @global_parameters.setter
-    def global_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def global_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "global_parameters", value)
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]]]]]:
+    def inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[Any]]]]]]]:
         """
         Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]]]]]):
+    def inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[Any]]]]]]]):
         pulumi.set(self, "inputs", value)
 
 
@@ -1119,11 +1119,11 @@ class WebServiceKeysArgs:
 class WebServiceParameterArgs:
     def __init__(__self__, *,
                  certificate_thumbprint: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 value: Optional[Any] = None):
         """
         Web Service Parameter object for node and global parameter
         :param pulumi.Input[str] certificate_thumbprint: If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
-        :param pulumi.Input[Mapping[str, Any]] value: The parameter value
+        :param Any value: The parameter value
         """
         if certificate_thumbprint is not None:
             pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
@@ -1144,14 +1144,14 @@ class WebServiceParameterArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def value(self) -> Optional[Any]:
         """
         The parameter value
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def value(self, value: Optional[Any]):
         pulumi.set(self, "value", value)
 
 

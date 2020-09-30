@@ -54,7 +54,7 @@ class GetContentTypeResult:
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional[Mapping[str, Any]]:
+    def schema(self) -> Optional[Any]:
         """
         Content type schema.
         """

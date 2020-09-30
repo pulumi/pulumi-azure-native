@@ -32,7 +32,7 @@ type LookupJobDefinitionResult struct {
 	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
 	CustomerSecrets []CustomerSecretResponse `pulumi:"customerSecrets"`
 	// A generic json used differently by each data service type.
-	DataServiceInput map[string]interface{} `pulumi:"dataServiceInput"`
+	DataServiceInput interface{} `pulumi:"dataServiceInput"`
 	// Data Sink Id associated to the job definition.
 	DataSinkId string `pulumi:"dataSinkId"`
 	// Data Source Id associated to the job definition.

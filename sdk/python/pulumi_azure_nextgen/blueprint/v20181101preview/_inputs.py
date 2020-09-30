@@ -277,11 +277,11 @@ class ParameterDefinitionArgs:
 class ParameterValueArgs:
     def __init__(__self__, *,
                  reference: Optional[pulumi.Input['SecretValueReferenceArgs']] = None,
-                 value: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 value: Optional[Any] = None):
         """
         Value for the specified parameter. Can be either 'value' or 'reference' but not both.
         :param pulumi.Input['SecretValueReferenceArgs'] reference: Parameter value as reference type.
-        :param pulumi.Input[Mapping[str, Any]] value: Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
+        :param Any value: Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
         """
         if reference is not None:
             pulumi.set(__self__, "reference", reference)
@@ -302,14 +302,14 @@ class ParameterValueArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def value(self) -> Optional[Any]:
         """
         Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def value(self, value: Optional[Any]):
         pulumi.set(self, "value", value)
 
 

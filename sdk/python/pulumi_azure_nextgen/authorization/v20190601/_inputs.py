@@ -41,11 +41,11 @@ class IdentityArgs:
 @pulumi.input_type
 class PolicyDefinitionReferenceArgs:
     def __init__(__self__, *,
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 parameters: Optional[Any] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None):
         """
         The policy definition reference.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Required if a parameter is used in policy rule.
+        :param Any parameters: Required if a parameter is used in policy rule.
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition.
         """
         if parameters is not None:
@@ -55,14 +55,14 @@ class PolicyDefinitionReferenceArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Required if a parameter is used in policy rule.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
     @property

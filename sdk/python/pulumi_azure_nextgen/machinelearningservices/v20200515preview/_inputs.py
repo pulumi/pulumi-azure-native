@@ -2080,12 +2080,12 @@ class ModelEnvironmentDefinitionDockerArgs:
 class ModelEnvironmentDefinitionPythonArgs:
     def __init__(__self__, *,
                  base_conda_environment: Optional[pulumi.Input[str]] = None,
-                 conda_dependencies: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 conda_dependencies: Optional[Any] = None,
                  interpreter_path: Optional[pulumi.Input[str]] = None,
                  user_managed_dependencies: Optional[pulumi.Input[bool]] = None):
         """
         Settings for a Python environment.
-        :param pulumi.Input[Mapping[str, Any]] conda_dependencies: A JObject containing Conda dependencies.
+        :param Any conda_dependencies: A JObject containing Conda dependencies.
         :param pulumi.Input[str] interpreter_path: The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
         :param pulumi.Input[bool] user_managed_dependencies: True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
         """
@@ -2109,14 +2109,14 @@ class ModelEnvironmentDefinitionPythonArgs:
 
     @property
     @pulumi.getter(name="condaDependencies")
-    def conda_dependencies(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def conda_dependencies(self) -> Optional[Any]:
         """
         A JObject containing Conda dependencies.
         """
         return pulumi.get(self, "conda_dependencies")
 
     @conda_dependencies.setter
-    def conda_dependencies(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def conda_dependencies(self, value: Optional[Any]):
         pulumi.set(self, "conda_dependencies", value)
 
     @property

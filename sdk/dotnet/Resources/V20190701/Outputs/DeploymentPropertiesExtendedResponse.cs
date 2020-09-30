@@ -40,11 +40,11 @@ namespace Pulumi.AzureNextGen.Resources.V20190701.Outputs
         /// <summary>
         /// Key/value pairs that represent deployment output.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Outputs;
+        public readonly object? Outputs;
         /// <summary>
         /// Deployment parameters. Use only one of Parameters or ParametersLink.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// The URI referencing the parameters. Use only one of Parameters or ParametersLink.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190701.Outputs
         /// <summary>
         /// The template content. Use only one of Template or TemplateLink.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Template;
+        public readonly object? Template;
         /// <summary>
         /// The URI referencing the template. Use only one of Template or TemplateLink.
         /// </summary>
@@ -84,9 +84,9 @@ namespace Pulumi.AzureNextGen.Resources.V20190701.Outputs
 
             Outputs.OnErrorDeploymentExtendedResponse? onErrorDeployment,
 
-            ImmutableDictionary<string, object>? outputs,
+            object? outputs,
 
-            ImmutableDictionary<string, object>? parameters,
+            object? parameters,
 
             Outputs.ParametersLinkResponse? parametersLink,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190701.Outputs
 
             string provisioningState,
 
-            ImmutableDictionary<string, object>? template,
+            object? template,
 
             Outputs.TemplateLinkResponse? templateLink,
 

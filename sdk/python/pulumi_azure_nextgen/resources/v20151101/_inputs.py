@@ -19,16 +19,16 @@ __all__ = [
 class DeploymentPropertiesArgs:
     def __init__(__self__, *,
                  mode: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 parameters: Optional[Any] = None,
                  parameters_link: Optional[pulumi.Input['ParametersLinkArgs']] = None,
-                 template: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 template: Optional[Any] = None,
                  template_link: Optional[pulumi.Input['TemplateLinkArgs']] = None):
         """
         Deployment properties.
         :param pulumi.Input[str] mode: Gets or sets the deployment mode.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Deployment parameters. Use only one of Parameters or ParametersLink.
+        :param Any parameters: Deployment parameters. Use only one of Parameters or ParametersLink.
         :param pulumi.Input['ParametersLinkArgs'] parameters_link: Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
-        :param pulumi.Input[Mapping[str, Any]] template: Gets or sets the template content. Use only one of Template or TemplateLink.
+        :param Any template: Gets or sets the template content. Use only one of Template or TemplateLink.
         :param pulumi.Input['TemplateLinkArgs'] template_link: Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
         """
         if mode is not None:
@@ -56,14 +56,14 @@ class DeploymentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Deployment parameters. Use only one of Parameters or ParametersLink.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -80,14 +80,14 @@ class DeploymentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def template(self) -> Optional[Any]:
         """
         Gets or sets the template content. Use only one of Template or TemplateLink.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def template(self, value: Optional[Any]):
         pulumi.set(self, "template", value)
 
     @property

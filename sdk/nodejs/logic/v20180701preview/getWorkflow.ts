@@ -50,7 +50,7 @@ export interface GetWorkflowResult {
     /**
      * The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
      */
-    readonly definition?: {[key: string]: any};
+    readonly definition?: any;
     /**
      * The integration account.
      */

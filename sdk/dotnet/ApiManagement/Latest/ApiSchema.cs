@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         /// </summary>
         [Output("definitions")]
-        public Output<ImmutableDictionary<string, object>?> Definitions { get; private set; } = null!;
+        public Output<object?> Definitions { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -110,17 +110,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
-        [Input("definitions")]
-        private InputMap<object>? _definitions;
-
         /// <summary>
         /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         /// </summary>
-        public InputMap<object> Definitions
-        {
-            get => _definitions ?? (_definitions = new InputMap<object>());
-            set => _definitions = value;
-        }
+        [Input("definitions")]
+        public Input<object>? Definitions { get; set; }
 
         /// <summary>
         /// The name of the resource group.

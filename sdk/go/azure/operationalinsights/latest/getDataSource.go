@@ -34,7 +34,7 @@ type LookupDataSourceResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

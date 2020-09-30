@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class MarketoLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("clientId", required: true)]
-        private InputMap<object>? _clientId;
 
         /// <summary>
         /// The client Id of your Marketo service.
         /// </summary>
-        public InputMap<object> ClientId
-        {
-            get => _clientId ?? (_clientId = new InputMap<object>());
-            set => _clientId = value;
-        }
+        [Input("clientId", required: true)]
+        public Input<object> ClientId { get; set; } = null!;
 
         /// <summary>
         /// The client secret of your Marketo service.
@@ -57,29 +51,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
-
-        [Input("endpoint", required: true)]
-        private InputMap<object>? _endpoint;
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
         /// </summary>
-        public InputMap<object> Endpoint
-        {
-            get => _endpoint ?? (_endpoint = new InputMap<object>());
-            set => _endpoint = value;
-        }
+        [Input("endpoint", required: true)]
+        public Input<object> Endpoint { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -99,41 +81,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("useEncryptedEndpoints")]
-        private InputMap<object>? _useEncryptedEndpoints;
-
         /// <summary>
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         /// </summary>
-        public InputMap<object> UseEncryptedEndpoints
-        {
-            get => _useEncryptedEndpoints ?? (_useEncryptedEndpoints = new InputMap<object>());
-            set => _useEncryptedEndpoints = value;
-        }
-
-        [Input("useHostVerification")]
-        private InputMap<object>? _useHostVerification;
+        [Input("useEncryptedEndpoints")]
+        public Input<object>? UseEncryptedEndpoints { get; set; }
 
         /// <summary>
         /// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public InputMap<object> UseHostVerification
-        {
-            get => _useHostVerification ?? (_useHostVerification = new InputMap<object>());
-            set => _useHostVerification = value;
-        }
-
-        [Input("usePeerVerification")]
-        private InputMap<object>? _usePeerVerification;
+        [Input("useHostVerification")]
+        public Input<object>? UseHostVerification { get; set; }
 
         /// <summary>
         /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         /// </summary>
-        public InputMap<object> UsePeerVerification
-        {
-            get => _usePeerVerification ?? (_usePeerVerification = new InputMap<object>());
-            set => _usePeerVerification = value;
-        }
+        [Input("usePeerVerification")]
+        public Input<object>? UsePeerVerification { get; set; }
 
         public MarketoLinkedServiceArgs()
         {

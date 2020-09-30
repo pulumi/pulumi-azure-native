@@ -21,17 +21,11 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest.Inputs
         [Input("certificateThumbprint")]
         public Input<string>? CertificateThumbprint { get; set; }
 
-        [Input("value")]
-        private InputMap<object>? _value;
-
         /// <summary>
         /// The parameter value
         /// </summary>
-        public InputMap<object> Value
-        {
-            get => _value ?? (_value = new InputMap<object>());
-            set => _value = value;
-        }
+        [Input("value")]
+        public Input<object>? Value { get; set; }
 
         public WebServiceParameterArgs()
         {

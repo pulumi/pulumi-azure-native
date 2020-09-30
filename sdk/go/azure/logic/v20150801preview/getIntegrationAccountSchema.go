@@ -29,7 +29,7 @@ type LookupIntegrationAccountSchemaResult struct {
 	// The changed time.
 	ChangedTime string `pulumi:"changedTime"`
 	// The content.
-	Content map[string]interface{} `pulumi:"content"`
+	Content interface{} `pulumi:"content"`
 	// The content link.
 	ContentLink IntegrationAccountContentLinkResponse `pulumi:"contentLink"`
 	// The content type.
@@ -39,7 +39,7 @@ type LookupIntegrationAccountSchemaResult struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// The schema type.

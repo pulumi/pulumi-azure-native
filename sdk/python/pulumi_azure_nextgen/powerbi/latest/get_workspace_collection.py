@@ -55,7 +55,7 @@ class GetWorkspaceCollectionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, Any]:
+    def properties(self) -> Any:
         """
         Properties
         """

@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ClientId;
+        public readonly object? ClientId;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -32,23 +32,23 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Language;
+        public readonly object? Language;
         /// <summary>
         /// The Logon Group for the SAP System. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? LogonGroup;
+        public readonly object? LogonGroup;
         /// <summary>
         /// The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? MessageServer;
+        public readonly object? MessageServer;
         /// <summary>
         /// The service name or port number of the Message Server. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? MessageServerService;
+        public readonly object? MessageServerService;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -60,35 +60,35 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Server;
+        public readonly object? Server;
         /// <summary>
         /// External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SncLibraryPath;
+        public readonly object? SncLibraryPath;
         /// <summary>
         /// SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SncMode;
+        public readonly object? SncMode;
         /// <summary>
         /// Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SncMyName;
+        public readonly object? SncMyName;
         /// <summary>
         /// Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SncPartnerName;
+        public readonly object? SncPartnerName;
         /// <summary>
         /// SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SncQop;
+        public readonly object? SncQop;
         /// <summary>
         /// SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SystemId;
+        public readonly object? SystemId;
         /// <summary>
         /// System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SystemNumber;
+        public readonly object? SystemNumber;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -96,51 +96,51 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserName;
+        public readonly object? UserName;
 
         [OutputConstructor]
         private SapTableLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object>? clientId,
+            object? clientId,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? language,
+            object? language,
 
-            ImmutableDictionary<string, object>? logonGroup,
+            object? logonGroup,
 
-            ImmutableDictionary<string, object>? messageServer,
+            object? messageServer,
 
-            ImmutableDictionary<string, object>? messageServerService,
+            object? messageServerService,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
-            ImmutableDictionary<string, object>? server,
+            object? server,
 
-            ImmutableDictionary<string, object>? sncLibraryPath,
+            object? sncLibraryPath,
 
-            ImmutableDictionary<string, object>? sncMode,
+            object? sncMode,
 
-            ImmutableDictionary<string, object>? sncMyName,
+            object? sncMyName,
 
-            ImmutableDictionary<string, object>? sncPartnerName,
+            object? sncPartnerName,
 
-            ImmutableDictionary<string, object>? sncQop,
+            object? sncQop,
 
-            ImmutableDictionary<string, object>? systemId,
+            object? systemId,
 
-            ImmutableDictionary<string, object>? systemNumber,
+            object? systemNumber,
 
             string type,
 
-            ImmutableDictionary<string, object>? userName)
+            object? userName)
         {
             Annotations = annotations;
             ClientId = clientId;

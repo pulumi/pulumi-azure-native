@@ -44,7 +44,7 @@ export interface GetIntegrationAccountMapResult {
     /**
      * The content.
      */
-    readonly content?: {[key: string]: any};
+    readonly content?: any;
     /**
      * The content link.
      */
@@ -68,7 +68,7 @@ export interface GetIntegrationAccountMapResult {
     /**
      * The metadata.
      */
-    readonly metadata?: {[key: string]: any};
+    readonly metadata?: any;
     /**
      * The resource name.
      */

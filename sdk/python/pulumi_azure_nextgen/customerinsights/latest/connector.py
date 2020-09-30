@@ -16,7 +16,7 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
-                 connector_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 connector_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class Connector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_name: Name of the connector.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] connector_properties: The connector properties.
+        :param pulumi.Input[Mapping[str, Any]] connector_properties: The connector properties.
         :param pulumi.Input[str] connector_type: Type of connector.
         :param pulumi.Input[str] description: Description of the connector.
         :param pulumi.Input[str] display_name: Display name of the connector.
@@ -126,7 +126,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorProperties")
-    def connector_properties(self) -> pulumi.Output[Mapping[str, Mapping[str, Any]]]:
+    def connector_properties(self) -> pulumi.Output[Mapping[str, Any]]:
         """
         The connector properties.
         """

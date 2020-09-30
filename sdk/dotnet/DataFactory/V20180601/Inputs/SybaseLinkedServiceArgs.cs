@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class SybaseLinkedServiceArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("database", required: true)]
-        private InputMap<object>? _database;
-
         /// <summary>
         /// Database name for connection. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Database
-        {
-            get => _database ?? (_database = new InputMap<object>());
-            set => _database = value;
-        }
+        [Input("database", required: true)]
+        public Input<object> Database { get; set; } = null!;
 
         /// <summary>
         /// Linked service description.
@@ -57,17 +51,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -87,29 +75,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("password")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
 
-        [Input("schema")]
-        private InputMap<object>? _schema;
-
         /// <summary>
         /// Schema name for connection. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Schema
-        {
-            get => _schema ?? (_schema = new InputMap<object>());
-            set => _schema = value;
-        }
-
-        [Input("server", required: true)]
-        private InputMap<object>? _server;
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// Server name for connection. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Server
-        {
-            get => _server ?? (_server = new InputMap<object>());
-            set => _server = value;
-        }
+        [Input("server", required: true)]
+        public Input<object> Server { get; set; } = null!;
 
         /// <summary>
         /// Type of linked service.
@@ -117,17 +93,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("username")]
-        private InputMap<object>? _username;
-
         /// <summary>
         /// Username for authentication. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Username
-        {
-            get => _username ?? (_username = new InputMap<object>());
-            set => _username = value;
-        }
+        [Input("username")]
+        public Input<object>? Username { get; set; }
 
         public SybaseLinkedServiceArgs()
         {

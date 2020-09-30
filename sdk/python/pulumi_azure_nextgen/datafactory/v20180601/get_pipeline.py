@@ -65,7 +65,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Pipeline.
         """
@@ -121,7 +121,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter(name="runDimensions")
-    def run_dimensions(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def run_dimensions(self) -> Optional[Mapping[str, Any]]:
         """
         Dimensions emitted by Pipeline.
         """

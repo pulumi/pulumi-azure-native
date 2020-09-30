@@ -13,7 +13,7 @@ import (
 // The policy definition reference.
 type PolicyDefinitionReference struct {
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 }
@@ -32,7 +32,7 @@ type PolicyDefinitionReferenceInput interface {
 // The policy definition reference.
 type PolicyDefinitionReferenceArgs struct {
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapInput `pulumi:"parameters"`
+	Parameters pulumi.Input `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
 }
@@ -90,8 +90,8 @@ func (o PolicyDefinitionReferenceOutput) ToPolicyDefinitionReferenceOutputWithCo
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyDefinitionReferenceOutput) Parameters() pulumi.MapOutput {
-	return o.ApplyT(func(v PolicyDefinitionReference) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+func (o PolicyDefinitionReferenceOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyDefinitionReference) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
 // The ID of the policy definition or policy set definition.
@@ -122,7 +122,7 @@ func (o PolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) PolicyDef
 // The policy definition reference.
 type PolicyDefinitionReferenceResponse struct {
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 }
@@ -141,7 +141,7 @@ type PolicyDefinitionReferenceResponseInput interface {
 // The policy definition reference.
 type PolicyDefinitionReferenceResponseArgs struct {
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapInput `pulumi:"parameters"`
+	Parameters pulumi.Input `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
 }
@@ -199,8 +199,8 @@ func (o PolicyDefinitionReferenceResponseOutput) ToPolicyDefinitionReferenceResp
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyDefinitionReferenceResponseOutput) Parameters() pulumi.MapOutput {
-	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+func (o PolicyDefinitionReferenceResponseOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
 // The ID of the policy definition or policy set definition.

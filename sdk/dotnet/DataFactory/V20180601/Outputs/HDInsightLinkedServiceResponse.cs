@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// HDInsight cluster URI. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ClusterUri;
+        public readonly object ClusterUri;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncryptedCredential;
+        public readonly object? EncryptedCredential;
         /// <summary>
         /// Specify the FileSystem if the main storage for the HDInsight is ADLS Gen2. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? FileSystem;
+        public readonly object? FileSystem;
         /// <summary>
         /// A reference to the Azure SQL linked service that points to the HCatalog database.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Specify if the HDInsight is created with ESP (Enterprise Security Package). Type: Boolean.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? IsEspEnabled;
+        public readonly object? IsEspEnabled;
         /// <summary>
         /// The Azure Storage linked service reference.
         /// </summary>
@@ -64,25 +64,25 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// HDInsight cluster user name. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserName;
+        public readonly object? UserName;
 
         [OutputConstructor]
         private HDInsightLinkedServiceResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object> clusterUri,
+            object clusterUri,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
 
-            ImmutableDictionary<string, object>? encryptedCredential,
+            object? encryptedCredential,
 
-            ImmutableDictionary<string, object>? fileSystem,
+            object? fileSystem,
 
             Outputs.LinkedServiceReferenceResponse? hcatalogLinkedServiceName,
 
-            ImmutableDictionary<string, object>? isEspEnabled,
+            object? isEspEnabled,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             string type,
 
-            ImmutableDictionary<string, object>? userName)
+            object? userName)
         {
             Annotations = annotations;
             ClusterUri = clusterUri;

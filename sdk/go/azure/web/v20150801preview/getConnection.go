@@ -42,14 +42,14 @@ type LookupConnectionResult struct {
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
-	Location string                 `pulumi:"location"`
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Location string      `pulumi:"location"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// Tokens/Claim
-	NonSecretParameterValues map[string]map[string]interface{} `pulumi:"nonSecretParameterValues"`
+	NonSecretParameterValues map[string]interface{} `pulumi:"nonSecretParameterValues"`
 	// Tokens/Claim
-	ParameterValues map[string]map[string]interface{} `pulumi:"parameterValues"`
+	ParameterValues map[string]interface{} `pulumi:"parameterValues"`
 	// Status of the connection
 	Statuses []ConnectionStatusResponse `pulumi:"statuses"`
 	// Resource tags

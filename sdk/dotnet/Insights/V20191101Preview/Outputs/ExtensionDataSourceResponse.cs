@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview.Outputs
         /// <summary>
         /// The extension settings. The format is specific for particular extension.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ExtensionSettings;
+        public readonly object? ExtensionSettings;
         /// <summary>
         /// A friendly name for the data source. 
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview.Outputs
         private ExtensionDataSourceResponse(
             string extensionName,
 
-            ImmutableDictionary<string, object>? extensionSettings,
+            object? extensionSettings,
 
             string name,
 

@@ -55,7 +55,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Tags provided by Azure Tagging service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<any | undefined>;
     /**
      * Type of the object = [Microsoft.Migrate/assessmentProjects].
      */
@@ -133,5 +133,5 @@ export interface ProjectArgs {
     /**
      * Tags provided by Azure Tagging service.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: any;
 }

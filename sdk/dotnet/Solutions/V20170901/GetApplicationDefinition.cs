@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? CreateUiDefinition;
+        public readonly object? CreateUiDefinition;
         /// <summary>
         /// The managed application definition description.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
         /// <summary>
         /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? MainTemplate;
+        public readonly object? MainTemplate;
         /// <summary>
         /// ID of the resource that manages this resource.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
 
             ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse> authorizations,
 
-            ImmutableDictionary<string, object>? createUiDefinition,
+            object? createUiDefinition,
 
             string? description,
 
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
 
             string lockLevel,
 
-            ImmutableDictionary<string, object>? mainTemplate,
+            object? mainTemplate,
 
             string? managedBy,
 

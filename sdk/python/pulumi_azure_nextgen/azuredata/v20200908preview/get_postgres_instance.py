@@ -67,7 +67,7 @@ class GetPostgresInstanceResult:
 
     @property
     @pulumi.getter(name="k8sRaw")
-    def k8s_raw(self) -> Optional[Mapping[str, Any]]:
+    def k8s_raw(self) -> Optional[Any]:
         """
         The raw kubernetes information
         """

@@ -46,7 +46,7 @@ export interface GetBlueprintResult {
     /**
      * Layout view of the blueprint, for UI reference.
      */
-    readonly layout?: {[key: string]: any};
+    readonly layout?: any;
     /**
      * Name of this resource.
      */
@@ -74,5 +74,5 @@ export interface GetBlueprintResult {
     /**
      * Published versions of this blueprint.
      */
-    readonly versions?: {[key: string]: any};
+    readonly versions?: any;
 }

@@ -16,28 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class SapOpenHubTableDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("baseRequestId")]
-        private InputMap<object>? _baseRequestId;
 
         /// <summary>
         /// The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
         /// </summary>
-        public InputMap<object> BaseRequestId
-        {
-            get => _baseRequestId ?? (_baseRequestId = new InputMap<object>());
-            set => _baseRequestId = value;
-        }
+        [Input("baseRequestId")]
+        public Input<object>? BaseRequestId { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -45,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("excludeLastRequest")]
-        private InputMap<object>? _excludeLastRequest;
-
         /// <summary>
         /// Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public InputMap<object> ExcludeLastRequest
-        {
-            get => _excludeLastRequest ?? (_excludeLastRequest = new InputMap<object>());
-            set => _excludeLastRequest = value;
-        }
+        [Input("excludeLastRequest")]
+        public Input<object>? ExcludeLastRequest { get; set; }
 
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -69,17 +57,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("linkedServiceName", required: true)]
         public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
 
-        [Input("openHubDestinationName", required: true)]
-        private InputMap<object>? _openHubDestinationName;
-
         /// <summary>
         /// The name of the Open Hub Destination with destination type as Database Table. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> OpenHubDestinationName
-        {
-            get => _openHubDestinationName ?? (_openHubDestinationName = new InputMap<object>());
-            set => _openHubDestinationName = value;
-        }
+        [Input("openHubDestinationName", required: true)]
+        public Input<object> OpenHubDestinationName { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -93,29 +75,17 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             set => _parameters = value;
         }
 
-        [Input("schema")]
-        private InputMap<object>? _schema;
-
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public InputMap<object> Schema
-        {
-            get => _schema ?? (_schema = new InputMap<object>());
-            set => _schema = value;
-        }
-
-        [Input("structure")]
-        private InputMap<object>? _structure;
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.

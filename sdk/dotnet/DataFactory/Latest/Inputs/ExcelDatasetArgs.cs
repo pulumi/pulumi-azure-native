@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class ExcelDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("firstRowAsHeader")]
-        private InputMap<object>? _firstRowAsHeader;
-
         /// <summary>
         /// When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public InputMap<object> FirstRowAsHeader
-        {
-            get => _firstRowAsHeader ?? (_firstRowAsHeader = new InputMap<object>());
-            set => _firstRowAsHeader = value;
-        }
+        [Input("firstRowAsHeader")]
+        public Input<object>? FirstRowAsHeader { get; set; }
 
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -69,17 +63,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("location", required: true)]
         public InputUnion<Inputs.AmazonS3LocationArgs, InputUnion<Inputs.AzureBlobFSLocationArgs, InputUnion<Inputs.AzureBlobStorageLocationArgs, InputUnion<Inputs.AzureDataLakeStoreLocationArgs, InputUnion<Inputs.AzureFileStorageLocationArgs, InputUnion<Inputs.FileServerLocationArgs, InputUnion<Inputs.FtpServerLocationArgs, InputUnion<Inputs.GoogleCloudStorageLocationArgs, InputUnion<Inputs.HdfsLocationArgs, InputUnion<Inputs.HttpServerLocationArgs, Inputs.SftpLocationArgs>>>>>>>>>> Location { get; set; } = null!;
 
-        [Input("nullValue")]
-        private InputMap<object>? _nullValue;
-
         /// <summary>
         /// The null value string. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> NullValue
-        {
-            get => _nullValue ?? (_nullValue = new InputMap<object>());
-            set => _nullValue = value;
-        }
+        [Input("nullValue")]
+        public Input<object>? NullValue { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -93,53 +81,29 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             set => _parameters = value;
         }
 
-        [Input("range")]
-        private InputMap<object>? _range;
-
         /// <summary>
         /// The partial data of one sheet. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Range
-        {
-            get => _range ?? (_range = new InputMap<object>());
-            set => _range = value;
-        }
-
-        [Input("schema")]
-        private InputMap<object>? _schema;
+        [Input("range")]
+        public Input<object>? Range { get; set; }
 
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public InputMap<object> Schema
-        {
-            get => _schema ?? (_schema = new InputMap<object>());
-            set => _schema = value;
-        }
-
-        [Input("sheetName", required: true)]
-        private InputMap<object>? _sheetName;
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// The sheet of excel file. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> SheetName
-        {
-            get => _sheetName ?? (_sheetName = new InputMap<object>());
-            set => _sheetName = value;
-        }
-
-        [Input("structure")]
-        private InputMap<object>? _structure;
+        [Input("sheetName", required: true)]
+        public Input<object> SheetName { get; set; } = null!;
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<object> Structure
-        {
-            get => _structure ?? (_structure = new InputMap<object>());
-            set => _structure = value;
-        }
+        [Input("structure")]
+        public Input<object>? Structure { get; set; }
 
         /// <summary>
         /// Type of dataset.

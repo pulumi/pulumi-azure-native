@@ -21,17 +21,11 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview.Inputs
         [Input("reference")]
         public Input<Inputs.SecretValueReferenceArgs>? Reference { get; set; }
 
-        [Input("value")]
-        private InputMap<object>? _value;
-
         /// <summary>
         /// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
         /// </summary>
-        public InputMap<object> Value
-        {
-            get => _value ?? (_value = new InputMap<object>());
-            set => _value = value;
-        }
+        [Input("value")]
+        public Input<object>? Value { get; set; }
 
         public ParameterValueArgs()
         {

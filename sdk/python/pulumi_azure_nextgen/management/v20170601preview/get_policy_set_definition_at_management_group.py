@@ -64,7 +64,7 @@ class GetPolicySetDefinitionAtManagementGroupResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The policy set definition metadata.
         """
@@ -80,7 +80,7 @@ class GetPolicySetDefinitionAtManagementGroupResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         The policy set definition parameters that can be used in policy definition references.
         """

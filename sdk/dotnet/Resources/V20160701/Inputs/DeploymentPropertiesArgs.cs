@@ -21,17 +21,11 @@ namespace Pulumi.AzureNextGen.Resources.V20160701.Inputs
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// The parameters URI. Use only one of Parameters or ParametersLink.
@@ -39,17 +33,11 @@ namespace Pulumi.AzureNextGen.Resources.V20160701.Inputs
         [Input("parametersLink")]
         public Input<Inputs.ParametersLinkArgs>? ParametersLink { get; set; }
 
-        [Input("template")]
-        private InputMap<object>? _template;
-
         /// <summary>
         /// The template content. It can be a JObject or a well formed JSON string. Use only one of Template or TemplateLink.
         /// </summary>
-        public InputMap<object> Template
-        {
-            get => _template ?? (_template = new InputMap<object>());
-            set => _template = value;
-        }
+        [Input("template")]
+        public Input<object>? Template { get; set; }
 
         /// <summary>
         /// The template URI. Use only one of Template or TemplateLink.

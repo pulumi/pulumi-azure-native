@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20161201
         /// Required if a parameter is used in policy rule.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, object>?> Parameters { get; private set; } = null!;
+        public Output<object?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the policy definition.
@@ -133,17 +133,11 @@ namespace Pulumi.AzureNextGen.Authorization.V20161201
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// The name of the policy assignment.

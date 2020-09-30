@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// <summary>
         /// The connector properties.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>> ConnectorProperties;
+        public readonly ImmutableDictionary<string, object> ConnectorProperties;
         /// <summary>
         /// Type of connector.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 
             string? connectorName,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>> connectorProperties,
+            ImmutableDictionary<string, object> connectorProperties,
 
             string connectorType,
 

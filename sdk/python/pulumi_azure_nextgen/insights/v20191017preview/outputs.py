@@ -253,11 +253,11 @@ class WorkbookTemplateLocalizedGalleryResponse(dict):
     """
     def __init__(__self__, *,
                  galleries: Optional[Sequence['outputs.WorkbookTemplateGalleryResponse']] = None,
-                 template_data: Optional[Mapping[str, Any]] = None):
+                 template_data: Optional[Any] = None):
         """
         Localized template data and gallery information.
         :param Sequence['WorkbookTemplateGalleryResponseArgs'] galleries: Workbook galleries supported by the template.
-        :param Mapping[str, Any] template_data: Valid JSON object containing workbook template payload.
+        :param Any template_data: Valid JSON object containing workbook template payload.
         """
         if galleries is not None:
             pulumi.set(__self__, "galleries", galleries)
@@ -274,7 +274,7 @@ class WorkbookTemplateLocalizedGalleryResponse(dict):
 
     @property
     @pulumi.getter(name="templateData")
-    def template_data(self) -> Optional[Mapping[str, Any]]:
+    def template_data(self) -> Optional[Any]:
         """
         Valid JSON object containing workbook template payload.
         """

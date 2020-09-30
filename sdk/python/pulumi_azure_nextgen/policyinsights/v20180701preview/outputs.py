@@ -253,12 +253,23 @@ class TypedErrorInfoResponseResult(dict):
     Scenario specific error details.
     """
     def __init__(__self__, *,
+                 info: Any,
                  type: str):
         """
         Scenario specific error details.
+        :param Any info: The scenario specific error details.
         :param str type: The type of included error details.
         """
+        pulumi.set(__self__, "info", info)
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The scenario specific error details.
+        """
+        return pulumi.get(self, "info")
 
     @property
     @pulumi.getter

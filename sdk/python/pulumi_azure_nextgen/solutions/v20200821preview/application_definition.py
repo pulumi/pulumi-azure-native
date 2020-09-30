@@ -20,7 +20,7 @@ class ApplicationDefinition(pulumi.CustomResource):
                  application_definition_name: Optional[pulumi.Input[str]] = None,
                  artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDefinitionArtifactArgs']]]]] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAuthorizationArgs']]]]] = None,
-                 create_ui_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 create_ui_definition: Optional[Any] = None,
                  deployment_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationDeploymentPolicyArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class ApplicationDefinition(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  lock_level: Optional[pulumi.Input[str]] = None,
                  locking_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationPackageLockingPolicyDefinitionArgs']]] = None,
-                 main_template: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 main_template: Optional[Any] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  management_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationManagementPolicyArgs']]] = None,
                  notification_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationNotificationPolicyArgs']]] = None,
@@ -49,7 +49,7 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] application_definition_name: The name of the managed application definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDefinitionArtifactArgs']]]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAuthorizationArgs']]]] authorizations: The managed application provider authorizations.
-        :param pulumi.Input[Mapping[str, Any]] create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        :param Any create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[pulumi.InputType['ApplicationDeploymentPolicyArgs']] deployment_policy: The managed application deployment policy.
         :param pulumi.Input[str] description: The managed application definition description.
         :param pulumi.Input[str] display_name: The managed application definition display name.
@@ -57,7 +57,7 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] lock_level: The managed application lock level.
         :param pulumi.Input[pulumi.InputType['ApplicationPackageLockingPolicyDefinitionArgs']] locking_policy: The managed application locking policy.
-        :param pulumi.Input[Mapping[str, Any]] main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        :param Any main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
         :param pulumi.Input[pulumi.InputType['ApplicationManagementPolicyArgs']] management_policy: The managed application management policy that determines publisher's access to the managed resource group.
         :param pulumi.Input[pulumi.InputType['ApplicationNotificationPolicyArgs']] notification_policy: The managed application notification policy.
@@ -158,7 +158,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createUiDefinition")
-    def create_ui_definition(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def create_ui_definition(self) -> pulumi.Output[Optional[Any]]:
         """
         The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         """
@@ -222,7 +222,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mainTemplate")
-    def main_template(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def main_template(self) -> pulumi.Output[Optional[Any]]:
         """
         The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         """

@@ -107,7 +107,7 @@ class GetWorkbookTemplateResult:
 
     @property
     @pulumi.getter(name="templateData")
-    def template_data(self) -> Mapping[str, Any]:
+    def template_data(self) -> Any:
         """
         Valid JSON object containing workbook template payload.
         """

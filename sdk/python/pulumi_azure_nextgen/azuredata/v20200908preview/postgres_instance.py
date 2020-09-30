@@ -18,7 +18,7 @@ class PostgresInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin: Optional[pulumi.Input[str]] = None,
                  data_controller_id: Optional[pulumi.Input[str]] = None,
-                 k8s_raw: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 k8s_raw: Optional[Any] = None,
                  last_uploaded_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  postgres_instance_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class PostgresInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin: The instance admin
         :param pulumi.Input[str] data_controller_id: The data controller id
-        :param pulumi.Input[Mapping[str, Any]] k8s_raw: The raw kubernetes information
+        :param Any k8s_raw: The raw kubernetes information
         :param pulumi.Input[str] last_uploaded_date: Last uploaded date from on premise cluster. Defaults to current date time
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] postgres_instance_name: Name of PostgresInstance
@@ -119,7 +119,7 @@ class PostgresInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="k8sRaw")
-    def k8s_raw(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def k8s_raw(self) -> pulumi.Output[Optional[Any]]:
         """
         The raw kubernetes information
         """

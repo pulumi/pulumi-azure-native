@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20180701
         /// Sync Health Status
         /// </summary>
         [Output("syncStatus")]
-        public Output<ImmutableDictionary<string, object>?> SyncStatus { get; private set; } = null!;
+        public Output<object?> SyncStatus { get; private set; } = null!;
 
         /// <summary>
         /// Tier files older than days.

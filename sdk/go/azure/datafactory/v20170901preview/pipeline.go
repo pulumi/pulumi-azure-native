@@ -17,7 +17,7 @@ type Pipeline struct {
 	// List of activities in pipeline.
 	Activities pulumi.ArrayOutput `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.MapArrayOutput `pulumi:"annotations"`
+	Annotations pulumi.ArrayOutput `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency pulumi.IntPtrOutput `pulumi:"concurrency"`
 	// The description of the pipeline.
@@ -81,7 +81,7 @@ type pipelineState struct {
 	// List of activities in pipeline.
 	Activities []interface{} `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations []map[string]interface{} `pulumi:"annotations"`
+	Annotations []interface{} `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency *int `pulumi:"concurrency"`
 	// The description of the pipeline.
@@ -100,7 +100,7 @@ type PipelineState struct {
 	// List of activities in pipeline.
 	Activities pulumi.ArrayInput
 	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.MapArrayInput
+	Annotations pulumi.ArrayInput
 	// The max number of concurrent runs for the pipeline.
 	Concurrency pulumi.IntPtrInput
 	// The description of the pipeline.
@@ -123,7 +123,7 @@ type pipelineArgs struct {
 	// List of activities in pipeline.
 	Activities []interface{} `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations []map[string]interface{} `pulumi:"annotations"`
+	Annotations []interface{} `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency *int `pulumi:"concurrency"`
 	// The description of the pipeline.
@@ -143,7 +143,7 @@ type PipelineArgs struct {
 	// List of activities in pipeline.
 	Activities pulumi.ArrayInput
 	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.MapArrayInput
+	Annotations pulumi.ArrayInput
 	// The max number of concurrent runs for the pipeline.
 	Concurrency pulumi.IntPtrInput
 	// The description of the pipeline.

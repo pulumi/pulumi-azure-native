@@ -61,7 +61,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<any | undefined>;
     /**
      * Resource type
      */
@@ -160,5 +160,5 @@ export interface PoolArgs {
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: any;
 }

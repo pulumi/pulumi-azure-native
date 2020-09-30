@@ -32,7 +32,7 @@ type LookupContentTypeResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Content type schema.
-	Schema map[string]interface{} `pulumi:"schema"`
+	Schema interface{} `pulumi:"schema"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 	// Content type version.

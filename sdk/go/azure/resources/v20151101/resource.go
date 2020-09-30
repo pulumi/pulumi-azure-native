@@ -21,7 +21,7 @@ type Resource struct {
 	// Gets or sets the plan of the resource.
 	Plan PlanResponsePtrOutput `pulumi:"plan"`
 	// Gets or sets the resource properties.
-	Properties pulumi.MapOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -126,7 +126,7 @@ type resourceState struct {
 	// Gets or sets the plan of the resource.
 	Plan *PlanResponse `pulumi:"plan"`
 	// Gets or sets the resource properties.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -141,7 +141,7 @@ type ResourceState struct {
 	// Gets or sets the plan of the resource.
 	Plan PlanResponsePtrInput
 	// Gets or sets the resource properties.
-	Properties pulumi.MapInput
+	Properties pulumi.Input
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
@@ -160,7 +160,7 @@ type resourceArgs struct {
 	// Gets or sets the plan of the resource.
 	Plan *Plan `pulumi:"plan"`
 	// Gets or sets the resource properties.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource identity.
@@ -182,7 +182,7 @@ type ResourceArgs struct {
 	// Gets or sets the plan of the resource.
 	Plan PlanPtrInput
 	// Gets or sets the resource properties.
-	Properties pulumi.MapInput
+	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource identity.

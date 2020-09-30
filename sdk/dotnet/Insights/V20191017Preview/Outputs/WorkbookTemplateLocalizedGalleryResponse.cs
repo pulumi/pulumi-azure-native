@@ -20,13 +20,13 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview.Outputs
         /// <summary>
         /// Valid JSON object containing workbook template payload.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? TemplateData;
+        public readonly object? TemplateData;
 
         [OutputConstructor]
         private WorkbookTemplateLocalizedGalleryResponse(
             ImmutableArray<Outputs.WorkbookTemplateGalleryResponse> galleries,
 
-            ImmutableDictionary<string, object>? templateData)
+            object? templateData)
         {
             Galleries = galleries;
             TemplateData = templateData;

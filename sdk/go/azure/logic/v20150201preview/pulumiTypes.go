@@ -318,7 +318,7 @@ type ContentLink struct {
 	// Gets or sets the content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// Gets or sets the metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Gets or sets the content link URI.
 	Uri *string `pulumi:"uri"`
 }
@@ -342,7 +342,7 @@ type ContentLinkArgs struct {
 	// Gets or sets the content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// Gets or sets the metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// Gets or sets the content link URI.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
@@ -440,8 +440,8 @@ func (o ContentLinkOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the metadata.
-func (o ContentLinkOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v ContentLink) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o ContentLinkOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v ContentLink) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // Gets or sets the content link URI.
@@ -498,13 +498,13 @@ func (o ContentLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the metadata.
-func (o ContentLinkPtrOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v *ContentLink) map[string]interface{} {
+func (o ContentLinkPtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ContentLink) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Gets or sets the content link URI.
@@ -525,7 +525,7 @@ type ContentLinkResponse struct {
 	// Gets or sets the content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// Gets or sets the metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Gets or sets the content link URI.
 	Uri *string `pulumi:"uri"`
 }
@@ -549,7 +549,7 @@ type ContentLinkResponseArgs struct {
 	// Gets or sets the content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// Gets or sets the metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// Gets or sets the content link URI.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
@@ -647,8 +647,8 @@ func (o ContentLinkResponseOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the metadata.
-func (o ContentLinkResponseOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v ContentLinkResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o ContentLinkResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v ContentLinkResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // Gets or sets the content link URI.
@@ -705,13 +705,13 @@ func (o ContentLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the metadata.
-func (o ContentLinkResponsePtrOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) map[string]interface{} {
+func (o ContentLinkResponsePtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ContentLinkResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Gets or sets the content link URI.
@@ -1326,11 +1326,11 @@ func (o SkuResponsePtrOutput) Plan() ResourceReferenceResponsePtrOutput {
 
 type WorkflowParameter struct {
 	// Gets or sets the metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Gets or sets the type.
 	Type *string `pulumi:"type"`
 	// Gets or sets the value.
-	Value map[string]interface{} `pulumi:"value"`
+	Value interface{} `pulumi:"value"`
 }
 
 // WorkflowParameterInput is an input type that accepts WorkflowParameterArgs and WorkflowParameterOutput values.
@@ -1346,11 +1346,11 @@ type WorkflowParameterInput interface {
 
 type WorkflowParameterArgs struct {
 	// Gets or sets the metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// Gets or sets the type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Gets or sets the value.
-	Value pulumi.MapInput `pulumi:"value"`
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (WorkflowParameterArgs) ElementType() reflect.Type {
@@ -1405,8 +1405,8 @@ func (o WorkflowParameterOutput) ToWorkflowParameterOutputWithContext(ctx contex
 }
 
 // Gets or sets the metadata.
-func (o WorkflowParameterOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkflowParameter) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o WorkflowParameterOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameter) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // Gets or sets the type.
@@ -1415,8 +1415,8 @@ func (o WorkflowParameterOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the value.
-func (o WorkflowParameterOutput) Value() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkflowParameter) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+func (o WorkflowParameterOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameter) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type WorkflowParameterMapOutput struct{ *pulumi.OutputState }
@@ -1441,11 +1441,11 @@ func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParam
 
 type WorkflowParameterResponse struct {
 	// Gets or sets the metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// Gets or sets the type.
 	Type *string `pulumi:"type"`
 	// Gets or sets the value.
-	Value map[string]interface{} `pulumi:"value"`
+	Value interface{} `pulumi:"value"`
 }
 
 // WorkflowParameterResponseInput is an input type that accepts WorkflowParameterResponseArgs and WorkflowParameterResponseOutput values.
@@ -1461,11 +1461,11 @@ type WorkflowParameterResponseInput interface {
 
 type WorkflowParameterResponseArgs struct {
 	// Gets or sets the metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// Gets or sets the type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Gets or sets the value.
-	Value pulumi.MapInput `pulumi:"value"`
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (WorkflowParameterResponseArgs) ElementType() reflect.Type {
@@ -1520,8 +1520,8 @@ func (o WorkflowParameterResponseOutput) ToWorkflowParameterResponseOutputWithCo
 }
 
 // Gets or sets the metadata.
-func (o WorkflowParameterResponseOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkflowParameterResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+func (o WorkflowParameterResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameterResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // Gets or sets the type.
@@ -1530,8 +1530,8 @@ func (o WorkflowParameterResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the value.
-func (o WorkflowParameterResponseOutput) Value() pulumi.MapOutput {
-	return o.ApplyT(func(v WorkflowParameterResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+func (o WorkflowParameterResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameterResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
 type WorkflowParameterResponseMapOutput struct{ *pulumi.OutputState }

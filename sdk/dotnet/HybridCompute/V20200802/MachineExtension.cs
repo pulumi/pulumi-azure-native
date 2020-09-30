@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200802
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
         [Output("protectedSettings")]
-        public Output<ImmutableDictionary<string, object>?> ProtectedSettings { get; private set; } = null!;
+        public Output<object?> ProtectedSettings { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state, which only appears in the response.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200802
         /// Json formatted public settings for the extension.
         /// </summary>
         [Output("settings")]
-        public Output<ImmutableDictionary<string, object>?> Settings { get; private set; } = null!;
+        public Output<object?> Settings { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -169,17 +169,11 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200802
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("protectedSettings")]
-        private InputMap<object>? _protectedSettings;
-
         /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
-        public InputMap<object> ProtectedSettings
-        {
-            get => _protectedSettings ?? (_protectedSettings = new InputMap<object>());
-            set => _protectedSettings = value;
-        }
+        [Input("protectedSettings")]
+        public Input<object>? ProtectedSettings { get; set; }
 
         /// <summary>
         /// The name of the extension handler publisher.
@@ -193,17 +187,11 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200802
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("settings")]
-        private InputMap<object>? _settings;
-
         /// <summary>
         /// Json formatted public settings for the extension.
         /// </summary>
-        public InputMap<object> Settings
-        {
-            get => _settings ?? (_settings = new InputMap<object>());
-            set => _settings = value;
-        }
+        [Input("settings")]
+        public Input<object>? Settings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

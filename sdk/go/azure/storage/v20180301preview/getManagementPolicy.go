@@ -32,7 +32,7 @@ type LookupManagementPolicyResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy map[string]interface{} `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

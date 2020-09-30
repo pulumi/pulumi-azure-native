@@ -47,7 +47,7 @@ export class DataStore extends pulumi.CustomResource {
     /**
      * A generic json used differently by each data source type.
      */
-    public readonly extendedProperties!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly extendedProperties!: pulumi.Output<any | undefined>;
     /**
      * Name of the object.
      */
@@ -145,7 +145,7 @@ export interface DataStoreArgs {
     /**
      * A generic json used differently by each data source type.
      */
-    readonly extendedProperties?: pulumi.Input<{[key: string]: any}>;
+    readonly extendedProperties?: any;
     /**
      * Arm Id for the manager resource to which the data source is associated. This is optional.
      */

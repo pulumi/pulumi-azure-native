@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.Management.V20191001.Outputs
         /// <summary>
         /// Key/value pairs that represent deployment output.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Outputs;
+        public readonly object Outputs;
         /// <summary>
         /// Deployment parameters. 
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Parameters;
+        public readonly object Parameters;
         /// <summary>
         /// The URI referencing the parameters. 
         /// </summary>
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNextGen.Management.V20191001.Outputs
 
             ImmutableArray<Outputs.ResourceReferenceResponse> outputResources,
 
-            ImmutableDictionary<string, object> outputs,
+            object outputs,
 
-            ImmutableDictionary<string, object> parameters,
+            object parameters,
 
             Outputs.ParametersLinkResponse parametersLink,
 

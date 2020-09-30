@@ -19,13 +19,13 @@ type PolicyAssignment struct {
 	// The display name of the policy assignment.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The policy assignment metadata.
-	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapOutput `pulumi:"parameters"`
+	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// The ID of the policy definition.
 	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -111,13 +111,13 @@ type policyAssignmentState struct {
 	// The display name of the policy assignment.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy assignment metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The ID of the policy definition.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -134,13 +134,13 @@ type PolicyAssignmentState struct {
 	// The display name of the policy assignment.
 	DisplayName pulumi.StringPtrInput
 	// The policy assignment metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The name of the policy assignment.
 	Name pulumi.StringPtrInput
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapInput
+	Parameters pulumi.Input
 	// The ID of the policy definition.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The scope for the policy assignment.
@@ -161,11 +161,11 @@ type policyAssignmentArgs struct {
 	// The display name of the policy assignment.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy assignment metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The name of the policy assignment.
 	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
 	// The ID of the policy definition.
@@ -183,11 +183,11 @@ type PolicyAssignmentArgs struct {
 	// The display name of the policy assignment.
 	DisplayName pulumi.StringPtrInput
 	// The policy assignment metadata.
-	Metadata pulumi.MapInput
+	Metadata pulumi.Input
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.MapInput
+	Parameters pulumi.Input
 	// The name of the policy assignment.
 	PolicyAssignmentName pulumi.StringInput
 	// The ID of the policy definition.

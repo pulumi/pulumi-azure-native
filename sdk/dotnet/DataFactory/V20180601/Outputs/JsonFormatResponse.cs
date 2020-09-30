@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// Deserializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Deserializer;
+        public readonly object? Deserializer;
         /// <summary>
         /// The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncodingName;
+        public readonly object? EncodingName;
         /// <summary>
         /// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         /// </summary>
@@ -28,19 +28,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? JsonNodeReference;
+        public readonly object? JsonNodeReference;
         /// <summary>
         /// The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? JsonPathDefinition;
+        public readonly object? JsonPathDefinition;
         /// <summary>
         /// The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NestingSeparator;
+        public readonly object? NestingSeparator;
         /// <summary>
         /// Serializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Serializer;
+        public readonly object? Serializer;
         /// <summary>
         /// Type of dataset storage format.
         /// </summary>
@@ -48,19 +48,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private JsonFormatResponse(
-            ImmutableDictionary<string, object>? deserializer,
+            object? deserializer,
 
-            ImmutableDictionary<string, object>? encodingName,
+            object? encodingName,
 
             string? filePattern,
 
-            ImmutableDictionary<string, object>? jsonNodeReference,
+            object? jsonNodeReference,
 
-            ImmutableDictionary<string, object>? jsonPathDefinition,
+            object? jsonPathDefinition,
 
-            ImmutableDictionary<string, object>? nestingSeparator,
+            object? nestingSeparator,
 
-            ImmutableDictionary<string, object>? serializer,
+            object? serializer,
 
             string type)
         {

@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// <summary>
         /// Properties of the Schema Document.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Document;
+        public readonly object? Document;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         private GetApiSchemaResult(
             string contentType,
 
-            ImmutableDictionary<string, object>? document,
+            object? document,
 
             string name,
 

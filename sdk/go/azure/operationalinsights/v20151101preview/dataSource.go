@@ -21,7 +21,7 @@ type DataSource struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties pulumi.MapOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -90,7 +90,7 @@ type dataSourceState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -105,7 +105,7 @@ type DataSourceState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties pulumi.MapInput
+	Properties pulumi.Input
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type.
@@ -124,7 +124,7 @@ type dataSourceArgs struct {
 	// The kind of the DataSource.
 	Kind string `pulumi:"kind"`
 	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group to get. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -142,7 +142,7 @@ type DataSourceArgs struct {
 	// The kind of the DataSource.
 	Kind pulumi.StringInput
 	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties pulumi.MapInput
+	Properties pulumi.Input
 	// The name of the resource group to get. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

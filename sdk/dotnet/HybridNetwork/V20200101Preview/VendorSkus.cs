@@ -30,13 +30,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// The parameters for the managed application to be supplied by vendor.
         /// </summary>
         [Output("managedApplicationParameters")]
-        public Output<ImmutableDictionary<string, object>?> ManagedApplicationParameters { get; private set; } = null!;
+        public Output<object?> ManagedApplicationParameters { get; private set; } = null!;
 
         /// <summary>
         /// The template for the managed application deployment.
         /// </summary>
         [Output("managedApplicationTemplate")]
-        public Output<ImmutableDictionary<string, object>?> ManagedApplicationTemplate { get; private set; } = null!;
+        public Output<object?> ManagedApplicationTemplate { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -137,29 +137,17 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("managedApplicationParameters")]
-        private InputMap<object>? _managedApplicationParameters;
-
         /// <summary>
         /// The parameters for the managed application to be supplied by vendor.
         /// </summary>
-        public InputMap<object> ManagedApplicationParameters
-        {
-            get => _managedApplicationParameters ?? (_managedApplicationParameters = new InputMap<object>());
-            set => _managedApplicationParameters = value;
-        }
-
-        [Input("managedApplicationTemplate")]
-        private InputMap<object>? _managedApplicationTemplate;
+        [Input("managedApplicationParameters")]
+        public Input<object>? ManagedApplicationParameters { get; set; }
 
         /// <summary>
         /// The template for the managed application deployment.
         /// </summary>
-        public InputMap<object> ManagedApplicationTemplate
-        {
-            get => _managedApplicationTemplate ?? (_managedApplicationTemplate = new InputMap<object>());
-            set => _managedApplicationTemplate = value;
-        }
+        [Input("managedApplicationTemplate")]
+        public Input<object>? ManagedApplicationTemplate { get; set; }
 
         /// <summary>
         /// Indicates if the vendor sku is in preview mode.

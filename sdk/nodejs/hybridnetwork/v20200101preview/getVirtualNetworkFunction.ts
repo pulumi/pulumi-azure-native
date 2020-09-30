@@ -54,7 +54,7 @@ export interface GetVirtualNetworkFunctionResult {
     /**
      * The parameters for the managed application.
      */
-    readonly managedApplicationParameters?: {[key: string]: any};
+    readonly managedApplicationParameters?: any;
     /**
      * Resource name.
      */

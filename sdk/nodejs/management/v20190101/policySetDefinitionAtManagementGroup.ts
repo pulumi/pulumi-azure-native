@@ -47,7 +47,7 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
     /**
      * The policy set definition metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * The name of the policy set definition.
      */
@@ -55,7 +55,7 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<any | undefined>;
     /**
      * An array of policy definition references.
      */
@@ -140,11 +140,11 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
     /**
      * The policy set definition metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: any;
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: any;
     /**
      * An array of policy definition references.
      */

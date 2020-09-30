@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
         /// Gets or sets the resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -130,17 +130,11 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
         [Input("plan")]
         public Input<Inputs.PlanArgs>? Plan { get; set; }
 
-        [Input("properties")]
-        private InputMap<object>? _properties;
-
         /// <summary>
         /// Gets or sets the resource properties.
         /// </summary>
-        public InputMap<object> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
-        }
+        [Input("properties")]
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

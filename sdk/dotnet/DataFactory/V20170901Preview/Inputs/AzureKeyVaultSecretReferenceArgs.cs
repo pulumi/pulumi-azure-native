@@ -15,29 +15,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
     /// </summary>
     public sealed class AzureKeyVaultSecretReferenceArgs : Pulumi.ResourceArgs
     {
-        [Input("secretName", required: true)]
-        private InputMap<object>? _secretName;
-
         /// <summary>
         /// The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> SecretName
-        {
-            get => _secretName ?? (_secretName = new InputMap<object>());
-            set => _secretName = value;
-        }
-
-        [Input("secretVersion")]
-        private InputMap<object>? _secretVersion;
+        [Input("secretName", required: true)]
+        public Input<object> SecretName { get; set; } = null!;
 
         /// <summary>
         /// The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> SecretVersion
-        {
-            get => _secretVersion ?? (_secretVersion = new InputMap<object>());
-            set => _secretVersion = value;
-        }
+        [Input("secretVersion")]
+        public Input<object>? SecretVersion { get; set; }
 
         /// <summary>
         /// The Azure Key Vault linked service reference.

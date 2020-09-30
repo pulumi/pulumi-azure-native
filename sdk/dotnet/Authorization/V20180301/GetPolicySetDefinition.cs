@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
         /// <summary>
         /// The policy set definition metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The name of the policy set definition.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
         /// <summary>
         /// The policy set definition parameters that can be used in policy definition references.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// An array of policy definition references.
         /// </summary>
@@ -72,11 +72,11 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
 
             string? displayName,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string name,
 
-            ImmutableDictionary<string, object>? parameters,
+            object? parameters,
 
             ImmutableArray<Outputs.PolicyDefinitionReferenceResponse> policyDefinitions,
 

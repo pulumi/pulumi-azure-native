@@ -528,7 +528,7 @@ func (o AppResourcePropertiesResponsePtrOutput) Url() pulumi.StringPtrOutput {
 // Binding resource properties payload
 type BindingResourceProperties struct {
 	// Binding parameters of the Binding resource
-	BindingParameters map[string]map[string]interface{} `pulumi:"bindingParameters"`
+	BindingParameters map[string]interface{} `pulumi:"bindingParameters"`
 	// The key of the bound resource
 	Key *string `pulumi:"key"`
 	// The Azure resource id of the bound resource
@@ -549,7 +549,7 @@ type BindingResourcePropertiesInput interface {
 // Binding resource properties payload
 type BindingResourcePropertiesArgs struct {
 	// Binding parameters of the Binding resource
-	BindingParameters pulumi.MapMapInput `pulumi:"bindingParameters"`
+	BindingParameters pulumi.MapInput `pulumi:"bindingParameters"`
 	// The key of the bound resource
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// The Azure resource id of the bound resource
@@ -635,8 +635,8 @@ func (o BindingResourcePropertiesOutput) ToBindingResourcePropertiesPtrOutputWit
 }
 
 // Binding parameters of the Binding resource
-func (o BindingResourcePropertiesOutput) BindingParameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v BindingResourceProperties) map[string]map[string]interface{} { return v.BindingParameters }).(pulumi.MapMapOutput)
+func (o BindingResourcePropertiesOutput) BindingParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v BindingResourceProperties) map[string]interface{} { return v.BindingParameters }).(pulumi.MapOutput)
 }
 
 // The key of the bound resource
@@ -668,13 +668,13 @@ func (o BindingResourcePropertiesPtrOutput) Elem() BindingResourcePropertiesOutp
 }
 
 // Binding parameters of the Binding resource
-func (o BindingResourcePropertiesPtrOutput) BindingParameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v *BindingResourceProperties) map[string]map[string]interface{} {
+func (o BindingResourcePropertiesPtrOutput) BindingParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *BindingResourceProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.BindingParameters
-	}).(pulumi.MapMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The key of the bound resource
@@ -700,7 +700,7 @@ func (o BindingResourcePropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput 
 // Binding resource properties payload
 type BindingResourcePropertiesResponse struct {
 	// Binding parameters of the Binding resource
-	BindingParameters map[string]map[string]interface{} `pulumi:"bindingParameters"`
+	BindingParameters map[string]interface{} `pulumi:"bindingParameters"`
 	// Creation time of the Binding resource
 	CreatedAt string `pulumi:"createdAt"`
 	// The generated Spring Boot property file for this binding. The secret will be deducted.
@@ -731,7 +731,7 @@ type BindingResourcePropertiesResponseInput interface {
 // Binding resource properties payload
 type BindingResourcePropertiesResponseArgs struct {
 	// Binding parameters of the Binding resource
-	BindingParameters pulumi.MapMapInput `pulumi:"bindingParameters"`
+	BindingParameters pulumi.MapInput `pulumi:"bindingParameters"`
 	// Creation time of the Binding resource
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
 	// The generated Spring Boot property file for this binding. The secret will be deducted.
@@ -827,10 +827,8 @@ func (o BindingResourcePropertiesResponseOutput) ToBindingResourcePropertiesResp
 }
 
 // Binding parameters of the Binding resource
-func (o BindingResourcePropertiesResponseOutput) BindingParameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v BindingResourcePropertiesResponse) map[string]map[string]interface{} {
-		return v.BindingParameters
-	}).(pulumi.MapMapOutput)
+func (o BindingResourcePropertiesResponseOutput) BindingParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v BindingResourcePropertiesResponse) map[string]interface{} { return v.BindingParameters }).(pulumi.MapOutput)
 }
 
 // Creation time of the Binding resource
@@ -887,13 +885,13 @@ func (o BindingResourcePropertiesResponsePtrOutput) Elem() BindingResourceProper
 }
 
 // Binding parameters of the Binding resource
-func (o BindingResourcePropertiesResponsePtrOutput) BindingParameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v *BindingResourcePropertiesResponse) map[string]map[string]interface{} {
+func (o BindingResourcePropertiesResponsePtrOutput) BindingParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *BindingResourcePropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.BindingParameters
-	}).(pulumi.MapMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Creation time of the Binding resource

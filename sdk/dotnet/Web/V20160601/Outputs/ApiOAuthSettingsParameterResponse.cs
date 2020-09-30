@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.Web.V20160601.Outputs
         /// <summary>
         /// Options available to this parameter
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Options;
+        public readonly object? Options;
         /// <summary>
         /// UI definitions per culture as caller can specify the culture
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UiDefinition;
+        public readonly object? UiDefinition;
         /// <summary>
         /// Value of the setting
         /// </summary>
@@ -28,9 +28,9 @@ namespace Pulumi.AzureNextGen.Web.V20160601.Outputs
 
         [OutputConstructor]
         private ApiOAuthSettingsParameterResponse(
-            ImmutableDictionary<string, object>? options,
+            object? options,
 
-            ImmutableDictionary<string, object>? uiDefinition,
+            object? uiDefinition,
 
             string? value)
         {

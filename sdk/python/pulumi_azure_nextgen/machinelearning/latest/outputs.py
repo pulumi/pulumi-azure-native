@@ -187,14 +187,14 @@ class ColumnSpecificationResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 enum: Optional[Sequence[Mapping[str, Any]]] = None,
+                 enum: Optional[Sequence[Any]] = None,
                  format: Optional[str] = None,
                  x_ms_isnullable: Optional[bool] = None,
                  x_ms_isordered: Optional[bool] = None):
         """
         Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
         :param str type: Data type of the column.
-        :param Sequence[Mapping[str, Any]] enum: If the data type is categorical, this provides the list of accepted categories.
+        :param Sequence[Any] enum: If the data type is categorical, this provides the list of accepted categories.
         :param str format: Additional format information for the data type.
         :param bool x_ms_isnullable: Flag indicating if the type supports null values or not.
         :param bool x_ms_isordered: Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
@@ -219,7 +219,7 @@ class ColumnSpecificationResponse(dict):
 
     @property
     @pulumi.getter
-    def enum(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def enum(self) -> Optional[Sequence[Any]]:
         """
         If the data type is categorical, this provides the list of accepted categories.
         """
@@ -321,12 +321,12 @@ class ExampleRequestResponse(dict):
     Sample input data for the service's input(s).
     """
     def __init__(__self__, *,
-                 global_parameters: Optional[Mapping[str, Mapping[str, Any]]] = None,
-                 inputs: Optional[Mapping[str, Sequence[Sequence[Mapping[str, Any]]]]] = None):
+                 global_parameters: Optional[Mapping[str, Any]] = None,
+                 inputs: Optional[Mapping[str, Sequence[Sequence[Any]]]] = None):
         """
         Sample input data for the service's input(s).
-        :param Mapping[str, Mapping[str, Any]] global_parameters: Sample input data for the web service's global parameters
-        :param Mapping[str, Sequence[Sequence[Mapping[str, Any]]]] inputs: Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+        :param Mapping[str, Any] global_parameters: Sample input data for the web service's global parameters
+        :param Mapping[str, Sequence[Sequence[Any]]] inputs: Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         """
         if global_parameters is not None:
             pulumi.set(__self__, "global_parameters", global_parameters)
@@ -335,7 +335,7 @@ class ExampleRequestResponse(dict):
 
     @property
     @pulumi.getter(name="globalParameters")
-    def global_parameters(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def global_parameters(self) -> Optional[Mapping[str, Any]]:
         """
         Sample input data for the web service's global parameters
         """
@@ -343,7 +343,7 @@ class ExampleRequestResponse(dict):
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[Mapping[str, Sequence[Sequence[Mapping[str, Any]]]]]:
+    def inputs(self) -> Optional[Mapping[str, Sequence[Sequence[Any]]]]:
         """
         Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         """
@@ -1056,11 +1056,11 @@ class WebServiceParameterResponse(dict):
     """
     def __init__(__self__, *,
                  certificate_thumbprint: Optional[str] = None,
-                 value: Optional[Mapping[str, Any]] = None):
+                 value: Optional[Any] = None):
         """
         Web Service Parameter object for node and global parameter
         :param str certificate_thumbprint: If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
-        :param Mapping[str, Any] value: The parameter value
+        :param Any value: The parameter value
         """
         if certificate_thumbprint is not None:
             pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
@@ -1077,7 +1077,7 @@ class WebServiceParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Mapping[str, Any]]:
+    def value(self) -> Optional[Any]:
         """
         The parameter value
         """

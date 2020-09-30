@@ -101,7 +101,7 @@ class GetVirtualNetworkFunctionResult:
 
     @property
     @pulumi.getter(name="managedApplicationParameters")
-    def managed_application_parameters(self) -> Optional[Mapping[str, Any]]:
+    def managed_application_parameters(self) -> Optional[Any]:
         """
         The parameters for the managed application.
         """

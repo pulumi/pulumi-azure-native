@@ -73,6 +73,10 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
      */
     public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A system generated property that denotes the last updated timestamp of the resource.
+     */
+    public /*out*/ readonly ts!: pulumi.Output<any | undefined>;
+    /**
      * The type of Azure resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -124,6 +128,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             inputs["partitionKey"] = undefined /*out*/;
             inputs["rid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["ts"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueKeyPolicy"] = undefined /*out*/;
         } else {
@@ -136,6 +141,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             inputs["partitionKey"] = undefined /*out*/;
             inputs["rid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["ts"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueKeyPolicy"] = undefined /*out*/;
         }

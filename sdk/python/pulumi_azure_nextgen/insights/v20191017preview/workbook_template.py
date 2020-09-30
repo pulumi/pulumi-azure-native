@@ -25,7 +25,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template_data: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 template_data: Optional[Any] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -42,7 +42,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[Mapping[str, Any]] template_data: Valid JSON object containing workbook template payload.
+        :param Any template_data: Valid JSON object containing workbook template payload.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -164,7 +164,7 @@ class WorkbookTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateData")
-    def template_data(self) -> pulumi.Output[Mapping[str, Any]]:
+    def template_data(self) -> pulumi.Output[Any]:
         """
         Valid JSON object containing workbook template payload.
         """

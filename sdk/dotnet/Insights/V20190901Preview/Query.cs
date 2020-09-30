@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Insights.V20190901Preview
         /// Additional properties that can be set for the query.
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The related metadata items for the function.
@@ -155,17 +155,11 @@ namespace Pulumi.AzureNextGen.Insights.V20190901Preview
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        [Input("properties")]
-        private InputMap<object>? _properties;
-
         /// <summary>
         /// Additional properties that can be set for the query.
         /// </summary>
-        public InputMap<object> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
-        }
+        [Input("properties")]
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the Log Analytics QueryPack resource.

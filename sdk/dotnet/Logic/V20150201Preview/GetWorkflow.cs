@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
         /// <summary>
         /// Gets or sets the definition.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Definition;
+        public readonly object? Definition;
         /// <summary>
         /// Gets or sets the link to definition.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
 
             string createdTime,
 
-            ImmutableDictionary<string, object>? definition,
+            object? definition,
 
             Outputs.ContentLinkResponse? definitionLink,
 

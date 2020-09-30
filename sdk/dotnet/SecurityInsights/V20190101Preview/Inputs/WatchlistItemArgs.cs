@@ -27,17 +27,11 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.Inputs
         [Input("createdTimeUtc")]
         public Input<string>? CreatedTimeUtc { get; set; }
 
-        [Input("entityMapping")]
-        private InputMap<object>? _entityMapping;
-
         /// <summary>
         /// A key-value pair for a watchlist item entity mapping
         /// </summary>
-        public InputMap<object> EntityMapping
-        {
-            get => _entityMapping ?? (_entityMapping = new InputMap<object>());
-            set => _entityMapping = value;
-        }
+        [Input("entityMapping")]
+        public Input<object>? EntityMapping { get; set; }
 
         /// <summary>
         /// The last time the watchlist item was updated
@@ -75,17 +69,11 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.Inputs
         [Input("watchlistItemName")]
         public Input<string>? WatchlistItemName { get; set; }
 
-        [Input("watchlistItemPair", required: true)]
-        private InputMap<object>? _watchlistItemPair;
-
         /// <summary>
         /// A key-value pair for a watchlist item
         /// </summary>
-        public InputMap<object> WatchlistItemPair
-        {
-            get => _watchlistItemPair ?? (_watchlistItemPair = new InputMap<object>());
-            set => _watchlistItemPair = value;
-        }
+        [Input("watchlistItemPair", required: true)]
+        public Input<object> WatchlistItemPair { get; set; } = null!;
 
         /// <summary>
         /// The type of the watchlist item

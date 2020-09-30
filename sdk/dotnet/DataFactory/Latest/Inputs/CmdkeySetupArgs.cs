@@ -21,17 +21,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("password", required: true)]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> Password { get; set; } = null!;
 
-        [Input("targetName", required: true)]
-        private InputMap<object>? _targetName;
-
         /// <summary>
         /// The server name of data source access.
         /// </summary>
-        public InputMap<object> TargetName
-        {
-            get => _targetName ?? (_targetName = new InputMap<object>());
-            set => _targetName = value;
-        }
+        [Input("targetName", required: true)]
+        public Input<object> TargetName { get; set; } = null!;
 
         /// <summary>
         /// The type of custom setup.
@@ -39,17 +33,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("userName", required: true)]
-        private InputMap<object>? _userName;
-
         /// <summary>
         /// The user name of data source access.
         /// </summary>
-        public InputMap<object> UserName
-        {
-            get => _userName ?? (_userName = new InputMap<object>());
-            set => _userName = value;
-        }
+        [Input("userName", required: true)]
+        public Input<object> UserName { get; set; } = null!;
 
         public CmdkeySetupArgs()
         {

@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// <summary>
         /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Definitions;
+        public readonly object? Definitions;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         private GetApiSchemaResult(
             string contentType,
 
-            ImmutableDictionary<string, object>? definitions,
+            object? definitions,
 
             string name,
 

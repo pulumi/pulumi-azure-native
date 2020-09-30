@@ -453,8 +453,8 @@ class DeploymentPropertiesExtendedResponse(dict):
                  mode: str,
                  on_error_deployment: 'outputs.OnErrorDeploymentExtendedResponse',
                  output_resources: Sequence['outputs.ResourceReferenceResponse'],
-                 outputs: Mapping[str, Any],
-                 parameters: Mapping[str, Any],
+                 outputs: Any,
+                 parameters: Any,
                  parameters_link: 'outputs.ParametersLinkResponse',
                  providers: Sequence['outputs.ProviderResponse'],
                  provisioning_state: str,
@@ -472,8 +472,8 @@ class DeploymentPropertiesExtendedResponse(dict):
         :param str mode: The deployment mode. Possible values are Incremental and Complete.
         :param 'OnErrorDeploymentExtendedResponseArgs' on_error_deployment: The deployment on error behavior.
         :param Sequence['ResourceReferenceResponseArgs'] output_resources: Array of provisioned resources.
-        :param Mapping[str, Any] outputs: Key/value pairs that represent deployment output.
-        :param Mapping[str, Any] parameters: Deployment parameters. 
+        :param Any outputs: Key/value pairs that represent deployment output.
+        :param Any parameters: Deployment parameters. 
         :param 'ParametersLinkResponseArgs' parameters_link: The URI referencing the parameters. 
         :param Sequence['ProviderResponseArgs'] providers: The list of resource providers needed for the deployment.
         :param str provisioning_state: Denotes the state of provisioning.
@@ -566,7 +566,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, Any]:
+    def outputs(self) -> Any:
         """
         Key/value pairs that represent deployment output.
         """
@@ -574,7 +574,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, Any]:
+    def parameters(self) -> Any:
         """
         Deployment parameters. 
         """
@@ -855,11 +855,11 @@ class ErrorAdditionalInfoResponse(dict):
     The resource management error additional info.
     """
     def __init__(__self__, *,
-                 info: Mapping[str, Any],
+                 info: Any,
                  type: str):
         """
         The resource management error additional info.
-        :param Mapping[str, Any] info: The additional info.
+        :param Any info: The additional info.
         :param str type: The additional info type.
         """
         pulumi.set(__self__, "info", info)
@@ -867,7 +867,7 @@ class ErrorAdditionalInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def info(self) -> Mapping[str, Any]:
+    def info(self) -> Any:
         """
         The additional info.
         """
@@ -1183,14 +1183,14 @@ class ParameterDefinitionsValueResponse(dict):
     The definition of a parameter that can be provided to the policy.
     """
     def __init__(__self__, *,
-                 allowed_values: Optional[Sequence[Mapping[str, Any]]] = None,
-                 default_value: Optional[Mapping[str, Any]] = None,
+                 allowed_values: Optional[Sequence[Any]] = None,
+                 default_value: Optional[Any] = None,
                  metadata: Optional['outputs.ParameterDefinitionsValueResponseMetadata'] = None,
                  type: Optional[str] = None):
         """
         The definition of a parameter that can be provided to the policy.
-        :param Sequence[Mapping[str, Any]] allowed_values: The allowed values for the parameter.
-        :param Mapping[str, Any] default_value: The default value for the parameter if no value is provided.
+        :param Sequence[Any] allowed_values: The allowed values for the parameter.
+        :param Any default_value: The default value for the parameter if no value is provided.
         :param 'ParameterDefinitionsValueResponseMetadataArgs' metadata: General metadata for the parameter.
         :param str type: The data type of the parameter.
         """
@@ -1205,7 +1205,7 @@ class ParameterDefinitionsValueResponse(dict):
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def allowed_values(self) -> Optional[Sequence[Any]]:
         """
         The allowed values for the parameter.
         """
@@ -1213,7 +1213,7 @@ class ParameterDefinitionsValueResponse(dict):
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[Mapping[str, Any]]:
+    def default_value(self) -> Optional[Any]:
         """
         The default value for the parameter if no value is provided.
         """
@@ -1283,17 +1283,17 @@ class ParameterValuesValueResponse(dict):
     The value of a parameter.
     """
     def __init__(__self__, *,
-                 value: Optional[Mapping[str, Any]] = None):
+                 value: Optional[Any] = None):
         """
         The value of a parameter.
-        :param Mapping[str, Any] value: The value of the parameter.
+        :param Any value: The value of the parameter.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Mapping[str, Any]]:
+    def value(self) -> Optional[Any]:
         """
         The value of the parameter.
         """

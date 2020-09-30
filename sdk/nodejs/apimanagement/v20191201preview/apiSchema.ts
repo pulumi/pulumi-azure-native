@@ -41,7 +41,7 @@ export class ApiSchema extends pulumi.CustomResource {
     /**
      * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
      */
-    public readonly definitions!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly definitions!: pulumi.Output<any | undefined>;
     /**
      * Resource name.
      */
@@ -124,7 +124,7 @@ export interface ApiSchemaArgs {
     /**
      * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
      */
-    readonly definitions?: pulumi.Input<{[key: string]: any}>;
+    readonly definitions?: any;
     /**
      * The name of the resource group.
      */

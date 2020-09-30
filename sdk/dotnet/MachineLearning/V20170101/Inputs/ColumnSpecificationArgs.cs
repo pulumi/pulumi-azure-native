@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20170101.Inputs
     public sealed class ColumnSpecificationArgs : Pulumi.ResourceArgs
     {
         [Input("enum")]
-        private InputList<ImmutableDictionary<string, object>>? _enum;
+        private InputList<object>? _enum;
 
         /// <summary>
         /// If the data type is categorical, this provides the list of accepted categories.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Enum
+        public InputList<object> Enum
         {
-            get => _enum ?? (_enum = new InputList<ImmutableDictionary<string, object>>());
+            get => _enum ?? (_enum = new InputList<object>());
             set => _enum = value;
         }
 

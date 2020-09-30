@@ -19,7 +19,7 @@ class JobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]]] = None,
                  data_manager_name: Optional[pulumi.Input[str]] = None,
-                 data_service_input: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 data_service_input: Optional[Any] = None,
                  data_service_name: Optional[pulumi.Input[str]] = None,
                  data_sink_id: Optional[pulumi.Input[str]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-        :param pulumi.Input[Mapping[str, Any]] data_service_input: A generic json used differently by each data service type.
+        :param Any data_service_input: A generic json used differently by each data service type.
         :param pulumi.Input[str] data_service_name: The data service type of the job definition.
         :param pulumi.Input[str] data_sink_id: Data Sink Id associated to the job definition.
         :param pulumi.Input[str] data_source_id: Data Source Id associated to the job definition.
@@ -134,7 +134,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataServiceInput")
-    def data_service_input(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def data_service_input(self) -> pulumi.Output[Optional[Any]]:
         """
         A generic json used differently by each data service type.
         """

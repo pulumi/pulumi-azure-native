@@ -39,17 +39,11 @@ namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview.Inputs
         [Input("parentResourceType", required: true)]
         public Input<string> ParentResourceType { get; set; } = null!;
 
-        [Input("template", required: true)]
-        private InputMap<object>? _template;
-
         /// <summary>
         /// The Json object containing the ARM template to deploy
         /// </summary>
-        public InputMap<object> Template
-        {
-            get => _template ?? (_template = new InputMap<object>());
-            set => _template = value;
-        }
+        [Input("template", required: true)]
+        public Input<object> Template { get; set; } = null!;
 
         public ManagementConfigurationPropertiesArgs()
         {

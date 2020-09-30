@@ -34,7 +34,7 @@ type LookupStorageSyncServiceResult struct {
 	// Storage Sync service Uid
 	StorageSyncServiceUid string `pulumi:"storageSyncServiceUid"`
 	// The tags of the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// The type of the resource
 	Type string `pulumi:"type"`
 }

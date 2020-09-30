@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
         [Output("annotations")]
-        public Output<ImmutableArray<ImmutableDictionary<string, object>>> Annotations { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Annotations { get; private set; } = null!;
 
         /// <summary>
         /// The max number of concurrent runs for the pipeline.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// Dimensions emitted by Pipeline.
         /// </summary>
         [Output("runDimensions")]
-        public Output<ImmutableDictionary<string, ImmutableDictionary<string, object>>?> RunDimensions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> RunDimensions { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -143,14 +143,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -203,14 +203,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("runDimensions")]
-        private InputMap<ImmutableDictionary<string, object>>? _runDimensions;
+        private InputMap<object>? _runDimensions;
 
         /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> RunDimensions
+        public InputMap<object> RunDimensions
         {
-            get => _runDimensions ?? (_runDimensions = new InputMap<ImmutableDictionary<string, object>>());
+            get => _runDimensions ?? (_runDimensions = new InputMap<object>());
             set => _runDimensions = value;
         }
 

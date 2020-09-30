@@ -112,7 +112,10 @@ func transformProperty(prop *provider.AzureAPIProperty,
 		}
 
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-		typ := types[typeName]
+		typ, ok := types[typeName]
+		if !ok {
+			return val.(map[string]interface{})
+		}
 		return transformProperties(typ.Properties, types, val.(map[string]interface{}))
 	case reflect.Slice, reflect.Array:
 		var result []interface{}

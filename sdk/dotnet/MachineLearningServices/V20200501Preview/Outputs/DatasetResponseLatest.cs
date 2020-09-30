@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Outputs
         /// <summary>
         /// Properties stores information like name of time series column for time series dataset.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? Properties;
+        public readonly ImmutableDictionary<string, object>? Properties;
         /// <summary>
         /// Indicates the saved dataset this definition is mapping to, populated on Get.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Outputs
 
             bool partitionFormatInPath,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? properties,
+            ImmutableDictionary<string, object>? properties,
 
             string savedDatasetId,
 

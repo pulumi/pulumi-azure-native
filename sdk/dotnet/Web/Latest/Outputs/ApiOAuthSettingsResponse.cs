@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
         /// <summary>
         /// Read only properties for this oauth setting.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Properties;
+        public readonly object? Properties;
         /// <summary>
         /// Url
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
 
             string? identityProvider,
 
-            ImmutableDictionary<string, object>? properties,
+            object? properties,
 
             string? redirectUrl,
 

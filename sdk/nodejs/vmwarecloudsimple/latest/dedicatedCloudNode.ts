@@ -49,6 +49,10 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
      */
     public /*out*/ readonly cloudRackName!: pulumi.Output<string>;
     /**
+     * date time the resource was created
+     */
+    public /*out*/ readonly created!: pulumi.Output<any>;
+    /**
      * Azure region
      */
     public readonly location!: pulumi.Output<string>;
@@ -155,6 +159,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["availabilityZoneName"] = undefined /*out*/;
             inputs["cloudRackName"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
             inputs["placementGroupName"] = undefined /*out*/;
             inputs["privateCloudId"] = undefined /*out*/;
             inputs["privateCloudName"] = undefined /*out*/;
@@ -166,6 +171,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             inputs["availabilityZoneId"] = undefined /*out*/;
             inputs["availabilityZoneName"] = undefined /*out*/;
             inputs["cloudRackName"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["nodesCount"] = undefined /*out*/;

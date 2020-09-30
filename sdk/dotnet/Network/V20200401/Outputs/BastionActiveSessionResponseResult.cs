@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401.Outputs
         /// <summary>
         /// The time when the session started.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> StartTime;
+        public readonly object StartTime;
         /// <summary>
         /// The host name of the target.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401.Outputs
 
             string sessionId,
 
-            ImmutableDictionary<string, object> startTime,
+            object startTime,
 
             string targetHostName,
 

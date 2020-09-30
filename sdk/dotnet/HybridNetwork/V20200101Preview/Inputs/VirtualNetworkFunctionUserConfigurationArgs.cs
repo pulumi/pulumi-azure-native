@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Inputs
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 
-        [Input("userDataParameters")]
-        private InputMap<object>? _userDataParameters;
-
         /// <summary>
         /// The user data parameters from the customer.
         /// </summary>
-        public InputMap<object> UserDataParameters
-        {
-            get => _userDataParameters ?? (_userDataParameters = new InputMap<object>());
-            set => _userDataParameters = value;
-        }
+        [Input("userDataParameters")]
+        public Input<object>? UserDataParameters { get; set; }
 
         public VirtualNetworkFunctionUserConfigurationArgs()
         {

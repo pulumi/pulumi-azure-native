@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class CosmosDbLinkedServiceArgs : Pulumi.ResourceArgs
     {
-        [Input("accountEndpoint")]
-        private InputMap<object>? _accountEndpoint;
-
         /// <summary>
         /// The endpoint of the Azure CosmosDB account. Type: string (or Expression with resultType string)
         /// </summary>
-        public InputMap<object> AccountEndpoint
-        {
-            get => _accountEndpoint ?? (_accountEndpoint = new InputMap<object>());
-            set => _accountEndpoint = value;
-        }
+        [Input("accountEndpoint")]
+        public Input<object>? AccountEndpoint { get; set; }
 
         /// <summary>
         /// The account key of the Azure CosmosDB account. Type: SecureString or AzureKeyVaultSecretReference.
@@ -34,14 +28,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? AccountKey { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -51,29 +45,17 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("connectionString")]
-        private InputMap<object>? _connectionString;
-
         /// <summary>
         /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public InputMap<object> ConnectionString
-        {
-            get => _connectionString ?? (_connectionString = new InputMap<object>());
-            set => _connectionString = value;
-        }
-
-        [Input("database")]
-        private InputMap<object>? _database;
+        [Input("connectionString")]
+        public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
         /// The name of the database. Type: string (or Expression with resultType string)
         /// </summary>
-        public InputMap<object> Database
-        {
-            get => _database ?? (_database = new InputMap<object>());
-            set => _database = value;
-        }
+        [Input("database")]
+        public Input<object>? Database { get; set; }
 
         /// <summary>
         /// Linked service description.
@@ -81,17 +63,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("encryptedCredential")]
-        private InputMap<object>? _encryptedCredential;
-
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> EncryptedCredential
-        {
-            get => _encryptedCredential ?? (_encryptedCredential = new InputMap<object>());
-            set => _encryptedCredential = value;
-        }
+        [Input("encryptedCredential")]
+        public Input<object>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

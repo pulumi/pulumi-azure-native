@@ -69,7 +69,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         public Output<string> Location { get; private set; } = null!;
 
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Resource Name
@@ -81,13 +81,13 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         /// Tokens/Claim
         /// </summary>
         [Output("nonSecretParameterValues")]
-        public Output<ImmutableDictionary<string, ImmutableDictionary<string, object>>?> NonSecretParameterValues { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> NonSecretParameterValues { get; private set; } = null!;
 
         /// <summary>
         /// Tokens/Claim
         /// </summary>
         [Output("parameterValues")]
-        public Output<ImmutableDictionary<string, ImmutableDictionary<string, object>>?> ParameterValues { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> ParameterValues { get; private set; } = null!;
 
         /// <summary>
         /// Status of the connection
@@ -239,12 +239,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         public Input<string> Location { get; set; } = null!;
 
         [Input("metadata")]
-        private InputMap<object>? _metadata;
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// Resource Name
@@ -253,26 +248,26 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         public Input<string>? Name { get; set; }
 
         [Input("nonSecretParameterValues")]
-        private InputMap<ImmutableDictionary<string, object>>? _nonSecretParameterValues;
+        private InputMap<object>? _nonSecretParameterValues;
 
         /// <summary>
         /// Tokens/Claim
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> NonSecretParameterValues
+        public InputMap<object> NonSecretParameterValues
         {
-            get => _nonSecretParameterValues ?? (_nonSecretParameterValues = new InputMap<ImmutableDictionary<string, object>>());
+            get => _nonSecretParameterValues ?? (_nonSecretParameterValues = new InputMap<object>());
             set => _nonSecretParameterValues = value;
         }
 
         [Input("parameterValues")]
-        private InputMap<ImmutableDictionary<string, object>>? _parameterValues;
+        private InputMap<object>? _parameterValues;
 
         /// <summary>
         /// Tokens/Claim
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> ParameterValues
+        public InputMap<object> ParameterValues
         {
-            get => _parameterValues ?? (_parameterValues = new InputMap<ImmutableDictionary<string, object>>());
+            get => _parameterValues ?? (_parameterValues = new InputMap<object>());
             set => _parameterValues = value;
         }
 

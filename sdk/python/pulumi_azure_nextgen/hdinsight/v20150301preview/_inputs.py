@@ -783,13 +783,13 @@ class ClusterDefinitionArgs:
     def __init__(__self__, *,
                  blueprint: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 configurations: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 configurations: Optional[Any] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
         The cluster definition.
         :param pulumi.Input[str] blueprint: The link to the blueprint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] component_version: The versions of different services in the cluster.
-        :param pulumi.Input[Mapping[str, Any]] configurations: The cluster configurations.
+        :param Any configurations: The cluster configurations.
         :param pulumi.Input[str] kind: The type of cluster.
         """
         if blueprint is not None:
@@ -827,14 +827,14 @@ class ClusterDefinitionArgs:
 
     @property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def configurations(self) -> Optional[Any]:
         """
         The cluster configurations.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def configurations(self, value: Optional[Any]):
         pulumi.set(self, "configurations", value)
 
     @property

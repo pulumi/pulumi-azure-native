@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20170601Preview
         /// <summary>
         /// The policy assignment metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The name of the policy assignment.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20170601Preview
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// The ID of the policy definition.
         /// </summary>
@@ -86,13 +86,13 @@ namespace Pulumi.AzureNextGen.Authorization.V20170601Preview
 
             string? displayName,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             string name,
 
             ImmutableArray<string> notScopes,
 
-            ImmutableDictionary<string, object>? parameters,
+            object? parameters,
 
             string? policyDefinitionId,
 

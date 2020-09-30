@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001.Outputs
         /// <summary>
         /// The additional info.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Info;
+        public readonly object Info;
         /// <summary>
         /// The additional info type.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001.Outputs
 
         [OutputConstructor]
         private ErrorAdditionalInfoResponse(
-            ImmutableDictionary<string, object> info,
+            object info,
 
             string type)
         {

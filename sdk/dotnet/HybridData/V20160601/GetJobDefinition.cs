@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         /// <summary>
         /// A generic json used differently by each data service type.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? DataServiceInput;
+        public readonly object? DataServiceInput;
         /// <summary>
         /// Data Sink Id associated to the job definition.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         private GetJobDefinitionResult(
             ImmutableArray<Outputs.CustomerSecretResponse> customerSecrets,
 
-            ImmutableDictionary<string, object>? dataServiceInput,
+            object? dataServiceInput,
 
             string dataSinkId,
 

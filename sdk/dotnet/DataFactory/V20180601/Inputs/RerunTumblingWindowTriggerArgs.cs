@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class RerunTumblingWindowTriggerArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the trigger.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
 
@@ -33,17 +33,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("parentTrigger", required: true)]
-        private InputMap<object>? _parentTrigger;
-
         /// <summary>
         /// The parent trigger reference.
         /// </summary>
-        public InputMap<object> ParentTrigger
-        {
-            get => _parentTrigger ?? (_parentTrigger = new InputMap<object>());
-            set => _parentTrigger = value;
-        }
+        [Input("parentTrigger", required: true)]
+        public Input<object> ParentTrigger { get; set; } = null!;
 
         /// <summary>
         /// The end time for the time period for which restatement is initiated. Only UTC time is currently supported.

@@ -29,9 +29,9 @@ type Application struct {
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name and value pairs that define the managed application outputs.
-	Outputs pulumi.MapOutput `pulumi:"outputs"`
+	Outputs pulumi.AnyOutput `pulumi:"outputs"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.MapOutput `pulumi:"parameters"`
+	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// The plan information.
 	Plan PlanResponsePtrOutput `pulumi:"plan"`
 	// The managed application provisioning state.
@@ -116,9 +116,9 @@ type applicationState struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Name and value pairs that define the managed application outputs.
-	Outputs map[string]interface{} `pulumi:"outputs"`
+	Outputs interface{} `pulumi:"outputs"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The plan information.
 	Plan *PlanResponse `pulumi:"plan"`
 	// The managed application provisioning state.
@@ -149,9 +149,9 @@ type ApplicationState struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Name and value pairs that define the managed application outputs.
-	Outputs pulumi.MapInput
+	Outputs pulumi.Input
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.MapInput
+	Parameters pulumi.Input
 	// The plan information.
 	Plan PlanResponsePtrInput
 	// The managed application provisioning state.
@@ -186,7 +186,7 @@ type applicationArgs struct {
 	// The managed resource group Id.
 	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters interface{} `pulumi:"parameters"`
 	// The plan information.
 	Plan *Plan `pulumi:"plan"`
 	// The name of the resource group. The name is case insensitive.
@@ -216,7 +216,7 @@ type ApplicationArgs struct {
 	// The managed resource group Id.
 	ManagedResourceGroupId pulumi.StringInput
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.MapInput
+	Parameters pulumi.Input
 	// The plan information.
 	Plan PlanPtrInput
 	// The name of the resource group. The name is case insensitive.

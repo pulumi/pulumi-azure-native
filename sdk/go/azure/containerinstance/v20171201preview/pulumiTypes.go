@@ -3325,7 +3325,7 @@ type Volume struct {
 	// The Azure File volume.
 	AzureFile *AzureFileVolume `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir map[string]interface{} `pulumi:"emptyDir"`
+	EmptyDir interface{} `pulumi:"emptyDir"`
 	// The git repo volume.
 	GitRepo *GitRepoVolume `pulumi:"gitRepo"`
 	// The name of the volume.
@@ -3350,7 +3350,7 @@ type VolumeArgs struct {
 	// The Azure File volume.
 	AzureFile AzureFileVolumePtrInput `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir pulumi.MapInput `pulumi:"emptyDir"`
+	EmptyDir pulumi.Input `pulumi:"emptyDir"`
 	// The git repo volume.
 	GitRepo GitRepoVolumePtrInput `pulumi:"gitRepo"`
 	// The name of the volume.
@@ -3417,8 +3417,8 @@ func (o VolumeOutput) AzureFile() AzureFileVolumePtrOutput {
 }
 
 // The empty directory volume.
-func (o VolumeOutput) EmptyDir() pulumi.MapOutput {
-	return o.ApplyT(func(v Volume) map[string]interface{} { return v.EmptyDir }).(pulumi.MapOutput)
+func (o VolumeOutput) EmptyDir() pulumi.AnyOutput {
+	return o.ApplyT(func(v Volume) interface{} { return v.EmptyDir }).(pulumi.AnyOutput)
 }
 
 // The git repo volume.
@@ -3697,7 +3697,7 @@ type VolumeResponse struct {
 	// The Azure File volume.
 	AzureFile *AzureFileVolumeResponse `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir map[string]interface{} `pulumi:"emptyDir"`
+	EmptyDir interface{} `pulumi:"emptyDir"`
 	// The git repo volume.
 	GitRepo *GitRepoVolumeResponse `pulumi:"gitRepo"`
 	// The name of the volume.
@@ -3722,7 +3722,7 @@ type VolumeResponseArgs struct {
 	// The Azure File volume.
 	AzureFile AzureFileVolumeResponsePtrInput `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir pulumi.MapInput `pulumi:"emptyDir"`
+	EmptyDir pulumi.Input `pulumi:"emptyDir"`
 	// The git repo volume.
 	GitRepo GitRepoVolumeResponsePtrInput `pulumi:"gitRepo"`
 	// The name of the volume.
@@ -3789,8 +3789,8 @@ func (o VolumeResponseOutput) AzureFile() AzureFileVolumeResponsePtrOutput {
 }
 
 // The empty directory volume.
-func (o VolumeResponseOutput) EmptyDir() pulumi.MapOutput {
-	return o.ApplyT(func(v VolumeResponse) map[string]interface{} { return v.EmptyDir }).(pulumi.MapOutput)
+func (o VolumeResponseOutput) EmptyDir() pulumi.AnyOutput {
+	return o.ApplyT(func(v VolumeResponse) interface{} { return v.EmptyDir }).(pulumi.AnyOutput)
 }
 
 // The git repo volume.

@@ -103,7 +103,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter(name="createUiDefinition")
-    def create_ui_definition(self) -> Optional[Mapping[str, Any]]:
+    def create_ui_definition(self) -> Optional[Any]:
         """
         The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         """
@@ -167,7 +167,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter(name="mainTemplate")
-    def main_template(self) -> Optional[Mapping[str, Any]]:
+    def main_template(self) -> Optional[Any]:
         """
         The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         """

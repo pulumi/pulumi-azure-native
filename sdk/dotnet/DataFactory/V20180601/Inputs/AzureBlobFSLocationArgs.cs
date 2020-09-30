@@ -15,41 +15,23 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class AzureBlobFSLocationArgs : Pulumi.ResourceArgs
     {
-        [Input("fileName")]
-        private InputMap<object>? _fileName;
-
         /// <summary>
         /// Specify the file name of dataset. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> FileName
-        {
-            get => _fileName ?? (_fileName = new InputMap<object>());
-            set => _fileName = value;
-        }
-
-        [Input("fileSystem")]
-        private InputMap<object>? _fileSystem;
+        [Input("fileName")]
+        public Input<object>? FileName { get; set; }
 
         /// <summary>
         /// Specify the fileSystem of azure blobFS. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> FileSystem
-        {
-            get => _fileSystem ?? (_fileSystem = new InputMap<object>());
-            set => _fileSystem = value;
-        }
-
-        [Input("folderPath")]
-        private InputMap<object>? _folderPath;
+        [Input("fileSystem")]
+        public Input<object>? FileSystem { get; set; }
 
         /// <summary>
         /// Specify the folder path of dataset. Type: string (or Expression with resultType string)
         /// </summary>
-        public InputMap<object> FolderPath
-        {
-            get => _folderPath ?? (_folderPath = new InputMap<object>());
-            set => _folderPath = value;
-        }
+        [Input("folderPath")]
+        public Input<object>? FolderPath { get; set; }
 
         /// <summary>
         /// Type of dataset storage location.

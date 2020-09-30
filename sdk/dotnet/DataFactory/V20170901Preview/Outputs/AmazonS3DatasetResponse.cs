@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
+        public readonly ImmutableArray<object> Annotations;
         /// <summary>
         /// The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object> BucketName;
+        public readonly object BucketName;
         /// <summary>
         /// The data compression method used for the Amazon S3 object.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The key of the Amazon S3 object. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Key;
+        public readonly object? Key;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Prefix;
+        public readonly object? Prefix;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Structure;
+        public readonly object? Structure;
         /// <summary>
         /// Type of dataset.
         /// </summary>
@@ -60,13 +60,13 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
         /// <summary>
         /// The version for the S3 object. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Version;
+        public readonly object? Version;
 
         [OutputConstructor]
         private AmazonS3DatasetResponse(
-            ImmutableArray<ImmutableDictionary<string, object>> annotations,
+            ImmutableArray<object> annotations,
 
-            ImmutableDictionary<string, object> bucketName,
+            object bucketName,
 
             Union<Outputs.DatasetBZip2CompressionResponse, Union<Outputs.DatasetDeflateCompressionResponse, Union<Outputs.DatasetGZipCompressionResponse, Outputs.DatasetZipDeflateCompressionResponse>>>? compression,
 
@@ -74,19 +74,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Outputs
 
             Union<Outputs.AvroFormatResponse, Union<Outputs.JsonFormatResponse, Union<Outputs.OrcFormatResponse, Union<Outputs.ParquetFormatResponse, Outputs.TextFormatResponse>>>>? format,
 
-            ImmutableDictionary<string, object>? key,
+            object? key,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            ImmutableDictionary<string, object>? prefix,
+            object? prefix,
 
-            ImmutableDictionary<string, object>? structure,
+            object? structure,
 
             string type,
 
-            ImmutableDictionary<string, object>? version)
+            object? version)
         {
             Annotations = annotations;
             BucketName = bucketName;

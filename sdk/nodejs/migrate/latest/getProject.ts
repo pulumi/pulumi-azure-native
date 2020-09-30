@@ -54,7 +54,7 @@ export interface GetProjectResult {
     /**
      * Tags provided by Azure Tagging service.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: any;
     /**
      * Type of the object = [Microsoft.Migrate/assessmentProjects].
      */

@@ -67,7 +67,7 @@ export class WorkbookTemplate extends pulumi.CustomResource {
     /**
      * Valid JSON object containing workbook template payload.
      */
-    public readonly templateData!: pulumi.Output<{[key: string]: any}>;
+    public readonly templateData!: pulumi.Output<any>;
     /**
      * Azure resource type
      */
@@ -170,5 +170,5 @@ export interface WorkbookTemplateArgs {
     /**
      * Valid JSON object containing workbook template payload.
      */
-    readonly templateData: pulumi.Input<{[key: string]: any}>;
+    readonly templateData: any;
 }

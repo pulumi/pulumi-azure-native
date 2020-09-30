@@ -54,7 +54,7 @@ export interface GetWorkflowResult {
     /**
      * The definition.
      */
-    readonly definition?: {[key: string]: any};
+    readonly definition?: any;
     /**
      * The endpoints configuration.
      */

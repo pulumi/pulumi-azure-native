@@ -362,10 +362,10 @@ class UserInfoArgs:
 class WatchlistItemArgs:
     def __init__(__self__, *,
                  watchlist_id: pulumi.Input[str],
-                 watchlist_item_pair: pulumi.Input[Mapping[str, Any]],
+                 watchlist_item_pair: Any,
                  created_by: Optional[pulumi.Input['UserInfoArgs']] = None,
                  created_time_utc: Optional[pulumi.Input[str]] = None,
-                 entity_mapping: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 entity_mapping: Optional[Any] = None,
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  time_to_live_utc: Optional[pulumi.Input[str]] = None,
@@ -375,10 +375,10 @@ class WatchlistItemArgs:
         """
         Represents a Watchlist Item in Azure Security Insights.
         :param pulumi.Input[str] watchlist_id: The watchlist id of the parent of this watchlist item
-        :param pulumi.Input[Mapping[str, Any]] watchlist_item_pair: A key-value pair for a watchlist item
+        :param Any watchlist_item_pair: A key-value pair for a watchlist item
         :param pulumi.Input['UserInfoArgs'] created_by: Describes a user that created the watchlist
         :param pulumi.Input[str] created_time_utc: The time the watchlist item was created
-        :param pulumi.Input[Mapping[str, Any]] entity_mapping: A key-value pair for a watchlist item entity mapping
+        :param Any entity_mapping: A key-value pair for a watchlist item entity mapping
         :param pulumi.Input[str] last_updated_time_utc: The last time the watchlist item was updated
         :param pulumi.Input[str] tenant_id: The tenantId to which this watchlist item belongs to
         :param pulumi.Input[str] time_to_live_utc: The time to live for the watchlist item
@@ -421,14 +421,14 @@ class WatchlistItemArgs:
 
     @property
     @pulumi.getter(name="watchlistItemPair")
-    def watchlist_item_pair(self) -> pulumi.Input[Mapping[str, Any]]:
+    def watchlist_item_pair(self) -> Any:
         """
         A key-value pair for a watchlist item
         """
         return pulumi.get(self, "watchlist_item_pair")
 
     @watchlist_item_pair.setter
-    def watchlist_item_pair(self, value: pulumi.Input[Mapping[str, Any]]):
+    def watchlist_item_pair(self, value: Any):
         pulumi.set(self, "watchlist_item_pair", value)
 
     @property
@@ -457,14 +457,14 @@ class WatchlistItemArgs:
 
     @property
     @pulumi.getter(name="entityMapping")
-    def entity_mapping(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def entity_mapping(self) -> Optional[Any]:
         """
         A key-value pair for a watchlist item entity mapping
         """
         return pulumi.get(self, "entity_mapping")
 
     @entity_mapping.setter
-    def entity_mapping(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def entity_mapping(self, value: Optional[Any]):
         pulumi.set(self, "entity_mapping", value)
 
     @property

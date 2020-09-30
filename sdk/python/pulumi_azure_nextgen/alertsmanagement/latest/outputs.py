@@ -73,7 +73,7 @@ class DetectorResponse(dict):
                  description: Optional[str] = None,
                  image_paths: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
-                 parameters: Optional[Mapping[str, Mapping[str, Any]]] = None,
+                 parameters: Optional[Mapping[str, Any]] = None,
                  supported_resource_types: Optional[Sequence[str]] = None):
         """
         The detector information. By default this is not populated, unless it's specified in expandDetector
@@ -81,7 +81,7 @@ class DetectorResponse(dict):
         :param str description: The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
         :param Sequence[str] image_paths: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
         :param str name: The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
-        :param Mapping[str, Mapping[str, Any]] parameters: The detector's parameters.'
+        :param Mapping[str, Any] parameters: The detector's parameters.'
         :param Sequence[str] supported_resource_types: The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
         """
         pulumi.set(__self__, "id", id)
@@ -130,7 +130,7 @@ class DetectorResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Mapping[str, Any]]:
         """
         The detector's parameters.'
         """

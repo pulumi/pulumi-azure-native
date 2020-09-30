@@ -82,6 +82,7 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
             __props__['partition_key'] = None
             __props__['rid'] = None
             __props__['tags'] = None
+            __props__['ts'] = None
             __props__['type'] = None
             __props__['unique_key_policy'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountSqlContainer")])
@@ -181,6 +182,14 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
         Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> pulumi.Output[Optional[Any]]:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
     @property
     @pulumi.getter

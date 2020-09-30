@@ -29,7 +29,7 @@ type LookupIntegrationAccountMapResult struct {
 	// The changed time.
 	ChangedTime string `pulumi:"changedTime"`
 	// The content.
-	Content map[string]interface{} `pulumi:"content"`
+	Content interface{} `pulumi:"content"`
 	// The content link.
 	ContentLink IntegrationAccountContentLinkResponse `pulumi:"contentLink"`
 	// The content type.
@@ -41,7 +41,7 @@ type LookupIntegrationAccountMapResult struct {
 	// The map type.
 	MapType *string `pulumi:"mapType"`
 	// The metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// The resource tags.

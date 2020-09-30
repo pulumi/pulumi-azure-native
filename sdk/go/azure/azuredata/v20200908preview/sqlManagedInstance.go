@@ -23,7 +23,7 @@ type SqlManagedInstance struct {
 	// The on premise instance endpoint
 	InstanceEndpoint pulumi.StringPtrOutput `pulumi:"instanceEndpoint"`
 	// The raw kubernetes information
-	K8sRaw pulumi.MapOutput `pulumi:"k8sRaw"`
+	K8sRaw pulumi.AnyOutput `pulumi:"k8sRaw"`
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrOutput `pulumi:"lastUploadedDate"`
 	// The geo-location where the resource lives
@@ -94,7 +94,7 @@ type sqlManagedInstanceState struct {
 	// The on premise instance endpoint
 	InstanceEndpoint *string `pulumi:"instanceEndpoint"`
 	// The raw kubernetes information
-	K8sRaw map[string]interface{} `pulumi:"k8sRaw"`
+	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// The geo-location where the resource lives
@@ -123,7 +123,7 @@ type SqlManagedInstanceState struct {
 	// The on premise instance endpoint
 	InstanceEndpoint pulumi.StringPtrInput
 	// The raw kubernetes information
-	K8sRaw pulumi.MapInput
+	K8sRaw pulumi.Input
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput
 	// The geo-location where the resource lives
@@ -156,7 +156,7 @@ type sqlManagedInstanceArgs struct {
 	// The on premise instance endpoint
 	InstanceEndpoint *string `pulumi:"instanceEndpoint"`
 	// The raw kubernetes information
-	K8sRaw map[string]interface{} `pulumi:"k8sRaw"`
+	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// The geo-location where the resource lives
@@ -184,7 +184,7 @@ type SqlManagedInstanceArgs struct {
 	// The on premise instance endpoint
 	InstanceEndpoint pulumi.StringPtrInput
 	// The raw kubernetes information
-	K8sRaw pulumi.MapInput
+	K8sRaw pulumi.Input
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput
 	// The geo-location where the resource lives

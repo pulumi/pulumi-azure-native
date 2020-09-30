@@ -23,6 +23,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Outputs
         public readonly string? Path;
         public readonly ImmutableArray<Outputs.ExpressionResponseResult> Subexpressions;
         public readonly string? Text;
+        public readonly object? Value;
 
         [OutputConstructor]
         private ExpressionRootResponseResult(
@@ -32,12 +33,15 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Outputs
 
             ImmutableArray<Outputs.ExpressionResponseResult> subexpressions,
 
-            string? text)
+            string? text,
+
+            object? value)
         {
             Error = error;
             Path = path;
             Subexpressions = subexpressions;
             Text = text;
+            Value = value;
         }
     }
 }

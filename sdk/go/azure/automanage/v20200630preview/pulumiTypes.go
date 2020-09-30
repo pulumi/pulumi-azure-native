@@ -321,7 +321,7 @@ type ConfigurationProfilePreferenceAntiMalware struct {
 	// Enables or disables Real Time Protection
 	EnableRealTimeProtection *string `pulumi:"enableRealTimeProtection"`
 	// Extensions, Paths and Processes that must be excluded from scan
-	Exclusions map[string]interface{} `pulumi:"exclusions"`
+	Exclusions interface{} `pulumi:"exclusions"`
 	// Enables or disables a periodic scan for antimalware
 	RunScheduledScan *string `pulumi:"runScheduledScan"`
 	// Schedule scan settings day
@@ -348,7 +348,7 @@ type ConfigurationProfilePreferenceAntiMalwareArgs struct {
 	// Enables or disables Real Time Protection
 	EnableRealTimeProtection pulumi.StringPtrInput `pulumi:"enableRealTimeProtection"`
 	// Extensions, Paths and Processes that must be excluded from scan
-	Exclusions pulumi.MapInput `pulumi:"exclusions"`
+	Exclusions pulumi.Input `pulumi:"exclusions"`
 	// Enables or disables a periodic scan for antimalware
 	RunScheduledScan pulumi.StringPtrInput `pulumi:"runScheduledScan"`
 	// Schedule scan settings day
@@ -443,8 +443,8 @@ func (o ConfigurationProfilePreferenceAntiMalwareOutput) EnableRealTimeProtectio
 }
 
 // Extensions, Paths and Processes that must be excluded from scan
-func (o ConfigurationProfilePreferenceAntiMalwareOutput) Exclusions() pulumi.MapOutput {
-	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalware) map[string]interface{} { return v.Exclusions }).(pulumi.MapOutput)
+func (o ConfigurationProfilePreferenceAntiMalwareOutput) Exclusions() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalware) interface{} { return v.Exclusions }).(pulumi.AnyOutput)
 }
 
 // Enables or disables a periodic scan for antimalware
@@ -498,13 +498,13 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) EnableRealTimeProtec
 }
 
 // Extensions, Paths and Processes that must be excluded from scan
-func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) Exclusions() pulumi.MapOutput {
-	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalware) map[string]interface{} {
+func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) Exclusions() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalware) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Exclusions
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Enables or disables a periodic scan for antimalware
@@ -552,7 +552,7 @@ type ConfigurationProfilePreferenceAntiMalwareResponse struct {
 	// Enables or disables Real Time Protection
 	EnableRealTimeProtection *string `pulumi:"enableRealTimeProtection"`
 	// Extensions, Paths and Processes that must be excluded from scan
-	Exclusions map[string]interface{} `pulumi:"exclusions"`
+	Exclusions interface{} `pulumi:"exclusions"`
 	// Enables or disables a periodic scan for antimalware
 	RunScheduledScan *string `pulumi:"runScheduledScan"`
 	// Schedule scan settings day
@@ -579,7 +579,7 @@ type ConfigurationProfilePreferenceAntiMalwareResponseArgs struct {
 	// Enables or disables Real Time Protection
 	EnableRealTimeProtection pulumi.StringPtrInput `pulumi:"enableRealTimeProtection"`
 	// Extensions, Paths and Processes that must be excluded from scan
-	Exclusions pulumi.MapInput `pulumi:"exclusions"`
+	Exclusions pulumi.Input `pulumi:"exclusions"`
 	// Enables or disables a periodic scan for antimalware
 	RunScheduledScan pulumi.StringPtrInput `pulumi:"runScheduledScan"`
 	// Schedule scan settings day
@@ -674,8 +674,8 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) EnableRealTimeP
 }
 
 // Extensions, Paths and Processes that must be excluded from scan
-func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) Exclusions() pulumi.MapOutput {
-	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareResponse) map[string]interface{} { return v.Exclusions }).(pulumi.MapOutput)
+func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) Exclusions() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareResponse) interface{} { return v.Exclusions }).(pulumi.AnyOutput)
 }
 
 // Enables or disables a periodic scan for antimalware
@@ -729,13 +729,13 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) EnableRealTi
 }
 
 // Extensions, Paths and Processes that must be excluded from scan
-func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) Exclusions() pulumi.MapOutput {
-	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareResponse) map[string]interface{} {
+func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) Exclusions() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Exclusions
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Enables or disables a periodic scan for antimalware

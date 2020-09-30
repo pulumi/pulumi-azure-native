@@ -743,6 +743,46 @@ func TestFlattenParams(t *testing.T) {
 				},
 			},
 		},
+		{
+			name: "JsonAny",
+			inputFunc: serialize(`{
+  "parameters": {
+    "extensionParameters": {
+      "properties": {
+        "autoUpgradeMinorVersion": true,
+        "publisher": "Microsoft.OSTCExtensions",
+        "type": "VMAccessForLinux",
+        "typeHandlerVersion": "1.4",
+        "settings": {},
+        "protectedSettings": {
+            "username": "[parameters('extensions_enablevmaccess_username')]",
+            "password": "[parameters('extensions_enablevmaccess_password')]",
+            "ssh_key": "[parameters('extensions_enablevmaccess_ssh_key')]",
+            "reset_ssh": "[parameters('extensions_enablevmaccess_reset_ssh')]",
+            "remove_user": "[parameters('extensions_enablevmaccess_remove_user')]",
+            "expiration": "[parameters('extensions_enablevmaccess_expiration')]"
+        }
+      }
+    }
+  }
+}`),
+			resourceName: "azure-nextgen:compute/v20190701:VirtualMachineExtension",
+			expected: map[string]interface{}{
+				"autoUpgradeMinorVersion": true,
+				"publisher":               "Microsoft.OSTCExtensions",
+				"type":                    "VMAccessForLinux",
+				"typeHandlerVersion":      "1.4",
+				"settings":                map[string]interface{}{},
+				"protectedSettings": map[string]interface{}{
+					"username":    "[parameters('extensions_enablevmaccess_username')]",
+					"password":    "[parameters('extensions_enablevmaccess_password')]",
+					"ssh_key":     "[parameters('extensions_enablevmaccess_ssh_key')]",
+					"reset_ssh":   "[parameters('extensions_enablevmaccess_reset_ssh')]",
+					"remove_user": "[parameters('extensions_enablevmaccess_remove_user')]",
+					"expiration":  "[parameters('extensions_enablevmaccess_expiration')]",
+				},
+			},
+		},
 	} {
 		t.Run(test.name, func(t *testing.T) {
 			if test.input == nil {

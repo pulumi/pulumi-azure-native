@@ -52,7 +52,7 @@ class GetSessionResult:
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[Mapping[str, Any]]:
+    def content(self) -> Optional[Any]:
         """
         The session content.
         """

@@ -17,12 +17,12 @@ __all__ = [
 class EnterpriseKnowledgeGraphPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the EnterpriseKnowledgeGraph.
         :param pulumi.Input[str] description: The description of the EnterpriseKnowledgeGraph
-        :param pulumi.Input[Mapping[str, Any]] metadata: Specifies the metadata  of the resource.
+        :param Any metadata: Specifies the metadata  of the resource.
         :param pulumi.Input[str] provisioning_state: The state of EnterpriseKnowledgeGraph provisioning
         """
         if description is not None:
@@ -46,14 +46,14 @@ class EnterpriseKnowledgeGraphPropertiesArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Any]:
         """
         Specifies the metadata  of the resource.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
     @property

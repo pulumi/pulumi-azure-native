@@ -65,7 +65,7 @@ class GetIntegrationAccountSchemaResult:
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[Mapping[str, Any]]:
+    def content(self) -> Optional[Any]:
         """
         The content.
         """
@@ -105,7 +105,7 @@ class GetIntegrationAccountSchemaResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The metadata.
         """

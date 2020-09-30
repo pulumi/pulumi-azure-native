@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview.Outputs
         /// <summary>
         /// The dashboard part's metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The dashboard's part position.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview.Outputs
 
         [OutputConstructor]
         private DashboardPartsResponse(
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             Outputs.DashboardPartsResponsePosition position)
         {

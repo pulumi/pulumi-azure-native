@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         /// A generic json used differently by each data service type.
         /// </summary>
         [Output("dataServiceInput")]
-        public Output<ImmutableDictionary<string, object>?> DataServiceInput { get; private set; } = null!;
+        public Output<object?> DataServiceInput { get; private set; } = null!;
 
         /// <summary>
         /// Data Sink Id associated to the job definition.
@@ -148,17 +148,11 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         [Input("dataManagerName", required: true)]
         public Input<string> DataManagerName { get; set; } = null!;
 
-        [Input("dataServiceInput")]
-        private InputMap<object>? _dataServiceInput;
-
         /// <summary>
         /// A generic json used differently by each data service type.
         /// </summary>
-        public InputMap<object> DataServiceInput
-        {
-            get => _dataServiceInput ?? (_dataServiceInput = new InputMap<object>());
-            set => _dataServiceInput = value;
-        }
+        [Input("dataServiceInput")]
+        public Input<object>? DataServiceInput { get; set; }
 
         /// <summary>
         /// The data service type of the job definition.

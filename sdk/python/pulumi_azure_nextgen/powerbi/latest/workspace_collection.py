@@ -106,7 +106,7 @@ class WorkspaceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[Mapping[str, Any]]:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Properties
         """

@@ -22,28 +22,22 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? AccountKey { get; set; }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, object>>? _annotations;
+        private InputList<object>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Annotations
+        public InputList<object> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
-
-        [Input("azureCloudType")]
-        private InputMap<object>? _azureCloudType;
 
         /// <summary>
         /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> AzureCloudType
-        {
-            get => _azureCloudType ?? (_azureCloudType = new InputMap<object>());
-            set => _azureCloudType = value;
-        }
+        [Input("azureCloudType")]
+        public Input<object>? AzureCloudType { get; set; }
 
         /// <summary>
         /// The integration runtime reference.
@@ -51,17 +45,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
-        [Input("connectionString")]
-        private InputMap<object>? _connectionString;
-
         /// <summary>
         /// The connection string. It is mutually exclusive with sasUri, serviceEndpoint property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public InputMap<object> ConnectionString
-        {
-            get => _connectionString ?? (_connectionString = new InputMap<object>());
-            set => _connectionString = value;
-        }
+        [Input("connectionString")]
+        public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
         /// Linked service description.
@@ -93,17 +81,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("sasToken")]
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? SasToken { get; set; }
 
-        [Input("sasUri")]
-        private InputMap<object>? _sasUri;
-
         /// <summary>
         /// SAS URI of the Azure Blob Storage resource. It is mutually exclusive with connectionString, serviceEndpoint property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public InputMap<object> SasUri
-        {
-            get => _sasUri ?? (_sasUri = new InputMap<object>());
-            set => _sasUri = value;
-        }
+        [Input("sasUri")]
+        public Input<object>? SasUri { get; set; }
 
         /// <summary>
         /// Blob service endpoint of the Azure Blob Storage resource. It is mutually exclusive with connectionString, sasUri property.
@@ -111,17 +93,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("serviceEndpoint")]
         public Input<string>? ServiceEndpoint { get; set; }
 
-        [Input("servicePrincipalId")]
-        private InputMap<object>? _servicePrincipalId;
-
         /// <summary>
         /// The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> ServicePrincipalId
-        {
-            get => _servicePrincipalId ?? (_servicePrincipalId = new InputMap<object>());
-            set => _servicePrincipalId = value;
-        }
+        [Input("servicePrincipalId")]
+        public Input<object>? ServicePrincipalId { get; set; }
 
         /// <summary>
         /// The key of the service principal used to authenticate against Azure SQL Data Warehouse.
@@ -129,17 +105,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("servicePrincipalKey")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
 
-        [Input("tenant")]
-        private InputMap<object>? _tenant;
-
         /// <summary>
         /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<object> Tenant
-        {
-            get => _tenant ?? (_tenant = new InputMap<object>());
-            set => _tenant = value;
-        }
+        [Input("tenant")]
+        public Input<object>? Tenant { get; set; }
 
         /// <summary>
         /// Type of linked service.

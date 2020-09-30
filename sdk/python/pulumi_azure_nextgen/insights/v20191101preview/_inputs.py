@@ -202,7 +202,7 @@ class ExtensionDataSourceArgs:
                  extension_name: pulumi.Input[str],
                  name: pulumi.Input[str],
                  streams: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 extension_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 extension_settings: Optional[Any] = None):
         """
         Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
         Collected from either Windows and Linux machines, depending on which extension is defined.
@@ -211,7 +211,7 @@ class ExtensionDataSourceArgs:
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        :param pulumi.Input[Mapping[str, Any]] extension_settings: The extension settings. The format is specific for particular extension.
+        :param Any extension_settings: The extension settings. The format is specific for particular extension.
         """
         pulumi.set(__self__, "extension_name", extension_name)
         pulumi.set(__self__, "name", name)
@@ -259,14 +259,14 @@ class ExtensionDataSourceArgs:
 
     @property
     @pulumi.getter(name="extensionSettings")
-    def extension_settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extension_settings(self) -> Optional[Any]:
         """
         The extension settings. The format is specific for particular extension.
         """
         return pulumi.get(self, "extension_settings")
 
     @extension_settings.setter
-    def extension_settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extension_settings(self, value: Optional[Any]):
         pulumi.set(self, "extension_settings", value)
 
 

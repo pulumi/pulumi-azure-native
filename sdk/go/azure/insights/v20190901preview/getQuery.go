@@ -38,7 +38,7 @@ type LookupQueryResult struct {
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// Additional properties that can be set for the query.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The related metadata items for the function.
 	Related *LogAnalyticsQueryPackQueryPropertiesResponseRelated `pulumi:"related"`
 	// Read only system data

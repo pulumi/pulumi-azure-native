@@ -30,7 +30,7 @@ type LookupSessionResult struct {
 	// The changed time.
 	ChangedTime string `pulumi:"changedTime"`
 	// The session content.
-	Content map[string]interface{} `pulumi:"content"`
+	Content interface{} `pulumi:"content"`
 	// The created time.
 	CreatedTime string `pulumi:"createdTime"`
 	// The resource location.

@@ -46,7 +46,7 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
     /**
      * The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    readonly metadata?: {[key: string]: any};
+    readonly metadata?: any;
     /**
      * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
      */
@@ -62,7 +62,7 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
     /**
      * The policy rule.
      */
-    readonly policyRule?: {[key: string]: any};
+    readonly policyRule?: any;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */

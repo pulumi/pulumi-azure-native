@@ -16,47 +16,47 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
         /// <summary>
         /// The column delimiter. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ColumnDelimiter;
+        public readonly object? ColumnDelimiter;
         /// <summary>
         /// Deserializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Deserializer;
+        public readonly object? Deserializer;
         /// <summary>
         /// The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EncodingName;
+        public readonly object? EncodingName;
         /// <summary>
         /// The escape character. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? EscapeChar;
+        public readonly object? EscapeChar;
         /// <summary>
         /// When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? FirstRowAsHeader;
+        public readonly object? FirstRowAsHeader;
         /// <summary>
         /// The null value string. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NullValue;
+        public readonly object? NullValue;
         /// <summary>
         /// The quote character. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? QuoteChar;
+        public readonly object? QuoteChar;
         /// <summary>
         /// The row delimiter. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RowDelimiter;
+        public readonly object? RowDelimiter;
         /// <summary>
         /// Serializer. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Serializer;
+        public readonly object? Serializer;
         /// <summary>
         /// The number of lines/rows to be skipped when parsing text files. The default value is 0. Type: integer (or Expression with resultType integer).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SkipLineCount;
+        public readonly object? SkipLineCount;
         /// <summary>
         /// Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? TreatEmptyAsNull;
+        public readonly object? TreatEmptyAsNull;
         /// <summary>
         /// Type of dataset storage format.
         /// </summary>
@@ -64,27 +64,27 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private TextFormatResponse(
-            ImmutableDictionary<string, object>? columnDelimiter,
+            object? columnDelimiter,
 
-            ImmutableDictionary<string, object>? deserializer,
+            object? deserializer,
 
-            ImmutableDictionary<string, object>? encodingName,
+            object? encodingName,
 
-            ImmutableDictionary<string, object>? escapeChar,
+            object? escapeChar,
 
-            ImmutableDictionary<string, object>? firstRowAsHeader,
+            object? firstRowAsHeader,
 
-            ImmutableDictionary<string, object>? nullValue,
+            object? nullValue,
 
-            ImmutableDictionary<string, object>? quoteChar,
+            object? quoteChar,
 
-            ImmutableDictionary<string, object>? rowDelimiter,
+            object? rowDelimiter,
 
-            ImmutableDictionary<string, object>? serializer,
+            object? serializer,
 
-            ImmutableDictionary<string, object>? skipLineCount,
+            object? skipLineCount,
 
-            ImmutableDictionary<string, object>? treatEmptyAsNull,
+            object? treatEmptyAsNull,
 
             string type)
         {

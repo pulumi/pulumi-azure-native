@@ -80,7 +80,7 @@ export interface GetServerEndpointResult {
     /**
      * Sync Health Status
      */
-    readonly syncStatus?: {[key: string]: any};
+    readonly syncStatus?: any;
     /**
      * Tier files older than days.
      */

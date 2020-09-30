@@ -30,7 +30,7 @@ type LookupBlueprintResult struct {
 	// One-liner string explain this resource.
 	DisplayName *string `pulumi:"displayName"`
 	// Layout view of the blueprint, for UI reference.
-	Layout map[string]interface{} `pulumi:"layout"`
+	Layout interface{} `pulumi:"layout"`
 	// Name of this resource.
 	Name string `pulumi:"name"`
 	// Parameters required by this Blueprint definition.
@@ -44,5 +44,5 @@ type LookupBlueprintResult struct {
 	// Type of this resource.
 	Type string `pulumi:"type"`
 	// Published versions of this blueprint.
-	Versions map[string]interface{} `pulumi:"versions"`
+	Versions interface{} `pulumi:"versions"`
 }

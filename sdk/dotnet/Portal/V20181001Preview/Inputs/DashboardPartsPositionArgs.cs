@@ -22,14 +22,14 @@ namespace Pulumi.AzureNextGen.Portal.V20181001Preview.Inputs
         public Input<int> ColSpan { get; set; } = null!;
 
         [Input("metadata")]
-        private InputMap<ImmutableDictionary<string, object>>? _metadata;
+        private InputMap<object>? _metadata;
 
         /// <summary>
         /// The dashboard part's metadata.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> Metadata
+        public InputMap<object> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<ImmutableDictionary<string, object>>());
+            get => _metadata ?? (_metadata = new InputMap<object>());
             set => _metadata = value;
         }
 

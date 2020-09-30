@@ -23,7 +23,7 @@ type VirtualNetworkFunction struct {
 	// The resource URI of the managed application.
 	ManagedApplication SubResourceResponseOutput `pulumi:"managedApplication"`
 	// The parameters for the managed application.
-	ManagedApplicationParameters pulumi.MapOutput `pulumi:"managedApplicationParameters"`
+	ManagedApplicationParameters pulumi.AnyOutput `pulumi:"managedApplicationParameters"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the hybrid network virtual network function resource.
@@ -89,7 +89,7 @@ type virtualNetworkFunctionState struct {
 	// The resource URI of the managed application.
 	ManagedApplication *SubResourceResponse `pulumi:"managedApplication"`
 	// The parameters for the managed application.
-	ManagedApplicationParameters map[string]interface{} `pulumi:"managedApplicationParameters"`
+	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The provisioning state of the hybrid network virtual network function resource.
@@ -122,7 +122,7 @@ type VirtualNetworkFunctionState struct {
 	// The resource URI of the managed application.
 	ManagedApplication SubResourceResponsePtrInput
 	// The parameters for the managed application.
-	ManagedApplicationParameters pulumi.MapInput
+	ManagedApplicationParameters pulumi.Input
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// The provisioning state of the hybrid network virtual network function resource.
@@ -157,7 +157,7 @@ type virtualNetworkFunctionArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The parameters for the managed application.
-	ManagedApplicationParameters map[string]interface{} `pulumi:"managedApplicationParameters"`
+	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku name for the hybrid network virtual network function.
@@ -181,7 +181,7 @@ type VirtualNetworkFunctionArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The parameters for the managed application.
-	ManagedApplicationParameters pulumi.MapInput
+	ManagedApplicationParameters pulumi.Input
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The sku name for the hybrid network virtual network function.

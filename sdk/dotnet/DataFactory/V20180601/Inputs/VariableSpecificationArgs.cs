@@ -15,17 +15,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class VariableSpecificationArgs : Pulumi.ResourceArgs
     {
-        [Input("defaultValue")]
-        private InputMap<object>? _defaultValue;
-
         /// <summary>
         /// Default value of variable.
         /// </summary>
-        public InputMap<object> DefaultValue
-        {
-            get => _defaultValue ?? (_defaultValue = new InputMap<object>());
-            set => _defaultValue = value;
-        }
+        [Input("defaultValue")]
+        public Input<object>? DefaultValue { get; set; }
 
         /// <summary>
         /// Variable type.

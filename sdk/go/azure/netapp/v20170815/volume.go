@@ -31,7 +31,7 @@ type Volume struct {
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
@@ -134,7 +134,7 @@ type volumeState struct {
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
 	SubnetId *string `pulumi:"subnetId"`
 	// Resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
@@ -159,7 +159,7 @@ type VolumeState struct {
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
 	SubnetId pulumi.StringPtrInput
 	// Resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 	// Resource type
 	Type pulumi.StringPtrInput
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
@@ -188,7 +188,7 @@ type volumeArgs struct {
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
 	SubnetId *string `pulumi:"subnetId"`
 	// Resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags interface{} `pulumi:"tags"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
 	UsageThreshold *int `pulumi:"usageThreshold"`
 	// The name of the volume
@@ -214,7 +214,7 @@ type VolumeArgs struct {
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
 	SubnetId pulumi.StringPtrInput
 	// Resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.Input
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
 	UsageThreshold pulumi.IntPtrInput
 	// The name of the volume

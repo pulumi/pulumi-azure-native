@@ -33,7 +33,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
         /// Gets or sets the definition.
         /// </summary>
         [Output("definition")]
-        public Output<ImmutableDictionary<string, object>?> Definition { get; private set; } = null!;
+        public Output<object?> Definition { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the link to definition.
@@ -153,17 +153,11 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
 
     public sealed class WorkflowArgs : Pulumi.ResourceArgs
     {
-        [Input("definition")]
-        private InputMap<object>? _definition;
-
         /// <summary>
         /// Gets or sets the definition.
         /// </summary>
-        public InputMap<object> Definition
-        {
-            get => _definition ?? (_definition = new InputMap<object>());
-            set => _definition = value;
-        }
+        [Input("definition")]
+        public Input<object>? Definition { get; set; }
 
         /// <summary>
         /// Gets or sets the link to definition.

@@ -63,7 +63,7 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
     /**
      * The Azure Resource Manager template content.
      */
-    public readonly template!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly template!: pulumi.Output<any | undefined>;
     /**
      * Type of this resource.
      */
@@ -150,7 +150,7 @@ export interface TemplateSpecVersionArgs {
     /**
      * The Azure Resource Manager template content.
      */
-    readonly template?: pulumi.Input<{[key: string]: any}>;
+    readonly template?: any;
     /**
      * Name of the Template Spec.
      */

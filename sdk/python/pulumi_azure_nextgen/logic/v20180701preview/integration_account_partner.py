@@ -20,7 +20,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                  content: Optional[pulumi.Input[pulumi.InputType['PartnerContentArgs']]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 metadata: Optional[Any] = None,
                  partner_name: Optional[pulumi.Input[str]] = None,
                  partner_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PartnerContentArgs']] content: The partner content.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
+        :param Any metadata: The metadata.
         :param pulumi.Input[str] partner_name: The integration account partner name.
         :param pulumi.Input[str] partner_type: The partner type.
         :param pulumi.Input[str] resource_group_name: The resource group name.
@@ -141,7 +141,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
         """
         The metadata.
         """

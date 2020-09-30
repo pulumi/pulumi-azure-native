@@ -39,7 +39,7 @@ type ACIServiceResponseResponse struct {
 	// The name of the Azure location/region.
 	Location *string `pulumi:"location"`
 	// Details on the models and configurations.
-	ModelConfigMap map[string]map[string]interface{} `pulumi:"modelConfigMap"`
+	ModelConfigMap map[string]interface{} `pulumi:"modelConfigMap"`
 	// The list of models.
 	Models []ModelResponse `pulumi:"models"`
 	// The service property dictionary. Properties are immutable.
@@ -104,7 +104,7 @@ type ACIServiceResponseResponseArgs struct {
 	// The name of the Azure location/region.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Details on the models and configurations.
-	ModelConfigMap pulumi.MapMapInput `pulumi:"modelConfigMap"`
+	ModelConfigMap pulumi.MapInput `pulumi:"modelConfigMap"`
 	// The list of models.
 	Models ModelResponseArrayInput `pulumi:"models"`
 	// The service property dictionary. Properties are immutable.
@@ -228,8 +228,8 @@ func (o ACIServiceResponseResponseOutput) Location() pulumi.StringPtrOutput {
 }
 
 // Details on the models and configurations.
-func (o ACIServiceResponseResponseOutput) ModelConfigMap() pulumi.MapMapOutput {
-	return o.ApplyT(func(v ACIServiceResponseResponse) map[string]map[string]interface{} { return v.ModelConfigMap }).(pulumi.MapMapOutput)
+func (o ACIServiceResponseResponseOutput) ModelConfigMap() pulumi.MapOutput {
+	return o.ApplyT(func(v ACIServiceResponseResponse) map[string]interface{} { return v.ModelConfigMap }).(pulumi.MapOutput)
 }
 
 // The list of models.
@@ -9098,7 +9098,7 @@ func (o DatasetResponsePtrOutput) Tags() pulumi.StringMapOutput {
 //  Datastore and reference to location of data such as relativePath, Sql Query and etc.
 type DatasetResponseDataPath struct {
 	// Additional Properties.
-	AdditionalProperties map[string]map[string]interface{} `pulumi:"additionalProperties"`
+	AdditionalProperties map[string]interface{} `pulumi:"additionalProperties"`
 	// Azure path for Azure Blob or File
 	AzureFilePath string `pulumi:"azureFilePath"`
 	// Data store Name
@@ -9131,7 +9131,7 @@ type DatasetResponseDataPathInput interface {
 //  Datastore and reference to location of data such as relativePath, Sql Query and etc.
 type DatasetResponseDataPathArgs struct {
 	// Additional Properties.
-	AdditionalProperties pulumi.MapMapInput `pulumi:"additionalProperties"`
+	AdditionalProperties pulumi.MapInput `pulumi:"additionalProperties"`
 	// Azure path for Azure Blob or File
 	AzureFilePath pulumi.StringInput `pulumi:"azureFilePath"`
 	// Data store Name
@@ -9229,8 +9229,8 @@ func (o DatasetResponseDataPathOutput) ToDatasetResponseDataPathPtrOutputWithCon
 }
 
 // Additional Properties.
-func (o DatasetResponseDataPathOutput) AdditionalProperties() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DatasetResponseDataPath) map[string]map[string]interface{} { return v.AdditionalProperties }).(pulumi.MapMapOutput)
+func (o DatasetResponseDataPathOutput) AdditionalProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v DatasetResponseDataPath) map[string]interface{} { return v.AdditionalProperties }).(pulumi.MapOutput)
 }
 
 // Azure path for Azure Blob or File
@@ -9292,13 +9292,13 @@ func (o DatasetResponseDataPathPtrOutput) Elem() DatasetResponseDataPathOutput {
 }
 
 // Additional Properties.
-func (o DatasetResponseDataPathPtrOutput) AdditionalProperties() pulumi.MapMapOutput {
-	return o.ApplyT(func(v *DatasetResponseDataPath) map[string]map[string]interface{} {
+func (o DatasetResponseDataPathPtrOutput) AdditionalProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v *DatasetResponseDataPath) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.AdditionalProperties
-	}).(pulumi.MapMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Azure path for Azure Blob or File
@@ -9408,7 +9408,7 @@ type DatasetResponseLatest struct {
 	// Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
 	PartitionFormatInPath bool `pulumi:"partitionFormatInPath"`
 	// Properties stores information like name of time series column for time series dataset.
-	Properties map[string]map[string]interface{} `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// Indicates the saved dataset this definition is mapping to, populated on Get.
 	SavedDatasetId string `pulumi:"savedDatasetId"`
 	// Tags associated with the dataset.
@@ -9459,7 +9459,7 @@ type DatasetResponseLatestArgs struct {
 	// Indicates how the source data is partitioned. This is defined to filter on a range of partitioned data before performing actions or materialization.
 	PartitionFormatInPath pulumi.BoolInput `pulumi:"partitionFormatInPath"`
 	// Properties stores information like name of time series column for time series dataset.
-	Properties pulumi.MapMapInput `pulumi:"properties"`
+	Properties pulumi.MapInput `pulumi:"properties"`
 	// Indicates the saved dataset this definition is mapping to, populated on Get.
 	SavedDatasetId pulumi.StringInput `pulumi:"savedDatasetId"`
 	// Tags associated with the dataset.
@@ -9611,8 +9611,8 @@ func (o DatasetResponseLatestOutput) PartitionFormatInPath() pulumi.BoolOutput {
 }
 
 // Properties stores information like name of time series column for time series dataset.
-func (o DatasetResponseLatestOutput) Properties() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DatasetResponseLatest) map[string]map[string]interface{} { return v.Properties }).(pulumi.MapMapOutput)
+func (o DatasetResponseLatestOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v DatasetResponseLatest) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
 }
 
 // Indicates the saved dataset this definition is mapping to, populated on Get.
@@ -9779,13 +9779,13 @@ func (o DatasetResponseLatestPtrOutput) PartitionFormatInPath() pulumi.BoolPtrOu
 }
 
 // Properties stores information like name of time series column for time series dataset.
-func (o DatasetResponseLatestPtrOutput) Properties() pulumi.MapMapOutput {
-	return o.ApplyT(func(v *DatasetResponseLatest) map[string]map[string]interface{} {
+func (o DatasetResponseLatestPtrOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v *DatasetResponseLatest) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Properties
-	}).(pulumi.MapMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Indicates the saved dataset this definition is mapping to, populated on Get.
@@ -15045,7 +15045,7 @@ func (o ModelEnvironmentDefinitionDockerPtrOutput) BaseImageRegistry() ModelDock
 type ModelEnvironmentDefinitionPython struct {
 	BaseCondaEnvironment *string `pulumi:"baseCondaEnvironment"`
 	// A JObject containing Conda dependencies.
-	CondaDependencies map[string]interface{} `pulumi:"condaDependencies"`
+	CondaDependencies interface{} `pulumi:"condaDependencies"`
 	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
 	InterpreterPath *string `pulumi:"interpreterPath"`
 	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
@@ -15067,7 +15067,7 @@ type ModelEnvironmentDefinitionPythonInput interface {
 type ModelEnvironmentDefinitionPythonArgs struct {
 	BaseCondaEnvironment pulumi.StringPtrInput `pulumi:"baseCondaEnvironment"`
 	// A JObject containing Conda dependencies.
-	CondaDependencies pulumi.MapInput `pulumi:"condaDependencies"`
+	CondaDependencies pulumi.Input `pulumi:"condaDependencies"`
 	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
 	InterpreterPath pulumi.StringPtrInput `pulumi:"interpreterPath"`
 	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
@@ -15156,8 +15156,8 @@ func (o ModelEnvironmentDefinitionPythonOutput) BaseCondaEnvironment() pulumi.St
 }
 
 // A JObject containing Conda dependencies.
-func (o ModelEnvironmentDefinitionPythonOutput) CondaDependencies() pulumi.MapOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionPython) map[string]interface{} { return v.CondaDependencies }).(pulumi.MapOutput)
+func (o ModelEnvironmentDefinitionPythonOutput) CondaDependencies() pulumi.AnyOutput {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionPython) interface{} { return v.CondaDependencies }).(pulumi.AnyOutput)
 }
 
 // The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
@@ -15198,13 +15198,13 @@ func (o ModelEnvironmentDefinitionPythonPtrOutput) BaseCondaEnvironment() pulumi
 }
 
 // A JObject containing Conda dependencies.
-func (o ModelEnvironmentDefinitionPythonPtrOutput) CondaDependencies() pulumi.MapOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) map[string]interface{} {
+func (o ModelEnvironmentDefinitionPythonPtrOutput) CondaDependencies() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.CondaDependencies
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
@@ -15678,7 +15678,7 @@ func (o ModelEnvironmentDefinitionResponseResponseDockerPtrOutput) BaseImageRegi
 type ModelEnvironmentDefinitionResponseResponsePython struct {
 	BaseCondaEnvironment *string `pulumi:"baseCondaEnvironment"`
 	// A JObject containing Conda dependencies.
-	CondaDependencies map[string]interface{} `pulumi:"condaDependencies"`
+	CondaDependencies interface{} `pulumi:"condaDependencies"`
 	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
 	InterpreterPath *string `pulumi:"interpreterPath"`
 	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
@@ -15700,7 +15700,7 @@ type ModelEnvironmentDefinitionResponseResponsePythonInput interface {
 type ModelEnvironmentDefinitionResponseResponsePythonArgs struct {
 	BaseCondaEnvironment pulumi.StringPtrInput `pulumi:"baseCondaEnvironment"`
 	// A JObject containing Conda dependencies.
-	CondaDependencies pulumi.MapInput `pulumi:"condaDependencies"`
+	CondaDependencies pulumi.Input `pulumi:"condaDependencies"`
 	// The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
 	InterpreterPath pulumi.StringPtrInput `pulumi:"interpreterPath"`
 	// True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
@@ -15789,10 +15789,8 @@ func (o ModelEnvironmentDefinitionResponseResponsePythonOutput) BaseCondaEnviron
 }
 
 // A JObject containing Conda dependencies.
-func (o ModelEnvironmentDefinitionResponseResponsePythonOutput) CondaDependencies() pulumi.MapOutput {
-	return o.ApplyT(func(v ModelEnvironmentDefinitionResponseResponsePython) map[string]interface{} {
-		return v.CondaDependencies
-	}).(pulumi.MapOutput)
+func (o ModelEnvironmentDefinitionResponseResponsePythonOutput) CondaDependencies() pulumi.AnyOutput {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionResponseResponsePython) interface{} { return v.CondaDependencies }).(pulumi.AnyOutput)
 }
 
 // The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
@@ -15835,13 +15833,13 @@ func (o ModelEnvironmentDefinitionResponseResponsePythonPtrOutput) BaseCondaEnvi
 }
 
 // A JObject containing Conda dependencies.
-func (o ModelEnvironmentDefinitionResponseResponsePythonPtrOutput) CondaDependencies() pulumi.MapOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionResponseResponsePython) map[string]interface{} {
+func (o ModelEnvironmentDefinitionResponseResponsePythonPtrOutput) CondaDependencies() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ModelEnvironmentDefinitionResponseResponsePython) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.CondaDependencies
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.

@@ -51,7 +51,7 @@ export interface GetStorageAccountManagementPoliciesResult {
     /**
      * The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */
-    readonly policy?: {[key: string]: any};
+    readonly policy?: any;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

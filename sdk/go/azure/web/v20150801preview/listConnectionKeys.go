@@ -41,5 +41,5 @@ type ListConnectionKeysResult struct {
 	// Connection Key
 	ConnectionKey *string `pulumi:"connectionKey"`
 	// Tokens/Claim
-	ParameterValues map[string]map[string]interface{} `pulumi:"parameterValues"`
+	ParameterValues map[string]interface{} `pulumi:"parameterValues"`
 }

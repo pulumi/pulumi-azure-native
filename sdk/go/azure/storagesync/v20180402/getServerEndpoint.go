@@ -46,7 +46,7 @@ type LookupServerEndpointResult struct {
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Sync Health Status
-	SyncStatus map[string]interface{} `pulumi:"syncStatus"`
+	SyncStatus interface{} `pulumi:"syncStatus"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.

@@ -16,11 +16,11 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
         /// <summary>
         /// Summary of database results in the migration
         /// </summary>
-        public readonly string DatabaseSummary;
+        public readonly ImmutableDictionary<string, Outputs.DatabaseSummaryResultResponse> DatabaseSummary;
         /// <summary>
         /// Selected databases as a map from database name to database id
         /// </summary>
-        public readonly string Databases;
+        public readonly ImmutableDictionary<string, string> Databases;
         /// <summary>
         /// Duration of task execution in seconds.
         /// </summary>
@@ -80,9 +80,9 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180331Preview.Outputs
 
         [OutputConstructor]
         private MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(
-            string databaseSummary,
+            ImmutableDictionary<string, Outputs.DatabaseSummaryResultResponse> databaseSummary,
 
-            string databases,
+            ImmutableDictionary<string, string> databases,
 
             int durationInSeconds,
 

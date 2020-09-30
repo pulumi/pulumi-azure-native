@@ -54,7 +54,7 @@ export interface GetSqlManagedInstanceResult {
     /**
      * The raw kubernetes information
      */
-    readonly k8sRaw?: {[key: string]: any};
+    readonly k8sRaw?: any;
     /**
      * Last uploaded date from on premise cluster. Defaults to current date time
      */

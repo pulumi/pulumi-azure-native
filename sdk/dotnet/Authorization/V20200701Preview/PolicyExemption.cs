@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         /// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -143,17 +143,11 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         [Input("expiresOn")]
         public Input<string>? ExpiresOn { get; set; }
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The ID of the policy assignment that is being exempted.

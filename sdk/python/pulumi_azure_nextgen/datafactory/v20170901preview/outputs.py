@@ -223,16 +223,16 @@ class ActivityPolicyResponse(dict):
     Execution policy for an activity.
     """
     def __init__(__self__, *,
-                 retry: Optional[Mapping[str, Any]] = None,
+                 retry: Optional[Any] = None,
                  retry_interval_in_seconds: Optional[int] = None,
                  secure_output: Optional[bool] = None,
-                 timeout: Optional[Mapping[str, Any]] = None):
+                 timeout: Optional[Any] = None):
         """
         Execution policy for an activity.
-        :param Mapping[str, Any] retry: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any retry: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         :param int retry_interval_in_seconds: Interval between each retry attempt (in seconds). The default is 30 sec.
         :param bool secure_output: When set to true, Output from activity is considered as secure and will not be logged to monitoring.
-        :param Mapping[str, Any] timeout: Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any timeout: Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         if retry is not None:
             pulumi.set(__self__, "retry", retry)
@@ -245,7 +245,7 @@ class ActivityPolicyResponse(dict):
 
     @property
     @pulumi.getter
-    def retry(self) -> Optional[Mapping[str, Any]]:
+    def retry(self) -> Optional[Any]:
         """
         Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         """
@@ -269,7 +269,7 @@ class ActivityPolicyResponse(dict):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[Mapping[str, Any]]:
+    def timeout(self) -> Optional[Any]:
         """
         Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -285,38 +285,38 @@ class AmazonMWSLinkedServiceResponse(dict):
     Amazon Marketplace Web Service linked service.
     """
     def __init__(__self__, *,
-                 access_key_id: Mapping[str, Any],
-                 endpoint: Mapping[str, Any],
-                 marketplace_id: Mapping[str, Any],
-                 seller_id: Mapping[str, Any],
+                 access_key_id: Any,
+                 endpoint: Any,
+                 marketplace_id: Any,
+                 seller_id: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  mws_auth_token: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_key: Optional[Any] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Amazon Marketplace Web Service linked service.
-        :param Mapping[str, Any] access_key_id: The access key id used to access data.
-        :param Mapping[str, Any] endpoint: The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
-        :param Mapping[str, Any] marketplace_id: The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
-        :param Mapping[str, Any] seller_id: The Amazon seller ID.
+        :param Any access_key_id: The access key id used to access data.
+        :param Any endpoint: The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
+        :param Any marketplace_id: The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
+        :param Any seller_id: The Amazon seller ID.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] mws_auth_token: The Amazon MWS authentication token.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_key: The secret key used to access data.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "access_key_id", access_key_id)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -346,7 +346,7 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> Mapping[str, Any]:
+    def access_key_id(self) -> Any:
         """
         The access key id used to access data.
         """
@@ -354,7 +354,7 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Mapping[str, Any]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
         """
@@ -362,7 +362,7 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="marketplaceID")
-    def marketplace_id(self) -> Mapping[str, Any]:
+    def marketplace_id(self) -> Any:
         """
         The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
         """
@@ -370,7 +370,7 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="sellerID")
-    def seller_id(self) -> Mapping[str, Any]:
+    def seller_id(self) -> Any:
         """
         The Amazon seller ID.
         """
@@ -386,7 +386,7 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -410,7 +410,7 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -442,7 +442,7 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -450,7 +450,7 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -458,7 +458,7 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -476,18 +476,18 @@ class AmazonMWSObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Amazon Marketplace Web Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'AmazonMWSObject')
@@ -518,7 +518,7 @@ class AmazonMWSObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -542,7 +542,7 @@ class AmazonMWSObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -558,30 +558,30 @@ class AmazonRedshiftLinkedServiceResponse(dict):
     Linked service for Amazon Redshift.
     """
     def __init__(__self__, *,
-                 database: Mapping[str, Any],
-                 server: Mapping[str, Any],
+                 database: Any,
+                 server: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 port: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Linked service for Amazon Redshift.
-        :param Mapping[str, Any] database: The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] server: The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
+        :param Any database: The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
+        :param Any server: The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password of the Amazon Redshift source.
-        :param Mapping[str, Any] port: The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
-        :param Mapping[str, Any] username: The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
+        :param Any port: The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
+        :param Any username: The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "server", server)
@@ -605,7 +605,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def database(self) -> Mapping[str, Any]:
+    def database(self) -> Any:
         """
         The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
         """
@@ -613,7 +613,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def server(self) -> Mapping[str, Any]:
+    def server(self) -> Any:
         """
         The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
         """
@@ -629,7 +629,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -653,7 +653,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -677,7 +677,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
         """
@@ -685,7 +685,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
         """
@@ -701,32 +701,32 @@ class AmazonS3DatasetResponse(dict):
     A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
     """
     def __init__(__self__, *,
-                 bucket_name: Mapping[str, Any],
+                 bucket_name: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  format: Optional[Any] = None,
-                 key: Optional[Mapping[str, Any]] = None,
+                 key: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 prefix: Optional[Mapping[str, Any]] = None,
-                 structure: Optional[Mapping[str, Any]] = None,
-                 version: Optional[Mapping[str, Any]] = None):
+                 prefix: Optional[Any] = None,
+                 structure: Optional[Any] = None,
+                 version: Optional[Any] = None):
         """
         A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
-        :param Mapping[str, Any] bucket_name: The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
+        :param Any bucket_name: The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the Amazon S3 object.
         :param str description: Dataset description.
         :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of files.
-        :param Mapping[str, Any] key: The key of the Amazon S3 object. Type: string (or Expression with resultType string).
+        :param Any key: The key of the Amazon S3 object. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] prefix: The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param Mapping[str, Any] version: The version for the S3 object. Type: string (or Expression with resultType string).
+        :param Any prefix: The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any version: The version for the S3 object. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -752,7 +752,7 @@ class AmazonS3DatasetResponse(dict):
 
     @property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Mapping[str, Any]:
+    def bucket_name(self) -> Any:
         """
         The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         """
@@ -776,7 +776,7 @@ class AmazonS3DatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -808,7 +808,7 @@ class AmazonS3DatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[Mapping[str, Any]]:
+    def key(self) -> Optional[Any]:
         """
         The key of the Amazon S3 object. Type: string (or Expression with resultType string).
         """
@@ -824,7 +824,7 @@ class AmazonS3DatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def prefix(self) -> Optional[Mapping[str, Any]]:
+    def prefix(self) -> Optional[Any]:
         """
         The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
         """
@@ -832,7 +832,7 @@ class AmazonS3DatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -840,7 +840,7 @@ class AmazonS3DatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[Mapping[str, Any]]:
+    def version(self) -> Optional[Any]:
         """
         The version for the S3 object. Type: string (or Expression with resultType string).
         """
@@ -857,21 +857,21 @@ class AmazonS3LinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 access_key_id: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 access_key_id: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_access_key: Optional[Any] = None):
         """
         Linked service for Amazon S3.
         :param str type: Type of linked service.
-        :param Mapping[str, Any] access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_access_key: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
         """
@@ -901,7 +901,7 @@ class AmazonS3LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> Optional[Mapping[str, Any]]:
+    def access_key_id(self) -> Optional[Any]:
         """
         The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         """
@@ -909,7 +909,7 @@ class AmazonS3LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -933,7 +933,7 @@ class AmazonS3LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -966,13 +966,13 @@ class AvroFormatResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 deserializer: Optional[Mapping[str, Any]] = None,
-                 serializer: Optional[Mapping[str, Any]] = None):
+                 deserializer: Optional[Any] = None,
+                 serializer: Optional[Any] = None):
         """
         The data stored in Avro format.
         :param str type: Type of dataset storage format.
-        :param Mapping[str, Any] deserializer: Deserializer. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] serializer: Serializer. Type: string (or Expression with resultType string).
+        :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
+        :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'AvroFormat')
         if deserializer is not None:
@@ -990,7 +990,7 @@ class AvroFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def deserializer(self) -> Optional[Mapping[str, Any]]:
+    def deserializer(self) -> Optional[Any]:
         """
         Deserializer. Type: string (or Expression with resultType string).
         """
@@ -998,7 +998,7 @@ class AvroFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def serializer(self) -> Optional[Mapping[str, Any]]:
+    def serializer(self) -> Optional[Any]:
         """
         Serializer. Type: string (or Expression with resultType string).
         """
@@ -1014,29 +1014,29 @@ class AzureBatchLinkedServiceResponse(dict):
     Azure Batch linked service.
     """
     def __init__(__self__, *,
-                 account_name: Mapping[str, Any],
-                 batch_uri: Mapping[str, Any],
+                 account_name: Any,
+                 batch_uri: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
-                 pool_name: Mapping[str, Any],
+                 pool_name: Any,
                  type: str,
                  access_key: Optional[Any] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Azure Batch linked service.
-        :param Mapping[str, Any] account_name: The Azure Batch account name. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] batch_uri: The Azure Batch URI. Type: string (or Expression with resultType string).
+        :param Any account_name: The Azure Batch account name. Type: string (or Expression with resultType string).
+        :param Any batch_uri: The Azure Batch URI. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: The Azure Storage linked service reference.
-        :param Mapping[str, Any] pool_name: The Azure Batch pool name. Type: string (or Expression with resultType string).
+        :param Any pool_name: The Azure Batch pool name. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_key: The Azure Batch account access key.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -1059,7 +1059,7 @@ class AzureBatchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Mapping[str, Any]:
+    def account_name(self) -> Any:
         """
         The Azure Batch account name. Type: string (or Expression with resultType string).
         """
@@ -1067,7 +1067,7 @@ class AzureBatchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="batchUri")
-    def batch_uri(self) -> Mapping[str, Any]:
+    def batch_uri(self) -> Any:
         """
         The Azure Batch URI. Type: string (or Expression with resultType string).
         """
@@ -1083,7 +1083,7 @@ class AzureBatchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="poolName")
-    def pool_name(self) -> Mapping[str, Any]:
+    def pool_name(self) -> Any:
         """
         The Azure Batch pool name. Type: string (or Expression with resultType string).
         """
@@ -1107,7 +1107,7 @@ class AzureBatchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -1131,7 +1131,7 @@ class AzureBatchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -1157,28 +1157,28 @@ class AzureBlobDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
-                 file_name: Optional[Mapping[str, Any]] = None,
-                 folder_path: Optional[Mapping[str, Any]] = None,
+                 file_name: Optional[Any] = None,
+                 folder_path: Optional[Any] = None,
                  format: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None,
-                 table_root_location: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None,
+                 table_root_location: Optional[Any] = None):
         """
         The Azure Blob storage.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the blob storage.
         :param str description: Dataset description.
-        :param Mapping[str, Any] file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] folder_path: The path of the Azure Blob storage. Type: string (or Expression with resultType string).
+        :param Any file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
+        :param Any folder_path: The path of the Azure Blob storage. Type: string (or Expression with resultType string).
         :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of the Azure Blob storage.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param Mapping[str, Any] table_root_location: The root of blob path. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table_root_location: The root of blob path. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'AzureBlob')
@@ -1219,7 +1219,7 @@ class AzureBlobDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -1243,7 +1243,7 @@ class AzureBlobDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> Optional[Mapping[str, Any]]:
+    def file_name(self) -> Optional[Any]:
         """
         The name of the Azure Blob. Type: string (or Expression with resultType string).
         """
@@ -1251,7 +1251,7 @@ class AzureBlobDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Optional[Mapping[str, Any]]:
+    def folder_path(self) -> Optional[Any]:
         """
         The path of the Azure Blob storage. Type: string (or Expression with resultType string).
         """
@@ -1275,7 +1275,7 @@ class AzureBlobDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -1283,7 +1283,7 @@ class AzureBlobDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="tableRootLocation")
-    def table_root_location(self) -> Optional[Mapping[str, Any]]:
+    def table_root_location(self) -> Optional[Any]:
         """
         The root of blob path. Type: string (or Expression with resultType string).
         """
@@ -1299,34 +1299,34 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
     Azure Data Lake Analytics linked service.
     """
     def __init__(__self__, *,
-                 account_name: Mapping[str, Any],
-                 tenant: Mapping[str, Any],
+                 account_name: Any,
+                 tenant: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
-                 data_lake_analytics_uri: Optional[Mapping[str, Any]] = None,
+                 data_lake_analytics_uri: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 resource_group_name: Optional[Mapping[str, Any]] = None,
-                 service_principal_id: Optional[Mapping[str, Any]] = None,
+                 resource_group_name: Optional[Any] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
-                 subscription_id: Optional[Mapping[str, Any]] = None):
+                 subscription_id: Optional[Any] = None):
         """
         Azure Data Lake Analytics linked service.
-        :param Mapping[str, Any] account_name: The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any account_name: The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Mapping[str, Any] data_lake_analytics_uri: Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
+        :param Any data_lake_analytics_uri: Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] resource_group_name: Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
+        :param Any resource_group_name: Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Analytics account.
-        :param Mapping[str, Any] subscription_id: Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
+        :param Any subscription_id: Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "tenant", tenant)
@@ -1354,7 +1354,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Mapping[str, Any]:
+    def account_name(self) -> Any:
         """
         The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
         """
@@ -1362,7 +1362,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def tenant(self) -> Mapping[str, Any]:
+    def tenant(self) -> Any:
         """
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
@@ -1378,7 +1378,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -1394,7 +1394,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="dataLakeAnalyticsUri")
-    def data_lake_analytics_uri(self) -> Optional[Mapping[str, Any]]:
+    def data_lake_analytics_uri(self) -> Optional[Any]:
         """
         Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
         """
@@ -1410,7 +1410,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -1426,7 +1426,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[Mapping[str, Any]]:
+    def resource_group_name(self) -> Optional[Any]:
         """
         Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
@@ -1434,7 +1434,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[Mapping[str, Any]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
         """
@@ -1450,7 +1450,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[Mapping[str, Any]]:
+    def subscription_id(self) -> Optional[Any]:
         """
         Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
@@ -1466,28 +1466,28 @@ class AzureDataLakeStoreDatasetResponse(dict):
     Azure Data Lake Store dataset.
     """
     def __init__(__self__, *,
-                 folder_path: Mapping[str, Any],
+                 folder_path: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
-                 file_name: Optional[Mapping[str, Any]] = None,
+                 file_name: Optional[Any] = None,
                  format: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Azure Data Lake Store dataset.
-        :param Mapping[str, Any] folder_path: Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
+        :param Any folder_path: Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
         :param str description: Dataset description.
-        :param Mapping[str, Any] file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
+        :param Any file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of the Data Lake Store.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "folder_path", folder_path)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -1509,7 +1509,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Mapping[str, Any]:
+    def folder_path(self) -> Any:
         """
         Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         """
@@ -1533,7 +1533,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -1557,7 +1557,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> Optional[Mapping[str, Any]]:
+    def file_name(self) -> Optional[Any]:
         """
         The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         """
@@ -1581,7 +1581,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -1597,34 +1597,34 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
     Azure Data Lake Store linked service.
     """
     def __init__(__self__, *,
-                 data_lake_store_uri: Mapping[str, Any],
+                 data_lake_store_uri: Any,
                  type: str,
-                 account_name: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 account_name: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 resource_group_name: Optional[Mapping[str, Any]] = None,
-                 service_principal_id: Optional[Mapping[str, Any]] = None,
+                 resource_group_name: Optional[Any] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
-                 subscription_id: Optional[Mapping[str, Any]] = None,
-                 tenant: Optional[Mapping[str, Any]] = None):
+                 subscription_id: Optional[Any] = None,
+                 tenant: Optional[Any] = None):
         """
         Azure Data Lake Store linked service.
-        :param Mapping[str, Any] data_lake_store_uri: Data Lake Store service URI. Type: string (or Expression with resultType string).
+        :param Any data_lake_store_uri: Data Lake Store service URI. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Mapping[str, Any] account_name: Data Lake Store account name. Type: string (or Expression with resultType string).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any account_name: Data Lake Store account name. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] resource_group_name: Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
+        :param Any resource_group_name: Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Store account.
-        :param Mapping[str, Any] subscription_id: Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any subscription_id: Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "data_lake_store_uri", data_lake_store_uri)
         pulumi.set(__self__, "type", 'AzureDataLakeStore')
@@ -1653,7 +1653,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="dataLakeStoreUri")
-    def data_lake_store_uri(self) -> Mapping[str, Any]:
+    def data_lake_store_uri(self) -> Any:
         """
         Data Lake Store service URI. Type: string (or Expression with resultType string).
         """
@@ -1669,7 +1669,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[Mapping[str, Any]]:
+    def account_name(self) -> Optional[Any]:
         """
         Data Lake Store account name. Type: string (or Expression with resultType string).
         """
@@ -1677,7 +1677,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -1701,7 +1701,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -1717,7 +1717,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[Mapping[str, Any]]:
+    def resource_group_name(self) -> Optional[Any]:
         """
         Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
@@ -1725,7 +1725,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[Mapping[str, Any]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
         """
@@ -1741,7 +1741,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[Mapping[str, Any]]:
+    def subscription_id(self) -> Optional[Any]:
         """
         Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
@@ -1749,7 +1749,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def tenant(self) -> Optional[Mapping[str, Any]]:
+    def tenant(self) -> Optional[Any]:
         """
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
@@ -1766,32 +1766,32 @@ class AzureDatabricksLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  access_token: Any,
-                 domain: Mapping[str, Any],
+                 domain: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
-                 existing_cluster_id: Optional[Mapping[str, Any]] = None,
-                 new_cluster_node_type: Optional[Mapping[str, Any]] = None,
-                 new_cluster_num_of_worker: Optional[Mapping[str, Any]] = None,
-                 new_cluster_spark_conf: Optional[Mapping[str, Mapping[str, Any]]] = None,
-                 new_cluster_version: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 existing_cluster_id: Optional[Any] = None,
+                 new_cluster_node_type: Optional[Any] = None,
+                 new_cluster_num_of_worker: Optional[Any] = None,
+                 new_cluster_spark_conf: Optional[Mapping[str, Any]] = None,
+                 new_cluster_version: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Azure Databricks linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
+        :param Any domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] existing_cluster_id: The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] new_cluster_node_type: The node types of new cluster. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] new_cluster_num_of_worker: Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
-        :param Mapping[str, Mapping[str, Any]] new_cluster_spark_conf: a set of optional, user-specified Spark configuration key-value pairs.
-        :param Mapping[str, Any] new_cluster_version: The Spark version of new cluster. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any existing_cluster_id: The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
+        :param Any new_cluster_node_type: The node types of new cluster. Type: string (or Expression with resultType string).
+        :param Any new_cluster_num_of_worker: Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
+        :param Mapping[str, Any] new_cluster_spark_conf: a set of optional, user-specified Spark configuration key-value pairs.
+        :param Any new_cluster_version: The Spark version of new cluster. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "access_token", access_token)
@@ -1828,7 +1828,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def domain(self) -> Mapping[str, Any]:
+    def domain(self) -> Any:
         """
         <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         """
@@ -1844,7 +1844,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -1868,7 +1868,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -1876,7 +1876,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="existingClusterId")
-    def existing_cluster_id(self) -> Optional[Mapping[str, Any]]:
+    def existing_cluster_id(self) -> Optional[Any]:
         """
         The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
         """
@@ -1884,7 +1884,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="newClusterNodeType")
-    def new_cluster_node_type(self) -> Optional[Mapping[str, Any]]:
+    def new_cluster_node_type(self) -> Optional[Any]:
         """
         The node types of new cluster. Type: string (or Expression with resultType string).
         """
@@ -1892,7 +1892,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="newClusterNumOfWorker")
-    def new_cluster_num_of_worker(self) -> Optional[Mapping[str, Any]]:
+    def new_cluster_num_of_worker(self) -> Optional[Any]:
         """
         Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
         """
@@ -1900,7 +1900,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="newClusterSparkConf")
-    def new_cluster_spark_conf(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def new_cluster_spark_conf(self) -> Optional[Mapping[str, Any]]:
         """
         a set of optional, user-specified Spark configuration key-value pairs.
         """
@@ -1908,7 +1908,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="newClusterVersion")
-    def new_cluster_version(self) -> Optional[Mapping[str, Any]]:
+    def new_cluster_version(self) -> Optional[Any]:
         """
         The Spark version of new cluster. Type: string (or Expression with resultType string).
         """
@@ -1932,17 +1932,17 @@ class AzureKeyVaultLinkedServiceResponse(dict):
     Azure Key Vault linked service.
     """
     def __init__(__self__, *,
-                 base_url: Mapping[str, Any],
+                 base_url: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Azure Key Vault linked service.
-        :param Mapping[str, Any] base_url: The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
+        :param Any base_url: The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
@@ -1960,7 +1960,7 @@ class AzureKeyVaultLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="baseUrl")
-    def base_url(self) -> Mapping[str, Any]:
+    def base_url(self) -> Any:
         """
         The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
         """
@@ -1976,7 +1976,7 @@ class AzureKeyVaultLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2016,16 +2016,16 @@ class AzureKeyVaultSecretReferenceResponse(dict):
     Azure Key Vault secret reference.
     """
     def __init__(__self__, *,
-                 secret_name: Mapping[str, Any],
+                 secret_name: Any,
                  store: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 secret_version: Optional[Mapping[str, Any]] = None):
+                 secret_version: Optional[Any] = None):
         """
         Azure Key Vault secret reference.
-        :param Mapping[str, Any] secret_name: The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
+        :param Any secret_name: The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' store: The Azure Key Vault linked service reference.
         :param str type: Type of the secret.
-        :param Mapping[str, Any] secret_version: The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
+        :param Any secret_version: The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "secret_name", secret_name)
         pulumi.set(__self__, "store", store)
@@ -2035,7 +2035,7 @@ class AzureKeyVaultSecretReferenceResponse(dict):
 
     @property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> Mapping[str, Any]:
+    def secret_name(self) -> Any:
         """
         The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
         """
@@ -2059,7 +2059,7 @@ class AzureKeyVaultSecretReferenceResponse(dict):
 
     @property
     @pulumi.getter(name="secretVersion")
-    def secret_version(self) -> Optional[Mapping[str, Any]]:
+    def secret_version(self) -> Optional[Any]:
         """
         The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
         """
@@ -2076,31 +2076,31 @@ class AzureMLLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  api_key: Any,
-                 ml_endpoint: Mapping[str, Any],
+                 ml_endpoint: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 service_principal_id: Optional[Mapping[str, Any]] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
-                 tenant: Optional[Mapping[str, Any]] = None,
-                 update_resource_endpoint: Optional[Mapping[str, Any]] = None):
+                 tenant: Optional[Any] = None,
+                 update_resource_endpoint: Optional[Any] = None):
         """
         Azure ML Web Service linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] api_key: The API key for accessing the Azure ML model endpoint.
-        :param Mapping[str, Any] ml_endpoint: The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
+        :param Any ml_endpoint: The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] service_principal_id: The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service.
-        :param Mapping[str, Any] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] update_resource_endpoint: The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any update_resource_endpoint: The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "ml_endpoint", ml_endpoint)
@@ -2134,7 +2134,7 @@ class AzureMLLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="mlEndpoint")
-    def ml_endpoint(self) -> Mapping[str, Any]:
+    def ml_endpoint(self) -> Any:
         """
         The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         """
@@ -2150,7 +2150,7 @@ class AzureMLLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2174,7 +2174,7 @@ class AzureMLLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -2190,7 +2190,7 @@ class AzureMLLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[Mapping[str, Any]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
         """
@@ -2206,7 +2206,7 @@ class AzureMLLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def tenant(self) -> Optional[Mapping[str, Any]]:
+    def tenant(self) -> Optional[Any]:
         """
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
@@ -2214,7 +2214,7 @@ class AzureMLLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="updateResourceEndpoint")
-    def update_resource_endpoint(self) -> Optional[Mapping[str, Any]]:
+    def update_resource_endpoint(self) -> Optional[Any]:
         """
         The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         """
@@ -2230,21 +2230,21 @@ class AzureMySqlLinkedServiceResponse(dict):
     Azure MySQL database linked service.
     """
     def __init__(__self__, *,
-                 connection_string: Mapping[str, Any],
+                 connection_string: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Azure MySQL database linked service.
-        :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -2262,7 +2262,7 @@ class AzureMySqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Mapping[str, Any]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -2278,7 +2278,7 @@ class AzureMySqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2302,7 +2302,7 @@ class AzureMySqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -2328,20 +2328,20 @@ class AzureMySqlTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None,
-                 table_name: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None,
+                 table_name: Optional[Any] = None):
         """
         The Azure MySQL database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param Mapping[str, Any] table_name: The Azure MySQL database table name. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table_name: The Azure MySQL database table name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'AzureMySqlTable')
@@ -2374,7 +2374,7 @@ class AzureMySqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2398,7 +2398,7 @@ class AzureMySqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -2406,7 +2406,7 @@ class AzureMySqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[Mapping[str, Any]]:
+    def table_name(self) -> Optional[Any]:
         """
         The Azure MySQL database table name. Type: string (or Expression with resultType string).
         """
@@ -2423,20 +2423,20 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
-                 connection_string: Optional[Mapping[str, Any]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Azure PostgreSQL linked service.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'AzurePostgreSql')
@@ -2463,7 +2463,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2479,7 +2479,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[Mapping[str, Any]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -2495,7 +2495,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -2521,18 +2521,18 @@ class AzurePostgreSqlTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Azure PostgreSQL dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'AzurePostgreSqlTable')
@@ -2563,7 +2563,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2587,7 +2587,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -2603,22 +2603,22 @@ class AzureSearchIndexDatasetResponse(dict):
     The Azure Search Index.
     """
     def __init__(__self__, *,
-                 index_name: Mapping[str, Any],
+                 index_name: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The Azure Search Index.
-        :param Mapping[str, Any] index_name: The name of the Azure Search Index. Type: string (or Expression with resultType string).
+        :param Any index_name: The name of the Azure Search Index. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -2634,7 +2634,7 @@ class AzureSearchIndexDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="indexName")
-    def index_name(self) -> Mapping[str, Any]:
+    def index_name(self) -> Any:
         """
         The name of the Azure Search Index. Type: string (or Expression with resultType string).
         """
@@ -2658,7 +2658,7 @@ class AzureSearchIndexDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2682,7 +2682,7 @@ class AzureSearchIndexDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -2699,21 +2699,21 @@ class AzureSearchLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 url: Mapping[str, Any],
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 url: Any,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  key: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for Windows Azure Search Service.
         :param str type: Type of linked service.
-        :param Mapping[str, Any] url: URL for Azure Search service. Type: string (or Expression with resultType string).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any url: URL for Azure Search service. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] key: Admin Key for Azure Search service
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
@@ -2742,7 +2742,7 @@ class AzureSearchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> Mapping[str, Any]:
+    def url(self) -> Any:
         """
         URL for Azure Search service. Type: string (or Expression with resultType string).
         """
@@ -2750,7 +2750,7 @@ class AzureSearchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2774,7 +2774,7 @@ class AzureSearchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -2806,28 +2806,28 @@ class AzureSqlDWLinkedServiceResponse(dict):
     Azure SQL Data Warehouse linked service.
     """
     def __init__(__self__, *,
-                 connection_string: Mapping[str, Any],
+                 connection_string: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 service_principal_id: Optional[Mapping[str, Any]] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
-                 tenant: Optional[Mapping[str, Any]] = None):
+                 tenant: Optional[Any] = None):
         """
         Azure SQL Data Warehouse linked service.
-        :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
-        :param Mapping[str, Any] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlDW')
@@ -2850,7 +2850,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Mapping[str, Any]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -2866,7 +2866,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2890,7 +2890,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -2906,7 +2906,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[Mapping[str, Any]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         """
@@ -2922,7 +2922,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def tenant(self) -> Optional[Mapping[str, Any]]:
+    def tenant(self) -> Optional[Any]:
         """
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
@@ -2939,21 +2939,21 @@ class AzureSqlDWTableDatasetResponse(dict):
     """
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
-                 table_name: Mapping[str, Any],
+                 table_name: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The Azure SQL Data Warehouse dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Mapping[str, Any] table_name: The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
+        :param Any table_name: The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -2977,7 +2977,7 @@ class AzureSqlDWTableDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Mapping[str, Any]:
+    def table_name(self) -> Any:
         """
         The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         """
@@ -2993,7 +2993,7 @@ class AzureSqlDWTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -3017,7 +3017,7 @@ class AzureSqlDWTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -3033,28 +3033,28 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
     Microsoft Azure SQL Database linked service.
     """
     def __init__(__self__, *,
-                 connection_string: Mapping[str, Any],
+                 connection_string: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 service_principal_id: Optional[Mapping[str, Any]] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
-                 tenant: Optional[Mapping[str, Any]] = None):
+                 tenant: Optional[Any] = None):
         """
         Microsoft Azure SQL Database linked service.
-        :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] service_principal_id: The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Database.
-        :param Mapping[str, Any] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlDatabase')
@@ -3077,7 +3077,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Mapping[str, Any]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -3093,7 +3093,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -3117,7 +3117,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -3133,7 +3133,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[Mapping[str, Any]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
         """
@@ -3149,7 +3149,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def tenant(self) -> Optional[Mapping[str, Any]]:
+    def tenant(self) -> Optional[Any]:
         """
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
@@ -3166,21 +3166,21 @@ class AzureSqlTableDatasetResponse(dict):
     """
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
-                 table_name: Mapping[str, Any],
+                 table_name: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The Azure SQL Server database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Mapping[str, Any] table_name: The table name of the Azure SQL database. Type: string (or Expression with resultType string).
+        :param Any table_name: The table name of the Azure SQL database. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -3204,7 +3204,7 @@ class AzureSqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Mapping[str, Any]:
+    def table_name(self) -> Any:
         """
         The table name of the Azure SQL database. Type: string (or Expression with resultType string).
         """
@@ -3220,7 +3220,7 @@ class AzureSqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -3244,7 +3244,7 @@ class AzureSqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -3261,21 +3261,21 @@ class AzureStorageLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
-                 connection_string: Optional[Mapping[str, Any]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  sas_uri: Optional[Any] = None):
         """
         The storage account linked service.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Mapping[str, Any] connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property.
         """
@@ -3305,7 +3305,7 @@ class AzureStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -3321,7 +3321,7 @@ class AzureStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[Mapping[str, Any]]:
+    def connection_string(self) -> Optional[Any]:
         """
         The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -3337,7 +3337,7 @@ class AzureStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -3370,21 +3370,21 @@ class AzureTableDatasetResponse(dict):
     """
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
-                 table_name: Mapping[str, Any],
+                 table_name: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The Azure Table storage dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Mapping[str, Any] table_name: The table name of the Azure Table storage. Type: string (or Expression with resultType string).
+        :param Any table_name: The table name of the Azure Table storage. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -3408,7 +3408,7 @@ class AzureTableDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Mapping[str, Any]:
+    def table_name(self) -> Any:
         """
         The table name of the Azure Table storage. Type: string (or Expression with resultType string).
         """
@@ -3424,7 +3424,7 @@ class AzureTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -3448,7 +3448,7 @@ class AzureTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -3464,30 +3464,30 @@ class CassandraLinkedServiceResponse(dict):
     Linked service for Cassandra data source.
     """
     def __init__(__self__, *,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
-                 authentication_type: Optional[Mapping[str, Any]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
+                 authentication_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 port: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Linked service for Cassandra data source.
-        :param Mapping[str, Any] host: Host name for connection. Type: string (or Expression with resultType string).
+        :param Any host: Host name for connection. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param Mapping[str, Any] authentication_type: AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param Any authentication_type: AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
-        :param Mapping[str, Any] port: The port for the connection. Type: integer (or Expression with resultType integer).
-        :param Mapping[str, Any] username: Username for authentication. Type: string (or Expression with resultType string).
+        :param Any port: The port for the connection. Type: integer (or Expression with resultType integer).
+        :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Cassandra')
@@ -3512,7 +3512,7 @@ class CassandraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         Host name for connection. Type: string (or Expression with resultType string).
         """
@@ -3528,7 +3528,7 @@ class CassandraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -3536,7 +3536,7 @@ class CassandraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[Mapping[str, Any]]:
+    def authentication_type(self) -> Optional[Any]:
         """
         AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
         """
@@ -3560,7 +3560,7 @@ class CassandraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -3584,7 +3584,7 @@ class CassandraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The port for the connection. Type: integer (or Expression with resultType integer).
         """
@@ -3592,7 +3592,7 @@ class CassandraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -3610,22 +3610,22 @@ class CassandraTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
-                 keyspace: Optional[Mapping[str, Any]] = None,
+                 keyspace: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None,
-                 table_name: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None,
+                 table_name: Optional[Any] = None):
         """
         The Cassandra database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, Any] keyspace: The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
+        :param Any keyspace: The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param Mapping[str, Any] table_name: The table name of the Cassandra database. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table_name: The table name of the Cassandra database. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'CassandraTable')
@@ -3660,7 +3660,7 @@ class CassandraTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -3676,7 +3676,7 @@ class CassandraTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def keyspace(self) -> Optional[Mapping[str, Any]]:
+    def keyspace(self) -> Optional[Any]:
         """
         The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
         """
@@ -3692,7 +3692,7 @@ class CassandraTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -3700,7 +3700,7 @@ class CassandraTableDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[Mapping[str, Any]]:
+    def table_name(self) -> Optional[Any]:
         """
         The table name of the Cassandra database. Type: string (or Expression with resultType string).
         """
@@ -3716,32 +3716,32 @@ class ConcurLinkedServiceResponse(dict):
     Concur Service linked service.
     """
     def __init__(__self__, *,
-                 client_id: Mapping[str, Any],
+                 client_id: Any,
                  type: str,
-                 username: Mapping[str, Any],
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 username: Any,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Concur Service linked service.
-        :param Mapping[str, Any] client_id: Application client_id supplied by Concur App Management.
+        :param Any client_id: Application client_id supplied by Concur App Management.
         :param str type: Type of linked service.
-        :param Mapping[str, Any] username: The user name that you use to access Concur Service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any username: The user name that you use to access Concur Service.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the username field.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "type", 'Concur')
@@ -3767,7 +3767,7 @@ class ConcurLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Mapping[str, Any]:
+    def client_id(self) -> Any:
         """
         Application client_id supplied by Concur App Management.
         """
@@ -3783,7 +3783,7 @@ class ConcurLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Mapping[str, Any]:
+    def username(self) -> Any:
         """
         The user name that you use to access Concur Service.
         """
@@ -3791,7 +3791,7 @@ class ConcurLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -3815,7 +3815,7 @@ class ConcurLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -3839,7 +3839,7 @@ class ConcurLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -3847,7 +3847,7 @@ class ConcurLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -3855,7 +3855,7 @@ class ConcurLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -3873,18 +3873,18 @@ class ConcurObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Concur Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ConcurObject')
@@ -3915,7 +3915,7 @@ class ConcurObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -3939,7 +3939,7 @@ class ConcurObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -4015,21 +4015,21 @@ class CosmosDbLinkedServiceResponse(dict):
     Microsoft Azure Cosmos Database (CosmosDB) linked service.
     """
     def __init__(__self__, *,
-                 connection_string: Mapping[str, Any],
+                 connection_string: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Microsoft Azure Cosmos Database (CosmosDB) linked service.
-        :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -4047,7 +4047,7 @@ class CosmosDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Mapping[str, Any]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -4063,7 +4063,7 @@ class CosmosDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4087,7 +4087,7 @@ class CosmosDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -4112,20 +4112,20 @@ class CouchbaseLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
-                 connection_string: Optional[Mapping[str, Any]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Couchbase server linked service.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Couchbase')
@@ -4152,7 +4152,7 @@ class CouchbaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4168,7 +4168,7 @@ class CouchbaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[Mapping[str, Any]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -4184,7 +4184,7 @@ class CouchbaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -4210,18 +4210,18 @@ class CouchbaseTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Couchbase server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'CouchbaseTable')
@@ -4252,7 +4252,7 @@ class CouchbaseTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4276,7 +4276,7 @@ class CouchbaseTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -4293,14 +4293,14 @@ class CustomDataSourceLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Custom linked service.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
@@ -4325,7 +4325,7 @@ class CustomDataSourceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4367,18 +4367,18 @@ class CustomDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The custom dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'CustomDataset')
@@ -4409,7 +4409,7 @@ class CustomDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4433,7 +4433,7 @@ class CustomDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -4585,30 +4585,30 @@ class Db2LinkedServiceResponse(dict):
     Linked service for DB2 data source.
     """
     def __init__(__self__, *,
-                 database: Mapping[str, Any],
-                 server: Mapping[str, Any],
+                 database: Any,
+                 server: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 username: Optional[Any] = None):
         """
         Linked service for DB2 data source.
-        :param Mapping[str, Any] database: Database name for connection. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] server: Server name for connection. Type: string (or Expression with resultType string).
+        :param Any database: Database name for connection. Type: string (or Expression with resultType string).
+        :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: AuthenticationType to be used for connection.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
-        :param Mapping[str, Any] username: Username for authentication. Type: string (or Expression with resultType string).
+        :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "server", server)
@@ -4632,7 +4632,7 @@ class Db2LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def database(self) -> Mapping[str, Any]:
+    def database(self) -> Any:
         """
         Database name for connection. Type: string (or Expression with resultType string).
         """
@@ -4640,7 +4640,7 @@ class Db2LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def server(self) -> Mapping[str, Any]:
+    def server(self) -> Any:
         """
         Server name for connection. Type: string (or Expression with resultType string).
         """
@@ -4656,7 +4656,7 @@ class Db2LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4688,7 +4688,7 @@ class Db2LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -4712,7 +4712,7 @@ class Db2LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -4728,22 +4728,22 @@ class DocumentDbCollectionDatasetResponse(dict):
     Microsoft Azure Document Database Collection dataset.
     """
     def __init__(__self__, *,
-                 collection_name: Mapping[str, Any],
+                 collection_name: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Microsoft Azure Document Database Collection dataset.
-        :param Mapping[str, Any] collection_name: Document Database collection name. Type: string (or Expression with resultType string).
+        :param Any collection_name: Document Database collection name. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "collection_name", collection_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -4759,7 +4759,7 @@ class DocumentDbCollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="collectionName")
-    def collection_name(self) -> Mapping[str, Any]:
+    def collection_name(self) -> Any:
         """
         Document Database collection name. Type: string (or Expression with resultType string).
         """
@@ -4783,7 +4783,7 @@ class DocumentDbCollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4807,7 +4807,7 @@ class DocumentDbCollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -4824,20 +4824,20 @@ class DrillLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
-                 connection_string: Optional[Mapping[str, Any]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Drill server linked service.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Drill')
@@ -4864,7 +4864,7 @@ class DrillLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4880,7 +4880,7 @@ class DrillLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[Mapping[str, Any]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -4896,7 +4896,7 @@ class DrillLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -4922,18 +4922,18 @@ class DrillTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Drill server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'DrillTable')
@@ -4964,7 +4964,7 @@ class DrillTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4988,7 +4988,7 @@ class DrillTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -5006,20 +5006,20 @@ class DynamicsEntityDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
-                 entity_name: Optional[Mapping[str, Any]] = None,
+                 entity_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The Dynamics entity dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, Any] entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
+        :param Any entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'DynamicsEntity')
@@ -5052,7 +5052,7 @@ class DynamicsEntityDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -5068,7 +5068,7 @@ class DynamicsEntityDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="entityName")
-    def entity_name(self) -> Optional[Mapping[str, Any]]:
+    def entity_name(self) -> Optional[Any]:
         """
         The logical name of the entity. Type: string (or Expression with resultType string).
         """
@@ -5084,7 +5084,7 @@ class DynamicsEntityDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -5103,33 +5103,33 @@ class DynamicsLinkedServiceResponse(dict):
                  authentication_type: str,
                  deployment_type: str,
                  type: str,
-                 username: Mapping[str, Any],
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 username: Any,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
-                 host_name: Optional[Mapping[str, Any]] = None,
-                 organization_name: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 host_name: Optional[Any] = None,
+                 organization_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
-                 service_uri: Optional[Mapping[str, Any]] = None):
+                 port: Optional[Any] = None,
+                 service_uri: Optional[Any] = None):
         """
         Dynamics linked service.
         :param str authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
         :param str deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Mapping[str, Any] username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] host_name: The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] organization_name: The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any host_name: The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
+        :param Any organization_name: The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the Dynamics instance.
-        :param Mapping[str, Any] port: The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param Mapping[str, Any] service_uri: The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
+        :param Any port: The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any service_uri: The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "deployment_type", deployment_type)
@@ -5182,7 +5182,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Mapping[str, Any]:
+    def username(self) -> Any:
         """
         User name to access the Dynamics instance. Type: string (or Expression with resultType string).
         """
@@ -5190,7 +5190,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -5214,7 +5214,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -5222,7 +5222,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[Mapping[str, Any]]:
+    def host_name(self) -> Optional[Any]:
         """
         The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         """
@@ -5230,7 +5230,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="organizationName")
-    def organization_name(self) -> Optional[Mapping[str, Any]]:
+    def organization_name(self) -> Optional[Any]:
         """
         The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
         """
@@ -5254,7 +5254,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
         """
@@ -5262,7 +5262,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="serviceUri")
-    def service_uri(self) -> Optional[Mapping[str, Any]]:
+    def service_uri(self) -> Optional[Any]:
         """
         The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         """
@@ -5278,32 +5278,32 @@ class EloquaLinkedServiceResponse(dict):
     Eloqua server linked service.
     """
     def __init__(__self__, *,
-                 endpoint: Mapping[str, Any],
+                 endpoint: Any,
                  type: str,
-                 username: Mapping[str, Any],
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 username: Any,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Eloqua server linked service.
-        :param Mapping[str, Any] endpoint: The endpoint of the Eloqua server. (i.e. eloqua.example.com)
+        :param Any endpoint: The endpoint of the Eloqua server. (i.e. eloqua.example.com)
         :param str type: Type of linked service.
-        :param Mapping[str, Any] username: The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any username: The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "type", 'Eloqua')
@@ -5329,7 +5329,7 @@ class EloquaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Mapping[str, Any]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the Eloqua server. (i.e. eloqua.example.com)
         """
@@ -5345,7 +5345,7 @@ class EloquaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Mapping[str, Any]:
+    def username(self) -> Any:
         """
         The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
         """
@@ -5353,7 +5353,7 @@ class EloquaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -5377,7 +5377,7 @@ class EloquaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -5401,7 +5401,7 @@ class EloquaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -5409,7 +5409,7 @@ class EloquaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -5417,7 +5417,7 @@ class EloquaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -5435,18 +5435,18 @@ class EloquaObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Eloqua server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'EloquaObject')
@@ -5477,7 +5477,7 @@ class EloquaObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -5501,7 +5501,7 @@ class EloquaObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -5784,26 +5784,26 @@ class FileServerLinkedServiceResponse(dict):
     File system linked service.
     """
     def __init__(__self__, *,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_id: Optional[Mapping[str, Any]] = None):
+                 user_id: Optional[Any] = None):
         """
         File system linked service.
-        :param Mapping[str, Any] host: Host name of the server. Type: string (or Expression with resultType string).
+        :param Any host: Host name of the server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to logon the server.
-        :param Mapping[str, Any] user_id: User ID to logon the server. Type: string (or Expression with resultType string).
+        :param Any user_id: User ID to logon the server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'FileServer')
@@ -5824,7 +5824,7 @@ class FileServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         Host name of the server. Type: string (or Expression with resultType string).
         """
@@ -5840,7 +5840,7 @@ class FileServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -5864,7 +5864,7 @@ class FileServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -5888,7 +5888,7 @@ class FileServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[Mapping[str, Any]]:
+    def user_id(self) -> Optional[Any]:
         """
         User ID to logon the server. Type: string (or Expression with resultType string).
         """
@@ -5906,28 +5906,28 @@ class FileShareDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
-                 file_filter: Optional[Mapping[str, Any]] = None,
-                 file_name: Optional[Mapping[str, Any]] = None,
-                 folder_path: Optional[Mapping[str, Any]] = None,
+                 file_filter: Optional[Any] = None,
+                 file_name: Optional[Any] = None,
+                 folder_path: Optional[Any] = None,
                  format: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         An on-premises file system dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the file system.
         :param str description: Dataset description.
-        :param Mapping[str, Any] file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] file_name: The name of the on-premises file system. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] folder_path: The path of the on-premises file system. Type: string (or Expression with resultType string).
+        :param Any file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
+        :param Any file_name: The name of the on-premises file system. Type: string (or Expression with resultType string).
+        :param Any folder_path: The path of the on-premises file system. Type: string (or Expression with resultType string).
         :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of the files.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'FileShare')
@@ -5968,7 +5968,7 @@ class FileShareDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -5992,7 +5992,7 @@ class FileShareDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="fileFilter")
-    def file_filter(self) -> Optional[Mapping[str, Any]]:
+    def file_filter(self) -> Optional[Any]:
         """
         Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         """
@@ -6000,7 +6000,7 @@ class FileShareDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> Optional[Mapping[str, Any]]:
+    def file_name(self) -> Optional[Any]:
         """
         The name of the on-premises file system. Type: string (or Expression with resultType string).
         """
@@ -6008,7 +6008,7 @@ class FileShareDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Optional[Mapping[str, Any]]:
+    def folder_path(self) -> Optional[Any]:
         """
         The path of the on-premises file system. Type: string (or Expression with resultType string).
         """
@@ -6032,7 +6032,7 @@ class FileShareDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -6048,34 +6048,34 @@ class FtpServerLinkedServiceResponse(dict):
     A FTP server Linked Service.
     """
     def __init__(__self__, *,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 enable_server_certificate_validation: Optional[Mapping[str, Any]] = None,
-                 enable_ssl: Optional[Mapping[str, Any]] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 enable_server_certificate_validation: Optional[Any] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
-                 user_name: Optional[Mapping[str, Any]] = None):
+                 port: Optional[Any] = None,
+                 user_name: Optional[Any] = None):
         """
         A FTP server Linked Service.
-        :param Mapping[str, Any] host: Host name of the FTP server. Type: string (or Expression with resultType string).
+        :param Any host: Host name of the FTP server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] enable_server_certificate_validation: If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] enable_ssl: If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any enable_server_certificate_validation: If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any enable_ssl: If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to logon the FTP server.
-        :param Mapping[str, Any] port: The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param Mapping[str, Any] user_name: Username to logon the FTP server. Type: string (or Expression with resultType string).
+        :param Any port: The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any user_name: Username to logon the FTP server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'FtpServer')
@@ -6104,7 +6104,7 @@ class FtpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         Host name of the FTP server. Type: string (or Expression with resultType string).
         """
@@ -6120,7 +6120,7 @@ class FtpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6152,7 +6152,7 @@ class FtpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="enableServerCertificateValidation")
-    def enable_server_certificate_validation(self) -> Optional[Mapping[str, Any]]:
+    def enable_server_certificate_validation(self) -> Optional[Any]:
         """
         If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -6160,7 +6160,7 @@ class FtpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[Mapping[str, Any]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -6168,7 +6168,7 @@ class FtpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -6192,7 +6192,7 @@ class FtpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
         """
@@ -6200,7 +6200,7 @@ class FtpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[Mapping[str, Any]]:
+    def user_name(self) -> Optional[Any]:
         """
         Username to logon the FTP server. Type: string (or Expression with resultType string).
         """
@@ -6217,41 +6217,41 @@ class GoogleBigQueryLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  authentication_type: str,
-                 project: Mapping[str, Any],
+                 project: Any,
                  type: str,
-                 additional_projects: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 additional_projects: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  client_id: Optional[Any] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 email: Optional[Mapping[str, Any]] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
-                 key_file_path: Optional[Mapping[str, Any]] = None,
+                 email: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 key_file_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  refresh_token: Optional[Any] = None,
-                 request_google_drive_scope: Optional[Mapping[str, Any]] = None,
-                 trusted_cert_path: Optional[Mapping[str, Any]] = None,
-                 use_system_trust_store: Optional[Mapping[str, Any]] = None):
+                 request_google_drive_scope: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None):
         """
         Google BigQuery service linked service.
         :param str authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
-        :param Mapping[str, Any] project: The default BigQuery project to query against.
+        :param Any project: The default BigQuery project to query against.
         :param str type: Type of linked service.
-        :param Mapping[str, Any] additional_projects: A comma-separated list of public BigQuery projects to access.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any additional_projects: A comma-separated list of public BigQuery projects to access.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_id: The client id of the google application used to acquire the refresh token.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of the google application used to acquire the refresh token.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
+        :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] refresh_token: The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
-        :param Mapping[str, Any] request_google_drive_scope: Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
-        :param Mapping[str, Any] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param Mapping[str, Any] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any request_google_drive_scope: Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "project", project)
@@ -6295,7 +6295,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def project(self) -> Mapping[str, Any]:
+    def project(self) -> Any:
         """
         The default BigQuery project to query against.
         """
@@ -6311,7 +6311,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="additionalProjects")
-    def additional_projects(self) -> Optional[Mapping[str, Any]]:
+    def additional_projects(self) -> Optional[Any]:
         """
         A comma-separated list of public BigQuery projects to access.
         """
@@ -6319,7 +6319,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6359,7 +6359,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def email(self) -> Optional[Mapping[str, Any]]:
+    def email(self) -> Optional[Any]:
         """
         The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
         """
@@ -6367,7 +6367,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -6375,7 +6375,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="keyFilePath")
-    def key_file_path(self) -> Optional[Mapping[str, Any]]:
+    def key_file_path(self) -> Optional[Any]:
         """
         The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
         """
@@ -6399,7 +6399,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="requestGoogleDriveScope")
-    def request_google_drive_scope(self) -> Optional[Mapping[str, Any]]:
+    def request_google_drive_scope(self) -> Optional[Any]:
         """
         Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
         """
@@ -6407,7 +6407,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[Mapping[str, Any]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
@@ -6415,7 +6415,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[Mapping[str, Any]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
@@ -6433,18 +6433,18 @@ class GoogleBigQueryObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Google BigQuery service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'GoogleBigQueryObject')
@@ -6475,7 +6475,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6499,7 +6499,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -6516,20 +6516,20 @@ class GreenplumLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
-                 connection_string: Optional[Mapping[str, Any]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Greenplum Database linked service.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Greenplum')
@@ -6556,7 +6556,7 @@ class GreenplumLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6572,7 +6572,7 @@ class GreenplumLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[Mapping[str, Any]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -6588,7 +6588,7 @@ class GreenplumLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -6614,18 +6614,18 @@ class GreenplumTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Greenplum Database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'GreenplumTable')
@@ -6656,7 +6656,7 @@ class GreenplumTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6680,7 +6680,7 @@ class GreenplumTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -6697,39 +6697,39 @@ class HBaseLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  authentication_type: str,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
-                 allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
-                 allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 enable_ssl: Optional[Mapping[str, Any]] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
-                 http_path: Optional[Mapping[str, Any]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 http_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
-                 trusted_cert_path: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 port: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         HBase server linked service.
         :param str authentication_type: The authentication mechanism to use to connect to the HBase server.
-        :param Mapping[str, Any] host: The IP address or host name of the HBase server. (i.e. 192.168.222.160)
+        :param Any host: The IP address or host name of the HBase server. (i.e. 192.168.222.160)
         :param str type: Type of linked service.
-        :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] http_path: The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any http_path: The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
-        :param Mapping[str, Any] port: The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
-        :param Mapping[str, Any] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param Mapping[str, Any] username: The user name used to connect to the HBase instance.
+        :param Any port: The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any username: The user name used to connect to the HBase instance.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -6771,7 +6771,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The IP address or host name of the HBase server. (i.e. 192.168.222.160)
         """
@@ -6787,7 +6787,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[Mapping[str, Any]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
@@ -6795,7 +6795,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[Mapping[str, Any]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
@@ -6803,7 +6803,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6827,7 +6827,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[Mapping[str, Any]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
@@ -6835,7 +6835,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -6843,7 +6843,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="httpPath")
-    def http_path(self) -> Optional[Mapping[str, Any]]:
+    def http_path(self) -> Optional[Any]:
         """
         The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
         """
@@ -6867,7 +6867,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
         """
@@ -6875,7 +6875,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[Mapping[str, Any]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
@@ -6883,7 +6883,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         The user name used to connect to the HBase instance.
         """
@@ -6901,18 +6901,18 @@ class HBaseObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         HBase server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'HBaseObject')
@@ -6943,7 +6943,7 @@ class HBaseObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6967,7 +6967,7 @@ class HBaseObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -6983,30 +6983,30 @@ class HDInsightLinkedServiceResponse(dict):
     HDInsight linked service.
     """
     def __init__(__self__, *,
-                 cluster_uri: Mapping[str, Any],
+                 cluster_uri: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  hcatalog_linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Mapping[str, Any]] = None):
+                 user_name: Optional[Any] = None):
         """
         HDInsight linked service.
-        :param Mapping[str, Any] cluster_uri: HDInsight cluster URI. Type: string (or Expression with resultType string).
+        :param Any cluster_uri: HDInsight cluster URI. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' hcatalog_linked_service_name: A reference to the Azure SQL linked service that points to the HCatalog database.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: The Azure Storage linked service reference.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: HDInsight cluster password.
-        :param Mapping[str, Any] user_name: HDInsight cluster user name. Type: string (or Expression with resultType string).
+        :param Any user_name: HDInsight cluster user name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "cluster_uri", cluster_uri)
         pulumi.set(__self__, "type", 'HDInsight')
@@ -7031,7 +7031,7 @@ class HDInsightLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clusterUri")
-    def cluster_uri(self) -> Mapping[str, Any]:
+    def cluster_uri(self) -> Any:
         """
         HDInsight cluster URI. Type: string (or Expression with resultType string).
         """
@@ -7047,7 +7047,7 @@ class HDInsightLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -7071,7 +7071,7 @@ class HDInsightLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -7111,7 +7111,7 @@ class HDInsightLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[Mapping[str, Any]]:
+    def user_name(self) -> Optional[Any]:
         """
         HDInsight cluster user name. Type: string (or Expression with resultType string).
         """
@@ -7127,78 +7127,78 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
     HDInsight ondemand linked service.
     """
     def __init__(__self__, *,
-                 cluster_resource_group: Mapping[str, Any],
-                 cluster_size: Mapping[str, Any],
-                 host_subscription_id: Mapping[str, Any],
+                 cluster_resource_group: Any,
+                 cluster_size: Any,
+                 host_subscription_id: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
-                 tenant: Mapping[str, Any],
-                 time_to_live: Mapping[str, Any],
+                 tenant: Any,
+                 time_to_live: Any,
                  type: str,
-                 version: Mapping[str, Any],
+                 version: Any,
                  additional_linked_service_names: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
-                 cluster_name_prefix: Optional[Mapping[str, Any]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
+                 cluster_name_prefix: Optional[Any] = None,
                  cluster_password: Optional[Any] = None,
                  cluster_ssh_password: Optional[Any] = None,
-                 cluster_ssh_user_name: Optional[Mapping[str, Any]] = None,
-                 cluster_type: Optional[Mapping[str, Any]] = None,
-                 cluster_user_name: Optional[Mapping[str, Any]] = None,
+                 cluster_ssh_user_name: Optional[Any] = None,
+                 cluster_type: Optional[Any] = None,
+                 cluster_user_name: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
-                 core_configuration: Optional[Mapping[str, Any]] = None,
-                 data_node_size: Optional[Mapping[str, Any]] = None,
+                 core_configuration: Optional[Any] = None,
+                 data_node_size: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
-                 h_base_configuration: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 h_base_configuration: Optional[Any] = None,
                  hcatalog_linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
-                 hdfs_configuration: Optional[Mapping[str, Any]] = None,
-                 head_node_size: Optional[Mapping[str, Any]] = None,
-                 hive_configuration: Optional[Mapping[str, Any]] = None,
-                 map_reduce_configuration: Optional[Mapping[str, Any]] = None,
-                 oozie_configuration: Optional[Mapping[str, Any]] = None,
+                 hdfs_configuration: Optional[Any] = None,
+                 head_node_size: Optional[Any] = None,
+                 hive_configuration: Optional[Any] = None,
+                 map_reduce_configuration: Optional[Any] = None,
+                 oozie_configuration: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 service_principal_id: Optional[Mapping[str, Any]] = None,
+                 service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
-                 spark_version: Optional[Mapping[str, Any]] = None,
-                 storm_configuration: Optional[Mapping[str, Any]] = None,
-                 yarn_configuration: Optional[Mapping[str, Any]] = None,
-                 zookeeper_node_size: Optional[Mapping[str, Any]] = None):
+                 spark_version: Optional[Any] = None,
+                 storm_configuration: Optional[Any] = None,
+                 yarn_configuration: Optional[Any] = None,
+                 zookeeper_node_size: Optional[Any] = None):
         """
         HDInsight ondemand linked service.
-        :param Mapping[str, Any] cluster_resource_group: The resource group where the cluster belongs. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] cluster_size: Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] host_subscription_id: The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
+        :param Any cluster_resource_group: The resource group where the cluster belongs. Type: string (or Expression with resultType string).
+        :param Any cluster_size: Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
+        :param Any host_subscription_id: The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
-        :param Mapping[str, Any] tenant: The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] time_to_live: The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
+        :param Any tenant: The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any time_to_live: The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Mapping[str, Any] version: Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
+        :param Any version: Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
         :param Sequence['LinkedServiceReferenceResponseArgs'] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param Mapping[str, Any] cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param Any cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] cluster_password: The password to access the cluster.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
-        :param Mapping[str, Any] cluster_ssh_user_name: The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] cluster_type: The cluster type. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] cluster_user_name: The username to access the cluster. Type: string (or Expression with resultType string).
+        :param Any cluster_ssh_user_name: The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
+        :param Any cluster_type: The cluster type. Type: string (or Expression with resultType string).
+        :param Any cluster_user_name: The username to access the cluster. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Mapping[str, Any] core_configuration: Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
-        :param Mapping[str, Any] data_node_size: Specifies the size of the data node for the HDInsight cluster.
+        :param Any core_configuration: Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
+        :param Any data_node_size: Specifies the size of the data node for the HDInsight cluster.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] h_base_configuration: Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any h_base_configuration: Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
         :param 'LinkedServiceReferenceResponseArgs' hcatalog_linked_service_name: The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
-        :param Mapping[str, Any] hdfs_configuration: Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
-        :param Mapping[str, Any] head_node_size: Specifies the size of the head node for the HDInsight cluster.
-        :param Mapping[str, Any] hive_configuration: Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
-        :param Mapping[str, Any] map_reduce_configuration: Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
-        :param Mapping[str, Any] oozie_configuration: Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
+        :param Any hdfs_configuration: Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
+        :param Any head_node_size: Specifies the size of the head node for the HDInsight cluster.
+        :param Any hive_configuration: Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
+        :param Any map_reduce_configuration: Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
+        :param Any oozie_configuration: Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] service_principal_id: The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key for the service principal id.
-        :param Mapping[str, Any] spark_version: The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] storm_configuration: Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
-        :param Mapping[str, Any] yarn_configuration: Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
-        :param Mapping[str, Any] zookeeper_node_size: Specifies the size of the Zoo Keeper node for the HDInsight cluster.
+        :param Any spark_version: The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
+        :param Any storm_configuration: Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
+        :param Any yarn_configuration: Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
+        :param Any zookeeper_node_size: Specifies the size of the Zoo Keeper node for the HDInsight cluster.
         """
         pulumi.set(__self__, "cluster_resource_group", cluster_resource_group)
         pulumi.set(__self__, "cluster_size", cluster_size)
@@ -7265,7 +7265,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clusterResourceGroup")
-    def cluster_resource_group(self) -> Mapping[str, Any]:
+    def cluster_resource_group(self) -> Any:
         """
         The resource group where the cluster belongs. Type: string (or Expression with resultType string).
         """
@@ -7273,7 +7273,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> Mapping[str, Any]:
+    def cluster_size(self) -> Any:
         """
         Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
         """
@@ -7281,7 +7281,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="hostSubscriptionId")
-    def host_subscription_id(self) -> Mapping[str, Any]:
+    def host_subscription_id(self) -> Any:
         """
         The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
         """
@@ -7297,7 +7297,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def tenant(self) -> Mapping[str, Any]:
+    def tenant(self) -> Any:
         """
         The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
         """
@@ -7305,7 +7305,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Mapping[str, Any]:
+    def time_to_live(self) -> Any:
         """
         The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         """
@@ -7321,7 +7321,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> Mapping[str, Any]:
+    def version(self) -> Any:
         """
         Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
         """
@@ -7337,7 +7337,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -7345,7 +7345,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clusterNamePrefix")
-    def cluster_name_prefix(self) -> Optional[Mapping[str, Any]]:
+    def cluster_name_prefix(self) -> Optional[Any]:
         """
         The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         """
@@ -7369,7 +7369,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clusterSshUserName")
-    def cluster_ssh_user_name(self) -> Optional[Mapping[str, Any]]:
+    def cluster_ssh_user_name(self) -> Optional[Any]:
         """
         The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
         """
@@ -7377,7 +7377,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> Optional[Mapping[str, Any]]:
+    def cluster_type(self) -> Optional[Any]:
         """
         The cluster type. Type: string (or Expression with resultType string).
         """
@@ -7385,7 +7385,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clusterUserName")
-    def cluster_user_name(self) -> Optional[Mapping[str, Any]]:
+    def cluster_user_name(self) -> Optional[Any]:
         """
         The username to access the cluster. Type: string (or Expression with resultType string).
         """
@@ -7401,7 +7401,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="coreConfiguration")
-    def core_configuration(self) -> Optional[Mapping[str, Any]]:
+    def core_configuration(self) -> Optional[Any]:
         """
         Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
         """
@@ -7409,7 +7409,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="dataNodeSize")
-    def data_node_size(self) -> Optional[Mapping[str, Any]]:
+    def data_node_size(self) -> Optional[Any]:
         """
         Specifies the size of the data node for the HDInsight cluster.
         """
@@ -7425,7 +7425,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -7433,7 +7433,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="hBaseConfiguration")
-    def h_base_configuration(self) -> Optional[Mapping[str, Any]]:
+    def h_base_configuration(self) -> Optional[Any]:
         """
         Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
         """
@@ -7449,7 +7449,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="hdfsConfiguration")
-    def hdfs_configuration(self) -> Optional[Mapping[str, Any]]:
+    def hdfs_configuration(self) -> Optional[Any]:
         """
         Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
         """
@@ -7457,7 +7457,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="headNodeSize")
-    def head_node_size(self) -> Optional[Mapping[str, Any]]:
+    def head_node_size(self) -> Optional[Any]:
         """
         Specifies the size of the head node for the HDInsight cluster.
         """
@@ -7465,7 +7465,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="hiveConfiguration")
-    def hive_configuration(self) -> Optional[Mapping[str, Any]]:
+    def hive_configuration(self) -> Optional[Any]:
         """
         Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
         """
@@ -7473,7 +7473,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="mapReduceConfiguration")
-    def map_reduce_configuration(self) -> Optional[Mapping[str, Any]]:
+    def map_reduce_configuration(self) -> Optional[Any]:
         """
         Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
         """
@@ -7481,7 +7481,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="oozieConfiguration")
-    def oozie_configuration(self) -> Optional[Mapping[str, Any]]:
+    def oozie_configuration(self) -> Optional[Any]:
         """
         Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
         """
@@ -7497,7 +7497,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[Mapping[str, Any]]:
+    def service_principal_id(self) -> Optional[Any]:
         """
         The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
         """
@@ -7513,7 +7513,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="sparkVersion")
-    def spark_version(self) -> Optional[Mapping[str, Any]]:
+    def spark_version(self) -> Optional[Any]:
         """
         The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
         """
@@ -7521,7 +7521,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="stormConfiguration")
-    def storm_configuration(self) -> Optional[Mapping[str, Any]]:
+    def storm_configuration(self) -> Optional[Any]:
         """
         Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
         """
@@ -7529,7 +7529,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="yarnConfiguration")
-    def yarn_configuration(self) -> Optional[Mapping[str, Any]]:
+    def yarn_configuration(self) -> Optional[Any]:
         """
         Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
         """
@@ -7537,7 +7537,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="zookeeperNodeSize")
-    def zookeeper_node_size(self) -> Optional[Mapping[str, Any]]:
+    def zookeeper_node_size(self) -> Optional[Any]:
         """
         Specifies the size of the Zoo Keeper node for the HDInsight cluster.
         """
@@ -7554,27 +7554,27 @@ class HdfsLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 url: Mapping[str, Any],
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
-                 authentication_type: Optional[Mapping[str, Any]] = None,
+                 url: Any,
+                 annotations: Optional[Sequence[Any]] = None,
+                 authentication_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Mapping[str, Any]] = None):
+                 user_name: Optional[Any] = None):
         """
         Hadoop Distributed File System (HDFS) linked service.
         :param str type: Type of linked service.
-        :param Mapping[str, Any] url: The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param Mapping[str, Any] authentication_type: Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
+        :param Any url: The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param Any authentication_type: Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Windows authentication.
-        :param Mapping[str, Any] user_name: User name for Windows authentication. Type: string (or Expression with resultType string).
+        :param Any user_name: User name for Windows authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'Hdfs')
         pulumi.set(__self__, "url", url)
@@ -7605,7 +7605,7 @@ class HdfsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> Mapping[str, Any]:
+    def url(self) -> Any:
         """
         The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
         """
@@ -7613,7 +7613,7 @@ class HdfsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -7621,7 +7621,7 @@ class HdfsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[Mapping[str, Any]]:
+    def authentication_type(self) -> Optional[Any]:
         """
         Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
         """
@@ -7645,7 +7645,7 @@ class HdfsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -7669,7 +7669,7 @@ class HdfsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[Mapping[str, Any]]:
+    def user_name(self) -> Optional[Any]:
         """
         User name for Windows authentication. Type: string (or Expression with resultType string).
         """
@@ -7686,51 +7686,51 @@ class HiveLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  authentication_type: str,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
-                 allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
-                 allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 enable_ssl: Optional[Mapping[str, Any]] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
-                 http_path: Optional[Mapping[str, Any]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 http_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
+                 port: Optional[Any] = None,
                  server_type: Optional[str] = None,
-                 service_discovery_mode: Optional[Mapping[str, Any]] = None,
+                 service_discovery_mode: Optional[Any] = None,
                  thrift_transport_protocol: Optional[str] = None,
-                 trusted_cert_path: Optional[Mapping[str, Any]] = None,
-                 use_native_query: Optional[Mapping[str, Any]] = None,
-                 use_system_trust_store: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None,
-                 zoo_keeper_name_space: Optional[Mapping[str, Any]] = None):
+                 trusted_cert_path: Optional[Any] = None,
+                 use_native_query: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None,
+                 zoo_keeper_name_space: Optional[Any] = None):
         """
         Hive Server linked service.
         :param str authentication_type: The authentication method used to access the Hive server.
-        :param Mapping[str, Any] host: IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
+        :param Any host: IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
         :param str type: Type of linked service.
-        :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] http_path: The partial URL corresponding to the Hive server.
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any http_path: The partial URL corresponding to the Hive server.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the Username field
-        :param Mapping[str, Any] port: The TCP port that the Hive server uses to listen for client connections.
+        :param Any port: The TCP port that the Hive server uses to listen for client connections.
         :param str server_type: The type of Hive server.
-        :param Mapping[str, Any] service_discovery_mode: true to indicate using the ZooKeeper service, false not.
+        :param Any service_discovery_mode: true to indicate using the ZooKeeper service, false not.
         :param str thrift_transport_protocol: The transport protocol to use in the Thrift layer.
-        :param Mapping[str, Any] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param Mapping[str, Any] use_native_query: Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
-        :param Mapping[str, Any] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-        :param Mapping[str, Any] username: The user name that you use to access Hive Server.
-        :param Mapping[str, Any] zoo_keeper_name_space: The namespace on ZooKeeper under which Hive Server 2 nodes are added.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_native_query: Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any username: The user name that you use to access Hive Server.
+        :param Any zoo_keeper_name_space: The namespace on ZooKeeper under which Hive Server 2 nodes are added.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -7784,7 +7784,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
         """
@@ -7800,7 +7800,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[Mapping[str, Any]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
@@ -7808,7 +7808,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[Mapping[str, Any]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
@@ -7816,7 +7816,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -7840,7 +7840,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[Mapping[str, Any]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
@@ -7848,7 +7848,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -7856,7 +7856,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="httpPath")
-    def http_path(self) -> Optional[Mapping[str, Any]]:
+    def http_path(self) -> Optional[Any]:
         """
         The partial URL corresponding to the Hive server.
         """
@@ -7880,7 +7880,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the Hive server uses to listen for client connections.
         """
@@ -7896,7 +7896,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="serviceDiscoveryMode")
-    def service_discovery_mode(self) -> Optional[Mapping[str, Any]]:
+    def service_discovery_mode(self) -> Optional[Any]:
         """
         true to indicate using the ZooKeeper service, false not.
         """
@@ -7912,7 +7912,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[Mapping[str, Any]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
@@ -7920,7 +7920,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useNativeQuery")
-    def use_native_query(self) -> Optional[Mapping[str, Any]]:
+    def use_native_query(self) -> Optional[Any]:
         """
         Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
         """
@@ -7928,7 +7928,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[Mapping[str, Any]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
@@ -7936,7 +7936,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         The user name that you use to access Hive Server.
         """
@@ -7944,7 +7944,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="zooKeeperNameSpace")
-    def zoo_keeper_name_space(self) -> Optional[Mapping[str, Any]]:
+    def zoo_keeper_name_space(self) -> Optional[Any]:
         """
         The namespace on ZooKeeper under which Hive Server 2 nodes are added.
         """
@@ -7962,18 +7962,18 @@ class HiveObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Hive Server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'HiveObject')
@@ -8004,7 +8004,7 @@ class HiveObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -8028,7 +8028,7 @@ class HiveObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -8046,32 +8046,32 @@ class HttpDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 additional_headers: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 additional_headers: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  format: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 relative_url: Optional[Mapping[str, Any]] = None,
-                 request_body: Optional[Mapping[str, Any]] = None,
-                 request_method: Optional[Mapping[str, Any]] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 relative_url: Optional[Any] = None,
+                 request_body: Optional[Any] = None,
+                 request_method: Optional[Any] = None,
+                 structure: Optional[Any] = None):
         """
         A file in an HTTP web server.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Mapping[str, Any] additional_headers: The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
+        :param Any additional_headers: The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
                ...
                request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used on files.
         :param str description: Dataset description.
         :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of files.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] relative_url: The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] request_body: The body for the HTTP request. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] request_method: The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any relative_url: The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
+        :param Any request_body: The body for the HTTP request. Type: string (or Expression with resultType string).
+        :param Any request_method: The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'HttpFile')
@@ -8114,7 +8114,7 @@ class HttpDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="additionalHeaders")
-    def additional_headers(self) -> Optional[Mapping[str, Any]]:
+    def additional_headers(self) -> Optional[Any]:
         """
         The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
         ...
@@ -8124,7 +8124,7 @@ class HttpDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -8164,7 +8164,7 @@ class HttpDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="relativeUrl")
-    def relative_url(self) -> Optional[Mapping[str, Any]]:
+    def relative_url(self) -> Optional[Any]:
         """
         The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
         """
@@ -8172,7 +8172,7 @@ class HttpDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="requestBody")
-    def request_body(self) -> Optional[Mapping[str, Any]]:
+    def request_body(self) -> Optional[Any]:
         """
         The body for the HTTP request. Type: string (or Expression with resultType string).
         """
@@ -8180,7 +8180,7 @@ class HttpDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="requestMethod")
-    def request_method(self) -> Optional[Mapping[str, Any]]:
+    def request_method(self) -> Optional[Any]:
         """
         The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
         """
@@ -8188,7 +8188,7 @@ class HttpDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -8205,33 +8205,33 @@ class HttpLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 url: Mapping[str, Any],
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 url: Any,
+                 annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
-                 cert_thumbprint: Optional[Mapping[str, Any]] = None,
+                 cert_thumbprint: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 embedded_cert_data: Optional[Mapping[str, Any]] = None,
-                 enable_server_certificate_validation: Optional[Mapping[str, Any]] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 embedded_cert_data: Optional[Any] = None,
+                 enable_server_certificate_validation: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Mapping[str, Any]] = None):
+                 user_name: Optional[Any] = None):
         """
         Linked service for an HTTP source.
         :param str type: Type of linked service.
-        :param Mapping[str, Any] url: The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any url: The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the HTTP server.
-        :param Mapping[str, Any] cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
+        :param Any cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] embedded_cert_data: Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] enable_server_certificate_validation: If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any embedded_cert_data: Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
+        :param Any enable_server_certificate_validation: If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
-        :param Mapping[str, Any] user_name: User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
+        :param Any user_name: User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'HttpServer')
         pulumi.set(__self__, "url", url)
@@ -8268,7 +8268,7 @@ class HttpLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> Mapping[str, Any]:
+    def url(self) -> Any:
         """
         The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
         """
@@ -8276,7 +8276,7 @@ class HttpLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -8292,7 +8292,7 @@ class HttpLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="certThumbprint")
-    def cert_thumbprint(self) -> Optional[Mapping[str, Any]]:
+    def cert_thumbprint(self) -> Optional[Any]:
         """
         Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         """
@@ -8316,7 +8316,7 @@ class HttpLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="embeddedCertData")
-    def embedded_cert_data(self) -> Optional[Mapping[str, Any]]:
+    def embedded_cert_data(self) -> Optional[Any]:
         """
         Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         """
@@ -8324,7 +8324,7 @@ class HttpLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="enableServerCertificateValidation")
-    def enable_server_certificate_validation(self) -> Optional[Mapping[str, Any]]:
+    def enable_server_certificate_validation(self) -> Optional[Any]:
         """
         If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -8332,7 +8332,7 @@ class HttpLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -8356,7 +8356,7 @@ class HttpLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[Mapping[str, Any]]:
+    def user_name(self) -> Optional[Any]:
         """
         User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
         """
@@ -8372,34 +8372,34 @@ class HubspotLinkedServiceResponse(dict):
     Hubspot Service linked service.
     """
     def __init__(__self__, *,
-                 client_id: Mapping[str, Any],
+                 client_id: Any,
                  type: str,
                  access_token: Optional[Any] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  refresh_token: Optional[Any] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Hubspot Service linked service.
-        :param Mapping[str, Any] client_id: The client ID associated with your Hubspot application.
+        :param Any client_id: The client ID associated with your Hubspot application.
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token obtained when initially authenticating your OAuth integration.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your Hubspot application.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] refresh_token: The refresh token obtained when initially authenticating your OAuth integration.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "type", 'Hubspot')
@@ -8428,7 +8428,7 @@ class HubspotLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Mapping[str, Any]:
+    def client_id(self) -> Any:
         """
         The client ID associated with your Hubspot application.
         """
@@ -8452,7 +8452,7 @@ class HubspotLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -8484,7 +8484,7 @@ class HubspotLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -8508,7 +8508,7 @@ class HubspotLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -8516,7 +8516,7 @@ class HubspotLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -8524,7 +8524,7 @@ class HubspotLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -8542,18 +8542,18 @@ class HubspotObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Hubspot Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'HubspotObject')
@@ -8584,7 +8584,7 @@ class HubspotObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -8608,7 +8608,7 @@ class HubspotObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -8625,39 +8625,39 @@ class ImpalaLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  authentication_type: str,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
-                 allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
-                 allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 enable_ssl: Optional[Mapping[str, Any]] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
-                 trusted_cert_path: Optional[Mapping[str, Any]] = None,
-                 use_system_trust_store: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 port: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Impala server linked service.
         :param str authentication_type: The authentication type to use.
-        :param Mapping[str, Any] host: The IP address or host name of the Impala server. (i.e. 192.168.222.160)
+        :param Any host: The IP address or host name of the Impala server. (i.e. 192.168.222.160)
         :param str type: Type of linked service.
-        :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name when using UsernameAndPassword.
-        :param Mapping[str, Any] port: The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
-        :param Mapping[str, Any] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param Mapping[str, Any] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-        :param Mapping[str, Any] username: The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
+        :param Any port: The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any username: The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -8699,7 +8699,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The IP address or host name of the Impala server. (i.e. 192.168.222.160)
         """
@@ -8715,7 +8715,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[Mapping[str, Any]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
@@ -8723,7 +8723,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[Mapping[str, Any]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
@@ -8731,7 +8731,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -8755,7 +8755,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[Mapping[str, Any]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
@@ -8763,7 +8763,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -8787,7 +8787,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
         """
@@ -8795,7 +8795,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[Mapping[str, Any]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
@@ -8803,7 +8803,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[Mapping[str, Any]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
@@ -8811,7 +8811,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
         """
@@ -8829,18 +8829,18 @@ class ImpalaObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Impala server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ImpalaObject')
@@ -8871,7 +8871,7 @@ class ImpalaObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -8895,7 +8895,7 @@ class ImpalaObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -9075,12 +9075,12 @@ class IntegrationRuntimeReferenceResponse(dict):
     def __init__(__self__, *,
                  reference_name: str,
                  type: str,
-                 parameters: Optional[Mapping[str, Mapping[str, Any]]] = None):
+                 parameters: Optional[Mapping[str, Any]] = None):
         """
         Integration runtime reference type.
         :param str reference_name: Reference integration runtime name.
         :param str type: Type of integration runtime.
-        :param Mapping[str, Mapping[str, Any]] parameters: Arguments for integration runtime.
+        :param Mapping[str, Any] parameters: Arguments for integration runtime.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -9105,7 +9105,7 @@ class IntegrationRuntimeReferenceResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Mapping[str, Any]]:
         """
         Arguments for integration runtime.
         """
@@ -9295,34 +9295,34 @@ class JiraLinkedServiceResponse(dict):
     Jira Service linked service.
     """
     def __init__(__self__, *,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
-                 username: Mapping[str, Any],
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 username: Any,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 port: Optional[Any] = None,
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Jira Service linked service.
-        :param Mapping[str, Any] host: The IP address or host name of the Jira service. (e.g. jira.example.com)
+        :param Any host: The IP address or host name of the Jira service. (e.g. jira.example.com)
         :param str type: Type of linked service.
-        :param Mapping[str, Any] username: The user name that you use to access Jira Service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any username: The user name that you use to access Jira Service.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the username field.
-        :param Mapping[str, Any] port: The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any port: The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Jira')
@@ -9350,7 +9350,7 @@ class JiraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The IP address or host name of the Jira service. (e.g. jira.example.com)
         """
@@ -9366,7 +9366,7 @@ class JiraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Mapping[str, Any]:
+    def username(self) -> Any:
         """
         The user name that you use to access Jira Service.
         """
@@ -9374,7 +9374,7 @@ class JiraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -9398,7 +9398,7 @@ class JiraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -9422,7 +9422,7 @@ class JiraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
         """
@@ -9430,7 +9430,7 @@ class JiraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -9438,7 +9438,7 @@ class JiraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -9446,7 +9446,7 @@ class JiraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -9464,18 +9464,18 @@ class JiraObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Jira Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'JiraObject')
@@ -9506,7 +9506,7 @@ class JiraObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -9530,7 +9530,7 @@ class JiraObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -9547,23 +9547,23 @@ class JsonFormatResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 deserializer: Optional[Mapping[str, Any]] = None,
-                 encoding_name: Optional[Mapping[str, Any]] = None,
+                 deserializer: Optional[Any] = None,
+                 encoding_name: Optional[Any] = None,
                  file_pattern: Optional[str] = None,
-                 json_node_reference: Optional[Mapping[str, Any]] = None,
-                 json_path_definition: Optional[Mapping[str, Any]] = None,
-                 nesting_separator: Optional[Mapping[str, Any]] = None,
-                 serializer: Optional[Mapping[str, Any]] = None):
+                 json_node_reference: Optional[Any] = None,
+                 json_path_definition: Optional[Any] = None,
+                 nesting_separator: Optional[Any] = None,
+                 serializer: Optional[Any] = None):
         """
         The data stored in JSON format.
         :param str type: Type of dataset storage format.
-        :param Mapping[str, Any] deserializer: Deserializer. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] encoding_name: The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
+        :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
+        :param Any encoding_name: The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
         :param str file_pattern: File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-        :param Mapping[str, Any] json_node_reference: The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] json_path_definition: The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
-        :param Mapping[str, Any] nesting_separator: The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] serializer: Serializer. Type: string (or Expression with resultType string).
+        :param Any json_node_reference: The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
+        :param Any json_path_definition: The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
+        :param Any nesting_separator: The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
+        :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'JsonFormat')
         if deserializer is not None:
@@ -9591,7 +9591,7 @@ class JsonFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def deserializer(self) -> Optional[Mapping[str, Any]]:
+    def deserializer(self) -> Optional[Any]:
         """
         Deserializer. Type: string (or Expression with resultType string).
         """
@@ -9599,7 +9599,7 @@ class JsonFormatResponse(dict):
 
     @property
     @pulumi.getter(name="encodingName")
-    def encoding_name(self) -> Optional[Mapping[str, Any]]:
+    def encoding_name(self) -> Optional[Any]:
         """
         The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
         """
@@ -9615,7 +9615,7 @@ class JsonFormatResponse(dict):
 
     @property
     @pulumi.getter(name="jsonNodeReference")
-    def json_node_reference(self) -> Optional[Mapping[str, Any]]:
+    def json_node_reference(self) -> Optional[Any]:
         """
         The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
         """
@@ -9623,7 +9623,7 @@ class JsonFormatResponse(dict):
 
     @property
     @pulumi.getter(name="jsonPathDefinition")
-    def json_path_definition(self) -> Optional[Mapping[str, Any]]:
+    def json_path_definition(self) -> Optional[Any]:
         """
         The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
         """
@@ -9631,7 +9631,7 @@ class JsonFormatResponse(dict):
 
     @property
     @pulumi.getter(name="nestingSeparator")
-    def nesting_separator(self) -> Optional[Mapping[str, Any]]:
+    def nesting_separator(self) -> Optional[Any]:
         """
         The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
         """
@@ -9639,7 +9639,7 @@ class JsonFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def serializer(self) -> Optional[Mapping[str, Any]]:
+    def serializer(self) -> Optional[Any]:
         """
         Serializer. Type: string (or Expression with resultType string).
         """
@@ -9795,12 +9795,12 @@ class LinkedServiceReferenceResponse(dict):
     def __init__(__self__, *,
                  reference_name: str,
                  type: str,
-                 parameters: Optional[Mapping[str, Mapping[str, Any]]] = None):
+                 parameters: Optional[Mapping[str, Any]] = None):
         """
         Linked service reference type.
         :param str reference_name: Reference LinkedService name.
         :param str type: Linked service reference type.
-        :param Mapping[str, Mapping[str, Any]] parameters: Arguments for LinkedService.
+        :param Mapping[str, Any] parameters: Arguments for LinkedService.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -9825,7 +9825,7 @@ class LinkedServiceReferenceResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Mapping[str, Any]]:
         """
         Arguments for LinkedService.
         """
@@ -9841,30 +9841,30 @@ class MagentoLinkedServiceResponse(dict):
     Magento server linked service.
     """
     def __init__(__self__, *,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
                  access_token: Optional[Any] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Magento server linked service.
-        :param Mapping[str, Any] host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
+        :param Any host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token from Magento.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Magento')
@@ -9889,7 +9889,7 @@ class MagentoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
         """
@@ -9913,7 +9913,7 @@ class MagentoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -9937,7 +9937,7 @@ class MagentoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -9953,7 +9953,7 @@ class MagentoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -9961,7 +9961,7 @@ class MagentoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -9969,7 +9969,7 @@ class MagentoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -9987,18 +9987,18 @@ class MagentoObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Magento server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'MagentoObject')
@@ -10029,7 +10029,7 @@ class MagentoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -10053,7 +10053,7 @@ class MagentoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -10408,20 +10408,20 @@ class MariaDBLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
-                 connection_string: Optional[Mapping[str, Any]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         MariaDB server linked service.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'MariaDB')
@@ -10448,7 +10448,7 @@ class MariaDBLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -10464,7 +10464,7 @@ class MariaDBLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[Mapping[str, Any]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -10480,7 +10480,7 @@ class MariaDBLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -10506,18 +10506,18 @@ class MariaDBTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         MariaDB server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'MariaDBTable')
@@ -10548,7 +10548,7 @@ class MariaDBTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -10572,7 +10572,7 @@ class MariaDBTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -10588,32 +10588,32 @@ class MarketoLinkedServiceResponse(dict):
     Marketo server linked service.
     """
     def __init__(__self__, *,
-                 client_id: Mapping[str, Any],
-                 endpoint: Mapping[str, Any],
+                 client_id: Any,
+                 endpoint: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Marketo server linked service.
-        :param Mapping[str, Any] client_id: The client Id of your Marketo service.
-        :param Mapping[str, Any] endpoint: The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
+        :param Any client_id: The client Id of your Marketo service.
+        :param Any endpoint: The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of your Marketo service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -10639,7 +10639,7 @@ class MarketoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Mapping[str, Any]:
+    def client_id(self) -> Any:
         """
         The client Id of your Marketo service.
         """
@@ -10647,7 +10647,7 @@ class MarketoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Mapping[str, Any]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
         """
@@ -10663,7 +10663,7 @@ class MarketoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -10695,7 +10695,7 @@ class MarketoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -10711,7 +10711,7 @@ class MarketoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -10719,7 +10719,7 @@ class MarketoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -10727,7 +10727,7 @@ class MarketoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -10745,18 +10745,18 @@ class MarketoObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Marketo server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'MarketoObject')
@@ -10787,7 +10787,7 @@ class MarketoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -10811,7 +10811,7 @@ class MarketoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -10827,22 +10827,22 @@ class MongoDbCollectionDatasetResponse(dict):
     The MongoDB database dataset.
     """
     def __init__(__self__, *,
-                 collection_name: Mapping[str, Any],
+                 collection_name: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The MongoDB database dataset.
-        :param Mapping[str, Any] collection_name: The table name of the MongoDB database. Type: string (or Expression with resultType string).
+        :param Any collection_name: The table name of the MongoDB database. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "collection_name", collection_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -10858,7 +10858,7 @@ class MongoDbCollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="collectionName")
-    def collection_name(self) -> Mapping[str, Any]:
+    def collection_name(self) -> Any:
         """
         The table name of the MongoDB database. Type: string (or Expression with resultType string).
         """
@@ -10882,7 +10882,7 @@ class MongoDbCollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -10906,7 +10906,7 @@ class MongoDbCollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -10922,38 +10922,38 @@ class MongoDbLinkedServiceResponse(dict):
     Linked service for MongoDb data source.
     """
     def __init__(__self__, *,
-                 database_name: Mapping[str, Any],
-                 server: Mapping[str, Any],
+                 database_name: Any,
+                 server: Any,
                  type: str,
-                 allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
-                 auth_source: Optional[Mapping[str, Any]] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
+                 auth_source: Optional[Any] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 enable_ssl: Optional[Mapping[str, Any]] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 port: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Linked service for MongoDb data source.
-        :param Mapping[str, Any] database_name: The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] server: The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
+        :param Any database_name: The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
+        :param Any server: The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param Mapping[str, Any] auth_source: Database to verify the username and password. Type: string (or Expression with resultType string).
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param Any auth_source: Database to verify the username and password. Type: string (or Expression with resultType string).
         :param str authentication_type: The authentication type to be used to connect to the MongoDB database.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
-        :param Mapping[str, Any] port: The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param Mapping[str, Any] username: Username for authentication. Type: string (or Expression with resultType string).
+        :param Any port: The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "server", server)
@@ -10985,7 +10985,7 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Mapping[str, Any]:
+    def database_name(self) -> Any:
         """
         The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
         """
@@ -10993,7 +10993,7 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def server(self) -> Mapping[str, Any]:
+    def server(self) -> Any:
         """
         The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
         """
@@ -11009,7 +11009,7 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[Mapping[str, Any]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
         """
@@ -11017,7 +11017,7 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11025,7 +11025,7 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="authSource")
-    def auth_source(self) -> Optional[Mapping[str, Any]]:
+    def auth_source(self) -> Optional[Any]:
         """
         Database to verify the username and password. Type: string (or Expression with resultType string).
         """
@@ -11057,7 +11057,7 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[Mapping[str, Any]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
         """
@@ -11065,7 +11065,7 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -11089,7 +11089,7 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
         """
@@ -11097,7 +11097,7 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -11175,19 +11175,19 @@ class MySqlLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for MySQL data source.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] connection_string: The connection string.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -11221,7 +11221,7 @@ class MySqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11245,7 +11245,7 @@ class MySqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -11270,20 +11270,20 @@ class NetezzaLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
-                 connection_string: Optional[Mapping[str, Any]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Netezza linked service.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Netezza')
@@ -11310,7 +11310,7 @@ class NetezzaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11326,7 +11326,7 @@ class NetezzaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[Mapping[str, Any]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -11342,7 +11342,7 @@ class NetezzaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -11368,18 +11368,18 @@ class NetezzaTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Netezza dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'NetezzaTable')
@@ -11410,7 +11410,7 @@ class NetezzaTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11434,7 +11434,7 @@ class NetezzaTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -11451,27 +11451,27 @@ class ODataLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 url: Mapping[str, Any],
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 url: Any,
+                 annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Mapping[str, Any]] = None):
+                 user_name: Optional[Any] = None):
         """
         Open Data Protocol (OData) linked service.
         :param str type: Type of linked service.
-        :param Mapping[str, Any] url: The URL of the OData service endpoint. Type: string (or Expression with resultType string).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any url: The URL of the OData service endpoint. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: Type of authentication used to connect to the OData service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password of the OData service.
-        :param Mapping[str, Any] user_name: User name of the OData service. Type: string (or Expression with resultType string).
+        :param Any user_name: User name of the OData service. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'OData')
         pulumi.set(__self__, "url", url)
@@ -11502,7 +11502,7 @@ class ODataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> Mapping[str, Any]:
+    def url(self) -> Any:
         """
         The URL of the OData service endpoint. Type: string (or Expression with resultType string).
         """
@@ -11510,7 +11510,7 @@ class ODataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11542,7 +11542,7 @@ class ODataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -11566,7 +11566,7 @@ class ODataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[Mapping[str, Any]]:
+    def user_name(self) -> Optional[Any]:
         """
         User name of the OData service. Type: string (or Expression with resultType string).
         """
@@ -11584,20 +11584,20 @@ class ODataResourceDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 path: Optional[Mapping[str, Any]] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 path: Optional[Any] = None,
+                 structure: Optional[Any] = None):
         """
         The Open Data Protocol (OData) resource dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] path: The OData resource path. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any path: The OData resource path. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ODataResource')
@@ -11630,7 +11630,7 @@ class ODataResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11654,7 +11654,7 @@ class ODataResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[Mapping[str, Any]]:
+    def path(self) -> Optional[Any]:
         """
         The OData resource path. Type: string (or Expression with resultType string).
         """
@@ -11662,7 +11662,7 @@ class ODataResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -11678,30 +11678,30 @@ class OdbcLinkedServiceResponse(dict):
     Open Database Connectivity (ODBC) linked service.
     """
     def __init__(__self__, *,
-                 connection_string: Mapping[str, Any],
+                 connection_string: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
-                 authentication_type: Optional[Mapping[str, Any]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
+                 authentication_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Mapping[str, Any]] = None):
+                 user_name: Optional[Any] = None):
         """
         Open Database Connectivity (ODBC) linked service.
-        :param Mapping[str, Any] connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param Mapping[str, Any] authentication_type: Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param Any authentication_type: Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Basic authentication.
-        :param Mapping[str, Any] user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
+        :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Odbc')
@@ -11726,7 +11726,7 @@ class OdbcLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Mapping[str, Any]:
+    def connection_string(self) -> Any:
         """
         The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -11742,7 +11742,7 @@ class OdbcLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11750,7 +11750,7 @@ class OdbcLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[Mapping[str, Any]]:
+    def authentication_type(self) -> Optional[Any]:
         """
         Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         """
@@ -11782,7 +11782,7 @@ class OdbcLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -11806,7 +11806,7 @@ class OdbcLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[Mapping[str, Any]]:
+    def user_name(self) -> Optional[Any]:
         """
         User name for Basic authentication. Type: string (or Expression with resultType string).
         """
@@ -11822,21 +11822,21 @@ class OracleLinkedServiceResponse(dict):
     Oracle database.
     """
     def __init__(__self__, *,
-                 connection_string: Mapping[str, Any],
+                 connection_string: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Oracle database.
-        :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -11854,7 +11854,7 @@ class OracleLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Mapping[str, Any]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -11870,7 +11870,7 @@ class OracleLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11894,7 +11894,7 @@ class OracleLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -11919,21 +11919,21 @@ class OracleTableDatasetResponse(dict):
     """
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
-                 table_name: Mapping[str, Any],
+                 table_name: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The on-premises Oracle database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Mapping[str, Any] table_name: The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
+        :param Any table_name: The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -11957,7 +11957,7 @@ class OracleTableDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Mapping[str, Any]:
+    def table_name(self) -> Any:
         """
         The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
         """
@@ -11973,7 +11973,7 @@ class OracleTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11997,7 +11997,7 @@ class OracleTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -12014,13 +12014,13 @@ class OrcFormatResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 deserializer: Optional[Mapping[str, Any]] = None,
-                 serializer: Optional[Mapping[str, Any]] = None):
+                 deserializer: Optional[Any] = None,
+                 serializer: Optional[Any] = None):
         """
         The data stored in Optimized Row Columnar (ORC) format.
         :param str type: Type of dataset storage format.
-        :param Mapping[str, Any] deserializer: Deserializer. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] serializer: Serializer. Type: string (or Expression with resultType string).
+        :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
+        :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'OrcFormat')
         if deserializer is not None:
@@ -12038,7 +12038,7 @@ class OrcFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def deserializer(self) -> Optional[Mapping[str, Any]]:
+    def deserializer(self) -> Optional[Any]:
         """
         Deserializer. Type: string (or Expression with resultType string).
         """
@@ -12046,7 +12046,7 @@ class OrcFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def serializer(self) -> Optional[Mapping[str, Any]]:
+    def serializer(self) -> Optional[Any]:
         """
         Serializer. Type: string (or Expression with resultType string).
         """
@@ -12063,11 +12063,11 @@ class ParameterSpecificationResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 default_value: Optional[Mapping[str, Any]] = None):
+                 default_value: Optional[Any] = None):
         """
         Definition of a single parameter for an entity.
         :param str type: Parameter type.
-        :param Mapping[str, Any] default_value: Default value of parameter.
+        :param Any default_value: Default value of parameter.
         """
         pulumi.set(__self__, "type", type)
         if default_value is not None:
@@ -12083,7 +12083,7 @@ class ParameterSpecificationResponse(dict):
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[Mapping[str, Any]]:
+    def default_value(self) -> Optional[Any]:
         """
         Default value of parameter.
         """
@@ -12100,13 +12100,13 @@ class ParquetFormatResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 deserializer: Optional[Mapping[str, Any]] = None,
-                 serializer: Optional[Mapping[str, Any]] = None):
+                 deserializer: Optional[Any] = None,
+                 serializer: Optional[Any] = None):
         """
         The data stored in Parquet format.
         :param str type: Type of dataset storage format.
-        :param Mapping[str, Any] deserializer: Deserializer. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] serializer: Serializer. Type: string (or Expression with resultType string).
+        :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
+        :param Any serializer: Serializer. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'ParquetFormat')
         if deserializer is not None:
@@ -12124,7 +12124,7 @@ class ParquetFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def deserializer(self) -> Optional[Mapping[str, Any]]:
+    def deserializer(self) -> Optional[Any]:
         """
         Deserializer. Type: string (or Expression with resultType string).
         """
@@ -12132,7 +12132,7 @@ class ParquetFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def serializer(self) -> Optional[Mapping[str, Any]]:
+    def serializer(self) -> Optional[Any]:
         """
         Serializer. Type: string (or Expression with resultType string).
         """
@@ -12148,32 +12148,32 @@ class PaypalLinkedServiceResponse(dict):
     Paypal Service linked service.
     """
     def __init__(__self__, *,
-                 client_id: Mapping[str, Any],
-                 host: Mapping[str, Any],
+                 client_id: Any,
+                 host: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Paypal Service linked service.
-        :param Mapping[str, Any] client_id: The client ID associated with your PayPal application.
-        :param Mapping[str, Any] host: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
+        :param Any client_id: The client ID associated with your PayPal application.
+        :param Any host: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your PayPal application.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "host", host)
@@ -12199,7 +12199,7 @@ class PaypalLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Mapping[str, Any]:
+    def client_id(self) -> Any:
         """
         The client ID associated with your PayPal application.
         """
@@ -12207,7 +12207,7 @@ class PaypalLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
         """
@@ -12223,7 +12223,7 @@ class PaypalLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -12255,7 +12255,7 @@ class PaypalLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -12271,7 +12271,7 @@ class PaypalLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -12279,7 +12279,7 @@ class PaypalLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -12287,7 +12287,7 @@ class PaypalLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -12305,18 +12305,18 @@ class PaypalObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Paypal Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'PaypalObject')
@@ -12347,7 +12347,7 @@ class PaypalObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -12371,7 +12371,7 @@ class PaypalObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -12388,41 +12388,41 @@ class PhoenixLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  authentication_type: str,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
-                 allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
-                 allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 enable_ssl: Optional[Mapping[str, Any]] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
-                 http_path: Optional[Mapping[str, Any]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 http_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
-                 trusted_cert_path: Optional[Mapping[str, Any]] = None,
-                 use_system_trust_store: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 port: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Phoenix server linked service.
         :param str authentication_type: The authentication mechanism used to connect to the Phoenix server.
-        :param Mapping[str, Any] host: The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
+        :param Any host: The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
         :param str type: Type of linked service.
-        :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] http_path: The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any http_path: The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
-        :param Mapping[str, Any] port: The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
-        :param Mapping[str, Any] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param Mapping[str, Any] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-        :param Mapping[str, Any] username: The user name used to connect to the Phoenix server.
+        :param Any port: The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any username: The user name used to connect to the Phoenix server.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -12466,7 +12466,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
         """
@@ -12482,7 +12482,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[Mapping[str, Any]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
@@ -12490,7 +12490,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[Mapping[str, Any]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
@@ -12498,7 +12498,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -12522,7 +12522,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[Mapping[str, Any]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
@@ -12530,7 +12530,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -12538,7 +12538,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="httpPath")
-    def http_path(self) -> Optional[Mapping[str, Any]]:
+    def http_path(self) -> Optional[Any]:
         """
         The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
         """
@@ -12562,7 +12562,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
         """
@@ -12570,7 +12570,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[Mapping[str, Any]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
@@ -12578,7 +12578,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[Mapping[str, Any]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
@@ -12586,7 +12586,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         The user name used to connect to the Phoenix server.
         """
@@ -12604,18 +12604,18 @@ class PhoenixObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Phoenix server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'PhoenixObject')
@@ -12646,7 +12646,7 @@ class PhoenixObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -12670,7 +12670,7 @@ class PhoenixObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -12736,19 +12736,19 @@ class PostgreSqlLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for PostgreSQL data source.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] connection_string: The connection string.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -12782,7 +12782,7 @@ class PostgreSqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -12806,7 +12806,7 @@ class PostgreSqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -12831,45 +12831,45 @@ class PrestoLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  authentication_type: str,
-                 catalog: Mapping[str, Any],
-                 host: Mapping[str, Any],
-                 server_version: Mapping[str, Any],
+                 catalog: Any,
+                 host: Any,
+                 server_version: Any,
                  type: str,
-                 allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
-                 allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 enable_ssl: Optional[Mapping[str, Any]] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
-                 time_zone_id: Optional[Mapping[str, Any]] = None,
-                 trusted_cert_path: Optional[Mapping[str, Any]] = None,
-                 use_system_trust_store: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 port: Optional[Any] = None,
+                 time_zone_id: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Presto server linked service.
         :param str authentication_type: The authentication mechanism used to connect to the Presto server.
-        :param Mapping[str, Any] catalog: The catalog context for all request against the server.
-        :param Mapping[str, Any] host: The IP address or host name of the Presto server. (i.e. 192.168.222.160)
-        :param Mapping[str, Any] server_version: The version of the Presto server. (i.e. 0.148-t)
+        :param Any catalog: The catalog context for all request against the server.
+        :param Any host: The IP address or host name of the Presto server. (i.e. 192.168.222.160)
+        :param Any server_version: The version of the Presto server. (i.e. 0.148-t)
         :param str type: Type of linked service.
-        :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
-        :param Mapping[str, Any] port: The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
-        :param Mapping[str, Any] time_zone_id: The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
-        :param Mapping[str, Any] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param Mapping[str, Any] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-        :param Mapping[str, Any] username: The user name used to connect to the Presto server.
+        :param Any port: The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
+        :param Any time_zone_id: The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any username: The user name used to connect to the Presto server.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "catalog", catalog)
@@ -12915,7 +12915,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def catalog(self) -> Mapping[str, Any]:
+    def catalog(self) -> Any:
         """
         The catalog context for all request against the server.
         """
@@ -12923,7 +12923,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The IP address or host name of the Presto server. (i.e. 192.168.222.160)
         """
@@ -12931,7 +12931,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="serverVersion")
-    def server_version(self) -> Mapping[str, Any]:
+    def server_version(self) -> Any:
         """
         The version of the Presto server. (i.e. 0.148-t)
         """
@@ -12947,7 +12947,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[Mapping[str, Any]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
@@ -12955,7 +12955,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[Mapping[str, Any]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
@@ -12963,7 +12963,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -12987,7 +12987,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[Mapping[str, Any]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
@@ -12995,7 +12995,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -13019,7 +13019,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
         """
@@ -13027,7 +13027,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="timeZoneID")
-    def time_zone_id(self) -> Optional[Mapping[str, Any]]:
+    def time_zone_id(self) -> Optional[Any]:
         """
         The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
         """
@@ -13035,7 +13035,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[Mapping[str, Any]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
@@ -13043,7 +13043,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[Mapping[str, Any]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
@@ -13051,7 +13051,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         The user name used to connect to the Presto server.
         """
@@ -13069,18 +13069,18 @@ class PrestoObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Presto server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'PrestoObject')
@@ -13111,7 +13111,7 @@ class PrestoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -13135,7 +13135,7 @@ class PrestoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -13153,32 +13153,32 @@ class QuickBooksLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  access_token: Any,
                  access_token_secret: Any,
-                 company_id: Mapping[str, Any],
-                 consumer_key: Mapping[str, Any],
+                 company_id: Any,
+                 consumer_key: Any,
                  consumer_secret: Any,
-                 endpoint: Mapping[str, Any],
+                 endpoint: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None):
         """
         QuickBooks server linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token for OAuth 1.0 authentication.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token_secret: The access token secret for OAuth 1.0 authentication.
-        :param Mapping[str, Any] company_id: The company ID of the QuickBooks company to authorize.
-        :param Mapping[str, Any] consumer_key: The consumer key for OAuth 1.0 authentication.
+        :param Any company_id: The company ID of the QuickBooks company to authorize.
+        :param Any consumer_key: The consumer key for OAuth 1.0 authentication.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] consumer_secret: The consumer secret for OAuth 1.0 authentication.
-        :param Mapping[str, Any] endpoint: The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
+        :param Any endpoint: The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         pulumi.set(__self__, "access_token", access_token)
         pulumi.set(__self__, "access_token_secret", access_token_secret)
@@ -13218,7 +13218,7 @@ class QuickBooksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="companyId")
-    def company_id(self) -> Mapping[str, Any]:
+    def company_id(self) -> Any:
         """
         The company ID of the QuickBooks company to authorize.
         """
@@ -13226,7 +13226,7 @@ class QuickBooksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="consumerKey")
-    def consumer_key(self) -> Mapping[str, Any]:
+    def consumer_key(self) -> Any:
         """
         The consumer key for OAuth 1.0 authentication.
         """
@@ -13242,7 +13242,7 @@ class QuickBooksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Mapping[str, Any]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         """
@@ -13258,7 +13258,7 @@ class QuickBooksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -13282,7 +13282,7 @@ class QuickBooksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -13298,7 +13298,7 @@ class QuickBooksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -13316,18 +13316,18 @@ class QuickBooksObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         QuickBooks server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'QuickBooksObject')
@@ -13358,7 +13358,7 @@ class QuickBooksObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -13382,7 +13382,7 @@ class QuickBooksObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -13400,20 +13400,20 @@ class RelationalTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None,
-                 table_name: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None,
+                 table_name: Optional[Any] = None):
         """
         The relational table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param Mapping[str, Any] table_name: The relational table name. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table_name: The relational table name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'RelationalTable')
@@ -13446,7 +13446,7 @@ class RelationalTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -13470,7 +13470,7 @@ class RelationalTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -13478,7 +13478,7 @@ class RelationalTableDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[Mapping[str, Any]]:
+    def table_name(self) -> Optional[Any]:
         """
         The relational table name. Type: string (or Expression with resultType string).
         """
@@ -13494,32 +13494,32 @@ class ResponsysLinkedServiceResponse(dict):
     Responsys linked service.
     """
     def __init__(__self__, *,
-                 client_id: Mapping[str, Any],
-                 endpoint: Mapping[str, Any],
+                 client_id: Any,
+                 endpoint: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Responsys linked service.
-        :param Mapping[str, Any] client_id: The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] endpoint: The endpoint of the Responsys server.
+        :param Any client_id: The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
+        :param Any endpoint: The endpoint of the Responsys server.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -13545,7 +13545,7 @@ class ResponsysLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Mapping[str, Any]:
+    def client_id(self) -> Any:
         """
         The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
         """
@@ -13553,7 +13553,7 @@ class ResponsysLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Mapping[str, Any]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the Responsys server.
         """
@@ -13569,7 +13569,7 @@ class ResponsysLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -13601,7 +13601,7 @@ class ResponsysLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -13617,7 +13617,7 @@ class ResponsysLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -13625,7 +13625,7 @@ class ResponsysLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -13633,7 +13633,7 @@ class ResponsysLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -13651,18 +13651,18 @@ class ResponsysObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Responsys dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ResponsysObject')
@@ -13693,7 +13693,7 @@ class ResponsysObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -13717,7 +13717,7 @@ class ResponsysObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -13733,11 +13733,11 @@ class RetryPolicyResponse(dict):
     Execution policy for an activity.
     """
     def __init__(__self__, *,
-                 count: Optional[Mapping[str, Any]] = None,
+                 count: Optional[Any] = None,
                  interval_in_seconds: Optional[int] = None):
         """
         Execution policy for an activity.
-        :param Mapping[str, Any] count: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any count: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         :param int interval_in_seconds: Interval between retries in seconds. Default is 30.
         """
         if count is not None:
@@ -13747,7 +13747,7 @@ class RetryPolicyResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[Mapping[str, Any]]:
+    def count(self) -> Optional[Any]:
         """
         Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         """
@@ -13772,27 +13772,27 @@ class SalesforceLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
-                 environment_url: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 environment_url: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  security_token: Optional[Any] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 username: Optional[Any] = None):
         """
         Linked service for Salesforce.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] environment_url: The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any environment_url: The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication of the Salesforce instance.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] security_token: The security token is required to remotely access Salesforce instance.
-        :param Mapping[str, Any] username: The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
+        :param Any username: The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'Salesforce')
         if annotations is not None:
@@ -13824,7 +13824,7 @@ class SalesforceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -13848,7 +13848,7 @@ class SalesforceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -13856,7 +13856,7 @@ class SalesforceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="environmentUrl")
-    def environment_url(self) -> Optional[Mapping[str, Any]]:
+    def environment_url(self) -> Optional[Any]:
         """
         The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         """
@@ -13888,7 +13888,7 @@ class SalesforceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         """
@@ -13904,30 +13904,30 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
     Salesforce Marketing Cloud linked service.
     """
     def __init__(__self__, *,
-                 client_id: Mapping[str, Any],
+                 client_id: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Salesforce Marketing Cloud linked service.
-        :param Mapping[str, Any] client_id: The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
+        :param Any client_id: The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "type", 'SalesforceMarketingCloud')
@@ -13952,7 +13952,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Mapping[str, Any]:
+    def client_id(self) -> Any:
         """
         The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         """
@@ -13968,7 +13968,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -14000,7 +14000,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -14016,7 +14016,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -14024,7 +14024,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -14032,7 +14032,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -14050,18 +14050,18 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Salesforce Marketing Cloud dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'SalesforceMarketingCloudObject')
@@ -14092,7 +14092,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -14116,7 +14116,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -14134,20 +14134,20 @@ class SalesforceObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
-                 object_api_name: Optional[Mapping[str, Any]] = None,
+                 object_api_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The Salesforce object dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, Any] object_api_name: The Salesforce object API name. Type: string (or Expression with resultType string).
+        :param Any object_api_name: The Salesforce object API name. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'SalesforceObject')
@@ -14180,7 +14180,7 @@ class SalesforceObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -14196,7 +14196,7 @@ class SalesforceObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="objectApiName")
-    def object_api_name(self) -> Optional[Mapping[str, Any]]:
+    def object_api_name(self) -> Optional[Any]:
         """
         The Salesforce object API name. Type: string (or Expression with resultType string).
         """
@@ -14212,7 +14212,7 @@ class SalesforceObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -14228,30 +14228,30 @@ class SapBWLinkedServiceResponse(dict):
     SAP Business Warehouse Linked Service.
     """
     def __init__(__self__, *,
-                 client_id: Mapping[str, Any],
-                 server: Mapping[str, Any],
-                 system_number: Mapping[str, Any],
+                 client_id: Any,
+                 server: Any,
+                 system_number: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Mapping[str, Any]] = None):
+                 user_name: Optional[Any] = None):
         """
         SAP Business Warehouse Linked Service.
-        :param Mapping[str, Any] client_id: Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] server: Host name of the SAP BW instance. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] system_number: System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
+        :param Any client_id: Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
+        :param Any server: Host name of the SAP BW instance. Type: string (or Expression with resultType string).
+        :param Any system_number: System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the SAP BW server.
-        :param Mapping[str, Any] user_name: Username to access the SAP BW server. Type: string (or Expression with resultType string).
+        :param Any user_name: Username to access the SAP BW server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "server", server)
@@ -14274,7 +14274,7 @@ class SapBWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Mapping[str, Any]:
+    def client_id(self) -> Any:
         """
         Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         """
@@ -14282,7 +14282,7 @@ class SapBWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def server(self) -> Mapping[str, Any]:
+    def server(self) -> Any:
         """
         Host name of the SAP BW instance. Type: string (or Expression with resultType string).
         """
@@ -14290,7 +14290,7 @@ class SapBWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="systemNumber")
-    def system_number(self) -> Mapping[str, Any]:
+    def system_number(self) -> Any:
         """
         System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         """
@@ -14306,7 +14306,7 @@ class SapBWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -14330,7 +14330,7 @@ class SapBWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -14354,7 +14354,7 @@ class SapBWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[Mapping[str, Any]]:
+    def user_name(self) -> Optional[Any]:
         """
         Username to access the SAP BW server. Type: string (or Expression with resultType string).
         """
@@ -14371,25 +14371,25 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 url: Mapping[str, Any],
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 url: Any,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 username: Optional[Any] = None):
         """
         Linked service for SAP Cloud for Customer.
         :param str type: Type of linked service.
-        :param Mapping[str, Any] url: The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any url: The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication.
-        :param Mapping[str, Any] username: The username for Basic authentication. Type: string (or Expression with resultType string).
+        :param Any username: The username for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SapCloudForCustomer')
         pulumi.set(__self__, "url", url)
@@ -14418,7 +14418,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> Mapping[str, Any]:
+    def url(self) -> Any:
         """
         The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
         """
@@ -14426,7 +14426,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -14450,7 +14450,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
         """
@@ -14474,7 +14474,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         The username for Basic authentication. Type: string (or Expression with resultType string).
         """
@@ -14491,21 +14491,21 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
     """
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
-                 path: Mapping[str, Any],
+                 path: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The path of the SAP Cloud for Customer OData entity.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Mapping[str, Any] path: The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
+        :param Any path: The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "path", path)
@@ -14529,7 +14529,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def path(self) -> Mapping[str, Any]:
+    def path(self) -> Any:
         """
         The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
         """
@@ -14545,7 +14545,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -14569,7 +14569,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -14587,7 +14587,7 @@ class SapEccLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  url: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
@@ -14598,7 +14598,7 @@ class SapEccLinkedServiceResponse(dict):
         Linked service for SAP ERP Central Component(SAP ECC).
         :param str type: Type of linked service.
         :param str url: The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
@@ -14641,7 +14641,7 @@ class SapEccLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -14706,21 +14706,21 @@ class SapEccResourceDatasetResponse(dict):
     """
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
-                 path: Mapping[str, Any],
+                 path: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The path of the SAP ECC OData entity.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Mapping[str, Any] path: The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
+        :param Any path: The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "path", path)
@@ -14744,7 +14744,7 @@ class SapEccResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def path(self) -> Mapping[str, Any]:
+    def path(self) -> Any:
         """
         The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
         """
@@ -14760,7 +14760,7 @@ class SapEccResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -14784,7 +14784,7 @@ class SapEccResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -14800,28 +14800,28 @@ class SapHanaLinkedServiceResponse(dict):
     SAP HANA Linked Service.
     """
     def __init__(__self__, *,
-                 server: Mapping[str, Any],
+                 server: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Mapping[str, Any]] = None):
+                 user_name: Optional[Any] = None):
         """
         SAP HANA Linked Service.
-        :param Mapping[str, Any] server: Host name of the SAP HANA server. Type: string (or Expression with resultType string).
+        :param Any server: Host name of the SAP HANA server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the SAP HANA server.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the SAP HANA server.
-        :param Mapping[str, Any] user_name: Username to access the SAP HANA server. Type: string (or Expression with resultType string).
+        :param Any user_name: Username to access the SAP HANA server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "server", server)
         pulumi.set(__self__, "type", 'SapHana')
@@ -14844,7 +14844,7 @@ class SapHanaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def server(self) -> Mapping[str, Any]:
+    def server(self) -> Any:
         """
         Host name of the SAP HANA server. Type: string (or Expression with resultType string).
         """
@@ -14860,7 +14860,7 @@ class SapHanaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -14892,7 +14892,7 @@ class SapHanaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -14916,7 +14916,7 @@ class SapHanaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[Mapping[str, Any]]:
+    def user_name(self) -> Optional[Any]:
         """
         Username to access the SAP HANA server. Type: string (or Expression with resultType string).
         """
@@ -15417,37 +15417,37 @@ class ServiceNowLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  authentication_type: str,
-                 endpoint: Mapping[str, Any],
+                 endpoint: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
-                 client_id: Optional[Mapping[str, Any]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
+                 client_id: Optional[Any] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         ServiceNow server linked service.
         :param str authentication_type: The authentication type to use.
-        :param Mapping[str, Any] endpoint: The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
+        :param Any endpoint: The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param Mapping[str, Any] client_id: The client id for OAuth2 authentication.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param Any client_id: The client id for OAuth2 authentication.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret for OAuth2 authentication.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name for Basic and OAuth2 authentication.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] username: The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any username: The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -15487,7 +15487,7 @@ class ServiceNowLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Mapping[str, Any]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
         """
@@ -15503,7 +15503,7 @@ class ServiceNowLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -15511,7 +15511,7 @@ class ServiceNowLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[Mapping[str, Any]]:
+    def client_id(self) -> Optional[Any]:
         """
         The client id for OAuth2 authentication.
         """
@@ -15543,7 +15543,7 @@ class ServiceNowLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -15567,7 +15567,7 @@ class ServiceNowLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -15575,7 +15575,7 @@ class ServiceNowLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -15583,7 +15583,7 @@ class ServiceNowLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -15591,7 +15591,7 @@ class ServiceNowLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
         """
@@ -15609,18 +15609,18 @@ class ServiceNowObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         ServiceNow server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ServiceNowObject')
@@ -15651,7 +15651,7 @@ class ServiceNowObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -15675,7 +15675,7 @@ class ServiceNowObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -15691,40 +15691,40 @@ class SftpServerLinkedServiceResponse(dict):
     A linked service for an SSH File Transfer Protocol (SFTP) server. 
     """
     def __init__(__self__, *,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
-                 host_key_fingerprint: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 host_key_fingerprint: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  pass_phrase: Optional[Any] = None,
                  password: Optional[Any] = None,
-                 port: Optional[Mapping[str, Any]] = None,
+                 port: Optional[Any] = None,
                  private_key_content: Optional[Any] = None,
-                 private_key_path: Optional[Mapping[str, Any]] = None,
-                 skip_host_key_validation: Optional[Mapping[str, Any]] = None,
-                 user_name: Optional[Mapping[str, Any]] = None):
+                 private_key_path: Optional[Any] = None,
+                 skip_host_key_validation: Optional[Any] = None,
+                 user_name: Optional[Any] = None):
         """
         A linked service for an SSH File Transfer Protocol (SFTP) server. 
-        :param Mapping[str, Any] host: The SFTP server host name. Type: string (or Expression with resultType string).
+        :param Any host: The SFTP server host name. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] host_key_fingerprint: The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any host_key_fingerprint: The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] pass_phrase: The password to decrypt the SSH private key if the SSH private key is encrypted.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to logon the SFTP server for Basic authentication.
-        :param Mapping[str, Any] port: The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any port: The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] private_key_content: Base64 encoded SSH private key content for SshPublicKey authentication. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format.
-        :param Mapping[str, Any] private_key_path: The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] skip_host_key_validation: If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] user_name: The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
+        :param Any private_key_path: The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
+        :param Any skip_host_key_validation: If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Any user_name: The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Sftp')
@@ -15759,7 +15759,7 @@ class SftpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The SFTP server host name. Type: string (or Expression with resultType string).
         """
@@ -15775,7 +15775,7 @@ class SftpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -15807,7 +15807,7 @@ class SftpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -15815,7 +15815,7 @@ class SftpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="hostKeyFingerprint")
-    def host_key_fingerprint(self) -> Optional[Mapping[str, Any]]:
+    def host_key_fingerprint(self) -> Optional[Any]:
         """
         The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
         """
@@ -15847,7 +15847,7 @@ class SftpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[Mapping[str, Any]]:
+    def port(self) -> Optional[Any]:
         """
         The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
         """
@@ -15863,7 +15863,7 @@ class SftpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="privateKeyPath")
-    def private_key_path(self) -> Optional[Mapping[str, Any]]:
+    def private_key_path(self) -> Optional[Any]:
         """
         The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
         """
@@ -15871,7 +15871,7 @@ class SftpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="skipHostKeyValidation")
-    def skip_host_key_validation(self) -> Optional[Mapping[str, Any]]:
+    def skip_host_key_validation(self) -> Optional[Any]:
         """
         If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
         """
@@ -15879,7 +15879,7 @@ class SftpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[Mapping[str, Any]]:
+    def user_name(self) -> Optional[Any]:
         """
         The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
         """
@@ -15895,30 +15895,30 @@ class ShopifyLinkedServiceResponse(dict):
     Shopify Service linked service.
     """
     def __init__(__self__, *,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
                  access_token: Optional[Any] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Shopify Service linked service.
-        :param Mapping[str, Any] host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
+        :param Any host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Shopify')
@@ -15943,7 +15943,7 @@ class ShopifyLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         """
@@ -15967,7 +15967,7 @@ class ShopifyLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -15991,7 +15991,7 @@ class ShopifyLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -16007,7 +16007,7 @@ class ShopifyLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -16015,7 +16015,7 @@ class ShopifyLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -16023,7 +16023,7 @@ class ShopifyLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -16041,18 +16041,18 @@ class ShopifyObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Shopify Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ShopifyObject')
@@ -16083,7 +16083,7 @@ class ShopifyObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -16107,7 +16107,7 @@ class ShopifyObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -16124,45 +16124,45 @@ class SparkLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  authentication_type: str,
-                 host: Mapping[str, Any],
-                 port: Mapping[str, Any],
+                 host: Any,
+                 port: Any,
                  type: str,
-                 allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
-                 allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 allow_host_name_cn_mismatch: Optional[Any] = None,
+                 allow_self_signed_server_cert: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 enable_ssl: Optional[Mapping[str, Any]] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
-                 http_path: Optional[Mapping[str, Any]] = None,
+                 enable_ssl: Optional[Any] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 http_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  server_type: Optional[str] = None,
                  thrift_transport_protocol: Optional[str] = None,
-                 trusted_cert_path: Optional[Mapping[str, Any]] = None,
-                 use_system_trust_store: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Spark Server linked service.
         :param str authentication_type: The authentication method used to access the Spark server.
-        :param Mapping[str, Any] host: IP address or host name of the Spark server
-        :param Mapping[str, Any] port: The TCP port that the Spark server uses to listen for client connections.
+        :param Any host: IP address or host name of the Spark server
+        :param Any port: The TCP port that the Spark server uses to listen for client connections.
         :param str type: Type of linked service.
-        :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-        :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+        :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] http_path: The partial URL corresponding to the Spark server.
+        :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any http_path: The partial URL corresponding to the Spark server.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the Username field
         :param str server_type: The type of Spark server.
         :param str thrift_transport_protocol: The transport protocol to use in the Thrift layer.
-        :param Mapping[str, Any] trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param Mapping[str, Any] use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-        :param Mapping[str, Any] username: The user name that you use to access Spark Server.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any username: The user name that you use to access Spark Server.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -16209,7 +16209,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         IP address or host name of the Spark server
         """
@@ -16217,7 +16217,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Mapping[str, Any]:
+    def port(self) -> Any:
         """
         The TCP port that the Spark server uses to listen for client connections.
         """
@@ -16233,7 +16233,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowHostNameCNMismatch")
-    def allow_host_name_cn_mismatch(self) -> Optional[Mapping[str, Any]]:
+    def allow_host_name_cn_mismatch(self) -> Optional[Any]:
         """
         Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         """
@@ -16241,7 +16241,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="allowSelfSignedServerCert")
-    def allow_self_signed_server_cert(self) -> Optional[Mapping[str, Any]]:
+    def allow_self_signed_server_cert(self) -> Optional[Any]:
         """
         Specifies whether to allow self-signed certificates from the server. The default value is false.
         """
@@ -16249,7 +16249,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -16273,7 +16273,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[Mapping[str, Any]]:
+    def enable_ssl(self) -> Optional[Any]:
         """
         Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         """
@@ -16281,7 +16281,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -16289,7 +16289,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="httpPath")
-    def http_path(self) -> Optional[Mapping[str, Any]]:
+    def http_path(self) -> Optional[Any]:
         """
         The partial URL corresponding to the Spark server.
         """
@@ -16329,7 +16329,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[Mapping[str, Any]]:
+    def trusted_cert_path(self) -> Optional[Any]:
         """
         The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         """
@@ -16337,7 +16337,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[Mapping[str, Any]]:
+    def use_system_trust_store(self) -> Optional[Any]:
         """
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         """
@@ -16345,7 +16345,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         The user name that you use to access Spark Server.
         """
@@ -16363,18 +16363,18 @@ class SparkObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Spark Server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'SparkObject')
@@ -16405,7 +16405,7 @@ class SparkObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -16429,7 +16429,7 @@ class SparkObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -16445,26 +16445,26 @@ class SqlServerLinkedServiceResponse(dict):
     SQL Server linked service.
     """
     def __init__(__self__, *,
-                 connection_string: Mapping[str, Any],
+                 connection_string: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Mapping[str, Any]] = None):
+                 user_name: Optional[Any] = None):
         """
         SQL Server linked service.
-        :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The on-premises Windows authentication password.
-        :param Mapping[str, Any] user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
+        :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'SqlServer')
@@ -16485,7 +16485,7 @@ class SqlServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Mapping[str, Any]:
+    def connection_string(self) -> Any:
         """
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -16501,7 +16501,7 @@ class SqlServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -16525,7 +16525,7 @@ class SqlServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -16549,7 +16549,7 @@ class SqlServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[Mapping[str, Any]]:
+    def user_name(self) -> Optional[Any]:
         """
         The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         """
@@ -16566,21 +16566,21 @@ class SqlServerTableDatasetResponse(dict):
     """
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
-                 table_name: Mapping[str, Any],
+                 table_name: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         The on-premises SQL Server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Mapping[str, Any] table_name: The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
+        :param Any table_name: The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -16604,7 +16604,7 @@ class SqlServerTableDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Mapping[str, Any]:
+    def table_name(self) -> Any:
         """
         The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
         """
@@ -16620,7 +16620,7 @@ class SqlServerTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -16644,7 +16644,7 @@ class SqlServerTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -16660,34 +16660,34 @@ class SquareLinkedServiceResponse(dict):
     Square Service linked service.
     """
     def __init__(__self__, *,
-                 client_id: Mapping[str, Any],
-                 host: Mapping[str, Any],
-                 redirect_uri: Mapping[str, Any],
+                 client_id: Any,
+                 host: Any,
+                 redirect_uri: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Square Service linked service.
-        :param Mapping[str, Any] client_id: The client ID associated with your Square application.
-        :param Mapping[str, Any] host: The URL of the Square instance. (i.e. mystore.mysquare.com)
-        :param Mapping[str, Any] redirect_uri: The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
+        :param Any client_id: The client ID associated with your Square application.
+        :param Any host: The URL of the Square instance. (i.e. mystore.mysquare.com)
+        :param Any redirect_uri: The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your Square application.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "host", host)
@@ -16714,7 +16714,7 @@ class SquareLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Mapping[str, Any]:
+    def client_id(self) -> Any:
         """
         The client ID associated with your Square application.
         """
@@ -16722,7 +16722,7 @@ class SquareLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The URL of the Square instance. (i.e. mystore.mysquare.com)
         """
@@ -16730,7 +16730,7 @@ class SquareLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="redirectUri")
-    def redirect_uri(self) -> Mapping[str, Any]:
+    def redirect_uri(self) -> Any:
         """
         The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
         """
@@ -16746,7 +16746,7 @@ class SquareLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -16778,7 +16778,7 @@ class SquareLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -16794,7 +16794,7 @@ class SquareLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -16802,7 +16802,7 @@ class SquareLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -16810,7 +16810,7 @@ class SquareLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -16828,18 +16828,18 @@ class SquareObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Square Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'SquareObject')
@@ -16870,7 +16870,7 @@ class SquareObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -16894,7 +16894,7 @@ class SquareObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -16910,32 +16910,32 @@ class SybaseLinkedServiceResponse(dict):
     Linked service for Sybase data source.
     """
     def __init__(__self__, *,
-                 database: Mapping[str, Any],
-                 server: Mapping[str, Any],
+                 database: Any,
+                 server: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 schema: Optional[Mapping[str, Any]] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 schema: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Linked service for Sybase data source.
-        :param Mapping[str, Any] database: Database name for connection. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] server: Server name for connection. Type: string (or Expression with resultType string).
+        :param Any database: Database name for connection. Type: string (or Expression with resultType string).
+        :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: AuthenticationType to be used for connection.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
-        :param Mapping[str, Any] schema: Schema name for connection. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] username: Username for authentication. Type: string (or Expression with resultType string).
+        :param Any schema: Schema name for connection. Type: string (or Expression with resultType string).
+        :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "server", server)
@@ -16961,7 +16961,7 @@ class SybaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def database(self) -> Mapping[str, Any]:
+    def database(self) -> Any:
         """
         Database name for connection. Type: string (or Expression with resultType string).
         """
@@ -16969,7 +16969,7 @@ class SybaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def server(self) -> Mapping[str, Any]:
+    def server(self) -> Any:
         """
         Server name for connection. Type: string (or Expression with resultType string).
         """
@@ -16985,7 +16985,7 @@ class SybaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -17017,7 +17017,7 @@ class SybaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -17041,7 +17041,7 @@ class SybaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional[Mapping[str, Any]]:
+    def schema(self) -> Optional[Any]:
         """
         Schema name for connection. Type: string (or Expression with resultType string).
         """
@@ -17049,7 +17049,7 @@ class SybaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -17065,28 +17065,28 @@ class TeradataLinkedServiceResponse(dict):
     Linked service for Teradata data source.
     """
     def __init__(__self__, *,
-                 server: Mapping[str, Any],
+                 server: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 username: Optional[Mapping[str, Any]] = None):
+                 username: Optional[Any] = None):
         """
         Linked service for Teradata data source.
-        :param Mapping[str, Any] server: Server name for connection. Type: string (or Expression with resultType string).
+        :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: AuthenticationType to be used for connection.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
-        :param Mapping[str, Any] username: Username for authentication. Type: string (or Expression with resultType string).
+        :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "server", server)
         pulumi.set(__self__, "type", 'Teradata')
@@ -17109,7 +17109,7 @@ class TeradataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def server(self) -> Mapping[str, Any]:
+    def server(self) -> Any:
         """
         Server name for connection. Type: string (or Expression with resultType string).
         """
@@ -17125,7 +17125,7 @@ class TeradataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -17157,7 +17157,7 @@ class TeradataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -17181,7 +17181,7 @@ class TeradataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[Mapping[str, Any]]:
+    def username(self) -> Optional[Any]:
         """
         Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -17198,31 +17198,31 @@ class TextFormatResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 column_delimiter: Optional[Mapping[str, Any]] = None,
-                 deserializer: Optional[Mapping[str, Any]] = None,
-                 encoding_name: Optional[Mapping[str, Any]] = None,
-                 escape_char: Optional[Mapping[str, Any]] = None,
-                 first_row_as_header: Optional[Mapping[str, Any]] = None,
-                 null_value: Optional[Mapping[str, Any]] = None,
-                 quote_char: Optional[Mapping[str, Any]] = None,
-                 row_delimiter: Optional[Mapping[str, Any]] = None,
-                 serializer: Optional[Mapping[str, Any]] = None,
-                 skip_line_count: Optional[Mapping[str, Any]] = None,
-                 treat_empty_as_null: Optional[Mapping[str, Any]] = None):
+                 column_delimiter: Optional[Any] = None,
+                 deserializer: Optional[Any] = None,
+                 encoding_name: Optional[Any] = None,
+                 escape_char: Optional[Any] = None,
+                 first_row_as_header: Optional[Any] = None,
+                 null_value: Optional[Any] = None,
+                 quote_char: Optional[Any] = None,
+                 row_delimiter: Optional[Any] = None,
+                 serializer: Optional[Any] = None,
+                 skip_line_count: Optional[Any] = None,
+                 treat_empty_as_null: Optional[Any] = None):
         """
         The data stored in text format.
         :param str type: Type of dataset storage format.
-        :param Mapping[str, Any] column_delimiter: The column delimiter. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] deserializer: Deserializer. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] encoding_name: The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] escape_char: The escape character. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] null_value: The null value string. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] quote_char: The quote character. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] row_delimiter: The row delimiter. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] serializer: Serializer. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] skip_line_count: The number of lines/rows to be skipped when parsing text files. The default value is 0. Type: integer (or Expression with resultType integer).
-        :param Mapping[str, Any] treat_empty_as_null: Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param Any column_delimiter: The column delimiter. Type: string (or Expression with resultType string).
+        :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
+        :param Any encoding_name: The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
+        :param Any escape_char: The escape character. Type: string (or Expression with resultType string).
+        :param Any first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Any null_value: The null value string. Type: string (or Expression with resultType string).
+        :param Any quote_char: The quote character. Type: string (or Expression with resultType string).
+        :param Any row_delimiter: The row delimiter. Type: string (or Expression with resultType string).
+        :param Any serializer: Serializer. Type: string (or Expression with resultType string).
+        :param Any skip_line_count: The number of lines/rows to be skipped when parsing text files. The default value is 0. Type: integer (or Expression with resultType integer).
+        :param Any treat_empty_as_null: Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "type", 'TextFormat')
         if column_delimiter is not None:
@@ -17258,7 +17258,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter(name="columnDelimiter")
-    def column_delimiter(self) -> Optional[Mapping[str, Any]]:
+    def column_delimiter(self) -> Optional[Any]:
         """
         The column delimiter. Type: string (or Expression with resultType string).
         """
@@ -17266,7 +17266,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def deserializer(self) -> Optional[Mapping[str, Any]]:
+    def deserializer(self) -> Optional[Any]:
         """
         Deserializer. Type: string (or Expression with resultType string).
         """
@@ -17274,7 +17274,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter(name="encodingName")
-    def encoding_name(self) -> Optional[Mapping[str, Any]]:
+    def encoding_name(self) -> Optional[Any]:
         """
         The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         """
@@ -17282,7 +17282,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter(name="escapeChar")
-    def escape_char(self) -> Optional[Mapping[str, Any]]:
+    def escape_char(self) -> Optional[Any]:
         """
         The escape character. Type: string (or Expression with resultType string).
         """
@@ -17290,7 +17290,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter(name="firstRowAsHeader")
-    def first_row_as_header(self) -> Optional[Mapping[str, Any]]:
+    def first_row_as_header(self) -> Optional[Any]:
         """
         When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
         """
@@ -17298,7 +17298,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter(name="nullValue")
-    def null_value(self) -> Optional[Mapping[str, Any]]:
+    def null_value(self) -> Optional[Any]:
         """
         The null value string. Type: string (or Expression with resultType string).
         """
@@ -17306,7 +17306,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter(name="quoteChar")
-    def quote_char(self) -> Optional[Mapping[str, Any]]:
+    def quote_char(self) -> Optional[Any]:
         """
         The quote character. Type: string (or Expression with resultType string).
         """
@@ -17314,7 +17314,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter(name="rowDelimiter")
-    def row_delimiter(self) -> Optional[Mapping[str, Any]]:
+    def row_delimiter(self) -> Optional[Any]:
         """
         The row delimiter. Type: string (or Expression with resultType string).
         """
@@ -17322,7 +17322,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def serializer(self) -> Optional[Mapping[str, Any]]:
+    def serializer(self) -> Optional[Any]:
         """
         Serializer. Type: string (or Expression with resultType string).
         """
@@ -17330,7 +17330,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter(name="skipLineCount")
-    def skip_line_count(self) -> Optional[Mapping[str, Any]]:
+    def skip_line_count(self) -> Optional[Any]:
         """
         The number of lines/rows to be skipped when parsing text files. The default value is 0. Type: integer (or Expression with resultType integer).
         """
@@ -17338,7 +17338,7 @@ class TextFormatResponse(dict):
 
     @property
     @pulumi.getter(name="treatEmptyAsNull")
-    def treat_empty_as_null(self) -> Optional[Mapping[str, Any]]:
+    def treat_empty_as_null(self) -> Optional[Any]:
         """
         Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -17354,11 +17354,11 @@ class TriggerPipelineReferenceResponse(dict):
     Pipeline that needs to be triggered with the given parameters.
     """
     def __init__(__self__, *,
-                 parameters: Optional[Mapping[str, Mapping[str, Any]]] = None,
+                 parameters: Optional[Mapping[str, Any]] = None,
                  pipeline_reference: Optional['outputs.PipelineReferenceResponse'] = None):
         """
         Pipeline that needs to be triggered with the given parameters.
-        :param Mapping[str, Mapping[str, Any]] parameters: Pipeline parameters.
+        :param Mapping[str, Any] parameters: Pipeline parameters.
         :param 'PipelineReferenceResponseArgs' pipeline_reference: Pipeline reference.
         """
         if parameters is not None:
@@ -17368,7 +17368,7 @@ class TriggerPipelineReferenceResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Mapping[str, Any]]:
         """
         Pipeline parameters.
         """
@@ -17399,7 +17399,7 @@ class TumblingWindowTriggerResponse(dict):
                  runtime_state: str,
                  start_time: str,
                  type: str,
-                 delay: Optional[Mapping[str, Any]] = None,
+                 delay: Optional[Any] = None,
                  description: Optional[str] = None,
                  end_time: Optional[str] = None,
                  retry_policy: Optional['outputs.RetryPolicyResponse'] = None):
@@ -17412,7 +17412,7 @@ class TumblingWindowTriggerResponse(dict):
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str start_time: The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param str type: Trigger type.
-        :param Mapping[str, Any] delay: Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any delay: Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param str description: Trigger description.
         :param str end_time: The end time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param 'RetryPolicyResponseArgs' retry_policy: Retry policy that will be applied for failed pipeline runs.
@@ -17491,7 +17491,7 @@ class TumblingWindowTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def delay(self) -> Optional[Mapping[str, Any]]:
+    def delay(self) -> Optional[Any]:
         """
         Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -17532,20 +17532,20 @@ class VerticaLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
-                 connection_string: Optional[Mapping[str, Any]] = None,
+                 connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Vertica linked service.
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Vertica')
@@ -17572,7 +17572,7 @@ class VerticaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -17588,7 +17588,7 @@ class VerticaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[Mapping[str, Any]]:
+    def connection_string(self) -> Optional[Any]:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
@@ -17604,7 +17604,7 @@ class VerticaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -17630,18 +17630,18 @@ class VerticaTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Vertica dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'VerticaTable')
@@ -17672,7 +17672,7 @@ class VerticaTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -17696,7 +17696,7 @@ class VerticaTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -17713,11 +17713,11 @@ class WebAnonymousAuthenticationResponse(dict):
     """
     def __init__(__self__, *,
                  authentication_type: str,
-                 url: Mapping[str, Any]):
+                 url: Any):
         """
         A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
         :param str authentication_type: Type of authentication used to connect to the web table source.
-        :param Mapping[str, Any] url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'Anonymous')
         pulumi.set(__self__, "url", url)
@@ -17732,7 +17732,7 @@ class WebAnonymousAuthenticationResponse(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> Mapping[str, Any]:
+    def url(self) -> Any:
         """
         The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
@@ -17750,14 +17750,14 @@ class WebBasicAuthenticationResponse(dict):
     def __init__(__self__, *,
                  authentication_type: str,
                  password: Any,
-                 url: Mapping[str, Any],
-                 username: Mapping[str, Any]):
+                 url: Any,
+                 username: Any):
         """
         A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
         :param str authentication_type: Type of authentication used to connect to the web table source.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication.
-        :param Mapping[str, Any] url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] username: User name for Basic authentication. Type: string (or Expression with resultType string).
+        :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        :param Any username: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'Basic')
         pulumi.set(__self__, "password", password)
@@ -17782,7 +17782,7 @@ class WebBasicAuthenticationResponse(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> Mapping[str, Any]:
+    def url(self) -> Any:
         """
         The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
@@ -17790,7 +17790,7 @@ class WebBasicAuthenticationResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Mapping[str, Any]:
+    def username(self) -> Any:
         """
         User name for Basic authentication. Type: string (or Expression with resultType string).
         """
@@ -17809,13 +17809,13 @@ class WebClientCertificateAuthenticationResponse(dict):
                  authentication_type: str,
                  password: Any,
                  pfx: Any,
-                 url: Mapping[str, Any]):
+                 url: Any):
         """
         A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
         :param str authentication_type: Type of authentication used to connect to the web table source.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for the PFX file.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] pfx: Base64-encoded contents of a PFX file.
-        :param Mapping[str, Any] url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'ClientCertificate')
         pulumi.set(__self__, "password", password)
@@ -17848,7 +17848,7 @@ class WebClientCertificateAuthenticationResponse(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> Mapping[str, Any]:
+    def url(self) -> Any:
         """
         The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
@@ -17866,7 +17866,7 @@ class WebLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  type_properties: Any,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
@@ -17874,7 +17874,7 @@ class WebLinkedServiceResponse(dict):
         Web linked service.
         :param str type: Type of linked service.
         :param Union['WebAnonymousAuthenticationResponseArgs', 'WebBasicAuthenticationResponseArgs', 'WebClientCertificateAuthenticationResponseArgs'] type_properties: Web linked service properties.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
@@ -17908,7 +17908,7 @@ class WebLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -17948,24 +17948,24 @@ class WebTableDatasetResponse(dict):
     The dataset points to a HTML table in the web page.
     """
     def __init__(__self__, *,
-                 index: Mapping[str, Any],
+                 index: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 path: Optional[Mapping[str, Any]] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 path: Optional[Any] = None,
+                 structure: Optional[Any] = None):
         """
         The dataset points to a HTML table in the web page.
-        :param Mapping[str, Any] index: The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any index: The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] path: The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any path: The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "index", index)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -17983,7 +17983,7 @@ class WebTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def index(self) -> Mapping[str, Any]:
+    def index(self) -> Any:
         """
         The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
         """
@@ -18007,7 +18007,7 @@ class WebTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -18031,7 +18031,7 @@ class WebTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[Mapping[str, Any]]:
+    def path(self) -> Optional[Any]:
         """
         The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
         """
@@ -18039,7 +18039,7 @@ class WebTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -18055,33 +18055,33 @@ class XeroLinkedServiceResponse(dict):
     Xero Service linked service.
     """
     def __init__(__self__, *,
-                 host: Mapping[str, Any],
+                 host: Any,
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  consumer_key: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  private_key: Optional[Any] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Xero Service linked service.
-        :param Mapping[str, Any] host: The endpoint of the Xero server. (i.e. api.xero.com)
+        :param Any host: The endpoint of the Xero server. (i.e. api.xero.com)
         :param str type: Type of linked service.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] consumer_key: The consumer key associated with the Xero application.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] private_key: The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(
                ).
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Xero')
@@ -18108,7 +18108,7 @@ class XeroLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def host(self) -> Mapping[str, Any]:
+    def host(self) -> Any:
         """
         The endpoint of the Xero server. (i.e. api.xero.com)
         """
@@ -18124,7 +18124,7 @@ class XeroLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -18156,7 +18156,7 @@ class XeroLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -18181,7 +18181,7 @@ class XeroLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -18189,7 +18189,7 @@ class XeroLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -18197,7 +18197,7 @@ class XeroLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -18215,18 +18215,18 @@ class XeroObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Xero Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'XeroObject')
@@ -18257,7 +18257,7 @@ class XeroObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -18281,7 +18281,7 @@ class XeroObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -18297,30 +18297,30 @@ class ZohoLinkedServiceResponse(dict):
     Zoho server linked service.
     """
     def __init__(__self__, *,
-                 endpoint: Mapping[str, Any],
+                 endpoint: Any,
                  type: str,
                  access_token: Optional[Any] = None,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Mapping[str, Any]] = None,
+                 encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 use_encrypted_endpoints: Optional[Mapping[str, Any]] = None,
-                 use_host_verification: Optional[Mapping[str, Any]] = None,
-                 use_peer_verification: Optional[Mapping[str, Any]] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 use_host_verification: Optional[Any] = None,
+                 use_peer_verification: Optional[Any] = None):
         """
         Zoho server linked service.
-        :param Mapping[str, Any] endpoint: The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
+        :param Any endpoint: The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token for Zoho authentication.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Mapping[str, Any] use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-        :param Mapping[str, Any] use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-        :param Mapping[str, Any] use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+        :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "type", 'Zoho')
@@ -18345,7 +18345,7 @@ class ZohoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Mapping[str, Any]:
+    def endpoint(self) -> Any:
         """
         The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
         """
@@ -18369,7 +18369,7 @@ class ZohoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -18393,7 +18393,7 @@ class ZohoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Mapping[str, Any]]:
+    def encrypted_credential(self) -> Optional[Any]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         """
@@ -18409,7 +18409,7 @@ class ZohoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useEncryptedEndpoints")
-    def use_encrypted_endpoints(self) -> Optional[Mapping[str, Any]]:
+    def use_encrypted_endpoints(self) -> Optional[Any]:
         """
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
@@ -18417,7 +18417,7 @@ class ZohoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="useHostVerification")
-    def use_host_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_host_verification(self) -> Optional[Any]:
         """
         Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         """
@@ -18425,7 +18425,7 @@ class ZohoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="usePeerVerification")
-    def use_peer_verification(self) -> Optional[Mapping[str, Any]]:
+    def use_peer_verification(self) -> Optional[Any]:
         """
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
@@ -18443,18 +18443,18 @@ class ZohoObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 structure: Optional[Mapping[str, Any]] = None):
+                 structure: Optional[Any] = None):
         """
         Zoho server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
-        :param Mapping[str, Any] structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ZohoObject')
@@ -18485,7 +18485,7 @@ class ZohoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Any]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -18509,7 +18509,7 @@ class ZohoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> Optional[Mapping[str, Any]]:
+    def structure(self) -> Optional[Any]:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """

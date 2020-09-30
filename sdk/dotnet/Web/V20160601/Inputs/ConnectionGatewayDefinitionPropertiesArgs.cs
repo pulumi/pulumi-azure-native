@@ -54,17 +54,11 @@ namespace Pulumi.AzureNextGen.Web.V20160601.Inputs
         [Input("machineName")]
         public Input<string>? MachineName { get; set; }
 
-        [Input("status")]
-        private InputMap<object>? _status;
-
         /// <summary>
         /// The gateway status
         /// </summary>
-        public InputMap<object> Status
-        {
-            get => _status ?? (_status = new InputMap<object>());
-            set => _status = value;
-        }
+        [Input("status")]
+        public Input<object>? Status { get; set; }
 
         public ConnectionGatewayDefinitionPropertiesArgs()
         {

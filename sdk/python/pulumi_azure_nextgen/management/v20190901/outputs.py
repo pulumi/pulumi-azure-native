@@ -23,14 +23,14 @@ class ParameterDefinitionsValueResponse(dict):
     The definition of a parameter that can be provided to the policy.
     """
     def __init__(__self__, *,
-                 allowed_values: Optional[Sequence[Mapping[str, Any]]] = None,
-                 default_value: Optional[Mapping[str, Any]] = None,
+                 allowed_values: Optional[Sequence[Any]] = None,
+                 default_value: Optional[Any] = None,
                  metadata: Optional['outputs.ParameterDefinitionsValueResponseMetadata'] = None,
                  type: Optional[str] = None):
         """
         The definition of a parameter that can be provided to the policy.
-        :param Sequence[Mapping[str, Any]] allowed_values: The allowed values for the parameter.
-        :param Mapping[str, Any] default_value: The default value for the parameter if no value is provided.
+        :param Sequence[Any] allowed_values: The allowed values for the parameter.
+        :param Any default_value: The default value for the parameter if no value is provided.
         :param 'ParameterDefinitionsValueResponseMetadataArgs' metadata: General metadata for the parameter.
         :param str type: The data type of the parameter.
         """
@@ -45,7 +45,7 @@ class ParameterDefinitionsValueResponse(dict):
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def allowed_values(self) -> Optional[Sequence[Any]]:
         """
         The allowed values for the parameter.
         """
@@ -53,7 +53,7 @@ class ParameterDefinitionsValueResponse(dict):
 
     @property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[Mapping[str, Any]]:
+    def default_value(self) -> Optional[Any]:
         """
         The default value for the parameter if no value is provided.
         """
@@ -123,17 +123,17 @@ class ParameterValuesValueResponse(dict):
     The value of a parameter.
     """
     def __init__(__self__, *,
-                 value: Optional[Mapping[str, Any]] = None):
+                 value: Optional[Any] = None):
         """
         The value of a parameter.
-        :param Mapping[str, Any] value: The value of the parameter.
+        :param Any value: The value of the parameter.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Mapping[str, Any]]:
+    def value(self) -> Optional[Any]:
         """
         The value of the parameter.
         """
