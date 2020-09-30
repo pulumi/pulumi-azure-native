@@ -13520,6 +13520,8 @@ type MigrateMySqlAzureDbForMySqlSyncDatabaseInput struct {
 	Name *string `pulumi:"name"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting map[string]string `pulumi:"sourceSetting"`
+	// Mapping of source to target tables
+	TableMap map[string]string `pulumi:"tableMap"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
 	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
 	// Target settings to tune target endpoint migration behavior
@@ -13545,6 +13547,8 @@ type MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting pulumi.StringMapInput `pulumi:"sourceSetting"`
+	// Mapping of source to target tables
+	TableMap pulumi.StringMapInput `pulumi:"tableMap"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
 	TargetDatabaseName pulumi.StringPtrInput `pulumi:"targetDatabaseName"`
 	// Target settings to tune target endpoint migration behavior
@@ -13618,6 +13622,11 @@ func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) SourceSetting() pulu
 	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncDatabaseInput) map[string]string { return v.SourceSetting }).(pulumi.StringMapOutput)
 }
 
+// Mapping of source to target tables
+func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) TableMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncDatabaseInput) map[string]string { return v.TableMap }).(pulumi.StringMapOutput)
+}
+
 // Name of target database. Note: Target database will be truncated before starting migration.
 func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) TargetDatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncDatabaseInput) *string { return v.TargetDatabaseName }).(pulumi.StringPtrOutput)
@@ -13656,6 +13665,8 @@ type MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse struct {
 	Name *string `pulumi:"name"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting map[string]string `pulumi:"sourceSetting"`
+	// Mapping of source to target tables
+	TableMap map[string]string `pulumi:"tableMap"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
 	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
 	// Target settings to tune target endpoint migration behavior
@@ -13681,6 +13692,8 @@ type MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting pulumi.StringMapInput `pulumi:"sourceSetting"`
+	// Mapping of source to target tables
+	TableMap pulumi.StringMapInput `pulumi:"tableMap"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
 	TargetDatabaseName pulumi.StringPtrInput `pulumi:"targetDatabaseName"`
 	// Target settings to tune target endpoint migration behavior
@@ -13754,6 +13767,11 @@ func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput) Name() pulum
 // Source settings to tune source endpoint migration behavior
 func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput) SourceSetting() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse) map[string]string { return v.SourceSetting }).(pulumi.StringMapOutput)
+}
+
+// Mapping of source to target tables
+func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput) TableMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse) map[string]string { return v.TableMap }).(pulumi.StringMapOutput)
 }
 
 // Name of target database. Note: Target database will be truncated before starting migration.
@@ -16556,6 +16574,8 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput struct {
 	MigrationSetting map[string]string `pulumi:"migrationSetting"`
 	// Name of the database
 	Name *string `pulumi:"name"`
+	// Tables selected for migration
+	SelectedTables []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput `pulumi:"selectedTables"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting map[string]string `pulumi:"sourceSetting"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
@@ -16581,6 +16601,8 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs struct {
 	MigrationSetting pulumi.StringMapInput `pulumi:"migrationSetting"`
 	// Name of the database
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Tables selected for migration
+	SelectedTables MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayInput `pulumi:"selectedTables"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting pulumi.StringMapInput `pulumi:"sourceSetting"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
@@ -16653,6 +16675,13 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) Name() pul
 	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Tables selected for migration
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) SelectedTables() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput) []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput {
+		return v.SelectedTables
+	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput)
+}
+
 // Source settings to tune source endpoint migration behavior
 func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) SourceSetting() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput) map[string]string {
@@ -16698,6 +16727,8 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse struct {
 	MigrationSetting map[string]string `pulumi:"migrationSetting"`
 	// Name of the database
 	Name *string `pulumi:"name"`
+	// Tables selected for migration
+	SelectedTables []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse `pulumi:"selectedTables"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting map[string]string `pulumi:"sourceSetting"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
@@ -16723,6 +16754,8 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArgs struct {
 	MigrationSetting pulumi.StringMapInput `pulumi:"migrationSetting"`
 	// Name of the database
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Tables selected for migration
+	SelectedTables MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayInput `pulumi:"selectedTables"`
 	// Source settings to tune source endpoint migration behavior
 	SourceSetting pulumi.StringMapInput `pulumi:"sourceSetting"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
@@ -16795,6 +16828,13 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput) Na
 	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Tables selected for migration
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput) SelectedTables() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse) []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse {
+		return v.SelectedTables
+	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput)
+}
+
 // Source settings to tune source endpoint migration behavior
 func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput) SourceSetting() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse) map[string]string {
@@ -16834,6 +16874,206 @@ func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse {
 		return vs[0].([]MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse)[vs[1].(int)]
 	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput)
+}
+
+// Selected tables for the migration
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput struct {
+	// Name of the table to migrate
+	Name *string `pulumi:"name"`
+}
+
+// MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput values.
+// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputInput` via:
+//
+//          MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs{...}
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputInput interface {
+	pulumi.Input
+
+	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput
+	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput
+}
+
+// Selected tables for the migration
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs struct {
+	// Name of the table to migrate
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput)(nil)).Elem()
+}
+
+func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput {
+	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutputWithContext(context.Background())
+}
+
+func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput)
+}
+
+// MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArray and MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput values.
+// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayInput` via:
+//
+//          MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArray{ MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs{...} }
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayInput interface {
+	pulumi.Input
+
+	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput
+	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput
+}
+
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArray []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputInput
+
+func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput)(nil)).Elem()
+}
+
+func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArray) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput {
+	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutputWithContext(context.Background())
+}
+
+func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArray) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput)
+}
+
+// Selected tables for the migration
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput struct{ *pulumi.OutputState }
+
+func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput)(nil)).Elem()
+}
+
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput {
+	return o
+}
+
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput {
+	return o
+}
+
+// Name of the table to migrate
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput struct{ *pulumi.OutputState }
+
+func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput)(nil)).Elem()
+}
+
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput {
+	return o
+}
+
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput {
+	return o
+}
+
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput) Index(i pulumi.IntInput) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput {
+		return vs[0].([]MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput)[vs[1].(int)]
+	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput)
+}
+
+// Selected tables for the migration
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse struct {
+	// Name of the table to migrate
+	Name *string `pulumi:"name"`
+}
+
+// MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput values.
+// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseInput` via:
+//
+//          MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArgs{...}
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseInput interface {
+	pulumi.Input
+
+	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput
+	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput
+}
+
+// Selected tables for the migration
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArgs struct {
+	// Name of the table to migrate
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse)(nil)).Elem()
+}
+
+func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput {
+	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutputWithContext(context.Background())
+}
+
+func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput)
+}
+
+// MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArray and MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput values.
+// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayInput` via:
+//
+//          MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArray{ MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArgs{...} }
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayInput interface {
+	pulumi.Input
+
+	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput
+	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput
+}
+
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArray []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseInput
+
+func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse)(nil)).Elem()
+}
+
+func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArray) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput {
+	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArray) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput)
+}
+
+// Selected tables for the migration
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput struct{ *pulumi.OutputState }
+
+func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse)(nil)).Elem()
+}
+
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput {
+	return o
+}
+
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput {
+	return o
+}
+
+// Name of the table to migrate
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse)(nil)).Elem()
+}
+
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput {
+	return o
+}
+
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput {
+	return o
+}
+
+func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput) Index(i pulumi.IntInput) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse {
+		return vs[0].([]MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse)[vs[1].(int)]
+	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput)
 }
 
 // Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
@@ -36532,6 +36772,10 @@ func init() {
 	pulumi.RegisterOutputType(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput{})
 	pulumi.RegisterOutputType(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput{})
 	pulumi.RegisterOutputType(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutput{})
+	pulumi.RegisterOutputType(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputOutput{})
+	pulumi.RegisterOutputType(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArrayOutput{})
+	pulumi.RegisterOutputType(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseOutput{})
+	pulumi.RegisterOutputType(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArrayOutput{})
 	pulumi.RegisterOutputType(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput{})
 	pulumi.RegisterOutputType(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput{})
 	pulumi.RegisterOutputType(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutput{})

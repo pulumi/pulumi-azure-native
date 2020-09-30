@@ -45,6 +45,18 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
             set => _sourceSetting = value;
         }
 
+        [Input("tableMap")]
+        private InputMap<string>? _tableMap;
+
+        /// <summary>
+        /// Mapping of source to target tables
+        /// </summary>
+        public InputMap<string> TableMap
+        {
+            get => _tableMap ?? (_tableMap = new InputMap<string>());
+            set => _tableMap = value;
+        }
+
         /// <summary>
         /// Name of target database. Note: Target database will be truncated before starting migration.
         /// </summary>

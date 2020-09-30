@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// Tables selected for migration
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse> SelectedTables;
+        /// <summary>
         /// Source settings to tune source endpoint migration behavior
         /// </summary>
         public readonly ImmutableDictionary<string, string>? SourceSetting;
@@ -40,6 +44,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
             string? name,
 
+            ImmutableArray<Outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse> selectedTables,
+
             ImmutableDictionary<string, string>? sourceSetting,
 
             string? targetDatabaseName,
@@ -48,6 +54,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         {
             MigrationSetting = migrationSetting;
             Name = name;
+            SelectedTables = selectedTables;
             SourceSetting = sourceSetting;
             TargetDatabaseName = targetDatabaseName;
             TargetSetting = targetSetting;

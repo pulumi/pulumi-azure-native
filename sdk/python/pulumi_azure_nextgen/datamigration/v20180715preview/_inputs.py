@@ -54,6 +54,7 @@ __all__ = [
     'MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs',
     'MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs',
+    'MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs',
     'MigrateSqlServerSqlDbDatabaseInputArgs',
@@ -1984,6 +1985,7 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs:
                  migration_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_database_name: Optional[pulumi.Input[str]] = None,
                  target_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -1991,6 +1993,7 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] migration_setting: Migration settings which tune the migration behavior
         :param pulumi.Input[str] name: Name of the database
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] source_setting: Source settings to tune source endpoint migration behavior
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] table_map: Mapping of source to target tables
         :param pulumi.Input[str] target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_setting: Target settings to tune target endpoint migration behavior
         """
@@ -2000,6 +2003,8 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs:
             pulumi.set(__self__, "name", name)
         if source_setting is not None:
             pulumi.set(__self__, "source_setting", source_setting)
+        if table_map is not None:
+            pulumi.set(__self__, "table_map", table_map)
         if target_database_name is not None:
             pulumi.set(__self__, "target_database_name", target_database_name)
         if target_setting is not None:
@@ -2040,6 +2045,18 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs:
     @source_setting.setter
     def source_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "source_setting", value)
+
+    @property
+    @pulumi.getter(name="tableMap")
+    def table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Mapping of source to target tables
+        """
+        return pulumi.get(self, "table_map")
+
+    @table_map.setter
+    def table_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "table_map", value)
 
     @property
     @pulumi.getter(name="targetDatabaseName")
@@ -2423,6 +2440,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
     def __init__(__self__, *,
                  migration_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 selected_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]]] = None,
                  source_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_database_name: Optional[pulumi.Input[str]] = None,
                  target_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -2430,6 +2448,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
         Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] migration_setting: Migration settings which tune the migration behavior
         :param pulumi.Input[str] name: Name of the database
+        :param pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]] selected_tables: Tables selected for migration
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] source_setting: Source settings to tune source endpoint migration behavior
         :param pulumi.Input[str] target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_setting: Target settings to tune target endpoint migration behavior
@@ -2438,6 +2457,8 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
             pulumi.set(__self__, "migration_setting", migration_setting)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if selected_tables is not None:
+            pulumi.set(__self__, "selected_tables", selected_tables)
         if source_setting is not None:
             pulumi.set(__self__, "source_setting", source_setting)
         if target_database_name is not None:
@@ -2468,6 +2489,18 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="selectedTables")
+    def selected_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]]]:
+        """
+        Tables selected for migration
+        """
+        return pulumi.get(self, "selected_tables")
+
+    @selected_tables.setter
+    def selected_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]]]):
+        pulumi.set(self, "selected_tables", value)
 
     @property
     @pulumi.getter(name="sourceSetting")
@@ -2504,6 +2537,30 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
     @target_setting.setter
     def target_setting(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "target_setting", value)
+
+
+@pulumi.input_type
+class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Selected tables for the migration
+        :param pulumi.Input[str] name: Name of the table to migrate
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the table to migrate
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

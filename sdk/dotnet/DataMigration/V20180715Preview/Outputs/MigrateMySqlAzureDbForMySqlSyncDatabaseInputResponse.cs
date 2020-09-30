@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? SourceSetting;
         /// <summary>
+        /// Mapping of source to target tables
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? TableMap;
+        /// <summary>
         /// Name of target database. Note: Target database will be truncated before starting migration.
         /// </summary>
         public readonly string? TargetDatabaseName;
@@ -42,6 +46,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
 
             ImmutableDictionary<string, string>? sourceSetting,
 
+            ImmutableDictionary<string, string>? tableMap,
+
             string? targetDatabaseName,
 
             ImmutableDictionary<string, string>? targetSetting)
@@ -49,6 +55,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Outputs
             MigrationSetting = migrationSetting;
             Name = name;
             SourceSetting = sourceSetting;
+            TableMap = tableMap;
             TargetDatabaseName = targetDatabaseName;
             TargetSetting = targetSetting;
         }
