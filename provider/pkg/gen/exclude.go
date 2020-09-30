@@ -14,6 +14,7 @@ var excludeResourcePatterns = []string{
 	"azure-nextgen:costmanagement/.*:Report",
 	"azure-nextgen:costmanagement/.*:Budget",
 	"azure-nextgen:datamigration/.*:Task",
+	"azure-nextgen:machinelearning/.*:WebService",
 	"azure-nextgen:media/latest:Job",
 	"azure-nextgen:migrate/.*:MoveResource",
 	"azure-nextgen:portal/v20200901preview:Dashboard", // go codegen stack overflow

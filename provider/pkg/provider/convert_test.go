@@ -135,6 +135,7 @@ var p = &azureNextGenProvider{
 		},
 	},
 }
+var c = SdkShapeConverter{Types: p.resourceMap.Types}
 
 var sampleAPIPackage = map[string]interface{}{
 	"name":        "MyResource",
@@ -196,13 +197,13 @@ var sampleSdkProps = map[string]interface{}{
 }
 
 func TestResponseToSdkOutputs(t *testing.T) {
-	outputs := p.responseToSdkOutputs(p.resourceMap.Resources["r1"].Response, sampleAPIPackage)
+	outputs := c.BodyPropertiesToSDK(p.resourceMap.Resources["r1"].Response, sampleAPIPackage)
 	assert.Equal(t, sampleSdkProps, outputs)
 }
 
-func TestSdkPropertiesToRequest(t *testing.T) {
+func TestSdkPropertiesToRequestBody(t *testing.T) {
 	bodyProperties := p.resourceMap.Resources["r1"].PutParameters[0].Body.Properties
-	data := p.sdkPropertiesToRequest(bodyProperties, sampleSdkProps)
+	data := c.SdkPropertiesToRequestBody(bodyProperties, sampleSdkProps)
 	assert.Equal(t, sampleAPIPackage, data)
 }
 
@@ -221,7 +222,7 @@ func TestParseInvalidResourceID(t *testing.T) {
 		{"/resourceGroup/myrg/foo/mycdn", "/resourceGroup/{resourceGroup}/bar/{cdn}"},
 	}
 	for _, testCase := range cases {
-		_, err := p.parseResourceID(testCase.id, testCase.path)
+		_, err := parseResourceID(testCase.id, testCase.path)
 		assert.Error(t, err)
 	}
 }
@@ -229,7 +230,7 @@ func TestParseInvalidResourceID(t *testing.T) {
 func TestParseValidResourceID(t *testing.T) {
 	id := "/subscriptions/0282681f-7a9e-123b-40b2-96babd57a8a1/resourcegroups/pulumi-name/providers/Microsoft.Network/networkInterfaces/pulumi-nic/ipConfigurations/ipconfig1"
 	path := "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/ipConfigurations/{ipConfigurationName}"
-	actual, err := p.parseResourceID(id, path)
+	actual, err := parseResourceID(id, path)
 	assert.NoError(t, err)
 	expected := map[string]string{
 		"subscriptionID":       "0282681f-7a9e-123b-40b2-96babd57a8a1",
@@ -313,6 +314,6 @@ func TestResponseToSdkInputs(t *testing.T) {
 		"resourceGroupName":    "rg-name",
 		"networkInterfaceName": "nic-name",
 	}
-	inputs := p.responseToSdkInputs(p.resourceMap.Resources["r1"].PutParameters, pathValues, responseForInputCalculation)
+	inputs := c.ResponseToSdkInputs(p.resourceMap.Resources["r1"].PutParameters, pathValues, responseForInputCalculation)
 	assert.Equal(t, calculatedInputs, inputs)
 }

@@ -52,10 +52,7 @@
         "name": "[parameters('acrSku')]",
       },
       "properties": {
-        "adminUserEnabled": "[parameters('acrAdminUserEnabled')]",
-        "sku": {
-          "name": "[parameters('acrSku')]"
-        },
+        "adminUserEnabled": "[parameters('acrAdminUserEnabled')]"
       }
     }
   ],
