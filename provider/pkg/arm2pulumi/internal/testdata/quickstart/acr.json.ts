@@ -18,5 +18,9 @@ const registryResource = new azure_nextgen.containerregistry.v20191201preview.Re
     sku: {
         name: acrSkuParam,
     },
+    tags: {
+        "container.registry": acrNameParam,
+        displayName: "Container Registry",
+    },
 });
 export const acrLoginServerOut = registryResource.loginServer;

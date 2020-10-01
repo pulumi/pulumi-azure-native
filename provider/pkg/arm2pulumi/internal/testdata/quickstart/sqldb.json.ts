@@ -16,6 +16,10 @@ const databaseResource = new azure_nextgen.sql.v20190601preview.Database("databa
     location: locationParam,
     resourceGroupName: resourceGroupNameParam,
     serverName: serverNameParam,
+    sku: {
+        name: "Standard",
+        tier: "Standard",
+    },
 });
 const serverResource = new azure_nextgen.sql.v20190601preview.Server("serverResource", {
     administratorLogin: administratorLoginParam,
