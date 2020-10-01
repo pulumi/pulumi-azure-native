@@ -10,6 +10,9 @@ const availabilitySetResource = new azure_nextgen.compute.v20190701.Availability
     platformFaultDomainCount: 1,
     platformUpdateDomainCount: 1,
     resourceGroupName: resourceGroupNameParam,
+    sku: {
+        name: "Aligned",
+    },
     virtualMachines: [{}],
 });
 const extensionsDockerExtensionCaParam = config.require("extensionsDockerExtensionCaParam");
@@ -151,6 +154,9 @@ const publicIPAddressResource = new azure_nextgen.network.v20200501.PublicIPAddr
     publicIPAllocationMethod: "Static",
     publicIpAddressName: publicIPAddressesPulumirancherPip1NameParam,
     resourceGroupName: resourceGroupNameParam,
+    sku: {
+        name: "Basic",
+    },
 });
 const securityRuleResource = new azure_nextgen.network.v20200501.SecurityRule("securityRuleResource", {
     access: "Allow",

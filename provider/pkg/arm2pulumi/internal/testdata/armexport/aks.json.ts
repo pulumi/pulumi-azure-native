@@ -71,4 +71,8 @@ const managedClusterResource = new azure_nextgen.containerservice.v20200701.Mana
     servicePrincipalProfile: {
         clientId: "265097a5-0e6d-4315-8c76-998e743f5e2d",
     },
+    sku: {
+        name: "Basic",
+        tier: "Free",
+    },
 });

@@ -52,8 +52,9 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 		return &diag
 	}
 
-	var location interface{}
 	var apiVersion, typ string
+	var location interface{}
+	additionalParams := map[string]interface{}{}
 	for k, v := range r.rawBody {
 		switch k {
 		case "apiVersion":
@@ -71,15 +72,19 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 				diag.Description = "expect type to be specified as a literal string"
 				return &diag
 			}
-		case "location":
-			// location could be a string or a variable reference. Grab it so we can inject
-			// into properties of the resource if missing
-			location = v
 		case "properties":
 			r.resourceParams = map[string]interface{}{"properties": r.rawBody[k].(map[string]interface{})}
 		case "dependsOn":
 			// TODO
 			continue
+		case "location":
+			location = v
+		case "tags", "sku", "plan", "kind":
+			// These are additional/optional parameters which should be injected into body parameters of
+			// the API requests if not specified explicitly.
+			// See https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-syntax#resources
+			// These could be a string or a variable reference
+			additionalParams[k] = v
 		}
 	}
 
@@ -148,6 +153,7 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 		}
 	}
 
+	// If location not specified, try to use the default resource group's location instead
 	if _, ok := r.resourceParams["location"]; !ok {
 		if supported.Has("location") {
 			if location != nil {
@@ -159,6 +165,14 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 				}
 				r.resourceParams["location"] = pcl.RelativeTraversal(model.VariableReference(variable), "location")
 				ctx.dep.RefersTo(dep)
+			}
+		}
+	}
+
+	for paramName, paramVal := range additionalParams {
+		if _, ok := r.resourceParams[paramName]; !ok {
+			if supported.Has(paramName) {
+				r.resourceParams[paramName] = paramVal
 			}
 		}
 	}
