@@ -50,6 +50,7 @@ type azureNextGenProvider struct {
 	resourceMap    *AzureAPIMetadata
 	config         map[string]string
 	schemaBytes    []byte
+	converter      *SdkShapeConverter
 }
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
@@ -88,6 +89,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		resourceMap: resourceMap,
 		config:      map[string]string{},
 		schemaBytes: buf.Bytes(),
+		converter:   &SdkShapeConverter{Types: resourceMap.Types},
 	}, nil
 }
 
@@ -185,7 +187,7 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 	}
 
 	// Map the raw response to the shape of outputs that the SDKs expect.
-	outputs := k.responseToSdkOutputs(res.Response, response)
+	outputs := k.converter.BodyPropertiesToSDK(res.Response, response)
 
 	// Serialize and return RPC outputs.
 	result, err := plugin.MarshalProperties(
@@ -588,7 +590,7 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 	}
 
 	// Map the raw response to the shape of outputs that the SDKs expect.
-	outputs := k.responseToSdkOutputs(res.Response, response)
+	outputs := k.converter.BodyPropertiesToSDK(res.Response, response)
 
 	// Store both outputs and inputs into the state.
 	obj := checkpointObject(inputs, outputs)
@@ -634,18 +636,18 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 	}
 
 	// Map the raw response to the shape of outputs that the SDKs expect.
-	outputs := k.responseToSdkOutputs(res.Response, response)
+	outputs := k.converter.BodyPropertiesToSDK(res.Response, response)
 
 	// Extract old inputs from the `__inputs` field of the old state.
 	inputs := parseCheckpointObject(oldState)
 	if inputs == nil {
 		// There may be no old state (i.e., importing a new resource).
 		// Extract inputs from resource's ID and response body.
-		pathItems, err := k.parseResourceID(id, res.Path)
+		pathItems, err := parseResourceID(id, res.Path)
 		if err != nil {
 			return nil, err
 		}
-		inputMap := k.responseToSdkInputs(res.PutParameters, pathItems, response)
+		inputMap := k.converter.ResponseToSdkInputs(res.PutParameters, pathItems, response)
 		inputs = resource.NewPropertyMapFromMap(inputMap)
 	}
 
@@ -709,7 +711,7 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 	}
 
 	// Map the raw response to the shape of outputs that the SDKs expect.
-	outputs := k.responseToSdkOutputs(res.Response, response)
+	outputs := k.converter.BodyPropertiesToSDK(res.Response, response)
 
 	// Store both outputs and inputs into the state.
 	obj := checkpointObject(inputs, outputs)
@@ -960,7 +962,7 @@ func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []
 
 	for _, param := range parameters {
 		if param.Location == "body" {
-			params["body"] = k.sdkPropertiesToRequest(param.Body.Properties, methodInputs)
+			params["body"] = k.converter.SdkPropertiesToRequestBody(param.Body.Properties, methodInputs)
 		} else {
 			var val interface{}
 			var has bool

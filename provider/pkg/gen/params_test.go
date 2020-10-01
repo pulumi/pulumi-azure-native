@@ -1,5 +1,3 @@
-// +build integration
-
 package gen
 
 import (
@@ -137,20 +135,18 @@ func TestFlattenParams(t *testing.T) {
 						"location": "West US",
 						"etag":     "etag1",
 						"properties": map[string]interface{}{
-							"properties": map[string]interface{}{
-								"clientId":          "sampleclientid",
-								"clientSecret":      "samplesecret",
-								"scopes":            "samplescope",
-								"serviceProviderId": "serviceproviderid",
-								"parameters": []map[string]interface{}{
-									{
-										"key":   "key1",
-										"value": "value1",
-									},
-									{
-										"key":   "key2",
-										"value": "value2",
-									},
+							"clientId":          "sampleclientid",
+							"clientSecret":      "samplesecret",
+							"scopes":            "samplescope",
+							"serviceProviderId": "serviceproviderid",
+							"parameters": []map[string]interface{}{
+								{
+									"key":   "key1",
+									"value": "value1",
+								},
+								{
+									"key":   "key2",
+									"value": "value2",
 								},
 							},
 						},
@@ -544,23 +540,21 @@ func TestFlattenParams(t *testing.T) {
 				"parameters": map[string]interface{}{
 					"appResource": map[string]interface{}{
 						"properties": map[string]interface{}{
-							"properties": map[string]interface{}{
-								"public":               true,
-								"activeDeploymentName": "mydeployment1",
-								"fqdn":                 "myapp.mydomain.com",
-								"httpsOnly":            false,
-								"temporaryDisk": map[string]interface{}{
-									"sizeInGB":  2,
-									"mountPath": "mytemporarydisk",
-								},
-								"persistentDisk": map[string]interface{}{
-									"sizeInGB":  2,
-									"mountPath": "mypersistentdisk",
-								},
+							"public":               true,
+							"activeDeploymentName": "mydeployment1",
+							"fqdn":                 "myapp.mydomain.com",
+							"httpsOnly":            false,
+							"temporaryDisk": map[string]interface{}{
+								"sizeInGB":  2,
+								"mountPath": "mytemporarydisk",
 							},
-							"identity": nil,
-							"location": "eastus",
+							"persistentDisk": map[string]interface{}{
+								"sizeInGB":  2,
+								"mountPath": "mypersistentdisk",
+							},
 						},
+						"identity": nil,
+						"location": "eastus",
 					},
 					"api-version":       "2020-07-01",
 					"subscriptionId":    "00000000-0000-0000-0000-000000000000",
@@ -688,7 +682,6 @@ func TestFlattenParams(t *testing.T) {
 {
   "parameters": {
     "createUpdateParameters": {
-      "properties": {
         "properties": {
           "databaseAccountOfferType": "Standard",
           "locations": [
@@ -712,7 +705,6 @@ func TestFlattenParams(t *testing.T) {
           ],
           "enableFreeTier": false
         }
-      }
     }
   }
 }`),
@@ -736,7 +728,6 @@ func TestFlattenParams(t *testing.T) {
 					"locations": []interface{}{
 						map[string]interface{}{
 							"failoverPriority": 0,
-							"id":               "[concat(parameters('name'), '-', parameters('location'))]",
 							"locationName":     "[parameters('location')]",
 						},
 					},
@@ -781,6 +772,42 @@ func TestFlattenParams(t *testing.T) {
 					"remove_user": "[parameters('extensions_enablevmaccess_remove_user')]",
 					"expiration":  "[parameters('extensions_enablevmaccess_expiration')]",
 				},
+			},
+		},
+		{
+			name: "OneOf",
+			input: map[string]interface{}{
+				"parameters": map[string]interface{}{
+					"subscriptionId":    "subscription-id",
+					"resourceGroupName": "OneResourceGroupName",
+					"api-version":       "2020-06-02",
+					"resourceName": "samplebotname",
+					"channelName": "AlexaChannel",
+					"parameters": map[string]interface{}{
+						"location": "global",
+						"properties": map[string]interface{}{
+							"channelName": "AlexaChannel",
+							"properties": map[string]interface{}{
+								"alexaSkillId": "XAlexaSkillIdX",
+								"isEnabled": true,
+							},
+						},
+					},
+				},
+			},
+			resourceName: "azure-nextgen:botservice/v20200602:Channel",
+			expected: map[string]interface{}{
+				"channelName": "AlexaChannel",
+				"location": "global",
+				"properties": map[string]interface{}{
+					"channelName": "AlexaChannel",
+					"properties": map[string]interface{}{
+						"alexaSkillId": "XAlexaSkillIdX",
+						"isEnabled":    true,
+					},
+				},
+				"resourceGroupName": "OneResourceGroupName",
+				"resourceName": "samplebotname",
 			},
 		},
 	} {
