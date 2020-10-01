@@ -6,8 +6,6 @@ import (
 
 // excludeResourcePatterns lists resources being skipped due to known codegen issues.
 var excludeResourcePatterns = []string{
-	"azure-nextgen:botservice/v20200602:BotConnection", // malformed body
-
 	"azure-nextgen:billing/.*:ReportByBillingAccount",
 	"azure-nextgen:billing/.*:ReportByDepartment",
 	"azure-nextgen:costmanagement/.*:ReportConfig",
