@@ -93,6 +93,7 @@ __all__ = [
     'MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse',
     'MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse',
+    'MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse',
@@ -4649,6 +4650,7 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse(dict):
                  migration_setting: Optional[Mapping[str, str]] = None,
                  name: Optional[str] = None,
                  source_setting: Optional[Mapping[str, str]] = None,
+                 table_map: Optional[Mapping[str, str]] = None,
                  target_database_name: Optional[str] = None,
                  target_setting: Optional[Mapping[str, str]] = None):
         """
@@ -4656,6 +4658,7 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse(dict):
         :param Mapping[str, str] migration_setting: Migration settings which tune the migration behavior
         :param str name: Name of the database
         :param Mapping[str, str] source_setting: Source settings to tune source endpoint migration behavior
+        :param Mapping[str, str] table_map: Mapping of source to target tables
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
         """
@@ -4665,6 +4668,8 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse(dict):
             pulumi.set(__self__, "name", name)
         if source_setting is not None:
             pulumi.set(__self__, "source_setting", source_setting)
+        if table_map is not None:
+            pulumi.set(__self__, "table_map", table_map)
         if target_database_name is not None:
             pulumi.set(__self__, "target_database_name", target_database_name)
         if target_setting is not None:
@@ -4693,6 +4698,14 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse(dict):
         Source settings to tune source endpoint migration behavior
         """
         return pulumi.get(self, "source_setting")
+
+    @property
+    @pulumi.getter(name="tableMap")
+    def table_map(self) -> Optional[Mapping[str, str]]:
+        """
+        Mapping of source to target tables
+        """
+        return pulumi.get(self, "table_map")
 
     @property
     @pulumi.getter(name="targetDatabaseName")
@@ -6250,6 +6263,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
     def __init__(__self__, *,
                  migration_setting: Optional[Mapping[str, str]] = None,
                  name: Optional[str] = None,
+                 selected_tables: Optional[Sequence['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse']] = None,
                  source_setting: Optional[Mapping[str, str]] = None,
                  target_database_name: Optional[str] = None,
                  target_setting: Optional[Mapping[str, str]] = None):
@@ -6257,6 +6271,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
         Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
         :param Mapping[str, str] migration_setting: Migration settings which tune the migration behavior
         :param str name: Name of the database
+        :param Sequence['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponseArgs'] selected_tables: Tables selected for migration
         :param Mapping[str, str] source_setting: Source settings to tune source endpoint migration behavior
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
@@ -6265,6 +6280,8 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
             pulumi.set(__self__, "migration_setting", migration_setting)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if selected_tables is not None:
+            pulumi.set(__self__, "selected_tables", selected_tables)
         if source_setting is not None:
             pulumi.set(__self__, "source_setting", source_setting)
         if target_database_name is not None:
@@ -6289,6 +6306,14 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="selectedTables")
+    def selected_tables(self) -> Optional[Sequence['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse']]:
+        """
+        Tables selected for migration
+        """
+        return pulumi.get(self, "selected_tables")
+
+    @property
     @pulumi.getter(name="sourceSetting")
     def source_setting(self) -> Optional[Mapping[str, str]]:
         """
@@ -6311,6 +6336,32 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
         Target settings to tune target endpoint migration behavior
         """
         return pulumi.get(self, "target_setting")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse(dict):
+    """
+    Selected tables for the migration
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Selected tables for the migration
+        :param str name: Name of the table to migrate
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the table to migrate
+        """
+        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
