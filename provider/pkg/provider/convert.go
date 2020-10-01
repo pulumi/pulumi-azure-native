@@ -60,19 +60,26 @@ func (k *SdkShapeConverter) SdkPropertiesToRequestBody(props map[string]AzureAPI
 				return nil
 			}
 
-			if prop.Container == "" {
-				result[name] = k.sdkPropertyToRequest(&p, value)
-			} else {
-				// "Unflatten" the property into a container property.
+			payload := k.sdkPropertyToRequest(&p, value)
+
+			var containerize func(parent map[string]interface{}, containers []string)
+			containerize = func(parent map[string]interface{}, containers []string) {
+				if len(containers) == 0 {
+					parent[name] = payload
+					return
+				}
+
+				containerName := containers[0]
 				container := map[string]interface{}{}
-				if v, ok := result[prop.Container]; ok {
+				if v, ok := parent[containerName]; ok {
 					if v, ok := v.(map[string]interface{}); ok {
 						container = v
 					}
 				}
-				container[name] = k.sdkPropertyToRequest(&p, value)
-				result[prop.Container] = container
+				containerize(container, containers[1:])
+				parent[containerName] = container
 			}
+			containerize(result, prop.Containers)
 		}
 	}
 	return result
@@ -134,11 +141,13 @@ func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]AzureAPIPropert
 		}
 
 		values := response
-		if prop.Container != "" {
-			if v, has := values[prop.Container]; has {
+		for _, containerName := range prop.Containers {
+			if v, has := values[containerName]; has {
 				if v, ok := v.(map[string]interface{}); ok {
 					values = v
 				}
+			} else {
+				break
 			}
 		}
 
