@@ -18,9 +18,9 @@ __all__ = [
 @pulumi.output_type
 class GetLiveEventResult:
     """
-    The Live Event.
+    The live event.
     """
-    def __init__(__self__, created=None, cross_site_access_policies=None, description=None, encoding=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, tags=None, type=None, use_static_hostname=None):
+    def __init__(__self__, created=None, cross_site_access_policies=None, description=None, encoding=None, hostname_prefix=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, tags=None, transcriptions=None, type=None, use_static_hostname=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -33,6 +33,9 @@ class GetLiveEventResult:
         if encoding and not isinstance(encoding, dict):
             raise TypeError("Expected argument 'encoding' to be a dict")
         pulumi.set(__self__, "encoding", encoding)
+        if hostname_prefix and not isinstance(hostname_prefix, str):
+            raise TypeError("Expected argument 'hostname_prefix' to be a str")
+        pulumi.set(__self__, "hostname_prefix", hostname_prefix)
         if input and not isinstance(input, dict):
             raise TypeError("Expected argument 'input' to be a dict")
         pulumi.set(__self__, "input", input)
@@ -60,6 +63,9 @@ class GetLiveEventResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if transcriptions and not isinstance(transcriptions, list):
+            raise TypeError("Expected argument 'transcriptions' to be a list")
+        pulumi.set(__self__, "transcriptions", transcriptions)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -71,7 +77,7 @@ class GetLiveEventResult:
     @pulumi.getter
     def created(self) -> str:
         """
-        The exact time the Live Event was created.
+        The creation time for the live event
         """
         return pulumi.get(self, "created")
 
@@ -79,7 +85,7 @@ class GetLiveEventResult:
     @pulumi.getter(name="crossSiteAccessPolicies")
     def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesResponse']:
         """
-        The Live Event access policies.
+        Live event cross site access policies.
         """
         return pulumi.get(self, "cross_site_access_policies")
 
@@ -87,7 +93,7 @@ class GetLiveEventResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        The Live Event description.
+        A description for the live event.
         """
         return pulumi.get(self, "description")
 
@@ -95,15 +101,23 @@ class GetLiveEventResult:
     @pulumi.getter
     def encoding(self) -> Optional['outputs.LiveEventEncodingResponse']:
         """
-        The Live Event encoding.
+        Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
         """
         return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="hostnamePrefix")
+    def hostname_prefix(self) -> Optional[str]:
+        """
+        When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+        """
+        return pulumi.get(self, "hostname_prefix")
 
     @property
     @pulumi.getter
     def input(self) -> 'outputs.LiveEventInputResponse':
         """
-        The Live Event input.
+        Live event input settings. It defines how the live event receives input from a contribution encoder.
         """
         return pulumi.get(self, "input")
 
@@ -111,7 +125,7 @@ class GetLiveEventResult:
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
         """
-        The exact time the Live Event was last modified.
+        The last modified time of the live event.
         """
         return pulumi.get(self, "last_modified")
 
@@ -135,7 +149,7 @@ class GetLiveEventResult:
     @pulumi.getter
     def preview(self) -> Optional['outputs.LiveEventPreviewResponse']:
         """
-        The Live Event preview.
+        Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
         """
         return pulumi.get(self, "preview")
 
@@ -143,7 +157,7 @@ class GetLiveEventResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state of the Live Event.
+        The provisioning state of the live event.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -151,7 +165,7 @@ class GetLiveEventResult:
     @pulumi.getter(name="resourceState")
     def resource_state(self) -> str:
         """
-        The resource state of the Live Event.
+        The resource state of the live event. See https://go.microsoft.com/fwlink/?linkid=2139012 for more information.
         """
         return pulumi.get(self, "resource_state")
 
@@ -159,7 +173,7 @@ class GetLiveEventResult:
     @pulumi.getter(name="streamOptions")
     def stream_options(self) -> Optional[Sequence[str]]:
         """
-        The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+        The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
         """
         return pulumi.get(self, "stream_options")
 
@@ -173,6 +187,14 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter
+    def transcriptions(self) -> Optional[Sequence['outputs.LiveEventTranscriptionResponse']]:
+        """
+        Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+        """
+        return pulumi.get(self, "transcriptions")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -183,7 +205,7 @@ class GetLiveEventResult:
     @pulumi.getter(name="useStaticHostname")
     def use_static_hostname(self) -> Optional[bool]:
         """
-        Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+        Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
         """
         return pulumi.get(self, "use_static_hostname")
 
@@ -198,6 +220,7 @@ class AwaitableGetLiveEventResult(GetLiveEventResult):
             cross_site_access_policies=self.cross_site_access_policies,
             description=self.description,
             encoding=self.encoding,
+            hostname_prefix=self.hostname_prefix,
             input=self.input,
             last_modified=self.last_modified,
             location=self.location,
@@ -207,6 +230,7 @@ class AwaitableGetLiveEventResult(GetLiveEventResult):
             resource_state=self.resource_state,
             stream_options=self.stream_options,
             tags=self.tags,
+            transcriptions=self.transcriptions,
             type=self.type,
             use_static_hostname=self.use_static_hostname)
 
@@ -219,7 +243,7 @@ def get_live_event(account_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str account_name: The Media Services account name.
-    :param str live_event_name: The name of the Live Event.
+    :param str live_event_name: The name of the live event, maximum length is 32.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
     __args__ = dict()
@@ -237,6 +261,7 @@ def get_live_event(account_name: Optional[str] = None,
         cross_site_access_policies=__ret__.cross_site_access_policies,
         description=__ret__.description,
         encoding=__ret__.encoding,
+        hostname_prefix=__ret__.hostname_prefix,
         input=__ret__.input,
         last_modified=__ret__.last_modified,
         location=__ret__.location,
@@ -246,5 +271,6 @@ def get_live_event(account_name: Optional[str] = None,
         resource_state=__ret__.resource_state,
         stream_options=__ret__.stream_options,
         tags=__ret__.tags,
+        transcriptions=__ret__.transcriptions,
         type=__ret__.type,
         use_static_hostname=__ret__.use_static_hostname)

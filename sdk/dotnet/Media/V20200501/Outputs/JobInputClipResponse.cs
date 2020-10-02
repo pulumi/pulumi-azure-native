@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
         /// <summary>
         /// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
         /// </summary>
-        public readonly Outputs.AbsoluteClipTimeResponse? End;
+        public readonly Union<Outputs.AbsoluteClipTimeResponse, Outputs.UtcClipTimeResponse>? End;
         /// <summary>
         /// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
         /// <summary>
         /// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         /// </summary>
-        public readonly Outputs.AbsoluteClipTimeResponse? Start;
+        public readonly Union<Outputs.AbsoluteClipTimeResponse, Outputs.UtcClipTimeResponse>? Start;
 
         [OutputConstructor]
         private JobInputClipResponse(
-            Outputs.AbsoluteClipTimeResponse? end,
+            Union<Outputs.AbsoluteClipTimeResponse, Outputs.UtcClipTimeResponse>? end,
 
             ImmutableArray<string> files,
 
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
 
             string odataType,
 
-            Outputs.AbsoluteClipTimeResponse? start)
+            Union<Outputs.AbsoluteClipTimeResponse, Outputs.UtcClipTimeResponse>? start)
         {
             End = end;
             Files = files;

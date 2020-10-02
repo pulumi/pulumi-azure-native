@@ -37,31 +37,31 @@ export class LiveOutput extends pulumi.CustomResource {
     }
 
     /**
-     * ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+     * ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
      */
     public readonly archiveWindowLength!: pulumi.Output<string>;
     /**
-     * The asset name.
+     * The asset that the live output will write to.
      */
     public readonly assetName!: pulumi.Output<string>;
     /**
-     * The exact time the Live Output was created.
+     * The creation time the live output.
      */
     public /*out*/ readonly created!: pulumi.Output<string>;
     /**
-     * The description of the Live Output.
+     * The description of the live output.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The HLS configuration.
+     * HTTP Live Streaming (HLS) packing setting for the live output.
      */
     public readonly hls!: pulumi.Output<outputs.media.v20200501.HlsResponse | undefined>;
     /**
-     * The exact time the Live Output was last modified.
+     * The time the live output was last modified.
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**
-     * The manifest file name.  If not provided, the service will generate one automatically.
+     * The manifest file name. If not provided, the service will generate one automatically.
      */
     public readonly manifestName!: pulumi.Output<string | undefined>;
     /**
@@ -69,15 +69,15 @@ export class LiveOutput extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The output snapshot time.
+     * The initial timestamp that the live output will start at, any content before this value will not be archived.
      */
     public readonly outputSnapTime!: pulumi.Output<number | undefined>;
     /**
-     * The provisioning state of the Live Output.
+     * The provisioning state of the live output.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The resource state of the Live Output.
+     * The resource state of the live output.
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
@@ -165,35 +165,35 @@ export interface LiveOutputArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
-     * ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+     * ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
      */
     readonly archiveWindowLength: pulumi.Input<string>;
     /**
-     * The asset name.
+     * The asset that the live output will write to.
      */
     readonly assetName: pulumi.Input<string>;
     /**
-     * The description of the Live Output.
+     * The description of the live output.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The HLS configuration.
+     * HTTP Live Streaming (HLS) packing setting for the live output.
      */
     readonly hls?: pulumi.Input<inputs.media.v20200501.Hls>;
     /**
-     * The name of the Live Event.
+     * The name of the live event, maximum length is 32.
      */
     readonly liveEventName: pulumi.Input<string>;
     /**
-     * The name of the Live Output.
+     * The name of the live output.
      */
     readonly liveOutputName: pulumi.Input<string>;
     /**
-     * The manifest file name.  If not provided, the service will generate one automatically.
+     * The manifest file name. If not provided, the service will generate one automatically.
      */
     readonly manifestName?: pulumi.Input<string>;
     /**
-     * The output snapshot time.
+     * The initial timestamp that the live output will start at, any content before this value will not be archived.
      */
     readonly outputSnapTime?: pulumi.Input<number>;
     /**

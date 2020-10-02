@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
 {
 
     /// <summary>
-    /// The IP access control for Live Event Input.
+    /// The IP access control for live event input.
     /// </summary>
     public sealed class LiveEventInputAccessControlArgs : Pulumi.ResourceArgs
     {

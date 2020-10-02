@@ -41,7 +41,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly correlationData!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+     * The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
     public /*out*/ readonly created!: pulumi.Output<string>;
     /**
@@ -57,7 +57,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly input!: pulumi.Output<outputs.media.v20200501.JobInputClipResponse | outputs.media.v20200501.JobInputsResponse>;
     /**
-     * The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+     * The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**

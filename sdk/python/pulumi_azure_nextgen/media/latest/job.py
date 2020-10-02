@@ -127,7 +127,7 @@ class Job(pulumi.CustomResource):
     @pulumi.getter
     def created(self) -> pulumi.Output[str]:
         """
-        The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
         """
         return pulumi.get(self, "created")
 
@@ -159,7 +159,7 @@ class Job(pulumi.CustomResource):
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> pulumi.Output[str]:
         """
-        The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
         """
         return pulumi.get(self, "last_modified")
 

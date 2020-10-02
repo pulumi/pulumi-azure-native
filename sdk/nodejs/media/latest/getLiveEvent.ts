@@ -27,7 +27,7 @@ export interface GetLiveEventArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the Live Event.
+     * The name of the live event, maximum length is 32.
      */
     readonly liveEventName: string;
     /**
@@ -37,31 +37,35 @@ export interface GetLiveEventArgs {
 }
 
 /**
- * The Live Event.
+ * The live event.
  */
 export interface GetLiveEventResult {
     /**
-     * The exact time the Live Event was created.
+     * The creation time for the live event
      */
     readonly created: string;
     /**
-     * The Live Event access policies.
+     * Live event cross site access policies.
      */
     readonly crossSiteAccessPolicies?: outputs.media.latest.CrossSiteAccessPoliciesResponse;
     /**
-     * The Live Event description.
+     * A description for the live event.
      */
     readonly description?: string;
     /**
-     * The Live Event encoding.
+     * Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
      */
     readonly encoding?: outputs.media.latest.LiveEventEncodingResponse;
     /**
-     * The Live Event input.
+     * When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+     */
+    readonly hostnamePrefix?: string;
+    /**
+     * Live event input settings. It defines how the live event receives input from a contribution encoder.
      */
     readonly input: outputs.media.latest.LiveEventInputResponse;
     /**
-     * The exact time the Live Event was last modified.
+     * The last modified time of the live event.
      */
     readonly lastModified: string;
     /**
@@ -73,19 +77,19 @@ export interface GetLiveEventResult {
      */
     readonly name: string;
     /**
-     * The Live Event preview.
+     * Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
      */
     readonly preview?: outputs.media.latest.LiveEventPreviewResponse;
     /**
-     * The provisioning state of the Live Event.
+     * The provisioning state of the live event.
      */
     readonly provisioningState: string;
     /**
-     * The resource state of the Live Event.
+     * The resource state of the live event. See https://go.microsoft.com/fwlink/?linkid=2139012 for more information.
      */
     readonly resourceState: string;
     /**
-     * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+     * The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
      */
     readonly streamOptions?: string[];
     /**
@@ -93,11 +97,15 @@ export interface GetLiveEventResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+     */
+    readonly transcriptions?: outputs.media.latest.LiveEventTranscriptionResponse[];
+    /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
     /**
-     * Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+     * Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
      */
     readonly useStaticHostname?: boolean;
 }

@@ -10,13 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The StreamingEndpoint.
+// The streaming endpoint.
 type StreamingEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The access control definition of the StreamingEndpoint.
+	// The access control definition of the streaming endpoint.
 	AccessControl StreamingEndpointAccessControlResponsePtrOutput `pulumi:"accessControl"`
-	// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+	// This feature is deprecated, do not set a value for this property.
 	AvailabilitySetName pulumi.StringPtrOutput `pulumi:"availabilitySetName"`
 	// The CDN enabled flag.
 	CdnEnabled pulumi.BoolPtrOutput `pulumi:"cdnEnabled"`
@@ -24,19 +24,19 @@ type StreamingEndpoint struct {
 	CdnProfile pulumi.StringPtrOutput `pulumi:"cdnProfile"`
 	// The CDN provider name.
 	CdnProvider pulumi.StringPtrOutput `pulumi:"cdnProvider"`
-	// The exact time the StreamingEndpoint was created.
+	// The exact time the streaming endpoint was created.
 	Created pulumi.StringOutput `pulumi:"created"`
-	// The StreamingEndpoint access policies.
+	// The streaming endpoint access policies.
 	CrossSiteAccessPolicies CrossSiteAccessPoliciesResponsePtrOutput `pulumi:"crossSiteAccessPolicies"`
-	// The custom host names of the StreamingEndpoint
+	// The custom host names of the streaming endpoint
 	CustomHostNames pulumi.StringArrayOutput `pulumi:"customHostNames"`
-	// The StreamingEndpoint description.
+	// The streaming endpoint description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The free trial expiration time.
 	FreeTrialEndTime pulumi.StringOutput `pulumi:"freeTrialEndTime"`
-	// The StreamingEndpoint host name.
+	// The streaming endpoint host name.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// The exact time the StreamingEndpoint was last modified.
+	// The exact time the streaming endpoint was last modified.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -44,11 +44,11 @@ type StreamingEndpoint struct {
 	MaxCacheAge pulumi.IntPtrOutput `pulumi:"maxCacheAge"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the StreamingEndpoint.
+	// The provisioning state of the streaming endpoint.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource state of the StreamingEndpoint.
+	// The resource state of the streaming endpoint.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The number of scale units.  Use the Scale operation to adjust this value.
+	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits pulumi.IntOutput `pulumi:"scaleUnits"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -117,9 +117,9 @@ func GetStreamingEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamingEndpoint resources.
 type streamingEndpointState struct {
-	// The access control definition of the StreamingEndpoint.
+	// The access control definition of the streaming endpoint.
 	AccessControl *StreamingEndpointAccessControlResponse `pulumi:"accessControl"`
-	// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+	// This feature is deprecated, do not set a value for this property.
 	AvailabilitySetName *string `pulumi:"availabilitySetName"`
 	// The CDN enabled flag.
 	CdnEnabled *bool `pulumi:"cdnEnabled"`
@@ -127,19 +127,19 @@ type streamingEndpointState struct {
 	CdnProfile *string `pulumi:"cdnProfile"`
 	// The CDN provider name.
 	CdnProvider *string `pulumi:"cdnProvider"`
-	// The exact time the StreamingEndpoint was created.
+	// The exact time the streaming endpoint was created.
 	Created *string `pulumi:"created"`
-	// The StreamingEndpoint access policies.
+	// The streaming endpoint access policies.
 	CrossSiteAccessPolicies *CrossSiteAccessPoliciesResponse `pulumi:"crossSiteAccessPolicies"`
-	// The custom host names of the StreamingEndpoint
+	// The custom host names of the streaming endpoint
 	CustomHostNames []string `pulumi:"customHostNames"`
-	// The StreamingEndpoint description.
+	// The streaming endpoint description.
 	Description *string `pulumi:"description"`
 	// The free trial expiration time.
 	FreeTrialEndTime *string `pulumi:"freeTrialEndTime"`
-	// The StreamingEndpoint host name.
+	// The streaming endpoint host name.
 	HostName *string `pulumi:"hostName"`
-	// The exact time the StreamingEndpoint was last modified.
+	// The exact time the streaming endpoint was last modified.
 	LastModified *string `pulumi:"lastModified"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
@@ -147,11 +147,11 @@ type streamingEndpointState struct {
 	MaxCacheAge *int `pulumi:"maxCacheAge"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The provisioning state of the StreamingEndpoint.
+	// The provisioning state of the streaming endpoint.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource state of the StreamingEndpoint.
+	// The resource state of the streaming endpoint.
 	ResourceState *string `pulumi:"resourceState"`
-	// The number of scale units.  Use the Scale operation to adjust this value.
+	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits *int `pulumi:"scaleUnits"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -160,9 +160,9 @@ type streamingEndpointState struct {
 }
 
 type StreamingEndpointState struct {
-	// The access control definition of the StreamingEndpoint.
+	// The access control definition of the streaming endpoint.
 	AccessControl StreamingEndpointAccessControlResponsePtrInput
-	// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+	// This feature is deprecated, do not set a value for this property.
 	AvailabilitySetName pulumi.StringPtrInput
 	// The CDN enabled flag.
 	CdnEnabled pulumi.BoolPtrInput
@@ -170,19 +170,19 @@ type StreamingEndpointState struct {
 	CdnProfile pulumi.StringPtrInput
 	// The CDN provider name.
 	CdnProvider pulumi.StringPtrInput
-	// The exact time the StreamingEndpoint was created.
+	// The exact time the streaming endpoint was created.
 	Created pulumi.StringPtrInput
-	// The StreamingEndpoint access policies.
+	// The streaming endpoint access policies.
 	CrossSiteAccessPolicies CrossSiteAccessPoliciesResponsePtrInput
-	// The custom host names of the StreamingEndpoint
+	// The custom host names of the streaming endpoint
 	CustomHostNames pulumi.StringArrayInput
-	// The StreamingEndpoint description.
+	// The streaming endpoint description.
 	Description pulumi.StringPtrInput
 	// The free trial expiration time.
 	FreeTrialEndTime pulumi.StringPtrInput
-	// The StreamingEndpoint host name.
+	// The streaming endpoint host name.
 	HostName pulumi.StringPtrInput
-	// The exact time the StreamingEndpoint was last modified.
+	// The exact time the streaming endpoint was last modified.
 	LastModified pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
@@ -190,11 +190,11 @@ type StreamingEndpointState struct {
 	MaxCacheAge pulumi.IntPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The provisioning state of the StreamingEndpoint.
+	// The provisioning state of the streaming endpoint.
 	ProvisioningState pulumi.StringPtrInput
-	// The resource state of the StreamingEndpoint.
+	// The resource state of the streaming endpoint.
 	ResourceState pulumi.StringPtrInput
-	// The number of scale units.  Use the Scale operation to adjust this value.
+	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits pulumi.IntPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
@@ -207,13 +207,13 @@ func (StreamingEndpointState) ElementType() reflect.Type {
 }
 
 type streamingEndpointArgs struct {
-	// The access control definition of the StreamingEndpoint.
+	// The access control definition of the streaming endpoint.
 	AccessControl *StreamingEndpointAccessControl `pulumi:"accessControl"`
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
 	// The flag indicates if the resource should be automatically started on creation.
 	AutoStart *bool `pulumi:"autoStart"`
-	// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+	// This feature is deprecated, do not set a value for this property.
 	AvailabilitySetName *string `pulumi:"availabilitySetName"`
 	// The CDN enabled flag.
 	CdnEnabled *bool `pulumi:"cdnEnabled"`
@@ -221,11 +221,11 @@ type streamingEndpointArgs struct {
 	CdnProfile *string `pulumi:"cdnProfile"`
 	// The CDN provider name.
 	CdnProvider *string `pulumi:"cdnProvider"`
-	// The StreamingEndpoint access policies.
+	// The streaming endpoint access policies.
 	CrossSiteAccessPolicies *CrossSiteAccessPolicies `pulumi:"crossSiteAccessPolicies"`
-	// The custom host names of the StreamingEndpoint
+	// The custom host names of the streaming endpoint
 	CustomHostNames []string `pulumi:"customHostNames"`
-	// The StreamingEndpoint description.
+	// The streaming endpoint description.
 	Description *string `pulumi:"description"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
@@ -233,9 +233,9 @@ type streamingEndpointArgs struct {
 	MaxCacheAge *int `pulumi:"maxCacheAge"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The number of scale units.  Use the Scale operation to adjust this value.
+	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits int `pulumi:"scaleUnits"`
-	// The name of the StreamingEndpoint.
+	// The name of the streaming endpoint, maximum length is 24.
 	StreamingEndpointName string `pulumi:"streamingEndpointName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -243,13 +243,13 @@ type streamingEndpointArgs struct {
 
 // The set of arguments for constructing a StreamingEndpoint resource.
 type StreamingEndpointArgs struct {
-	// The access control definition of the StreamingEndpoint.
+	// The access control definition of the streaming endpoint.
 	AccessControl StreamingEndpointAccessControlPtrInput
 	// The Media Services account name.
 	AccountName pulumi.StringInput
 	// The flag indicates if the resource should be automatically started on creation.
 	AutoStart pulumi.BoolPtrInput
-	// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+	// This feature is deprecated, do not set a value for this property.
 	AvailabilitySetName pulumi.StringPtrInput
 	// The CDN enabled flag.
 	CdnEnabled pulumi.BoolPtrInput
@@ -257,11 +257,11 @@ type StreamingEndpointArgs struct {
 	CdnProfile pulumi.StringPtrInput
 	// The CDN provider name.
 	CdnProvider pulumi.StringPtrInput
-	// The StreamingEndpoint access policies.
+	// The streaming endpoint access policies.
 	CrossSiteAccessPolicies CrossSiteAccessPoliciesPtrInput
-	// The custom host names of the StreamingEndpoint
+	// The custom host names of the streaming endpoint
 	CustomHostNames pulumi.StringArrayInput
-	// The StreamingEndpoint description.
+	// The streaming endpoint description.
 	Description pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
@@ -269,9 +269,9 @@ type StreamingEndpointArgs struct {
 	MaxCacheAge pulumi.IntPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// The number of scale units.  Use the Scale operation to adjust this value.
+	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits pulumi.IntInput
-	// The name of the StreamingEndpoint.
+	// The name of the streaming endpoint, maximum length is 24.
 	StreamingEndpointName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput

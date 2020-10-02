@@ -62,7 +62,7 @@ class GetLiveOutputResult:
     @pulumi.getter(name="archiveWindowLength")
     def archive_window_length(self) -> str:
         """
-        ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+        ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
         """
         return pulumi.get(self, "archive_window_length")
 
@@ -70,7 +70,7 @@ class GetLiveOutputResult:
     @pulumi.getter(name="assetName")
     def asset_name(self) -> str:
         """
-        The asset name.
+        The asset that the live output will write to.
         """
         return pulumi.get(self, "asset_name")
 
@@ -78,7 +78,7 @@ class GetLiveOutputResult:
     @pulumi.getter
     def created(self) -> str:
         """
-        The exact time the Live Output was created.
+        The creation time the live output.
         """
         return pulumi.get(self, "created")
 
@@ -86,7 +86,7 @@ class GetLiveOutputResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        The description of the Live Output.
+        The description of the live output.
         """
         return pulumi.get(self, "description")
 
@@ -94,7 +94,7 @@ class GetLiveOutputResult:
     @pulumi.getter
     def hls(self) -> Optional['outputs.HlsResponse']:
         """
-        The HLS configuration.
+        HTTP Live Streaming (HLS) packing setting for the live output.
         """
         return pulumi.get(self, "hls")
 
@@ -102,7 +102,7 @@ class GetLiveOutputResult:
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
         """
-        The exact time the Live Output was last modified.
+        The time the live output was last modified.
         """
         return pulumi.get(self, "last_modified")
 
@@ -110,7 +110,7 @@ class GetLiveOutputResult:
     @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[str]:
         """
-        The manifest file name.  If not provided, the service will generate one automatically.
+        The manifest file name. If not provided, the service will generate one automatically.
         """
         return pulumi.get(self, "manifest_name")
 
@@ -126,7 +126,7 @@ class GetLiveOutputResult:
     @pulumi.getter(name="outputSnapTime")
     def output_snap_time(self) -> Optional[int]:
         """
-        The output snapshot time.
+        The initial timestamp that the live output will start at, any content before this value will not be archived.
         """
         return pulumi.get(self, "output_snap_time")
 
@@ -134,7 +134,7 @@ class GetLiveOutputResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state of the Live Output.
+        The provisioning state of the live output.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -142,7 +142,7 @@ class GetLiveOutputResult:
     @pulumi.getter(name="resourceState")
     def resource_state(self) -> str:
         """
-        The resource state of the Live Output.
+        The resource state of the live output.
         """
         return pulumi.get(self, "resource_state")
 
@@ -184,8 +184,8 @@ def get_live_output(account_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str account_name: The Media Services account name.
-    :param str live_event_name: The name of the Live Event.
-    :param str live_output_name: The name of the Live Output.
+    :param str live_event_name: The name of the live event, maximum length is 32.
+    :param str live_output_name: The name of the live output.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
     __args__ = dict()

@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
         /// </summary>
         public readonly Outputs.AkamaiAccessControlResponse? Akamai;
         /// <summary>
-        /// The IP access control of the StreamingEndpoint.
+        /// The IP access control of the streaming endpoint.
         /// </summary>
         public readonly Outputs.IPAccessControlResponse? Ip;
 

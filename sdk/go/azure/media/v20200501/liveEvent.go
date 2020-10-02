@@ -10,39 +10,43 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The Live Event.
+// The live event.
 type LiveEvent struct {
 	pulumi.CustomResourceState
 
-	// The exact time the Live Event was created.
+	// The creation time for the live event
 	Created pulumi.StringOutput `pulumi:"created"`
-	// The Live Event access policies.
+	// Live event cross site access policies.
 	CrossSiteAccessPolicies CrossSiteAccessPoliciesResponsePtrOutput `pulumi:"crossSiteAccessPolicies"`
-	// The Live Event description.
+	// A description for the live event.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Live Event encoding.
+	// Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
 	Encoding LiveEventEncodingResponsePtrOutput `pulumi:"encoding"`
-	// The Live Event input.
+	// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+	HostnamePrefix pulumi.StringPtrOutput `pulumi:"hostnamePrefix"`
+	// Live event input settings. It defines how the live event receives input from a contribution encoder.
 	Input LiveEventInputResponseOutput `pulumi:"input"`
-	// The exact time the Live Event was last modified.
+	// The last modified time of the live event.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Live Event preview.
+	// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
 	Preview LiveEventPreviewResponsePtrOutput `pulumi:"preview"`
-	// The provisioning state of the Live Event.
+	// The provisioning state of the live event.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource state of the Live Event.
+	// The resource state of the live event. See https://go.microsoft.com/fwlink/?linkid=2139012 for more information.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
 	StreamOptions pulumi.StringArrayOutput `pulumi:"streamOptions"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+	Transcriptions LiveEventTranscriptionResponseArrayOutput `pulumi:"transcriptions"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
 	UseStaticHostname pulumi.BoolPtrOutput `pulumi:"useStaticHostname"`
 }
 
@@ -107,68 +111,76 @@ func GetLiveEvent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LiveEvent resources.
 type liveEventState struct {
-	// The exact time the Live Event was created.
+	// The creation time for the live event
 	Created *string `pulumi:"created"`
-	// The Live Event access policies.
+	// Live event cross site access policies.
 	CrossSiteAccessPolicies *CrossSiteAccessPoliciesResponse `pulumi:"crossSiteAccessPolicies"`
-	// The Live Event description.
+	// A description for the live event.
 	Description *string `pulumi:"description"`
-	// The Live Event encoding.
+	// Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
 	Encoding *LiveEventEncodingResponse `pulumi:"encoding"`
-	// The Live Event input.
+	// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+	HostnamePrefix *string `pulumi:"hostnamePrefix"`
+	// Live event input settings. It defines how the live event receives input from a contribution encoder.
 	Input *LiveEventInputResponse `pulumi:"input"`
-	// The exact time the Live Event was last modified.
+	// The last modified time of the live event.
 	LastModified *string `pulumi:"lastModified"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The Live Event preview.
+	// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
 	Preview *LiveEventPreviewResponse `pulumi:"preview"`
-	// The provisioning state of the Live Event.
+	// The provisioning state of the live event.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource state of the Live Event.
+	// The resource state of the live event. See https://go.microsoft.com/fwlink/?linkid=2139012 for more information.
 	ResourceState *string `pulumi:"resourceState"`
-	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
 	StreamOptions []string `pulumi:"streamOptions"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+	Transcriptions []LiveEventTranscriptionResponse `pulumi:"transcriptions"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
-	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
 	UseStaticHostname *bool `pulumi:"useStaticHostname"`
 }
 
 type LiveEventState struct {
-	// The exact time the Live Event was created.
+	// The creation time for the live event
 	Created pulumi.StringPtrInput
-	// The Live Event access policies.
+	// Live event cross site access policies.
 	CrossSiteAccessPolicies CrossSiteAccessPoliciesResponsePtrInput
-	// The Live Event description.
+	// A description for the live event.
 	Description pulumi.StringPtrInput
-	// The Live Event encoding.
+	// Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
 	Encoding LiveEventEncodingResponsePtrInput
-	// The Live Event input.
+	// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+	HostnamePrefix pulumi.StringPtrInput
+	// Live event input settings. It defines how the live event receives input from a contribution encoder.
 	Input LiveEventInputResponsePtrInput
-	// The exact time the Live Event was last modified.
+	// The last modified time of the live event.
 	LastModified pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The Live Event preview.
+	// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
 	Preview LiveEventPreviewResponsePtrInput
-	// The provisioning state of the Live Event.
+	// The provisioning state of the live event.
 	ProvisioningState pulumi.StringPtrInput
-	// The resource state of the Live Event.
+	// The resource state of the live event. See https://go.microsoft.com/fwlink/?linkid=2139012 for more information.
 	ResourceState pulumi.StringPtrInput
-	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
 	StreamOptions pulumi.StringArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+	Transcriptions LiveEventTranscriptionResponseArrayInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
-	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
 	UseStaticHostname pulumi.BoolPtrInput
 }
 
@@ -181,27 +193,31 @@ type liveEventArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The flag indicates if the resource should be automatically started on creation.
 	AutoStart *bool `pulumi:"autoStart"`
-	// The Live Event access policies.
+	// Live event cross site access policies.
 	CrossSiteAccessPolicies *CrossSiteAccessPolicies `pulumi:"crossSiteAccessPolicies"`
-	// The Live Event description.
+	// A description for the live event.
 	Description *string `pulumi:"description"`
-	// The Live Event encoding.
+	// Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
 	Encoding *LiveEventEncoding `pulumi:"encoding"`
-	// The Live Event input.
+	// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+	HostnamePrefix *string `pulumi:"hostnamePrefix"`
+	// Live event input settings. It defines how the live event receives input from a contribution encoder.
 	Input LiveEventInput `pulumi:"input"`
-	// The name of the Live Event.
+	// The name of the live event, maximum length is 32.
 	LiveEventName string `pulumi:"liveEventName"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The Live Event preview.
+	// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
 	Preview *LiveEventPreview `pulumi:"preview"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
 	StreamOptions []string `pulumi:"streamOptions"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+	Transcriptions []LiveEventTranscription `pulumi:"transcriptions"`
+	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
 	UseStaticHostname *bool `pulumi:"useStaticHostname"`
 }
 
@@ -211,27 +227,31 @@ type LiveEventArgs struct {
 	AccountName pulumi.StringInput
 	// The flag indicates if the resource should be automatically started on creation.
 	AutoStart pulumi.BoolPtrInput
-	// The Live Event access policies.
+	// Live event cross site access policies.
 	CrossSiteAccessPolicies CrossSiteAccessPoliciesPtrInput
-	// The Live Event description.
+	// A description for the live event.
 	Description pulumi.StringPtrInput
-	// The Live Event encoding.
+	// Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
 	Encoding LiveEventEncodingPtrInput
-	// The Live Event input.
+	// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+	HostnamePrefix pulumi.StringPtrInput
+	// Live event input settings. It defines how the live event receives input from a contribution encoder.
 	Input LiveEventInputInput
-	// The name of the Live Event.
+	// The name of the live event, maximum length is 32.
 	LiveEventName pulumi.StringInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The Live Event preview.
+	// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
 	Preview LiveEventPreviewPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
 	StreamOptions pulumi.StringArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+	Transcriptions LiveEventTranscriptionArrayInput
+	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
 	UseStaticHostname pulumi.BoolPtrInput
 }
 

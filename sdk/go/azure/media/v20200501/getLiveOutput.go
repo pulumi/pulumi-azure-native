@@ -19,9 +19,9 @@ func LookupLiveOutput(ctx *pulumi.Context, args *LookupLiveOutputArgs, opts ...p
 type LookupLiveOutputArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
-	// The name of the Live Event.
+	// The name of the live event, maximum length is 32.
 	LiveEventName string `pulumi:"liveEventName"`
-	// The name of the Live Output.
+	// The name of the live output.
 	LiveOutputName string `pulumi:"liveOutputName"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -29,27 +29,27 @@ type LookupLiveOutputArgs struct {
 
 // The Live Output.
 type LookupLiveOutputResult struct {
-	// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+	// ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
 	ArchiveWindowLength string `pulumi:"archiveWindowLength"`
-	// The asset name.
+	// The asset that the live output will write to.
 	AssetName string `pulumi:"assetName"`
-	// The exact time the Live Output was created.
+	// The creation time the live output.
 	Created string `pulumi:"created"`
-	// The description of the Live Output.
+	// The description of the live output.
 	Description *string `pulumi:"description"`
-	// The HLS configuration.
+	// HTTP Live Streaming (HLS) packing setting for the live output.
 	Hls *HlsResponse `pulumi:"hls"`
-	// The exact time the Live Output was last modified.
+	// The time the live output was last modified.
 	LastModified string `pulumi:"lastModified"`
-	// The manifest file name.  If not provided, the service will generate one automatically.
+	// The manifest file name. If not provided, the service will generate one automatically.
 	ManifestName *string `pulumi:"manifestName"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The output snapshot time.
+	// The initial timestamp that the live output will start at, any content before this value will not be archived.
 	OutputSnapTime *int `pulumi:"outputSnapTime"`
-	// The provisioning state of the Live Output.
+	// The provisioning state of the live output.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The resource state of the Live Output.
+	// The resource state of the live output.
 	ResourceState string `pulumi:"resourceState"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`

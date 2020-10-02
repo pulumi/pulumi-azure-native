@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
 {
 
     /// <summary>
-    /// The Live Event endpoint.
+    /// The live event endpoint.
     /// </summary>
     public sealed class LiveEventEndpointArgs : Pulumi.ResourceArgs
     {
