@@ -19,8 +19,8 @@ var p = &azureNextGenProvider{
 						SdkName: "v3",
 					},
 					"v4-nested": {
-						SdkName:   "v4",
-						Container: "props",
+						SdkName:    "v4",
+						Containers: []string{"props"},
 					},
 				},
 			},
@@ -39,7 +39,7 @@ var p = &azureNextGenProvider{
 						SdkName: "Aaa",
 					},
 					"bbb": {
-						Container: "ccc",
+						Containers: []string{"ccc"},
 					},
 				},
 			},
@@ -49,7 +49,7 @@ var p = &azureNextGenProvider{
 						Const: "AAA",
 					},
 					"a": {
-						Container: "aa",
+						Containers: []string{"aa"},
 					},
 				},
 			},
@@ -59,7 +59,7 @@ var p = &azureNextGenProvider{
 						Const: "BBB",
 					},
 					"b": {
-						Container: "bb",
+						Containers: []string{"bb"},
 					},
 				},
 			},
@@ -79,14 +79,17 @@ var p = &azureNextGenProvider{
 									Ref: "#/types/azure-nextgen:testing:Structure",
 								},
 								"p1": {
-									Container: "properties",
+									Containers: []string{"properties"},
 								},
 								"p2": {
-									Container: "properties",
+									Containers: []string{"properties"},
+								},
+								"p3": {
+									Containers: []string{"properties", "document", "body"},
 								},
 								"more": {
-									Container: "properties",
-									Ref:       "#/types/azure-nextgen:testing:More",
+									Containers: []string{"properties"},
+									Ref:        "#/types/azure-nextgen:testing:More",
 								},
 								"union": {
 									OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
@@ -117,14 +120,17 @@ var p = &azureNextGenProvider{
 						Ref: "#/types/azure-nextgen:testing:Structure",
 					},
 					"p1": {
-						Container: "properties",
+						Containers: []string{"properties"},
 					},
 					"p2": {
-						Container: "properties",
+						Containers: []string{"properties"},
+					},
+					"p3": {
+						Containers: []string{"properties", "document", "body"},
 					},
 					"more": {
-						Container: "properties",
-						Ref:       "#/types/azure-nextgen:testing:More",
+						Containers: []string{"properties"},
+						Ref:        "#/types/azure-nextgen:testing:More",
 					},
 					"union": {
 						OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
@@ -151,6 +157,11 @@ var sampleAPIPackage = map[string]interface{}{
 	"properties": map[string]interface{}{
 		"p1": "prop1",
 		"p2": "prop2",
+		"document": map[string]interface{}{
+			"body": map[string]interface{}{
+				"p3": "prop3",
+			},
+		},
 		"more": map[string]interface{}{
 			"items": []interface{}{
 				map[string]interface{}{"aaa": "111", "ccc": map[string]interface{}{"bbb": "333"}},
@@ -180,6 +191,7 @@ var sampleSdkProps = map[string]interface{}{
 	},
 	"p1": "prop1",
 	"p2": "prop2",
+	"p3": "prop3",
 	"more": map[string]interface{}{
 		"items": []interface{}{
 			map[string]interface{}{"Aaa": "111", "bbb": "333"},

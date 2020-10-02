@@ -36,6 +36,10 @@ func (k *SdkShapeConverter) sdkPropertyToRequest(prop *AzureAPIProperty, value i
 		typ := k.Types[typeName]
 		return k.SdkPropertiesToRequestBody(typ.Properties, value)
 	case []interface{}:
+		if prop.Items == nil {
+			return value
+		}
+
 		var result []interface{}
 		for _, item := range value {
 			result = append(result, k.sdkPropertyToRequest(prop.Items, item))
@@ -60,22 +64,28 @@ func (k *SdkShapeConverter) SdkPropertiesToRequestBody(props map[string]AzureAPI
 				return nil
 			}
 
-			if prop.Container == "" {
-				result[name] = k.sdkPropertyToRequest(&p, value)
-			} else {
-				// "Unflatten" the property into a container property.
-				container := map[string]interface{}{}
-				if v, ok := result[prop.Container]; ok {
-					if v, ok := v.(map[string]interface{}); ok {
-						container = v
-					}
-				}
-				container[name] = k.sdkPropertyToRequest(&p, value)
-				result[prop.Container] = container
-			}
+			container := k.buildContainer(result, prop.Containers)
+			container[name] = k.sdkPropertyToRequest(&p, value)
 		}
 	}
 	return result
+}
+
+// buildContainer creates a nested container for each item in 'path' and returns that inner-most container.
+// For instance, a 'path' of ["top", "bottom"] would return a map, which is assigned to a key "bottom" in another
+// map, which is assigned to a key "top" in the 'parent' map.
+func (k *SdkShapeConverter) buildContainer(parent map[string]interface{}, path []string) map[string]interface{} {
+	for _, containerName := range path {
+		container := map[string]interface{}{}
+		if v, ok := parent[containerName]; ok {
+			if v, ok := v.(map[string]interface{}); ok {
+				container = v
+			}
+		}
+		parent[containerName] = container
+		parent = container
+	}
+	return parent
 }
 
 func (k *SdkShapeConverter) bodyPropertyToSdk(prop *AzureAPIProperty, value interface{}) interface{} {
@@ -134,11 +144,13 @@ func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]AzureAPIPropert
 		}
 
 		values := response
-		if prop.Container != "" {
-			if v, has := values[prop.Container]; has {
+		for _, containerName := range prop.Containers {
+			if v, has := values[containerName]; has {
 				if v, ok := v.(map[string]interface{}); ok {
 					values = v
 				}
+			} else {
+				break
 			}
 		}
 

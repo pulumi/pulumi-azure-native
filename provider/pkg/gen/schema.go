@@ -780,7 +780,8 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			// Adjust every property to mark them as flattened.
 			newProperties := map[string]provider.AzureAPIProperty{}
 			for n, value := range bag.properties {
-				value.Container = name
+				// The order of containers is important, so we prepend the outermost name.
+				value.Containers = append([]string{name}, value.Containers...)
 				newProperties[n] = value
 			}
 			bag.properties = newProperties
