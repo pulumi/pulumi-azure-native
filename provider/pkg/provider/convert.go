@@ -36,6 +36,10 @@ func (k *SdkShapeConverter) sdkPropertyToRequest(prop *AzureAPIProperty, value i
 		typ := k.Types[typeName]
 		return k.SdkPropertiesToRequestBody(typ.Properties, value)
 	case []interface{}:
+		if prop.Items == nil {
+			return value
+		}
+
 		var result []interface{}
 		for _, item := range value {
 			result = append(result, k.sdkPropertyToRequest(prop.Items, item))
@@ -60,29 +64,28 @@ func (k *SdkShapeConverter) SdkPropertiesToRequestBody(props map[string]AzureAPI
 				return nil
 			}
 
-			payload := k.sdkPropertyToRequest(&p, value)
-
-			var containerize func(parent map[string]interface{}, containers []string)
-			containerize = func(parent map[string]interface{}, containers []string) {
-				if len(containers) == 0 {
-					parent[name] = payload
-					return
-				}
-
-				containerName := containers[0]
-				container := map[string]interface{}{}
-				if v, ok := parent[containerName]; ok {
-					if v, ok := v.(map[string]interface{}); ok {
-						container = v
-					}
-				}
-				containerize(container, containers[1:])
-				parent[containerName] = container
-			}
-			containerize(result, prop.Containers)
+			container := k.buildContainer(result, prop.Containers)
+			container[name] = k.sdkPropertyToRequest(&p, value)
 		}
 	}
 	return result
+}
+
+// buildContainer creates a nested container for each item in 'path' and returns that inner-most container.
+// For instance, a 'path' of ["top", "bottom"] would return a map, which is assigned to a key "bottom" in another
+// map, which is assigned to a key "top" in the 'parent' map.
+func (k *SdkShapeConverter) buildContainer(parent map[string]interface{}, path []string) map[string]interface{} {
+	for _, containerName := range path {
+		container := map[string]interface{}{}
+		if v, ok := parent[containerName]; ok {
+			if v, ok := v.(map[string]interface{}); ok {
+				container = v
+			}
+		}
+		parent[containerName] = container
+		parent = container
+	}
+	return parent
 }
 
 func (k *SdkShapeConverter) bodyPropertyToSdk(prop *AzureAPIProperty, value interface{}) interface{} {
