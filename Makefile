@@ -101,7 +101,7 @@ clean::
 	rm -rf sdk/nodejs
 	rm -rf sdk/python
 	rm -rf sdk/dotnet
-	rm -rf sdk/go/azure-nextgen
+	rm -rf sdk/go/azure
 	rm -rf sdk/schema
 
 install_dotnet_sdk::
