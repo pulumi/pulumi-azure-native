@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the StreamingEndpoint.
+        /// The name of the streaming endpoint, maximum length is 24.
         /// </summary>
         [Input("streamingEndpointName", required: true)]
         public string StreamingEndpointName { get; set; } = null!;
@@ -46,11 +46,11 @@ namespace Pulumi.AzureNextGen.Media.Latest
     public sealed class GetStreamingEndpointResult
     {
         /// <summary>
-        /// The access control definition of the StreamingEndpoint.
+        /// The access control definition of the streaming endpoint.
         /// </summary>
         public readonly Outputs.StreamingEndpointAccessControlResponse? AccessControl;
         /// <summary>
-        /// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+        /// This feature is deprecated, do not set a value for this property.
         /// </summary>
         public readonly string? AvailabilitySetName;
         /// <summary>
@@ -66,19 +66,19 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// </summary>
         public readonly string? CdnProvider;
         /// <summary>
-        /// The exact time the StreamingEndpoint was created.
+        /// The exact time the streaming endpoint was created.
         /// </summary>
         public readonly string Created;
         /// <summary>
-        /// The StreamingEndpoint access policies.
+        /// The streaming endpoint access policies.
         /// </summary>
         public readonly Outputs.CrossSiteAccessPoliciesResponse? CrossSiteAccessPolicies;
         /// <summary>
-        /// The custom host names of the StreamingEndpoint
+        /// The custom host names of the streaming endpoint
         /// </summary>
         public readonly ImmutableArray<string> CustomHostNames;
         /// <summary>
-        /// The StreamingEndpoint description.
+        /// The streaming endpoint description.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// </summary>
         public readonly string FreeTrialEndTime;
         /// <summary>
-        /// The StreamingEndpoint host name.
+        /// The streaming endpoint host name.
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// The exact time the StreamingEndpoint was last modified.
+        /// The exact time the streaming endpoint was last modified.
         /// </summary>
         public readonly string LastModified;
         /// <summary>
@@ -106,15 +106,15 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the StreamingEndpoint.
+        /// The provisioning state of the streaming endpoint.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The resource state of the StreamingEndpoint.
+        /// The resource state of the streaming endpoint.
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
-        /// The number of scale units.  Use the Scale operation to adjust this value.
+        /// The number of scale units. Use the Scale operation to adjust this value.
         /// </summary>
         public readonly int ScaleUnits;
         /// <summary>

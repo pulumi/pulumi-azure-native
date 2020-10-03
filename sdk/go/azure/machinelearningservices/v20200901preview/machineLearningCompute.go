@@ -85,6 +85,9 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200601:MachineLearningCompute"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200801:MachineLearningCompute"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MachineLearningCompute

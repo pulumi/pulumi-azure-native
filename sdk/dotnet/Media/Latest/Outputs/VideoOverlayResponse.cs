@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
         /// </summary>
         public readonly Outputs.RectangleResponse? CropRectangle;
         /// <summary>
-        /// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+        /// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
         /// </summary>
         public readonly string? End;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
         /// </summary>
         public readonly Outputs.RectangleResponse? Position;
         /// <summary>
-        /// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+        /// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         /// </summary>
         public readonly string? Start;
 

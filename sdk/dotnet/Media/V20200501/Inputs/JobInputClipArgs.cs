@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
         /// </summary>
         [Input("end")]
-        public Input<Inputs.AbsoluteClipTimeArgs>? End { get; set; }
+        public InputUnion<Inputs.AbsoluteClipTimeArgs, Inputs.UtcClipTimeArgs>? End { get; set; }
 
         [Input("files")]
         private InputList<string>? _files;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         /// </summary>
         [Input("start")]
-        public Input<Inputs.AbsoluteClipTimeArgs>? Start { get; set; }
+        public InputUnion<Inputs.AbsoluteClipTimeArgs, Inputs.UtcClipTimeArgs>? Start { get; set; }
 
         public JobInputClipArgs()
         {

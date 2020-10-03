@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * The StreamingEndpoint.
+ * The streaming endpoint.
  */
 export class StreamingEndpoint extends pulumi.CustomResource {
     /**
@@ -37,11 +37,11 @@ export class StreamingEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The access control definition of the StreamingEndpoint.
+     * The access control definition of the streaming endpoint.
      */
     public readonly accessControl!: pulumi.Output<outputs.media.latest.StreamingEndpointAccessControlResponse | undefined>;
     /**
-     * The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+     * This feature is deprecated, do not set a value for this property.
      */
     public readonly availabilitySetName!: pulumi.Output<string | undefined>;
     /**
@@ -57,19 +57,19 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      */
     public readonly cdnProvider!: pulumi.Output<string | undefined>;
     /**
-     * The exact time the StreamingEndpoint was created.
+     * The exact time the streaming endpoint was created.
      */
     public /*out*/ readonly created!: pulumi.Output<string>;
     /**
-     * The StreamingEndpoint access policies.
+     * The streaming endpoint access policies.
      */
     public readonly crossSiteAccessPolicies!: pulumi.Output<outputs.media.latest.CrossSiteAccessPoliciesResponse | undefined>;
     /**
-     * The custom host names of the StreamingEndpoint
+     * The custom host names of the streaming endpoint
      */
     public readonly customHostNames!: pulumi.Output<string[] | undefined>;
     /**
-     * The StreamingEndpoint description.
+     * The streaming endpoint description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -77,11 +77,11 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly freeTrialEndTime!: pulumi.Output<string>;
     /**
-     * The StreamingEndpoint host name.
+     * The streaming endpoint host name.
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
-     * The exact time the StreamingEndpoint was last modified.
+     * The exact time the streaming endpoint was last modified.
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**
@@ -97,15 +97,15 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the StreamingEndpoint.
+     * The provisioning state of the streaming endpoint.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The resource state of the StreamingEndpoint.
+     * The resource state of the streaming endpoint.
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
-     * The number of scale units.  Use the Scale operation to adjust this value.
+     * The number of scale units. Use the Scale operation to adjust this value.
      */
     public readonly scaleUnits!: pulumi.Output<number>;
     /**
@@ -206,7 +206,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
  */
 export interface StreamingEndpointArgs {
     /**
-     * The access control definition of the StreamingEndpoint.
+     * The access control definition of the streaming endpoint.
      */
     readonly accessControl?: pulumi.Input<inputs.media.latest.StreamingEndpointAccessControl>;
     /**
@@ -218,7 +218,7 @@ export interface StreamingEndpointArgs {
      */
     readonly autoStart?: pulumi.Input<boolean>;
     /**
-     * The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+     * This feature is deprecated, do not set a value for this property.
      */
     readonly availabilitySetName?: pulumi.Input<string>;
     /**
@@ -234,15 +234,15 @@ export interface StreamingEndpointArgs {
      */
     readonly cdnProvider?: pulumi.Input<string>;
     /**
-     * The StreamingEndpoint access policies.
+     * The streaming endpoint access policies.
      */
     readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.latest.CrossSiteAccessPolicies>;
     /**
-     * The custom host names of the StreamingEndpoint
+     * The custom host names of the streaming endpoint
      */
     readonly customHostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The StreamingEndpoint description.
+     * The streaming endpoint description.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -258,11 +258,11 @@ export interface StreamingEndpointArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The number of scale units.  Use the Scale operation to adjust this value.
+     * The number of scale units. Use the Scale operation to adjust this value.
      */
     readonly scaleUnits: pulumi.Input<number>;
     /**
-     * The name of the StreamingEndpoint.
+     * The name of the streaming endpoint, maximum length is 24.
      */
     readonly streamingEndpointName: pulumi.Input<string>;
     /**

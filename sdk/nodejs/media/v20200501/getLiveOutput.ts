@@ -28,11 +28,11 @@ export interface GetLiveOutputArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the Live Event.
+     * The name of the live event, maximum length is 32.
      */
     readonly liveEventName: string;
     /**
-     * The name of the Live Output.
+     * The name of the live output.
      */
     readonly liveOutputName: string;
     /**
@@ -46,31 +46,31 @@ export interface GetLiveOutputArgs {
  */
 export interface GetLiveOutputResult {
     /**
-     * ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+     * ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
      */
     readonly archiveWindowLength: string;
     /**
-     * The asset name.
+     * The asset that the live output will write to.
      */
     readonly assetName: string;
     /**
-     * The exact time the Live Output was created.
+     * The creation time the live output.
      */
     readonly created: string;
     /**
-     * The description of the Live Output.
+     * The description of the live output.
      */
     readonly description?: string;
     /**
-     * The HLS configuration.
+     * HTTP Live Streaming (HLS) packing setting for the live output.
      */
     readonly hls?: outputs.media.v20200501.HlsResponse;
     /**
-     * The exact time the Live Output was last modified.
+     * The time the live output was last modified.
      */
     readonly lastModified: string;
     /**
-     * The manifest file name.  If not provided, the service will generate one automatically.
+     * The manifest file name. If not provided, the service will generate one automatically.
      */
     readonly manifestName?: string;
     /**
@@ -78,15 +78,15 @@ export interface GetLiveOutputResult {
      */
     readonly name: string;
     /**
-     * The output snapshot time.
+     * The initial timestamp that the live output will start at, any content before this value will not be archived.
      */
     readonly outputSnapTime?: number;
     /**
-     * The provisioning state of the Live Output.
+     * The provisioning state of the live output.
      */
     readonly provisioningState: string;
     /**
-     * The resource state of the Live Output.
+     * The resource state of the live output.
      */
     readonly resourceState: string;
     /**

@@ -10,42 +10,48 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Media.Latest
 {
     /// <summary>
-    /// The Live Event.
+    /// The live event.
     /// </summary>
     public partial class LiveEvent : Pulumi.CustomResource
     {
         /// <summary>
-        /// The exact time the Live Event was created.
+        /// The creation time for the live event
         /// </summary>
         [Output("created")]
         public Output<string> Created { get; private set; } = null!;
 
         /// <summary>
-        /// The Live Event access policies.
+        /// Live event cross site access policies.
         /// </summary>
         [Output("crossSiteAccessPolicies")]
         public Output<Outputs.CrossSiteAccessPoliciesResponse?> CrossSiteAccessPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// The Live Event description.
+        /// A description for the live event.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Live Event encoding.
+        /// Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
         /// </summary>
         [Output("encoding")]
         public Output<Outputs.LiveEventEncodingResponse?> Encoding { get; private set; } = null!;
 
         /// <summary>
-        /// The Live Event input.
+        /// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+        /// </summary>
+        [Output("hostnamePrefix")]
+        public Output<string?> HostnamePrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// Live event input settings. It defines how the live event receives input from a contribution encoder.
         /// </summary>
         [Output("input")]
         public Output<Outputs.LiveEventInputResponse> Input { get; private set; } = null!;
 
         /// <summary>
-        /// The exact time the Live Event was last modified.
+        /// The last modified time of the live event.
         /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
@@ -63,25 +69,25 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Live Event preview.
+        /// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
         /// </summary>
         [Output("preview")]
         public Output<Outputs.LiveEventPreviewResponse?> Preview { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the Live Event.
+        /// The provisioning state of the live event.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The resource state of the Live Event.
+        /// The resource state of the live event. See https://go.microsoft.com/fwlink/?linkid=2139012 for more information.
         /// </summary>
         [Output("resourceState")]
         public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
-        /// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+        /// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
         /// </summary>
         [Output("streamOptions")]
         public Output<ImmutableArray<string>> StreamOptions { get; private set; } = null!;
@@ -93,13 +99,19 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+        /// </summary>
+        [Output("transcriptions")]
+        public Output<ImmutableArray<Outputs.LiveEventTranscriptionResponse>> Transcriptions { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+        /// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
         /// </summary>
         [Output("useStaticHostname")]
         public Output<bool?> UseStaticHostname { get; private set; } = null!;
@@ -170,31 +182,37 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Input<bool>? AutoStart { get; set; }
 
         /// <summary>
-        /// The Live Event access policies.
+        /// Live event cross site access policies.
         /// </summary>
         [Input("crossSiteAccessPolicies")]
         public Input<Inputs.CrossSiteAccessPoliciesArgs>? CrossSiteAccessPolicies { get; set; }
 
         /// <summary>
-        /// The Live Event description.
+        /// A description for the live event.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Live Event encoding.
+        /// Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
         /// </summary>
         [Input("encoding")]
         public Input<Inputs.LiveEventEncodingArgs>? Encoding { get; set; }
 
         /// <summary>
-        /// The Live Event input.
+        /// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+        /// </summary>
+        [Input("hostnamePrefix")]
+        public Input<string>? HostnamePrefix { get; set; }
+
+        /// <summary>
+        /// Live event input settings. It defines how the live event receives input from a contribution encoder.
         /// </summary>
         [Input("input", required: true)]
         public Input<Inputs.LiveEventInputArgs> Input { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Live Event.
+        /// The name of the live event, maximum length is 32.
         /// </summary>
         [Input("liveEventName", required: true)]
         public Input<string> LiveEventName { get; set; } = null!;
@@ -206,7 +224,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The Live Event preview.
+        /// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
         /// </summary>
         [Input("preview")]
         public Input<Inputs.LiveEventPreviewArgs>? Preview { get; set; }
@@ -221,7 +239,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         private InputList<string>? _streamOptions;
 
         /// <summary>
-        /// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+        /// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
         /// </summary>
         public InputList<string> StreamOptions
         {
@@ -241,8 +259,20 @@ namespace Pulumi.AzureNextGen.Media.Latest
             set => _tags = value;
         }
 
+        [Input("transcriptions")]
+        private InputList<Inputs.LiveEventTranscriptionArgs>? _transcriptions;
+
         /// <summary>
-        /// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+        /// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+        /// </summary>
+        public InputList<Inputs.LiveEventTranscriptionArgs> Transcriptions
+        {
+            get => _transcriptions ?? (_transcriptions = new InputList<Inputs.LiveEventTranscriptionArgs>());
+            set => _transcriptions = value;
+        }
+
+        /// <summary>
+        /// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
         /// </summary>
         [Input("useStaticHostname")]
         public Input<bool>? UseStaticHostname { get; set; }

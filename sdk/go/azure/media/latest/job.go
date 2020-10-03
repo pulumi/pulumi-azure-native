@@ -16,7 +16,7 @@ type Job struct {
 
 	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
 	CorrelationData pulumi.StringMapOutput `pulumi:"correlationData"`
-	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	// The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	Created pulumi.StringOutput `pulumi:"created"`
 	// Optional customer supplied description of the Job.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -24,7 +24,7 @@ type Job struct {
 	EndTime pulumi.StringOutput `pulumi:"endTime"`
 	// The inputs for the Job.
 	Input pulumi.AnyOutput `pulumi:"input"`
-	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -103,7 +103,7 @@ func GetJob(ctx *pulumi.Context,
 type jobState struct {
 	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
 	CorrelationData map[string]string `pulumi:"correlationData"`
-	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	// The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	Created *string `pulumi:"created"`
 	// Optional customer supplied description of the Job.
 	Description *string `pulumi:"description"`
@@ -111,7 +111,7 @@ type jobState struct {
 	EndTime *string `pulumi:"endTime"`
 	// The inputs for the Job.
 	Input interface{} `pulumi:"input"`
-	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified *string `pulumi:"lastModified"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
@@ -130,7 +130,7 @@ type jobState struct {
 type JobState struct {
 	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
 	CorrelationData pulumi.StringMapInput
-	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	// The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	Created pulumi.StringPtrInput
 	// Optional customer supplied description of the Job.
 	Description pulumi.StringPtrInput
@@ -138,7 +138,7 @@ type JobState struct {
 	EndTime pulumi.StringPtrInput
 	// The inputs for the Job.
 	Input pulumi.Input
-	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput

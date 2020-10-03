@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
     public sealed class HlsResponse
     {
         /// <summary>
-        /// The amount of fragments per HTTP Live Streaming (HLS) segment.
+        /// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
         /// </summary>
         public readonly int? FragmentsPerTsSegment;
 

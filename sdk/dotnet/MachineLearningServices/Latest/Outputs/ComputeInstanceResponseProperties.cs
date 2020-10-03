@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.MachineLearningServiceErrorResponse> Errors;
         /// <summary>
+        /// The last operation on ComputeInstance.
+        /// </summary>
+        public readonly Outputs.ComputeInstanceLastOperationResponse LastOperation;
+        /// <summary>
         /// Specifies policy and settings for SSH access.
         /// </summary>
         public readonly Outputs.ComputeInstanceSshSettingsResponse? SshSettings;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
             ImmutableArray<Outputs.MachineLearningServiceErrorResponse> errors,
 
+            Outputs.ComputeInstanceLastOperationResponse lastOperation,
+
             Outputs.ComputeInstanceSshSettingsResponse? sshSettings,
 
             string state,
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
             ConnectivityEndpoints = connectivityEndpoints;
             CreatedBy = createdBy;
             Errors = errors;
+            LastOperation = lastOperation;
             SshSettings = sshSettings;
             State = state;
             Subnet = subnet;

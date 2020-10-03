@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.Subscription.V20200901.Inputs
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
+        /// Reseller ID, basically MPN Id
+        /// </summary>
+        [Input("resellerId")]
+        public Input<string>? ResellerId { get; set; }
+
+        /// <summary>
         /// This parameter can be used to create alias for existing subscription Id
         /// </summary>
         [Input("subscriptionId")]

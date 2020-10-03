@@ -64,8 +64,11 @@ __all__ = [
     'LiveEventEndpointArgs',
     'LiveEventInputArgs',
     'LiveEventInputAccessControlArgs',
+    'LiveEventInputTrackSelectionArgs',
+    'LiveEventOutputTranscriptionTrackArgs',
     'LiveEventPreviewArgs',
     'LiveEventPreviewAccessControlArgs',
+    'LiveEventTranscriptionArgs',
     'MediaServiceIdentityArgs',
     'MultiBitrateFormatArgs',
     'NoEncryptionArgs',
@@ -85,6 +88,7 @@ __all__ = [
     'TrackPropertyConditionArgs',
     'TrackSelectionArgs',
     'TransformOutputArgs',
+    'UtcClipTimeArgs',
     'VideoArgs',
     'VideoOverlayArgs',
 ]
@@ -337,18 +341,22 @@ class AudioAnalyzerPresetArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
                  audio_language: Optional[pulumi.Input[str]] = None,
-                 experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 mode: Optional[pulumi.Input[str]] = None):
         """
         The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
-        :param pulumi.Input[str] audio_language: The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+        :param pulumi.Input[str] audio_language: The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode::Basic, since automatic language detection is not included in basic mode. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself
+        :param pulumi.Input[str] mode: Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioAnalyzerPreset')
         if audio_language is not None:
             pulumi.set(__self__, "audio_language", audio_language)
         if experimental_options is not None:
             pulumi.set(__self__, "experimental_options", experimental_options)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -366,7 +374,7 @@ class AudioAnalyzerPresetArgs:
     @pulumi.getter(name="audioLanguage")
     def audio_language(self) -> Optional[pulumi.Input[str]]:
         """
-        The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+        The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode::Basic, since automatic language detection is not included in basic mode. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
         """
         return pulumi.get(self, "audio_language")
 
@@ -386,6 +394,18 @@ class AudioAnalyzerPresetArgs:
     def experimental_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "experimental_options", value)
 
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
 
 @pulumi.input_type
 class AudioOverlayArgs:
@@ -402,10 +422,10 @@ class AudioOverlayArgs:
         :param pulumi.Input[str] input_label: The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         :param pulumi.Input[float] audio_gain_level: The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-        :param pulumi.Input[str] end: The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+        :param pulumi.Input[str] end: The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
         :param pulumi.Input[str] fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
         :param pulumi.Input[str] fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
-        :param pulumi.Input[str] start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+        :param pulumi.Input[str] start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
         pulumi.set(__self__, "input_label", input_label)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioOverlay')
@@ -460,7 +480,7 @@ class AudioOverlayArgs:
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
         """
-        The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+        The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
         """
         return pulumi.get(self, "end")
 
@@ -496,7 +516,7 @@ class AudioOverlayArgs:
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
         """
-        The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+        The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
         return pulumi.get(self, "start")
 
@@ -2516,8 +2536,8 @@ class HlsArgs:
     def __init__(__self__, *,
                  fragments_per_ts_segment: Optional[pulumi.Input[int]] = None):
         """
-        The HLS configuration.
-        :param pulumi.Input[int] fragments_per_ts_segment: The amount of fragments per HTTP Live Streaming (HLS) segment.
+        HTTP Live Streaming (HLS) packing setting for the live output.
+        :param pulumi.Input[int] fragments_per_ts_segment: The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
         """
         if fragments_per_ts_segment is not None:
             pulumi.set(__self__, "fragments_per_ts_segment", fragments_per_ts_segment)
@@ -2526,7 +2546,7 @@ class HlsArgs:
     @pulumi.getter(name="fragmentsPerTsSegment")
     def fragments_per_ts_segment(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of fragments per HTTP Live Streaming (HLS) segment.
+        The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
         """
         return pulumi.get(self, "fragments_per_ts_segment")
 
@@ -2622,7 +2642,7 @@ class ImageFormatArgs:
                  odata_type: pulumi.Input[str]):
         """
         Describes the properties for an output image file.
-        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         """
         pulumi.set(__self__, "filename_pattern", filename_pattern)
@@ -2632,7 +2652,7 @@ class ImageFormatArgs:
     @pulumi.getter(name="filenamePattern")
     def filename_pattern(self) -> pulumi.Input[str]:
         """
-        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
         """
         return pulumi.get(self, "filename_pattern")
 
@@ -2657,17 +2677,17 @@ class ImageFormatArgs:
 class JobInputClipArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 end: Optional[pulumi.Input['AbsoluteClipTimeArgs']] = None,
+                 end: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None,
                  files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  label: Optional[pulumi.Input[str]] = None,
-                 start: Optional[pulumi.Input['AbsoluteClipTimeArgs']] = None):
+                 start: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None):
         """
         Represents input files for a Job.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
-        :param pulumi.Input['AbsoluteClipTimeArgs'] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+        :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
         :param pulumi.Input[str] label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-        :param pulumi.Input['AbsoluteClipTimeArgs'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+        :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputClip')
         if end is not None:
@@ -2693,14 +2713,14 @@ class JobInputClipArgs:
 
     @property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input['AbsoluteClipTimeArgs']]:
+    def end(self) -> Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]]:
         """
         Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input['AbsoluteClipTimeArgs']]):
+    def end(self, value: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]]):
         pulumi.set(self, "end", value)
 
     @property
@@ -2729,14 +2749,14 @@ class JobInputClipArgs:
 
     @property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input['AbsoluteClipTimeArgs']]:
+    def start(self) -> Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]]:
         """
         Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input['AbsoluteClipTimeArgs']]):
+    def start(self, value: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]]):
         pulumi.set(self, "start", value)
 
 
@@ -2860,28 +2880,48 @@ class KeyVaultPropertiesArgs:
 class LiveEventEncodingArgs:
     def __init__(__self__, *,
                  encoding_type: Optional[pulumi.Input[str]] = None,
-                 preset_name: Optional[pulumi.Input[str]] = None):
+                 key_frame_interval: Optional[pulumi.Input[str]] = None,
+                 preset_name: Optional[pulumi.Input[str]] = None,
+                 stretch_mode: Optional[pulumi.Input[str]] = None):
         """
-        The Live Event encoding.
-        :param pulumi.Input[str] encoding_type: The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+        Specifies the live event type and optional encoding settings for encoding live events.
+        :param pulumi.Input[str] encoding_type: Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+        :param pulumi.Input[str] key_frame_interval: Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
         :param pulumi.Input[str] preset_name: The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
+        :param pulumi.Input[str] stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
         """
         if encoding_type is not None:
             pulumi.set(__self__, "encoding_type", encoding_type)
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
         if preset_name is not None:
             pulumi.set(__self__, "preset_name", preset_name)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
 
     @property
     @pulumi.getter(name="encodingType")
     def encoding_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+        Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
         """
         return pulumi.get(self, "encoding_type")
 
     @encoding_type.setter
     def encoding_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encoding_type", value)
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @key_frame_interval.setter
+    def key_frame_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_frame_interval", value)
 
     @property
     @pulumi.getter(name="presetName")
@@ -2895,6 +2935,18 @@ class LiveEventEncodingArgs:
     def preset_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "preset_name", value)
 
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    @stretch_mode.setter
+    def stretch_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stretch_mode", value)
+
 
 @pulumi.input_type
 class LiveEventEndpointArgs:
@@ -2902,7 +2954,7 @@ class LiveEventEndpointArgs:
                  protocol: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
-        The Live Event endpoint.
+        The live event endpoint.
         :param pulumi.Input[str] protocol: The endpoint protocol.
         :param pulumi.Input[str] url: The endpoint URL.
         """
@@ -2945,12 +2997,12 @@ class LiveEventInputArgs:
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]] = None,
                  key_frame_interval_duration: Optional[pulumi.Input[str]] = None):
         """
-        The Live Event input.
-        :param pulumi.Input[str] streaming_protocol: The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-        :param pulumi.Input['LiveEventInputAccessControlArgs'] access_control: The access control for LiveEvent Input.
-        :param pulumi.Input[str] access_token: A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-        :param pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The input endpoints for the Live Event.
-        :param pulumi.Input[str] key_frame_interval_duration: ISO 8601 timespan duration of the key frame interval duration.
+        The live event input.
+        :param pulumi.Input[str] streaming_protocol: The input protocol for the live event. This is specified at creation time and cannot be updated.
+        :param pulumi.Input['LiveEventInputAccessControlArgs'] access_control: Access control for live event input.
+        :param pulumi.Input[str] access_token: A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The input endpoints for the live event.
+        :param pulumi.Input[str] key_frame_interval_duration: ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
         """
         pulumi.set(__self__, "streaming_protocol", streaming_protocol)
         if access_control is not None:
@@ -2966,7 +3018,7 @@ class LiveEventInputArgs:
     @pulumi.getter(name="streamingProtocol")
     def streaming_protocol(self) -> pulumi.Input[str]:
         """
-        The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+        The input protocol for the live event. This is specified at creation time and cannot be updated.
         """
         return pulumi.get(self, "streaming_protocol")
 
@@ -2978,7 +3030,7 @@ class LiveEventInputArgs:
     @pulumi.getter(name="accessControl")
     def access_control(self) -> Optional[pulumi.Input['LiveEventInputAccessControlArgs']]:
         """
-        The access control for LiveEvent Input.
+        Access control for live event input.
         """
         return pulumi.get(self, "access_control")
 
@@ -2990,7 +3042,7 @@ class LiveEventInputArgs:
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+        A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
         """
         return pulumi.get(self, "access_token")
 
@@ -3002,7 +3054,7 @@ class LiveEventInputArgs:
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]]:
         """
-        The input endpoints for the Live Event.
+        The input endpoints for the live event.
         """
         return pulumi.get(self, "endpoints")
 
@@ -3014,7 +3066,7 @@ class LiveEventInputArgs:
     @pulumi.getter(name="keyFrameIntervalDuration")
     def key_frame_interval_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        ISO 8601 timespan duration of the key frame interval duration.
+        ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
         """
         return pulumi.get(self, "key_frame_interval_duration")
 
@@ -3028,7 +3080,7 @@ class LiveEventInputAccessControlArgs:
     def __init__(__self__, *,
                  ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
         """
-        The IP access control for Live Event Input.
+        The IP access control for live event input.
         :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
         """
         if ip is not None:
@@ -3048,6 +3100,85 @@ class LiveEventInputAccessControlArgs:
 
 
 @pulumi.input_type
+class LiveEventInputTrackSelectionArgs:
+    def __init__(__self__, *,
+                 operation: Optional[pulumi.Input[str]] = None,
+                 property: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
+        :param pulumi.Input[str] operation: Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+        :param pulumi.Input[str] property: Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+        :param pulumi.Input[str] value: Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+        if property is not None:
+            pulumi.set(__self__, "property", property)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def property(self) -> Optional[pulumi.Input[str]]:
+        """
+        Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "property")
+
+    @property.setter
+    def property(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property", value)
+
+
+@pulumi.input_type
+class LiveEventOutputTranscriptionTrackArgs:
+    def __init__(__self__, *,
+                 track_name: pulumi.Input[str]):
+        """
+        Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+        :param pulumi.Input[str] track_name: The output track name. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        pulumi.set(__self__, "track_name", track_name)
+
+    @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> pulumi.Input[str]:
+        """
+        The output track name. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "track_name")
+
+    @track_name.setter
+    def track_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "track_name", value)
+
+
+@pulumi.input_type
 class LiveEventPreviewArgs:
     def __init__(__self__, *,
                  access_control: Optional[pulumi.Input['LiveEventPreviewAccessControlArgs']] = None,
@@ -3056,12 +3187,12 @@ class LiveEventPreviewArgs:
                  preview_locator: Optional[pulumi.Input[str]] = None,
                  streaming_policy_name: Optional[pulumi.Input[str]] = None):
         """
-        The Live Event preview.
-        :param pulumi.Input['LiveEventPreviewAccessControlArgs'] access_control: The access control for LiveEvent preview.
-        :param pulumi.Input[str] alternative_media_id: An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-        :param pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The endpoints for preview.
-        :param pulumi.Input[str] preview_locator: The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
-        :param pulumi.Input[str] streaming_policy_name: The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+        Live event preview settings.
+        :param pulumi.Input['LiveEventPreviewAccessControlArgs'] access_control: The access control for live event preview.
+        :param pulumi.Input[str] alternative_media_id: An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The endpoints for preview. Do not share the preview URL with the live event audience.
+        :param pulumi.Input[str] preview_locator: The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
+        :param pulumi.Input[str] streaming_policy_name: The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
         """
         if access_control is not None:
             pulumi.set(__self__, "access_control", access_control)
@@ -3078,7 +3209,7 @@ class LiveEventPreviewArgs:
     @pulumi.getter(name="accessControl")
     def access_control(self) -> Optional[pulumi.Input['LiveEventPreviewAccessControlArgs']]:
         """
-        The access control for LiveEvent preview.
+        The access control for live event preview.
         """
         return pulumi.get(self, "access_control")
 
@@ -3090,7 +3221,7 @@ class LiveEventPreviewArgs:
     @pulumi.getter(name="alternativeMediaId")
     def alternative_media_id(self) -> Optional[pulumi.Input[str]]:
         """
-        An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+        An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
         """
         return pulumi.get(self, "alternative_media_id")
 
@@ -3102,7 +3233,7 @@ class LiveEventPreviewArgs:
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]]:
         """
-        The endpoints for preview.
+        The endpoints for preview. Do not share the preview URL with the live event audience.
         """
         return pulumi.get(self, "endpoints")
 
@@ -3114,7 +3245,7 @@ class LiveEventPreviewArgs:
     @pulumi.getter(name="previewLocator")
     def preview_locator(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+        The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
         """
         return pulumi.get(self, "preview_locator")
 
@@ -3126,7 +3257,7 @@ class LiveEventPreviewArgs:
     @pulumi.getter(name="streamingPolicyName")
     def streaming_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+        The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
         """
         return pulumi.get(self, "streaming_policy_name")
 
@@ -3140,7 +3271,7 @@ class LiveEventPreviewAccessControlArgs:
     def __init__(__self__, *,
                  ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
         """
-        The IP access control for Live Event preview.
+        The IP access control for the live event preview endpoint.
         :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
         """
         if ip is not None:
@@ -3157,6 +3288,62 @@ class LiveEventPreviewAccessControlArgs:
     @ip.setter
     def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
         pulumi.set(self, "ip", value)
+
+
+@pulumi.input_type
+class LiveEventTranscriptionArgs:
+    def __init__(__self__, *,
+                 input_track_selection: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputTrackSelectionArgs']]]] = None,
+                 language: Optional[pulumi.Input[str]] = None,
+                 output_transcription_track: Optional[pulumi.Input['LiveEventOutputTranscriptionTrackArgs']] = None):
+        """
+        Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveEventInputTrackSelectionArgs']]] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+        :param pulumi.Input[str] language: Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
+        :param pulumi.Input['LiveEventOutputTranscriptionTrackArgs'] output_transcription_track: Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        if input_track_selection is not None:
+            pulumi.set(__self__, "input_track_selection", input_track_selection)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if output_transcription_track is not None:
+            pulumi.set(__self__, "output_transcription_track", output_transcription_track)
+
+    @property
+    @pulumi.getter(name="inputTrackSelection")
+    def input_track_selection(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputTrackSelectionArgs']]]]:
+        """
+        Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "input_track_selection")
+
+    @input_track_selection.setter
+    def input_track_selection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputTrackSelectionArgs']]]]):
+        pulumi.set(self, "input_track_selection", value)
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language", value)
+
+    @property
+    @pulumi.getter(name="outputTranscriptionTrack")
+    def output_transcription_track(self) -> Optional[pulumi.Input['LiveEventOutputTranscriptionTrackArgs']]:
+        """
+        Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "output_transcription_track")
+
+    @output_transcription_track.setter
+    def output_transcription_track(self, value: Optional[pulumi.Input['LiveEventOutputTranscriptionTrackArgs']]):
+        pulumi.set(self, "output_transcription_track", value)
 
 
 @pulumi.input_type
@@ -3189,7 +3376,7 @@ class MultiBitrateFormatArgs:
                  output_files: Optional[pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]]] = None):
         """
         Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
-        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         :param pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
@@ -3202,7 +3389,7 @@ class MultiBitrateFormatArgs:
     @pulumi.getter(name="filenamePattern")
     def filename_pattern(self) -> pulumi.Input[str]:
         """
-        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
         """
         return pulumi.get(self, "filename_pattern")
 
@@ -3628,9 +3815,9 @@ class StreamingEndpointAccessControlArgs:
                  akamai: Optional[pulumi.Input['AkamaiAccessControlArgs']] = None,
                  ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
         """
-        StreamingEndpoint access control definition.
+        Streaming endpoint access control definition.
         :param pulumi.Input['AkamaiAccessControlArgs'] akamai: The access control of Akamai
-        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control of the StreamingEndpoint.
+        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control of the streaming endpoint.
         """
         if akamai is not None:
             pulumi.set(__self__, "akamai", akamai)
@@ -3653,7 +3840,7 @@ class StreamingEndpointAccessControlArgs:
     @pulumi.getter
     def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
         """
-        The IP access control of the StreamingEndpoint.
+        The IP access control of the streaming endpoint.
         """
         return pulumi.get(self, "ip")
 
@@ -4050,6 +4237,44 @@ class TransformOutputArgs:
 
 
 @pulumi.input_type
+class UtcClipTimeArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 time: pulumi.Input[str]):
+        """
+        Specifies the clip time as a Utc time position in the media file.  The Utc time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+        :param pulumi.Input[str] time: The time position on the timeline of the input media based on Utc time.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.UtcClipTime')
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[str]:
+        """
+        The time position on the timeline of the input media based on Utc time.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time", value)
+
+
+@pulumi.input_type
 class VideoArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
@@ -4155,12 +4380,12 @@ class VideoOverlayArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         :param pulumi.Input[float] audio_gain_level: The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
         :param pulumi.Input['RectangleArgs'] crop_rectangle: An optional rectangular window used to crop the overlay image or video.
-        :param pulumi.Input[str] end: The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+        :param pulumi.Input[str] end: The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
         :param pulumi.Input[str] fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
         :param pulumi.Input[str] fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
         :param pulumi.Input[float] opacity: The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
         :param pulumi.Input['RectangleArgs'] position: The location in the input video where the overlay is applied.
-        :param pulumi.Input[str] start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+        :param pulumi.Input[str] start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
         pulumi.set(__self__, "input_label", input_label)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoOverlay')
@@ -4233,7 +4458,7 @@ class VideoOverlayArgs:
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
         """
-        The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+        The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
         """
         return pulumi.get(self, "end")
 
@@ -4293,7 +4518,7 @@ class VideoOverlayArgs:
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
         """
-        The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+        The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
         return pulumi.get(self, "start")
 

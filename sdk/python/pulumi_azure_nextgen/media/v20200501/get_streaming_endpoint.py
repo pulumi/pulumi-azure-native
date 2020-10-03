@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetStreamingEndpointResult:
     """
-    The StreamingEndpoint.
+    The streaming endpoint.
     """
     def __init__(__self__, access_control=None, availability_set_name=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, created=None, cross_site_access_policies=None, custom_host_names=None, description=None, free_trial_end_time=None, host_name=None, last_modified=None, location=None, max_cache_age=None, name=None, provisioning_state=None, resource_state=None, scale_units=None, tags=None, type=None):
         if access_control and not isinstance(access_control, dict):
@@ -86,7 +86,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter(name="accessControl")
     def access_control(self) -> Optional['outputs.StreamingEndpointAccessControlResponse']:
         """
-        The access control definition of the StreamingEndpoint.
+        The access control definition of the streaming endpoint.
         """
         return pulumi.get(self, "access_control")
 
@@ -94,7 +94,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter(name="availabilitySetName")
     def availability_set_name(self) -> Optional[str]:
         """
-        The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+        This feature is deprecated, do not set a value for this property.
         """
         return pulumi.get(self, "availability_set_name")
 
@@ -126,7 +126,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter
     def created(self) -> str:
         """
-        The exact time the StreamingEndpoint was created.
+        The exact time the streaming endpoint was created.
         """
         return pulumi.get(self, "created")
 
@@ -134,7 +134,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter(name="crossSiteAccessPolicies")
     def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesResponse']:
         """
-        The StreamingEndpoint access policies.
+        The streaming endpoint access policies.
         """
         return pulumi.get(self, "cross_site_access_policies")
 
@@ -142,7 +142,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter(name="customHostNames")
     def custom_host_names(self) -> Optional[Sequence[str]]:
         """
-        The custom host names of the StreamingEndpoint
+        The custom host names of the streaming endpoint
         """
         return pulumi.get(self, "custom_host_names")
 
@@ -150,7 +150,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        The StreamingEndpoint description.
+        The streaming endpoint description.
         """
         return pulumi.get(self, "description")
 
@@ -166,7 +166,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter(name="hostName")
     def host_name(self) -> str:
         """
-        The StreamingEndpoint host name.
+        The streaming endpoint host name.
         """
         return pulumi.get(self, "host_name")
 
@@ -174,7 +174,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
         """
-        The exact time the StreamingEndpoint was last modified.
+        The exact time the streaming endpoint was last modified.
         """
         return pulumi.get(self, "last_modified")
 
@@ -206,7 +206,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state of the StreamingEndpoint.
+        The provisioning state of the streaming endpoint.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -214,7 +214,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter(name="resourceState")
     def resource_state(self) -> str:
         """
-        The resource state of the StreamingEndpoint.
+        The resource state of the streaming endpoint.
         """
         return pulumi.get(self, "resource_state")
 
@@ -222,7 +222,7 @@ class GetStreamingEndpointResult:
     @pulumi.getter(name="scaleUnits")
     def scale_units(self) -> int:
         """
-        The number of scale units.  Use the Scale operation to adjust this value.
+        The number of scale units. Use the Scale operation to adjust this value.
         """
         return pulumi.get(self, "scale_units")
 
@@ -280,7 +280,7 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
-    :param str streaming_endpoint_name: The name of the StreamingEndpoint.
+    :param str streaming_endpoint_name: The name of the streaming endpoint, maximum length is 24.
     """
     __args__ = dict()
     __args__['accountName'] = account_name

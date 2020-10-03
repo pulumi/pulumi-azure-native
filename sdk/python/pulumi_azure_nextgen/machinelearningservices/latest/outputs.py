@@ -19,6 +19,7 @@ __all__ = [
     'ComputeInstanceApplicationResponse',
     'ComputeInstanceConnectivityEndpointsResponse',
     'ComputeInstanceCreatedByResponse',
+    'ComputeInstanceLastOperationResponse',
     'ComputeInstanceResponse',
     'ComputeInstanceResponseProperties',
     'ComputeInstanceSshSettingsResponse',
@@ -812,6 +813,56 @@ class ComputeInstanceCreatedByResponse(dict):
 
 
 @pulumi.output_type
+class ComputeInstanceLastOperationResponse(dict):
+    """
+    The last operation on ComputeInstance.
+    """
+    def __init__(__self__, *,
+                 operation_name: Optional[str] = None,
+                 operation_status: Optional[str] = None,
+                 operation_time: Optional[str] = None):
+        """
+        The last operation on ComputeInstance.
+        :param str operation_name: Name of the last operation.
+        :param str operation_status: Operation status.
+        :param str operation_time: Time of the last operation.
+        """
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if operation_status is not None:
+            pulumi.set(__self__, "operation_status", operation_status)
+        if operation_time is not None:
+            pulumi.set(__self__, "operation_time", operation_time)
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[str]:
+        """
+        Name of the last operation.
+        """
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="operationStatus")
+    def operation_status(self) -> Optional[str]:
+        """
+        Operation status.
+        """
+        return pulumi.get(self, "operation_status")
+
+    @property
+    @pulumi.getter(name="operationTime")
+    def operation_time(self) -> Optional[str]:
+        """
+        Time of the last operation.
+        """
+        return pulumi.get(self, "operation_time")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ComputeInstanceResponse(dict):
     """
     An Azure Machine Learning compute instance.
@@ -949,6 +1000,7 @@ class ComputeInstanceResponseProperties(dict):
                  connectivity_endpoints: 'outputs.ComputeInstanceConnectivityEndpointsResponse',
                  created_by: 'outputs.ComputeInstanceCreatedByResponse',
                  errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
+                 last_operation: 'outputs.ComputeInstanceLastOperationResponse',
                  state: str,
                  application_sharing_policy: Optional[str] = None,
                  ssh_settings: Optional['outputs.ComputeInstanceSshSettingsResponse'] = None,
@@ -960,6 +1012,7 @@ class ComputeInstanceResponseProperties(dict):
         :param 'ComputeInstanceConnectivityEndpointsResponseArgs' connectivity_endpoints: Describes all connectivity endpoints available for this ComputeInstance.
         :param 'ComputeInstanceCreatedByResponseArgs' created_by: Describes information on user who created this ComputeInstance.
         :param Sequence['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered on this ComputeInstance.
+        :param 'ComputeInstanceLastOperationResponseArgs' last_operation: The last operation on ComputeInstance.
         :param str state: The current state of this ComputeInstance.
         :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param 'ComputeInstanceSshSettingsResponseArgs' ssh_settings: Specifies policy and settings for SSH access.
@@ -970,6 +1023,7 @@ class ComputeInstanceResponseProperties(dict):
         pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
         pulumi.set(__self__, "created_by", created_by)
         pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "last_operation", last_operation)
         pulumi.set(__self__, "state", state)
         if application_sharing_policy is not None:
             pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
@@ -1011,6 +1065,14 @@ class ComputeInstanceResponseProperties(dict):
         Collection of errors encountered on this ComputeInstance.
         """
         return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter(name="lastOperation")
+    def last_operation(self) -> 'outputs.ComputeInstanceLastOperationResponse':
+        """
+        The last operation on ComputeInstance.
+        """
+        return pulumi.get(self, "last_operation")
 
     @property
     @pulumi.getter

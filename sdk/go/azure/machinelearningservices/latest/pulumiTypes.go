@@ -2529,6 +2529,178 @@ func (o ComputeInstanceCreatedByResponsePtrOutput) UserOrgId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The last operation on ComputeInstance.
+type ComputeInstanceLastOperationResponse struct {
+	// Name of the last operation.
+	OperationName *string `pulumi:"operationName"`
+	// Operation status.
+	OperationStatus *string `pulumi:"operationStatus"`
+	// Time of the last operation.
+	OperationTime *string `pulumi:"operationTime"`
+}
+
+// ComputeInstanceLastOperationResponseInput is an input type that accepts ComputeInstanceLastOperationResponseArgs and ComputeInstanceLastOperationResponseOutput values.
+// You can construct a concrete instance of `ComputeInstanceLastOperationResponseInput` via:
+//
+//          ComputeInstanceLastOperationResponseArgs{...}
+type ComputeInstanceLastOperationResponseInput interface {
+	pulumi.Input
+
+	ToComputeInstanceLastOperationResponseOutput() ComputeInstanceLastOperationResponseOutput
+	ToComputeInstanceLastOperationResponseOutputWithContext(context.Context) ComputeInstanceLastOperationResponseOutput
+}
+
+// The last operation on ComputeInstance.
+type ComputeInstanceLastOperationResponseArgs struct {
+	// Name of the last operation.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// Operation status.
+	OperationStatus pulumi.StringPtrInput `pulumi:"operationStatus"`
+	// Time of the last operation.
+	OperationTime pulumi.StringPtrInput `pulumi:"operationTime"`
+}
+
+func (ComputeInstanceLastOperationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceLastOperationResponse)(nil)).Elem()
+}
+
+func (i ComputeInstanceLastOperationResponseArgs) ToComputeInstanceLastOperationResponseOutput() ComputeInstanceLastOperationResponseOutput {
+	return i.ToComputeInstanceLastOperationResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceLastOperationResponseArgs) ToComputeInstanceLastOperationResponseOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceLastOperationResponseOutput)
+}
+
+func (i ComputeInstanceLastOperationResponseArgs) ToComputeInstanceLastOperationResponsePtrOutput() ComputeInstanceLastOperationResponsePtrOutput {
+	return i.ToComputeInstanceLastOperationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceLastOperationResponseArgs) ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceLastOperationResponseOutput).ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx)
+}
+
+// ComputeInstanceLastOperationResponsePtrInput is an input type that accepts ComputeInstanceLastOperationResponseArgs, ComputeInstanceLastOperationResponsePtr and ComputeInstanceLastOperationResponsePtrOutput values.
+// You can construct a concrete instance of `ComputeInstanceLastOperationResponsePtrInput` via:
+//
+//          ComputeInstanceLastOperationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstanceLastOperationResponsePtrInput interface {
+	pulumi.Input
+
+	ToComputeInstanceLastOperationResponsePtrOutput() ComputeInstanceLastOperationResponsePtrOutput
+	ToComputeInstanceLastOperationResponsePtrOutputWithContext(context.Context) ComputeInstanceLastOperationResponsePtrOutput
+}
+
+type computeInstanceLastOperationResponsePtrType ComputeInstanceLastOperationResponseArgs
+
+func ComputeInstanceLastOperationResponsePtr(v *ComputeInstanceLastOperationResponseArgs) ComputeInstanceLastOperationResponsePtrInput {
+	return (*computeInstanceLastOperationResponsePtrType)(v)
+}
+
+func (*computeInstanceLastOperationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceLastOperationResponse)(nil)).Elem()
+}
+
+func (i *computeInstanceLastOperationResponsePtrType) ToComputeInstanceLastOperationResponsePtrOutput() ComputeInstanceLastOperationResponsePtrOutput {
+	return i.ToComputeInstanceLastOperationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstanceLastOperationResponsePtrType) ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceLastOperationResponsePtrOutput)
+}
+
+// The last operation on ComputeInstance.
+type ComputeInstanceLastOperationResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceLastOperationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceLastOperationResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceLastOperationResponseOutput) ToComputeInstanceLastOperationResponseOutput() ComputeInstanceLastOperationResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceLastOperationResponseOutput) ToComputeInstanceLastOperationResponseOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceLastOperationResponseOutput) ToComputeInstanceLastOperationResponsePtrOutput() ComputeInstanceLastOperationResponsePtrOutput {
+	return o.ToComputeInstanceLastOperationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstanceLastOperationResponseOutput) ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponsePtrOutput {
+	return o.ApplyT(func(v ComputeInstanceLastOperationResponse) *ComputeInstanceLastOperationResponse {
+		return &v
+	}).(ComputeInstanceLastOperationResponsePtrOutput)
+}
+
+// Name of the last operation.
+func (o ComputeInstanceLastOperationResponseOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceLastOperationResponse) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+// Operation status.
+func (o ComputeInstanceLastOperationResponseOutput) OperationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceLastOperationResponse) *string { return v.OperationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Time of the last operation.
+func (o ComputeInstanceLastOperationResponseOutput) OperationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceLastOperationResponse) *string { return v.OperationTime }).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstanceLastOperationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceLastOperationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceLastOperationResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceLastOperationResponsePtrOutput) ToComputeInstanceLastOperationResponsePtrOutput() ComputeInstanceLastOperationResponsePtrOutput {
+	return o
+}
+
+func (o ComputeInstanceLastOperationResponsePtrOutput) ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponsePtrOutput {
+	return o
+}
+
+func (o ComputeInstanceLastOperationResponsePtrOutput) Elem() ComputeInstanceLastOperationResponseOutput {
+	return o.ApplyT(func(v *ComputeInstanceLastOperationResponse) ComputeInstanceLastOperationResponse { return *v }).(ComputeInstanceLastOperationResponseOutput)
+}
+
+// Name of the last operation.
+func (o ComputeInstanceLastOperationResponsePtrOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceLastOperationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Operation status.
+func (o ComputeInstanceLastOperationResponsePtrOutput) OperationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceLastOperationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time of the last operation.
+func (o ComputeInstanceLastOperationResponsePtrOutput) OperationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceLastOperationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationTime
+	}).(pulumi.StringPtrOutput)
+}
+
 // Compute Instance properties
 type ComputeInstanceProperties struct {
 	// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
@@ -2868,6 +3040,8 @@ type ComputeInstanceResponseProperties struct {
 	CreatedBy ComputeInstanceCreatedByResponse `pulumi:"createdBy"`
 	// Collection of errors encountered on this ComputeInstance.
 	Errors []MachineLearningServiceErrorResponse `pulumi:"errors"`
+	// The last operation on ComputeInstance.
+	LastOperation ComputeInstanceLastOperationResponse `pulumi:"lastOperation"`
 	// Specifies policy and settings for SSH access.
 	SshSettings *ComputeInstanceSshSettingsResponse `pulumi:"sshSettings"`
 	// The current state of this ComputeInstance.
@@ -2901,6 +3075,8 @@ type ComputeInstanceResponsePropertiesArgs struct {
 	CreatedBy ComputeInstanceCreatedByResponseInput `pulumi:"createdBy"`
 	// Collection of errors encountered on this ComputeInstance.
 	Errors MachineLearningServiceErrorResponseArrayInput `pulumi:"errors"`
+	// The last operation on ComputeInstance.
+	LastOperation ComputeInstanceLastOperationResponseInput `pulumi:"lastOperation"`
 	// Specifies policy and settings for SSH access.
 	SshSettings ComputeInstanceSshSettingsResponsePtrInput `pulumi:"sshSettings"`
 	// The current state of this ComputeInstance.
@@ -3016,6 +3192,11 @@ func (o ComputeInstanceResponsePropertiesOutput) Errors() MachineLearningService
 	return o.ApplyT(func(v ComputeInstanceResponseProperties) []MachineLearningServiceErrorResponse { return v.Errors }).(MachineLearningServiceErrorResponseArrayOutput)
 }
 
+// The last operation on ComputeInstance.
+func (o ComputeInstanceResponsePropertiesOutput) LastOperation() ComputeInstanceLastOperationResponseOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) ComputeInstanceLastOperationResponse { return v.LastOperation }).(ComputeInstanceLastOperationResponseOutput)
+}
+
 // Specifies policy and settings for SSH access.
 func (o ComputeInstanceResponsePropertiesOutput) SshSettings() ComputeInstanceSshSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ComputeInstanceResponseProperties) *ComputeInstanceSshSettingsResponse { return v.SshSettings }).(ComputeInstanceSshSettingsResponsePtrOutput)
@@ -3102,6 +3283,16 @@ func (o ComputeInstanceResponsePropertiesPtrOutput) Errors() MachineLearningServ
 		}
 		return v.Errors
 	}).(MachineLearningServiceErrorResponseArrayOutput)
+}
+
+// The last operation on ComputeInstance.
+func (o ComputeInstanceResponsePropertiesPtrOutput) LastOperation() ComputeInstanceLastOperationResponsePtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *ComputeInstanceLastOperationResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.LastOperation
+	}).(ComputeInstanceLastOperationResponsePtrOutput)
 }
 
 // Specifies policy and settings for SSH access.
@@ -11297,6 +11488,8 @@ func init() {
 	pulumi.RegisterOutputType(ComputeInstanceConnectivityEndpointsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceCreatedByResponseOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceCreatedByResponsePtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceLastOperationResponseOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceLastOperationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ComputeInstancePropertiesOutput{})
 	pulumi.RegisterOutputType(ComputeInstancePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceResponseOutput{})

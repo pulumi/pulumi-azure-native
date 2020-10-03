@@ -14,23 +14,23 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
     public sealed class LiveEventInputResponse
     {
         /// <summary>
-        /// The access control for LiveEvent Input.
+        /// Access control for live event input.
         /// </summary>
         public readonly Outputs.LiveEventInputAccessControlResponse? AccessControl;
         /// <summary>
-        /// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+        /// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
         /// </summary>
         public readonly string? AccessToken;
         /// <summary>
-        /// The input endpoints for the Live Event.
+        /// The input endpoints for the live event.
         /// </summary>
         public readonly ImmutableArray<Outputs.LiveEventEndpointResponse> Endpoints;
         /// <summary>
-        /// ISO 8601 timespan duration of the key frame interval duration.
+        /// ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
         /// </summary>
         public readonly string? KeyFrameIntervalDuration;
         /// <summary>
-        /// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+        /// The input protocol for the live event. This is specified at creation time and cannot be updated.
         /// </summary>
         public readonly string StreamingProtocol;
 

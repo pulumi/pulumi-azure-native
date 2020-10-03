@@ -16,6 +16,8 @@ type PutAliasRequestProperties struct {
 	BillingScope *string `pulumi:"billingScope"`
 	// The friendly name of the subscription.
 	DisplayName *string `pulumi:"displayName"`
+	// Reseller ID, basically MPN Id
+	ResellerId *string `pulumi:"resellerId"`
 	// This parameter can be used to create alias for existing subscription Id
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The workload type of the subscription. It can be either Production or DevTest.
@@ -39,6 +41,8 @@ type PutAliasRequestPropertiesArgs struct {
 	BillingScope pulumi.StringPtrInput `pulumi:"billingScope"`
 	// The friendly name of the subscription.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Reseller ID, basically MPN Id
+	ResellerId pulumi.StringPtrInput `pulumi:"resellerId"`
 	// This parameter can be used to create alias for existing subscription Id
 	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
 	// The workload type of the subscription. It can be either Production or DevTest.
@@ -133,6 +137,11 @@ func (o PutAliasRequestPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// Reseller ID, basically MPN Id
+func (o PutAliasRequestPropertiesOutput) ResellerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.ResellerId }).(pulumi.StringPtrOutput)
+}
+
 // This parameter can be used to create alias for existing subscription Id
 func (o PutAliasRequestPropertiesOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
@@ -178,6 +187,16 @@ func (o PutAliasRequestPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Reseller ID, basically MPN Id
+func (o PutAliasRequestPropertiesPtrOutput) ResellerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PutAliasRequestProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResellerId
 	}).(pulumi.StringPtrOutput)
 }
 

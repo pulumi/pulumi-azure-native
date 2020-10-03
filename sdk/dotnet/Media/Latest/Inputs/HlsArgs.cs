@@ -11,12 +11,12 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
 {
 
     /// <summary>
-    /// The HLS configuration.
+    /// HTTP Live Streaming (HLS) packing setting for the live output.
     /// </summary>
     public sealed class HlsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of fragments per HTTP Live Streaming (HLS) segment.
+        /// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
         /// </summary>
         [Input("fragmentsPerTsSegment")]
         public Input<int>? FragmentsPerTsSegment { get; set; }

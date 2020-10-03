@@ -21,15 +21,15 @@ type LookupStreamingEndpointArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the StreamingEndpoint.
+	// The name of the streaming endpoint, maximum length is 24.
 	StreamingEndpointName string `pulumi:"streamingEndpointName"`
 }
 
-// The StreamingEndpoint.
+// The streaming endpoint.
 type LookupStreamingEndpointResult struct {
-	// The access control definition of the StreamingEndpoint.
+	// The access control definition of the streaming endpoint.
 	AccessControl *StreamingEndpointAccessControlResponse `pulumi:"accessControl"`
-	// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+	// This feature is deprecated, do not set a value for this property.
 	AvailabilitySetName *string `pulumi:"availabilitySetName"`
 	// The CDN enabled flag.
 	CdnEnabled *bool `pulumi:"cdnEnabled"`
@@ -37,19 +37,19 @@ type LookupStreamingEndpointResult struct {
 	CdnProfile *string `pulumi:"cdnProfile"`
 	// The CDN provider name.
 	CdnProvider *string `pulumi:"cdnProvider"`
-	// The exact time the StreamingEndpoint was created.
+	// The exact time the streaming endpoint was created.
 	Created string `pulumi:"created"`
-	// The StreamingEndpoint access policies.
+	// The streaming endpoint access policies.
 	CrossSiteAccessPolicies *CrossSiteAccessPoliciesResponse `pulumi:"crossSiteAccessPolicies"`
-	// The custom host names of the StreamingEndpoint
+	// The custom host names of the streaming endpoint
 	CustomHostNames []string `pulumi:"customHostNames"`
-	// The StreamingEndpoint description.
+	// The streaming endpoint description.
 	Description *string `pulumi:"description"`
 	// The free trial expiration time.
 	FreeTrialEndTime string `pulumi:"freeTrialEndTime"`
-	// The StreamingEndpoint host name.
+	// The streaming endpoint host name.
 	HostName string `pulumi:"hostName"`
-	// The exact time the StreamingEndpoint was last modified.
+	// The exact time the streaming endpoint was last modified.
 	LastModified string `pulumi:"lastModified"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
@@ -57,11 +57,11 @@ type LookupStreamingEndpointResult struct {
 	MaxCacheAge *int `pulumi:"maxCacheAge"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The provisioning state of the StreamingEndpoint.
+	// The provisioning state of the streaming endpoint.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The resource state of the StreamingEndpoint.
+	// The resource state of the streaming endpoint.
 	ResourceState string `pulumi:"resourceState"`
-	// The number of scale units.  Use the Scale operation to adjust this value.
+	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits int `pulumi:"scaleUnits"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
