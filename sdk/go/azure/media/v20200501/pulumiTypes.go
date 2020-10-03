@@ -49,47 +49,6 @@ func (i AbsoluteClipTimeArgs) ToAbsoluteClipTimeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteClipTimeOutput)
 }
 
-func (i AbsoluteClipTimeArgs) ToAbsoluteClipTimePtrOutput() AbsoluteClipTimePtrOutput {
-	return i.ToAbsoluteClipTimePtrOutputWithContext(context.Background())
-}
-
-func (i AbsoluteClipTimeArgs) ToAbsoluteClipTimePtrOutputWithContext(ctx context.Context) AbsoluteClipTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteClipTimeOutput).ToAbsoluteClipTimePtrOutputWithContext(ctx)
-}
-
-// AbsoluteClipTimePtrInput is an input type that accepts AbsoluteClipTimeArgs, AbsoluteClipTimePtr and AbsoluteClipTimePtrOutput values.
-// You can construct a concrete instance of `AbsoluteClipTimePtrInput` via:
-//
-//          AbsoluteClipTimeArgs{...}
-//
-//  or:
-//
-//          nil
-type AbsoluteClipTimePtrInput interface {
-	pulumi.Input
-
-	ToAbsoluteClipTimePtrOutput() AbsoluteClipTimePtrOutput
-	ToAbsoluteClipTimePtrOutputWithContext(context.Context) AbsoluteClipTimePtrOutput
-}
-
-type absoluteClipTimePtrType AbsoluteClipTimeArgs
-
-func AbsoluteClipTimePtr(v *AbsoluteClipTimeArgs) AbsoluteClipTimePtrInput {
-	return (*absoluteClipTimePtrType)(v)
-}
-
-func (*absoluteClipTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AbsoluteClipTime)(nil)).Elem()
-}
-
-func (i *absoluteClipTimePtrType) ToAbsoluteClipTimePtrOutput() AbsoluteClipTimePtrOutput {
-	return i.ToAbsoluteClipTimePtrOutputWithContext(context.Background())
-}
-
-func (i *absoluteClipTimePtrType) ToAbsoluteClipTimePtrOutputWithContext(ctx context.Context) AbsoluteClipTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteClipTimePtrOutput)
-}
-
 // Specifies the clip time as an absolute time position in the media file.  The absolute time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
 type AbsoluteClipTimeOutput struct{ *pulumi.OutputState }
 
@@ -105,16 +64,6 @@ func (o AbsoluteClipTimeOutput) ToAbsoluteClipTimeOutputWithContext(ctx context.
 	return o
 }
 
-func (o AbsoluteClipTimeOutput) ToAbsoluteClipTimePtrOutput() AbsoluteClipTimePtrOutput {
-	return o.ToAbsoluteClipTimePtrOutputWithContext(context.Background())
-}
-
-func (o AbsoluteClipTimeOutput) ToAbsoluteClipTimePtrOutputWithContext(ctx context.Context) AbsoluteClipTimePtrOutput {
-	return o.ApplyT(func(v AbsoluteClipTime) *AbsoluteClipTime {
-		return &v
-	}).(AbsoluteClipTimePtrOutput)
-}
-
 // The discriminator for derived types.
 func (o AbsoluteClipTimeOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AbsoluteClipTime) string { return v.OdataType }).(pulumi.StringOutput)
@@ -123,44 +72,6 @@ func (o AbsoluteClipTimeOutput) OdataType() pulumi.StringOutput {
 // The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
 func (o AbsoluteClipTimeOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v AbsoluteClipTime) string { return v.Time }).(pulumi.StringOutput)
-}
-
-type AbsoluteClipTimePtrOutput struct{ *pulumi.OutputState }
-
-func (AbsoluteClipTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AbsoluteClipTime)(nil)).Elem()
-}
-
-func (o AbsoluteClipTimePtrOutput) ToAbsoluteClipTimePtrOutput() AbsoluteClipTimePtrOutput {
-	return o
-}
-
-func (o AbsoluteClipTimePtrOutput) ToAbsoluteClipTimePtrOutputWithContext(ctx context.Context) AbsoluteClipTimePtrOutput {
-	return o
-}
-
-func (o AbsoluteClipTimePtrOutput) Elem() AbsoluteClipTimeOutput {
-	return o.ApplyT(func(v *AbsoluteClipTime) AbsoluteClipTime { return *v }).(AbsoluteClipTimeOutput)
-}
-
-// The discriminator for derived types.
-func (o AbsoluteClipTimePtrOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AbsoluteClipTime) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OdataType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
-func (o AbsoluteClipTimePtrOutput) Time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AbsoluteClipTime) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Time
-	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the clip time as an absolute time position in the media file.  The absolute time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
@@ -202,47 +113,6 @@ func (i AbsoluteClipTimeResponseArgs) ToAbsoluteClipTimeResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteClipTimeResponseOutput)
 }
 
-func (i AbsoluteClipTimeResponseArgs) ToAbsoluteClipTimeResponsePtrOutput() AbsoluteClipTimeResponsePtrOutput {
-	return i.ToAbsoluteClipTimeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AbsoluteClipTimeResponseArgs) ToAbsoluteClipTimeResponsePtrOutputWithContext(ctx context.Context) AbsoluteClipTimeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteClipTimeResponseOutput).ToAbsoluteClipTimeResponsePtrOutputWithContext(ctx)
-}
-
-// AbsoluteClipTimeResponsePtrInput is an input type that accepts AbsoluteClipTimeResponseArgs, AbsoluteClipTimeResponsePtr and AbsoluteClipTimeResponsePtrOutput values.
-// You can construct a concrete instance of `AbsoluteClipTimeResponsePtrInput` via:
-//
-//          AbsoluteClipTimeResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AbsoluteClipTimeResponsePtrInput interface {
-	pulumi.Input
-
-	ToAbsoluteClipTimeResponsePtrOutput() AbsoluteClipTimeResponsePtrOutput
-	ToAbsoluteClipTimeResponsePtrOutputWithContext(context.Context) AbsoluteClipTimeResponsePtrOutput
-}
-
-type absoluteClipTimeResponsePtrType AbsoluteClipTimeResponseArgs
-
-func AbsoluteClipTimeResponsePtr(v *AbsoluteClipTimeResponseArgs) AbsoluteClipTimeResponsePtrInput {
-	return (*absoluteClipTimeResponsePtrType)(v)
-}
-
-func (*absoluteClipTimeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AbsoluteClipTimeResponse)(nil)).Elem()
-}
-
-func (i *absoluteClipTimeResponsePtrType) ToAbsoluteClipTimeResponsePtrOutput() AbsoluteClipTimeResponsePtrOutput {
-	return i.ToAbsoluteClipTimeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *absoluteClipTimeResponsePtrType) ToAbsoluteClipTimeResponsePtrOutputWithContext(ctx context.Context) AbsoluteClipTimeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteClipTimeResponsePtrOutput)
-}
-
 // Specifies the clip time as an absolute time position in the media file.  The absolute time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
 type AbsoluteClipTimeResponseOutput struct{ *pulumi.OutputState }
 
@@ -258,16 +128,6 @@ func (o AbsoluteClipTimeResponseOutput) ToAbsoluteClipTimeResponseOutputWithCont
 	return o
 }
 
-func (o AbsoluteClipTimeResponseOutput) ToAbsoluteClipTimeResponsePtrOutput() AbsoluteClipTimeResponsePtrOutput {
-	return o.ToAbsoluteClipTimeResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AbsoluteClipTimeResponseOutput) ToAbsoluteClipTimeResponsePtrOutputWithContext(ctx context.Context) AbsoluteClipTimeResponsePtrOutput {
-	return o.ApplyT(func(v AbsoluteClipTimeResponse) *AbsoluteClipTimeResponse {
-		return &v
-	}).(AbsoluteClipTimeResponsePtrOutput)
-}
-
 // The discriminator for derived types.
 func (o AbsoluteClipTimeResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AbsoluteClipTimeResponse) string { return v.OdataType }).(pulumi.StringOutput)
@@ -276,44 +136,6 @@ func (o AbsoluteClipTimeResponseOutput) OdataType() pulumi.StringOutput {
 // The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
 func (o AbsoluteClipTimeResponseOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v AbsoluteClipTimeResponse) string { return v.Time }).(pulumi.StringOutput)
-}
-
-type AbsoluteClipTimeResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AbsoluteClipTimeResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AbsoluteClipTimeResponse)(nil)).Elem()
-}
-
-func (o AbsoluteClipTimeResponsePtrOutput) ToAbsoluteClipTimeResponsePtrOutput() AbsoluteClipTimeResponsePtrOutput {
-	return o
-}
-
-func (o AbsoluteClipTimeResponsePtrOutput) ToAbsoluteClipTimeResponsePtrOutputWithContext(ctx context.Context) AbsoluteClipTimeResponsePtrOutput {
-	return o
-}
-
-func (o AbsoluteClipTimeResponsePtrOutput) Elem() AbsoluteClipTimeResponseOutput {
-	return o.ApplyT(func(v *AbsoluteClipTimeResponse) AbsoluteClipTimeResponse { return *v }).(AbsoluteClipTimeResponseOutput)
-}
-
-// The discriminator for derived types.
-func (o AbsoluteClipTimeResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AbsoluteClipTimeResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OdataType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
-func (o AbsoluteClipTimeResponsePtrOutput) Time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AbsoluteClipTimeResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Time
-	}).(pulumi.StringPtrOutput)
 }
 
 type AccountEncryption struct {
@@ -1498,10 +1320,12 @@ func (o AudioOutput) SamplingRate() pulumi.IntPtrOutput {
 
 // The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPreset struct {
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode::Basic, since automatic language detection is not included in basic mode. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
 	AudioLanguage *string `pulumi:"audioLanguage"`
 	// Dictionary containing key value pairs for parameters not exposed in the preset itself
 	ExperimentalOptions map[string]string `pulumi:"experimentalOptions"`
+	// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+	Mode *string `pulumi:"mode"`
 	// The discriminator for derived types.
 	OdataType string `pulumi:"odataType"`
 }
@@ -1519,10 +1343,12 @@ type AudioAnalyzerPresetInput interface {
 
 // The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPresetArgs struct {
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode::Basic, since automatic language detection is not included in basic mode. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
 	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
 	// Dictionary containing key value pairs for parameters not exposed in the preset itself
 	ExperimentalOptions pulumi.StringMapInput `pulumi:"experimentalOptions"`
+	// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The discriminator for derived types.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
@@ -1554,7 +1380,7 @@ func (o AudioAnalyzerPresetOutput) ToAudioAnalyzerPresetOutputWithContext(ctx co
 	return o
 }
 
-// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode::Basic, since automatic language detection is not included in basic mode. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
 func (o AudioAnalyzerPresetOutput) AudioLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioAnalyzerPreset) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
 }
@@ -1564,6 +1390,11 @@ func (o AudioAnalyzerPresetOutput) ExperimentalOptions() pulumi.StringMapOutput 
 	return o.ApplyT(func(v AudioAnalyzerPreset) map[string]string { return v.ExperimentalOptions }).(pulumi.StringMapOutput)
 }
 
+// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+func (o AudioAnalyzerPresetOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AudioAnalyzerPreset) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
 // The discriminator for derived types.
 func (o AudioAnalyzerPresetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioAnalyzerPreset) string { return v.OdataType }).(pulumi.StringOutput)
@@ -1571,10 +1402,12 @@ func (o AudioAnalyzerPresetOutput) OdataType() pulumi.StringOutput {
 
 // The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPresetResponse struct {
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode::Basic, since automatic language detection is not included in basic mode. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
 	AudioLanguage *string `pulumi:"audioLanguage"`
 	// Dictionary containing key value pairs for parameters not exposed in the preset itself
 	ExperimentalOptions map[string]string `pulumi:"experimentalOptions"`
+	// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+	Mode *string `pulumi:"mode"`
 	// The discriminator for derived types.
 	OdataType string `pulumi:"odataType"`
 }
@@ -1592,10 +1425,12 @@ type AudioAnalyzerPresetResponseInput interface {
 
 // The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPresetResponseArgs struct {
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode::Basic, since automatic language detection is not included in basic mode. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
 	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
 	// Dictionary containing key value pairs for parameters not exposed in the preset itself
 	ExperimentalOptions pulumi.StringMapInput `pulumi:"experimentalOptions"`
+	// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The discriminator for derived types.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
@@ -1627,7 +1462,7 @@ func (o AudioAnalyzerPresetResponseOutput) ToAudioAnalyzerPresetResponseOutputWi
 	return o
 }
 
-// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode::Basic, since automatic language detection is not included in basic mode. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
 func (o AudioAnalyzerPresetResponseOutput) AudioLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioAnalyzerPresetResponse) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
 }
@@ -1635,6 +1470,11 @@ func (o AudioAnalyzerPresetResponseOutput) AudioLanguage() pulumi.StringPtrOutpu
 // Dictionary containing key value pairs for parameters not exposed in the preset itself
 func (o AudioAnalyzerPresetResponseOutput) ExperimentalOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AudioAnalyzerPresetResponse) map[string]string { return v.ExperimentalOptions }).(pulumi.StringMapOutput)
+}
+
+// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+func (o AudioAnalyzerPresetResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AudioAnalyzerPresetResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 // The discriminator for derived types.
@@ -1646,7 +1486,7 @@ func (o AudioAnalyzerPresetResponseOutput) OdataType() pulumi.StringOutput {
 type AudioOverlay struct {
 	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
 	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 	End *string `pulumi:"end"`
 	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 	FadeInDuration *string `pulumi:"fadeInDuration"`
@@ -1656,7 +1496,7 @@ type AudioOverlay struct {
 	InputLabel string `pulumi:"inputLabel"`
 	// The discriminator for derived types.
 	OdataType string `pulumi:"odataType"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 	Start *string `pulumi:"start"`
 }
 
@@ -1675,7 +1515,7 @@ type AudioOverlayInput interface {
 type AudioOverlayArgs struct {
 	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
 	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
@@ -1685,7 +1525,7 @@ type AudioOverlayArgs struct {
 	InputLabel pulumi.StringInput `pulumi:"inputLabel"`
 	// The discriminator for derived types.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -1721,7 +1561,7 @@ func (o AudioOverlayOutput) AudioGainLevel() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AudioOverlay) *float64 { return v.AudioGainLevel }).(pulumi.Float64PtrOutput)
 }
 
-// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 func (o AudioOverlayOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlay) *string { return v.End }).(pulumi.StringPtrOutput)
 }
@@ -1746,7 +1586,7 @@ func (o AudioOverlayOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioOverlay) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 func (o AudioOverlayOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlay) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -1755,7 +1595,7 @@ func (o AudioOverlayOutput) Start() pulumi.StringPtrOutput {
 type AudioOverlayResponse struct {
 	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
 	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 	End *string `pulumi:"end"`
 	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 	FadeInDuration *string `pulumi:"fadeInDuration"`
@@ -1765,7 +1605,7 @@ type AudioOverlayResponse struct {
 	InputLabel string `pulumi:"inputLabel"`
 	// The discriminator for derived types.
 	OdataType string `pulumi:"odataType"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 	Start *string `pulumi:"start"`
 }
 
@@ -1784,7 +1624,7 @@ type AudioOverlayResponseInput interface {
 type AudioOverlayResponseArgs struct {
 	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
 	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
@@ -1794,7 +1634,7 @@ type AudioOverlayResponseArgs struct {
 	InputLabel pulumi.StringInput `pulumi:"inputLabel"`
 	// The discriminator for derived types.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -1830,7 +1670,7 @@ func (o AudioOverlayResponseOutput) AudioGainLevel() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) *float64 { return v.AudioGainLevel }).(pulumi.Float64PtrOutput)
 }
 
-// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 func (o AudioOverlayResponseOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) *string { return v.End }).(pulumi.StringPtrOutput)
 }
@@ -1855,7 +1695,7 @@ func (o AudioOverlayResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 func (o AudioOverlayResponseOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlayResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -10920,9 +10760,9 @@ func (o FirstQualityResponsePtrOutput) Bitrate() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The HLS configuration.
+// HTTP Live Streaming (HLS) packing setting for the live output.
 type Hls struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
+	// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
 	FragmentsPerTsSegment *int `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -10937,9 +10777,9 @@ type HlsInput interface {
 	ToHlsOutputWithContext(context.Context) HlsOutput
 }
 
-// The HLS configuration.
+// HTTP Live Streaming (HLS) packing setting for the live output.
 type HlsArgs struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
+	// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
 	FragmentsPerTsSegment pulumi.IntPtrInput `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -10996,7 +10836,7 @@ func (i *hlsPtrType) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HlsPtrOutput)
 }
 
-// The HLS configuration.
+// HTTP Live Streaming (HLS) packing setting for the live output.
 type HlsOutput struct{ *pulumi.OutputState }
 
 func (HlsOutput) ElementType() reflect.Type {
@@ -11021,7 +10861,7 @@ func (o HlsOutput) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutput {
 	}).(HlsPtrOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
+// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
 func (o HlsOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Hls) *int { return v.FragmentsPerTsSegment }).(pulumi.IntPtrOutput)
 }
@@ -11044,7 +10884,7 @@ func (o HlsPtrOutput) Elem() HlsOutput {
 	return o.ApplyT(func(v *Hls) Hls { return *v }).(HlsOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
+// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
 func (o HlsPtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Hls) *int {
 		if v == nil {
@@ -11054,9 +10894,9 @@ func (o HlsPtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The HLS configuration.
+// HTTP Live Streaming (HLS) packing setting for the live output.
 type HlsResponse struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
+	// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
 	FragmentsPerTsSegment *int `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -11071,9 +10911,9 @@ type HlsResponseInput interface {
 	ToHlsResponseOutputWithContext(context.Context) HlsResponseOutput
 }
 
-// The HLS configuration.
+// HTTP Live Streaming (HLS) packing setting for the live output.
 type HlsResponseArgs struct {
-	// The amount of fragments per HTTP Live Streaming (HLS) segment.
+	// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
 	FragmentsPerTsSegment pulumi.IntPtrInput `pulumi:"fragmentsPerTsSegment"`
 }
 
@@ -11130,7 +10970,7 @@ func (i *hlsResponsePtrType) ToHlsResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HlsResponsePtrOutput)
 }
 
-// The HLS configuration.
+// HTTP Live Streaming (HLS) packing setting for the live output.
 type HlsResponseOutput struct{ *pulumi.OutputState }
 
 func (HlsResponseOutput) ElementType() reflect.Type {
@@ -11155,7 +10995,7 @@ func (o HlsResponseOutput) ToHlsResponsePtrOutputWithContext(ctx context.Context
 	}).(HlsResponsePtrOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
+// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
 func (o HlsResponseOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HlsResponse) *int { return v.FragmentsPerTsSegment }).(pulumi.IntPtrOutput)
 }
@@ -11178,7 +11018,7 @@ func (o HlsResponsePtrOutput) Elem() HlsResponseOutput {
 	return o.ApplyT(func(v *HlsResponse) HlsResponse { return *v }).(HlsResponseOutput)
 }
 
-// The amount of fragments per HTTP Live Streaming (HLS) segment.
+// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
 func (o HlsResponsePtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HlsResponse) *int {
 		if v == nil {
@@ -11694,7 +11534,7 @@ func (o IPRangeResponseArrayOutput) Index(i pulumi.IntInput) IPRangeResponseOutp
 
 // Describes the properties for an output image file.
 type ImageFormat struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
 	OdataType string `pulumi:"odataType"`
@@ -11713,7 +11553,7 @@ type ImageFormatInput interface {
 
 // Describes the properties for an output image file.
 type ImageFormatArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
@@ -11746,7 +11586,7 @@ func (o ImageFormatOutput) ToImageFormatOutputWithContext(ctx context.Context) I
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o ImageFormatOutput) FilenamePattern() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageFormat) string { return v.FilenamePattern }).(pulumi.StringOutput)
 }
@@ -11758,7 +11598,7 @@ func (o ImageFormatOutput) OdataType() pulumi.StringOutput {
 
 // Describes the properties for an output image file.
 type ImageFormatResponse struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
 	OdataType string `pulumi:"odataType"`
@@ -11777,7 +11617,7 @@ type ImageFormatResponseInput interface {
 
 // Describes the properties for an output image file.
 type ImageFormatResponseArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
@@ -11810,7 +11650,7 @@ func (o ImageFormatResponseOutput) ToImageFormatResponseOutputWithContext(ctx co
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o ImageFormatResponseOutput) FilenamePattern() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageFormatResponse) string { return v.FilenamePattern }).(pulumi.StringOutput)
 }
@@ -12023,7 +11863,7 @@ func (o JobErrorResponseOutput) Retry() pulumi.StringOutput {
 // Represents input files for a Job.
 type JobInputClip struct {
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
-	End *AbsoluteClipTime `pulumi:"end"`
+	End interface{} `pulumi:"end"`
 	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
 	Files []string `pulumi:"files"`
 	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
@@ -12031,7 +11871,7 @@ type JobInputClip struct {
 	// The discriminator for derived types.
 	OdataType string `pulumi:"odataType"`
 	// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
-	Start *AbsoluteClipTime `pulumi:"start"`
+	Start interface{} `pulumi:"start"`
 }
 
 // JobInputClipInput is an input type that accepts JobInputClipArgs and JobInputClipOutput values.
@@ -12048,7 +11888,7 @@ type JobInputClipInput interface {
 // Represents input files for a Job.
 type JobInputClipArgs struct {
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
-	End AbsoluteClipTimePtrInput `pulumi:"end"`
+	End pulumi.Input `pulumi:"end"`
 	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
 	Files pulumi.StringArrayInput `pulumi:"files"`
 	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
@@ -12056,7 +11896,7 @@ type JobInputClipArgs struct {
 	// The discriminator for derived types.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
-	Start AbsoluteClipTimePtrInput `pulumi:"start"`
+	Start pulumi.Input `pulumi:"start"`
 }
 
 func (JobInputClipArgs) ElementType() reflect.Type {
@@ -12087,8 +11927,8 @@ func (o JobInputClipOutput) ToJobInputClipOutputWithContext(ctx context.Context)
 }
 
 // Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
-func (o JobInputClipOutput) End() AbsoluteClipTimePtrOutput {
-	return o.ApplyT(func(v JobInputClip) *AbsoluteClipTime { return v.End }).(AbsoluteClipTimePtrOutput)
+func (o JobInputClipOutput) End() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobInputClip) interface{} { return v.End }).(pulumi.AnyOutput)
 }
 
 // List of files. Required for JobInputHttp. Maximum of 4000 characters each.
@@ -12107,14 +11947,14 @@ func (o JobInputClipOutput) OdataType() pulumi.StringOutput {
 }
 
 // Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
-func (o JobInputClipOutput) Start() AbsoluteClipTimePtrOutput {
-	return o.ApplyT(func(v JobInputClip) *AbsoluteClipTime { return v.Start }).(AbsoluteClipTimePtrOutput)
+func (o JobInputClipOutput) Start() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobInputClip) interface{} { return v.Start }).(pulumi.AnyOutput)
 }
 
 // Represents input files for a Job.
 type JobInputClipResponse struct {
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
-	End *AbsoluteClipTimeResponse `pulumi:"end"`
+	End interface{} `pulumi:"end"`
 	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
 	Files []string `pulumi:"files"`
 	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
@@ -12122,7 +11962,7 @@ type JobInputClipResponse struct {
 	// The discriminator for derived types.
 	OdataType string `pulumi:"odataType"`
 	// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
-	Start *AbsoluteClipTimeResponse `pulumi:"start"`
+	Start interface{} `pulumi:"start"`
 }
 
 // JobInputClipResponseInput is an input type that accepts JobInputClipResponseArgs and JobInputClipResponseOutput values.
@@ -12139,7 +11979,7 @@ type JobInputClipResponseInput interface {
 // Represents input files for a Job.
 type JobInputClipResponseArgs struct {
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
-	End AbsoluteClipTimeResponsePtrInput `pulumi:"end"`
+	End pulumi.Input `pulumi:"end"`
 	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
 	Files pulumi.StringArrayInput `pulumi:"files"`
 	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
@@ -12147,7 +11987,7 @@ type JobInputClipResponseArgs struct {
 	// The discriminator for derived types.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
-	Start AbsoluteClipTimeResponsePtrInput `pulumi:"start"`
+	Start pulumi.Input `pulumi:"start"`
 }
 
 func (JobInputClipResponseArgs) ElementType() reflect.Type {
@@ -12178,8 +12018,8 @@ func (o JobInputClipResponseOutput) ToJobInputClipResponseOutputWithContext(ctx 
 }
 
 // Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
-func (o JobInputClipResponseOutput) End() AbsoluteClipTimeResponsePtrOutput {
-	return o.ApplyT(func(v JobInputClipResponse) *AbsoluteClipTimeResponse { return v.End }).(AbsoluteClipTimeResponsePtrOutput)
+func (o JobInputClipResponseOutput) End() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobInputClipResponse) interface{} { return v.End }).(pulumi.AnyOutput)
 }
 
 // List of files. Required for JobInputHttp. Maximum of 4000 characters each.
@@ -12198,8 +12038,8 @@ func (o JobInputClipResponseOutput) OdataType() pulumi.StringOutput {
 }
 
 // Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
-func (o JobInputClipResponseOutput) Start() AbsoluteClipTimeResponsePtrOutput {
-	return o.ApplyT(func(v JobInputClipResponse) *AbsoluteClipTimeResponse { return v.Start }).(AbsoluteClipTimeResponsePtrOutput)
+func (o JobInputClipResponseOutput) Start() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobInputClipResponse) interface{} { return v.Start }).(pulumi.AnyOutput)
 }
 
 // Describes a list of inputs to a Job.
@@ -12892,12 +12732,16 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Live Event encoding.
+// Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncoding struct {
-	// The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType *string `pulumi:"encodingType"`
+	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
 	// The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
 	PresetName *string `pulumi:"presetName"`
+	// Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+	StretchMode *string `pulumi:"stretchMode"`
 }
 
 // LiveEventEncodingInput is an input type that accepts LiveEventEncodingArgs and LiveEventEncodingOutput values.
@@ -12911,12 +12755,16 @@ type LiveEventEncodingInput interface {
 	ToLiveEventEncodingOutputWithContext(context.Context) LiveEventEncodingOutput
 }
 
-// The Live Event encoding.
+// Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncodingArgs struct {
-	// The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
+	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
 	// The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
 	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
+	// Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
 }
 
 func (LiveEventEncodingArgs) ElementType() reflect.Type {
@@ -12972,7 +12820,7 @@ func (i *liveEventEncodingPtrType) ToLiveEventEncodingPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingPtrOutput)
 }
 
-// The Live Event encoding.
+// Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncodingOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEncodingOutput) ElementType() reflect.Type {
@@ -12997,14 +12845,24 @@ func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx con
 	}).(LiveEventEncodingPtrOutput)
 }
 
-// The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
+}
+
+// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+func (o LiveEventEncodingOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncoding) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
 // The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
 func (o LiveEventEncodingOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.PresetName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+func (o LiveEventEncodingOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncoding) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
 type LiveEventEncodingPtrOutput struct{ *pulumi.OutputState }
@@ -13025,13 +12883,23 @@ func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding { return *v }).(LiveEventEncodingOutput)
 }
 
-// The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingPtrOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) *string {
 		if v == nil {
 			return nil
 		}
 		return v.EncodingType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+func (o LiveEventEncodingPtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventEncoding) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFrameInterval
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13045,12 +12913,26 @@ func (o LiveEventEncodingPtrOutput) PresetName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Live Event encoding.
+// Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+func (o LiveEventEncodingPtrOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventEncoding) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StretchMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncodingResponse struct {
-	// The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType *string `pulumi:"encodingType"`
+	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
 	// The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
 	PresetName *string `pulumi:"presetName"`
+	// Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+	StretchMode *string `pulumi:"stretchMode"`
 }
 
 // LiveEventEncodingResponseInput is an input type that accepts LiveEventEncodingResponseArgs and LiveEventEncodingResponseOutput values.
@@ -13064,12 +12946,16 @@ type LiveEventEncodingResponseInput interface {
 	ToLiveEventEncodingResponseOutputWithContext(context.Context) LiveEventEncodingResponseOutput
 }
 
-// The Live Event encoding.
+// Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncodingResponseArgs struct {
-	// The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
+	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
 	// The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
 	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
+	// Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
 }
 
 func (LiveEventEncodingResponseArgs) ElementType() reflect.Type {
@@ -13125,7 +13011,7 @@ func (i *liveEventEncodingResponsePtrType) ToLiveEventEncodingResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingResponsePtrOutput)
 }
 
-// The Live Event encoding.
+// Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncodingResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEncodingResponseOutput) ElementType() reflect.Type {
@@ -13150,14 +13036,24 @@ func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutputWit
 	}).(LiveEventEncodingResponsePtrOutput)
 }
 
-// The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingResponseOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncodingResponse) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
+}
+
+// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+func (o LiveEventEncodingResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncodingResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
 // The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
 func (o LiveEventEncodingResponseOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncodingResponse) *string { return v.PresetName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+func (o LiveEventEncodingResponseOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncodingResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
 type LiveEventEncodingResponsePtrOutput struct{ *pulumi.OutputState }
@@ -13178,13 +13074,23 @@ func (o LiveEventEncodingResponsePtrOutput) Elem() LiveEventEncodingResponseOutp
 	return o.ApplyT(func(v *LiveEventEncodingResponse) LiveEventEncodingResponse { return *v }).(LiveEventEncodingResponseOutput)
 }
 
-// The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingResponsePtrOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncodingResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return v.EncodingType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+func (o LiveEventEncodingResponsePtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventEncodingResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFrameInterval
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13198,7 +13104,17 @@ func (o LiveEventEncodingResponsePtrOutput) PresetName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Live Event endpoint.
+// Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+func (o LiveEventEncodingResponsePtrOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventEncodingResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StretchMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The live event endpoint.
 type LiveEventEndpoint struct {
 	// The endpoint protocol.
 	Protocol *string `pulumi:"protocol"`
@@ -13217,7 +13133,7 @@ type LiveEventEndpointInput interface {
 	ToLiveEventEndpointOutputWithContext(context.Context) LiveEventEndpointOutput
 }
 
-// The Live Event endpoint.
+// The live event endpoint.
 type LiveEventEndpointArgs struct {
 	// The endpoint protocol.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -13262,7 +13178,7 @@ func (i LiveEventEndpointArray) ToLiveEventEndpointArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointArrayOutput)
 }
 
-// The Live Event endpoint.
+// The live event endpoint.
 type LiveEventEndpointOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEndpointOutput) ElementType() reflect.Type {
@@ -13307,7 +13223,7 @@ func (o LiveEventEndpointArrayOutput) Index(i pulumi.IntInput) LiveEventEndpoint
 	}).(LiveEventEndpointOutput)
 }
 
-// The Live Event endpoint.
+// The live event endpoint.
 type LiveEventEndpointResponse struct {
 	// The endpoint protocol.
 	Protocol *string `pulumi:"protocol"`
@@ -13326,7 +13242,7 @@ type LiveEventEndpointResponseInput interface {
 	ToLiveEventEndpointResponseOutputWithContext(context.Context) LiveEventEndpointResponseOutput
 }
 
-// The Live Event endpoint.
+// The live event endpoint.
 type LiveEventEndpointResponseArgs struct {
 	// The endpoint protocol.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -13371,7 +13287,7 @@ func (i LiveEventEndpointResponseArray) ToLiveEventEndpointResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointResponseArrayOutput)
 }
 
-// The Live Event endpoint.
+// The live event endpoint.
 type LiveEventEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEndpointResponseOutput) ElementType() reflect.Type {
@@ -13416,17 +13332,17 @@ func (o LiveEventEndpointResponseArrayOutput) Index(i pulumi.IntInput) LiveEvent
 	}).(LiveEventEndpointResponseOutput)
 }
 
-// The Live Event input.
+// The live event input.
 type LiveEventInput struct {
-	// The access control for LiveEvent Input.
+	// Access control for live event input.
 	AccessControl *LiveEventInputAccessControl `pulumi:"accessControl"`
-	// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+	// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
 	AccessToken *string `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
+	// The input endpoints for the live event.
 	Endpoints []LiveEventEndpoint `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
+	// ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
 	KeyFrameIntervalDuration *string `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+	// The input protocol for the live event. This is specified at creation time and cannot be updated.
 	StreamingProtocol string `pulumi:"streamingProtocol"`
 }
 
@@ -13441,17 +13357,17 @@ type LiveEventInputInput interface {
 	ToLiveEventInputOutputWithContext(context.Context) LiveEventInputOutput
 }
 
-// The Live Event input.
+// The live event input.
 type LiveEventInputArgs struct {
-	// The access control for LiveEvent Input.
+	// Access control for live event input.
 	AccessControl LiveEventInputAccessControlPtrInput `pulumi:"accessControl"`
-	// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+	// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
+	// The input endpoints for the live event.
 	Endpoints LiveEventEndpointArrayInput `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
+	// ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
 	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+	// The input protocol for the live event. This is specified at creation time and cannot be updated.
 	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
 }
 
@@ -13508,7 +13424,7 @@ func (i *liveEventInputPtrType) ToLiveEventInputPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputPtrOutput)
 }
 
-// The Live Event input.
+// The live event input.
 type LiveEventInputOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputOutput) ElementType() reflect.Type {
@@ -13533,27 +13449,27 @@ func (o LiveEventInputOutput) ToLiveEventInputPtrOutputWithContext(ctx context.C
 	}).(LiveEventInputPtrOutput)
 }
 
-// The access control for LiveEvent Input.
+// Access control for live event input.
 func (o LiveEventInputOutput) AccessControl() LiveEventInputAccessControlPtrOutput {
 	return o.ApplyT(func(v LiveEventInput) *LiveEventInputAccessControl { return v.AccessControl }).(LiveEventInputAccessControlPtrOutput)
 }
 
-// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
 func (o LiveEventInputOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInput) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
+// The input endpoints for the live event.
 func (o LiveEventInputOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v LiveEventInput) []LiveEventEndpoint { return v.Endpoints }).(LiveEventEndpointArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
+// ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
 func (o LiveEventInputOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInput) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+// The input protocol for the live event. This is specified at creation time and cannot be updated.
 func (o LiveEventInputOutput) StreamingProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LiveEventInput) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
@@ -13576,7 +13492,7 @@ func (o LiveEventInputPtrOutput) Elem() LiveEventInputOutput {
 	return o.ApplyT(func(v *LiveEventInput) LiveEventInput { return *v }).(LiveEventInputOutput)
 }
 
-// The access control for LiveEvent Input.
+// Access control for live event input.
 func (o LiveEventInputPtrOutput) AccessControl() LiveEventInputAccessControlPtrOutput {
 	return o.ApplyT(func(v *LiveEventInput) *LiveEventInputAccessControl {
 		if v == nil {
@@ -13586,7 +13502,7 @@ func (o LiveEventInputPtrOutput) AccessControl() LiveEventInputAccessControlPtrO
 	}).(LiveEventInputAccessControlPtrOutput)
 }
 
-// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
 func (o LiveEventInputPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInput) *string {
 		if v == nil {
@@ -13596,7 +13512,7 @@ func (o LiveEventInputPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
+// The input endpoints for the live event.
 func (o LiveEventInputPtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v *LiveEventInput) []LiveEventEndpoint {
 		if v == nil {
@@ -13606,7 +13522,7 @@ func (o LiveEventInputPtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	}).(LiveEventEndpointArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
+// ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
 func (o LiveEventInputPtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInput) *string {
 		if v == nil {
@@ -13616,7 +13532,7 @@ func (o LiveEventInputPtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+// The input protocol for the live event. This is specified at creation time and cannot be updated.
 func (o LiveEventInputPtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInput) *string {
 		if v == nil {
@@ -13626,7 +13542,7 @@ func (o LiveEventInputPtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP access control for Live Event Input.
+// The IP access control for live event input.
 type LiveEventInputAccessControl struct {
 	// The IP access control properties.
 	Ip *IPAccessControl `pulumi:"ip"`
@@ -13643,7 +13559,7 @@ type LiveEventInputAccessControlInput interface {
 	ToLiveEventInputAccessControlOutputWithContext(context.Context) LiveEventInputAccessControlOutput
 }
 
-// The IP access control for Live Event Input.
+// The IP access control for live event input.
 type LiveEventInputAccessControlArgs struct {
 	// The IP access control properties.
 	Ip IPAccessControlPtrInput `pulumi:"ip"`
@@ -13702,7 +13618,7 @@ func (i *liveEventInputAccessControlPtrType) ToLiveEventInputAccessControlPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlPtrOutput)
 }
 
-// The IP access control for Live Event Input.
+// The IP access control for live event input.
 type LiveEventInputAccessControlOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputAccessControlOutput) ElementType() reflect.Type {
@@ -13760,7 +13676,7 @@ func (o LiveEventInputAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	}).(IPAccessControlPtrOutput)
 }
 
-// The IP access control for Live Event Input.
+// The IP access control for live event input.
 type LiveEventInputAccessControlResponse struct {
 	// The IP access control properties.
 	Ip *IPAccessControlResponse `pulumi:"ip"`
@@ -13777,7 +13693,7 @@ type LiveEventInputAccessControlResponseInput interface {
 	ToLiveEventInputAccessControlResponseOutputWithContext(context.Context) LiveEventInputAccessControlResponseOutput
 }
 
-// The IP access control for Live Event Input.
+// The IP access control for live event input.
 type LiveEventInputAccessControlResponseArgs struct {
 	// The IP access control properties.
 	Ip IPAccessControlResponsePtrInput `pulumi:"ip"`
@@ -13836,7 +13752,7 @@ func (i *liveEventInputAccessControlResponsePtrType) ToLiveEventInputAccessContr
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlResponsePtrOutput)
 }
 
-// The IP access control for Live Event Input.
+// The IP access control for live event input.
 type LiveEventInputAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputAccessControlResponseOutput) ElementType() reflect.Type {
@@ -13894,17 +13810,17 @@ func (o LiveEventInputAccessControlResponsePtrOutput) Ip() IPAccessControlRespon
 	}).(IPAccessControlResponsePtrOutput)
 }
 
-// The Live Event input.
+// The live event input.
 type LiveEventInputResponse struct {
-	// The access control for LiveEvent Input.
+	// Access control for live event input.
 	AccessControl *LiveEventInputAccessControlResponse `pulumi:"accessControl"`
-	// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+	// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
 	AccessToken *string `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
+	// The input endpoints for the live event.
 	Endpoints []LiveEventEndpointResponse `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
+	// ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
 	KeyFrameIntervalDuration *string `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+	// The input protocol for the live event. This is specified at creation time and cannot be updated.
 	StreamingProtocol string `pulumi:"streamingProtocol"`
 }
 
@@ -13919,17 +13835,17 @@ type LiveEventInputResponseInput interface {
 	ToLiveEventInputResponseOutputWithContext(context.Context) LiveEventInputResponseOutput
 }
 
-// The Live Event input.
+// The live event input.
 type LiveEventInputResponseArgs struct {
-	// The access control for LiveEvent Input.
+	// Access control for live event input.
 	AccessControl LiveEventInputAccessControlResponsePtrInput `pulumi:"accessControl"`
-	// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+	// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// The input endpoints for the Live Event.
+	// The input endpoints for the live event.
 	Endpoints LiveEventEndpointResponseArrayInput `pulumi:"endpoints"`
-	// ISO 8601 timespan duration of the key frame interval duration.
+	// ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
 	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
-	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+	// The input protocol for the live event. This is specified at creation time and cannot be updated.
 	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
 }
 
@@ -13986,7 +13902,7 @@ func (i *liveEventInputResponsePtrType) ToLiveEventInputResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputResponsePtrOutput)
 }
 
-// The Live Event input.
+// The live event input.
 type LiveEventInputResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputResponseOutput) ElementType() reflect.Type {
@@ -14011,27 +13927,27 @@ func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutputWithConte
 	}).(LiveEventInputResponsePtrOutput)
 }
 
-// The access control for LiveEvent Input.
+// Access control for live event input.
 func (o LiveEventInputResponseOutput) AccessControl() LiveEventInputAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) *LiveEventInputAccessControlResponse { return v.AccessControl }).(LiveEventInputAccessControlResponsePtrOutput)
 }
 
-// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
 func (o LiveEventInputResponseOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
+// The input endpoints for the live event.
 func (o LiveEventInputResponseOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) []LiveEventEndpointResponse { return v.Endpoints }).(LiveEventEndpointResponseArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
+// ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
 func (o LiveEventInputResponseOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+// The input protocol for the live event. This is specified at creation time and cannot be updated.
 func (o LiveEventInputResponseOutput) StreamingProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
@@ -14054,7 +13970,7 @@ func (o LiveEventInputResponsePtrOutput) Elem() LiveEventInputResponseOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) LiveEventInputResponse { return *v }).(LiveEventInputResponseOutput)
 }
 
-// The access control for LiveEvent Input.
+// Access control for live event input.
 func (o LiveEventInputResponsePtrOutput) AccessControl() LiveEventInputAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *LiveEventInputAccessControlResponse {
 		if v == nil {
@@ -14064,7 +13980,7 @@ func (o LiveEventInputResponsePtrOutput) AccessControl() LiveEventInputAccessCon
 	}).(LiveEventInputAccessControlResponsePtrOutput)
 }
 
-// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+// A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
 func (o LiveEventInputResponsePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *string {
 		if v == nil {
@@ -14074,7 +13990,7 @@ func (o LiveEventInputResponsePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The input endpoints for the Live Event.
+// The input endpoints for the live event.
 func (o LiveEventInputResponsePtrOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) []LiveEventEndpointResponse {
 		if v == nil {
@@ -14084,7 +14000,7 @@ func (o LiveEventInputResponsePtrOutput) Endpoints() LiveEventEndpointResponseAr
 	}).(LiveEventEndpointResponseArrayOutput)
 }
 
-// ISO 8601 timespan duration of the key frame interval duration.
+// ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
 func (o LiveEventInputResponsePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *string {
 		if v == nil {
@@ -14094,7 +14010,7 @@ func (o LiveEventInputResponsePtrOutput) KeyFrameIntervalDuration() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+// The input protocol for the live event. This is specified at creation time and cannot be updated.
 func (o LiveEventInputResponsePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventInputResponse) *string {
 		if v == nil {
@@ -14104,17 +14020,523 @@ func (o LiveEventInputResponsePtrOutput) StreamingProtocol() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Live Event preview.
+// A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventInputTrackSelection struct {
+	// Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+	Operation *string `pulumi:"operation"`
+	// Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+	Property *string `pulumi:"property"`
+	// Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+	Value *string `pulumi:"value"`
+}
+
+// LiveEventInputTrackSelectionInput is an input type that accepts LiveEventInputTrackSelectionArgs and LiveEventInputTrackSelectionOutput values.
+// You can construct a concrete instance of `LiveEventInputTrackSelectionInput` via:
+//
+//          LiveEventInputTrackSelectionArgs{...}
+type LiveEventInputTrackSelectionInput interface {
+	pulumi.Input
+
+	ToLiveEventInputTrackSelectionOutput() LiveEventInputTrackSelectionOutput
+	ToLiveEventInputTrackSelectionOutputWithContext(context.Context) LiveEventInputTrackSelectionOutput
+}
+
+// A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventInputTrackSelectionArgs struct {
+	// Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	// Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+	Property pulumi.StringPtrInput `pulumi:"property"`
+	// Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LiveEventInputTrackSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputTrackSelection)(nil)).Elem()
+}
+
+func (i LiveEventInputTrackSelectionArgs) ToLiveEventInputTrackSelectionOutput() LiveEventInputTrackSelectionOutput {
+	return i.ToLiveEventInputTrackSelectionOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputTrackSelectionArgs) ToLiveEventInputTrackSelectionOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTrackSelectionOutput)
+}
+
+// LiveEventInputTrackSelectionArrayInput is an input type that accepts LiveEventInputTrackSelectionArray and LiveEventInputTrackSelectionArrayOutput values.
+// You can construct a concrete instance of `LiveEventInputTrackSelectionArrayInput` via:
+//
+//          LiveEventInputTrackSelectionArray{ LiveEventInputTrackSelectionArgs{...} }
+type LiveEventInputTrackSelectionArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventInputTrackSelectionArrayOutput() LiveEventInputTrackSelectionArrayOutput
+	ToLiveEventInputTrackSelectionArrayOutputWithContext(context.Context) LiveEventInputTrackSelectionArrayOutput
+}
+
+type LiveEventInputTrackSelectionArray []LiveEventInputTrackSelectionInput
+
+func (LiveEventInputTrackSelectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventInputTrackSelection)(nil)).Elem()
+}
+
+func (i LiveEventInputTrackSelectionArray) ToLiveEventInputTrackSelectionArrayOutput() LiveEventInputTrackSelectionArrayOutput {
+	return i.ToLiveEventInputTrackSelectionArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputTrackSelectionArray) ToLiveEventInputTrackSelectionArrayOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTrackSelectionArrayOutput)
+}
+
+// A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventInputTrackSelectionOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputTrackSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputTrackSelection)(nil)).Elem()
+}
+
+func (o LiveEventInputTrackSelectionOutput) ToLiveEventInputTrackSelectionOutput() LiveEventInputTrackSelectionOutput {
+	return o
+}
+
+func (o LiveEventInputTrackSelectionOutput) ToLiveEventInputTrackSelectionOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionOutput {
+	return o
+}
+
+// Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventInputTrackSelectionOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputTrackSelection) *string { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
+// Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventInputTrackSelectionOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputTrackSelection) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+// Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventInputTrackSelectionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputTrackSelection) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventInputTrackSelectionArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputTrackSelectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventInputTrackSelection)(nil)).Elem()
+}
+
+func (o LiveEventInputTrackSelectionArrayOutput) ToLiveEventInputTrackSelectionArrayOutput() LiveEventInputTrackSelectionArrayOutput {
+	return o
+}
+
+func (o LiveEventInputTrackSelectionArrayOutput) ToLiveEventInputTrackSelectionArrayOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionArrayOutput {
+	return o
+}
+
+func (o LiveEventInputTrackSelectionArrayOutput) Index(i pulumi.IntInput) LiveEventInputTrackSelectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventInputTrackSelection {
+		return vs[0].([]LiveEventInputTrackSelection)[vs[1].(int)]
+	}).(LiveEventInputTrackSelectionOutput)
+}
+
+// A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventInputTrackSelectionResponse struct {
+	// Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+	Operation *string `pulumi:"operation"`
+	// Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+	Property *string `pulumi:"property"`
+	// Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+	Value *string `pulumi:"value"`
+}
+
+// LiveEventInputTrackSelectionResponseInput is an input type that accepts LiveEventInputTrackSelectionResponseArgs and LiveEventInputTrackSelectionResponseOutput values.
+// You can construct a concrete instance of `LiveEventInputTrackSelectionResponseInput` via:
+//
+//          LiveEventInputTrackSelectionResponseArgs{...}
+type LiveEventInputTrackSelectionResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventInputTrackSelectionResponseOutput() LiveEventInputTrackSelectionResponseOutput
+	ToLiveEventInputTrackSelectionResponseOutputWithContext(context.Context) LiveEventInputTrackSelectionResponseOutput
+}
+
+// A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventInputTrackSelectionResponseArgs struct {
+	// Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	// Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+	Property pulumi.StringPtrInput `pulumi:"property"`
+	// Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LiveEventInputTrackSelectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputTrackSelectionResponse)(nil)).Elem()
+}
+
+func (i LiveEventInputTrackSelectionResponseArgs) ToLiveEventInputTrackSelectionResponseOutput() LiveEventInputTrackSelectionResponseOutput {
+	return i.ToLiveEventInputTrackSelectionResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputTrackSelectionResponseArgs) ToLiveEventInputTrackSelectionResponseOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTrackSelectionResponseOutput)
+}
+
+// LiveEventInputTrackSelectionResponseArrayInput is an input type that accepts LiveEventInputTrackSelectionResponseArray and LiveEventInputTrackSelectionResponseArrayOutput values.
+// You can construct a concrete instance of `LiveEventInputTrackSelectionResponseArrayInput` via:
+//
+//          LiveEventInputTrackSelectionResponseArray{ LiveEventInputTrackSelectionResponseArgs{...} }
+type LiveEventInputTrackSelectionResponseArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventInputTrackSelectionResponseArrayOutput() LiveEventInputTrackSelectionResponseArrayOutput
+	ToLiveEventInputTrackSelectionResponseArrayOutputWithContext(context.Context) LiveEventInputTrackSelectionResponseArrayOutput
+}
+
+type LiveEventInputTrackSelectionResponseArray []LiveEventInputTrackSelectionResponseInput
+
+func (LiveEventInputTrackSelectionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventInputTrackSelectionResponse)(nil)).Elem()
+}
+
+func (i LiveEventInputTrackSelectionResponseArray) ToLiveEventInputTrackSelectionResponseArrayOutput() LiveEventInputTrackSelectionResponseArrayOutput {
+	return i.ToLiveEventInputTrackSelectionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputTrackSelectionResponseArray) ToLiveEventInputTrackSelectionResponseArrayOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTrackSelectionResponseArrayOutput)
+}
+
+// A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventInputTrackSelectionResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputTrackSelectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputTrackSelectionResponse)(nil)).Elem()
+}
+
+func (o LiveEventInputTrackSelectionResponseOutput) ToLiveEventInputTrackSelectionResponseOutput() LiveEventInputTrackSelectionResponseOutput {
+	return o
+}
+
+func (o LiveEventInputTrackSelectionResponseOutput) ToLiveEventInputTrackSelectionResponseOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionResponseOutput {
+	return o
+}
+
+// Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventInputTrackSelectionResponseOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputTrackSelectionResponse) *string { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
+// Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventInputTrackSelectionResponseOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputTrackSelectionResponse) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+// Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventInputTrackSelectionResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputTrackSelectionResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventInputTrackSelectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputTrackSelectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventInputTrackSelectionResponse)(nil)).Elem()
+}
+
+func (o LiveEventInputTrackSelectionResponseArrayOutput) ToLiveEventInputTrackSelectionResponseArrayOutput() LiveEventInputTrackSelectionResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventInputTrackSelectionResponseArrayOutput) ToLiveEventInputTrackSelectionResponseArrayOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventInputTrackSelectionResponseArrayOutput) Index(i pulumi.IntInput) LiveEventInputTrackSelectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventInputTrackSelectionResponse {
+		return vs[0].([]LiveEventInputTrackSelectionResponse)[vs[1].(int)]
+	}).(LiveEventInputTrackSelectionResponseOutput)
+}
+
+// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventOutputTranscriptionTrack struct {
+	// The output track name. This property is reserved for future use, any value set on this property will be ignored.
+	TrackName string `pulumi:"trackName"`
+}
+
+// LiveEventOutputTranscriptionTrackInput is an input type that accepts LiveEventOutputTranscriptionTrackArgs and LiveEventOutputTranscriptionTrackOutput values.
+// You can construct a concrete instance of `LiveEventOutputTranscriptionTrackInput` via:
+//
+//          LiveEventOutputTranscriptionTrackArgs{...}
+type LiveEventOutputTranscriptionTrackInput interface {
+	pulumi.Input
+
+	ToLiveEventOutputTranscriptionTrackOutput() LiveEventOutputTranscriptionTrackOutput
+	ToLiveEventOutputTranscriptionTrackOutputWithContext(context.Context) LiveEventOutputTranscriptionTrackOutput
+}
+
+// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventOutputTranscriptionTrackArgs struct {
+	// The output track name. This property is reserved for future use, any value set on this property will be ignored.
+	TrackName pulumi.StringInput `pulumi:"trackName"`
+}
+
+func (LiveEventOutputTranscriptionTrackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventOutputTranscriptionTrack)(nil)).Elem()
+}
+
+func (i LiveEventOutputTranscriptionTrackArgs) ToLiveEventOutputTranscriptionTrackOutput() LiveEventOutputTranscriptionTrackOutput {
+	return i.ToLiveEventOutputTranscriptionTrackOutputWithContext(context.Background())
+}
+
+func (i LiveEventOutputTranscriptionTrackArgs) ToLiveEventOutputTranscriptionTrackOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackOutput)
+}
+
+func (i LiveEventOutputTranscriptionTrackArgs) ToLiveEventOutputTranscriptionTrackPtrOutput() LiveEventOutputTranscriptionTrackPtrOutput {
+	return i.ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventOutputTranscriptionTrackArgs) ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackOutput).ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(ctx)
+}
+
+// LiveEventOutputTranscriptionTrackPtrInput is an input type that accepts LiveEventOutputTranscriptionTrackArgs, LiveEventOutputTranscriptionTrackPtr and LiveEventOutputTranscriptionTrackPtrOutput values.
+// You can construct a concrete instance of `LiveEventOutputTranscriptionTrackPtrInput` via:
+//
+//          LiveEventOutputTranscriptionTrackArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventOutputTranscriptionTrackPtrInput interface {
+	pulumi.Input
+
+	ToLiveEventOutputTranscriptionTrackPtrOutput() LiveEventOutputTranscriptionTrackPtrOutput
+	ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(context.Context) LiveEventOutputTranscriptionTrackPtrOutput
+}
+
+type liveEventOutputTranscriptionTrackPtrType LiveEventOutputTranscriptionTrackArgs
+
+func LiveEventOutputTranscriptionTrackPtr(v *LiveEventOutputTranscriptionTrackArgs) LiveEventOutputTranscriptionTrackPtrInput {
+	return (*liveEventOutputTranscriptionTrackPtrType)(v)
+}
+
+func (*liveEventOutputTranscriptionTrackPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventOutputTranscriptionTrack)(nil)).Elem()
+}
+
+func (i *liveEventOutputTranscriptionTrackPtrType) ToLiveEventOutputTranscriptionTrackPtrOutput() LiveEventOutputTranscriptionTrackPtrOutput {
+	return i.ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventOutputTranscriptionTrackPtrType) ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackPtrOutput)
+}
+
+// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventOutputTranscriptionTrackOutput struct{ *pulumi.OutputState }
+
+func (LiveEventOutputTranscriptionTrackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventOutputTranscriptionTrack)(nil)).Elem()
+}
+
+func (o LiveEventOutputTranscriptionTrackOutput) ToLiveEventOutputTranscriptionTrackOutput() LiveEventOutputTranscriptionTrackOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackOutput) ToLiveEventOutputTranscriptionTrackOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackOutput) ToLiveEventOutputTranscriptionTrackPtrOutput() LiveEventOutputTranscriptionTrackPtrOutput {
+	return o.ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventOutputTranscriptionTrackOutput) ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackPtrOutput {
+	return o.ApplyT(func(v LiveEventOutputTranscriptionTrack) *LiveEventOutputTranscriptionTrack {
+		return &v
+	}).(LiveEventOutputTranscriptionTrackPtrOutput)
+}
+
+// The output track name. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventOutputTranscriptionTrackOutput) TrackName() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveEventOutputTranscriptionTrack) string { return v.TrackName }).(pulumi.StringOutput)
+}
+
+type LiveEventOutputTranscriptionTrackPtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventOutputTranscriptionTrackPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventOutputTranscriptionTrack)(nil)).Elem()
+}
+
+func (o LiveEventOutputTranscriptionTrackPtrOutput) ToLiveEventOutputTranscriptionTrackPtrOutput() LiveEventOutputTranscriptionTrackPtrOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackPtrOutput) ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackPtrOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackPtrOutput) Elem() LiveEventOutputTranscriptionTrackOutput {
+	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrack) LiveEventOutputTranscriptionTrack { return *v }).(LiveEventOutputTranscriptionTrackOutput)
+}
+
+// The output track name. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventOutputTranscriptionTrackPtrOutput) TrackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrack) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrackName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventOutputTranscriptionTrackResponse struct {
+	// The output track name. This property is reserved for future use, any value set on this property will be ignored.
+	TrackName string `pulumi:"trackName"`
+}
+
+// LiveEventOutputTranscriptionTrackResponseInput is an input type that accepts LiveEventOutputTranscriptionTrackResponseArgs and LiveEventOutputTranscriptionTrackResponseOutput values.
+// You can construct a concrete instance of `LiveEventOutputTranscriptionTrackResponseInput` via:
+//
+//          LiveEventOutputTranscriptionTrackResponseArgs{...}
+type LiveEventOutputTranscriptionTrackResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventOutputTranscriptionTrackResponseOutput() LiveEventOutputTranscriptionTrackResponseOutput
+	ToLiveEventOutputTranscriptionTrackResponseOutputWithContext(context.Context) LiveEventOutputTranscriptionTrackResponseOutput
+}
+
+// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventOutputTranscriptionTrackResponseArgs struct {
+	// The output track name. This property is reserved for future use, any value set on this property will be ignored.
+	TrackName pulumi.StringInput `pulumi:"trackName"`
+}
+
+func (LiveEventOutputTranscriptionTrackResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventOutputTranscriptionTrackResponse)(nil)).Elem()
+}
+
+func (i LiveEventOutputTranscriptionTrackResponseArgs) ToLiveEventOutputTranscriptionTrackResponseOutput() LiveEventOutputTranscriptionTrackResponseOutput {
+	return i.ToLiveEventOutputTranscriptionTrackResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventOutputTranscriptionTrackResponseArgs) ToLiveEventOutputTranscriptionTrackResponseOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackResponseOutput)
+}
+
+func (i LiveEventOutputTranscriptionTrackResponseArgs) ToLiveEventOutputTranscriptionTrackResponsePtrOutput() LiveEventOutputTranscriptionTrackResponsePtrOutput {
+	return i.ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventOutputTranscriptionTrackResponseArgs) ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackResponseOutput).ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx)
+}
+
+// LiveEventOutputTranscriptionTrackResponsePtrInput is an input type that accepts LiveEventOutputTranscriptionTrackResponseArgs, LiveEventOutputTranscriptionTrackResponsePtr and LiveEventOutputTranscriptionTrackResponsePtrOutput values.
+// You can construct a concrete instance of `LiveEventOutputTranscriptionTrackResponsePtrInput` via:
+//
+//          LiveEventOutputTranscriptionTrackResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventOutputTranscriptionTrackResponsePtrInput interface {
+	pulumi.Input
+
+	ToLiveEventOutputTranscriptionTrackResponsePtrOutput() LiveEventOutputTranscriptionTrackResponsePtrOutput
+	ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput
+}
+
+type liveEventOutputTranscriptionTrackResponsePtrType LiveEventOutputTranscriptionTrackResponseArgs
+
+func LiveEventOutputTranscriptionTrackResponsePtr(v *LiveEventOutputTranscriptionTrackResponseArgs) LiveEventOutputTranscriptionTrackResponsePtrInput {
+	return (*liveEventOutputTranscriptionTrackResponsePtrType)(v)
+}
+
+func (*liveEventOutputTranscriptionTrackResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventOutputTranscriptionTrackResponse)(nil)).Elem()
+}
+
+func (i *liveEventOutputTranscriptionTrackResponsePtrType) ToLiveEventOutputTranscriptionTrackResponsePtrOutput() LiveEventOutputTranscriptionTrackResponsePtrOutput {
+	return i.ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventOutputTranscriptionTrackResponsePtrType) ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackResponsePtrOutput)
+}
+
+// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventOutputTranscriptionTrackResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventOutputTranscriptionTrackResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventOutputTranscriptionTrackResponse)(nil)).Elem()
+}
+
+func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTranscriptionTrackResponseOutput() LiveEventOutputTranscriptionTrackResponseOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTranscriptionTrackResponseOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponseOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTranscriptionTrackResponsePtrOutput() LiveEventOutputTranscriptionTrackResponsePtrOutput {
+	return o.ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventOutputTranscriptionTrackResponse) *LiveEventOutputTranscriptionTrackResponse {
+		return &v
+	}).(LiveEventOutputTranscriptionTrackResponsePtrOutput)
+}
+
+// The output track name. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventOutputTranscriptionTrackResponseOutput) TrackName() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveEventOutputTranscriptionTrackResponse) string { return v.TrackName }).(pulumi.StringOutput)
+}
+
+type LiveEventOutputTranscriptionTrackResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventOutputTranscriptionTrackResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventOutputTranscriptionTrackResponse)(nil)).Elem()
+}
+
+func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) ToLiveEventOutputTranscriptionTrackResponsePtrOutput() LiveEventOutputTranscriptionTrackResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) Elem() LiveEventOutputTranscriptionTrackResponseOutput {
+	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrackResponse) LiveEventOutputTranscriptionTrackResponse {
+		return *v
+	}).(LiveEventOutputTranscriptionTrackResponseOutput)
+}
+
+// The output track name. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) TrackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrackResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrackName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Live event preview settings.
 type LiveEventPreview struct {
-	// The access control for LiveEvent preview.
+	// The access control for live event preview.
 	AccessControl *LiveEventPreviewAccessControl `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+	// An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
+	// The endpoints for preview. Do not share the preview URL with the live event audience.
 	Endpoints []LiveEventEndpoint `pulumi:"endpoints"`
-	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+	// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
 	PreviewLocator *string `pulumi:"previewLocator"`
-	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+	// The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
 	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
 }
 
@@ -14129,17 +14551,17 @@ type LiveEventPreviewInput interface {
 	ToLiveEventPreviewOutputWithContext(context.Context) LiveEventPreviewOutput
 }
 
-// The Live Event preview.
+// Live event preview settings.
 type LiveEventPreviewArgs struct {
-	// The access control for LiveEvent preview.
+	// The access control for live event preview.
 	AccessControl LiveEventPreviewAccessControlPtrInput `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+	// An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 	AlternativeMediaId pulumi.StringPtrInput `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
+	// The endpoints for preview. Do not share the preview URL with the live event audience.
 	Endpoints LiveEventEndpointArrayInput `pulumi:"endpoints"`
-	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+	// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
 	PreviewLocator pulumi.StringPtrInput `pulumi:"previewLocator"`
-	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+	// The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
 	StreamingPolicyName pulumi.StringPtrInput `pulumi:"streamingPolicyName"`
 }
 
@@ -14196,7 +14618,7 @@ func (i *liveEventPreviewPtrType) ToLiveEventPreviewPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewPtrOutput)
 }
 
-// The Live Event preview.
+// Live event preview settings.
 type LiveEventPreviewOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewOutput) ElementType() reflect.Type {
@@ -14221,27 +14643,27 @@ func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutputWithContext(ctx conte
 	}).(LiveEventPreviewPtrOutput)
 }
 
-// The access control for LiveEvent preview.
+// The access control for live event preview.
 func (o LiveEventPreviewOutput) AccessControl() LiveEventPreviewAccessControlPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *LiveEventPreviewAccessControl { return v.AccessControl }).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+// An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
+// The endpoints for preview. Do not share the preview URL with the live event audience.
 func (o LiveEventPreviewOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v LiveEventPreview) []LiveEventEndpoint { return v.Endpoints }).(LiveEventEndpointArrayOutput)
 }
 
-// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
 func (o LiveEventPreviewOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.PreviewLocator }).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+// The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
 func (o LiveEventPreviewOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.StreamingPolicyName }).(pulumi.StringPtrOutput)
 }
@@ -14264,7 +14686,7 @@ func (o LiveEventPreviewPtrOutput) Elem() LiveEventPreviewOutput {
 	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview { return *v }).(LiveEventPreviewOutput)
 }
 
-// The access control for LiveEvent preview.
+// The access control for live event preview.
 func (o LiveEventPreviewPtrOutput) AccessControl() LiveEventPreviewAccessControlPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *LiveEventPreviewAccessControl {
 		if v == nil {
@@ -14274,7 +14696,7 @@ func (o LiveEventPreviewPtrOutput) AccessControl() LiveEventPreviewAccessControl
 	}).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+// An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewPtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {
@@ -14284,7 +14706,7 @@ func (o LiveEventPreviewPtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
+// The endpoints for preview. Do not share the preview URL with the live event audience.
 func (o LiveEventPreviewPtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	return o.ApplyT(func(v *LiveEventPreview) []LiveEventEndpoint {
 		if v == nil {
@@ -14294,7 +14716,7 @@ func (o LiveEventPreviewPtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 	}).(LiveEventEndpointArrayOutput)
 }
 
-// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
 func (o LiveEventPreviewPtrOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {
@@ -14304,7 +14726,7 @@ func (o LiveEventPreviewPtrOutput) PreviewLocator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+// The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
 func (o LiveEventPreviewPtrOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {
@@ -14314,7 +14736,7 @@ func (o LiveEventPreviewPtrOutput) StreamingPolicyName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP access control for Live Event preview.
+// The IP access control for the live event preview endpoint.
 type LiveEventPreviewAccessControl struct {
 	// The IP access control properties.
 	Ip *IPAccessControl `pulumi:"ip"`
@@ -14331,7 +14753,7 @@ type LiveEventPreviewAccessControlInput interface {
 	ToLiveEventPreviewAccessControlOutputWithContext(context.Context) LiveEventPreviewAccessControlOutput
 }
 
-// The IP access control for Live Event preview.
+// The IP access control for the live event preview endpoint.
 type LiveEventPreviewAccessControlArgs struct {
 	// The IP access control properties.
 	Ip IPAccessControlPtrInput `pulumi:"ip"`
@@ -14390,7 +14812,7 @@ func (i *liveEventPreviewAccessControlPtrType) ToLiveEventPreviewAccessControlPt
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlPtrOutput)
 }
 
-// The IP access control for Live Event preview.
+// The IP access control for the live event preview endpoint.
 type LiveEventPreviewAccessControlOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewAccessControlOutput) ElementType() reflect.Type {
@@ -14448,7 +14870,7 @@ func (o LiveEventPreviewAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	}).(IPAccessControlPtrOutput)
 }
 
-// The IP access control for Live Event preview.
+// The IP access control for the live event preview endpoint.
 type LiveEventPreviewAccessControlResponse struct {
 	// The IP access control properties.
 	Ip *IPAccessControlResponse `pulumi:"ip"`
@@ -14465,7 +14887,7 @@ type LiveEventPreviewAccessControlResponseInput interface {
 	ToLiveEventPreviewAccessControlResponseOutputWithContext(context.Context) LiveEventPreviewAccessControlResponseOutput
 }
 
-// The IP access control for Live Event preview.
+// The IP access control for the live event preview endpoint.
 type LiveEventPreviewAccessControlResponseArgs struct {
 	// The IP access control properties.
 	Ip IPAccessControlResponsePtrInput `pulumi:"ip"`
@@ -14524,7 +14946,7 @@ func (i *liveEventPreviewAccessControlResponsePtrType) ToLiveEventPreviewAccessC
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// The IP access control for Live Event preview.
+// The IP access control for the live event preview endpoint.
 type LiveEventPreviewAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewAccessControlResponseOutput) ElementType() reflect.Type {
@@ -14582,17 +15004,17 @@ func (o LiveEventPreviewAccessControlResponsePtrOutput) Ip() IPAccessControlResp
 	}).(IPAccessControlResponsePtrOutput)
 }
 
-// The Live Event preview.
+// Live event preview settings.
 type LiveEventPreviewResponse struct {
-	// The access control for LiveEvent preview.
+	// The access control for live event preview.
 	AccessControl *LiveEventPreviewAccessControlResponse `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+	// An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
+	// The endpoints for preview. Do not share the preview URL with the live event audience.
 	Endpoints []LiveEventEndpointResponse `pulumi:"endpoints"`
-	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+	// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
 	PreviewLocator *string `pulumi:"previewLocator"`
-	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+	// The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
 	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
 }
 
@@ -14607,17 +15029,17 @@ type LiveEventPreviewResponseInput interface {
 	ToLiveEventPreviewResponseOutputWithContext(context.Context) LiveEventPreviewResponseOutput
 }
 
-// The Live Event preview.
+// Live event preview settings.
 type LiveEventPreviewResponseArgs struct {
-	// The access control for LiveEvent preview.
+	// The access control for live event preview.
 	AccessControl LiveEventPreviewAccessControlResponsePtrInput `pulumi:"accessControl"`
-	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+	// An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 	AlternativeMediaId pulumi.StringPtrInput `pulumi:"alternativeMediaId"`
-	// The endpoints for preview.
+	// The endpoints for preview. Do not share the preview URL with the live event audience.
 	Endpoints LiveEventEndpointResponseArrayInput `pulumi:"endpoints"`
-	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+	// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
 	PreviewLocator pulumi.StringPtrInput `pulumi:"previewLocator"`
-	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+	// The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
 	StreamingPolicyName pulumi.StringPtrInput `pulumi:"streamingPolicyName"`
 }
 
@@ -14674,7 +15096,7 @@ func (i *liveEventPreviewResponsePtrType) ToLiveEventPreviewResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewResponsePtrOutput)
 }
 
-// The Live Event preview.
+// Live event preview settings.
 type LiveEventPreviewResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewResponseOutput) ElementType() reflect.Type {
@@ -14699,27 +15121,27 @@ func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutputWithC
 	}).(LiveEventPreviewResponsePtrOutput)
 }
 
-// The access control for LiveEvent preview.
+// The access control for live event preview.
 func (o LiveEventPreviewResponseOutput) AccessControl() LiveEventPreviewAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *LiveEventPreviewAccessControlResponse { return v.AccessControl }).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+// An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewResponseOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *string { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
+// The endpoints for preview. Do not share the preview URL with the live event audience.
 func (o LiveEventPreviewResponseOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) []LiveEventEndpointResponse { return v.Endpoints }).(LiveEventEndpointResponseArrayOutput)
 }
 
-// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
 func (o LiveEventPreviewResponseOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *string { return v.PreviewLocator }).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+// The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
 func (o LiveEventPreviewResponseOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreviewResponse) *string { return v.StreamingPolicyName }).(pulumi.StringPtrOutput)
 }
@@ -14742,7 +15164,7 @@ func (o LiveEventPreviewResponsePtrOutput) Elem() LiveEventPreviewResponseOutput
 	return o.ApplyT(func(v *LiveEventPreviewResponse) LiveEventPreviewResponse { return *v }).(LiveEventPreviewResponseOutput)
 }
 
-// The access control for LiveEvent preview.
+// The access control for live event preview.
 func (o LiveEventPreviewResponsePtrOutput) AccessControl() LiveEventPreviewAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *LiveEventPreviewAccessControlResponse {
 		if v == nil {
@@ -14752,7 +15174,7 @@ func (o LiveEventPreviewResponsePtrOutput) AccessControl() LiveEventPreviewAcces
 	}).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
-// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+// An alternative media identifier associated with the streaming locator created for the preview. This value is specified at creation time and cannot be updated. The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
 func (o LiveEventPreviewResponsePtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *string {
 		if v == nil {
@@ -14762,7 +15184,7 @@ func (o LiveEventPreviewResponsePtrOutput) AlternativeMediaId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoints for preview.
+// The endpoints for preview. Do not share the preview URL with the live event audience.
 func (o LiveEventPreviewResponsePtrOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) []LiveEventEndpointResponse {
 		if v == nil {
@@ -14772,7 +15194,7 @@ func (o LiveEventPreviewResponsePtrOutput) Endpoints() LiveEventEndpointResponse
 	}).(LiveEventEndpointResponseArrayOutput)
 }
 
-// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
 func (o LiveEventPreviewResponsePtrOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *string {
 		if v == nil {
@@ -14782,7 +15204,7 @@ func (o LiveEventPreviewResponsePtrOutput) PreviewLocator() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+// The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
 func (o LiveEventPreviewResponsePtrOutput) StreamingPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreviewResponse) *string {
 		if v == nil {
@@ -14790,6 +15212,246 @@ func (o LiveEventPreviewResponsePtrOutput) StreamingPolicyName() pulumi.StringPt
 		}
 		return v.StreamingPolicyName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventTranscription struct {
+	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+	InputTrackSelection []LiveEventInputTrackSelection `pulumi:"inputTrackSelection"`
+	// Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
+	Language *string `pulumi:"language"`
+	// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+	OutputTranscriptionTrack *LiveEventOutputTranscriptionTrack `pulumi:"outputTranscriptionTrack"`
+}
+
+// LiveEventTranscriptionInput is an input type that accepts LiveEventTranscriptionArgs and LiveEventTranscriptionOutput values.
+// You can construct a concrete instance of `LiveEventTranscriptionInput` via:
+//
+//          LiveEventTranscriptionArgs{...}
+type LiveEventTranscriptionInput interface {
+	pulumi.Input
+
+	ToLiveEventTranscriptionOutput() LiveEventTranscriptionOutput
+	ToLiveEventTranscriptionOutputWithContext(context.Context) LiveEventTranscriptionOutput
+}
+
+// Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventTranscriptionArgs struct {
+	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+	InputTrackSelection LiveEventInputTrackSelectionArrayInput `pulumi:"inputTrackSelection"`
+	// Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
+	Language pulumi.StringPtrInput `pulumi:"language"`
+	// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+	OutputTranscriptionTrack LiveEventOutputTranscriptionTrackPtrInput `pulumi:"outputTranscriptionTrack"`
+}
+
+func (LiveEventTranscriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventTranscription)(nil)).Elem()
+}
+
+func (i LiveEventTranscriptionArgs) ToLiveEventTranscriptionOutput() LiveEventTranscriptionOutput {
+	return i.ToLiveEventTranscriptionOutputWithContext(context.Background())
+}
+
+func (i LiveEventTranscriptionArgs) ToLiveEventTranscriptionOutputWithContext(ctx context.Context) LiveEventTranscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTranscriptionOutput)
+}
+
+// LiveEventTranscriptionArrayInput is an input type that accepts LiveEventTranscriptionArray and LiveEventTranscriptionArrayOutput values.
+// You can construct a concrete instance of `LiveEventTranscriptionArrayInput` via:
+//
+//          LiveEventTranscriptionArray{ LiveEventTranscriptionArgs{...} }
+type LiveEventTranscriptionArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventTranscriptionArrayOutput() LiveEventTranscriptionArrayOutput
+	ToLiveEventTranscriptionArrayOutputWithContext(context.Context) LiveEventTranscriptionArrayOutput
+}
+
+type LiveEventTranscriptionArray []LiveEventTranscriptionInput
+
+func (LiveEventTranscriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventTranscription)(nil)).Elem()
+}
+
+func (i LiveEventTranscriptionArray) ToLiveEventTranscriptionArrayOutput() LiveEventTranscriptionArrayOutput {
+	return i.ToLiveEventTranscriptionArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventTranscriptionArray) ToLiveEventTranscriptionArrayOutputWithContext(ctx context.Context) LiveEventTranscriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTranscriptionArrayOutput)
+}
+
+// Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventTranscriptionOutput struct{ *pulumi.OutputState }
+
+func (LiveEventTranscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventTranscription)(nil)).Elem()
+}
+
+func (o LiveEventTranscriptionOutput) ToLiveEventTranscriptionOutput() LiveEventTranscriptionOutput {
+	return o
+}
+
+func (o LiveEventTranscriptionOutput) ToLiveEventTranscriptionOutputWithContext(ctx context.Context) LiveEventTranscriptionOutput {
+	return o
+}
+
+// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventTranscriptionOutput) InputTrackSelection() LiveEventInputTrackSelectionArrayOutput {
+	return o.ApplyT(func(v LiveEventTranscription) []LiveEventInputTrackSelection { return v.InputTrackSelection }).(LiveEventInputTrackSelectionArrayOutput)
+}
+
+// Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
+func (o LiveEventTranscriptionOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventTranscription) *string { return v.Language }).(pulumi.StringPtrOutput)
+}
+
+// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventTranscriptionOutput) OutputTranscriptionTrack() LiveEventOutputTranscriptionTrackPtrOutput {
+	return o.ApplyT(func(v LiveEventTranscription) *LiveEventOutputTranscriptionTrack { return v.OutputTranscriptionTrack }).(LiveEventOutputTranscriptionTrackPtrOutput)
+}
+
+type LiveEventTranscriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventTranscriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventTranscription)(nil)).Elem()
+}
+
+func (o LiveEventTranscriptionArrayOutput) ToLiveEventTranscriptionArrayOutput() LiveEventTranscriptionArrayOutput {
+	return o
+}
+
+func (o LiveEventTranscriptionArrayOutput) ToLiveEventTranscriptionArrayOutputWithContext(ctx context.Context) LiveEventTranscriptionArrayOutput {
+	return o
+}
+
+func (o LiveEventTranscriptionArrayOutput) Index(i pulumi.IntInput) LiveEventTranscriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventTranscription {
+		return vs[0].([]LiveEventTranscription)[vs[1].(int)]
+	}).(LiveEventTranscriptionOutput)
+}
+
+// Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventTranscriptionResponse struct {
+	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+	InputTrackSelection []LiveEventInputTrackSelectionResponse `pulumi:"inputTrackSelection"`
+	// Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
+	Language *string `pulumi:"language"`
+	// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+	OutputTranscriptionTrack *LiveEventOutputTranscriptionTrackResponse `pulumi:"outputTranscriptionTrack"`
+}
+
+// LiveEventTranscriptionResponseInput is an input type that accepts LiveEventTranscriptionResponseArgs and LiveEventTranscriptionResponseOutput values.
+// You can construct a concrete instance of `LiveEventTranscriptionResponseInput` via:
+//
+//          LiveEventTranscriptionResponseArgs{...}
+type LiveEventTranscriptionResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventTranscriptionResponseOutput() LiveEventTranscriptionResponseOutput
+	ToLiveEventTranscriptionResponseOutputWithContext(context.Context) LiveEventTranscriptionResponseOutput
+}
+
+// Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventTranscriptionResponseArgs struct {
+	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+	InputTrackSelection LiveEventInputTrackSelectionResponseArrayInput `pulumi:"inputTrackSelection"`
+	// Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
+	Language pulumi.StringPtrInput `pulumi:"language"`
+	// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+	OutputTranscriptionTrack LiveEventOutputTranscriptionTrackResponsePtrInput `pulumi:"outputTranscriptionTrack"`
+}
+
+func (LiveEventTranscriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventTranscriptionResponse)(nil)).Elem()
+}
+
+func (i LiveEventTranscriptionResponseArgs) ToLiveEventTranscriptionResponseOutput() LiveEventTranscriptionResponseOutput {
+	return i.ToLiveEventTranscriptionResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventTranscriptionResponseArgs) ToLiveEventTranscriptionResponseOutputWithContext(ctx context.Context) LiveEventTranscriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTranscriptionResponseOutput)
+}
+
+// LiveEventTranscriptionResponseArrayInput is an input type that accepts LiveEventTranscriptionResponseArray and LiveEventTranscriptionResponseArrayOutput values.
+// You can construct a concrete instance of `LiveEventTranscriptionResponseArrayInput` via:
+//
+//          LiveEventTranscriptionResponseArray{ LiveEventTranscriptionResponseArgs{...} }
+type LiveEventTranscriptionResponseArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventTranscriptionResponseArrayOutput() LiveEventTranscriptionResponseArrayOutput
+	ToLiveEventTranscriptionResponseArrayOutputWithContext(context.Context) LiveEventTranscriptionResponseArrayOutput
+}
+
+type LiveEventTranscriptionResponseArray []LiveEventTranscriptionResponseInput
+
+func (LiveEventTranscriptionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventTranscriptionResponse)(nil)).Elem()
+}
+
+func (i LiveEventTranscriptionResponseArray) ToLiveEventTranscriptionResponseArrayOutput() LiveEventTranscriptionResponseArrayOutput {
+	return i.ToLiveEventTranscriptionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventTranscriptionResponseArray) ToLiveEventTranscriptionResponseArrayOutputWithContext(ctx context.Context) LiveEventTranscriptionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTranscriptionResponseArrayOutput)
+}
+
+// Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+type LiveEventTranscriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventTranscriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventTranscriptionResponse)(nil)).Elem()
+}
+
+func (o LiveEventTranscriptionResponseOutput) ToLiveEventTranscriptionResponseOutput() LiveEventTranscriptionResponseOutput {
+	return o
+}
+
+func (o LiveEventTranscriptionResponseOutput) ToLiveEventTranscriptionResponseOutputWithContext(ctx context.Context) LiveEventTranscriptionResponseOutput {
+	return o
+}
+
+// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventTranscriptionResponseOutput) InputTrackSelection() LiveEventInputTrackSelectionResponseArrayOutput {
+	return o.ApplyT(func(v LiveEventTranscriptionResponse) []LiveEventInputTrackSelectionResponse {
+		return v.InputTrackSelection
+	}).(LiveEventInputTrackSelectionResponseArrayOutput)
+}
+
+// Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
+func (o LiveEventTranscriptionResponseOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventTranscriptionResponse) *string { return v.Language }).(pulumi.StringPtrOutput)
+}
+
+// Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
+func (o LiveEventTranscriptionResponseOutput) OutputTranscriptionTrack() LiveEventOutputTranscriptionTrackResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventTranscriptionResponse) *LiveEventOutputTranscriptionTrackResponse {
+		return v.OutputTranscriptionTrack
+	}).(LiveEventOutputTranscriptionTrackResponsePtrOutput)
+}
+
+type LiveEventTranscriptionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventTranscriptionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventTranscriptionResponse)(nil)).Elem()
+}
+
+func (o LiveEventTranscriptionResponseArrayOutput) ToLiveEventTranscriptionResponseArrayOutput() LiveEventTranscriptionResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventTranscriptionResponseArrayOutput) ToLiveEventTranscriptionResponseArrayOutputWithContext(ctx context.Context) LiveEventTranscriptionResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventTranscriptionResponseArrayOutput) Index(i pulumi.IntInput) LiveEventTranscriptionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventTranscriptionResponse {
+		return vs[0].([]LiveEventTranscriptionResponse)[vs[1].(int)]
+	}).(LiveEventTranscriptionResponseOutput)
 }
 
 type MediaServiceIdentity struct {
@@ -15094,7 +15756,7 @@ func (o MediaServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 // Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormat struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
 	OdataType string `pulumi:"odataType"`
@@ -15115,7 +15777,7 @@ type MultiBitrateFormatInput interface {
 
 // Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormatArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
@@ -15150,7 +15812,7 @@ func (o MultiBitrateFormatOutput) ToMultiBitrateFormatOutputWithContext(ctx cont
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o MultiBitrateFormatOutput) FilenamePattern() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiBitrateFormat) string { return v.FilenamePattern }).(pulumi.StringOutput)
 }
@@ -15167,7 +15829,7 @@ func (o MultiBitrateFormatOutput) OutputFiles() OutputFileArrayOutput {
 
 // Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormatResponse struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
 	OdataType string `pulumi:"odataType"`
@@ -15188,7 +15850,7 @@ type MultiBitrateFormatResponseInput interface {
 
 // Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
 type MultiBitrateFormatResponseArgs struct {
-	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
@@ -15223,7 +15885,7 @@ func (o MultiBitrateFormatResponseOutput) ToMultiBitrateFormatResponseOutputWith
 	return o
 }
 
-// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o MultiBitrateFormatResponseOutput) FilenamePattern() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiBitrateFormatResponse) string { return v.FilenamePattern }).(pulumi.StringOutput)
 }
@@ -17408,11 +18070,11 @@ func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccou
 	}).(StorageAccountResponseOutput)
 }
 
-// StreamingEndpoint access control definition.
+// Streaming endpoint access control definition.
 type StreamingEndpointAccessControl struct {
 	// The access control of Akamai
 	Akamai *AkamaiAccessControl `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
+	// The IP access control of the streaming endpoint.
 	Ip *IPAccessControl `pulumi:"ip"`
 }
 
@@ -17427,11 +18089,11 @@ type StreamingEndpointAccessControlInput interface {
 	ToStreamingEndpointAccessControlOutputWithContext(context.Context) StreamingEndpointAccessControlOutput
 }
 
-// StreamingEndpoint access control definition.
+// Streaming endpoint access control definition.
 type StreamingEndpointAccessControlArgs struct {
 	// The access control of Akamai
 	Akamai AkamaiAccessControlPtrInput `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
+	// The IP access control of the streaming endpoint.
 	Ip IPAccessControlPtrInput `pulumi:"ip"`
 }
 
@@ -17488,7 +18150,7 @@ func (i *streamingEndpointAccessControlPtrType) ToStreamingEndpointAccessControl
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlPtrOutput)
 }
 
-// StreamingEndpoint access control definition.
+// Streaming endpoint access control definition.
 type StreamingEndpointAccessControlOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointAccessControlOutput) ElementType() reflect.Type {
@@ -17518,7 +18180,7 @@ func (o StreamingEndpointAccessControlOutput) Akamai() AkamaiAccessControlPtrOut
 	return o.ApplyT(func(v StreamingEndpointAccessControl) *AkamaiAccessControl { return v.Akamai }).(AkamaiAccessControlPtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
+// The IP access control of the streaming endpoint.
 func (o StreamingEndpointAccessControlOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControl) *IPAccessControl { return v.Ip }).(IPAccessControlPtrOutput)
 }
@@ -17551,7 +18213,7 @@ func (o StreamingEndpointAccessControlPtrOutput) Akamai() AkamaiAccessControlPtr
 	}).(AkamaiAccessControlPtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
+// The IP access control of the streaming endpoint.
 func (o StreamingEndpointAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControl) *IPAccessControl {
 		if v == nil {
@@ -17561,11 +18223,11 @@ func (o StreamingEndpointAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 	}).(IPAccessControlPtrOutput)
 }
 
-// StreamingEndpoint access control definition.
+// Streaming endpoint access control definition.
 type StreamingEndpointAccessControlResponse struct {
 	// The access control of Akamai
 	Akamai *AkamaiAccessControlResponse `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
+	// The IP access control of the streaming endpoint.
 	Ip *IPAccessControlResponse `pulumi:"ip"`
 }
 
@@ -17580,11 +18242,11 @@ type StreamingEndpointAccessControlResponseInput interface {
 	ToStreamingEndpointAccessControlResponseOutputWithContext(context.Context) StreamingEndpointAccessControlResponseOutput
 }
 
-// StreamingEndpoint access control definition.
+// Streaming endpoint access control definition.
 type StreamingEndpointAccessControlResponseArgs struct {
 	// The access control of Akamai
 	Akamai AkamaiAccessControlResponsePtrInput `pulumi:"akamai"`
-	// The IP access control of the StreamingEndpoint.
+	// The IP access control of the streaming endpoint.
 	Ip IPAccessControlResponsePtrInput `pulumi:"ip"`
 }
 
@@ -17641,7 +18303,7 @@ func (i *streamingEndpointAccessControlResponsePtrType) ToStreamingEndpointAcces
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlResponsePtrOutput)
 }
 
-// StreamingEndpoint access control definition.
+// Streaming endpoint access control definition.
 type StreamingEndpointAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointAccessControlResponseOutput) ElementType() reflect.Type {
@@ -17671,7 +18333,7 @@ func (o StreamingEndpointAccessControlResponseOutput) Akamai() AkamaiAccessContr
 	return o.ApplyT(func(v StreamingEndpointAccessControlResponse) *AkamaiAccessControlResponse { return v.Akamai }).(AkamaiAccessControlResponsePtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
+// The IP access control of the streaming endpoint.
 func (o StreamingEndpointAccessControlResponseOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControlResponse) *IPAccessControlResponse { return v.Ip }).(IPAccessControlResponsePtrOutput)
 }
@@ -17704,7 +18366,7 @@ func (o StreamingEndpointAccessControlResponsePtrOutput) Akamai() AkamaiAccessCo
 	}).(AkamaiAccessControlResponsePtrOutput)
 }
 
-// The IP access control of the StreamingEndpoint.
+// The IP access control of the streaming endpoint.
 func (o StreamingEndpointAccessControlResponsePtrOutput) Ip() IPAccessControlResponsePtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) *IPAccessControlResponse {
 		if v == nil {
@@ -20203,6 +20865,134 @@ func (o TransformOutputResponseArrayOutput) Index(i pulumi.IntInput) TransformOu
 	}).(TransformOutputResponseOutput)
 }
 
+// Specifies the clip time as a Utc time position in the media file.  The Utc time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+type UtcClipTime struct {
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
+	// The time position on the timeline of the input media based on Utc time.
+	Time string `pulumi:"time"`
+}
+
+// UtcClipTimeInput is an input type that accepts UtcClipTimeArgs and UtcClipTimeOutput values.
+// You can construct a concrete instance of `UtcClipTimeInput` via:
+//
+//          UtcClipTimeArgs{...}
+type UtcClipTimeInput interface {
+	pulumi.Input
+
+	ToUtcClipTimeOutput() UtcClipTimeOutput
+	ToUtcClipTimeOutputWithContext(context.Context) UtcClipTimeOutput
+}
+
+// Specifies the clip time as a Utc time position in the media file.  The Utc time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+type UtcClipTimeArgs struct {
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The time position on the timeline of the input media based on Utc time.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (UtcClipTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UtcClipTime)(nil)).Elem()
+}
+
+func (i UtcClipTimeArgs) ToUtcClipTimeOutput() UtcClipTimeOutput {
+	return i.ToUtcClipTimeOutputWithContext(context.Background())
+}
+
+func (i UtcClipTimeArgs) ToUtcClipTimeOutputWithContext(ctx context.Context) UtcClipTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UtcClipTimeOutput)
+}
+
+// Specifies the clip time as a Utc time position in the media file.  The Utc time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+type UtcClipTimeOutput struct{ *pulumi.OutputState }
+
+func (UtcClipTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UtcClipTime)(nil)).Elem()
+}
+
+func (o UtcClipTimeOutput) ToUtcClipTimeOutput() UtcClipTimeOutput {
+	return o
+}
+
+func (o UtcClipTimeOutput) ToUtcClipTimeOutputWithContext(ctx context.Context) UtcClipTimeOutput {
+	return o
+}
+
+// The discriminator for derived types.
+func (o UtcClipTimeOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UtcClipTime) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The time position on the timeline of the input media based on Utc time.
+func (o UtcClipTimeOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v UtcClipTime) string { return v.Time }).(pulumi.StringOutput)
+}
+
+// Specifies the clip time as a Utc time position in the media file.  The Utc time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+type UtcClipTimeResponse struct {
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
+	// The time position on the timeline of the input media based on Utc time.
+	Time string `pulumi:"time"`
+}
+
+// UtcClipTimeResponseInput is an input type that accepts UtcClipTimeResponseArgs and UtcClipTimeResponseOutput values.
+// You can construct a concrete instance of `UtcClipTimeResponseInput` via:
+//
+//          UtcClipTimeResponseArgs{...}
+type UtcClipTimeResponseInput interface {
+	pulumi.Input
+
+	ToUtcClipTimeResponseOutput() UtcClipTimeResponseOutput
+	ToUtcClipTimeResponseOutputWithContext(context.Context) UtcClipTimeResponseOutput
+}
+
+// Specifies the clip time as a Utc time position in the media file.  The Utc time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+type UtcClipTimeResponseArgs struct {
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The time position on the timeline of the input media based on Utc time.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (UtcClipTimeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UtcClipTimeResponse)(nil)).Elem()
+}
+
+func (i UtcClipTimeResponseArgs) ToUtcClipTimeResponseOutput() UtcClipTimeResponseOutput {
+	return i.ToUtcClipTimeResponseOutputWithContext(context.Background())
+}
+
+func (i UtcClipTimeResponseArgs) ToUtcClipTimeResponseOutputWithContext(ctx context.Context) UtcClipTimeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UtcClipTimeResponseOutput)
+}
+
+// Specifies the clip time as a Utc time position in the media file.  The Utc time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+type UtcClipTimeResponseOutput struct{ *pulumi.OutputState }
+
+func (UtcClipTimeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UtcClipTimeResponse)(nil)).Elem()
+}
+
+func (o UtcClipTimeResponseOutput) ToUtcClipTimeResponseOutput() UtcClipTimeResponseOutput {
+	return o
+}
+
+func (o UtcClipTimeResponseOutput) ToUtcClipTimeResponseOutputWithContext(ctx context.Context) UtcClipTimeResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+func (o UtcClipTimeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UtcClipTimeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The time position on the timeline of the input media based on Utc time.
+func (o UtcClipTimeResponseOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v UtcClipTimeResponse) string { return v.Time }).(pulumi.StringOutput)
+}
+
 // Describes the basic properties for encoding the input video.
 type Video struct {
 	// The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
@@ -20300,7 +21090,7 @@ type VideoOverlay struct {
 	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
 	// An optional rectangular window used to crop the overlay image or video.
 	CropRectangle *Rectangle `pulumi:"cropRectangle"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 	End *string `pulumi:"end"`
 	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 	FadeInDuration *string `pulumi:"fadeInDuration"`
@@ -20314,7 +21104,7 @@ type VideoOverlay struct {
 	Opacity *float64 `pulumi:"opacity"`
 	// The location in the input video where the overlay is applied.
 	Position *Rectangle `pulumi:"position"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 	Start *string `pulumi:"start"`
 }
 
@@ -20335,7 +21125,7 @@ type VideoOverlayArgs struct {
 	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
 	// An optional rectangular window used to crop the overlay image or video.
 	CropRectangle RectanglePtrInput `pulumi:"cropRectangle"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
@@ -20349,7 +21139,7 @@ type VideoOverlayArgs struct {
 	Opacity pulumi.Float64PtrInput `pulumi:"opacity"`
 	// The location in the input video where the overlay is applied.
 	Position RectanglePtrInput `pulumi:"position"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -20390,7 +21180,7 @@ func (o VideoOverlayOutput) CropRectangle() RectanglePtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *Rectangle { return v.CropRectangle }).(RectanglePtrOutput)
 }
 
-// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 func (o VideoOverlayOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *string { return v.End }).(pulumi.StringPtrOutput)
 }
@@ -20425,7 +21215,7 @@ func (o VideoOverlayOutput) Position() RectanglePtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *Rectangle { return v.Position }).(RectanglePtrOutput)
 }
 
-// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 func (o VideoOverlayOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -20436,7 +21226,7 @@ type VideoOverlayResponse struct {
 	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
 	// An optional rectangular window used to crop the overlay image or video.
 	CropRectangle *RectangleResponse `pulumi:"cropRectangle"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 	End *string `pulumi:"end"`
 	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 	FadeInDuration *string `pulumi:"fadeInDuration"`
@@ -20450,7 +21240,7 @@ type VideoOverlayResponse struct {
 	Opacity *float64 `pulumi:"opacity"`
 	// The location in the input video where the overlay is applied.
 	Position *RectangleResponse `pulumi:"position"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 	Start *string `pulumi:"start"`
 }
 
@@ -20471,7 +21261,7 @@ type VideoOverlayResponseArgs struct {
 	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
 	// An optional rectangular window used to crop the overlay image or video.
 	CropRectangle RectangleResponsePtrInput `pulumi:"cropRectangle"`
-	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
 	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
@@ -20485,7 +21275,7 @@ type VideoOverlayResponseArgs struct {
 	Opacity pulumi.Float64PtrInput `pulumi:"opacity"`
 	// The location in the input video where the overlay is applied.
 	Position RectangleResponsePtrInput `pulumi:"position"`
-	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -20526,7 +21316,7 @@ func (o VideoOverlayResponseOutput) CropRectangle() RectangleResponsePtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *RectangleResponse { return v.CropRectangle }).(RectangleResponsePtrOutput)
 }
 
-// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, PT30S to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
 func (o VideoOverlayResponseOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *string { return v.End }).(pulumi.StringPtrOutput)
 }
@@ -20561,7 +21351,7 @@ func (o VideoOverlayResponseOutput) Position() RectangleResponsePtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *RectangleResponse { return v.Position }).(RectangleResponsePtrOutput)
 }
 
-// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
 func (o VideoOverlayResponseOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlayResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -20659,9 +21449,7 @@ func (o VideoResponseOutput) SyncMode() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(AbsoluteClipTimeOutput{})
-	pulumi.RegisterOutputType(AbsoluteClipTimePtrOutput{})
 	pulumi.RegisterOutputType(AbsoluteClipTimeResponseOutput{})
-	pulumi.RegisterOutputType(AbsoluteClipTimeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionResponseOutput{})
@@ -20842,6 +21630,14 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventInputAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventInputResponsePtrOutput{})
+	pulumi.RegisterOutputType(LiveEventInputTrackSelectionOutput{})
+	pulumi.RegisterOutputType(LiveEventInputTrackSelectionArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventInputTrackSelectionResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventInputTrackSelectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventOutputTranscriptionTrackOutput{})
+	pulumi.RegisterOutputType(LiveEventOutputTranscriptionTrackPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventOutputTranscriptionTrackResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventOutputTranscriptionTrackResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlOutput{})
@@ -20850,6 +21646,10 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewResponsePtrOutput{})
+	pulumi.RegisterOutputType(LiveEventTranscriptionOutput{})
+	pulumi.RegisterOutputType(LiveEventTranscriptionArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventTranscriptionResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventTranscriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityResponseOutput{})
@@ -20926,6 +21726,8 @@ func init() {
 	pulumi.RegisterOutputType(TransformOutputArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseArrayOutput{})
+	pulumi.RegisterOutputType(UtcClipTimeOutput{})
+	pulumi.RegisterOutputType(UtcClipTimeResponseOutput{})
 	pulumi.RegisterOutputType(VideoOutput{})
 	pulumi.RegisterOutputType(VideoOverlayOutput{})
 	pulumi.RegisterOutputType(VideoOverlayResponseOutput{})

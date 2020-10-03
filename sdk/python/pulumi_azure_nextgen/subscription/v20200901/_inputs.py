@@ -17,12 +17,14 @@ class PutAliasRequestPropertiesArgs:
     def __init__(__self__, *,
                  billing_scope: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 reseller_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  workload: Optional[pulumi.Input[str]] = None):
         """
         Put subscription properties.
         :param pulumi.Input[str] billing_scope: Determines whether subscription is fieldLed, partnerLed or LegacyEA
         :param pulumi.Input[str] display_name: The friendly name of the subscription.
+        :param pulumi.Input[str] reseller_id: Reseller ID, basically MPN Id
         :param pulumi.Input[str] subscription_id: This parameter can be used to create alias for existing subscription Id
         :param pulumi.Input[str] workload: The workload type of the subscription. It can be either Production or DevTest.
         """
@@ -30,6 +32,8 @@ class PutAliasRequestPropertiesArgs:
             pulumi.set(__self__, "billing_scope", billing_scope)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if reseller_id is not None:
+            pulumi.set(__self__, "reseller_id", reseller_id)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if workload is not None:
@@ -58,6 +62,18 @@ class PutAliasRequestPropertiesArgs:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="resellerId")
+    def reseller_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reseller ID, basically MPN Id
+        """
+        return pulumi.get(self, "reseller_id")
+
+    @reseller_id.setter
+    def reseller_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reseller_id", value)
 
     @property
     @pulumi.getter(name="subscriptionId")

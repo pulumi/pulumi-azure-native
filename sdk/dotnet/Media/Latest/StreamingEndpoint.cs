@@ -10,18 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Media.Latest
 {
     /// <summary>
-    /// The StreamingEndpoint.
+    /// The streaming endpoint.
     /// </summary>
     public partial class StreamingEndpoint : Pulumi.CustomResource
     {
         /// <summary>
-        /// The access control definition of the StreamingEndpoint.
+        /// The access control definition of the streaming endpoint.
         /// </summary>
         [Output("accessControl")]
         public Output<Outputs.StreamingEndpointAccessControlResponse?> AccessControl { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+        /// This feature is deprecated, do not set a value for this property.
         /// </summary>
         [Output("availabilitySetName")]
         public Output<string?> AvailabilitySetName { get; private set; } = null!;
@@ -45,25 +45,25 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Output<string?> CdnProvider { get; private set; } = null!;
 
         /// <summary>
-        /// The exact time the StreamingEndpoint was created.
+        /// The exact time the streaming endpoint was created.
         /// </summary>
         [Output("created")]
         public Output<string> Created { get; private set; } = null!;
 
         /// <summary>
-        /// The StreamingEndpoint access policies.
+        /// The streaming endpoint access policies.
         /// </summary>
         [Output("crossSiteAccessPolicies")]
         public Output<Outputs.CrossSiteAccessPoliciesResponse?> CrossSiteAccessPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// The custom host names of the StreamingEndpoint
+        /// The custom host names of the streaming endpoint
         /// </summary>
         [Output("customHostNames")]
         public Output<ImmutableArray<string>> CustomHostNames { get; private set; } = null!;
 
         /// <summary>
-        /// The StreamingEndpoint description.
+        /// The streaming endpoint description.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -75,13 +75,13 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Output<string> FreeTrialEndTime { get; private set; } = null!;
 
         /// <summary>
-        /// The StreamingEndpoint host name.
+        /// The streaming endpoint host name.
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
-        /// The exact time the StreamingEndpoint was last modified.
+        /// The exact time the streaming endpoint was last modified.
         /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
@@ -105,19 +105,19 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the StreamingEndpoint.
+        /// The provisioning state of the streaming endpoint.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The resource state of the StreamingEndpoint.
+        /// The resource state of the streaming endpoint.
         /// </summary>
         [Output("resourceState")]
         public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
-        /// The number of scale units.  Use the Scale operation to adjust this value.
+        /// The number of scale units. Use the Scale operation to adjust this value.
         /// </summary>
         [Output("scaleUnits")]
         public Output<int> ScaleUnits { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
     public sealed class StreamingEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The access control definition of the StreamingEndpoint.
+        /// The access control definition of the streaming endpoint.
         /// </summary>
         [Input("accessControl")]
         public Input<Inputs.StreamingEndpointAccessControlArgs>? AccessControl { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Input<bool>? AutoStart { get; set; }
 
         /// <summary>
-        /// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+        /// This feature is deprecated, do not set a value for this property.
         /// </summary>
         [Input("availabilitySetName")]
         public Input<string>? AvailabilitySetName { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Input<string>? CdnProvider { get; set; }
 
         /// <summary>
-        /// The StreamingEndpoint access policies.
+        /// The streaming endpoint access policies.
         /// </summary>
         [Input("crossSiteAccessPolicies")]
         public Input<Inputs.CrossSiteAccessPoliciesArgs>? CrossSiteAccessPolicies { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         private InputList<string>? _customHostNames;
 
         /// <summary>
-        /// The custom host names of the StreamingEndpoint
+        /// The custom host names of the streaming endpoint
         /// </summary>
         public InputList<string> CustomHostNames
         {
@@ -248,7 +248,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         }
 
         /// <summary>
-        /// The StreamingEndpoint description.
+        /// The streaming endpoint description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -272,13 +272,13 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The number of scale units.  Use the Scale operation to adjust this value.
+        /// The number of scale units. Use the Scale operation to adjust this value.
         /// </summary>
         [Input("scaleUnits", required: true)]
         public Input<int> ScaleUnits { get; set; } = null!;
 
         /// <summary>
-        /// The name of the StreamingEndpoint.
+        /// The name of the streaming endpoint, maximum length is 24.
         /// </summary>
         [Input("streamingEndpointName", required: true)]
         public Input<string> StreamingEndpointName { get; set; } = null!;

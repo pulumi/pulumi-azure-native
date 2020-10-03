@@ -31,7 +31,7 @@ type LookupJobArgs struct {
 type LookupJobResult struct {
 	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
 	CorrelationData map[string]string `pulumi:"correlationData"`
-	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	// The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	Created string `pulumi:"created"`
 	// Optional customer supplied description of the Job.
 	Description *string `pulumi:"description"`
@@ -39,7 +39,7 @@ type LookupJobResult struct {
 	EndTime string `pulumi:"endTime"`
 	// The inputs for the Job.
 	Input interface{} `pulumi:"input"`
-	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified string `pulumi:"lastModified"`
 	// The name of the resource
 	Name string `pulumi:"name"`

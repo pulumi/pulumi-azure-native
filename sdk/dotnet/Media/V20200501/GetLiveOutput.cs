@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Live Event.
+        /// The name of the live event, maximum length is 32.
         /// </summary>
         [Input("liveEventName", required: true)]
         public string LiveEventName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Live Output.
+        /// The name of the live output.
         /// </summary>
         [Input("liveOutputName", required: true)]
         public string LiveOutputName { get; set; } = null!;
@@ -52,31 +52,31 @@ namespace Pulumi.AzureNextGen.Media.V20200501
     public sealed class GetLiveOutputResult
     {
         /// <summary>
-        /// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+        /// ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
         /// </summary>
         public readonly string ArchiveWindowLength;
         /// <summary>
-        /// The asset name.
+        /// The asset that the live output will write to.
         /// </summary>
         public readonly string AssetName;
         /// <summary>
-        /// The exact time the Live Output was created.
+        /// The creation time the live output.
         /// </summary>
         public readonly string Created;
         /// <summary>
-        /// The description of the Live Output.
+        /// The description of the live output.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The HLS configuration.
+        /// HTTP Live Streaming (HLS) packing setting for the live output.
         /// </summary>
         public readonly Outputs.HlsResponse? Hls;
         /// <summary>
-        /// The exact time the Live Output was last modified.
+        /// The time the live output was last modified.
         /// </summary>
         public readonly string LastModified;
         /// <summary>
-        /// The manifest file name.  If not provided, the service will generate one automatically.
+        /// The manifest file name. If not provided, the service will generate one automatically.
         /// </summary>
         public readonly string? ManifestName;
         /// <summary>
@@ -84,15 +84,15 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The output snapshot time.
+        /// The initial timestamp that the live output will start at, any content before this value will not be archived.
         /// </summary>
         public readonly int? OutputSnapTime;
         /// <summary>
-        /// The provisioning state of the Live Output.
+        /// The provisioning state of the live output.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The resource state of the Live Output.
+        /// The resource state of the live output.
         /// </summary>
         public readonly string ResourceState;
         /// <summary>

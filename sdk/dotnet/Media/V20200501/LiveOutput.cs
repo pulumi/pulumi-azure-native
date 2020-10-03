@@ -15,43 +15,43 @@ namespace Pulumi.AzureNextGen.Media.V20200501
     public partial class LiveOutput : Pulumi.CustomResource
     {
         /// <summary>
-        /// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+        /// ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
         /// </summary>
         [Output("archiveWindowLength")]
         public Output<string> ArchiveWindowLength { get; private set; } = null!;
 
         /// <summary>
-        /// The asset name.
+        /// The asset that the live output will write to.
         /// </summary>
         [Output("assetName")]
         public Output<string> AssetName { get; private set; } = null!;
 
         /// <summary>
-        /// The exact time the Live Output was created.
+        /// The creation time the live output.
         /// </summary>
         [Output("created")]
         public Output<string> Created { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the Live Output.
+        /// The description of the live output.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The HLS configuration.
+        /// HTTP Live Streaming (HLS) packing setting for the live output.
         /// </summary>
         [Output("hls")]
         public Output<Outputs.HlsResponse?> Hls { get; private set; } = null!;
 
         /// <summary>
-        /// The exact time the Live Output was last modified.
+        /// The time the live output was last modified.
         /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
         /// <summary>
-        /// The manifest file name.  If not provided, the service will generate one automatically.
+        /// The manifest file name. If not provided, the service will generate one automatically.
         /// </summary>
         [Output("manifestName")]
         public Output<string?> ManifestName { get; private set; } = null!;
@@ -63,19 +63,19 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The output snapshot time.
+        /// The initial timestamp that the live output will start at, any content before this value will not be archived.
         /// </summary>
         [Output("outputSnapTime")]
         public Output<int?> OutputSnapTime { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the Live Output.
+        /// The provisioning state of the live output.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The resource state of the Live Output.
+        /// The resource state of the live output.
         /// </summary>
         [Output("resourceState")]
         public Output<string> ResourceState { get; private set; } = null!;
@@ -146,49 +146,49 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+        /// ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
         /// </summary>
         [Input("archiveWindowLength", required: true)]
         public Input<string> ArchiveWindowLength { get; set; } = null!;
 
         /// <summary>
-        /// The asset name.
+        /// The asset that the live output will write to.
         /// </summary>
         [Input("assetName", required: true)]
         public Input<string> AssetName { get; set; } = null!;
 
         /// <summary>
-        /// The description of the Live Output.
+        /// The description of the live output.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The HLS configuration.
+        /// HTTP Live Streaming (HLS) packing setting for the live output.
         /// </summary>
         [Input("hls")]
         public Input<Inputs.HlsArgs>? Hls { get; set; }
 
         /// <summary>
-        /// The name of the Live Event.
+        /// The name of the live event, maximum length is 32.
         /// </summary>
         [Input("liveEventName", required: true)]
         public Input<string> LiveEventName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Live Output.
+        /// The name of the live output.
         /// </summary>
         [Input("liveOutputName", required: true)]
         public Input<string> LiveOutputName { get; set; } = null!;
 
         /// <summary>
-        /// The manifest file name.  If not provided, the service will generate one automatically.
+        /// The manifest file name. If not provided, the service will generate one automatically.
         /// </summary>
         [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
 
         /// <summary>
-        /// The output snapshot time.
+        /// The initial timestamp that the live output will start at, any content before this value will not be archived.
         /// </summary>
         [Input("outputSnapTime")]
         public Input<int>? OutputSnapTime { get; set; }

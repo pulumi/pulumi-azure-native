@@ -31,21 +31,21 @@ export interface GetStreamingEndpointArgs {
      */
     readonly resourceGroupName: string;
     /**
-     * The name of the StreamingEndpoint.
+     * The name of the streaming endpoint, maximum length is 24.
      */
     readonly streamingEndpointName: string;
 }
 
 /**
- * The StreamingEndpoint.
+ * The streaming endpoint.
  */
 export interface GetStreamingEndpointResult {
     /**
-     * The access control definition of the StreamingEndpoint.
+     * The access control definition of the streaming endpoint.
      */
     readonly accessControl?: outputs.media.latest.StreamingEndpointAccessControlResponse;
     /**
-     * The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+     * This feature is deprecated, do not set a value for this property.
      */
     readonly availabilitySetName?: string;
     /**
@@ -61,19 +61,19 @@ export interface GetStreamingEndpointResult {
      */
     readonly cdnProvider?: string;
     /**
-     * The exact time the StreamingEndpoint was created.
+     * The exact time the streaming endpoint was created.
      */
     readonly created: string;
     /**
-     * The StreamingEndpoint access policies.
+     * The streaming endpoint access policies.
      */
     readonly crossSiteAccessPolicies?: outputs.media.latest.CrossSiteAccessPoliciesResponse;
     /**
-     * The custom host names of the StreamingEndpoint
+     * The custom host names of the streaming endpoint
      */
     readonly customHostNames?: string[];
     /**
-     * The StreamingEndpoint description.
+     * The streaming endpoint description.
      */
     readonly description?: string;
     /**
@@ -81,11 +81,11 @@ export interface GetStreamingEndpointResult {
      */
     readonly freeTrialEndTime: string;
     /**
-     * The StreamingEndpoint host name.
+     * The streaming endpoint host name.
      */
     readonly hostName: string;
     /**
-     * The exact time the StreamingEndpoint was last modified.
+     * The exact time the streaming endpoint was last modified.
      */
     readonly lastModified: string;
     /**
@@ -101,15 +101,15 @@ export interface GetStreamingEndpointResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the StreamingEndpoint.
+     * The provisioning state of the streaming endpoint.
      */
     readonly provisioningState: string;
     /**
-     * The resource state of the StreamingEndpoint.
+     * The resource state of the streaming endpoint.
      */
     readonly resourceState: string;
     /**
-     * The number of scale units.  Use the Scale operation to adjust this value.
+     * The number of scale units. Use the Scale operation to adjust this value.
      */
     readonly scaleUnits: number;
     /**

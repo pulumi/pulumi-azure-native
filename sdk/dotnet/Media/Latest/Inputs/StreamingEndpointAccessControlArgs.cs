@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
 {
 
     /// <summary>
-    /// StreamingEndpoint access control definition.
+    /// Streaming endpoint access control definition.
     /// </summary>
     public sealed class StreamingEndpointAccessControlArgs : Pulumi.ResourceArgs
     {
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
         public Input<Inputs.AkamaiAccessControlArgs>? Akamai { get; set; }
 
         /// <summary>
-        /// The IP access control of the StreamingEndpoint.
+        /// The IP access control of the streaming endpoint.
         /// </summary>
         [Input("ip")]
         public Input<Inputs.IPAccessControlArgs>? Ip { get; set; }

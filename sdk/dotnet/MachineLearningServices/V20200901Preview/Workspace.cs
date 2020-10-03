@@ -196,6 +196,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200501preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200801:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
