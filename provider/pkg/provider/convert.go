@@ -15,13 +15,13 @@ type SdkShapeConverter struct {
 }
 
 func (k *SdkShapeConverter) sdkPropertyToRequest(prop *AzureAPIProperty, value interface{}) interface{} {
-	switch value := value.(type) {
-	case map[string]interface{}:
+	switch reflect.TypeOf(value).Kind() {
+	case reflect.Map:
 		// For union types, iterate through types and find the first one that matches the shape.
 		for _, t := range prop.OneOf {
 			typeName := strings.TrimPrefix(t, "#/types/")
 			typ := k.Types[typeName]
-			request := k.SdkPropertiesToRequestBody(typ.Properties, value)
+			request := k.SdkPropertiesToRequestBody(typ.Properties, value.(map[string]interface{}))
 			if request != nil {
 				return request
 			}
@@ -34,15 +34,16 @@ func (k *SdkShapeConverter) sdkPropertyToRequest(prop *AzureAPIProperty, value i
 
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
 		typ := k.Types[typeName]
-		return k.SdkPropertiesToRequestBody(typ.Properties, value)
-	case []interface{}:
+		return k.SdkPropertiesToRequestBody(typ.Properties, value.(map[string]interface{}))
+	case reflect.Slice, reflect.Array:
 		if prop.Items == nil {
 			return value
 		}
 
 		var result []interface{}
-		for _, item := range value {
-			result = append(result, k.sdkPropertyToRequest(prop.Items, item))
+		s := reflect.ValueOf(value)
+		for i := 0; i < s.Len(); i++ {
+			result = append(result, k.sdkPropertyToRequest(prop.Items, s.Index(i).Interface()))
 		}
 		return result
 	}
@@ -118,14 +119,14 @@ func (k *SdkShapeConverter) bodyPropertyToSdk(prop *AzureAPIProperty, value inte
 
 		return k.BodyPropertiesToSDK(typ.Properties, value.(map[string]interface{}))
 	case reflect.Slice, reflect.Array:
+		if prop.Items == nil {
+			return value
+		}
+
 		var result []interface{}
 		s := reflect.ValueOf(value)
 		for i := 0; i < s.Len(); i++ {
-			if prop.Items != nil {
-				result = append(result, k.bodyPropertyToSdk(prop.Items, s.Index(i).Interface()))
-			} else {
-				result = append(result, s.Index(i).Interface())
-			}
+			result = append(result, k.bodyPropertyToSdk(prop.Items, s.Index(i).Interface()))
 		}
 		return result
 	}

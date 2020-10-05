@@ -95,6 +95,7 @@ var p = &azureNextGenProvider{
 									OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
 								},
 								"tags": {},
+								"untypedArray": {},
 							},
 						},
 					},
@@ -136,6 +137,7 @@ var p = &azureNextGenProvider{
 						OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
 					},
 					"tags": {},
+					"untypedArray": {},
 				},
 			},
 		},
@@ -179,6 +181,10 @@ var sampleAPIPackage = map[string]interface{}{
 		"createdBy":   "admin",
 		"application": "dashboard",
 	},
+	"untypedArray": []interface{}{
+		map[string]interface{}{ "key1": "value1" },
+		map[string]interface{}{ "key1": "value2" },
+	},
 }
 var sampleSdkProps = map[string]interface{}{
 	"name":      "MyResource",
@@ -205,6 +211,10 @@ var sampleSdkProps = map[string]interface{}{
 	"tags": map[string]interface{}{
 		"createdBy":   "admin",
 		"application": "dashboard",
+	},
+	"untypedArray": []interface{}{
+		map[string]interface{}{ "key1": "value1" },
+		map[string]interface{}{ "key1": "value2" },
 	},
 }
 
