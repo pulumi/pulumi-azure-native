@@ -3,9 +3,9 @@ package main
 import (
 	"encoding/base64"
 
-	"github.com/pulumi/pulumi-azuread/sdk/v2/go/azuread"
 	containerservice "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure/containerservice/latest"
 	resources "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure/resources/latest"
+	"github.com/pulumi/pulumi-azuread/sdk/v2/go/azuread"
 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
 	"github.com/pulumi/pulumi-tls/sdk/v2/go/tls"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -13,9 +13,17 @@ import (
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
+		randomRgName, err := random.NewRandomString(ctx, "randomRgName", &random.RandomStringArgs{
+			Length:  pulumi.Int(12),
+			Special: pulumi.Bool(false),
+			Upper:   pulumi.Bool(false),
+		})
+		if err != nil {
+			return err
+		}
 		// Create an Azure Resource Group
 		resourceGroup, err := resources.NewResourceGroup(ctx, "resourceGroup", &resources.ResourceGroupArgs{
-			ResourceGroupName: pulumi.String("azure-nextgen-go"),
+			ResourceGroupName: randomRgName.Result,
 			Location:          pulumi.String("WestUS"),
 		})
 		if err != nil {
@@ -63,11 +71,19 @@ func main() {
 			return err
 		}
 
+		randomClusterName, err := random.NewRandomString(ctx, "randomClusterName", &random.RandomStringArgs{
+			Length:  pulumi.Int(12),
+			Special: pulumi.Bool(false),
+			Upper:   pulumi.Bool(false),
+		})
+		if err != nil {
+			return err
+		}
 		cluster, err := containerservice.NewManagedCluster(ctx, "cluster", &containerservice.ManagedClusterArgs{
-			ResourceName:      pulumi.String("lukesclustertodaytrtying"),
+			ResourceName:      randomClusterName.Result,
 			Location:          pulumi.String("WestUS"),
 			ResourceGroupName: resourceGroup.Name,
-			DnsPrefix: pulumi.String("lukestestofnewazureprovider"),
+			DnsPrefix:         randomClusterName.Result,
 			AgentPoolProfiles: containerservice.ManagedClusterAgentPoolProfileArray{
 				&containerservice.ManagedClusterAgentPoolProfileArgs{
 					Name:         pulumi.String("agentpool"),
@@ -92,7 +108,7 @@ func main() {
 				ClientId: adApp.ApplicationId,
 				Secret:   adSpPassword.Value,
 			},
-			KubernetesVersion: pulumi.String("1.16.10"),
+			KubernetesVersion: pulumi.String("1.17.11"),
 		})
 		if err != nil {
 			return err
@@ -101,7 +117,7 @@ func main() {
 		ctx.Export("kubeconfig", pulumi.All(cluster.Name, resourceGroup.Name, resourceGroup.ID()).ApplyString(func(args interface{}) (string, error) {
 			clusterName := args.([]interface{})[0].(string)
 			resourceGroupNAme := args.([]interface{})[1].(string)
-			creds, err := containerservice.ListManagedClusterClusterUserCredentials(ctx, &containerservice.ListManagedClusterClusterUserCredentialsArgs{
+			creds, err := containerservice.ListManagedClusterUserCredentials(ctx, &containerservice.ListManagedClusterUserCredentialsArgs{
 				ResourceGroupName: resourceGroupNAme,
 				ResourceName:      clusterName,
 			})
