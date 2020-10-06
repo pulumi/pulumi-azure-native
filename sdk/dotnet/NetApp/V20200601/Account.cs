@@ -84,6 +84,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191001:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191101:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200301:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

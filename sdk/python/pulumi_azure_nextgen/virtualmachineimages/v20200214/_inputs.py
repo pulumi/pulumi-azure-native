@@ -368,6 +368,7 @@ class ImageTemplatePowerShellCustomizerArgs:
                  type: pulumi.Input[str],
                  inline: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 run_as_system: Optional[pulumi.Input[bool]] = None,
                  run_elevated: Optional[pulumi.Input[bool]] = None,
                  script_uri: Optional[pulumi.Input[str]] = None,
                  sha256_checksum: Optional[pulumi.Input[str]] = None,
@@ -377,6 +378,7 @@ class ImageTemplatePowerShellCustomizerArgs:
         :param pulumi.Input[str] type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inline: Array of PowerShell commands to execute
         :param pulumi.Input[str] name: Friendly Name to provide context on what this customization step does
+        :param pulumi.Input[bool] run_as_system: If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
         :param pulumi.Input[bool] run_elevated: If specified, the PowerShell script will be run with elevated privileges
         :param pulumi.Input[str] script_uri: URI of the PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
         :param pulumi.Input[str] sha256_checksum: SHA256 checksum of the power shell script provided in the scriptUri field above
@@ -387,6 +389,8 @@ class ImageTemplatePowerShellCustomizerArgs:
             pulumi.set(__self__, "inline", inline)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if run_as_system is not None:
+            pulumi.set(__self__, "run_as_system", run_as_system)
         if run_elevated is not None:
             pulumi.set(__self__, "run_elevated", run_elevated)
         if script_uri is not None:
@@ -431,6 +435,18 @@ class ImageTemplatePowerShellCustomizerArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runAsSystem")
+    def run_as_system(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+        """
+        return pulumi.get(self, "run_as_system")
+
+    @run_as_system.setter
+    def run_as_system(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_as_system", value)
 
     @property
     @pulumi.getter(name="runElevated")
