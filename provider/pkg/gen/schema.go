@@ -314,6 +314,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		"requires": map[string]string{
 			"pulumi": ">=2.0.0,<3.0.0",
 		},
+		"usesIOClasses": true,
 		"readme": `The Azure NextGen provider package offers support for all Azure Resource Manager (ARM)
 resources and their properties. Resources are exposed as types from modules based on Azure Resource
 Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
