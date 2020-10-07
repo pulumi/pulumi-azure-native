@@ -21,9 +21,12 @@ class Namespace(pulumi.CustomResource):
                  key_vault_properties: Optional[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SBSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,9 +40,12 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']] key_vault_properties: Properties of KeyVault
         :param pulumi.Input[str] location: The Geo-location where the resource lives
         :param pulumi.Input[str] namespace_name: The namespace name.
+        :param pulumi.Input[str] principal_id: ObjectId from the KeyVault
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[pulumi.InputType['SBSkuArgs']] sku: Properties of SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] tenant_id: TenantId from the KeyVault
+        :param pulumi.Input[str] type: Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
         :param pulumi.Input[bool] zone_redundant: Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         """
         if __name__ is not None:
@@ -67,18 +73,20 @@ class Namespace(pulumi.CustomResource):
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
+            __props__['principal_id'] = principal_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['tenant_id'] = tenant_id
+            __props__['type'] = type
             __props__['zone_redundant'] = zone_redundant
             __props__['created_at'] = None
             __props__['metric_id'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['service_bus_endpoint'] = None
-            __props__['type'] = None
             __props__['updated_at'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:Namespace"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:Namespace"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -155,6 +163,14 @@ class Namespace(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ObjectId from the KeyVault
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
@@ -185,6 +201,14 @@ class Namespace(pulumi.CustomResource):
         Resource tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        TenantId from the KeyVault
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter

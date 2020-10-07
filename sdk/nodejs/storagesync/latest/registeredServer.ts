@@ -39,6 +39,14 @@ export class RegisteredServer extends pulumi.CustomResource {
      */
     public readonly agentVersion!: pulumi.Output<string | undefined>;
     /**
+     * Registered Server Agent Version Expiration Date
+     */
+    public /*out*/ readonly agentVersionExpirationDate!: pulumi.Output<string>;
+    /**
+     * Registered Server Agent Version Status
+     */
+    public /*out*/ readonly agentVersionStatus!: pulumi.Output<string>;
+    /**
      * Registered Server clusterId
      */
     public readonly clusterId!: pulumi.Output<string | undefined>;
@@ -49,7 +57,7 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Resource discoveryEndpointUri
      */
-    public /*out*/ readonly discoveryEndpointUri!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly discoveryEndpointUri!: pulumi.Output<string>;
     /**
      * Friendly Name
      */
@@ -57,27 +65,27 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Registered Server last heart beat
      */
-    public readonly lastHeartBeat!: pulumi.Output<string | undefined>;
+    public readonly lastHeartBeat!: pulumi.Output<string>;
     /**
      * Resource Last Operation Name
      */
-    public /*out*/ readonly lastOperationName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly lastOperationName!: pulumi.Output<string>;
     /**
      * Registered Server lastWorkflowId
      */
-    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string>;
     /**
      * Management Endpoint Uri
      */
-    public /*out*/ readonly managementEndpointUri!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly managementEndpointUri!: pulumi.Output<string>;
     /**
      * Monitoring Configuration
      */
-    public /*out*/ readonly monitoringConfiguration!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly monitoringConfiguration!: pulumi.Output<string>;
     /**
      * Telemetry Endpoint Uri
      */
-    public /*out*/ readonly monitoringEndpointUri!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly monitoringEndpointUri!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -85,11 +93,11 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Registered Server Provisioning State
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource Location
      */
-    public /*out*/ readonly resourceLocation!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly resourceLocation!: pulumi.Output<string>;
     /**
      * Registered Server Certificate
      */
@@ -101,7 +109,11 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Registered Server Management Error Code
      */
-    public /*out*/ readonly serverManagementErrorCode!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly serverManagementErrorCode!: pulumi.Output<number>;
+    /**
+     * Server name
+     */
+    public /*out*/ readonly serverName!: pulumi.Output<string>;
     /**
      * Registered Server OS Version
      */
@@ -113,11 +125,11 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Service Location
      */
-    public /*out*/ readonly serviceLocation!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly serviceLocation!: pulumi.Output<string>;
     /**
      * Registered Server storageSyncServiceUid
      */
-    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -153,6 +165,8 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
             inputs["serverRole"] = args ? args.serverRole : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            inputs["agentVersionExpirationDate"] = undefined /*out*/;
+            inputs["agentVersionStatus"] = undefined /*out*/;
             inputs["discoveryEndpointUri"] = undefined /*out*/;
             inputs["lastOperationName"] = undefined /*out*/;
             inputs["lastWorkflowId"] = undefined /*out*/;
@@ -163,11 +177,14 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceLocation"] = undefined /*out*/;
             inputs["serverManagementErrorCode"] = undefined /*out*/;
+            inputs["serverName"] = undefined /*out*/;
             inputs["serviceLocation"] = undefined /*out*/;
             inputs["storageSyncServiceUid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["agentVersion"] = undefined /*out*/;
+            inputs["agentVersionExpirationDate"] = undefined /*out*/;
+            inputs["agentVersionStatus"] = undefined /*out*/;
             inputs["clusterId"] = undefined /*out*/;
             inputs["clusterName"] = undefined /*out*/;
             inputs["discoveryEndpointUri"] = undefined /*out*/;
@@ -184,6 +201,7 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["serverCertificate"] = undefined /*out*/;
             inputs["serverId"] = undefined /*out*/;
             inputs["serverManagementErrorCode"] = undefined /*out*/;
+            inputs["serverName"] = undefined /*out*/;
             inputs["serverOSVersion"] = undefined /*out*/;
             inputs["serverRole"] = undefined /*out*/;
             inputs["serviceLocation"] = undefined /*out*/;

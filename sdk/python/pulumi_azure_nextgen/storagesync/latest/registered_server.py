@@ -80,6 +80,8 @@ class RegisteredServer(pulumi.CustomResource):
             if storage_sync_service_name is None:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
+            __props__['agent_version_expiration_date'] = None
+            __props__['agent_version_status'] = None
             __props__['discovery_endpoint_uri'] = None
             __props__['last_operation_name'] = None
             __props__['last_workflow_id'] = None
@@ -90,6 +92,7 @@ class RegisteredServer(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_location'] = None
             __props__['server_management_error_code'] = None
+            __props__['server_name'] = None
             __props__['service_location'] = None
             __props__['storage_sync_service_uid'] = None
             __props__['type'] = None
@@ -128,6 +131,22 @@ class RegisteredServer(pulumi.CustomResource):
         return pulumi.get(self, "agent_version")
 
     @property
+    @pulumi.getter(name="agentVersionExpirationDate")
+    def agent_version_expiration_date(self) -> pulumi.Output[str]:
+        """
+        Registered Server Agent Version Expiration Date
+        """
+        return pulumi.get(self, "agent_version_expiration_date")
+
+    @property
+    @pulumi.getter(name="agentVersionStatus")
+    def agent_version_status(self) -> pulumi.Output[str]:
+        """
+        Registered Server Agent Version Status
+        """
+        return pulumi.get(self, "agent_version_status")
+
+    @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -145,7 +164,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="discoveryEndpointUri")
-    def discovery_endpoint_uri(self) -> pulumi.Output[Optional[str]]:
+    def discovery_endpoint_uri(self) -> pulumi.Output[str]:
         """
         Resource discoveryEndpointUri
         """
@@ -161,7 +180,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastHeartBeat")
-    def last_heart_beat(self) -> pulumi.Output[Optional[str]]:
+    def last_heart_beat(self) -> pulumi.Output[str]:
         """
         Registered Server last heart beat
         """
@@ -169,7 +188,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastOperationName")
-    def last_operation_name(self) -> pulumi.Output[Optional[str]]:
+    def last_operation_name(self) -> pulumi.Output[str]:
         """
         Resource Last Operation Name
         """
@@ -177,7 +196,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastWorkflowId")
-    def last_workflow_id(self) -> pulumi.Output[Optional[str]]:
+    def last_workflow_id(self) -> pulumi.Output[str]:
         """
         Registered Server lastWorkflowId
         """
@@ -185,7 +204,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementEndpointUri")
-    def management_endpoint_uri(self) -> pulumi.Output[Optional[str]]:
+    def management_endpoint_uri(self) -> pulumi.Output[str]:
         """
         Management Endpoint Uri
         """
@@ -193,7 +212,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringConfiguration")
-    def monitoring_configuration(self) -> pulumi.Output[Optional[str]]:
+    def monitoring_configuration(self) -> pulumi.Output[str]:
         """
         Monitoring Configuration
         """
@@ -201,7 +220,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringEndpointUri")
-    def monitoring_endpoint_uri(self) -> pulumi.Output[Optional[str]]:
+    def monitoring_endpoint_uri(self) -> pulumi.Output[str]:
         """
         Telemetry Endpoint Uri
         """
@@ -217,7 +236,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Registered Server Provisioning State
         """
@@ -225,7 +244,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceLocation")
-    def resource_location(self) -> pulumi.Output[Optional[str]]:
+    def resource_location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -249,11 +268,19 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverManagementErrorCode")
-    def server_management_error_code(self) -> pulumi.Output[Optional[int]]:
+    def server_management_error_code(self) -> pulumi.Output[int]:
         """
         Registered Server Management Error Code
         """
         return pulumi.get(self, "server_management_error_code")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Output[str]:
+        """
+        Server name
+        """
+        return pulumi.get(self, "server_name")
 
     @property
     @pulumi.getter(name="serverOSVersion")
@@ -273,7 +300,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceLocation")
-    def service_location(self) -> pulumi.Output[Optional[str]]:
+    def service_location(self) -> pulumi.Output[str]:
         """
         Service Location
         """
@@ -281,7 +308,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageSyncServiceUid")
-    def storage_sync_service_uid(self) -> pulumi.Output[Optional[str]]:
+    def storage_sync_service_uid(self) -> pulumi.Output[str]:
         """
         Registered Server storageSyncServiceUid
         """

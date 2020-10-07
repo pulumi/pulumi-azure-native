@@ -1665,6 +1665,180 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Background data download activity object
+type ServerEndpointBackgroundDataDownloadActivityResponse struct {
+	// Running count of bytes downloaded
+	DownloadedBytes int `pulumi:"downloadedBytes"`
+	// Progress percentage
+	PercentProgress int `pulumi:"percentProgress"`
+	// Timestamp when properties were updated
+	Timestamp string `pulumi:"timestamp"`
+}
+
+// ServerEndpointBackgroundDataDownloadActivityResponseInput is an input type that accepts ServerEndpointBackgroundDataDownloadActivityResponseArgs and ServerEndpointBackgroundDataDownloadActivityResponseOutput values.
+// You can construct a concrete instance of `ServerEndpointBackgroundDataDownloadActivityResponseInput` via:
+//
+//          ServerEndpointBackgroundDataDownloadActivityResponseArgs{...}
+type ServerEndpointBackgroundDataDownloadActivityResponseInput interface {
+	pulumi.Input
+
+	ToServerEndpointBackgroundDataDownloadActivityResponseOutput() ServerEndpointBackgroundDataDownloadActivityResponseOutput
+	ToServerEndpointBackgroundDataDownloadActivityResponseOutputWithContext(context.Context) ServerEndpointBackgroundDataDownloadActivityResponseOutput
+}
+
+// Background data download activity object
+type ServerEndpointBackgroundDataDownloadActivityResponseArgs struct {
+	// Running count of bytes downloaded
+	DownloadedBytes pulumi.IntInput `pulumi:"downloadedBytes"`
+	// Progress percentage
+	PercentProgress pulumi.IntInput `pulumi:"percentProgress"`
+	// Timestamp when properties were updated
+	Timestamp pulumi.StringInput `pulumi:"timestamp"`
+}
+
+func (ServerEndpointBackgroundDataDownloadActivityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointBackgroundDataDownloadActivityResponse)(nil)).Elem()
+}
+
+func (i ServerEndpointBackgroundDataDownloadActivityResponseArgs) ToServerEndpointBackgroundDataDownloadActivityResponseOutput() ServerEndpointBackgroundDataDownloadActivityResponseOutput {
+	return i.ToServerEndpointBackgroundDataDownloadActivityResponseOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointBackgroundDataDownloadActivityResponseArgs) ToServerEndpointBackgroundDataDownloadActivityResponseOutputWithContext(ctx context.Context) ServerEndpointBackgroundDataDownloadActivityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointBackgroundDataDownloadActivityResponseOutput)
+}
+
+func (i ServerEndpointBackgroundDataDownloadActivityResponseArgs) ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutput() ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput {
+	return i.ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointBackgroundDataDownloadActivityResponseArgs) ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutputWithContext(ctx context.Context) ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointBackgroundDataDownloadActivityResponseOutput).ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutputWithContext(ctx)
+}
+
+// ServerEndpointBackgroundDataDownloadActivityResponsePtrInput is an input type that accepts ServerEndpointBackgroundDataDownloadActivityResponseArgs, ServerEndpointBackgroundDataDownloadActivityResponsePtr and ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput values.
+// You can construct a concrete instance of `ServerEndpointBackgroundDataDownloadActivityResponsePtrInput` via:
+//
+//          ServerEndpointBackgroundDataDownloadActivityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServerEndpointBackgroundDataDownloadActivityResponsePtrInput interface {
+	pulumi.Input
+
+	ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutput() ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput
+	ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutputWithContext(context.Context) ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput
+}
+
+type serverEndpointBackgroundDataDownloadActivityResponsePtrType ServerEndpointBackgroundDataDownloadActivityResponseArgs
+
+func ServerEndpointBackgroundDataDownloadActivityResponsePtr(v *ServerEndpointBackgroundDataDownloadActivityResponseArgs) ServerEndpointBackgroundDataDownloadActivityResponsePtrInput {
+	return (*serverEndpointBackgroundDataDownloadActivityResponsePtrType)(v)
+}
+
+func (*serverEndpointBackgroundDataDownloadActivityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerEndpointBackgroundDataDownloadActivityResponse)(nil)).Elem()
+}
+
+func (i *serverEndpointBackgroundDataDownloadActivityResponsePtrType) ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutput() ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput {
+	return i.ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serverEndpointBackgroundDataDownloadActivityResponsePtrType) ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutputWithContext(ctx context.Context) ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput)
+}
+
+// Background data download activity object
+type ServerEndpointBackgroundDataDownloadActivityResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointBackgroundDataDownloadActivityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointBackgroundDataDownloadActivityResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointBackgroundDataDownloadActivityResponseOutput) ToServerEndpointBackgroundDataDownloadActivityResponseOutput() ServerEndpointBackgroundDataDownloadActivityResponseOutput {
+	return o
+}
+
+func (o ServerEndpointBackgroundDataDownloadActivityResponseOutput) ToServerEndpointBackgroundDataDownloadActivityResponseOutputWithContext(ctx context.Context) ServerEndpointBackgroundDataDownloadActivityResponseOutput {
+	return o
+}
+
+func (o ServerEndpointBackgroundDataDownloadActivityResponseOutput) ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutput() ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput {
+	return o.ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServerEndpointBackgroundDataDownloadActivityResponseOutput) ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutputWithContext(ctx context.Context) ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput {
+	return o.ApplyT(func(v ServerEndpointBackgroundDataDownloadActivityResponse) *ServerEndpointBackgroundDataDownloadActivityResponse {
+		return &v
+	}).(ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput)
+}
+
+// Running count of bytes downloaded
+func (o ServerEndpointBackgroundDataDownloadActivityResponseOutput) DownloadedBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerEndpointBackgroundDataDownloadActivityResponse) int { return v.DownloadedBytes }).(pulumi.IntOutput)
+}
+
+// Progress percentage
+func (o ServerEndpointBackgroundDataDownloadActivityResponseOutput) PercentProgress() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerEndpointBackgroundDataDownloadActivityResponse) int { return v.PercentProgress }).(pulumi.IntOutput)
+}
+
+// Timestamp when properties were updated
+func (o ServerEndpointBackgroundDataDownloadActivityResponseOutput) Timestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointBackgroundDataDownloadActivityResponse) string { return v.Timestamp }).(pulumi.StringOutput)
+}
+
+type ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerEndpointBackgroundDataDownloadActivityResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput) ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutput() ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput {
+	return o
+}
+
+func (o ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput) ToServerEndpointBackgroundDataDownloadActivityResponsePtrOutputWithContext(ctx context.Context) ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput {
+	return o
+}
+
+func (o ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput) Elem() ServerEndpointBackgroundDataDownloadActivityResponseOutput {
+	return o.ApplyT(func(v *ServerEndpointBackgroundDataDownloadActivityResponse) ServerEndpointBackgroundDataDownloadActivityResponse {
+		return *v
+	}).(ServerEndpointBackgroundDataDownloadActivityResponseOutput)
+}
+
+// Running count of bytes downloaded
+func (o ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput) DownloadedBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointBackgroundDataDownloadActivityResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DownloadedBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Progress percentage
+func (o ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput) PercentProgress() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointBackgroundDataDownloadActivityResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.PercentProgress
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timestamp when properties were updated
+func (o ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointBackgroundDataDownloadActivityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timestamp
+	}).(pulumi.StringPtrOutput)
+}
+
 // Server endpoint cloud tiering status object.
 type ServerEndpointCloudTieringStatusResponse struct {
 	// Information regarding how well the local cache on the server is performing.
@@ -2387,6 +2561,8 @@ type ServerEndpointSyncActivityStatusResponse struct {
 	AppliedItemCount int `pulumi:"appliedItemCount"`
 	// Per item error count
 	PerItemErrorCount int `pulumi:"perItemErrorCount"`
+	// Sync mode
+	SyncMode string `pulumi:"syncMode"`
 	// Timestamp when properties were updated
 	Timestamp string `pulumi:"timestamp"`
 	// Total bytes (if available)
@@ -2414,6 +2590,8 @@ type ServerEndpointSyncActivityStatusResponseArgs struct {
 	AppliedItemCount pulumi.IntInput `pulumi:"appliedItemCount"`
 	// Per item error count
 	PerItemErrorCount pulumi.IntInput `pulumi:"perItemErrorCount"`
+	// Sync mode
+	SyncMode pulumi.StringInput `pulumi:"syncMode"`
 	// Timestamp when properties were updated
 	Timestamp pulumi.StringInput `pulumi:"timestamp"`
 	// Total bytes (if available)
@@ -2515,6 +2693,11 @@ func (o ServerEndpointSyncActivityStatusResponseOutput) PerItemErrorCount() pulu
 	return o.ApplyT(func(v ServerEndpointSyncActivityStatusResponse) int { return v.PerItemErrorCount }).(pulumi.IntOutput)
 }
 
+// Sync mode
+func (o ServerEndpointSyncActivityStatusResponseOutput) SyncMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncActivityStatusResponse) string { return v.SyncMode }).(pulumi.StringOutput)
+}
+
 // Timestamp when properties were updated
 func (o ServerEndpointSyncActivityStatusResponseOutput) Timestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerEndpointSyncActivityStatusResponse) string { return v.Timestamp }).(pulumi.StringOutput)
@@ -2578,6 +2761,16 @@ func (o ServerEndpointSyncActivityStatusResponsePtrOutput) PerItemErrorCount() p
 	}).(pulumi.IntPtrOutput)
 }
 
+// Sync mode
+func (o ServerEndpointSyncActivityStatusResponsePtrOutput) SyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointSyncActivityStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SyncMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // Timestamp when properties were updated
 func (o ServerEndpointSyncActivityStatusResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerEndpointSyncActivityStatusResponse) *string {
@@ -2612,6 +2805,8 @@ func (o ServerEndpointSyncActivityStatusResponsePtrOutput) TotalItemCount() pulu
 type ServerEndpointSyncSessionStatusResponse struct {
 	// Array of per-item errors coming from the last sync session.
 	FilesNotSyncingErrors []ServerEndpointFilesNotSyncingErrorResponse `pulumi:"filesNotSyncingErrors"`
+	// Sync mode
+	LastSyncMode string `pulumi:"lastSyncMode"`
 	// Last sync per item error count.
 	LastSyncPerItemErrorCount int `pulumi:"lastSyncPerItemErrorCount"`
 	// Last sync result (HResult)
@@ -2641,6 +2836,8 @@ type ServerEndpointSyncSessionStatusResponseInput interface {
 type ServerEndpointSyncSessionStatusResponseArgs struct {
 	// Array of per-item errors coming from the last sync session.
 	FilesNotSyncingErrors ServerEndpointFilesNotSyncingErrorResponseArrayInput `pulumi:"filesNotSyncingErrors"`
+	// Sync mode
+	LastSyncMode pulumi.StringInput `pulumi:"lastSyncMode"`
 	// Last sync per item error count.
 	LastSyncPerItemErrorCount pulumi.IntInput `pulumi:"lastSyncPerItemErrorCount"`
 	// Last sync result (HResult)
@@ -2740,6 +2937,11 @@ func (o ServerEndpointSyncSessionStatusResponseOutput) FilesNotSyncingErrors() S
 	}).(ServerEndpointFilesNotSyncingErrorResponseArrayOutput)
 }
 
+// Sync mode
+func (o ServerEndpointSyncSessionStatusResponseOutput) LastSyncMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncSessionStatusResponse) string { return v.LastSyncMode }).(pulumi.StringOutput)
+}
+
 // Last sync per item error count.
 func (o ServerEndpointSyncSessionStatusResponseOutput) LastSyncPerItemErrorCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ServerEndpointSyncSessionStatusResponse) int { return v.LastSyncPerItemErrorCount }).(pulumi.IntOutput)
@@ -2796,6 +2998,16 @@ func (o ServerEndpointSyncSessionStatusResponsePtrOutput) FilesNotSyncingErrors(
 		}
 		return v.FilesNotSyncingErrors
 	}).(ServerEndpointFilesNotSyncingErrorResponseArrayOutput)
+}
+
+// Sync mode
+func (o ServerEndpointSyncSessionStatusResponsePtrOutput) LastSyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointSyncSessionStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastSyncMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // Last sync per item error count.
@@ -2860,6 +3072,8 @@ func (o ServerEndpointSyncSessionStatusResponsePtrOutput) TransientFilesNotSynci
 
 // Server Endpoint sync status
 type ServerEndpointSyncStatusResponse struct {
+	// Background data download activity
+	BackgroundDataDownloadActivity ServerEndpointBackgroundDataDownloadActivityResponse `pulumi:"backgroundDataDownloadActivity"`
 	// Combined Health Status.
 	CombinedHealth string `pulumi:"combinedHealth"`
 	// Download sync activity
@@ -2897,6 +3111,8 @@ type ServerEndpointSyncStatusResponseInput interface {
 
 // Server Endpoint sync status
 type ServerEndpointSyncStatusResponseArgs struct {
+	// Background data download activity
+	BackgroundDataDownloadActivity ServerEndpointBackgroundDataDownloadActivityResponseInput `pulumi:"backgroundDataDownloadActivity"`
 	// Combined Health Status.
 	CombinedHealth pulumi.StringInput `pulumi:"combinedHealth"`
 	// Download sync activity
@@ -2999,6 +3215,13 @@ func (o ServerEndpointSyncStatusResponseOutput) ToServerEndpointSyncStatusRespon
 	}).(ServerEndpointSyncStatusResponsePtrOutput)
 }
 
+// Background data download activity
+func (o ServerEndpointSyncStatusResponseOutput) BackgroundDataDownloadActivity() ServerEndpointBackgroundDataDownloadActivityResponseOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusResponse) ServerEndpointBackgroundDataDownloadActivityResponse {
+		return v.BackgroundDataDownloadActivity
+	}).(ServerEndpointBackgroundDataDownloadActivityResponseOutput)
+}
+
 // Combined Health Status.
 func (o ServerEndpointSyncStatusResponseOutput) CombinedHealth() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerEndpointSyncStatusResponse) string { return v.CombinedHealth }).(pulumi.StringOutput)
@@ -3078,6 +3301,16 @@ func (o ServerEndpointSyncStatusResponsePtrOutput) ToServerEndpointSyncStatusRes
 
 func (o ServerEndpointSyncStatusResponsePtrOutput) Elem() ServerEndpointSyncStatusResponseOutput {
 	return o.ApplyT(func(v *ServerEndpointSyncStatusResponse) ServerEndpointSyncStatusResponse { return *v }).(ServerEndpointSyncStatusResponseOutput)
+}
+
+// Background data download activity
+func (o ServerEndpointSyncStatusResponsePtrOutput) BackgroundDataDownloadActivity() ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput {
+	return o.ApplyT(func(v *ServerEndpointSyncStatusResponse) *ServerEndpointBackgroundDataDownloadActivityResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.BackgroundDataDownloadActivity
+	}).(ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput)
 }
 
 // Combined Health Status.
@@ -3211,6 +3444,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerEndpointBackgroundDataDownloadActivityResponseOutput{})
+	pulumi.RegisterOutputType(ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointCloudTieringStatusResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointCloudTieringStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointFilesNotSyncingErrorResponseOutput{})

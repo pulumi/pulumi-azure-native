@@ -97,6 +97,10 @@ export class ServerEndpoint extends pulumi.CustomResource {
      */
     public readonly serverLocalPath!: pulumi.Output<string | undefined>;
     /**
+     * Server name
+     */
+    public /*out*/ readonly serverName!: pulumi.Output<string>;
+    /**
      * Server Resource Id.
      */
     public readonly serverResourceId!: pulumi.Output<string | undefined>;
@@ -161,6 +165,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["offlineDataTransferStorageAccountTenantId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["recallStatus"] = undefined /*out*/;
+            inputs["serverName"] = undefined /*out*/;
             inputs["syncStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -179,6 +184,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["recallStatus"] = undefined /*out*/;
             inputs["serverLocalPath"] = undefined /*out*/;
+            inputs["serverName"] = undefined /*out*/;
             inputs["serverResourceId"] = undefined /*out*/;
             inputs["syncStatus"] = undefined /*out*/;
             inputs["tierFilesOlderThanDays"] = undefined /*out*/;

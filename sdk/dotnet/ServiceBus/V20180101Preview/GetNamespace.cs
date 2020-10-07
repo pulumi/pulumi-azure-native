@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// ObjectId from the KeyVault
+        /// </summary>
+        public readonly string? PrincipalId;
+        /// <summary>
         /// Provisioning state of the namespace.
         /// </summary>
         public readonly string ProvisioningState;
@@ -79,6 +83,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// TenantId from the KeyVault
+        /// </summary>
+        public readonly string? TenantId;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -106,6 +114,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 
             string name,
 
+            string? principalId,
+
             string provisioningState,
 
             string serviceBusEndpoint,
@@ -113,6 +123,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
             Outputs.SBSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
+
+            string? tenantId,
 
             string type,
 
@@ -126,10 +138,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
             Location = location;
             MetricId = metricId;
             Name = name;
+            PrincipalId = principalId;
             ProvisioningState = provisioningState;
             ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
             Tags = tags;
+            TenantId = tenantId;
             Type = type;
             UpdatedAt = updatedAt;
             ZoneRedundant = zoneRedundant;
