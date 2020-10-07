@@ -34,6 +34,12 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+        /// </summary>
+        [Input("runAsSystem")]
+        public Input<bool>? RunAsSystem { get; set; }
+
+        /// <summary>
         /// If specified, the PowerShell script will be run with elevated privileges
         /// </summary>
         [Input("runElevated")]

@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200201
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190801:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191001:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191101:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200301:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Snapshot"},
                 },
             };

@@ -113,7 +113,7 @@ export class Snapshot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Snapshot" }, { type: "azure-nextgen:netapp/v20170815:Snapshot" }, { type: "azure-nextgen:netapp/v20190501:Snapshot" }, { type: "azure-nextgen:netapp/v20190601:Snapshot" }, { type: "azure-nextgen:netapp/v20190701:Snapshot" }, { type: "azure-nextgen:netapp/v20190801:Snapshot" }, { type: "azure-nextgen:netapp/v20191001:Snapshot" }, { type: "azure-nextgen:netapp/v20191101:Snapshot" }, { type: "azure-nextgen:netapp/v20200201:Snapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Snapshot" }, { type: "azure-nextgen:netapp/v20170815:Snapshot" }, { type: "azure-nextgen:netapp/v20190501:Snapshot" }, { type: "azure-nextgen:netapp/v20190601:Snapshot" }, { type: "azure-nextgen:netapp/v20190701:Snapshot" }, { type: "azure-nextgen:netapp/v20190801:Snapshot" }, { type: "azure-nextgen:netapp/v20191001:Snapshot" }, { type: "azure-nextgen:netapp/v20191101:Snapshot" }, { type: "azure-nextgen:netapp/v20200201:Snapshot" }, { type: "azure-nextgen:netapp/v20200301:Snapshot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Snapshot.__pulumiType, name, inputs, opts);
     }
