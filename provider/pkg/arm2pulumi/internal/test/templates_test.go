@@ -41,14 +41,38 @@ func TestTemplateCoverage(t *testing.T) {
 		t.Run(match, func(t *testing.T) {
 			body, _, err := renderer.RenderFileIR(match)
 			require.NoError(t, err)
-			rendered, _, err := renderer.RenderPrograms(body, []string{"nodejs"})
+			fmt.Printf("%s\n%s\n", match, body)
+			var langs []string
+			var expected []string
+			extensions := map[string]string{
+				"nodejs": ".ts",
+				"dotnet": ".cs",
+				"python": ".py",
+				"go":     ".go",
+			}
+			sorted := []string{"nodejs", "dotnet", "python", "go"}
+			for _, lang := range sorted {
+				extension := extensions[lang]
+				_, err := os.Stat(fmt.Sprintf("%s%s", match, extension))
+				if err != nil {
+					if !os.IsNotExist(err) {
+						t.Fatalf("Unpexpected error: %+v", err)
+					}
+					continue
+				}
+				f, err := os.Open(fmt.Sprintf("%s%s", match, extension))
+				require.NoError(t, err)
+				defer func() { _ = f.Close() }()
+				exp, err := ioutil.ReadAll(f)
+				require.NoError(t, err)
+				expected = append(expected, string(exp))
+				langs = append(langs, lang)
+			}
+			rendered, _, err := renderer.RenderPrograms(body, langs)
 			require.NoError(t, err)
-			f, err := os.Open(fmt.Sprintf("%s.ts", match))
-			require.NoError(t, err)
-			defer f.Close()
-			expected, err := ioutil.ReadAll(f)
-			require.NoError(t, err)
-			assert.Equal(t, rendered["nodejs"], string(expected), match)
+			for i, lang := range langs {
+				assert.Equal(t, rendered[lang], expected[i], match)
+			}
 		})
 
 	}
