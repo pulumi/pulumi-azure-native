@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+        /// </summary>
+        public readonly bool? RunAsSystem;
+        /// <summary>
         /// If specified, the PowerShell script will be run with elevated privileges
         /// </summary>
         public readonly bool? RunElevated;
@@ -48,6 +52,8 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest.Outputs
 
             string? name,
 
+            bool? runAsSystem,
+
             bool? runElevated,
 
             string? scriptUri,
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest.Outputs
         {
             Inline = inline;
             Name = name;
+            RunAsSystem = runAsSystem;
             RunElevated = runElevated;
             ScriptUri = scriptUri;
             Sha256Checksum = sha256Checksum;

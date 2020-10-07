@@ -90,6 +90,9 @@ func NewPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200201:Pool"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200301:Pool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Pool

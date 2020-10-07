@@ -127,6 +127,11 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.V20200301Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/latest:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/v20201001:Cluster"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

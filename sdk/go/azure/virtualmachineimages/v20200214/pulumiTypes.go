@@ -1313,6 +1313,8 @@ type ImageTemplatePowerShellCustomizer struct {
 	Inline []string `pulumi:"inline"`
 	// Friendly Name to provide context on what this customization step does
 	Name *string `pulumi:"name"`
+	// If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+	RunAsSystem *bool `pulumi:"runAsSystem"`
 	// If specified, the PowerShell script will be run with elevated privileges
 	RunElevated *bool `pulumi:"runElevated"`
 	// URI of the PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
@@ -1342,6 +1344,8 @@ type ImageTemplatePowerShellCustomizerArgs struct {
 	Inline pulumi.StringArrayInput `pulumi:"inline"`
 	// Friendly Name to provide context on what this customization step does
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+	RunAsSystem pulumi.BoolPtrInput `pulumi:"runAsSystem"`
 	// If specified, the PowerShell script will be run with elevated privileges
 	RunElevated pulumi.BoolPtrInput `pulumi:"runElevated"`
 	// URI of the PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
@@ -1391,6 +1395,11 @@ func (o ImageTemplatePowerShellCustomizerOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageTemplatePowerShellCustomizer) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+func (o ImageTemplatePowerShellCustomizerOutput) RunAsSystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizer) *bool { return v.RunAsSystem }).(pulumi.BoolPtrOutput)
+}
+
 // If specified, the PowerShell script will be run with elevated privileges
 func (o ImageTemplatePowerShellCustomizerOutput) RunElevated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImageTemplatePowerShellCustomizer) *bool { return v.RunElevated }).(pulumi.BoolPtrOutput)
@@ -1422,6 +1431,8 @@ type ImageTemplatePowerShellCustomizerResponse struct {
 	Inline []string `pulumi:"inline"`
 	// Friendly Name to provide context on what this customization step does
 	Name *string `pulumi:"name"`
+	// If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+	RunAsSystem *bool `pulumi:"runAsSystem"`
 	// If specified, the PowerShell script will be run with elevated privileges
 	RunElevated *bool `pulumi:"runElevated"`
 	// URI of the PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
@@ -1451,6 +1462,8 @@ type ImageTemplatePowerShellCustomizerResponseArgs struct {
 	Inline pulumi.StringArrayInput `pulumi:"inline"`
 	// Friendly Name to provide context on what this customization step does
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+	RunAsSystem pulumi.BoolPtrInput `pulumi:"runAsSystem"`
 	// If specified, the PowerShell script will be run with elevated privileges
 	RunElevated pulumi.BoolPtrInput `pulumi:"runElevated"`
 	// URI of the PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
@@ -1498,6 +1511,11 @@ func (o ImageTemplatePowerShellCustomizerResponseOutput) Inline() pulumi.StringA
 // Friendly Name to provide context on what this customization step does
 func (o ImageTemplatePowerShellCustomizerResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageTemplatePowerShellCustomizerResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+func (o ImageTemplatePowerShellCustomizerResponseOutput) RunAsSystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePowerShellCustomizerResponse) *bool { return v.RunAsSystem }).(pulumi.BoolPtrOutput)
 }
 
 // If specified, the PowerShell script will be run with elevated privileges

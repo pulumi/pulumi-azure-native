@@ -51,6 +51,7 @@ from . import (
     databoxedge,
     databricks,
     datacatalog,
+    datadog,
     datafactory,
     datalakeanalytics,
     datalakestore,
