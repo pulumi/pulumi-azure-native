@@ -94,7 +94,7 @@ var p = &azureNextGenProvider{
 								"union": {
 									OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
 								},
-								"tags": {},
+								"tags":         {},
 								"untypedArray": {},
 							},
 						},
@@ -136,7 +136,7 @@ var p = &azureNextGenProvider{
 					"union": {
 						OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
 					},
-					"tags": {},
+					"tags":         {},
 					"untypedArray": {},
 				},
 			},
@@ -182,8 +182,8 @@ var sampleAPIPackage = map[string]interface{}{
 		"application": "dashboard",
 	},
 	"untypedArray": []interface{}{
-		map[string]interface{}{ "key1": "value1" },
-		map[string]interface{}{ "key1": "value2" },
+		map[string]interface{}{"key1": "value1"},
+		map[string]interface{}{"key1": "value2"},
 	},
 }
 var sampleSdkProps = map[string]interface{}{
@@ -213,8 +213,8 @@ var sampleSdkProps = map[string]interface{}{
 		"application": "dashboard",
 	},
 	"untypedArray": []interface{}{
-		map[string]interface{}{ "key1": "value1" },
-		map[string]interface{}{ "key1": "value2" },
+		map[string]interface{}{"key1": "value1"},
+		map[string]interface{}{"key1": "value2"},
 	},
 }
 
@@ -249,7 +249,7 @@ func TestParseInvalidResourceID(t *testing.T) {
 	}
 }
 
-func TestParseValidResourceID(t *testing.T) {
+func TestParseFullResourceID(t *testing.T) {
 	id := "/subscriptions/0282681f-7a9e-123b-40b2-96babd57a8a1/resourcegroups/pulumi-name/providers/Microsoft.Network/networkInterfaces/pulumi-nic/ipConfigurations/ipconfig1"
 	path := "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/ipConfigurations/{ipConfigurationName}"
 	actual, err := parseResourceID(id, path)
@@ -259,6 +259,18 @@ func TestParseValidResourceID(t *testing.T) {
 		"resourceGroupName":    "pulumi-name",
 		"networkInterfaceName": "pulumi-nic",
 		"ipConfigurationName":  "ipconfig1",
+	}
+	assert.Equal(t, expected, actual)
+}
+
+func TestParseScopedResourceID(t *testing.T) {
+	id := "/subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev/providers/Microsoft.Authorization/roleAssignments/2a88abc7-f599-0eba-a21f-a1817e597115"
+	path := "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}"
+	actual, err := parseResourceID(id, path)
+	assert.NoError(t, err)
+	expected := map[string]string{
+		"scope":              "subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev",
+		"roleAssignmentName": "2a88abc7-f599-0eba-a21f-a1817e597115",
 	}
 	assert.Equal(t, expected, actual)
 }

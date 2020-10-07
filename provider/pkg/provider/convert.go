@@ -3,8 +3,10 @@
 package provider
 
 import (
+	"fmt"
 	"github.com/pkg/errors"
 	"reflect"
+	"regexp"
 	"strings"
 )
 
@@ -203,23 +205,35 @@ func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []AzureAPIParameter,
 }
 
 // parseResourceID extracts templated values from the given resource ID based on the names of those templated
-// values in an HTTP path. The structure of id and path must match: same segment count and segment names.
+// values in an HTTP path. The structure of id and path must match: we validate it by building a regular
+// expression based on the path parameters and matching the id.
 func parseResourceID(id, path string) (map[string]string, error) {
 	pathParts := strings.Split(path, "/")
-	idParts := strings.Split(id, "/")
-	if len(pathParts) != len(idParts) {
-		return nil, errors.Errorf("length of id doesn't match the path: '%s' vs. '%s'", id, path)
+	regexParts := make([]string, len(pathParts))
+	for i, s := range pathParts {
+		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
+			name := s[1 : len(s)-1]
+			regexParts[i] = fmt.Sprintf("(?P<%s>.+)", name)
+		} else {
+			regexParts[i] = pathParts[i]
+		}
+	}
+
+	expr := fmt.Sprintf("(?i)^%s$", strings.Join(regexParts, "/"))
+	pattern, err := regexp.Compile(expr)
+	if err != nil {
+		return nil, errors.Wrapf(err, "failed to compile expression '%s' for path '%s'", expr, path)
+	}
+
+	match := pattern.FindStringSubmatch(id)
+	if len(match) < len(pattern.SubexpNames()) {
+		return nil, errors.Errorf("failed to parse '%s' against the path '%s'", id, path)
 	}
 
 	result := map[string]string{}
-	for i, s := range pathParts {
-		value := idParts[i]
-		switch {
-		case strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}"):
-			name := s[1 : len(s)-1]
-			result[name] = value
-		case !strings.EqualFold(s, value):
-			return nil, errors.Errorf("failed parsing id: %s <> %s", s, value)
+	for i, name := range pattern.SubexpNames() {
+		if i > 0 && name != "" {
+			result[name] = match[i]
 		}
 	}
 	return result, nil
