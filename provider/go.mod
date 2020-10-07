@@ -15,9 +15,9 @@ require (
 	github.com/hashicorp/hcl/v2 v2.6.0
 	github.com/magiconair/properties v1.8.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v2 v2.10.2-0.20200920185652-988ebd8b8e6f
+	github.com/pulumi/pulumi/pkg/v2 v2.11.3-0.20201006235441-2b67c6ea81d0
 	github.com/pulumi/pulumi/sdk v1.14.1
-	github.com/pulumi/pulumi/sdk/v2 v2.10.2-0.20200920185652-988ebd8b8e6f
+	github.com/pulumi/pulumi/sdk/v2 v2.11.3-0.20201006235441-2b67c6ea81d0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
 	github.com/stretchr/testify v1.6.1
