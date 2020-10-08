@@ -59,6 +59,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly snapshotId!: pulumi.Output<string>;
     /**
+     * Resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -97,6 +101,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["snapshotName"] = args ? args.snapshotName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["created"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -110,6 +115,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["snapshotId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -153,6 +159,10 @@ export interface SnapshotArgs {
      * The name of the mount target
      */
     readonly snapshotName: pulumi.Input<string>;
+    /**
+     * Resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the volume
      */
