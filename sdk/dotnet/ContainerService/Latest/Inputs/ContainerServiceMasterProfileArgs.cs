@@ -22,40 +22,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         public Input<int>? Count { get; set; }
 
         /// <summary>
-        /// DNS prefix to be used to create the FQDN for the master pool.
+        /// DNS prefix to be used to create the FQDN for master.
         /// </summary>
         [Input("dnsPrefix", required: true)]
         public Input<string> DnsPrefix { get; set; } = null!;
-
-        /// <summary>
-        /// FirstConsecutiveStaticIP used to specify the first static ip of masters.
-        /// </summary>
-        [Input("firstConsecutiveStaticIP")]
-        public Input<string>? FirstConsecutiveStaticIP { get; set; }
-
-        /// <summary>
-        /// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        /// </summary>
-        [Input("osDiskSizeGB")]
-        public Input<int>? OsDiskSizeGB { get; set; }
-
-        /// <summary>
-        /// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-        /// </summary>
-        [Input("storageProfile")]
-        public Input<string>? StorageProfile { get; set; }
-
-        /// <summary>
-        /// Size of agent VMs.
-        /// </summary>
-        [Input("vmSize", required: true)]
-        public Input<string> VmSize { get; set; } = null!;
-
-        /// <summary>
-        /// VNet SubnetID specifies the VNet's subnet identifier.
-        /// </summary>
-        [Input("vnetSubnetID")]
-        public Input<string>? VnetSubnetID { get; set; }
 
         public ContainerServiceMasterProfileArgs()
         {

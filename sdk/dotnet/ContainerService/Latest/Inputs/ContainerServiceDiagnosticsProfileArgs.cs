@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
 {
 
-    /// <summary>
-    /// Profile for diagnostics on the container service cluster.
-    /// </summary>
     public sealed class ContainerServiceDiagnosticsProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Profile for diagnostics on the container service VMs.
+        /// Profile for the container service VM diagnostic agent.
         /// </summary>
         [Input("vmDiagnostics", required: true)]
         public Input<Inputs.ContainerServiceVMDiagnosticsArgs> VmDiagnostics { get; set; } = null!;

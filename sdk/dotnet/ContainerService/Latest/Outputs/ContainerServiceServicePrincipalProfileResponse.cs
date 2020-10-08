@@ -18,24 +18,17 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// Reference to a secret stored in Azure Key Vault.
+        /// The secret password associated with the service principal.
         /// </summary>
-        public readonly Outputs.KeyVaultSecretRefResponse? KeyVaultSecretRef;
-        /// <summary>
-        /// The secret password associated with the service principal in plain text.
-        /// </summary>
-        public readonly string? Secret;
+        public readonly string Secret;
 
         [OutputConstructor]
         private ContainerServiceServicePrincipalProfileResponse(
             string clientId,
 
-            Outputs.KeyVaultSecretRefResponse? keyVaultSecretRef,
-
-            string? secret)
+            string secret)
         {
             ClientId = clientId;
-            KeyVaultSecretRef = keyVaultSecretRef;
             Secret = secret;
         }
     }

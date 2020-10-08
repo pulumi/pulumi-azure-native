@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
     public sealed class ContainerServiceDiagnosticsProfileResponse
     {
         /// <summary>
-        /// Profile for diagnostics on the container service VMs.
+        /// Profile for the container service VM diagnostic agent.
         /// </summary>
         public readonly Outputs.ContainerServiceVMDiagnosticsResponse VmDiagnostics;
 

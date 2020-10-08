@@ -44,15 +44,15 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse> AgentPoolProfiles;
         /// <summary>
-        /// Properties to configure a custom container service cluster.
+        /// Properties for custom clusters.
         /// </summary>
         public readonly Outputs.ContainerServiceCustomProfileResponse? CustomProfile;
         /// <summary>
-        /// Profile for diagnostics in the container service cluster.
+        /// Properties of the diagnostic agent.
         /// </summary>
         public readonly Outputs.ContainerServiceDiagnosticsProfileResponse? DiagnosticsProfile;
         /// <summary>
-        /// Profile for Linux VMs in the container service cluster.
+        /// Properties of Linux VMs.
         /// </summary>
         public readonly Outputs.ContainerServiceLinuxProfileResponse LinuxProfile;
         /// <summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Profile for the container service master.
+        /// Properties of master agents.
         /// </summary>
         public readonly Outputs.ContainerServiceMasterProfileResponse MasterProfile;
         /// <summary>
@@ -68,15 +68,15 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Profile for the container service orchestrator.
+        /// Properties of the orchestrator.
         /// </summary>
-        public readonly Outputs.ContainerServiceOrchestratorProfileResponse OrchestratorProfile;
+        public readonly Outputs.ContainerServiceOrchestratorProfileResponse? OrchestratorProfile;
         /// <summary>
-        /// The current deployment or provisioning state, which only appears in the response.
+        /// the current deployment or provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+        /// Properties for cluster service principals.
         /// </summary>
         public readonly Outputs.ContainerServiceServicePrincipalProfileResponse? ServicePrincipalProfile;
         /// <summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Profile for Windows VMs in the container service cluster.
+        /// Properties of Windows VMs.
         /// </summary>
         public readonly Outputs.ContainerServiceWindowsProfileResponse? WindowsProfile;
 
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 
             string name,
 
-            Outputs.ContainerServiceOrchestratorProfileResponse orchestratorProfile,
+            Outputs.ContainerServiceOrchestratorProfileResponse? orchestratorProfile,
 
             string provisioningState,
 

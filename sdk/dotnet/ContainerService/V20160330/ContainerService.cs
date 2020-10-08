@@ -109,7 +109,6 @@ namespace Pulumi.AzureNextGen.ContainerService.V20160330
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20151101preview:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20160930:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20170131:ContainerService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20170701:ContainerService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
