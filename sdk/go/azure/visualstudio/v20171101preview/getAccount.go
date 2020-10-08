@@ -29,6 +29,8 @@ type LookupAccountResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// Resource properties.
+	Properties map[string]string `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

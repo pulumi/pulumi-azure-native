@@ -31,6 +31,8 @@ type LookupContentItemArgs struct {
 type LookupContentItemResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
+	// Properties of the content item.
+	Properties interface{} `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }
