@@ -191,7 +191,9 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 	pathItem := spec.Paths.Paths[path]
 
 	// Add a resource entry.
-	if pathItem.Put != nil && pathItem.Get != nil && pathItem.Delete != nil {
+	if pathItem.Put != nil && !pathItem.Put.Deprecated &&
+		pathItem.Get != nil && !pathItem.Get.Deprecated &&
+		pathItem.Delete != nil && !pathItem.Delete.Deprecated {
 		typeName := provider.ResourceName(pathItem.Get.ID)
 		if typeName != "" {
 			version.Resources[typeName] = &ResourceSpec{
@@ -203,7 +205,7 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 	}
 
 	// Add a POST invoke entry.
-	if pathItem.Post != nil {
+	if pathItem.Post != nil && !pathItem.Post.Deprecated {
 		parts := strings.Split(path, "/")
 		operationName := parts[len(parts)-1]
 		prefix := ""
