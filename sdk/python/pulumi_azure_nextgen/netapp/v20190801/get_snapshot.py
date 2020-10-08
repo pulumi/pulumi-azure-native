@@ -19,7 +19,7 @@ class GetSnapshotResult:
     """
     Snapshot of a Volume
     """
-    def __init__(__self__, created=None, file_system_id=None, location=None, name=None, provisioning_state=None, snapshot_id=None, type=None):
+    def __init__(__self__, created=None, file_system_id=None, location=None, name=None, provisioning_state=None, snapshot_id=None, tags=None, type=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -38,6 +38,9 @@ class GetSnapshotResult:
         if snapshot_id and not isinstance(snapshot_id, str):
             raise TypeError("Expected argument 'snapshot_id' to be a str")
         pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -92,6 +95,14 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         Resource type
@@ -111,6 +122,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             snapshot_id=self.snapshot_id,
+            tags=self.tags,
             type=self.type)
 
 
@@ -148,4 +160,5 @@ def get_snapshot(account_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         snapshot_id=__ret__.snapshot_id,
+        tags=__ret__.tags,
         type=__ret__.type)

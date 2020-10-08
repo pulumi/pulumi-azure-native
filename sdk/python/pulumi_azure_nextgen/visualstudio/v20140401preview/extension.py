@@ -21,6 +21,7 @@ class Extension(pulumi.CustomResource):
                  extension_resource_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['ExtensionResourcePlanArgs']]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -35,6 +36,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] extension_resource_name: The name of the extension.
         :param pulumi.Input[str] location: The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
         :param pulumi.Input[pulumi.InputType['ExtensionResourcePlanArgs']] plan: Extended information about the plan being purchased for this extension resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A dictionary of extended properties. This property is currently unused.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A dictionary of user-defined tags to be stored with the extension resource.
         """
@@ -63,12 +65,12 @@ class Extension(pulumi.CustomResource):
             __props__['extension_resource_name'] = extension_resource_name
             __props__['location'] = location
             __props__['plan'] = plan
+            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['name'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:visualstudio/v20171101preview:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

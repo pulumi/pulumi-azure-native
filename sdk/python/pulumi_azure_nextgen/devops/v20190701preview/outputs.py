@@ -101,19 +101,23 @@ class CodeRepositoryResponse(dict):
                  default_branch: str,
                  id: str,
                  repository_type: str,
-                 authorization: Optional['outputs.AuthorizationResponse'] = None):
+                 authorization: Optional['outputs.AuthorizationResponse'] = None,
+                 properties: Optional[Mapping[str, str]] = None):
         """
         Repository containing the source code for a pipeline.
         :param str default_branch: Default branch used to configure Continuous Integration (CI) in the pipeline.
         :param str id: Unique immutable identifier of the code repository.
         :param str repository_type: Type of code repository.
         :param 'AuthorizationResponseArgs' authorization: Authorization info to access the code repository.
+        :param Mapping[str, str] properties: Repository-specific properties.
         """
         pulumi.set(__self__, "default_branch", default_branch)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "repository_type", repository_type)
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="defaultBranch")
@@ -146,6 +150,14 @@ class CodeRepositoryResponse(dict):
         Authorization info to access the code repository.
         """
         return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Repository-specific properties.
+        """
+        return pulumi.get(self, "properties")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

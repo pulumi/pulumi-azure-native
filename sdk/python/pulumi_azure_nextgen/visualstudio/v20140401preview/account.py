@@ -18,6 +18,7 @@ class Account(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  operation_type: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,6 +33,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The account name.
         :param pulumi.Input[str] location: The Azure instance location.
         :param pulumi.Input[str] operation_type: The type of the operation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom properties of the resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         :param pulumi.Input[str] resource_name_: Name of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The custom tags of the resource.
@@ -56,6 +58,7 @@ class Account(pulumi.CustomResource):
             __props__['account_name'] = account_name
             __props__['location'] = location
             __props__['operation_type'] = operation_type
+            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -106,6 +109,14 @@ class Account(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Resource properties.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

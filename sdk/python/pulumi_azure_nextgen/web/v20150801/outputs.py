@@ -18,6 +18,7 @@ __all__ = [
     'BackupScheduleResponseResult',
     'CloningInfoResponse',
     'ConnStringInfoResponse',
+    'ConnStringValueTypePairResponseResult',
     'CorsSettingsResponse',
     'DatabaseBackupSettingResponseResult',
     'ExperimentsResponse',
@@ -535,6 +536,40 @@ class ConnStringInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnStringValueTypePairResponseResult(dict):
+    """
+    Database connection string value to type pair
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 value: Optional[str] = None):
+        """
+        Database connection string value to type pair
+        :param str type: Type of database
+        :param str value: Value of pair
+        """
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of database
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of pair
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

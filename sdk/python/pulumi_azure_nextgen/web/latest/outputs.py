@@ -24,11 +24,13 @@ __all__ = [
     'AutoHealCustomActionResponse',
     'AutoHealRulesResponse',
     'AutoHealTriggersResponse',
+    'AzureStorageInfoValueResponseResult',
     'BackupItemResponseResult',
     'BackupScheduleResponseResult',
     'CapabilityResponse',
     'CloningInfoResponse',
     'ConnStringInfoResponse',
+    'ConnStringValueTypePairResponseResult',
     'ConnectionErrorResponse',
     'ConnectionGatewayDefinitionResponseProperties',
     'ConnectionGatewayReferenceResponse',
@@ -809,6 +811,88 @@ class AutoHealTriggersResponse(dict):
 
 
 @pulumi.output_type
+class AzureStorageInfoValueResponseResult(dict):
+    """
+    Azure Files or Blob Storage access information value for dictionary storage.
+    """
+    def __init__(__self__, *,
+                 state: str,
+                 access_key: Optional[str] = None,
+                 account_name: Optional[str] = None,
+                 mount_path: Optional[str] = None,
+                 share_name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Azure Files or Blob Storage access information value for dictionary storage.
+        :param str state: State of the storage account.
+        :param str access_key: Access key for the storage account.
+        :param str account_name: Name of the storage account.
+        :param str mount_path: Path to mount the storage within the site's runtime environment.
+        :param str share_name: Name of the file share (container name, for Blob storage).
+        :param str type: Type of storage.
+        """
+        pulumi.set(__self__, "state", state)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of the storage account.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[str]:
+        """
+        Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        """
+        Name of the storage account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[str]:
+        """
+        Path to mount the storage within the site's runtime environment.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> Optional[str]:
+        """
+        Name of the file share (container name, for Blob storage).
+        """
+        return pulumi.get(self, "share_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of storage.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class BackupItemResponseResult(dict):
     """
     Backup description.
@@ -1338,6 +1422,39 @@ class ConnStringInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnStringValueTypePairResponseResult(dict):
+    """
+    Database connection string value to type pair.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 value: str):
+        """
+        Database connection string value to type pair.
+        :param str type: Type of database.
+        :param str value: Value of pair.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of database.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of pair.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -19,13 +19,16 @@ class ListWebApplicationSettingsSlotResult:
     """
     String dictionary resource.
     """
-    def __init__(__self__, kind=None, name=None, type=None):
+    def __init__(__self__, kind=None, name=None, properties=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -48,6 +51,14 @@ class ListWebApplicationSettingsSlotResult:
 
     @property
     @pulumi.getter
+    def properties(self) -> Mapping[str, str]:
+        """
+        Settings.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         Resource type.
@@ -63,6 +74,7 @@ class AwaitableListWebApplicationSettingsSlotResult(ListWebApplicationSettingsSl
         return ListWebApplicationSettingsSlotResult(
             kind=self.kind,
             name=self.name,
+            properties=self.properties,
             type=self.type)
 
 
@@ -90,4 +102,5 @@ def list_web_application_settings_slot(name: Optional[str] = None,
     return AwaitableListWebApplicationSettingsSlotResult(
         kind=__ret__.kind,
         name=__ret__.name,
+        properties=__ret__.properties,
         type=__ret__.type)
