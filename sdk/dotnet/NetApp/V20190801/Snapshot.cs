@@ -51,6 +51,12 @@ namespace Pulumi.AzureNextGen.NetApp.V20190801
         public Output<string> SnapshotId { get; private set; } = null!;
 
         /// <summary>
+        /// Resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
@@ -149,6 +155,18 @@ namespace Pulumi.AzureNextGen.NetApp.V20190801
         /// </summary>
         [Input("snapshotName", required: true)]
         public Input<string> SnapshotName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The name of the volume

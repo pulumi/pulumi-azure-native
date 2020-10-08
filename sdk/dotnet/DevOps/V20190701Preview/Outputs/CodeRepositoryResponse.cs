@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Repository-specific properties.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Properties;
+        /// <summary>
         /// Type of code repository.
         /// </summary>
         public readonly string RepositoryType;
@@ -38,11 +42,14 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview.Outputs
 
             string id,
 
+            ImmutableDictionary<string, string>? properties,
+
             string repositoryType)
         {
             Authorization = authorization;
             DefaultBranch = defaultBranch;
             Id = id;
+            Properties = properties;
             RepositoryType = repositoryType;
         }
     }

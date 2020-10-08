@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Web.V20181101
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Azure storage accounts.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponse> Properties;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -58,10 +62,13 @@ namespace Pulumi.AzureNextGen.Web.V20181101
 
             string name,
 
+            ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponse> properties,
+
             string type)
         {
             Kind = kind;
             Name = name;
+            Properties = properties;
             Type = type;
         }
     }

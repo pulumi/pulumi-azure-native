@@ -123,6 +123,18 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
         [Input("plan")]
         public Input<Inputs.ExtensionResourcePlanArgs>? Plan { get; set; }
 
+        [Input("properties")]
+        private InputMap<string>? _properties;
+
+        /// <summary>
+        /// A dictionary of extended properties. This property is currently unused.
+        /// </summary>
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
+
         /// <summary>
         /// Name of the resource group within the Azure subscription.
         /// </summary>

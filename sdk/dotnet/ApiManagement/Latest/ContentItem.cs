@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Properties of the content item.
+        /// </summary>
+        [Output("properties")]
+        public Output<object> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
