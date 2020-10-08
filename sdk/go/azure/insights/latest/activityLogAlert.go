@@ -60,9 +60,6 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:insights/v20170301preview:ActivityLogAlert"),
-		},
-		{
 			Type: pulumi.String("azure-nextgen:insights/v20170401:ActivityLogAlert"),
 		},
 	})

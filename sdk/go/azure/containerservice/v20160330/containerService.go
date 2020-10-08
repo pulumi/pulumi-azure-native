@@ -75,9 +75,6 @@ func NewContainerService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20170131:ContainerService"),
 		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20170701:ContainerService"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ContainerService
