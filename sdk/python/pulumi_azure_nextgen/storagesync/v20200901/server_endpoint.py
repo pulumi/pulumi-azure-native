@@ -100,6 +100,7 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__['offline_data_transfer_storage_account_tenant_id'] = None
             __props__['provisioning_state'] = None
             __props__['recall_status'] = None
+            __props__['server_name'] = None
             __props__['sync_status'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync/latest:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180402:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:ServerEndpoint")])
@@ -247,6 +248,14 @@ class ServerEndpoint(pulumi.CustomResource):
         Server Local path.
         """
         return pulumi.get(self, "server_local_path")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Output[str]:
+        """
+        Server name
+        """
+        return pulumi.get(self, "server_name")
 
     @property
     @pulumi.getter(name="serverResourceId")

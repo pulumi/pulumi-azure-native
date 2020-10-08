@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Outputs
         /// <summary>
         /// The version(GUID) of Key Vault Secret in Key Vault.
         /// </summary>
-        public readonly string SecretVersion;
+        public readonly string? SecretVersion;
         /// <summary>
         /// Subscription Id of the user's Key Vault containing the SSL certificate
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Outputs
 
             string secretName,
 
-            string secretVersion,
+            string? secretVersion,
 
             string subscriptionId,
 

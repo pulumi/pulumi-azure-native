@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.Resources.V20191001Preview.Inputs
     public sealed class ManagedServiceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ID of the Azure Active Directory.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
         /// Type of the managed identity.
         /// </summary>
         [Input("type")]

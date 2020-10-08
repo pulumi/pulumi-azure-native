@@ -19,6 +19,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ServerEndpointBackgroundDataDownloadActivityResponse',
     'ServerEndpointCloudTieringStatusResponse',
     'ServerEndpointFilesNotSyncingErrorResponse',
     'ServerEndpointRecallErrorResponse',
@@ -489,6 +490,53 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class ServerEndpointBackgroundDataDownloadActivityResponse(dict):
+    """
+    Background data download activity object
+    """
+    def __init__(__self__, *,
+                 downloaded_bytes: int,
+                 percent_progress: int,
+                 timestamp: str):
+        """
+        Background data download activity object
+        :param int downloaded_bytes: Running count of bytes downloaded
+        :param int percent_progress: Progress percentage
+        :param str timestamp: Timestamp when properties were updated
+        """
+        pulumi.set(__self__, "downloaded_bytes", downloaded_bytes)
+        pulumi.set(__self__, "percent_progress", percent_progress)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="downloadedBytes")
+    def downloaded_bytes(self) -> int:
+        """
+        Running count of bytes downloaded
+        """
+        return pulumi.get(self, "downloaded_bytes")
+
+    @property
+    @pulumi.getter(name="percentProgress")
+    def percent_progress(self) -> int:
+        """
+        Progress percentage
+        """
+        return pulumi.get(self, "percent_progress")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        Timestamp when properties were updated
+        """
+        return pulumi.get(self, "timestamp")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ServerEndpointCloudTieringStatusResponse(dict):
     """
     Server endpoint cloud tiering status object.
@@ -751,6 +799,7 @@ class ServerEndpointSyncActivityStatusResponse(dict):
                  applied_bytes: int,
                  applied_item_count: int,
                  per_item_error_count: int,
+                 sync_mode: str,
                  timestamp: str,
                  total_bytes: int,
                  total_item_count: int):
@@ -759,6 +808,7 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         :param int applied_bytes: Applied bytes
         :param int applied_item_count: Applied item count.
         :param int per_item_error_count: Per item error count
+        :param str sync_mode: Sync mode
         :param str timestamp: Timestamp when properties were updated
         :param int total_bytes: Total bytes (if available)
         :param int total_item_count: Total item count (if available)
@@ -766,6 +816,7 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         pulumi.set(__self__, "applied_bytes", applied_bytes)
         pulumi.set(__self__, "applied_item_count", applied_item_count)
         pulumi.set(__self__, "per_item_error_count", per_item_error_count)
+        pulumi.set(__self__, "sync_mode", sync_mode)
         pulumi.set(__self__, "timestamp", timestamp)
         pulumi.set(__self__, "total_bytes", total_bytes)
         pulumi.set(__self__, "total_item_count", total_item_count)
@@ -793,6 +844,14 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         Per item error count
         """
         return pulumi.get(self, "per_item_error_count")
+
+    @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> str:
+        """
+        Sync mode
+        """
+        return pulumi.get(self, "sync_mode")
 
     @property
     @pulumi.getter
@@ -829,6 +888,7 @@ class ServerEndpointSyncSessionStatusResponse(dict):
     """
     def __init__(__self__, *,
                  files_not_syncing_errors: Sequence['outputs.ServerEndpointFilesNotSyncingErrorResponse'],
+                 last_sync_mode: str,
                  last_sync_per_item_error_count: int,
                  last_sync_result: int,
                  last_sync_success_timestamp: str,
@@ -838,6 +898,7 @@ class ServerEndpointSyncSessionStatusResponse(dict):
         """
         Sync Session status object.
         :param Sequence['ServerEndpointFilesNotSyncingErrorResponseArgs'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
+        :param str last_sync_mode: Sync mode
         :param int last_sync_per_item_error_count: Last sync per item error count.
         :param int last_sync_result: Last sync result (HResult)
         :param str last_sync_success_timestamp: Last sync success timestamp
@@ -846,6 +907,7 @@ class ServerEndpointSyncSessionStatusResponse(dict):
         :param int transient_files_not_syncing_count: Count of transient files not syncing.
         """
         pulumi.set(__self__, "files_not_syncing_errors", files_not_syncing_errors)
+        pulumi.set(__self__, "last_sync_mode", last_sync_mode)
         pulumi.set(__self__, "last_sync_per_item_error_count", last_sync_per_item_error_count)
         pulumi.set(__self__, "last_sync_result", last_sync_result)
         pulumi.set(__self__, "last_sync_success_timestamp", last_sync_success_timestamp)
@@ -860,6 +922,14 @@ class ServerEndpointSyncSessionStatusResponse(dict):
         Array of per-item errors coming from the last sync session.
         """
         return pulumi.get(self, "files_not_syncing_errors")
+
+    @property
+    @pulumi.getter(name="lastSyncMode")
+    def last_sync_mode(self) -> str:
+        """
+        Sync mode
+        """
+        return pulumi.get(self, "last_sync_mode")
 
     @property
     @pulumi.getter(name="lastSyncPerItemErrorCount")
@@ -919,6 +989,7 @@ class ServerEndpointSyncStatusResponse(dict):
     Server Endpoint sync status
     """
     def __init__(__self__, *,
+                 background_data_download_activity: 'outputs.ServerEndpointBackgroundDataDownloadActivityResponse',
                  combined_health: str,
                  download_activity: 'outputs.ServerEndpointSyncActivityStatusResponse',
                  download_health: str,
@@ -932,6 +1003,7 @@ class ServerEndpointSyncStatusResponse(dict):
                  upload_status: 'outputs.ServerEndpointSyncSessionStatusResponse'):
         """
         Server Endpoint sync status
+        :param 'ServerEndpointBackgroundDataDownloadActivityResponseArgs' background_data_download_activity: Background data download activity
         :param str combined_health: Combined Health Status.
         :param 'ServerEndpointSyncActivityStatusResponseArgs' download_activity: Download sync activity
         :param str download_health: Download Health Status.
@@ -944,6 +1016,7 @@ class ServerEndpointSyncStatusResponse(dict):
         :param str upload_health: Upload Health Status.
         :param 'ServerEndpointSyncSessionStatusResponseArgs' upload_status: Upload Status
         """
+        pulumi.set(__self__, "background_data_download_activity", background_data_download_activity)
         pulumi.set(__self__, "combined_health", combined_health)
         pulumi.set(__self__, "download_activity", download_activity)
         pulumi.set(__self__, "download_health", download_health)
@@ -955,6 +1028,14 @@ class ServerEndpointSyncStatusResponse(dict):
         pulumi.set(__self__, "upload_activity", upload_activity)
         pulumi.set(__self__, "upload_health", upload_health)
         pulumi.set(__self__, "upload_status", upload_status)
+
+    @property
+    @pulumi.getter(name="backgroundDataDownloadActivity")
+    def background_data_download_activity(self) -> 'outputs.ServerEndpointBackgroundDataDownloadActivityResponse':
+        """
+        Background data download activity
+        """
+        return pulumi.get(self, "background_data_download_activity")
 
     @property
     @pulumi.getter(name="combinedHealth")
