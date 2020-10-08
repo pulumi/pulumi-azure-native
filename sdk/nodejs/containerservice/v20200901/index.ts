@@ -6,7 +6,6 @@ export * from "./agentPool";
 export * from "./getAgentPool";
 export * from "./getManagedCluster";
 export * from "./getPrivateEndpointConnection";
-export * from "./listManagedClusterAccessProfile";
 export * from "./listManagedClusterAdminCredentials";
 export * from "./listManagedClusterMonitoringUserCredentials";
 export * from "./listManagedClusterUserCredentials";

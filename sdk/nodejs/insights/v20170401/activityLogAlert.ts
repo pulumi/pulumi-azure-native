@@ -130,7 +130,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:ActivityLogAlert" }, { type: "azure-nextgen:insights/v20170301preview:ActivityLogAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:ActivityLogAlert" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ActivityLogAlert.__pulumiType, name, inputs, opts);
     }
