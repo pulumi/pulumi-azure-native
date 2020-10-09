@@ -38,17 +38,17 @@ export interface GetContainerServiceResult {
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles?: outputs.containerservice.latest.ContainerServiceAgentPoolProfileResponse[];
+    readonly agentPoolProfiles: outputs.containerservice.latest.ContainerServiceAgentPoolProfileResponse[];
     /**
-     * Properties to configure a custom container service cluster.
+     * Properties for custom clusters.
      */
     readonly customProfile?: outputs.containerservice.latest.ContainerServiceCustomProfileResponse;
     /**
-     * Profile for diagnostics in the container service cluster.
+     * Properties of the diagnostic agent.
      */
     readonly diagnosticsProfile?: outputs.containerservice.latest.ContainerServiceDiagnosticsProfileResponse;
     /**
-     * Profile for Linux VMs in the container service cluster.
+     * Properties of Linux VMs.
      */
     readonly linuxProfile: outputs.containerservice.latest.ContainerServiceLinuxProfileResponse;
     /**
@@ -56,7 +56,7 @@ export interface GetContainerServiceResult {
      */
     readonly location: string;
     /**
-     * Profile for the container service master.
+     * Properties of master agents.
      */
     readonly masterProfile: outputs.containerservice.latest.ContainerServiceMasterProfileResponse;
     /**
@@ -64,15 +64,15 @@ export interface GetContainerServiceResult {
      */
     readonly name: string;
     /**
-     * Profile for the container service orchestrator.
+     * Properties of the orchestrator.
      */
-    readonly orchestratorProfile: outputs.containerservice.latest.ContainerServiceOrchestratorProfileResponse;
+    readonly orchestratorProfile?: outputs.containerservice.latest.ContainerServiceOrchestratorProfileResponse;
     /**
-     * The current deployment or provisioning state, which only appears in the response.
+     * the current deployment or provisioning state, which only appears in the response.
      */
     readonly provisioningState: string;
     /**
-     * Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+     * Properties for cluster service principals.
      */
     readonly servicePrincipalProfile?: outputs.containerservice.latest.ContainerServiceServicePrincipalProfileResponse;
     /**
@@ -84,7 +84,7 @@ export interface GetContainerServiceResult {
      */
     readonly type: string;
     /**
-     * Profile for Windows VMs in the container service cluster.
+     * Properties of Windows VMs.
      */
     readonly windowsProfile?: outputs.containerservice.latest.ContainerServiceWindowsProfileResponse;
 }

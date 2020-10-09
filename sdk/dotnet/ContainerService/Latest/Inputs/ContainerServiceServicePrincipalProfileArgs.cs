@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
 {
 
     /// <summary>
-    /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+    /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
     /// </summary>
     public sealed class ContainerServiceServicePrincipalProfileArgs : Pulumi.ResourceArgs
     {
@@ -22,16 +22,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// Reference to a secret stored in Azure Key Vault.
+        /// The secret password associated with the service principal.
         /// </summary>
-        [Input("keyVaultSecretRef")]
-        public Input<Inputs.KeyVaultSecretRefArgs>? KeyVaultSecretRef { get; set; }
-
-        /// <summary>
-        /// The secret password associated with the service principal in plain text.
-        /// </summary>
-        [Input("secret")]
-        public Input<string>? Secret { get; set; }
+        [Input("secret", required: true)]
+        public Input<string> Secret { get; set; } = null!;
 
         public ContainerServiceServicePrincipalProfileArgs()
         {

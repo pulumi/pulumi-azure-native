@@ -16,16 +16,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
     public sealed class ContainerServiceOrchestratorProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+        /// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
         /// </summary>
         [Input("orchestratorType", required: true)]
         public Input<string> OrchestratorType { get; set; } = null!;
-
-        /// <summary>
-        /// The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-        /// </summary>
-        [Input("orchestratorVersion")]
-        public Input<string>? OrchestratorVersion { get; set; }
 
         public ContainerServiceOrchestratorProfileArgs()
         {

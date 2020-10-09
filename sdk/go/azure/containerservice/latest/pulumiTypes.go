@@ -281,23 +281,13 @@ func (o AgentPoolUpgradeSettingsResponsePtrOutput) MaxSurge() pulumi.StringPtrOu
 // Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfile struct {
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count *int `pulumi:"count"`
+	Count int `pulumi:"count"`
 	// DNS prefix to be used to create the FQDN for the agent pool.
-	DnsPrefix *string `pulumi:"dnsPrefix"`
+	DnsPrefix string `pulumi:"dnsPrefix"`
 	// Unique name of the agent pool profile in the context of the subscription and resource group.
 	Name string `pulumi:"name"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-	Ports []int `pulumi:"ports"`
-	// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-	StorageProfile *string `pulumi:"storageProfile"`
 	// Size of agent VMs.
 	VmSize string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }
 
 // ContainerServiceAgentPoolProfileInput is an input type that accepts ContainerServiceAgentPoolProfileArgs and ContainerServiceAgentPoolProfileOutput values.
@@ -314,23 +304,13 @@ type ContainerServiceAgentPoolProfileInput interface {
 // Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfileArgs struct {
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
+	Count pulumi.IntInput `pulumi:"count"`
 	// DNS prefix to be used to create the FQDN for the agent pool.
-	DnsPrefix pulumi.StringPtrInput `pulumi:"dnsPrefix"`
+	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
 	// Unique name of the agent pool profile in the context of the subscription and resource group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-	StorageProfile pulumi.StringPtrInput `pulumi:"storageProfile"`
 	// Size of agent VMs.
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
 }
 
 func (ContainerServiceAgentPoolProfileArgs) ElementType() reflect.Type {
@@ -386,13 +366,13 @@ func (o ContainerServiceAgentPoolProfileOutput) ToContainerServiceAgentPoolProfi
 }
 
 // Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-func (o ContainerServiceAgentPoolProfileOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
+func (o ContainerServiceAgentPoolProfileOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) int { return v.Count }).(pulumi.IntOutput)
 }
 
 // DNS prefix to be used to create the FQDN for the agent pool.
-func (o ContainerServiceAgentPoolProfileOutput) DnsPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) *string { return v.DnsPrefix }).(pulumi.StringPtrOutput)
+func (o ContainerServiceAgentPoolProfileOutput) DnsPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
 }
 
 // Unique name of the agent pool profile in the context of the subscription and resource group.
@@ -400,34 +380,9 @@ func (o ContainerServiceAgentPoolProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ContainerServiceAgentPoolProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
-}
-
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-func (o ContainerServiceAgentPoolProfileOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
-// Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-func (o ContainerServiceAgentPoolProfileOutput) Ports() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) []int { return v.Ports }).(pulumi.IntArrayOutput)
-}
-
-// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-func (o ContainerServiceAgentPoolProfileOutput) StorageProfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) *string { return v.StorageProfile }).(pulumi.StringPtrOutput)
-}
-
 // Size of agent VMs.
 func (o ContainerServiceAgentPoolProfileOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-// VNet SubnetID specifies the VNet's subnet identifier.
-func (o ContainerServiceAgentPoolProfileOutput) VnetSubnetID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
 }
 
 type ContainerServiceAgentPoolProfileArrayOutput struct{ *pulumi.OutputState }
@@ -453,25 +408,15 @@ func (o ContainerServiceAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) Co
 // Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfileResponse struct {
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count *int `pulumi:"count"`
+	Count int `pulumi:"count"`
 	// DNS prefix to be used to create the FQDN for the agent pool.
-	DnsPrefix *string `pulumi:"dnsPrefix"`
+	DnsPrefix string `pulumi:"dnsPrefix"`
 	// FQDN for the agent pool.
 	Fqdn string `pulumi:"fqdn"`
 	// Unique name of the agent pool profile in the context of the subscription and resource group.
 	Name string `pulumi:"name"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-	Ports []int `pulumi:"ports"`
-	// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-	StorageProfile *string `pulumi:"storageProfile"`
 	// Size of agent VMs.
 	VmSize string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }
 
 // ContainerServiceAgentPoolProfileResponseInput is an input type that accepts ContainerServiceAgentPoolProfileResponseArgs and ContainerServiceAgentPoolProfileResponseOutput values.
@@ -488,25 +433,15 @@ type ContainerServiceAgentPoolProfileResponseInput interface {
 // Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfileResponseArgs struct {
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
+	Count pulumi.IntInput `pulumi:"count"`
 	// DNS prefix to be used to create the FQDN for the agent pool.
-	DnsPrefix pulumi.StringPtrInput `pulumi:"dnsPrefix"`
+	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
 	// FQDN for the agent pool.
 	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// Unique name of the agent pool profile in the context of the subscription and resource group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-	StorageProfile pulumi.StringPtrInput `pulumi:"storageProfile"`
 	// Size of agent VMs.
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
 }
 
 func (ContainerServiceAgentPoolProfileResponseArgs) ElementType() reflect.Type {
@@ -562,13 +497,13 @@ func (o ContainerServiceAgentPoolProfileResponseOutput) ToContainerServiceAgentP
 }
 
 // Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-func (o ContainerServiceAgentPoolProfileResponseOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+func (o ContainerServiceAgentPoolProfileResponseOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) int { return v.Count }).(pulumi.IntOutput)
 }
 
 // DNS prefix to be used to create the FQDN for the agent pool.
-func (o ContainerServiceAgentPoolProfileResponseOutput) DnsPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) *string { return v.DnsPrefix }).(pulumi.StringPtrOutput)
+func (o ContainerServiceAgentPoolProfileResponseOutput) DnsPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) string { return v.DnsPrefix }).(pulumi.StringOutput)
 }
 
 // FQDN for the agent pool.
@@ -581,34 +516,9 @@ func (o ContainerServiceAgentPoolProfileResponseOutput) Name() pulumi.StringOutp
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ContainerServiceAgentPoolProfileResponseOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
-}
-
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-func (o ContainerServiceAgentPoolProfileResponseOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
-// Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-func (o ContainerServiceAgentPoolProfileResponseOutput) Ports() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) []int { return v.Ports }).(pulumi.IntArrayOutput)
-}
-
-// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-func (o ContainerServiceAgentPoolProfileResponseOutput) StorageProfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) *string { return v.StorageProfile }).(pulumi.StringPtrOutput)
-}
-
 // Size of agent VMs.
 func (o ContainerServiceAgentPoolProfileResponseOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-// VNet SubnetID specifies the VNet's subnet identifier.
-func (o ContainerServiceAgentPoolProfileResponseOutput) VnetSubnetID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
 }
 
 type ContainerServiceAgentPoolProfileResponseArrayOutput struct{ *pulumi.OutputState }
@@ -899,9 +809,8 @@ func (o ContainerServiceCustomProfileResponsePtrOutput) Orchestrator() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile for diagnostics on the container service cluster.
 type ContainerServiceDiagnosticsProfile struct {
-	// Profile for diagnostics on the container service VMs.
+	// Profile for the container service VM diagnostic agent.
 	VmDiagnostics ContainerServiceVMDiagnostics `pulumi:"vmDiagnostics"`
 }
 
@@ -916,9 +825,8 @@ type ContainerServiceDiagnosticsProfileInput interface {
 	ToContainerServiceDiagnosticsProfileOutputWithContext(context.Context) ContainerServiceDiagnosticsProfileOutput
 }
 
-// Profile for diagnostics on the container service cluster.
 type ContainerServiceDiagnosticsProfileArgs struct {
-	// Profile for diagnostics on the container service VMs.
+	// Profile for the container service VM diagnostic agent.
 	VmDiagnostics ContainerServiceVMDiagnosticsInput `pulumi:"vmDiagnostics"`
 }
 
@@ -975,7 +883,6 @@ func (i *containerServiceDiagnosticsProfilePtrType) ToContainerServiceDiagnostic
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDiagnosticsProfilePtrOutput)
 }
 
-// Profile for diagnostics on the container service cluster.
 type ContainerServiceDiagnosticsProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceDiagnosticsProfileOutput) ElementType() reflect.Type {
@@ -1000,7 +907,7 @@ func (o ContainerServiceDiagnosticsProfileOutput) ToContainerServiceDiagnosticsP
 	}).(ContainerServiceDiagnosticsProfilePtrOutput)
 }
 
-// Profile for diagnostics on the container service VMs.
+// Profile for the container service VM diagnostic agent.
 func (o ContainerServiceDiagnosticsProfileOutput) VmDiagnostics() ContainerServiceVMDiagnosticsOutput {
 	return o.ApplyT(func(v ContainerServiceDiagnosticsProfile) ContainerServiceVMDiagnostics { return v.VmDiagnostics }).(ContainerServiceVMDiagnosticsOutput)
 }
@@ -1023,7 +930,7 @@ func (o ContainerServiceDiagnosticsProfilePtrOutput) Elem() ContainerServiceDiag
 	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfile) ContainerServiceDiagnosticsProfile { return *v }).(ContainerServiceDiagnosticsProfileOutput)
 }
 
-// Profile for diagnostics on the container service VMs.
+// Profile for the container service VM diagnostic agent.
 func (o ContainerServiceDiagnosticsProfilePtrOutput) VmDiagnostics() ContainerServiceVMDiagnosticsPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfile) *ContainerServiceVMDiagnostics {
 		if v == nil {
@@ -1033,9 +940,8 @@ func (o ContainerServiceDiagnosticsProfilePtrOutput) VmDiagnostics() ContainerSe
 	}).(ContainerServiceVMDiagnosticsPtrOutput)
 }
 
-// Profile for diagnostics on the container service cluster.
 type ContainerServiceDiagnosticsProfileResponse struct {
-	// Profile for diagnostics on the container service VMs.
+	// Profile for the container service VM diagnostic agent.
 	VmDiagnostics ContainerServiceVMDiagnosticsResponse `pulumi:"vmDiagnostics"`
 }
 
@@ -1050,9 +956,8 @@ type ContainerServiceDiagnosticsProfileResponseInput interface {
 	ToContainerServiceDiagnosticsProfileResponseOutputWithContext(context.Context) ContainerServiceDiagnosticsProfileResponseOutput
 }
 
-// Profile for diagnostics on the container service cluster.
 type ContainerServiceDiagnosticsProfileResponseArgs struct {
-	// Profile for diagnostics on the container service VMs.
+	// Profile for the container service VM diagnostic agent.
 	VmDiagnostics ContainerServiceVMDiagnosticsResponseInput `pulumi:"vmDiagnostics"`
 }
 
@@ -1109,7 +1014,6 @@ func (i *containerServiceDiagnosticsProfileResponsePtrType) ToContainerServiceDi
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDiagnosticsProfileResponsePtrOutput)
 }
 
-// Profile for diagnostics on the container service cluster.
 type ContainerServiceDiagnosticsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceDiagnosticsProfileResponseOutput) ElementType() reflect.Type {
@@ -1134,7 +1038,7 @@ func (o ContainerServiceDiagnosticsProfileResponseOutput) ToContainerServiceDiag
 	}).(ContainerServiceDiagnosticsProfileResponsePtrOutput)
 }
 
-// Profile for diagnostics on the container service VMs.
+// Profile for the container service VM diagnostic agent.
 func (o ContainerServiceDiagnosticsProfileResponseOutput) VmDiagnostics() ContainerServiceVMDiagnosticsResponseOutput {
 	return o.ApplyT(func(v ContainerServiceDiagnosticsProfileResponse) ContainerServiceVMDiagnosticsResponse {
 		return v.VmDiagnostics
@@ -1161,7 +1065,7 @@ func (o ContainerServiceDiagnosticsProfileResponsePtrOutput) Elem() ContainerSer
 	}).(ContainerServiceDiagnosticsProfileResponseOutput)
 }
 
-// Profile for diagnostics on the container service VMs.
+// Profile for the container service VM diagnostic agent.
 func (o ContainerServiceDiagnosticsProfileResponsePtrOutput) VmDiagnostics() ContainerServiceVMDiagnosticsResponsePtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfileResponse) *ContainerServiceVMDiagnosticsResponse {
 		if v == nil {
@@ -1481,18 +1385,8 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) Ssh() ContainerServiceSsh
 type ContainerServiceMasterProfile struct {
 	// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
 	Count *int `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for the master pool.
+	// DNS prefix to be used to create the FQDN for master.
 	DnsPrefix string `pulumi:"dnsPrefix"`
-	// FirstConsecutiveStaticIP used to specify the first static ip of masters.
-	FirstConsecutiveStaticIP *string `pulumi:"firstConsecutiveStaticIP"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-	StorageProfile *string `pulumi:"storageProfile"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }
 
 // ContainerServiceMasterProfileInput is an input type that accepts ContainerServiceMasterProfileArgs and ContainerServiceMasterProfileOutput values.
@@ -1510,18 +1404,8 @@ type ContainerServiceMasterProfileInput interface {
 type ContainerServiceMasterProfileArgs struct {
 	// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for the master pool.
+	// DNS prefix to be used to create the FQDN for master.
 	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
-	// FirstConsecutiveStaticIP used to specify the first static ip of masters.
-	FirstConsecutiveStaticIP pulumi.StringPtrInput `pulumi:"firstConsecutiveStaticIP"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
-	// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-	StorageProfile pulumi.StringPtrInput `pulumi:"storageProfile"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
 }
 
 func (ContainerServiceMasterProfileArgs) ElementType() reflect.Type {
@@ -1607,34 +1491,9 @@ func (o ContainerServiceMasterProfileOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// DNS prefix to be used to create the FQDN for the master pool.
+// DNS prefix to be used to create the FQDN for master.
 func (o ContainerServiceMasterProfileOutput) DnsPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
-}
-
-// FirstConsecutiveStaticIP used to specify the first static ip of masters.
-func (o ContainerServiceMasterProfileOutput) FirstConsecutiveStaticIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfile) *string { return v.FirstConsecutiveStaticIP }).(pulumi.StringPtrOutput)
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ContainerServiceMasterProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfile) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
-}
-
-// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-func (o ContainerServiceMasterProfileOutput) StorageProfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfile) *string { return v.StorageProfile }).(pulumi.StringPtrOutput)
-}
-
-// Size of agent VMs.
-func (o ContainerServiceMasterProfileOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfile) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-// VNet SubnetID specifies the VNet's subnet identifier.
-func (o ContainerServiceMasterProfileOutput) VnetSubnetID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfile) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
 }
 
 type ContainerServiceMasterProfilePtrOutput struct{ *pulumi.OutputState }
@@ -1665,7 +1524,7 @@ func (o ContainerServiceMasterProfilePtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// DNS prefix to be used to create the FQDN for the master pool.
+// DNS prefix to be used to create the FQDN for master.
 func (o ContainerServiceMasterProfilePtrOutput) DnsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceMasterProfile) *string {
 		if v == nil {
@@ -1675,74 +1534,14 @@ func (o ContainerServiceMasterProfilePtrOutput) DnsPrefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirstConsecutiveStaticIP used to specify the first static ip of masters.
-func (o ContainerServiceMasterProfilePtrOutput) FirstConsecutiveStaticIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FirstConsecutiveStaticIP
-	}).(pulumi.StringPtrOutput)
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ContainerServiceMasterProfilePtrOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfile) *int {
-		if v == nil {
-			return nil
-		}
-		return v.OsDiskSizeGB
-	}).(pulumi.IntPtrOutput)
-}
-
-// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-func (o ContainerServiceMasterProfilePtrOutput) StorageProfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageProfile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Size of agent VMs.
-func (o ContainerServiceMasterProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// VNet SubnetID specifies the VNet's subnet identifier.
-func (o ContainerServiceMasterProfilePtrOutput) VnetSubnetID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VnetSubnetID
-	}).(pulumi.StringPtrOutput)
-}
-
 // Profile for the container service master.
 type ContainerServiceMasterProfileResponse struct {
 	// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
 	Count *int `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for the master pool.
+	// DNS prefix to be used to create the FQDN for master.
 	DnsPrefix string `pulumi:"dnsPrefix"`
-	// FirstConsecutiveStaticIP used to specify the first static ip of masters.
-	FirstConsecutiveStaticIP *string `pulumi:"firstConsecutiveStaticIP"`
-	// FQDN for the master pool.
+	// FQDN for the master.
 	Fqdn string `pulumi:"fqdn"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-	StorageProfile *string `pulumi:"storageProfile"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }
 
 // ContainerServiceMasterProfileResponseInput is an input type that accepts ContainerServiceMasterProfileResponseArgs and ContainerServiceMasterProfileResponseOutput values.
@@ -1760,20 +1559,10 @@ type ContainerServiceMasterProfileResponseInput interface {
 type ContainerServiceMasterProfileResponseArgs struct {
 	// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for the master pool.
+	// DNS prefix to be used to create the FQDN for master.
 	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
-	// FirstConsecutiveStaticIP used to specify the first static ip of masters.
-	FirstConsecutiveStaticIP pulumi.StringPtrInput `pulumi:"firstConsecutiveStaticIP"`
-	// FQDN for the master pool.
+	// FQDN for the master.
 	Fqdn pulumi.StringInput `pulumi:"fqdn"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
-	// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-	StorageProfile pulumi.StringPtrInput `pulumi:"storageProfile"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
 }
 
 func (ContainerServiceMasterProfileResponseArgs) ElementType() reflect.Type {
@@ -1859,39 +1648,14 @@ func (o ContainerServiceMasterProfileResponseOutput) Count() pulumi.IntPtrOutput
 	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// DNS prefix to be used to create the FQDN for the master pool.
+// DNS prefix to be used to create the FQDN for master.
 func (o ContainerServiceMasterProfileResponseOutput) DnsPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) string { return v.DnsPrefix }).(pulumi.StringOutput)
 }
 
-// FirstConsecutiveStaticIP used to specify the first static ip of masters.
-func (o ContainerServiceMasterProfileResponseOutput) FirstConsecutiveStaticIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) *string { return v.FirstConsecutiveStaticIP }).(pulumi.StringPtrOutput)
-}
-
-// FQDN for the master pool.
+// FQDN for the master.
 func (o ContainerServiceMasterProfileResponseOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) string { return v.Fqdn }).(pulumi.StringOutput)
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ContainerServiceMasterProfileResponseOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
-}
-
-// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-func (o ContainerServiceMasterProfileResponseOutput) StorageProfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) *string { return v.StorageProfile }).(pulumi.StringPtrOutput)
-}
-
-// Size of agent VMs.
-func (o ContainerServiceMasterProfileResponseOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-// VNet SubnetID specifies the VNet's subnet identifier.
-func (o ContainerServiceMasterProfileResponseOutput) VnetSubnetID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
 }
 
 type ContainerServiceMasterProfileResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1922,7 +1686,7 @@ func (o ContainerServiceMasterProfileResponsePtrOutput) Count() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// DNS prefix to be used to create the FQDN for the master pool.
+// DNS prefix to be used to create the FQDN for master.
 func (o ContainerServiceMasterProfileResponsePtrOutput) DnsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *string {
 		if v == nil {
@@ -1932,63 +1696,13 @@ func (o ContainerServiceMasterProfileResponsePtrOutput) DnsPrefix() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirstConsecutiveStaticIP used to specify the first static ip of masters.
-func (o ContainerServiceMasterProfileResponsePtrOutput) FirstConsecutiveStaticIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FirstConsecutiveStaticIP
-	}).(pulumi.StringPtrOutput)
-}
-
-// FQDN for the master pool.
+// FQDN for the master.
 func (o ContainerServiceMasterProfileResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Fqdn
-	}).(pulumi.StringPtrOutput)
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ContainerServiceMasterProfileResponsePtrOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.OsDiskSizeGB
-	}).(pulumi.IntPtrOutput)
-}
-
-// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-func (o ContainerServiceMasterProfileResponsePtrOutput) StorageProfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageProfile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Size of agent VMs.
-func (o ContainerServiceMasterProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// VNet SubnetID specifies the VNet's subnet identifier.
-func (o ContainerServiceMasterProfileResponsePtrOutput) VnetSubnetID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VnetSubnetID
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2608,10 +2322,8 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) ServiceCidr() pulumi.St
 
 // Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfile struct {
-	// The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 	OrchestratorType string `pulumi:"orchestratorType"`
-	// The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 }
 
 // ContainerServiceOrchestratorProfileInput is an input type that accepts ContainerServiceOrchestratorProfileArgs and ContainerServiceOrchestratorProfileOutput values.
@@ -2627,10 +2339,8 @@ type ContainerServiceOrchestratorProfileInput interface {
 
 // Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileArgs struct {
-	// The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 	OrchestratorType pulumi.StringInput `pulumi:"orchestratorType"`
-	// The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 }
 
 func (ContainerServiceOrchestratorProfileArgs) ElementType() reflect.Type {
@@ -2711,14 +2421,9 @@ func (o ContainerServiceOrchestratorProfileOutput) ToContainerServiceOrchestrato
 	}).(ContainerServiceOrchestratorProfilePtrOutput)
 }
 
-// The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 func (o ContainerServiceOrchestratorProfileOutput) OrchestratorType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) string { return v.OrchestratorType }).(pulumi.StringOutput)
-}
-
-// The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-func (o ContainerServiceOrchestratorProfileOutput) OrchestratorVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
 
 type ContainerServiceOrchestratorProfilePtrOutput struct{ *pulumi.OutputState }
@@ -2739,7 +2444,7 @@ func (o ContainerServiceOrchestratorProfilePtrOutput) Elem() ContainerServiceOrc
 	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) ContainerServiceOrchestratorProfile { return *v }).(ContainerServiceOrchestratorProfileOutput)
 }
 
-// The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) *string {
 		if v == nil {
@@ -2749,22 +2454,10 @@ func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorType() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OrchestratorVersion
-	}).(pulumi.StringPtrOutput)
-}
-
 // Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileResponse struct {
-	// The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 	OrchestratorType string `pulumi:"orchestratorType"`
-	// The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 }
 
 // ContainerServiceOrchestratorProfileResponseInput is an input type that accepts ContainerServiceOrchestratorProfileResponseArgs and ContainerServiceOrchestratorProfileResponseOutput values.
@@ -2780,10 +2473,8 @@ type ContainerServiceOrchestratorProfileResponseInput interface {
 
 // Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileResponseArgs struct {
-	// The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 	OrchestratorType pulumi.StringInput `pulumi:"orchestratorType"`
-	// The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 }
 
 func (ContainerServiceOrchestratorProfileResponseArgs) ElementType() reflect.Type {
@@ -2864,14 +2555,9 @@ func (o ContainerServiceOrchestratorProfileResponseOutput) ToContainerServiceOrc
 	}).(ContainerServiceOrchestratorProfileResponsePtrOutput)
 }
 
-// The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 func (o ContainerServiceOrchestratorProfileResponseOutput) OrchestratorType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceOrchestratorProfileResponse) string { return v.OrchestratorType }).(pulumi.StringOutput)
-}
-
-// The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-func (o ContainerServiceOrchestratorProfileResponseOutput) OrchestratorVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceOrchestratorProfileResponse) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
 
 type ContainerServiceOrchestratorProfileResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2894,7 +2580,7 @@ func (o ContainerServiceOrchestratorProfileResponsePtrOutput) Elem() ContainerSe
 	}).(ContainerServiceOrchestratorProfileResponseOutput)
 }
 
-// The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 func (o ContainerServiceOrchestratorProfileResponsePtrOutput) OrchestratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceOrchestratorProfileResponse) *string {
 		if v == nil {
@@ -2904,24 +2590,12 @@ func (o ContainerServiceOrchestratorProfileResponsePtrOutput) OrchestratorType()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-func (o ContainerServiceOrchestratorProfileResponsePtrOutput) OrchestratorVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceOrchestratorProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OrchestratorVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ContainerServiceServicePrincipalProfile struct {
 	// The ID for the service principal.
 	ClientId string `pulumi:"clientId"`
-	// Reference to a secret stored in Azure Key Vault.
-	KeyVaultSecretRef *KeyVaultSecretRef `pulumi:"keyVaultSecretRef"`
-	// The secret password associated with the service principal in plain text.
-	Secret *string `pulumi:"secret"`
+	// The secret password associated with the service principal.
+	Secret string `pulumi:"secret"`
 }
 
 // ContainerServiceServicePrincipalProfileInput is an input type that accepts ContainerServiceServicePrincipalProfileArgs and ContainerServiceServicePrincipalProfileOutput values.
@@ -2935,14 +2609,12 @@ type ContainerServiceServicePrincipalProfileInput interface {
 	ToContainerServiceServicePrincipalProfileOutputWithContext(context.Context) ContainerServiceServicePrincipalProfileOutput
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ContainerServiceServicePrincipalProfileArgs struct {
 	// The ID for the service principal.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// Reference to a secret stored in Azure Key Vault.
-	KeyVaultSecretRef KeyVaultSecretRefPtrInput `pulumi:"keyVaultSecretRef"`
-	// The secret password associated with the service principal in plain text.
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// The secret password associated with the service principal.
+	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
 func (ContainerServiceServicePrincipalProfileArgs) ElementType() reflect.Type {
@@ -2998,7 +2670,7 @@ func (i *containerServiceServicePrincipalProfilePtrType) ToContainerServiceServi
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceServicePrincipalProfilePtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ContainerServiceServicePrincipalProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceServicePrincipalProfileOutput) ElementType() reflect.Type {
@@ -3028,14 +2700,9 @@ func (o ContainerServiceServicePrincipalProfileOutput) ClientId() pulumi.StringO
 	return o.ApplyT(func(v ContainerServiceServicePrincipalProfile) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Reference to a secret stored in Azure Key Vault.
-func (o ContainerServiceServicePrincipalProfileOutput) KeyVaultSecretRef() KeyVaultSecretRefPtrOutput {
-	return o.ApplyT(func(v ContainerServiceServicePrincipalProfile) *KeyVaultSecretRef { return v.KeyVaultSecretRef }).(KeyVaultSecretRefPtrOutput)
-}
-
-// The secret password associated with the service principal in plain text.
-func (o ContainerServiceServicePrincipalProfileOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceServicePrincipalProfile) *string { return v.Secret }).(pulumi.StringPtrOutput)
+// The secret password associated with the service principal.
+func (o ContainerServiceServicePrincipalProfileOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceServicePrincipalProfile) string { return v.Secret }).(pulumi.StringOutput)
 }
 
 type ContainerServiceServicePrincipalProfilePtrOutput struct{ *pulumi.OutputState }
@@ -3066,34 +2733,22 @@ func (o ContainerServiceServicePrincipalProfilePtrOutput) ClientId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to a secret stored in Azure Key Vault.
-func (o ContainerServiceServicePrincipalProfilePtrOutput) KeyVaultSecretRef() KeyVaultSecretRefPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceServicePrincipalProfile) *KeyVaultSecretRef {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultSecretRef
-	}).(KeyVaultSecretRefPtrOutput)
-}
-
-// The secret password associated with the service principal in plain text.
+// The secret password associated with the service principal.
 func (o ContainerServiceServicePrincipalProfilePtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceServicePrincipalProfile) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Secret
+		return &v.Secret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ContainerServiceServicePrincipalProfileResponse struct {
 	// The ID for the service principal.
 	ClientId string `pulumi:"clientId"`
-	// Reference to a secret stored in Azure Key Vault.
-	KeyVaultSecretRef *KeyVaultSecretRefResponse `pulumi:"keyVaultSecretRef"`
-	// The secret password associated with the service principal in plain text.
-	Secret *string `pulumi:"secret"`
+	// The secret password associated with the service principal.
+	Secret string `pulumi:"secret"`
 }
 
 // ContainerServiceServicePrincipalProfileResponseInput is an input type that accepts ContainerServiceServicePrincipalProfileResponseArgs and ContainerServiceServicePrincipalProfileResponseOutput values.
@@ -3107,14 +2762,12 @@ type ContainerServiceServicePrincipalProfileResponseInput interface {
 	ToContainerServiceServicePrincipalProfileResponseOutputWithContext(context.Context) ContainerServiceServicePrincipalProfileResponseOutput
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ContainerServiceServicePrincipalProfileResponseArgs struct {
 	// The ID for the service principal.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// Reference to a secret stored in Azure Key Vault.
-	KeyVaultSecretRef KeyVaultSecretRefResponsePtrInput `pulumi:"keyVaultSecretRef"`
-	// The secret password associated with the service principal in plain text.
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// The secret password associated with the service principal.
+	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
 func (ContainerServiceServicePrincipalProfileResponseArgs) ElementType() reflect.Type {
@@ -3170,7 +2823,7 @@ func (i *containerServiceServicePrincipalProfileResponsePtrType) ToContainerServ
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceServicePrincipalProfileResponsePtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ContainerServiceServicePrincipalProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceServicePrincipalProfileResponseOutput) ElementType() reflect.Type {
@@ -3200,16 +2853,9 @@ func (o ContainerServiceServicePrincipalProfileResponseOutput) ClientId() pulumi
 	return o.ApplyT(func(v ContainerServiceServicePrincipalProfileResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Reference to a secret stored in Azure Key Vault.
-func (o ContainerServiceServicePrincipalProfileResponseOutput) KeyVaultSecretRef() KeyVaultSecretRefResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceServicePrincipalProfileResponse) *KeyVaultSecretRefResponse {
-		return v.KeyVaultSecretRef
-	}).(KeyVaultSecretRefResponsePtrOutput)
-}
-
-// The secret password associated with the service principal in plain text.
-func (o ContainerServiceServicePrincipalProfileResponseOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceServicePrincipalProfileResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
+// The secret password associated with the service principal.
+func (o ContainerServiceServicePrincipalProfileResponseOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceServicePrincipalProfileResponse) string { return v.Secret }).(pulumi.StringOutput)
 }
 
 type ContainerServiceServicePrincipalProfileResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3242,23 +2888,13 @@ func (o ContainerServiceServicePrincipalProfileResponsePtrOutput) ClientId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to a secret stored in Azure Key Vault.
-func (o ContainerServiceServicePrincipalProfileResponsePtrOutput) KeyVaultSecretRef() KeyVaultSecretRefResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerServiceServicePrincipalProfileResponse) *KeyVaultSecretRefResponse {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultSecretRef
-	}).(KeyVaultSecretRefResponsePtrOutput)
-}
-
-// The secret password associated with the service principal in plain text.
+// The secret password associated with the service principal.
 func (o ContainerServiceServicePrincipalProfileResponsePtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceServicePrincipalProfileResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Secret
+		return &v.Secret
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4432,350 +4068,6 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultResponse {
 		return vs[0].([]CredentialResultResponse)[vs[1].(int)]
 	}).(CredentialResultResponseOutput)
-}
-
-// Reference to a secret stored in Azure Key Vault.
-type KeyVaultSecretRef struct {
-	// The secret name.
-	SecretName string `pulumi:"secretName"`
-	// Key vault identifier.
-	VaultID string `pulumi:"vaultID"`
-	// The secret version.
-	Version *string `pulumi:"version"`
-}
-
-// KeyVaultSecretRefInput is an input type that accepts KeyVaultSecretRefArgs and KeyVaultSecretRefOutput values.
-// You can construct a concrete instance of `KeyVaultSecretRefInput` via:
-//
-//          KeyVaultSecretRefArgs{...}
-type KeyVaultSecretRefInput interface {
-	pulumi.Input
-
-	ToKeyVaultSecretRefOutput() KeyVaultSecretRefOutput
-	ToKeyVaultSecretRefOutputWithContext(context.Context) KeyVaultSecretRefOutput
-}
-
-// Reference to a secret stored in Azure Key Vault.
-type KeyVaultSecretRefArgs struct {
-	// The secret name.
-	SecretName pulumi.StringInput `pulumi:"secretName"`
-	// Key vault identifier.
-	VaultID pulumi.StringInput `pulumi:"vaultID"`
-	// The secret version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (KeyVaultSecretRefArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultSecretRef)(nil)).Elem()
-}
-
-func (i KeyVaultSecretRefArgs) ToKeyVaultSecretRefOutput() KeyVaultSecretRefOutput {
-	return i.ToKeyVaultSecretRefOutputWithContext(context.Background())
-}
-
-func (i KeyVaultSecretRefArgs) ToKeyVaultSecretRefOutputWithContext(ctx context.Context) KeyVaultSecretRefOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretRefOutput)
-}
-
-func (i KeyVaultSecretRefArgs) ToKeyVaultSecretRefPtrOutput() KeyVaultSecretRefPtrOutput {
-	return i.ToKeyVaultSecretRefPtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultSecretRefArgs) ToKeyVaultSecretRefPtrOutputWithContext(ctx context.Context) KeyVaultSecretRefPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretRefOutput).ToKeyVaultSecretRefPtrOutputWithContext(ctx)
-}
-
-// KeyVaultSecretRefPtrInput is an input type that accepts KeyVaultSecretRefArgs, KeyVaultSecretRefPtr and KeyVaultSecretRefPtrOutput values.
-// You can construct a concrete instance of `KeyVaultSecretRefPtrInput` via:
-//
-//          KeyVaultSecretRefArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultSecretRefPtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultSecretRefPtrOutput() KeyVaultSecretRefPtrOutput
-	ToKeyVaultSecretRefPtrOutputWithContext(context.Context) KeyVaultSecretRefPtrOutput
-}
-
-type keyVaultSecretRefPtrType KeyVaultSecretRefArgs
-
-func KeyVaultSecretRefPtr(v *KeyVaultSecretRefArgs) KeyVaultSecretRefPtrInput {
-	return (*keyVaultSecretRefPtrType)(v)
-}
-
-func (*keyVaultSecretRefPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultSecretRef)(nil)).Elem()
-}
-
-func (i *keyVaultSecretRefPtrType) ToKeyVaultSecretRefPtrOutput() KeyVaultSecretRefPtrOutput {
-	return i.ToKeyVaultSecretRefPtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultSecretRefPtrType) ToKeyVaultSecretRefPtrOutputWithContext(ctx context.Context) KeyVaultSecretRefPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretRefPtrOutput)
-}
-
-// Reference to a secret stored in Azure Key Vault.
-type KeyVaultSecretRefOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultSecretRefOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultSecretRef)(nil)).Elem()
-}
-
-func (o KeyVaultSecretRefOutput) ToKeyVaultSecretRefOutput() KeyVaultSecretRefOutput {
-	return o
-}
-
-func (o KeyVaultSecretRefOutput) ToKeyVaultSecretRefOutputWithContext(ctx context.Context) KeyVaultSecretRefOutput {
-	return o
-}
-
-func (o KeyVaultSecretRefOutput) ToKeyVaultSecretRefPtrOutput() KeyVaultSecretRefPtrOutput {
-	return o.ToKeyVaultSecretRefPtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultSecretRefOutput) ToKeyVaultSecretRefPtrOutputWithContext(ctx context.Context) KeyVaultSecretRefPtrOutput {
-	return o.ApplyT(func(v KeyVaultSecretRef) *KeyVaultSecretRef {
-		return &v
-	}).(KeyVaultSecretRefPtrOutput)
-}
-
-// The secret name.
-func (o KeyVaultSecretRefOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultSecretRef) string { return v.SecretName }).(pulumi.StringOutput)
-}
-
-// Key vault identifier.
-func (o KeyVaultSecretRefOutput) VaultID() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultSecretRef) string { return v.VaultID }).(pulumi.StringOutput)
-}
-
-// The secret version.
-func (o KeyVaultSecretRefOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultSecretRef) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultSecretRefPtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultSecretRefPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultSecretRef)(nil)).Elem()
-}
-
-func (o KeyVaultSecretRefPtrOutput) ToKeyVaultSecretRefPtrOutput() KeyVaultSecretRefPtrOutput {
-	return o
-}
-
-func (o KeyVaultSecretRefPtrOutput) ToKeyVaultSecretRefPtrOutputWithContext(ctx context.Context) KeyVaultSecretRefPtrOutput {
-	return o
-}
-
-func (o KeyVaultSecretRefPtrOutput) Elem() KeyVaultSecretRefOutput {
-	return o.ApplyT(func(v *KeyVaultSecretRef) KeyVaultSecretRef { return *v }).(KeyVaultSecretRefOutput)
-}
-
-// The secret name.
-func (o KeyVaultSecretRefPtrOutput) SecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSecretRef) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecretName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Key vault identifier.
-func (o KeyVaultSecretRefPtrOutput) VaultID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSecretRef) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VaultID
-	}).(pulumi.StringPtrOutput)
-}
-
-// The secret version.
-func (o KeyVaultSecretRefPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSecretRef) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-// Reference to a secret stored in Azure Key Vault.
-type KeyVaultSecretRefResponse struct {
-	// The secret name.
-	SecretName string `pulumi:"secretName"`
-	// Key vault identifier.
-	VaultID string `pulumi:"vaultID"`
-	// The secret version.
-	Version *string `pulumi:"version"`
-}
-
-// KeyVaultSecretRefResponseInput is an input type that accepts KeyVaultSecretRefResponseArgs and KeyVaultSecretRefResponseOutput values.
-// You can construct a concrete instance of `KeyVaultSecretRefResponseInput` via:
-//
-//          KeyVaultSecretRefResponseArgs{...}
-type KeyVaultSecretRefResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultSecretRefResponseOutput() KeyVaultSecretRefResponseOutput
-	ToKeyVaultSecretRefResponseOutputWithContext(context.Context) KeyVaultSecretRefResponseOutput
-}
-
-// Reference to a secret stored in Azure Key Vault.
-type KeyVaultSecretRefResponseArgs struct {
-	// The secret name.
-	SecretName pulumi.StringInput `pulumi:"secretName"`
-	// Key vault identifier.
-	VaultID pulumi.StringInput `pulumi:"vaultID"`
-	// The secret version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (KeyVaultSecretRefResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultSecretRefResponse)(nil)).Elem()
-}
-
-func (i KeyVaultSecretRefResponseArgs) ToKeyVaultSecretRefResponseOutput() KeyVaultSecretRefResponseOutput {
-	return i.ToKeyVaultSecretRefResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultSecretRefResponseArgs) ToKeyVaultSecretRefResponseOutputWithContext(ctx context.Context) KeyVaultSecretRefResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretRefResponseOutput)
-}
-
-func (i KeyVaultSecretRefResponseArgs) ToKeyVaultSecretRefResponsePtrOutput() KeyVaultSecretRefResponsePtrOutput {
-	return i.ToKeyVaultSecretRefResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultSecretRefResponseArgs) ToKeyVaultSecretRefResponsePtrOutputWithContext(ctx context.Context) KeyVaultSecretRefResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretRefResponseOutput).ToKeyVaultSecretRefResponsePtrOutputWithContext(ctx)
-}
-
-// KeyVaultSecretRefResponsePtrInput is an input type that accepts KeyVaultSecretRefResponseArgs, KeyVaultSecretRefResponsePtr and KeyVaultSecretRefResponsePtrOutput values.
-// You can construct a concrete instance of `KeyVaultSecretRefResponsePtrInput` via:
-//
-//          KeyVaultSecretRefResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultSecretRefResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultSecretRefResponsePtrOutput() KeyVaultSecretRefResponsePtrOutput
-	ToKeyVaultSecretRefResponsePtrOutputWithContext(context.Context) KeyVaultSecretRefResponsePtrOutput
-}
-
-type keyVaultSecretRefResponsePtrType KeyVaultSecretRefResponseArgs
-
-func KeyVaultSecretRefResponsePtr(v *KeyVaultSecretRefResponseArgs) KeyVaultSecretRefResponsePtrInput {
-	return (*keyVaultSecretRefResponsePtrType)(v)
-}
-
-func (*keyVaultSecretRefResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultSecretRefResponse)(nil)).Elem()
-}
-
-func (i *keyVaultSecretRefResponsePtrType) ToKeyVaultSecretRefResponsePtrOutput() KeyVaultSecretRefResponsePtrOutput {
-	return i.ToKeyVaultSecretRefResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultSecretRefResponsePtrType) ToKeyVaultSecretRefResponsePtrOutputWithContext(ctx context.Context) KeyVaultSecretRefResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretRefResponsePtrOutput)
-}
-
-// Reference to a secret stored in Azure Key Vault.
-type KeyVaultSecretRefResponseOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultSecretRefResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultSecretRefResponse)(nil)).Elem()
-}
-
-func (o KeyVaultSecretRefResponseOutput) ToKeyVaultSecretRefResponseOutput() KeyVaultSecretRefResponseOutput {
-	return o
-}
-
-func (o KeyVaultSecretRefResponseOutput) ToKeyVaultSecretRefResponseOutputWithContext(ctx context.Context) KeyVaultSecretRefResponseOutput {
-	return o
-}
-
-func (o KeyVaultSecretRefResponseOutput) ToKeyVaultSecretRefResponsePtrOutput() KeyVaultSecretRefResponsePtrOutput {
-	return o.ToKeyVaultSecretRefResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultSecretRefResponseOutput) ToKeyVaultSecretRefResponsePtrOutputWithContext(ctx context.Context) KeyVaultSecretRefResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultSecretRefResponse) *KeyVaultSecretRefResponse {
-		return &v
-	}).(KeyVaultSecretRefResponsePtrOutput)
-}
-
-// The secret name.
-func (o KeyVaultSecretRefResponseOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultSecretRefResponse) string { return v.SecretName }).(pulumi.StringOutput)
-}
-
-// Key vault identifier.
-func (o KeyVaultSecretRefResponseOutput) VaultID() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultSecretRefResponse) string { return v.VaultID }).(pulumi.StringOutput)
-}
-
-// The secret version.
-func (o KeyVaultSecretRefResponseOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultSecretRefResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultSecretRefResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultSecretRefResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultSecretRefResponse)(nil)).Elem()
-}
-
-func (o KeyVaultSecretRefResponsePtrOutput) ToKeyVaultSecretRefResponsePtrOutput() KeyVaultSecretRefResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultSecretRefResponsePtrOutput) ToKeyVaultSecretRefResponsePtrOutputWithContext(ctx context.Context) KeyVaultSecretRefResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultSecretRefResponsePtrOutput) Elem() KeyVaultSecretRefResponseOutput {
-	return o.ApplyT(func(v *KeyVaultSecretRefResponse) KeyVaultSecretRefResponse { return *v }).(KeyVaultSecretRefResponseOutput)
-}
-
-// The secret name.
-func (o KeyVaultSecretRefResponsePtrOutput) SecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSecretRefResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecretName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Key vault identifier.
-func (o KeyVaultSecretRefResponsePtrOutput) VaultID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSecretRefResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VaultID
-	}).(pulumi.StringPtrOutput)
-}
-
-// The secret version.
-func (o KeyVaultSecretRefResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSecretRefResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
 }
 
 // AADProfile specifies attributes for Azure Active Directory integration.
@@ -13693,10 +12985,6 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceWindowsProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
-	pulumi.RegisterOutputType(KeyVaultSecretRefOutput{})
-	pulumi.RegisterOutputType(KeyVaultSecretRefPtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultSecretRefResponseOutput{})
-	pulumi.RegisterOutputType(KeyVaultSecretRefResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponseOutput{})

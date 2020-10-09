@@ -39,17 +39,17 @@ export class ContainerService extends pulumi.CustomResource {
     /**
      * Properties of the agent pool.
      */
-    public readonly agentPoolProfiles!: pulumi.Output<outputs.containerservice.latest.ContainerServiceAgentPoolProfileResponse[] | undefined>;
+    public readonly agentPoolProfiles!: pulumi.Output<outputs.containerservice.latest.ContainerServiceAgentPoolProfileResponse[]>;
     /**
-     * Properties to configure a custom container service cluster.
+     * Properties for custom clusters.
      */
     public readonly customProfile!: pulumi.Output<outputs.containerservice.latest.ContainerServiceCustomProfileResponse | undefined>;
     /**
-     * Profile for diagnostics in the container service cluster.
+     * Properties of the diagnostic agent.
      */
     public readonly diagnosticsProfile!: pulumi.Output<outputs.containerservice.latest.ContainerServiceDiagnosticsProfileResponse | undefined>;
     /**
-     * Profile for Linux VMs in the container service cluster.
+     * Properties of Linux VMs.
      */
     public readonly linuxProfile!: pulumi.Output<outputs.containerservice.latest.ContainerServiceLinuxProfileResponse>;
     /**
@@ -57,7 +57,7 @@ export class ContainerService extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Profile for the container service master.
+     * Properties of master agents.
      */
     public readonly masterProfile!: pulumi.Output<outputs.containerservice.latest.ContainerServiceMasterProfileResponse>;
     /**
@@ -65,15 +65,15 @@ export class ContainerService extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Profile for the container service orchestrator.
+     * Properties of the orchestrator.
      */
-    public readonly orchestratorProfile!: pulumi.Output<outputs.containerservice.latest.ContainerServiceOrchestratorProfileResponse>;
+    public readonly orchestratorProfile!: pulumi.Output<outputs.containerservice.latest.ContainerServiceOrchestratorProfileResponse | undefined>;
     /**
-     * The current deployment or provisioning state, which only appears in the response.
+     * the current deployment or provisioning state, which only appears in the response.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+     * Properties for cluster service principals.
      */
     public readonly servicePrincipalProfile!: pulumi.Output<outputs.containerservice.latest.ContainerServiceServicePrincipalProfileResponse | undefined>;
     /**
@@ -85,7 +85,7 @@ export class ContainerService extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Profile for Windows VMs in the container service cluster.
+     * Properties of Windows VMs.
      */
     public readonly windowsProfile!: pulumi.Output<outputs.containerservice.latest.ContainerServiceWindowsProfileResponse | undefined>;
 
@@ -99,6 +99,9 @@ export class ContainerService extends pulumi.CustomResource {
     constructor(name: string, args: ContainerServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
+            if (!args || args.agentPoolProfiles === undefined) {
+                throw new Error("Missing required property 'agentPoolProfiles'");
+            }
             if (!args || args.containerServiceName === undefined) {
                 throw new Error("Missing required property 'containerServiceName'");
             }
@@ -110,9 +113,6 @@ export class ContainerService extends pulumi.CustomResource {
             }
             if (!args || args.masterProfile === undefined) {
                 throw new Error("Missing required property 'masterProfile'");
-            }
-            if (!args || args.orchestratorProfile === undefined) {
-                throw new Error("Missing required property 'orchestratorProfile'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -154,7 +154,7 @@ export class ContainerService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20151101preview:ContainerService" }, { type: "azure-nextgen:containerservice/v20160330:ContainerService" }, { type: "azure-nextgen:containerservice/v20160930:ContainerService" }, { type: "azure-nextgen:containerservice/v20170131:ContainerService" }, { type: "azure-nextgen:containerservice/v20170701:ContainerService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20151101preview:ContainerService" }, { type: "azure-nextgen:containerservice/v20160330:ContainerService" }, { type: "azure-nextgen:containerservice/v20160930:ContainerService" }, { type: "azure-nextgen:containerservice/v20170131:ContainerService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContainerService.__pulumiType, name, inputs, opts);
     }
@@ -167,21 +167,21 @@ export interface ContainerServiceArgs {
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.latest.ContainerServiceAgentPoolProfile>[]>;
+    readonly agentPoolProfiles: pulumi.Input<pulumi.Input<inputs.containerservice.latest.ContainerServiceAgentPoolProfile>[]>;
     /**
      * The name of the container service in the specified subscription and resource group.
      */
     readonly containerServiceName: pulumi.Input<string>;
     /**
-     * Properties to configure a custom container service cluster.
+     * Properties for custom clusters.
      */
     readonly customProfile?: pulumi.Input<inputs.containerservice.latest.ContainerServiceCustomProfile>;
     /**
-     * Profile for diagnostics in the container service cluster.
+     * Properties of the diagnostic agent.
      */
     readonly diagnosticsProfile?: pulumi.Input<inputs.containerservice.latest.ContainerServiceDiagnosticsProfile>;
     /**
-     * Profile for Linux VMs in the container service cluster.
+     * Properties of Linux VMs.
      */
     readonly linuxProfile: pulumi.Input<inputs.containerservice.latest.ContainerServiceLinuxProfile>;
     /**
@@ -189,19 +189,19 @@ export interface ContainerServiceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Profile for the container service master.
+     * Properties of master agents.
      */
     readonly masterProfile: pulumi.Input<inputs.containerservice.latest.ContainerServiceMasterProfile>;
     /**
-     * Profile for the container service orchestrator.
+     * Properties of the orchestrator.
      */
-    readonly orchestratorProfile: pulumi.Input<inputs.containerservice.latest.ContainerServiceOrchestratorProfile>;
+    readonly orchestratorProfile?: pulumi.Input<inputs.containerservice.latest.ContainerServiceOrchestratorProfile>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+     * Properties for cluster service principals.
      */
     readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.latest.ContainerServiceServicePrincipalProfile>;
     /**
@@ -209,7 +209,7 @@ export interface ContainerServiceArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Profile for Windows VMs in the container service cluster.
+     * Properties of Windows VMs.
      */
     readonly windowsProfile?: pulumi.Input<inputs.containerservice.latest.ContainerServiceWindowsProfile>;
 }

@@ -21,19 +21,19 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         public Output<ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse>> AgentPoolProfiles { get; private set; } = null!;
 
         /// <summary>
-        /// Properties to configure a custom container service cluster.
+        /// Properties for custom clusters.
         /// </summary>
         [Output("customProfile")]
         public Output<Outputs.ContainerServiceCustomProfileResponse?> CustomProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Profile for diagnostics in the container service cluster.
+        /// Properties of the diagnostic agent.
         /// </summary>
         [Output("diagnosticsProfile")]
         public Output<Outputs.ContainerServiceDiagnosticsProfileResponse?> DiagnosticsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Profile for Linux VMs in the container service cluster.
+        /// Properties of Linux VMs.
         /// </summary>
         [Output("linuxProfile")]
         public Output<Outputs.ContainerServiceLinuxProfileResponse> LinuxProfile { get; private set; } = null!;
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Profile for the container service master.
+        /// Properties of master agents.
         /// </summary>
         [Output("masterProfile")]
         public Output<Outputs.ContainerServiceMasterProfileResponse> MasterProfile { get; private set; } = null!;
@@ -57,19 +57,19 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Profile for the container service orchestrator.
+        /// Properties of the orchestrator.
         /// </summary>
         [Output("orchestratorProfile")]
-        public Output<Outputs.ContainerServiceOrchestratorProfileResponse> OrchestratorProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceOrchestratorProfileResponse?> OrchestratorProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The current deployment or provisioning state, which only appears in the response.
+        /// the current deployment or provisioning state, which only appears in the response.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+        /// Properties for cluster service principals.
         /// </summary>
         [Output("servicePrincipalProfile")]
         public Output<Outputs.ContainerServiceServicePrincipalProfileResponse?> ServicePrincipalProfile { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Profile for Windows VMs in the container service cluster.
+        /// Properties of Windows VMs.
         /// </summary>
         [Output("windowsProfile")]
         public Output<Outputs.ContainerServiceWindowsProfileResponse?> WindowsProfile { get; private set; } = null!;
@@ -121,7 +121,6 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20160330:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20160930:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20170131:ContainerService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20170701:ContainerService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,7 +144,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 
     public sealed class ContainerServiceArgs : Pulumi.ResourceArgs
     {
-        [Input("agentPoolProfiles")]
+        [Input("agentPoolProfiles", required: true)]
         private InputList<Inputs.ContainerServiceAgentPoolProfileArgs>? _agentPoolProfiles;
 
         /// <summary>
@@ -164,19 +163,19 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         public Input<string> ContainerServiceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties to configure a custom container service cluster.
+        /// Properties for custom clusters.
         /// </summary>
         [Input("customProfile")]
         public Input<Inputs.ContainerServiceCustomProfileArgs>? CustomProfile { get; set; }
 
         /// <summary>
-        /// Profile for diagnostics in the container service cluster.
+        /// Properties of the diagnostic agent.
         /// </summary>
         [Input("diagnosticsProfile")]
         public Input<Inputs.ContainerServiceDiagnosticsProfileArgs>? DiagnosticsProfile { get; set; }
 
         /// <summary>
-        /// Profile for Linux VMs in the container service cluster.
+        /// Properties of Linux VMs.
         /// </summary>
         [Input("linuxProfile", required: true)]
         public Input<Inputs.ContainerServiceLinuxProfileArgs> LinuxProfile { get; set; } = null!;
@@ -188,16 +187,16 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Profile for the container service master.
+        /// Properties of master agents.
         /// </summary>
         [Input("masterProfile", required: true)]
         public Input<Inputs.ContainerServiceMasterProfileArgs> MasterProfile { get; set; } = null!;
 
         /// <summary>
-        /// Profile for the container service orchestrator.
+        /// Properties of the orchestrator.
         /// </summary>
-        [Input("orchestratorProfile", required: true)]
-        public Input<Inputs.ContainerServiceOrchestratorProfileArgs> OrchestratorProfile { get; set; } = null!;
+        [Input("orchestratorProfile")]
+        public Input<Inputs.ContainerServiceOrchestratorProfileArgs>? OrchestratorProfile { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -206,7 +205,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+        /// Properties for cluster service principals.
         /// </summary>
         [Input("servicePrincipalProfile")]
         public Input<Inputs.ContainerServiceServicePrincipalProfileArgs>? ServicePrincipalProfile { get; set; }
@@ -224,7 +223,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         }
 
         /// <summary>
-        /// Profile for Windows VMs in the container service cluster.
+        /// Properties of Windows VMs.
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.ContainerServiceWindowsProfileArgs>? WindowsProfile { get; set; }

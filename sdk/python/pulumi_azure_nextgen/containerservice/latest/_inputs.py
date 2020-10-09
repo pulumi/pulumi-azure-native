@@ -22,7 +22,6 @@ __all__ = [
     'ContainerServiceSshPublicKeyArgs',
     'ContainerServiceVMDiagnosticsArgs',
     'ContainerServiceWindowsProfileArgs',
-    'KeyVaultSecretRefArgs',
     'ManagedClusterAADProfileArgs',
     'ManagedClusterAPIServerAccessProfileArgs',
     'ManagedClusterAddonProfileArgs',
@@ -77,43 +76,45 @@ class AgentPoolUpgradeSettingsArgs:
 @pulumi.input_type
 class ContainerServiceAgentPoolProfileArgs:
     def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 dns_prefix: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 vm_size: pulumi.Input[str],
-                 count: Optional[pulumi.Input[int]] = None,
-                 dns_prefix: Optional[pulumi.Input[str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 storage_profile: Optional[pulumi.Input[str]] = None,
-                 vnet_subnet_id: Optional[pulumi.Input[str]] = None):
+                 vm_size: pulumi.Input[str]):
         """
         Profile for the container service agent pool.
-        :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
-        :param pulumi.Input[str] vm_size: Size of agent VMs.
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         :param pulumi.Input[str] dns_prefix: DNS prefix to be used to create the FQDN for the agent pool.
-        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ports: Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-        :param pulumi.Input[str] storage_profile: Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-        :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
+        :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
+        :param pulumi.Input[str] vm_size: Size of agent VMs.
         """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "dns_prefix", dns_prefix)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vm_size", vm_size)
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if dns_prefix is not None:
-            pulumi.set(__self__, "dns_prefix", dns_prefix)
-        if os_disk_size_gb is not None:
-            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
-        if ports is not None:
-            pulumi.set(__self__, "ports", ports)
-        if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
-        if vnet_subnet_id is not None:
-            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="dnsPrefix")
+    def dns_prefix(self) -> pulumi.Input[str]:
+        """
+        DNS prefix to be used to create the FQDN for the agent pool.
+        """
+        return pulumi.get(self, "dns_prefix")
+
+    @dns_prefix.setter
+    def dns_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dns_prefix", value)
 
     @property
     @pulumi.getter
@@ -138,90 +139,6 @@ class ContainerServiceAgentPoolProfileArgs:
     @vm_size.setter
     def vm_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "vm_size", value)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter(name="dnsPrefix")
-    def dns_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS prefix to be used to create the FQDN for the agent pool.
-        """
-        return pulumi.get(self, "dns_prefix")
-
-    @dns_prefix.setter
-    def dns_prefix(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "dns_prefix", value)
-
-    @property
-    @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
-        """
-        OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        """
-        return pulumi.get(self, "os_disk_size_gb")
-
-    @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "os_disk_size_gb", value)
-
-    @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        """
-        return pulumi.get(self, "os_type")
-
-    @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "os_type", value)
-
-    @property
-    @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-        """
-        return pulumi.get(self, "ports")
-
-    @ports.setter
-    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "ports", value)
-
-    @property
-    @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input[str]]:
-        """
-        Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-        """
-        return pulumi.get(self, "storage_profile")
-
-    @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_profile", value)
-
-    @property
-    @pulumi.getter(name="vnetSubnetID")
-    def vnet_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        VNet SubnetID specifies the VNet's subnet identifier.
-        """
-        return pulumi.get(self, "vnet_subnet_id")
-
-    @vnet_subnet_id.setter
-    def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vnet_subnet_id", value)
 
 
 @pulumi.input_type
@@ -252,8 +169,7 @@ class ContainerServiceDiagnosticsProfileArgs:
     def __init__(__self__, *,
                  vm_diagnostics: pulumi.Input['ContainerServiceVMDiagnosticsArgs']):
         """
-        Profile for diagnostics on the container service cluster.
-        :param pulumi.Input['ContainerServiceVMDiagnosticsArgs'] vm_diagnostics: Profile for diagnostics on the container service VMs.
+        :param pulumi.Input['ContainerServiceVMDiagnosticsArgs'] vm_diagnostics: Profile for the container service VM diagnostic agent.
         """
         pulumi.set(__self__, "vm_diagnostics", vm_diagnostics)
 
@@ -261,7 +177,7 @@ class ContainerServiceDiagnosticsProfileArgs:
     @pulumi.getter(name="vmDiagnostics")
     def vm_diagnostics(self) -> pulumi.Input['ContainerServiceVMDiagnosticsArgs']:
         """
-        Profile for diagnostics on the container service VMs.
+        Profile for the container service VM diagnostic agent.
         """
         return pulumi.get(self, "vm_diagnostics")
 
@@ -312,58 +228,27 @@ class ContainerServiceLinuxProfileArgs:
 class ContainerServiceMasterProfileArgs:
     def __init__(__self__, *,
                  dns_prefix: pulumi.Input[str],
-                 vm_size: pulumi.Input[str],
-                 count: Optional[pulumi.Input[int]] = None,
-                 first_consecutive_static_ip: Optional[pulumi.Input[str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 storage_profile: Optional[pulumi.Input[str]] = None,
-                 vnet_subnet_id: Optional[pulumi.Input[str]] = None):
+                 count: Optional[pulumi.Input[int]] = None):
         """
         Profile for the container service master.
-        :param pulumi.Input[str] dns_prefix: DNS prefix to be used to create the FQDN for the master pool.
-        :param pulumi.Input[str] vm_size: Size of agent VMs.
+        :param pulumi.Input[str] dns_prefix: DNS prefix to be used to create the FQDN for master.
         :param pulumi.Input[int] count: Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
-        :param pulumi.Input[str] first_consecutive_static_ip: FirstConsecutiveStaticIP used to specify the first static ip of masters.
-        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param pulumi.Input[str] storage_profile: Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-        :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
         pulumi.set(__self__, "dns_prefix", dns_prefix)
-        pulumi.set(__self__, "vm_size", vm_size)
         if count is not None:
             pulumi.set(__self__, "count", count)
-        if first_consecutive_static_ip is not None:
-            pulumi.set(__self__, "first_consecutive_static_ip", first_consecutive_static_ip)
-        if os_disk_size_gb is not None:
-            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
-        if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
-        if vnet_subnet_id is not None:
-            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
 
     @property
     @pulumi.getter(name="dnsPrefix")
     def dns_prefix(self) -> pulumi.Input[str]:
         """
-        DNS prefix to be used to create the FQDN for the master pool.
+        DNS prefix to be used to create the FQDN for master.
         """
         return pulumi.get(self, "dns_prefix")
 
     @dns_prefix.setter
     def dns_prefix(self, value: pulumi.Input[str]):
         pulumi.set(self, "dns_prefix", value)
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Input[str]:
-        """
-        Size of agent VMs.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @vm_size.setter
-    def vm_size(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vm_size", value)
 
     @property
     @pulumi.getter
@@ -376,54 +261,6 @@ class ContainerServiceMasterProfileArgs:
     @count.setter
     def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter(name="firstConsecutiveStaticIP")
-    def first_consecutive_static_ip(self) -> Optional[pulumi.Input[str]]:
-        """
-        FirstConsecutiveStaticIP used to specify the first static ip of masters.
-        """
-        return pulumi.get(self, "first_consecutive_static_ip")
-
-    @first_consecutive_static_ip.setter
-    def first_consecutive_static_ip(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "first_consecutive_static_ip", value)
-
-    @property
-    @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
-        """
-        OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        """
-        return pulumi.get(self, "os_disk_size_gb")
-
-    @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "os_disk_size_gb", value)
-
-    @property
-    @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input[str]]:
-        """
-        Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-        """
-        return pulumi.get(self, "storage_profile")
-
-    @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_profile", value)
-
-    @property
-    @pulumi.getter(name="vnetSubnetID")
-    def vnet_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        VNet SubnetID specifies the VNet's subnet identifier.
-        """
-        return pulumi.get(self, "vnet_subnet_id")
-
-    @vnet_subnet_id.setter
-    def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vnet_subnet_id", value)
 
 
 @pulumi.input_type
@@ -597,22 +434,18 @@ class ContainerServiceNetworkProfileArgs:
 @pulumi.input_type
 class ContainerServiceOrchestratorProfileArgs:
     def __init__(__self__, *,
-                 orchestrator_type: pulumi.Input[str],
-                 orchestrator_version: Optional[pulumi.Input[str]] = None):
+                 orchestrator_type: pulumi.Input[str]):
         """
         Profile for the container service orchestrator.
-        :param pulumi.Input[str] orchestrator_type: The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
-        :param pulumi.Input[str] orchestrator_version: The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
+        :param pulumi.Input[str] orchestrator_type: The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
         """
         pulumi.set(__self__, "orchestrator_type", orchestrator_type)
-        if orchestrator_version is not None:
-            pulumi.set(__self__, "orchestrator_version", orchestrator_version)
 
     @property
     @pulumi.getter(name="orchestratorType")
     def orchestrator_type(self) -> pulumi.Input[str]:
         """
-        The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+        The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
         """
         return pulumi.get(self, "orchestrator_type")
 
@@ -620,36 +453,19 @@ class ContainerServiceOrchestratorProfileArgs:
     def orchestrator_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "orchestrator_type", value)
 
-    @property
-    @pulumi.getter(name="orchestratorVersion")
-    def orchestrator_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-        """
-        return pulumi.get(self, "orchestrator_version")
-
-    @orchestrator_version.setter
-    def orchestrator_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "orchestrator_version", value)
-
 
 @pulumi.input_type
 class ContainerServiceServicePrincipalProfileArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
-                 key_vault_secret_ref: Optional[pulumi.Input['KeyVaultSecretRefArgs']] = None,
-                 secret: Optional[pulumi.Input[str]] = None):
+                 secret: pulumi.Input[str]):
         """
-        Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+        Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         :param pulumi.Input[str] client_id: The ID for the service principal.
-        :param pulumi.Input['KeyVaultSecretRefArgs'] key_vault_secret_ref: Reference to a secret stored in Azure Key Vault.
-        :param pulumi.Input[str] secret: The secret password associated with the service principal in plain text.
+        :param pulumi.Input[str] secret: The secret password associated with the service principal.
         """
         pulumi.set(__self__, "client_id", client_id)
-        if key_vault_secret_ref is not None:
-            pulumi.set(__self__, "key_vault_secret_ref", key_vault_secret_ref)
-        if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+        pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter(name="clientId")
@@ -664,27 +480,15 @@ class ContainerServiceServicePrincipalProfileArgs:
         pulumi.set(self, "client_id", value)
 
     @property
-    @pulumi.getter(name="keyVaultSecretRef")
-    def key_vault_secret_ref(self) -> Optional[pulumi.Input['KeyVaultSecretRefArgs']]:
-        """
-        Reference to a secret stored in Azure Key Vault.
-        """
-        return pulumi.get(self, "key_vault_secret_ref")
-
-    @key_vault_secret_ref.setter
-    def key_vault_secret_ref(self, value: Optional[pulumi.Input['KeyVaultSecretRefArgs']]):
-        pulumi.set(self, "key_vault_secret_ref", value)
-
-    @property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[str]]:
+    def secret(self) -> pulumi.Input[str]:
         """
-        The secret password associated with the service principal in plain text.
+        The secret password associated with the service principal.
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[str]]):
+    def secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret", value)
 
 
@@ -793,60 +597,6 @@ class ContainerServiceWindowsProfileArgs:
     @admin_username.setter
     def admin_username(self, value: pulumi.Input[str]):
         pulumi.set(self, "admin_username", value)
-
-
-@pulumi.input_type
-class KeyVaultSecretRefArgs:
-    def __init__(__self__, *,
-                 secret_name: pulumi.Input[str],
-                 vault_id: pulumi.Input[str],
-                 version: Optional[pulumi.Input[str]] = None):
-        """
-        Reference to a secret stored in Azure Key Vault.
-        :param pulumi.Input[str] secret_name: The secret name.
-        :param pulumi.Input[str] vault_id: Key vault identifier.
-        :param pulumi.Input[str] version: The secret version.
-        """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "vault_id", vault_id)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[str]:
-        """
-        The secret name.
-        """
-        return pulumi.get(self, "secret_name")
-
-    @secret_name.setter
-    def secret_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "secret_name", value)
-
-    @property
-    @pulumi.getter(name="vaultID")
-    def vault_id(self) -> pulumi.Input[str]:
-        """
-        Key vault identifier.
-        """
-        return pulumi.get(self, "vault_id")
-
-    @vault_id.setter
-    def vault_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vault_id", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The secret version.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type

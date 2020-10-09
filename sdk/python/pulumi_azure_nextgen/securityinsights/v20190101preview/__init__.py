@@ -7,15 +7,11 @@ from .alert_rule import *
 from .alert_rule_action import *
 from .bookmark import *
 from .bookmark_relation import *
-from .case import *
-from .case_relation import *
 from .data_connector import *
 from .get_alert_rule import *
 from .get_alert_rule_action import *
 from .get_bookmark import *
 from .get_bookmark_relation import *
-from .get_case import *
-from .get_case_relation import *
 from .get_data_connector import *
 from .get_incident import *
 from .get_incident_relation import *
