@@ -60,6 +60,10 @@ export interface GetNamespaceResult {
      */
     readonly name: string;
     /**
+     * ObjectId from the KeyVault
+     */
+    readonly principalId?: string;
+    /**
      * Provisioning state of the namespace.
      */
     readonly provisioningState: string;
@@ -75,6 +79,10 @@ export interface GetNamespaceResult {
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * TenantId from the KeyVault
+     */
+    readonly tenantId?: string;
     /**
      * Resource type
      */

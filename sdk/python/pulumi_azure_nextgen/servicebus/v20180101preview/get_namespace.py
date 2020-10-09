@@ -20,7 +20,7 @@ class GetNamespaceResult:
     """
     Description of a namespace resource.
     """
-    def __init__(__self__, created_at=None, key_source=None, key_vault_properties=None, location=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None, zone_redundant=None):
+    def __init__(__self__, created_at=None, key_source=None, key_vault_properties=None, location=None, metric_id=None, name=None, principal_id=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, tenant_id=None, type=None, updated_at=None, zone_redundant=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -39,6 +39,9 @@ class GetNamespaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if principal_id and not isinstance(principal_id, str):
+            raise TypeError("Expected argument 'principal_id' to be a str")
+        pulumi.set(__self__, "principal_id", principal_id)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -51,6 +54,9 @@ class GetNamespaceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -110,6 +116,14 @@ class GetNamespaceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        ObjectId from the KeyVault
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -140,6 +154,14 @@ class GetNamespaceResult:
         Resource tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        TenantId from the KeyVault
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter
@@ -178,10 +200,12 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             location=self.location,
             metric_id=self.metric_id,
             name=self.name,
+            principal_id=self.principal_id,
             provisioning_state=self.provisioning_state,
             service_bus_endpoint=self.service_bus_endpoint,
             sku=self.sku,
             tags=self.tags,
+            tenant_id=self.tenant_id,
             type=self.type,
             updated_at=self.updated_at,
             zone_redundant=self.zone_redundant)
@@ -212,10 +236,12 @@ def get_namespace(namespace_name: Optional[str] = None,
         location=__ret__.location,
         metric_id=__ret__.metric_id,
         name=__ret__.name,
+        principal_id=__ret__.principal_id,
         provisioning_state=__ret__.provisioning_state,
         service_bus_endpoint=__ret__.service_bus_endpoint,
         sku=__ret__.sku,
         tags=__ret__.tags,
+        tenant_id=__ret__.tenant_id,
         type=__ret__.type,
         updated_at=__ret__.updated_at,
         zone_redundant=__ret__.zone_redundant)

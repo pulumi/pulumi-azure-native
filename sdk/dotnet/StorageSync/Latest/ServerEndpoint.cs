@@ -105,6 +105,12 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         public Output<string?> ServerLocalPath { get; private set; } = null!;
 
         /// <summary>
+        /// Server name
+        /// </summary>
+        [Output("serverName")]
+        public Output<string> ServerName { get; private set; } = null!;
+
+        /// <summary>
         /// Server Resource Id.
         /// </summary>
         [Output("serverResourceId")]

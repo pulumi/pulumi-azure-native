@@ -37,6 +37,8 @@ type LookupNamespaceResult struct {
 	MetricId string `pulumi:"metricId"`
 	// Resource name
 	Name string `pulumi:"name"`
+	// ObjectId from the KeyVault
+	PrincipalId *string `pulumi:"principalId"`
 	// Provisioning state of the namespace.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
@@ -45,6 +47,8 @@ type LookupNamespaceResult struct {
 	Sku *SBSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// TenantId from the KeyVault
+	TenantId *string `pulumi:"tenantId"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// The time the namespace was updated.

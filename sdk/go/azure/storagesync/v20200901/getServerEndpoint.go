@@ -59,6 +59,8 @@ type LookupServerEndpointResult struct {
 	RecallStatus ServerEndpointRecallStatusResponse `pulumi:"recallStatus"`
 	// Server Local path.
 	ServerLocalPath *string `pulumi:"serverLocalPath"`
+	// Server name
+	ServerName string `pulumi:"serverName"`
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Server Endpoint sync status

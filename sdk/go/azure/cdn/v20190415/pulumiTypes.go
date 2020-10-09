@@ -4543,7 +4543,7 @@ type KeyVaultCertificateSourceParametersResponse struct {
 	// The name of Key Vault Secret (representing the full certificate PFX) in Key Vault.
 	SecretName string `pulumi:"secretName"`
 	// The version(GUID) of Key Vault Secret in Key Vault.
-	SecretVersion string `pulumi:"secretVersion"`
+	SecretVersion *string `pulumi:"secretVersion"`
 	// Subscription Id of the user's Key Vault containing the SSL certificate
 	SubscriptionId string `pulumi:"subscriptionId"`
 	// Describes the action that shall be taken when the certificate is updated in Key Vault.
@@ -4573,7 +4573,7 @@ type KeyVaultCertificateSourceParametersResponseArgs struct {
 	// The name of Key Vault Secret (representing the full certificate PFX) in Key Vault.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 	// The version(GUID) of Key Vault Secret in Key Vault.
-	SecretVersion pulumi.StringInput `pulumi:"secretVersion"`
+	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
 	// Subscription Id of the user's Key Vault containing the SSL certificate
 	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
 	// Describes the action that shall be taken when the certificate is updated in Key Vault.
@@ -4629,8 +4629,8 @@ func (o KeyVaultCertificateSourceParametersResponseOutput) SecretName() pulumi.S
 }
 
 // The version(GUID) of Key Vault Secret in Key Vault.
-func (o KeyVaultCertificateSourceParametersResponseOutput) SecretVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) string { return v.SecretVersion }).(pulumi.StringOutput)
+func (o KeyVaultCertificateSourceParametersResponseOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
 }
 
 // Subscription Id of the user's Key Vault containing the SSL certificate
