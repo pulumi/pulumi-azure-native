@@ -2,7 +2,6 @@ package arm2pulumi
 
 import (
 	"fmt"
-	"github.com/gedex/inflector"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/pcl"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
@@ -96,10 +95,10 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 
 	// Can't trust the casing in the template.
 	// Need to do a soft-match against resources supported
-	token, ok := toResourceToken(ctx, typ, apiVersion)
-	if !ok {
+	token := ctx.resourceTokenConverter.convert(typ, apiVersion)
+	if token == "" {
 		r.exclude = true
-		diag.Description = "no metadata found for resource"
+		diag.Description = fmt.Sprintf("no metadata found for resource type '%s' and version '%s'", typ, apiVersion)
 		return &diag
 	}
 	diag.SourceToken = token
@@ -114,6 +113,7 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 
 	var err error
 
+	// TODO: simplify lookupResource
 	_, res, _ := lookupResource(ctx, token)
 	r.resourceParams, err = r.transformRequestBody(ctx, res, r.resourceParams, templateName)
 	if err != nil {
@@ -270,48 +270,6 @@ func (r *resource) transformRequestBody(ctx *pclRenderContext,
 		return nil, fmt.Errorf("failed to transform parameters for resource: %s: %w", r.resourceName, err)
 	}
 	return flattened, nil
-}
-
-// toResourceToken will return the resource token relevant to azure-nextgen
-// provider given the resourceType and API version provided by the ARM template.
-// Returns true as second arg if one is found, otherwise false.
-//
-// Given the provider and type we get from ARM we can't find an easy
-// direct mapping to pulumi providers since we don't have access to the intended
-// operation id. This tries to different heuristics and returns the token
-// for the first that matches.
-func toResourceToken(ctx *pclRenderContext, resourceType, apiVersion string) (string, bool) {
-	apiVersion = "v" + strings.ReplaceAll(apiVersion, "-", "")
-	provAndResource := strings.Split(resourceType, "/")
-	prov, resourceParts := provAndResource[0], provAndResource[1:]
-
-	genResourceToken := func(prov string, resourceParts []string) (string, bool) {
-		var resource string
-		for _, part := range resourceParts {
-			resource = resource + inflector.Singularize(strings.Title(gen.ToLowerCamel(part)))
-		}
-
-		if strings.HasPrefix(prov, "Microsoft.") {
-			prov = strings.TrimPrefix(strings.ToLower(prov), "microsoft.")
-		}
-		res := inflector.Singularize(strings.Title(gen.ToLowerCamel(resource)))
-		resourceToken := fmt.Sprintf("azure-nextgen:%s/%s:%s", prov, apiVersion, res)
-
-		if actual, _, ok := lookupResource(ctx, resourceToken); ok {
-			return actual, true
-		}
-		return "", false
-	}
-
-	if token, found := genResourceToken(prov, resourceParts); found {
-		return token, true
-	}
-
-	prov, resourceParts = provAndResource[0], provAndResource[len(provAndResource)-1:]
-	if token, found := genResourceToken(prov, resourceParts); found {
-		return token, true
-	}
-	return "", false
 }
 
 // lookupResources looks up the specified resource token and
