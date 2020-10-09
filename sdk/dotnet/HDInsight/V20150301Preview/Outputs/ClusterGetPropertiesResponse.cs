@@ -58,10 +58,6 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
         /// </summary>
         public readonly string? MinSupportedTlsVersion;
         /// <summary>
-        /// The network settings.
-        /// </summary>
-        public readonly Outputs.NetworkSettingsResponse? NetworkSettings;
-        /// <summary>
         /// The type of operating system.
         /// </summary>
         public readonly string? OsType;
@@ -106,8 +102,6 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
 
             string? minSupportedTlsVersion,
 
-            Outputs.NetworkSettingsResponse? networkSettings,
-
             string? osType,
 
             string? provisioningState,
@@ -129,7 +123,6 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
             Errors = errors;
             KafkaRestProperties = kafkaRestProperties;
             MinSupportedTlsVersion = minSupportedTlsVersion;
-            NetworkSettings = networkSettings;
             OsType = osType;
             ProvisioningState = provisioningState;
             QuotaInfo = quotaInfo;
