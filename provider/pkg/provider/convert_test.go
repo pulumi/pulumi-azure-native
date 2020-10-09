@@ -96,6 +96,9 @@ var p = &azureNextGenProvider{
 								},
 								"tags":         {},
 								"untypedArray": {},
+								"untypedDict": {
+									Ref: "pulumi.json#/Any",
+								},
 							},
 						},
 					},
@@ -138,6 +141,9 @@ var p = &azureNextGenProvider{
 					},
 					"tags":         {},
 					"untypedArray": {},
+					"untypedDict": {
+						Ref: "pulumi.json#/Any",
+					},
 				},
 			},
 		},
@@ -185,6 +191,10 @@ var sampleAPIPackage = map[string]interface{}{
 		map[string]interface{}{"key1": "value1"},
 		map[string]interface{}{"key1": "value2"},
 	},
+	"untypedDict": map[string]interface{}{
+		"key1": "value1",
+		"key2": "value2",
+	},
 }
 var sampleSdkProps = map[string]interface{}{
 	"name":      "MyResource",
@@ -215,6 +225,10 @@ var sampleSdkProps = map[string]interface{}{
 	"untypedArray": []interface{}{
 		map[string]interface{}{"key1": "value1"},
 		map[string]interface{}{"key1": "value2"},
+	},
+	"untypedDict": map[string]interface{}{
+		"key1": "value1",
+		"key2": "value2",
 	},
 }
 
