@@ -32,7 +32,6 @@ __all__ = [
     'HardwareProfileResponse',
     'KafkaRestPropertiesResponse',
     'LinuxOperatingSystemProfileResponse',
-    'NetworkSettingsResponse',
     'OsProfileResponse',
     'QuotaInfoResponse',
     'RoleResponse',
@@ -641,7 +640,6 @@ class ClusterGetPropertiesResponse(dict):
                  errors: Optional[Sequence['outputs.ErrorsResponse']] = None,
                  kafka_rest_properties: Optional['outputs.KafkaRestPropertiesResponse'] = None,
                  min_supported_tls_version: Optional[str] = None,
-                 network_settings: Optional['outputs.NetworkSettingsResponse'] = None,
                  os_type: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
                  quota_info: Optional['outputs.QuotaInfoResponse'] = None,
@@ -660,7 +658,6 @@ class ClusterGetPropertiesResponse(dict):
         :param Sequence['ErrorsResponseArgs'] errors: The list of errors.
         :param 'KafkaRestPropertiesResponseArgs' kafka_rest_properties: The cluster kafka rest proxy configuration.
         :param str min_supported_tls_version: The minimal supported tls version.
-        :param 'NetworkSettingsResponseArgs' network_settings: The network settings.
         :param str os_type: The type of operating system.
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param 'QuotaInfoResponseArgs' quota_info: The quota information.
@@ -688,8 +685,6 @@ class ClusterGetPropertiesResponse(dict):
             pulumi.set(__self__, "kafka_rest_properties", kafka_rest_properties)
         if min_supported_tls_version is not None:
             pulumi.set(__self__, "min_supported_tls_version", min_supported_tls_version)
-        if network_settings is not None:
-            pulumi.set(__self__, "network_settings", network_settings)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if provisioning_state is not None:
@@ -788,14 +783,6 @@ class ClusterGetPropertiesResponse(dict):
         The minimal supported tls version.
         """
         return pulumi.get(self, "min_supported_tls_version")
-
-    @property
-    @pulumi.getter(name="networkSettings")
-    def network_settings(self) -> Optional['outputs.NetworkSettingsResponse']:
-        """
-        The network settings.
-        """
-        return pulumi.get(self, "network_settings")
 
     @property
     @pulumi.getter(name="osType")
@@ -1316,44 +1303,6 @@ class LinuxOperatingSystemProfileResponse(dict):
         The username.
         """
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class NetworkSettingsResponse(dict):
-    """
-    The network settings.
-    """
-    def __init__(__self__, *,
-                 outbound_only_public_network_access_type: Optional[str] = None,
-                 public_network_access: Optional[str] = None):
-        """
-        The network settings.
-        :param str outbound_only_public_network_access_type: The mechanism through which the cluster will have outbound access to the public network.
-        :param str public_network_access: Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-        """
-        if outbound_only_public_network_access_type is not None:
-            pulumi.set(__self__, "outbound_only_public_network_access_type", outbound_only_public_network_access_type)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
-
-    @property
-    @pulumi.getter(name="outboundOnlyPublicNetworkAccessType")
-    def outbound_only_public_network_access_type(self) -> Optional[str]:
-        """
-        The mechanism through which the cluster will have outbound access to the public network.
-        """
-        return pulumi.get(self, "outbound_only_public_network_access_type")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
-        """
-        Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-        """
-        return pulumi.get(self, "public_network_access")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -29,7 +29,6 @@ __all__ = [
     'HardwareProfileArgs',
     'KafkaRestPropertiesArgs',
     'LinuxOperatingSystemProfileArgs',
-    'NetworkSettingsArgs',
     'OsProfileArgs',
     'RoleArgs',
     'RuntimeScriptActionArgs',
@@ -588,7 +587,6 @@ class ClusterCreatePropertiesArgs:
                  encryption_in_transit_properties: Optional[pulumi.Input['EncryptionInTransitPropertiesArgs']] = None,
                  kafka_rest_properties: Optional[pulumi.Input['KafkaRestPropertiesArgs']] = None,
                  min_supported_tls_version: Optional[pulumi.Input[str]] = None,
-                 network_settings: Optional[pulumi.Input['NetworkSettingsArgs']] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
@@ -602,7 +600,6 @@ class ClusterCreatePropertiesArgs:
         :param pulumi.Input['EncryptionInTransitPropertiesArgs'] encryption_in_transit_properties: The encryption-in-transit properties.
         :param pulumi.Input['KafkaRestPropertiesArgs'] kafka_rest_properties: The cluster kafka rest proxy configuration.
         :param pulumi.Input[str] min_supported_tls_version: The minimal supported tls version.
-        :param pulumi.Input['NetworkSettingsArgs'] network_settings: The network settings.
         :param pulumi.Input[str] os_type: The type of operating system.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: The security profile.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile.
@@ -622,8 +619,6 @@ class ClusterCreatePropertiesArgs:
             pulumi.set(__self__, "kafka_rest_properties", kafka_rest_properties)
         if min_supported_tls_version is not None:
             pulumi.set(__self__, "min_supported_tls_version", min_supported_tls_version)
-        if network_settings is not None:
-            pulumi.set(__self__, "network_settings", network_settings)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if security_profile is not None:
@@ -716,18 +711,6 @@ class ClusterCreatePropertiesArgs:
     @min_supported_tls_version.setter
     def min_supported_tls_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "min_supported_tls_version", value)
-
-    @property
-    @pulumi.getter(name="networkSettings")
-    def network_settings(self) -> Optional[pulumi.Input['NetworkSettingsArgs']]:
-        """
-        The network settings.
-        """
-        return pulumi.get(self, "network_settings")
-
-    @network_settings.setter
-    def network_settings(self, value: Optional[pulumi.Input['NetworkSettingsArgs']]):
-        pulumi.set(self, "network_settings", value)
 
     @property
     @pulumi.getter(name="osType")
@@ -1192,46 +1175,6 @@ class LinuxOperatingSystemProfileArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
-
-
-@pulumi.input_type
-class NetworkSettingsArgs:
-    def __init__(__self__, *,
-                 outbound_only_public_network_access_type: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None):
-        """
-        The network settings.
-        :param pulumi.Input[str] outbound_only_public_network_access_type: The mechanism through which the cluster will have outbound access to the public network.
-        :param pulumi.Input[str] public_network_access: Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-        """
-        if outbound_only_public_network_access_type is not None:
-            pulumi.set(__self__, "outbound_only_public_network_access_type", outbound_only_public_network_access_type)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
-
-    @property
-    @pulumi.getter(name="outboundOnlyPublicNetworkAccessType")
-    def outbound_only_public_network_access_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The mechanism through which the cluster will have outbound access to the public network.
-        """
-        return pulumi.get(self, "outbound_only_public_network_access_type")
-
-    @outbound_only_public_network_access_type.setter
-    def outbound_only_public_network_access_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "outbound_only_public_network_access_type", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "public_network_access", value)
 
 
 @pulumi.input_type
