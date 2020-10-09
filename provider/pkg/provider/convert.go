@@ -22,20 +22,23 @@ func (k *SdkShapeConverter) sdkPropertyToRequest(prop *AzureAPIProperty, value i
 		// For union types, iterate through types and find the first one that matches the shape.
 		for _, t := range prop.OneOf {
 			typeName := strings.TrimPrefix(t, "#/types/")
-			typ := k.Types[typeName]
+			typ, ok := k.Types[typeName]
+			if !ok {
+				continue
+			}
+
 			request := k.SdkPropertiesToRequestBody(typ.Properties, value.(map[string]interface{}))
 			if request != nil {
 				return request
 			}
 		}
 
-		if prop.Ref == "" {
-			// Return untyped dictionaries as-is.
+		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
+		typ, ok := k.Types[typeName]
+		if !ok {
 			return value
 		}
 
-		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-		typ := k.Types[typeName]
 		return k.SdkPropertiesToRequestBody(typ.Properties, value.(map[string]interface{}))
 	case reflect.Slice, reflect.Array:
 		if prop.Items == nil {
@@ -101,22 +104,21 @@ func (k *SdkShapeConverter) bodyPropertyToSdk(prop *AzureAPIProperty, value inte
 		// For union types, iterate through types and find the first one that matches the shape.
 		for _, t := range prop.OneOf {
 			typeName := strings.TrimPrefix(t, "#/types/")
-			typ := k.Types[typeName]
+			typ, ok := k.Types[typeName]
+			if !ok {
+				continue
+			}
+
 			response := k.BodyPropertiesToSDK(typ.Properties, value.(map[string]interface{}))
 			if response != nil {
 				return response
 			}
 		}
 
-		if prop.Ref == "" {
-			// Return untyped dictionaries as-is.
-			return value
-		}
-
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
 		typ, ok := k.Types[typeName]
 		if !ok {
-			return value.(map[string]interface{})
+			return value
 		}
 
 		return k.BodyPropertiesToSDK(typ.Properties, value.(map[string]interface{}))
