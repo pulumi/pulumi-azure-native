@@ -33,6 +33,18 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview.Inputs
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        [Input("properties")]
+        private InputMap<string>? _properties;
+
+        /// <summary>
+        /// Repository-specific properties.
+        /// </summary>
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
+
         /// <summary>
         /// Type of code repository.
         /// </summary>

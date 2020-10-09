@@ -43,6 +43,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Resource properties.
+     */
+    public readonly properties!: pulumi.Output<{[key: string]: string}>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -70,6 +74,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["operationType"] = args ? args.operationType : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -78,6 +83,7 @@ export class Account extends pulumi.CustomResource {
         } else {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -110,6 +116,10 @@ export interface AccountArgs {
      * The type of the operation.
      */
     readonly operationType?: pulumi.Input<string>;
+    /**
+     * The custom properties of the resource.
+     */
+    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the resource group within the Azure subscription.
      */

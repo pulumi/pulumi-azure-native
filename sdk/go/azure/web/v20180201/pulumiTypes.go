@@ -3262,6 +3262,115 @@ func (o ConnStringInfoResponseArrayOutput) Index(i pulumi.IntInput) ConnStringIn
 	}).(ConnStringInfoResponseOutput)
 }
 
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponse struct {
+	// Type of database.
+	Type string `pulumi:"type"`
+	// Value of pair.
+	Value string `pulumi:"value"`
+}
+
+// ConnStringValueTypePairResponseInput is an input type that accepts ConnStringValueTypePairResponseArgs and ConnStringValueTypePairResponseOutput values.
+// You can construct a concrete instance of `ConnStringValueTypePairResponseInput` via:
+//
+//          ConnStringValueTypePairResponseArgs{...}
+type ConnStringValueTypePairResponseInput interface {
+	pulumi.Input
+
+	ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput
+	ToConnStringValueTypePairResponseOutputWithContext(context.Context) ConnStringValueTypePairResponseOutput
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponseArgs struct {
+	// Type of database.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of pair.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConnStringValueTypePairResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (i ConnStringValueTypePairResponseArgs) ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput {
+	return i.ToConnStringValueTypePairResponseOutputWithContext(context.Background())
+}
+
+func (i ConnStringValueTypePairResponseArgs) ToConnStringValueTypePairResponseOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairResponseOutput)
+}
+
+// ConnStringValueTypePairResponseMapInput is an input type that accepts ConnStringValueTypePairResponseMap and ConnStringValueTypePairResponseMapOutput values.
+// You can construct a concrete instance of `ConnStringValueTypePairResponseMapInput` via:
+//
+//          ConnStringValueTypePairResponseMap{ "key": ConnStringValueTypePairResponseArgs{...} }
+type ConnStringValueTypePairResponseMapInput interface {
+	pulumi.Input
+
+	ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput
+	ToConnStringValueTypePairResponseMapOutputWithContext(context.Context) ConnStringValueTypePairResponseMapOutput
+}
+
+type ConnStringValueTypePairResponseMap map[string]ConnStringValueTypePairResponseInput
+
+func (ConnStringValueTypePairResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (i ConnStringValueTypePairResponseMap) ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput {
+	return i.ToConnStringValueTypePairResponseMapOutputWithContext(context.Background())
+}
+
+func (i ConnStringValueTypePairResponseMap) ToConnStringValueTypePairResponseMapOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairResponseMapOutput)
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnStringValueTypePairResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (o ConnStringValueTypePairResponseOutput) ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseOutput) ToConnStringValueTypePairResponseOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseOutput {
+	return o
+}
+
+// Type of database.
+func (o ConnStringValueTypePairResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePairResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of pair.
+func (o ConnStringValueTypePairResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePairResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConnStringValueTypePairResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ConnStringValueTypePairResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) ToConnStringValueTypePairResponseMapOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseMapOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) MapIndex(k pulumi.StringInput) ConnStringValueTypePairResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnStringValueTypePairResponse {
+		return vs[0].(map[string]ConnStringValueTypePairResponse)[vs[1].(string)]
+	}).(ConnStringValueTypePairResponseOutput)
+}
+
 // Cross-Origin Resource Sharing (CORS) settings for the app.
 type CorsSettings struct {
 	// Gets or sets the list of origins that should be allowed to make cross-origin
@@ -13821,6 +13930,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnStringInfoArrayOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConnStringValueTypePairResponseOutput{})
+	pulumi.RegisterOutputType(ConnStringValueTypePairResponseMapOutput{})
 	pulumi.RegisterOutputType(CorsSettingsOutput{})
 	pulumi.RegisterOutputType(CorsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CorsSettingsResponseOutput{})

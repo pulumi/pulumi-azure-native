@@ -21,6 +21,7 @@ class Snapshot(pulumi.CustomResource):
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -36,6 +37,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] snapshot_name: The name of the mount target
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] volume_name: The name of the volume
         """
         if __name__ is not None:
@@ -71,6 +73,7 @@ class Snapshot(pulumi.CustomResource):
             if snapshot_name is None:
                 raise TypeError("Missing required property 'snapshot_name'")
             __props__['snapshot_name'] = snapshot_name
+            __props__['tags'] = tags
             if volume_name is None:
                 raise TypeError("Missing required property 'volume_name'")
             __props__['volume_name'] = volume_name
@@ -152,6 +155,14 @@ class Snapshot(pulumi.CustomResource):
         UUID v4 used to identify the Snapshot
         """
         return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

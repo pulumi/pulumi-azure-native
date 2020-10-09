@@ -101,19 +101,23 @@ class CodeRepositoryArgs:
                  default_branch: pulumi.Input[str],
                  id: pulumi.Input[str],
                  repository_type: pulumi.Input[str],
-                 authorization: Optional[pulumi.Input['AuthorizationArgs']] = None):
+                 authorization: Optional[pulumi.Input['AuthorizationArgs']] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Repository containing the source code for a pipeline.
         :param pulumi.Input[str] default_branch: Default branch used to configure Continuous Integration (CI) in the pipeline.
         :param pulumi.Input[str] id: Unique immutable identifier of the code repository.
         :param pulumi.Input[str] repository_type: Type of code repository.
         :param pulumi.Input['AuthorizationArgs'] authorization: Authorization info to access the code repository.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Repository-specific properties.
         """
         pulumi.set(__self__, "default_branch", default_branch)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "repository_type", repository_type)
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="defaultBranch")
@@ -162,6 +166,18 @@ class CodeRepositoryArgs:
     @authorization.setter
     def authorization(self, value: Optional[pulumi.Input['AuthorizationArgs']]):
         pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Repository-specific properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type

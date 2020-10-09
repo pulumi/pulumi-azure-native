@@ -19,7 +19,7 @@ class ListSiteAppSettingsSlotResult:
     """
     String dictionary resource
     """
-    def __init__(__self__, kind=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -29,6 +29,9 @@ class ListSiteAppSettingsSlotResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -62,6 +65,14 @@ class ListSiteAppSettingsSlotResult:
 
     @property
     @pulumi.getter
+    def properties(self) -> Mapping[str, str]:
+        """
+        Settings
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags
@@ -86,6 +97,7 @@ class AwaitableListSiteAppSettingsSlotResult(ListSiteAppSettingsSlotResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
+            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -115,5 +127,6 @@ def list_site_app_settings_slot(name: Optional[str] = None,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
+        properties=__ret__.properties,
         tags=__ret__.tags,
         type=__ret__.type)

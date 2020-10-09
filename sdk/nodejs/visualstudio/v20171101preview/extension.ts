@@ -51,7 +51,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * Resource properties.
      */
-    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: string}>;
+    public readonly properties!: pulumi.Output<{[key: string]: string}>;
     /**
      * Resource tags.
      */
@@ -84,10 +84,10 @@ export class Extension extends pulumi.CustomResource {
             inputs["extensionResourceName"] = args ? args.extensionResourceName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["plan"] = args ? args.plan : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
@@ -130,6 +130,10 @@ export interface ExtensionArgs {
      * Extended information about the plan being purchased for this extension resource.
      */
     readonly plan?: pulumi.Input<inputs.visualstudio.v20171101preview.ExtensionResourcePlan>;
+    /**
+     * A dictionary of extended properties. This property is currently unused.
+     */
+    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the resource group within the Azure subscription.
      */

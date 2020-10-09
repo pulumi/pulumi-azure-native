@@ -75,6 +75,10 @@ export interface GetSnapshotResult {
      */
     readonly snapshotId: string;
     /**
+     * Resource tags
+     */
+    readonly tags?: {[key: string]: string};
+    /**
      * Resource type
      */
     readonly type: string;

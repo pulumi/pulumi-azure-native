@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Resource properties.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Properties;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -62,12 +66,15 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
 
             string name,
 
+            ImmutableDictionary<string, string> properties,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             Location = location;
             Name = name;
+            Properties = properties;
             Tags = tags;
             Type = type;
         }

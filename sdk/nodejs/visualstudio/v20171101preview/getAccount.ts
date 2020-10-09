@@ -44,6 +44,10 @@ export interface GetAccountResult {
      */
     readonly name: string;
     /**
+     * Resource properties.
+     */
+    readonly properties: {[key: string]: string};
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

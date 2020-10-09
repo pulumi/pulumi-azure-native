@@ -19,10 +19,13 @@ class GetContentItemResult:
     """
     Content type contract details.
     """
-    def __init__(__self__, name=None, type=None):
+    def __init__(__self__, name=None, properties=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -34,6 +37,14 @@ class GetContentItemResult:
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Any:
+        """
+        Properties of the content item.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -51,6 +62,7 @@ class AwaitableGetContentItemResult(GetContentItemResult):
             yield self
         return GetContentItemResult(
             name=self.name,
+            properties=self.properties,
             type=self.type)
 
 
@@ -80,4 +92,5 @@ def get_content_item(content_item_id: Optional[str] = None,
 
     return AwaitableGetContentItemResult(
         name=__ret__.name,
+        properties=__ret__.properties,
         type=__ret__.type)

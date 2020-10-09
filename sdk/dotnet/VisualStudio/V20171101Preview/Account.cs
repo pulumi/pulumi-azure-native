@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Resource properties.
+        /// </summary>
+        [Output("properties")]
+        public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -104,6 +110,18 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
         /// </summary>
         [Input("operationType")]
         public Input<string>? OperationType { get; set; }
+
+        [Input("properties")]
+        private InputMap<string>? _properties;
+
+        /// <summary>
+        /// The custom properties of the resource.
+        /// </summary>
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
 
         /// <summary>
         /// Name of the resource group within the Azure subscription.

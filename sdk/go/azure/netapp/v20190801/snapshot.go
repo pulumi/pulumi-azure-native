@@ -26,6 +26,8 @@ type Snapshot struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// UUID v4 used to identify the Snapshot
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
+	// Resource tags
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -121,6 +123,8 @@ type snapshotState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// UUID v4 used to identify the Snapshot
 	SnapshotId *string `pulumi:"snapshotId"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -138,6 +142,8 @@ type SnapshotState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// UUID v4 used to identify the Snapshot
 	SnapshotId pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -159,6 +165,8 @@ type snapshotArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the mount target
 	SnapshotName string `pulumi:"snapshotName"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the volume
 	VolumeName string `pulumi:"volumeName"`
 }
@@ -177,6 +185,8 @@ type SnapshotArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the mount target
 	SnapshotName pulumi.StringInput
+	// Resource tags
+	Tags pulumi.StringMapInput
 	// The name of the volume
 	VolumeName pulumi.StringInput
 }

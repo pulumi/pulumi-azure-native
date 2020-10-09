@@ -18,6 +18,8 @@ type Account struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Resource properties.
+	Properties pulumi.StringMapOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -68,6 +70,8 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// Resource properties.
+	Properties map[string]string `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -79,6 +83,8 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// Resource properties.
+	Properties pulumi.StringMapInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
@@ -96,6 +102,8 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// The type of the operation.
 	OperationType *string `pulumi:"operationType"`
+	// The custom properties of the resource.
+	Properties map[string]string `pulumi:"properties"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the resource.
@@ -112,6 +120,8 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// The type of the operation.
 	OperationType pulumi.StringPtrInput
+	// The custom properties of the resource.
+	Properties pulumi.StringMapInput
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the resource.

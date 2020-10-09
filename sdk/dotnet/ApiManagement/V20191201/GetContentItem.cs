@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Properties of the content item.
+        /// </summary>
+        public readonly object Properties;
+        /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
@@ -64,9 +68,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         private GetContentItemResult(
             string name,
 
+            object properties,
+
             string type)
         {
             Name = name;
+            Properties = properties;
             Type = type;
         }
     }

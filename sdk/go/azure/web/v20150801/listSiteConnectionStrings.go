@@ -31,6 +31,8 @@ type ListSiteConnectionStringsResult struct {
 	Location string `pulumi:"location"`
 	// Resource Name
 	Name *string `pulumi:"name"`
+	// Connection strings
+	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
