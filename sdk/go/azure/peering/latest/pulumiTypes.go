@@ -1013,6 +1013,8 @@ type DirectConnectionResponse struct {
 	ConnectionState string `pulumi:"connectionState"`
 	// The error message related to the connection state, if any.
 	ErrorMessage string `pulumi:"errorMessage"`
+	// The ID used within Microsoft's peering provisioning system to track the connection
+	MicrosoftTrackingId string `pulumi:"microsoftTrackingId"`
 	// The PeeringDB.com ID of the facility at which the connection has to be set up.
 	PeeringDBFacilityId *int `pulumi:"peeringDBFacilityId"`
 	// The bandwidth that is actually provisioned.
@@ -1046,6 +1048,8 @@ type DirectConnectionResponseArgs struct {
 	ConnectionState pulumi.StringInput `pulumi:"connectionState"`
 	// The error message related to the connection state, if any.
 	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// The ID used within Microsoft's peering provisioning system to track the connection
+	MicrosoftTrackingId pulumi.StringInput `pulumi:"microsoftTrackingId"`
 	// The PeeringDB.com ID of the facility at which the connection has to be set up.
 	PeeringDBFacilityId pulumi.IntPtrInput `pulumi:"peeringDBFacilityId"`
 	// The bandwidth that is actually provisioned.
@@ -1131,6 +1135,11 @@ func (o DirectConnectionResponseOutput) ConnectionState() pulumi.StringOutput {
 // The error message related to the connection state, if any.
 func (o DirectConnectionResponseOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectConnectionResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// The ID used within Microsoft's peering provisioning system to track the connection
+func (o DirectConnectionResponseOutput) MicrosoftTrackingId() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectConnectionResponse) string { return v.MicrosoftTrackingId }).(pulumi.StringOutput)
 }
 
 // The PeeringDB.com ID of the facility at which the connection has to be set up.

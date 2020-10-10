@@ -60,6 +60,9 @@ func NewPrefix(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200401:Prefix"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:peering/v20201001:Prefix"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Prefix
