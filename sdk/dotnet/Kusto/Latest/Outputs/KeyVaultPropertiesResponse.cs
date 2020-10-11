@@ -24,7 +24,11 @@ namespace Pulumi.AzureNextGen.Kusto.Latest.Outputs
         /// <summary>
         /// The version of the key vault key.
         /// </summary>
-        public readonly string KeyVersion;
+        public readonly string? KeyVersion;
+        /// <summary>
+        /// The user assigned identity (ARM resource id) that has access to the key.
+        /// </summary>
+        public readonly string? UserIdentity;
 
         [OutputConstructor]
         private KeyVaultPropertiesResponse(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureNextGen.Kusto.Latest.Outputs
 
             string keyVaultUri,
 
-            string keyVersion)
+            string? keyVersion,
+
+            string? userIdentity)
         {
             KeyName = keyName;
             KeyVaultUri = keyVaultUri;
             KeyVersion = keyVersion;
+            UserIdentity = userIdentity;
         }
     }
 }

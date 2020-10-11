@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200401
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:peering/latest:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredPrefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:RegisteredPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

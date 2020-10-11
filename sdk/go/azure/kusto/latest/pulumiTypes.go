@@ -628,7 +628,7 @@ func (o FollowerDatabaseDefinitionResponseArrayOutput) Index(i pulumi.IntInput) 
 
 // Identity for the resource.
 type Identity struct {
-	// The identity type.
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 	Type string `pulumi:"type"`
 }
 
@@ -645,7 +645,7 @@ type IdentityInput interface {
 
 // Identity for the resource.
 type IdentityArgs struct {
-	// The identity type.
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -727,7 +727,7 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 func (o IdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -750,7 +750,7 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
-// The identity type.
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -766,7 +766,7 @@ type IdentityResponse struct {
 	PrincipalId string `pulumi:"principalId"`
 	// The tenant ID of resource.
 	TenantId string `pulumi:"tenantId"`
-	// The identity type.
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 	Type string `pulumi:"type"`
 	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]IdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
@@ -789,7 +789,7 @@ type IdentityResponseArgs struct {
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The tenant ID of resource.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities IdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
@@ -883,7 +883,7 @@ func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -933,7 +933,7 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1066,7 +1066,9 @@ type KeyVaultProperties struct {
 	// The Uri of the key vault.
 	KeyVaultUri string `pulumi:"keyVaultUri"`
 	// The version of the key vault key.
-	KeyVersion string `pulumi:"keyVersion"`
+	KeyVersion *string `pulumi:"keyVersion"`
+	// The user assigned identity (ARM resource id) that has access to the key.
+	UserIdentity *string `pulumi:"userIdentity"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -1087,7 +1089,9 @@ type KeyVaultPropertiesArgs struct {
 	// The Uri of the key vault.
 	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
 	// The version of the key vault key.
-	KeyVersion pulumi.StringInput `pulumi:"keyVersion"`
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	// The user assigned identity (ARM resource id) that has access to the key.
+	UserIdentity pulumi.StringPtrInput `pulumi:"userIdentity"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -1179,8 +1183,13 @@ func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringOutput {
 }
 
 // The version of the key vault key.
-func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultProperties) string { return v.KeyVersion }).(pulumi.StringOutput)
+func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The user assigned identity (ARM resource id) that has access to the key.
+func (o KeyVaultPropertiesOutput) UserIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.UserIdentity }).(pulumi.StringPtrOutput)
 }
 
 type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1227,7 +1236,17 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.KeyVersion
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user assigned identity (ARM resource id) that has access to the key.
+func (o KeyVaultPropertiesPtrOutput) UserIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIdentity
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1238,7 +1257,9 @@ type KeyVaultPropertiesResponse struct {
 	// The Uri of the key vault.
 	KeyVaultUri string `pulumi:"keyVaultUri"`
 	// The version of the key vault key.
-	KeyVersion string `pulumi:"keyVersion"`
+	KeyVersion *string `pulumi:"keyVersion"`
+	// The user assigned identity (ARM resource id) that has access to the key.
+	UserIdentity *string `pulumi:"userIdentity"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -1259,7 +1280,9 @@ type KeyVaultPropertiesResponseArgs struct {
 	// The Uri of the key vault.
 	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
 	// The version of the key vault key.
-	KeyVersion pulumi.StringInput `pulumi:"keyVersion"`
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	// The user assigned identity (ARM resource id) that has access to the key.
+	UserIdentity pulumi.StringPtrInput `pulumi:"userIdentity"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1351,8 +1374,13 @@ func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringOutput {
 }
 
 // The version of the key vault key.
-func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.KeyVersion }).(pulumi.StringOutput)
+func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The user assigned identity (ARM resource id) that has access to the key.
+func (o KeyVaultPropertiesResponseOutput) UserIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.UserIdentity }).(pulumi.StringPtrOutput)
 }
 
 type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1399,7 +1427,17 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 		if v == nil {
 			return nil
 		}
-		return &v.KeyVersion
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user assigned identity (ARM resource id) that has access to the key.
+func (o KeyVaultPropertiesResponsePtrOutput) UserIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIdentity
 	}).(pulumi.StringPtrOutput)
 }
 

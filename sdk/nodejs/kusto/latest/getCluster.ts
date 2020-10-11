@@ -56,6 +56,10 @@ export interface GetClusterResult {
      */
     readonly enableStreamingIngest?: boolean;
     /**
+     * The engine type
+     */
+    readonly engineType?: string;
+    /**
      * The identity of the cluster, if configured.
      */
     readonly identity?: outputs.kusto.latest.IdentityResponse;

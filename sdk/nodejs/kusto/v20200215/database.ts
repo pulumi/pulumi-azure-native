@@ -93,7 +93,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/latest:Database" }, { type: "azure-nextgen:kusto/v20170907privatepreview:Database" }, { type: "azure-nextgen:kusto/v20180907preview:Database" }, { type: "azure-nextgen:kusto/v20190121:Database" }, { type: "azure-nextgen:kusto/v20190515:Database" }, { type: "azure-nextgen:kusto/v20190907:Database" }, { type: "azure-nextgen:kusto/v20191109:Database" }, { type: "azure-nextgen:kusto/v20200614:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/latest:Database" }, { type: "azure-nextgen:kusto/v20170907privatepreview:Database" }, { type: "azure-nextgen:kusto/v20180907preview:Database" }, { type: "azure-nextgen:kusto/v20190121:Database" }, { type: "azure-nextgen:kusto/v20190515:Database" }, { type: "azure-nextgen:kusto/v20190907:Database" }, { type: "azure-nextgen:kusto/v20191109:Database" }, { type: "azure-nextgen:kusto/v20200614:Database" }, { type: "azure-nextgen:kusto/v20200918:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

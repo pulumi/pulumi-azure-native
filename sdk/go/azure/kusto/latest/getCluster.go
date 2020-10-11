@@ -35,6 +35,8 @@ type LookupClusterResult struct {
 	EnablePurge *bool `pulumi:"enablePurge"`
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
+	// The engine type
+	EngineType *string `pulumi:"engineType"`
 	// The identity of the cluster, if configured.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// KeyVault properties for the cluster encryption.

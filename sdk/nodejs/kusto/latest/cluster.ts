@@ -57,6 +57,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enableStreamingIngest!: pulumi.Output<boolean | undefined>;
     /**
+     * The engine type
+     */
+    public readonly engineType!: pulumi.Output<string | undefined>;
+    /**
      * The identity of the cluster, if configured.
      */
     public readonly identity!: pulumi.Output<outputs.kusto.latest.IdentityResponse | undefined>;
@@ -148,6 +152,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enableDoubleEncryption"] = args ? args.enableDoubleEncryption : undefined;
             inputs["enablePurge"] = args ? args.enablePurge : undefined;
             inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
+            inputs["engineType"] = args ? args.engineType : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -172,6 +177,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enableDoubleEncryption"] = undefined /*out*/;
             inputs["enablePurge"] = undefined /*out*/;
             inputs["enableStreamingIngest"] = undefined /*out*/;
+            inputs["engineType"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["keyVaultProperties"] = undefined /*out*/;
             inputs["languageExtensions"] = undefined /*out*/;
@@ -196,7 +202,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/v20170907privatepreview:Cluster" }, { type: "azure-nextgen:kusto/v20180907preview:Cluster" }, { type: "azure-nextgen:kusto/v20190121:Cluster" }, { type: "azure-nextgen:kusto/v20190515:Cluster" }, { type: "azure-nextgen:kusto/v20190907:Cluster" }, { type: "azure-nextgen:kusto/v20191109:Cluster" }, { type: "azure-nextgen:kusto/v20200215:Cluster" }, { type: "azure-nextgen:kusto/v20200614:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/v20170907privatepreview:Cluster" }, { type: "azure-nextgen:kusto/v20180907preview:Cluster" }, { type: "azure-nextgen:kusto/v20190121:Cluster" }, { type: "azure-nextgen:kusto/v20190515:Cluster" }, { type: "azure-nextgen:kusto/v20190907:Cluster" }, { type: "azure-nextgen:kusto/v20191109:Cluster" }, { type: "azure-nextgen:kusto/v20200215:Cluster" }, { type: "azure-nextgen:kusto/v20200614:Cluster" }, { type: "azure-nextgen:kusto/v20200918:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }
@@ -226,6 +232,10 @@ export interface ClusterArgs {
      * A boolean value that indicates if the streaming ingest is enabled.
      */
     readonly enableStreamingIngest?: pulumi.Input<boolean>;
+    /**
+     * The engine type
+     */
+    readonly engineType?: pulumi.Input<string>;
     /**
      * The identity of the cluster, if configured.
      */

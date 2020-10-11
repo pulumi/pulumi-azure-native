@@ -79,7 +79,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/latest:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/latest:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ClusterPrincipalAssignment, __self__).__init__(
             'azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment',

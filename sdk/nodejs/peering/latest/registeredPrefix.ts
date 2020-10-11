@@ -108,7 +108,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200401:RegisteredPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200401:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20201001:RegisteredPrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegisteredPrefix.__pulumiType, name, inputs, opts);
     }
