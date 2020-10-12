@@ -24,6 +24,20 @@ var p = &azureNextGenProvider{
 					},
 				},
 			},
+			"azure-nextgen:testing:StructureResponse": {
+				Properties: map[string]AzureAPIProperty{
+					"v1": {},
+					"v2": {},
+					"v3-odd": {
+						SdkName: "v3",
+					},
+					"v4-nested": {
+						SdkName:    "v4",
+						Containers: []string{"props"},
+					},
+					"v5ReadOnly": {},
+				},
+			},
 			"azure-nextgen:testing:More": {
 				Properties: map[string]AzureAPIProperty{
 					"items": {
@@ -121,7 +135,7 @@ var p = &azureNextGenProvider{
 						SdkName: "threshold",
 					},
 					"structure": {
-						Ref: "#/types/azure-nextgen:testing:Structure",
+						Ref: "#/types/azure-nextgen:testing:StructureResponse",
 					},
 					"p1": {
 						Containers: []string{"properties"},
@@ -144,6 +158,7 @@ var p = &azureNextGenProvider{
 					"untypedDict": {
 						Ref: "pulumi.json#/Any",
 					},
+					"readOnly": {},
 				},
 			},
 		},
@@ -364,4 +379,47 @@ func TestResponseToSdkInputs(t *testing.T) {
 	}
 	inputs := c.ResponseToSdkInputs(p.resourceMap.Resources["r1"].PutParameters, pathValues, responseForInputCalculation)
 	assert.Equal(t, calculatedInputs, inputs)
+}
+
+func TestSDKOutputsToSDKInputs(t *testing.T) {
+	// Produced by copying sampleSdkProps plus some extra properties.
+	outputs := map[string]interface{}{
+		"name":      "MyResource",
+		"threshold": 123,
+		"structure": map[string]interface{}{
+			"v1": "value1",
+			"v2": 2,
+			"v3": "odd-value",
+			"v4": true,
+			"v5ReadOnly": "calculated",
+		},
+		"p1": "prop1",
+		"p2": "prop2",
+		"p3": "prop3",
+		"more": map[string]interface{}{
+				"items": []interface{}{
+					map[string]interface{}{"Aaa": "111", "bbb": "333"},
+					map[string]interface{}{"Aaa": "222"},
+			},
+		},
+		"union": map[string]interface{}{
+			"type": "BBB",
+			"b":    "valueOfB",
+		},
+		"tags": map[string]interface{}{
+			"createdBy":   "admin",
+			"application": "dashboard",
+		},
+		"untypedArray": []interface{}{
+			map[string]interface{}{"key1": "value1"},
+			map[string]interface{}{"key1": "value2"},
+		},
+		"untypedDict": map[string]interface{}{
+			"key1": "value1",
+			"key2": "value2",
+		},
+		"readOnly": 12345,
+	}
+	inputs := c.SDKOutputsToSDKInputs(p.resourceMap.Resources["r1"].PutParameters, outputs)
+	assert.Equal(t, sampleSdkProps, inputs)
 }

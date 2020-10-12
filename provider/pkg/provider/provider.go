@@ -649,6 +649,21 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 		}
 		inputMap := k.converter.ResponseToSdkInputs(res.PutParameters, pathItems, response)
 		inputs = resource.NewPropertyMapFromMap(inputMap)
+	} else {
+		// It's hard to infer the changes in the inputs shape based on the outputs without false positives.
+		// The current approach is complicated but it's aimed to minimize the noise while refreshing:
+		// 0. We have "old" inputs and outputs before refresh and "new" outputs read from Azure.
+		// 1. Project old outputs to their corresponding input shape (exclude read-only properties).
+		oldInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, oldState.Mappable())
+		// 2. Project new outputs to their corresponding input shape (exclude read-only properties).
+		newInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, outputs)
+		// 3. Calculate the difference between two projections. This should give us actual significant changes
+		// that happened in Azure between the last resource update and its current state.
+		oldInputPropertyMap := resource.NewPropertyMapFromMap(oldInputProjection)
+		newInputPropertyMap := resource.NewPropertyMapFromMap(newInputProjection)
+		diff := oldInputPropertyMap.Diff(newInputPropertyMap)
+		// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
+		inputs = applyDiff(inputs, diff)
 	}
 
 	// Store both outputs and inputs into the state.
