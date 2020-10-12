@@ -85,6 +85,10 @@ export class BigDataPool extends pulumi.CustomResource {
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
+     * Spark configuration file to specify additional properties
+     */
+    public readonly sparkConfigProperties!: pulumi.Output<outputs.synapse.v20190601preview.LibraryRequirementsResponse | undefined>;
+    /**
      * The Spark events folder
      */
     public readonly sparkEventsFolder!: pulumi.Output<string | undefined>;
@@ -137,6 +141,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["nodeSizeFamily"] = args ? args.nodeSizeFamily : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sparkConfigProperties"] = args ? args.sparkConfigProperties : undefined;
             inputs["sparkEventsFolder"] = args ? args.sparkEventsFolder : undefined;
             inputs["sparkVersion"] = args ? args.sparkVersion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -156,6 +161,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["nodeSize"] = undefined /*out*/;
             inputs["nodeSizeFamily"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["sparkConfigProperties"] = undefined /*out*/;
             inputs["sparkEventsFolder"] = undefined /*out*/;
             inputs["sparkVersion"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -232,6 +238,10 @@ export interface BigDataPoolArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Spark configuration file to specify additional properties
+     */
+    readonly sparkConfigProperties?: pulumi.Input<inputs.synapse.v20190601preview.LibraryRequirements>;
     /**
      * The Spark events folder
      */

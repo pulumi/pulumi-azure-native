@@ -14,6 +14,7 @@ import (
 type ConnectedCluster struct {
 	pulumi.CustomResourceState
 
+	// AAD profile of the connected cluster.
 	AadProfile ConnectedClusterAADProfileResponseOutput `pulumi:"aadProfile"`
 	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
 	AgentPublicKeyCertificate pulumi.StringOutput `pulumi:"agentPublicKeyCertificate"`
@@ -27,7 +28,7 @@ type ConnectedCluster struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment state of connectedClusters.
+	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -83,6 +84,7 @@ func GetConnectedCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectedCluster resources.
 type connectedClusterState struct {
+	// AAD profile of the connected cluster.
 	AadProfile *ConnectedClusterAADProfileResponse `pulumi:"aadProfile"`
 	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
 	AgentPublicKeyCertificate *string `pulumi:"agentPublicKeyCertificate"`
@@ -96,7 +98,7 @@ type connectedClusterState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The current deployment state of connectedClusters.
+	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -107,6 +109,7 @@ type connectedClusterState struct {
 }
 
 type ConnectedClusterState struct {
+	// AAD profile of the connected cluster.
 	AadProfile ConnectedClusterAADProfileResponsePtrInput
 	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
 	AgentPublicKeyCertificate pulumi.StringPtrInput
@@ -120,7 +123,7 @@ type ConnectedClusterState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The current deployment state of connectedClusters.
+	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
@@ -135,6 +138,7 @@ func (ConnectedClusterState) ElementType() reflect.Type {
 }
 
 type connectedClusterArgs struct {
+	// AAD profile of the connected cluster.
 	AadProfile ConnectedClusterAADProfile `pulumi:"aadProfile"`
 	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
 	AgentPublicKeyCertificate string `pulumi:"agentPublicKeyCertificate"`
@@ -144,7 +148,7 @@ type connectedClusterArgs struct {
 	Identity ConnectedClusterIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The current deployment state of connectedClusters.
+	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -154,6 +158,7 @@ type connectedClusterArgs struct {
 
 // The set of arguments for constructing a ConnectedCluster resource.
 type ConnectedClusterArgs struct {
+	// AAD profile of the connected cluster.
 	AadProfile ConnectedClusterAADProfileInput
 	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
 	AgentPublicKeyCertificate pulumi.StringInput
@@ -163,7 +168,7 @@ type ConnectedClusterArgs struct {
 	Identity ConnectedClusterIdentityInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The current deployment state of connectedClusters.
+	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

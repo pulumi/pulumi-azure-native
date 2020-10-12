@@ -36,6 +36,9 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Authentication token value.
+        /// </summary>
         [Input("value", required: true)]
         public Inputs.AuthenticationDetailsValueArgs Value { get; set; } = null!;
 

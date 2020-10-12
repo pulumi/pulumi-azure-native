@@ -12472,6 +12472,224 @@ func (o RollingUpgradePolicyResponsePtrOutput) PauseTimeBetweenBatches() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the properties of a run command parameter.
+type RunCommandInputParameter struct {
+	// The run command parameter name.
+	Name string `pulumi:"name"`
+	// The run command parameter value.
+	Value string `pulumi:"value"`
+}
+
+// RunCommandInputParameterInput is an input type that accepts RunCommandInputParameterArgs and RunCommandInputParameterOutput values.
+// You can construct a concrete instance of `RunCommandInputParameterInput` via:
+//
+//          RunCommandInputParameterArgs{...}
+type RunCommandInputParameterInput interface {
+	pulumi.Input
+
+	ToRunCommandInputParameterOutput() RunCommandInputParameterOutput
+	ToRunCommandInputParameterOutputWithContext(context.Context) RunCommandInputParameterOutput
+}
+
+// Describes the properties of a run command parameter.
+type RunCommandInputParameterArgs struct {
+	// The run command parameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The run command parameter value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RunCommandInputParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandInputParameter)(nil)).Elem()
+}
+
+func (i RunCommandInputParameterArgs) ToRunCommandInputParameterOutput() RunCommandInputParameterOutput {
+	return i.ToRunCommandInputParameterOutputWithContext(context.Background())
+}
+
+func (i RunCommandInputParameterArgs) ToRunCommandInputParameterOutputWithContext(ctx context.Context) RunCommandInputParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandInputParameterOutput)
+}
+
+// RunCommandInputParameterArrayInput is an input type that accepts RunCommandInputParameterArray and RunCommandInputParameterArrayOutput values.
+// You can construct a concrete instance of `RunCommandInputParameterArrayInput` via:
+//
+//          RunCommandInputParameterArray{ RunCommandInputParameterArgs{...} }
+type RunCommandInputParameterArrayInput interface {
+	pulumi.Input
+
+	ToRunCommandInputParameterArrayOutput() RunCommandInputParameterArrayOutput
+	ToRunCommandInputParameterArrayOutputWithContext(context.Context) RunCommandInputParameterArrayOutput
+}
+
+type RunCommandInputParameterArray []RunCommandInputParameterInput
+
+func (RunCommandInputParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunCommandInputParameter)(nil)).Elem()
+}
+
+func (i RunCommandInputParameterArray) ToRunCommandInputParameterArrayOutput() RunCommandInputParameterArrayOutput {
+	return i.ToRunCommandInputParameterArrayOutputWithContext(context.Background())
+}
+
+func (i RunCommandInputParameterArray) ToRunCommandInputParameterArrayOutputWithContext(ctx context.Context) RunCommandInputParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandInputParameterArrayOutput)
+}
+
+// Describes the properties of a run command parameter.
+type RunCommandInputParameterOutput struct{ *pulumi.OutputState }
+
+func (RunCommandInputParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandInputParameter)(nil)).Elem()
+}
+
+func (o RunCommandInputParameterOutput) ToRunCommandInputParameterOutput() RunCommandInputParameterOutput {
+	return o
+}
+
+func (o RunCommandInputParameterOutput) ToRunCommandInputParameterOutputWithContext(ctx context.Context) RunCommandInputParameterOutput {
+	return o
+}
+
+// The run command parameter name.
+func (o RunCommandInputParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RunCommandInputParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The run command parameter value.
+func (o RunCommandInputParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RunCommandInputParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RunCommandInputParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (RunCommandInputParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunCommandInputParameter)(nil)).Elem()
+}
+
+func (o RunCommandInputParameterArrayOutput) ToRunCommandInputParameterArrayOutput() RunCommandInputParameterArrayOutput {
+	return o
+}
+
+func (o RunCommandInputParameterArrayOutput) ToRunCommandInputParameterArrayOutputWithContext(ctx context.Context) RunCommandInputParameterArrayOutput {
+	return o
+}
+
+func (o RunCommandInputParameterArrayOutput) Index(i pulumi.IntInput) RunCommandInputParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RunCommandInputParameter {
+		return vs[0].([]RunCommandInputParameter)[vs[1].(int)]
+	}).(RunCommandInputParameterOutput)
+}
+
+// Describes the properties of a run command parameter.
+type RunCommandInputParameterResponse struct {
+	// The run command parameter name.
+	Name string `pulumi:"name"`
+	// The run command parameter value.
+	Value string `pulumi:"value"`
+}
+
+// RunCommandInputParameterResponseInput is an input type that accepts RunCommandInputParameterResponseArgs and RunCommandInputParameterResponseOutput values.
+// You can construct a concrete instance of `RunCommandInputParameterResponseInput` via:
+//
+//          RunCommandInputParameterResponseArgs{...}
+type RunCommandInputParameterResponseInput interface {
+	pulumi.Input
+
+	ToRunCommandInputParameterResponseOutput() RunCommandInputParameterResponseOutput
+	ToRunCommandInputParameterResponseOutputWithContext(context.Context) RunCommandInputParameterResponseOutput
+}
+
+// Describes the properties of a run command parameter.
+type RunCommandInputParameterResponseArgs struct {
+	// The run command parameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The run command parameter value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RunCommandInputParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandInputParameterResponse)(nil)).Elem()
+}
+
+func (i RunCommandInputParameterResponseArgs) ToRunCommandInputParameterResponseOutput() RunCommandInputParameterResponseOutput {
+	return i.ToRunCommandInputParameterResponseOutputWithContext(context.Background())
+}
+
+func (i RunCommandInputParameterResponseArgs) ToRunCommandInputParameterResponseOutputWithContext(ctx context.Context) RunCommandInputParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandInputParameterResponseOutput)
+}
+
+// RunCommandInputParameterResponseArrayInput is an input type that accepts RunCommandInputParameterResponseArray and RunCommandInputParameterResponseArrayOutput values.
+// You can construct a concrete instance of `RunCommandInputParameterResponseArrayInput` via:
+//
+//          RunCommandInputParameterResponseArray{ RunCommandInputParameterResponseArgs{...} }
+type RunCommandInputParameterResponseArrayInput interface {
+	pulumi.Input
+
+	ToRunCommandInputParameterResponseArrayOutput() RunCommandInputParameterResponseArrayOutput
+	ToRunCommandInputParameterResponseArrayOutputWithContext(context.Context) RunCommandInputParameterResponseArrayOutput
+}
+
+type RunCommandInputParameterResponseArray []RunCommandInputParameterResponseInput
+
+func (RunCommandInputParameterResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunCommandInputParameterResponse)(nil)).Elem()
+}
+
+func (i RunCommandInputParameterResponseArray) ToRunCommandInputParameterResponseArrayOutput() RunCommandInputParameterResponseArrayOutput {
+	return i.ToRunCommandInputParameterResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RunCommandInputParameterResponseArray) ToRunCommandInputParameterResponseArrayOutputWithContext(ctx context.Context) RunCommandInputParameterResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandInputParameterResponseArrayOutput)
+}
+
+// Describes the properties of a run command parameter.
+type RunCommandInputParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (RunCommandInputParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandInputParameterResponse)(nil)).Elem()
+}
+
+func (o RunCommandInputParameterResponseOutput) ToRunCommandInputParameterResponseOutput() RunCommandInputParameterResponseOutput {
+	return o
+}
+
+func (o RunCommandInputParameterResponseOutput) ToRunCommandInputParameterResponseOutputWithContext(ctx context.Context) RunCommandInputParameterResponseOutput {
+	return o
+}
+
+// The run command parameter name.
+func (o RunCommandInputParameterResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RunCommandInputParameterResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The run command parameter value.
+func (o RunCommandInputParameterResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RunCommandInputParameterResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RunCommandInputParameterResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RunCommandInputParameterResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunCommandInputParameterResponse)(nil)).Elem()
+}
+
+func (o RunCommandInputParameterResponseArrayOutput) ToRunCommandInputParameterResponseArrayOutput() RunCommandInputParameterResponseArrayOutput {
+	return o
+}
+
+func (o RunCommandInputParameterResponseArrayOutput) ToRunCommandInputParameterResponseArrayOutputWithContext(ctx context.Context) RunCommandInputParameterResponseArrayOutput {
+	return o
+}
+
+func (o RunCommandInputParameterResponseArrayOutput) Index(i pulumi.IntInput) RunCommandInputParameterResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RunCommandInputParameterResponse {
+		return vs[0].([]RunCommandInputParameterResponse)[vs[1].(int)]
+	}).(RunCommandInputParameterResponseOutput)
+}
+
 // Describes a scale-in policy for a virtual machine scale set.
 type ScaleInPolicy struct {
 	// The rules to be followed when scaling-in a virtual machine scale set. <br><br> Possible values are: <br><br> **Default** When a virtual machine scale set is scaled in, the scale set will first be balanced across zones if it is a zonal scale set. Then, it will be balanced across Fault Domains as far as possible. Within each Fault Domain, the virtual machines chosen for removal will be the newest ones that are not protected from scale-in. <br><br> **OldestVM** When a virtual machine scale set is being scaled-in, the oldest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the oldest virtual machines that are not protected will be chosen for removal. <br><br> **NewestVM** When a virtual machine scale set is being scaled-in, the newest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the newest virtual machines that are not protected will be chosen for removal. <br><br>
@@ -18476,6 +18694,621 @@ func (o VirtualMachinePatchStatusResponsePtrOutput) LastPatchInstallationSummary
 		}
 		return v.LastPatchInstallationSummary
 	}).(LastPatchInstallationSummaryResponsePtrOutput)
+}
+
+// The instance view of a virtual machine run command.
+type VirtualMachineRunCommandInstanceViewResponse struct {
+	// Script end time.
+	EndTime *string `pulumi:"endTime"`
+	// Script error stream.
+	Error *string `pulumi:"error"`
+	// Communicate script configuration errors or execution messages.
+	ExecutionMessage *string `pulumi:"executionMessage"`
+	// Script execution status.
+	ExecutionState *string `pulumi:"executionState"`
+	// Exit code returned from script execution.
+	ExitCode *int `pulumi:"exitCode"`
+	// Script output stream.
+	Output *string `pulumi:"output"`
+	// Script start time.
+	StartTime *string `pulumi:"startTime"`
+	// The resource status information.
+	Statuses []InstanceViewStatusResponse `pulumi:"statuses"`
+}
+
+// VirtualMachineRunCommandInstanceViewResponseInput is an input type that accepts VirtualMachineRunCommandInstanceViewResponseArgs and VirtualMachineRunCommandInstanceViewResponseOutput values.
+// You can construct a concrete instance of `VirtualMachineRunCommandInstanceViewResponseInput` via:
+//
+//          VirtualMachineRunCommandInstanceViewResponseArgs{...}
+type VirtualMachineRunCommandInstanceViewResponseInput interface {
+	pulumi.Input
+
+	ToVirtualMachineRunCommandInstanceViewResponseOutput() VirtualMachineRunCommandInstanceViewResponseOutput
+	ToVirtualMachineRunCommandInstanceViewResponseOutputWithContext(context.Context) VirtualMachineRunCommandInstanceViewResponseOutput
+}
+
+// The instance view of a virtual machine run command.
+type VirtualMachineRunCommandInstanceViewResponseArgs struct {
+	// Script end time.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Script error stream.
+	Error pulumi.StringPtrInput `pulumi:"error"`
+	// Communicate script configuration errors or execution messages.
+	ExecutionMessage pulumi.StringPtrInput `pulumi:"executionMessage"`
+	// Script execution status.
+	ExecutionState pulumi.StringPtrInput `pulumi:"executionState"`
+	// Exit code returned from script execution.
+	ExitCode pulumi.IntPtrInput `pulumi:"exitCode"`
+	// Script output stream.
+	Output pulumi.StringPtrInput `pulumi:"output"`
+	// Script start time.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The resource status information.
+	Statuses InstanceViewStatusResponseArrayInput `pulumi:"statuses"`
+}
+
+func (VirtualMachineRunCommandInstanceViewResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineRunCommandInstanceViewResponse)(nil)).Elem()
+}
+
+func (i VirtualMachineRunCommandInstanceViewResponseArgs) ToVirtualMachineRunCommandInstanceViewResponseOutput() VirtualMachineRunCommandInstanceViewResponseOutput {
+	return i.ToVirtualMachineRunCommandInstanceViewResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineRunCommandInstanceViewResponseArgs) ToVirtualMachineRunCommandInstanceViewResponseOutputWithContext(ctx context.Context) VirtualMachineRunCommandInstanceViewResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandInstanceViewResponseOutput)
+}
+
+func (i VirtualMachineRunCommandInstanceViewResponseArgs) ToVirtualMachineRunCommandInstanceViewResponsePtrOutput() VirtualMachineRunCommandInstanceViewResponsePtrOutput {
+	return i.ToVirtualMachineRunCommandInstanceViewResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineRunCommandInstanceViewResponseArgs) ToVirtualMachineRunCommandInstanceViewResponsePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandInstanceViewResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandInstanceViewResponseOutput).ToVirtualMachineRunCommandInstanceViewResponsePtrOutputWithContext(ctx)
+}
+
+// VirtualMachineRunCommandInstanceViewResponsePtrInput is an input type that accepts VirtualMachineRunCommandInstanceViewResponseArgs, VirtualMachineRunCommandInstanceViewResponsePtr and VirtualMachineRunCommandInstanceViewResponsePtrOutput values.
+// You can construct a concrete instance of `VirtualMachineRunCommandInstanceViewResponsePtrInput` via:
+//
+//          VirtualMachineRunCommandInstanceViewResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachineRunCommandInstanceViewResponsePtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineRunCommandInstanceViewResponsePtrOutput() VirtualMachineRunCommandInstanceViewResponsePtrOutput
+	ToVirtualMachineRunCommandInstanceViewResponsePtrOutputWithContext(context.Context) VirtualMachineRunCommandInstanceViewResponsePtrOutput
+}
+
+type virtualMachineRunCommandInstanceViewResponsePtrType VirtualMachineRunCommandInstanceViewResponseArgs
+
+func VirtualMachineRunCommandInstanceViewResponsePtr(v *VirtualMachineRunCommandInstanceViewResponseArgs) VirtualMachineRunCommandInstanceViewResponsePtrInput {
+	return (*virtualMachineRunCommandInstanceViewResponsePtrType)(v)
+}
+
+func (*virtualMachineRunCommandInstanceViewResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineRunCommandInstanceViewResponse)(nil)).Elem()
+}
+
+func (i *virtualMachineRunCommandInstanceViewResponsePtrType) ToVirtualMachineRunCommandInstanceViewResponsePtrOutput() VirtualMachineRunCommandInstanceViewResponsePtrOutput {
+	return i.ToVirtualMachineRunCommandInstanceViewResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineRunCommandInstanceViewResponsePtrType) ToVirtualMachineRunCommandInstanceViewResponsePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandInstanceViewResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandInstanceViewResponsePtrOutput)
+}
+
+// The instance view of a virtual machine run command.
+type VirtualMachineRunCommandInstanceViewResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineRunCommandInstanceViewResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineRunCommandInstanceViewResponse)(nil)).Elem()
+}
+
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) ToVirtualMachineRunCommandInstanceViewResponseOutput() VirtualMachineRunCommandInstanceViewResponseOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) ToVirtualMachineRunCommandInstanceViewResponseOutputWithContext(ctx context.Context) VirtualMachineRunCommandInstanceViewResponseOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) ToVirtualMachineRunCommandInstanceViewResponsePtrOutput() VirtualMachineRunCommandInstanceViewResponsePtrOutput {
+	return o.ToVirtualMachineRunCommandInstanceViewResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) ToVirtualMachineRunCommandInstanceViewResponsePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandInstanceViewResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandInstanceViewResponse) *VirtualMachineRunCommandInstanceViewResponse {
+		return &v
+	}).(VirtualMachineRunCommandInstanceViewResponsePtrOutput)
+}
+
+// Script end time.
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandInstanceViewResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Script error stream.
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) Error() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandInstanceViewResponse) *string { return v.Error }).(pulumi.StringPtrOutput)
+}
+
+// Communicate script configuration errors or execution messages.
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) ExecutionMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandInstanceViewResponse) *string { return v.ExecutionMessage }).(pulumi.StringPtrOutput)
+}
+
+// Script execution status.
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) ExecutionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandInstanceViewResponse) *string { return v.ExecutionState }).(pulumi.StringPtrOutput)
+}
+
+// Exit code returned from script execution.
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) ExitCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandInstanceViewResponse) *int { return v.ExitCode }).(pulumi.IntPtrOutput)
+}
+
+// Script output stream.
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) Output() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandInstanceViewResponse) *string { return v.Output }).(pulumi.StringPtrOutput)
+}
+
+// Script start time.
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandInstanceViewResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The resource status information.
+func (o VirtualMachineRunCommandInstanceViewResponseOutput) Statuses() InstanceViewStatusResponseArrayOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandInstanceViewResponse) []InstanceViewStatusResponse { return v.Statuses }).(InstanceViewStatusResponseArrayOutput)
+}
+
+type VirtualMachineRunCommandInstanceViewResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineRunCommandInstanceViewResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineRunCommandInstanceViewResponse)(nil)).Elem()
+}
+
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) ToVirtualMachineRunCommandInstanceViewResponsePtrOutput() VirtualMachineRunCommandInstanceViewResponsePtrOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) ToVirtualMachineRunCommandInstanceViewResponsePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandInstanceViewResponsePtrOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) Elem() VirtualMachineRunCommandInstanceViewResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandInstanceViewResponse) VirtualMachineRunCommandInstanceViewResponse {
+		return *v
+	}).(VirtualMachineRunCommandInstanceViewResponseOutput)
+}
+
+// Script end time.
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandInstanceViewResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Script error stream.
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) Error() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandInstanceViewResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Error
+	}).(pulumi.StringPtrOutput)
+}
+
+// Communicate script configuration errors or execution messages.
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) ExecutionMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandInstanceViewResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Script execution status.
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) ExecutionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandInstanceViewResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Exit code returned from script execution.
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) ExitCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandInstanceViewResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExitCode
+	}).(pulumi.IntPtrOutput)
+}
+
+// Script output stream.
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) Output() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandInstanceViewResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Output
+	}).(pulumi.StringPtrOutput)
+}
+
+// Script start time.
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandInstanceViewResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource status information.
+func (o VirtualMachineRunCommandInstanceViewResponsePtrOutput) Statuses() InstanceViewStatusResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandInstanceViewResponse) []InstanceViewStatusResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Statuses
+	}).(InstanceViewStatusResponseArrayOutput)
+}
+
+// Describes the script sources for run command.
+type VirtualMachineRunCommandScriptSource struct {
+	// Specifies a commandId of predefined built-in script.
+	CommandId *string `pulumi:"commandId"`
+	// Specifies the script content to be executed on the VM.
+	Script *string `pulumi:"script"`
+	// Specifies the script download location.
+	ScriptUri *string `pulumi:"scriptUri"`
+}
+
+// VirtualMachineRunCommandScriptSourceInput is an input type that accepts VirtualMachineRunCommandScriptSourceArgs and VirtualMachineRunCommandScriptSourceOutput values.
+// You can construct a concrete instance of `VirtualMachineRunCommandScriptSourceInput` via:
+//
+//          VirtualMachineRunCommandScriptSourceArgs{...}
+type VirtualMachineRunCommandScriptSourceInput interface {
+	pulumi.Input
+
+	ToVirtualMachineRunCommandScriptSourceOutput() VirtualMachineRunCommandScriptSourceOutput
+	ToVirtualMachineRunCommandScriptSourceOutputWithContext(context.Context) VirtualMachineRunCommandScriptSourceOutput
+}
+
+// Describes the script sources for run command.
+type VirtualMachineRunCommandScriptSourceArgs struct {
+	// Specifies a commandId of predefined built-in script.
+	CommandId pulumi.StringPtrInput `pulumi:"commandId"`
+	// Specifies the script content to be executed on the VM.
+	Script pulumi.StringPtrInput `pulumi:"script"`
+	// Specifies the script download location.
+	ScriptUri pulumi.StringPtrInput `pulumi:"scriptUri"`
+}
+
+func (VirtualMachineRunCommandScriptSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineRunCommandScriptSource)(nil)).Elem()
+}
+
+func (i VirtualMachineRunCommandScriptSourceArgs) ToVirtualMachineRunCommandScriptSourceOutput() VirtualMachineRunCommandScriptSourceOutput {
+	return i.ToVirtualMachineRunCommandScriptSourceOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineRunCommandScriptSourceArgs) ToVirtualMachineRunCommandScriptSourceOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandScriptSourceOutput)
+}
+
+func (i VirtualMachineRunCommandScriptSourceArgs) ToVirtualMachineRunCommandScriptSourcePtrOutput() VirtualMachineRunCommandScriptSourcePtrOutput {
+	return i.ToVirtualMachineRunCommandScriptSourcePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineRunCommandScriptSourceArgs) ToVirtualMachineRunCommandScriptSourcePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandScriptSourceOutput).ToVirtualMachineRunCommandScriptSourcePtrOutputWithContext(ctx)
+}
+
+// VirtualMachineRunCommandScriptSourcePtrInput is an input type that accepts VirtualMachineRunCommandScriptSourceArgs, VirtualMachineRunCommandScriptSourcePtr and VirtualMachineRunCommandScriptSourcePtrOutput values.
+// You can construct a concrete instance of `VirtualMachineRunCommandScriptSourcePtrInput` via:
+//
+//          VirtualMachineRunCommandScriptSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachineRunCommandScriptSourcePtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineRunCommandScriptSourcePtrOutput() VirtualMachineRunCommandScriptSourcePtrOutput
+	ToVirtualMachineRunCommandScriptSourcePtrOutputWithContext(context.Context) VirtualMachineRunCommandScriptSourcePtrOutput
+}
+
+type virtualMachineRunCommandScriptSourcePtrType VirtualMachineRunCommandScriptSourceArgs
+
+func VirtualMachineRunCommandScriptSourcePtr(v *VirtualMachineRunCommandScriptSourceArgs) VirtualMachineRunCommandScriptSourcePtrInput {
+	return (*virtualMachineRunCommandScriptSourcePtrType)(v)
+}
+
+func (*virtualMachineRunCommandScriptSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineRunCommandScriptSource)(nil)).Elem()
+}
+
+func (i *virtualMachineRunCommandScriptSourcePtrType) ToVirtualMachineRunCommandScriptSourcePtrOutput() VirtualMachineRunCommandScriptSourcePtrOutput {
+	return i.ToVirtualMachineRunCommandScriptSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineRunCommandScriptSourcePtrType) ToVirtualMachineRunCommandScriptSourcePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandScriptSourcePtrOutput)
+}
+
+// Describes the script sources for run command.
+type VirtualMachineRunCommandScriptSourceOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineRunCommandScriptSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineRunCommandScriptSource)(nil)).Elem()
+}
+
+func (o VirtualMachineRunCommandScriptSourceOutput) ToVirtualMachineRunCommandScriptSourceOutput() VirtualMachineRunCommandScriptSourceOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandScriptSourceOutput) ToVirtualMachineRunCommandScriptSourceOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourceOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandScriptSourceOutput) ToVirtualMachineRunCommandScriptSourcePtrOutput() VirtualMachineRunCommandScriptSourcePtrOutput {
+	return o.ToVirtualMachineRunCommandScriptSourcePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineRunCommandScriptSourceOutput) ToVirtualMachineRunCommandScriptSourcePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourcePtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandScriptSource) *VirtualMachineRunCommandScriptSource {
+		return &v
+	}).(VirtualMachineRunCommandScriptSourcePtrOutput)
+}
+
+// Specifies a commandId of predefined built-in script.
+func (o VirtualMachineRunCommandScriptSourceOutput) CommandId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandScriptSource) *string { return v.CommandId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the script content to be executed on the VM.
+func (o VirtualMachineRunCommandScriptSourceOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandScriptSource) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the script download location.
+func (o VirtualMachineRunCommandScriptSourceOutput) ScriptUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandScriptSource) *string { return v.ScriptUri }).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineRunCommandScriptSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineRunCommandScriptSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineRunCommandScriptSource)(nil)).Elem()
+}
+
+func (o VirtualMachineRunCommandScriptSourcePtrOutput) ToVirtualMachineRunCommandScriptSourcePtrOutput() VirtualMachineRunCommandScriptSourcePtrOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandScriptSourcePtrOutput) ToVirtualMachineRunCommandScriptSourcePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourcePtrOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandScriptSourcePtrOutput) Elem() VirtualMachineRunCommandScriptSourceOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandScriptSource) VirtualMachineRunCommandScriptSource { return *v }).(VirtualMachineRunCommandScriptSourceOutput)
+}
+
+// Specifies a commandId of predefined built-in script.
+func (o VirtualMachineRunCommandScriptSourcePtrOutput) CommandId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandScriptSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommandId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the script content to be executed on the VM.
+func (o VirtualMachineRunCommandScriptSourcePtrOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandScriptSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Script
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the script download location.
+func (o VirtualMachineRunCommandScriptSourcePtrOutput) ScriptUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandScriptSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the script sources for run command.
+type VirtualMachineRunCommandScriptSourceResponse struct {
+	// Specifies a commandId of predefined built-in script.
+	CommandId *string `pulumi:"commandId"`
+	// Specifies the script content to be executed on the VM.
+	Script *string `pulumi:"script"`
+	// Specifies the script download location.
+	ScriptUri *string `pulumi:"scriptUri"`
+}
+
+// VirtualMachineRunCommandScriptSourceResponseInput is an input type that accepts VirtualMachineRunCommandScriptSourceResponseArgs and VirtualMachineRunCommandScriptSourceResponseOutput values.
+// You can construct a concrete instance of `VirtualMachineRunCommandScriptSourceResponseInput` via:
+//
+//          VirtualMachineRunCommandScriptSourceResponseArgs{...}
+type VirtualMachineRunCommandScriptSourceResponseInput interface {
+	pulumi.Input
+
+	ToVirtualMachineRunCommandScriptSourceResponseOutput() VirtualMachineRunCommandScriptSourceResponseOutput
+	ToVirtualMachineRunCommandScriptSourceResponseOutputWithContext(context.Context) VirtualMachineRunCommandScriptSourceResponseOutput
+}
+
+// Describes the script sources for run command.
+type VirtualMachineRunCommandScriptSourceResponseArgs struct {
+	// Specifies a commandId of predefined built-in script.
+	CommandId pulumi.StringPtrInput `pulumi:"commandId"`
+	// Specifies the script content to be executed on the VM.
+	Script pulumi.StringPtrInput `pulumi:"script"`
+	// Specifies the script download location.
+	ScriptUri pulumi.StringPtrInput `pulumi:"scriptUri"`
+}
+
+func (VirtualMachineRunCommandScriptSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineRunCommandScriptSourceResponse)(nil)).Elem()
+}
+
+func (i VirtualMachineRunCommandScriptSourceResponseArgs) ToVirtualMachineRunCommandScriptSourceResponseOutput() VirtualMachineRunCommandScriptSourceResponseOutput {
+	return i.ToVirtualMachineRunCommandScriptSourceResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineRunCommandScriptSourceResponseArgs) ToVirtualMachineRunCommandScriptSourceResponseOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandScriptSourceResponseOutput)
+}
+
+func (i VirtualMachineRunCommandScriptSourceResponseArgs) ToVirtualMachineRunCommandScriptSourceResponsePtrOutput() VirtualMachineRunCommandScriptSourceResponsePtrOutput {
+	return i.ToVirtualMachineRunCommandScriptSourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineRunCommandScriptSourceResponseArgs) ToVirtualMachineRunCommandScriptSourceResponsePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandScriptSourceResponseOutput).ToVirtualMachineRunCommandScriptSourceResponsePtrOutputWithContext(ctx)
+}
+
+// VirtualMachineRunCommandScriptSourceResponsePtrInput is an input type that accepts VirtualMachineRunCommandScriptSourceResponseArgs, VirtualMachineRunCommandScriptSourceResponsePtr and VirtualMachineRunCommandScriptSourceResponsePtrOutput values.
+// You can construct a concrete instance of `VirtualMachineRunCommandScriptSourceResponsePtrInput` via:
+//
+//          VirtualMachineRunCommandScriptSourceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachineRunCommandScriptSourceResponsePtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineRunCommandScriptSourceResponsePtrOutput() VirtualMachineRunCommandScriptSourceResponsePtrOutput
+	ToVirtualMachineRunCommandScriptSourceResponsePtrOutputWithContext(context.Context) VirtualMachineRunCommandScriptSourceResponsePtrOutput
+}
+
+type virtualMachineRunCommandScriptSourceResponsePtrType VirtualMachineRunCommandScriptSourceResponseArgs
+
+func VirtualMachineRunCommandScriptSourceResponsePtr(v *VirtualMachineRunCommandScriptSourceResponseArgs) VirtualMachineRunCommandScriptSourceResponsePtrInput {
+	return (*virtualMachineRunCommandScriptSourceResponsePtrType)(v)
+}
+
+func (*virtualMachineRunCommandScriptSourceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineRunCommandScriptSourceResponse)(nil)).Elem()
+}
+
+func (i *virtualMachineRunCommandScriptSourceResponsePtrType) ToVirtualMachineRunCommandScriptSourceResponsePtrOutput() VirtualMachineRunCommandScriptSourceResponsePtrOutput {
+	return i.ToVirtualMachineRunCommandScriptSourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineRunCommandScriptSourceResponsePtrType) ToVirtualMachineRunCommandScriptSourceResponsePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandScriptSourceResponsePtrOutput)
+}
+
+// Describes the script sources for run command.
+type VirtualMachineRunCommandScriptSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineRunCommandScriptSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineRunCommandScriptSourceResponse)(nil)).Elem()
+}
+
+func (o VirtualMachineRunCommandScriptSourceResponseOutput) ToVirtualMachineRunCommandScriptSourceResponseOutput() VirtualMachineRunCommandScriptSourceResponseOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandScriptSourceResponseOutput) ToVirtualMachineRunCommandScriptSourceResponseOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourceResponseOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandScriptSourceResponseOutput) ToVirtualMachineRunCommandScriptSourceResponsePtrOutput() VirtualMachineRunCommandScriptSourceResponsePtrOutput {
+	return o.ToVirtualMachineRunCommandScriptSourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineRunCommandScriptSourceResponseOutput) ToVirtualMachineRunCommandScriptSourceResponsePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourceResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandScriptSourceResponse) *VirtualMachineRunCommandScriptSourceResponse {
+		return &v
+	}).(VirtualMachineRunCommandScriptSourceResponsePtrOutput)
+}
+
+// Specifies a commandId of predefined built-in script.
+func (o VirtualMachineRunCommandScriptSourceResponseOutput) CommandId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandScriptSourceResponse) *string { return v.CommandId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the script content to be executed on the VM.
+func (o VirtualMachineRunCommandScriptSourceResponseOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandScriptSourceResponse) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the script download location.
+func (o VirtualMachineRunCommandScriptSourceResponseOutput) ScriptUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineRunCommandScriptSourceResponse) *string { return v.ScriptUri }).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineRunCommandScriptSourceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineRunCommandScriptSourceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineRunCommandScriptSourceResponse)(nil)).Elem()
+}
+
+func (o VirtualMachineRunCommandScriptSourceResponsePtrOutput) ToVirtualMachineRunCommandScriptSourceResponsePtrOutput() VirtualMachineRunCommandScriptSourceResponsePtrOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandScriptSourceResponsePtrOutput) ToVirtualMachineRunCommandScriptSourceResponsePtrOutputWithContext(ctx context.Context) VirtualMachineRunCommandScriptSourceResponsePtrOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandScriptSourceResponsePtrOutput) Elem() VirtualMachineRunCommandScriptSourceResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandScriptSourceResponse) VirtualMachineRunCommandScriptSourceResponse {
+		return *v
+	}).(VirtualMachineRunCommandScriptSourceResponseOutput)
+}
+
+// Specifies a commandId of predefined built-in script.
+func (o VirtualMachineRunCommandScriptSourceResponsePtrOutput) CommandId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandScriptSourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommandId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the script content to be executed on the VM.
+func (o VirtualMachineRunCommandScriptSourceResponsePtrOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandScriptSourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Script
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the script download location.
+func (o VirtualMachineRunCommandScriptSourceResponsePtrOutput) ScriptUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandScriptSourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptUri
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes a virtual machine scale set data disk.
@@ -26685,6 +27518,10 @@ func init() {
 	pulumi.RegisterOutputType(RollingUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(RollingUpgradePolicyResponseOutput{})
 	pulumi.RegisterOutputType(RollingUpgradePolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(RunCommandInputParameterOutput{})
+	pulumi.RegisterOutputType(RunCommandInputParameterArrayOutput{})
+	pulumi.RegisterOutputType(RunCommandInputParameterResponseOutput{})
+	pulumi.RegisterOutputType(RunCommandInputParameterResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScaleInPolicyOutput{})
 	pulumi.RegisterOutputType(ScaleInPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ScaleInPolicyResponseOutput{})
@@ -26766,6 +27603,12 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineInstanceViewResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachinePatchStatusResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachinePatchStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineRunCommandInstanceViewResponseOutput{})
+	pulumi.RegisterOutputType(VirtualMachineRunCommandInstanceViewResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineRunCommandScriptSourceOutput{})
+	pulumi.RegisterOutputType(VirtualMachineRunCommandScriptSourcePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineRunCommandScriptSourceResponseOutput{})
+	pulumi.RegisterOutputType(VirtualMachineRunCommandScriptSourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskResponseOutput{})

@@ -38,6 +38,7 @@ __all__ = [
     'PatchSettingsArgs',
     'PlanArgs',
     'RollingUpgradePolicyArgs',
+    'RunCommandInputParameterArgs',
     'ScaleInPolicyArgs',
     'ScheduledEventsProfileArgs',
     'SecurityProfileArgs',
@@ -53,6 +54,7 @@ __all__ = [
     'VirtualHardDiskArgs',
     'VirtualMachineExtensionInstanceViewArgs',
     'VirtualMachineIdentityArgs',
+    'VirtualMachineRunCommandScriptSourceArgs',
     'VirtualMachineScaleSetDataDiskArgs',
     'VirtualMachineScaleSetExtensionArgs',
     'VirtualMachineScaleSetExtensionProfileArgs',
@@ -1946,6 +1948,44 @@ class RollingUpgradePolicyArgs:
 
 
 @pulumi.input_type
+class RunCommandInputParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Describes the properties of a run command parameter.
+        :param pulumi.Input[str] name: The run command parameter name.
+        :param pulumi.Input[str] value: The run command parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The run command parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The run command parameter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class ScaleInPolicyArgs:
     def __init__(__self__, *,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -2524,6 +2564,62 @@ class VirtualMachineIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class VirtualMachineRunCommandScriptSourceArgs:
+    def __init__(__self__, *,
+                 command_id: Optional[pulumi.Input[str]] = None,
+                 script: Optional[pulumi.Input[str]] = None,
+                 script_uri: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the script sources for run command.
+        :param pulumi.Input[str] command_id: Specifies a commandId of predefined built-in script.
+        :param pulumi.Input[str] script: Specifies the script content to be executed on the VM.
+        :param pulumi.Input[str] script_uri: Specifies the script download location.
+        """
+        if command_id is not None:
+            pulumi.set(__self__, "command_id", command_id)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+
+    @property
+    @pulumi.getter(name="commandId")
+    def command_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a commandId of predefined built-in script.
+        """
+        return pulumi.get(self, "command_id")
+
+    @command_id.setter
+    def command_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "command_id", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the script content to be executed on the VM.
+        """
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the script download location.
+        """
+        return pulumi.get(self, "script_uri")
+
+    @script_uri.setter
+    def script_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_uri", value)
 
 
 @pulumi.input_type

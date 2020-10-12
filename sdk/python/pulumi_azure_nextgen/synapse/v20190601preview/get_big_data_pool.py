@@ -20,7 +20,7 @@ class GetBigDataPoolResult:
     """
     A Big Data pool
     """
-    def __init__(__self__, auto_pause=None, auto_scale=None, creation_date=None, default_spark_log_folder=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
+    def __init__(__self__, auto_pause=None, auto_scale=None, creation_date=None, default_spark_log_folder=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
         if auto_pause and not isinstance(auto_pause, dict):
             raise TypeError("Expected argument 'auto_pause' to be a dict")
         pulumi.set(__self__, "auto_pause", auto_pause)
@@ -57,6 +57,9 @@ class GetBigDataPoolResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if spark_config_properties and not isinstance(spark_config_properties, dict):
+            raise TypeError("Expected argument 'spark_config_properties' to be a dict")
+        pulumi.set(__self__, "spark_config_properties", spark_config_properties)
         if spark_events_folder and not isinstance(spark_events_folder, str):
             raise TypeError("Expected argument 'spark_events_folder' to be a str")
         pulumi.set(__self__, "spark_events_folder", spark_events_folder)
@@ -167,6 +170,14 @@ class GetBigDataPoolResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="sparkConfigProperties")
+    def spark_config_properties(self) -> Optional['outputs.LibraryRequirementsResponse']:
+        """
+        Spark configuration file to specify additional properties
+        """
+        return pulumi.get(self, "spark_config_properties")
+
+    @property
     @pulumi.getter(name="sparkEventsFolder")
     def spark_events_folder(self) -> Optional[str]:
         """
@@ -217,6 +228,7 @@ class AwaitableGetBigDataPoolResult(GetBigDataPoolResult):
             node_size=self.node_size,
             node_size_family=self.node_size_family,
             provisioning_state=self.provisioning_state,
+            spark_config_properties=self.spark_config_properties,
             spark_events_folder=self.spark_events_folder,
             spark_version=self.spark_version,
             tags=self.tags,
@@ -257,6 +269,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
         node_size=__ret__.node_size,
         node_size_family=__ret__.node_size_family,
         provisioning_state=__ret__.provisioning_state,
+        spark_config_properties=__ret__.spark_config_properties,
         spark_events_folder=__ret__.spark_events_folder,
         spark_version=__ret__.spark_version,
         tags=__ret__.tags,

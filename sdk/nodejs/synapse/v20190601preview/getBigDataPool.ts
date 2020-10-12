@@ -89,6 +89,10 @@ export interface GetBigDataPoolResult {
      */
     readonly provisioningState?: string;
     /**
+     * Spark configuration file to specify additional properties
+     */
+    readonly sparkConfigProperties?: outputs.synapse.v20190601preview.LibraryRequirementsResponse;
+    /**
      * The Spark events folder
      */
     readonly sparkEventsFolder?: string;

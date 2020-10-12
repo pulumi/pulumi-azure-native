@@ -22,8 +22,9 @@ type ListConnectedClusterUserCredentialsArgs struct {
 	// The name of the Kubernetes cluster on which get is called.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string                     `pulumi:"resourceGroupName"`
-	Value             AuthenticationDetailsValue `pulumi:"value"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Authentication token value.
+	Value AuthenticationDetailsValue `pulumi:"value"`
 }
 
 // The list of credential result response.

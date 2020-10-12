@@ -33,11 +33,12 @@ class ConnectedCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ConnectedClusterAADProfileArgs']] aad_profile: AAD profile of the connected cluster.
         :param pulumi.Input[str] agent_public_key_certificate: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
         :param pulumi.Input[str] cluster_name: The name of the Kubernetes cluster on which get is called.
         :param pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']] identity: The identity of the connected cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] provisioning_state: The current deployment state of connectedClusters.
+        :param pulumi.Input[str] provisioning_state: Provisioning state of the connected cluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -110,6 +111,9 @@ class ConnectedCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aadProfile")
     def aad_profile(self) -> pulumi.Output['outputs.ConnectedClusterAADProfileResponse']:
+        """
+        AAD profile of the connected cluster.
+        """
         return pulumi.get(self, "aad_profile")
 
     @property
@@ -164,7 +168,7 @@ class ConnectedCluster(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
-        The current deployment state of connectedClusters.
+        Provisioning state of the connected cluster resource.
         """
         return pulumi.get(self, "provisioning_state")
 

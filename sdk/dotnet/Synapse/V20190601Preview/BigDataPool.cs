@@ -87,6 +87,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Spark configuration file to specify additional properties
+        /// </summary>
+        [Output("sparkConfigProperties")]
+        public Output<Outputs.LibraryRequirementsResponse?> SparkConfigProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The Spark events folder
         /// </summary>
         [Output("sparkEventsFolder")]
@@ -238,6 +244,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Spark configuration file to specify additional properties
+        /// </summary>
+        [Input("sparkConfigProperties")]
+        public Input<Inputs.LibraryRequirementsArgs>? SparkConfigProperties { get; set; }
 
         /// <summary>
         /// The Spark events folder

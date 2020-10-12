@@ -31,6 +31,7 @@ class BigDataPool(pulumi.CustomResource):
                  node_size_family: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 spark_config_properties: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -57,6 +58,7 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Big Data pool provides.
         :param pulumi.Input[str] provisioning_state: The state of the Big Data pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']] spark_config_properties: Spark configuration file to specify additional properties
         :param pulumi.Input[str] spark_events_folder: The Spark events folder
         :param pulumi.Input[str] spark_version: The Apache Spark version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -99,6 +101,7 @@ class BigDataPool(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['spark_config_properties'] = spark_config_properties
             __props__['spark_events_folder'] = spark_events_folder
             __props__['spark_version'] = spark_version
             __props__['tags'] = tags
@@ -226,6 +229,14 @@ class BigDataPool(pulumi.CustomResource):
         The state of the Big Data pool.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sparkConfigProperties")
+    def spark_config_properties(self) -> pulumi.Output[Optional['outputs.LibraryRequirementsResponse']]:
+        """
+        Spark configuration file to specify additional properties
+        """
+        return pulumi.get(self, "spark_config_properties")
 
     @property
     @pulumi.getter(name="sparkEventsFolder")

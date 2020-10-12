@@ -19,6 +19,7 @@ class AuthenticationDetailsValueArgs:
     def __init__(__self__, *,
                  token: Optional[str] = None):
         """
+        Authentication token value.
         :param str token: Authentication token.
         """
         if token is not None:
@@ -44,6 +45,7 @@ class ConnectedClusterAADProfileArgs:
                  server_app_id: pulumi.Input[str],
                  tenant_id: pulumi.Input[str]):
         """
+        AAD profile of the connected cluster
         :param pulumi.Input[str] client_app_id: The client app id configured on target K8 cluster 
         :param pulumi.Input[str] server_app_id: The server app id to access AD server
         :param pulumi.Input[str] tenant_id: The aad tenant id which is configured on target K8s cluster

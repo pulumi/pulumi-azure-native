@@ -58,6 +58,9 @@ class GetConnectedClusterResult:
     @property
     @pulumi.getter(name="aadProfile")
     def aad_profile(self) -> 'outputs.ConnectedClusterAADProfileResponse':
+        """
+        AAD profile of the connected cluster.
+        """
         return pulumi.get(self, "aad_profile")
 
     @property
@@ -112,7 +115,7 @@ class GetConnectedClusterResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
         """
-        The current deployment state of connectedClusters.
+        Provisioning state of the connected cluster resource.
         """
         return pulumi.get(self, "provisioning_state")
 

@@ -35,6 +35,9 @@ export interface GetConnectedClusterArgs {
  * Represents a connected cluster.
  */
 export interface GetConnectedClusterResult {
+    /**
+     * AAD profile of the connected cluster.
+     */
     readonly aadProfile: outputs.kubernetes.v20200101preview.ConnectedClusterAADProfileResponse;
     /**
      * Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
@@ -61,7 +64,7 @@ export interface GetConnectedClusterResult {
      */
     readonly name: string;
     /**
-     * The current deployment state of connectedClusters.
+     * Provisioning state of the connected cluster resource.
      */
     readonly provisioningState?: string;
     /**

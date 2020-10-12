@@ -35,6 +35,9 @@ export interface ListConnectedClusterUserCredentialsArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Authentication token value.
+     */
     readonly value: inputs.kubernetes.v20200101preview.AuthenticationDetailsValue;
 }
 

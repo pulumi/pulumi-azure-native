@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Authentication token value.
 type AuthenticationDetailsValue struct {
 	// Authentication token.
 	Token *string `pulumi:"token"`
@@ -26,6 +27,7 @@ type AuthenticationDetailsValueInput interface {
 	ToAuthenticationDetailsValueOutputWithContext(context.Context) AuthenticationDetailsValueOutput
 }
 
+// Authentication token value.
 type AuthenticationDetailsValueArgs struct {
 	// Authentication token.
 	Token pulumi.StringPtrInput `pulumi:"token"`
@@ -43,6 +45,7 @@ func (i AuthenticationDetailsValueArgs) ToAuthenticationDetailsValueOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationDetailsValueOutput)
 }
 
+// Authentication token value.
 type AuthenticationDetailsValueOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationDetailsValueOutput) ElementType() reflect.Type {
@@ -62,6 +65,7 @@ func (o AuthenticationDetailsValueOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthenticationDetailsValue) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
 
+// AAD profile of the connected cluster
 type ConnectedClusterAADProfile struct {
 	// The client app id configured on target K8 cluster
 	ClientAppId string `pulumi:"clientAppId"`
@@ -82,6 +86,7 @@ type ConnectedClusterAADProfileInput interface {
 	ToConnectedClusterAADProfileOutputWithContext(context.Context) ConnectedClusterAADProfileOutput
 }
 
+// AAD profile of the connected cluster
 type ConnectedClusterAADProfileArgs struct {
 	// The client app id configured on target K8 cluster
 	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
@@ -144,6 +149,7 @@ func (i *connectedClusterAADProfilePtrType) ToConnectedClusterAADProfilePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterAADProfilePtrOutput)
 }
 
+// AAD profile of the connected cluster
 type ConnectedClusterAADProfileOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterAADProfileOutput) ElementType() reflect.Type {
@@ -231,6 +237,7 @@ func (o ConnectedClusterAADProfilePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// AAD profile of the connected cluster
 type ConnectedClusterAADProfileResponse struct {
 	// The client app id configured on target K8 cluster
 	ClientAppId string `pulumi:"clientAppId"`
@@ -251,6 +258,7 @@ type ConnectedClusterAADProfileResponseInput interface {
 	ToConnectedClusterAADProfileResponseOutputWithContext(context.Context) ConnectedClusterAADProfileResponseOutput
 }
 
+// AAD profile of the connected cluster
 type ConnectedClusterAADProfileResponseArgs struct {
 	// The client app id configured on target K8 cluster
 	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
@@ -313,6 +321,7 @@ func (i *connectedClusterAADProfileResponsePtrType) ToConnectedClusterAADProfile
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterAADProfileResponsePtrOutput)
 }
 
+// AAD profile of the connected cluster
 type ConnectedClusterAADProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterAADProfileResponseOutput) ElementType() reflect.Type {
