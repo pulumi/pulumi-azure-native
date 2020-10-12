@@ -30,8 +30,14 @@ namespace Pulumi.AzureNextGen.Kusto.Latest.Inputs
         /// <summary>
         /// The version of the key vault key.
         /// </summary>
-        [Input("keyVersion", required: true)]
-        public Input<string> KeyVersion { get; set; } = null!;
+        [Input("keyVersion")]
+        public Input<string>? KeyVersion { get; set; }
+
+        /// <summary>
+        /// The user assigned identity (ARM resource id) that has access to the key.
+        /// </summary>
+        [Input("userIdentity")]
+        public Input<string>? UserIdentity { get; set; }
 
         public KeyVaultPropertiesArgs()
         {

@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:RegisteredAsn"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:RegisteredAsn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

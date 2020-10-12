@@ -60,6 +60,9 @@ func NewPeeringService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200401:PeeringService"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:peering/v20201001:PeeringService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PeeringService

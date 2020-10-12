@@ -96,6 +96,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

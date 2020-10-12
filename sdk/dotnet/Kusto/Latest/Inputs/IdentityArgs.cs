@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest.Inputs
     public sealed class IdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity type.
+        /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

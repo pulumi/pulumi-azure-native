@@ -63,7 +63,7 @@ class RegisteredAsn(pulumi.CustomResource):
             __props__['peering_service_prefix_key'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering/latest:RegisteredAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:RegisteredAsn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering/latest:RegisteredAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:RegisteredAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20201001:RegisteredAsn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegisteredAsn, __self__).__init__(
             'azure-nextgen:peering/v20200401:RegisteredAsn',

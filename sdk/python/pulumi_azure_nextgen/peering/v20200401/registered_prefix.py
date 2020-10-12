@@ -65,7 +65,7 @@ class RegisteredPrefix(pulumi.CustomResource):
             __props__['prefix_validation_state'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering/latest:RegisteredPrefix"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:RegisteredPrefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering/latest:RegisteredPrefix"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:RegisteredPrefix"), pulumi.Alias(type_="azure-nextgen:peering/v20201001:RegisteredPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegisteredPrefix, __self__).__init__(
             'azure-nextgen:peering/v20200401:RegisteredPrefix',

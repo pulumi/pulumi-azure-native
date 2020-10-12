@@ -167,6 +167,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200215
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

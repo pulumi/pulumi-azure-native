@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190901preview:PeeringServicePrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:PeeringServicePrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:PeeringServicePrefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:PeeringServicePrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
