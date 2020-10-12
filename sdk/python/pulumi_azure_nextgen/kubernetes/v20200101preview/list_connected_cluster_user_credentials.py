@@ -55,6 +55,7 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[str]
     :param str authentication_method: The mode of client authentication.
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param pulumi.InputType['AuthenticationDetailsValueArgs'] value: Authentication token value.
     """
     __args__ = dict()
     __args__['authenticationMethod'] = authentication_method

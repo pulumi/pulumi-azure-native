@@ -36,6 +36,9 @@ export class ConnectedCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectedCluster.__pulumiType;
     }
 
+    /**
+     * AAD profile of the connected cluster.
+     */
     public readonly aadProfile!: pulumi.Output<outputs.kubernetes.v20200101preview.ConnectedClusterAADProfileResponse>;
     /**
      * Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
@@ -62,7 +65,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The current deployment state of connectedClusters.
+     * Provisioning state of the connected cluster resource.
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
@@ -147,6 +150,9 @@ export class ConnectedCluster extends pulumi.CustomResource {
  * The set of arguments for constructing a ConnectedCluster resource.
  */
 export interface ConnectedClusterArgs {
+    /**
+     * AAD profile of the connected cluster.
+     */
     readonly aadProfile: pulumi.Input<inputs.kubernetes.v20200101preview.ConnectedClusterAADProfile>;
     /**
      * Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
@@ -165,7 +171,7 @@ export interface ConnectedClusterArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The current deployment state of connectedClusters.
+     * Provisioning state of the connected cluster resource.
      */
     readonly provisioningState?: pulumi.Input<string>;
     /**

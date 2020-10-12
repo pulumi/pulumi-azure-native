@@ -16,11 +16,15 @@ __all__ = [
 
 @pulumi.output_type
 class ConnectedClusterAADProfileResponse(dict):
+    """
+    AAD profile of the connected cluster
+    """
     def __init__(__self__, *,
                  client_app_id: str,
                  server_app_id: str,
                  tenant_id: str):
         """
+        AAD profile of the connected cluster
         :param str client_app_id: The client app id configured on target K8 cluster 
         :param str server_app_id: The server app id to access AD server
         :param str tenant_id: The aad tenant id which is configured on target K8s cluster

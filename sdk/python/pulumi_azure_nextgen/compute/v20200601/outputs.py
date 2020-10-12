@@ -53,6 +53,7 @@ __all__ = [
     'PatchSettingsResponse',
     'PlanResponse',
     'RollingUpgradePolicyResponse',
+    'RunCommandInputParameterResponse',
     'ScaleInPolicyResponse',
     'ScheduledEventsProfileResponse',
     'SecurityProfileResponse',
@@ -77,6 +78,8 @@ __all__ = [
     'VirtualMachineIdentityResponseUserAssignedIdentities',
     'VirtualMachineInstanceViewResponse',
     'VirtualMachinePatchStatusResponse',
+    'VirtualMachineRunCommandInstanceViewResponse',
+    'VirtualMachineRunCommandScriptSourceResponse',
     'VirtualMachineScaleSetDataDiskResponse',
     'VirtualMachineScaleSetExtensionProfileResponse',
     'VirtualMachineScaleSetExtensionResponse',
@@ -2597,6 +2600,42 @@ class RollingUpgradePolicyResponse(dict):
 
 
 @pulumi.output_type
+class RunCommandInputParameterResponse(dict):
+    """
+    Describes the properties of a run command parameter.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        Describes the properties of a run command parameter.
+        :param str name: The run command parameter name.
+        :param str value: The run command parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The run command parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The run command parameter value.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ScaleInPolicyResponse(dict):
     """
     Describes a scale-in policy for a virtual machine scale set.
@@ -3802,6 +3841,166 @@ class VirtualMachinePatchStatusResponse(dict):
         The installation summary of the latest installation operation for the virtual machine.
         """
         return pulumi.get(self, "last_patch_installation_summary")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineRunCommandInstanceViewResponse(dict):
+    """
+    The instance view of a virtual machine run command.
+    """
+    def __init__(__self__, *,
+                 end_time: Optional[str] = None,
+                 error: Optional[str] = None,
+                 execution_message: Optional[str] = None,
+                 execution_state: Optional[str] = None,
+                 exit_code: Optional[int] = None,
+                 output: Optional[str] = None,
+                 start_time: Optional[str] = None,
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None):
+        """
+        The instance view of a virtual machine run command.
+        :param str end_time: Script end time.
+        :param str error: Script error stream.
+        :param str execution_message: Communicate script configuration errors or execution messages.
+        :param str execution_state: Script execution status.
+        :param int exit_code: Exit code returned from script execution.
+        :param str output: Script output stream.
+        :param str start_time: Script start time.
+        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if execution_message is not None:
+            pulumi.set(__self__, "execution_message", execution_message)
+        if execution_state is not None:
+            pulumi.set(__self__, "execution_state", execution_state)
+        if exit_code is not None:
+            pulumi.set(__self__, "exit_code", exit_code)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        Script end time.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[str]:
+        """
+        Script error stream.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="executionMessage")
+    def execution_message(self) -> Optional[str]:
+        """
+        Communicate script configuration errors or execution messages.
+        """
+        return pulumi.get(self, "execution_message")
+
+    @property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> Optional[str]:
+        """
+        Script execution status.
+        """
+        return pulumi.get(self, "execution_state")
+
+    @property
+    @pulumi.getter(name="exitCode")
+    def exit_code(self) -> Optional[int]:
+        """
+        Exit code returned from script execution.
+        """
+        return pulumi.get(self, "exit_code")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Optional[str]:
+        """
+        Script output stream.
+        """
+        return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Script start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineRunCommandScriptSourceResponse(dict):
+    """
+    Describes the script sources for run command.
+    """
+    def __init__(__self__, *,
+                 command_id: Optional[str] = None,
+                 script: Optional[str] = None,
+                 script_uri: Optional[str] = None):
+        """
+        Describes the script sources for run command.
+        :param str command_id: Specifies a commandId of predefined built-in script.
+        :param str script: Specifies the script content to be executed on the VM.
+        :param str script_uri: Specifies the script download location.
+        """
+        if command_id is not None:
+            pulumi.set(__self__, "command_id", command_id)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+
+    @property
+    @pulumi.getter(name="commandId")
+    def command_id(self) -> Optional[str]:
+        """
+        Specifies a commandId of predefined built-in script.
+        """
+        return pulumi.get(self, "command_id")
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[str]:
+        """
+        Specifies the script content to be executed on the VM.
+        """
+        return pulumi.get(self, "script")
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[str]:
+        """
+        Specifies the script download location.
+        """
+        return pulumi.get(self, "script_uri")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

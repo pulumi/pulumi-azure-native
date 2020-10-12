@@ -38,6 +38,8 @@ type BigDataPool struct {
 	NodeSizeFamily pulumi.StringPtrOutput `pulumi:"nodeSizeFamily"`
 	// The state of the Big Data pool.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Spark configuration file to specify additional properties
+	SparkConfigProperties LibraryRequirementsResponsePtrOutput `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder pulumi.StringPtrOutput `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.
@@ -112,6 +114,8 @@ type bigDataPoolState struct {
 	NodeSizeFamily *string `pulumi:"nodeSizeFamily"`
 	// The state of the Big Data pool.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Spark configuration file to specify additional properties
+	SparkConfigProperties *LibraryRequirementsResponse `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.
@@ -147,6 +151,8 @@ type BigDataPoolState struct {
 	NodeSizeFamily pulumi.StringPtrInput
 	// The state of the Big Data pool.
 	ProvisioningState pulumi.StringPtrInput
+	// Spark configuration file to specify additional properties
+	SparkConfigProperties LibraryRequirementsResponsePtrInput
 	// The Spark events folder
 	SparkEventsFolder pulumi.StringPtrInput
 	// The Apache Spark version.
@@ -190,6 +196,8 @@ type bigDataPoolArgs struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Spark configuration file to specify additional properties
+	SparkConfigProperties *LibraryRequirements `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.
@@ -230,6 +238,8 @@ type BigDataPoolArgs struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Spark configuration file to specify additional properties
+	SparkConfigProperties LibraryRequirementsPtrInput
 	// The Spark events folder
 	SparkEventsFolder pulumi.StringPtrInput
 	// The Apache Spark version.
