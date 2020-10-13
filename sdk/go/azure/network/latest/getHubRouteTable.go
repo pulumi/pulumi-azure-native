@@ -28,7 +28,7 @@ type LookupHubRouteTableArgs struct {
 // RouteTable resource in a virtual hub.
 type LookupHubRouteTableResult struct {
 	// List of all connections associated with this route table.
-	AssociatedConnections []SubResourceResponse `pulumi:"associatedConnections"`
+	AssociatedConnections []string `pulumi:"associatedConnections"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// List of labels associated with this route table.
@@ -36,7 +36,7 @@ type LookupHubRouteTableResult struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// List of all connections that advertise to this route table.
-	PropagatingConnections []SubResourceResponse `pulumi:"propagatingConnections"`
+	PropagatingConnections []string `pulumi:"propagatingConnections"`
 	// The provisioning state of the RouteTable resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// List of all routes.

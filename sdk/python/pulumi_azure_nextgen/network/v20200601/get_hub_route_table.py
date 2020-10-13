@@ -48,7 +48,7 @@ class GetHubRouteTableResult:
 
     @property
     @pulumi.getter(name="associatedConnections")
-    def associated_connections(self) -> Sequence['outputs.SubResourceResponse']:
+    def associated_connections(self) -> Sequence[str]:
         """
         List of all connections associated with this route table.
         """
@@ -80,7 +80,7 @@ class GetHubRouteTableResult:
 
     @property
     @pulumi.getter(name="propagatingConnections")
-    def propagating_connections(self) -> Sequence['outputs.SubResourceResponse']:
+    def propagating_connections(self) -> Sequence[str]:
         """
         List of all connections that advertise to this route table.
         """

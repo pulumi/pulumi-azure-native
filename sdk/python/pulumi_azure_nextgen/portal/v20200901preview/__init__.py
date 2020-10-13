@@ -6,6 +6,7 @@
 from .dashboard import *
 from .get_dashboard import *
 from .get_tenant_configuration import *
+from .list_list_tenant_configuration_violation import *
 from .tenant_configuration import *
 from ._inputs import *
 from . import outputs

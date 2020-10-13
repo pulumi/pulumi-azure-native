@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// List of all connections associated with this route table.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> AssociatedConnections;
+        public readonly ImmutableArray<string> AssociatedConnections;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// List of all connections that advertise to this route table.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> PropagatingConnections;
+        public readonly ImmutableArray<string> PropagatingConnections;
         /// <summary>
         /// The provisioning state of the RouteTable resource.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
         [OutputConstructor]
         private GetHubRouteTableResult(
-            ImmutableArray<Outputs.SubResourceResponse> associatedConnections,
+            ImmutableArray<string> associatedConnections,
 
             string etag,
 
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string? name,
 
-            ImmutableArray<Outputs.SubResourceResponse> propagatingConnections,
+            ImmutableArray<string> propagatingConnections,
 
             string provisioningState,
 

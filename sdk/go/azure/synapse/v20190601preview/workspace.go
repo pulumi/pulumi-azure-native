@@ -28,6 +28,8 @@ type Workspace struct {
 	ManagedResourceGroupName pulumi.StringPtrOutput `pulumi:"managedResourceGroupName"`
 	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
 	ManagedVirtualNetwork pulumi.StringPtrOutput `pulumi:"managedVirtualNetwork"`
+	// Managed Virtual Network Settings
+	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsResponsePtrOutput `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Private endpoint connections to the workspace
@@ -97,6 +99,8 @@ type workspaceState struct {
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
 	ManagedVirtualNetwork *string `pulumi:"managedVirtualNetwork"`
+	// Managed Virtual Network Settings
+	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettingsResponse `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Private endpoint connections to the workspace
@@ -130,6 +134,8 @@ type WorkspaceState struct {
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
 	ManagedVirtualNetwork pulumi.StringPtrInput
+	// Managed Virtual Network Settings
+	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Private endpoint connections to the workspace
@@ -165,6 +171,8 @@ type workspaceArgs struct {
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
 	ManagedVirtualNetwork *string `pulumi:"managedVirtualNetwork"`
+	// Managed Virtual Network Settings
+	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettings `pulumi:"managedVirtualNetworkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// The name of the resource group. The name is case insensitive.
@@ -195,6 +203,8 @@ type WorkspaceArgs struct {
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
 	ManagedVirtualNetwork pulumi.StringPtrInput
+	// Managed Virtual Network Settings
+	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsPtrInput
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
 	// The name of the resource group. The name is case insensitive.

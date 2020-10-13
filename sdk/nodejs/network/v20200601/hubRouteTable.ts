@@ -39,7 +39,7 @@ export class HubRouteTable extends pulumi.CustomResource {
     /**
      * List of all connections associated with this route table.
      */
-    public /*out*/ readonly associatedConnections!: pulumi.Output<outputs.network.v20200601.SubResourceResponse[]>;
+    public /*out*/ readonly associatedConnections!: pulumi.Output<string[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -55,7 +55,7 @@ export class HubRouteTable extends pulumi.CustomResource {
     /**
      * List of all connections that advertise to this route table.
      */
-    public /*out*/ readonly propagatingConnections!: pulumi.Output<outputs.network.v20200601.SubResourceResponse[]>;
+    public /*out*/ readonly propagatingConnections!: pulumi.Output<string[]>;
     /**
      * The provisioning state of the RouteTable resource.
      */

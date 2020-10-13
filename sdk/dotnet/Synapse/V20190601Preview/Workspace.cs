@@ -57,6 +57,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string?> ManagedVirtualNetwork { get; private set; } = null!;
 
         /// <summary>
+        /// Managed Virtual Network Settings
+        /// </summary>
+        [Output("managedVirtualNetworkSettings")]
+        public Output<Outputs.ManagedVirtualNetworkSettingsResponse?> ManagedVirtualNetworkSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -190,6 +196,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Input("managedVirtualNetwork")]
         public Input<string>? ManagedVirtualNetwork { get; set; }
+
+        /// <summary>
+        /// Managed Virtual Network Settings
+        /// </summary>
+        [Input("managedVirtualNetworkSettings")]
+        public Input<Inputs.ManagedVirtualNetworkSettingsArgs>? ManagedVirtualNetworkSettings { get; set; }
 
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;

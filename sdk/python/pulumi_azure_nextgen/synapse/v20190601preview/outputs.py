@@ -34,6 +34,7 @@ __all__ = [
     'ManagedIntegrationRuntimeOperationResultResponseResult',
     'ManagedIntegrationRuntimeResponse',
     'ManagedIntegrationRuntimeStatusResponseResult',
+    'ManagedVirtualNetworkSettingsResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -1362,6 +1363,56 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
         Type of integration runtime.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ManagedVirtualNetworkSettingsResponse(dict):
+    """
+    Managed Virtual Network Settings
+    """
+    def __init__(__self__, *,
+                 allowed_aad_tenant_ids_for_linking: Optional[Sequence[str]] = None,
+                 linked_access_check_on_target_resource: Optional[bool] = None,
+                 prevent_data_exfiltration: Optional[bool] = None):
+        """
+        Managed Virtual Network Settings
+        :param Sequence[str] allowed_aad_tenant_ids_for_linking: Allowed Aad Tenant Ids For Linking
+        :param bool linked_access_check_on_target_resource: Linked Access Check On Target Resource
+        :param bool prevent_data_exfiltration: Prevent Data Exfiltration
+        """
+        if allowed_aad_tenant_ids_for_linking is not None:
+            pulumi.set(__self__, "allowed_aad_tenant_ids_for_linking", allowed_aad_tenant_ids_for_linking)
+        if linked_access_check_on_target_resource is not None:
+            pulumi.set(__self__, "linked_access_check_on_target_resource", linked_access_check_on_target_resource)
+        if prevent_data_exfiltration is not None:
+            pulumi.set(__self__, "prevent_data_exfiltration", prevent_data_exfiltration)
+
+    @property
+    @pulumi.getter(name="allowedAadTenantIdsForLinking")
+    def allowed_aad_tenant_ids_for_linking(self) -> Optional[Sequence[str]]:
+        """
+        Allowed Aad Tenant Ids For Linking
+        """
+        return pulumi.get(self, "allowed_aad_tenant_ids_for_linking")
+
+    @property
+    @pulumi.getter(name="linkedAccessCheckOnTargetResource")
+    def linked_access_check_on_target_resource(self) -> Optional[bool]:
+        """
+        Linked Access Check On Target Resource
+        """
+        return pulumi.get(self, "linked_access_check_on_target_resource")
+
+    @property
+    @pulumi.getter(name="preventDataExfiltration")
+    def prevent_data_exfiltration(self) -> Optional[bool]:
+        """
+        Prevent Data Exfiltration
+        """
+        return pulumi.get(self, "prevent_data_exfiltration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
