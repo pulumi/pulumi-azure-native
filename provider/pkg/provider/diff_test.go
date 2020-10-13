@@ -194,3 +194,30 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 	}
 	assert.Equal(t, expected, actual)
 }
+
+func TestApplyDiff(t *testing.T) {
+	state := resource.PropertyMap{
+		"p1": {V: "oldvalue"},
+		"p2": {V: "iamdeleted"},
+	}
+	diff := resource.ObjectDiff{
+		Adds: resource.PropertyMap{
+			"p3": {V: "newkey"},
+		},
+		Deletes: resource.PropertyMap{
+			"p2": {V: "iamdeleted"},
+		},
+		Updates: map[resource.PropertyKey]resource.ValueDiff{
+			"p1": {
+				Old: resource.PropertyValue{V: "oldvalue"},
+				New: resource.PropertyValue{V: "newvalue"},
+			},
+		},
+	}
+	actual := applyDiff(state, &diff)
+	expected := resource.PropertyMap{
+		"p1": {V: "newvalue"},
+		"p3": {V: "newkey"},
+	}
+	assert.Equal(t, expected, actual)
+}
