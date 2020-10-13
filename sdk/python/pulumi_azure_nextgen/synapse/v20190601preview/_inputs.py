@@ -28,6 +28,7 @@ __all__ = [
     'LinkedIntegrationRuntimeRbacAuthorizationArgs',
     'ManagedIdentityArgs',
     'ManagedIntegrationRuntimeArgs',
+    'ManagedVirtualNetworkSettingsArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SecureStringArgs',
@@ -1085,6 +1086,62 @@ class ManagedIntegrationRuntimeArgs:
     @ssis_properties.setter
     def ssis_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]):
         pulumi.set(self, "ssis_properties", value)
+
+
+@pulumi.input_type
+class ManagedVirtualNetworkSettingsArgs:
+    def __init__(__self__, *,
+                 allowed_aad_tenant_ids_for_linking: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 linked_access_check_on_target_resource: Optional[pulumi.Input[bool]] = None,
+                 prevent_data_exfiltration: Optional[pulumi.Input[bool]] = None):
+        """
+        Managed Virtual Network Settings
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_aad_tenant_ids_for_linking: Allowed Aad Tenant Ids For Linking
+        :param pulumi.Input[bool] linked_access_check_on_target_resource: Linked Access Check On Target Resource
+        :param pulumi.Input[bool] prevent_data_exfiltration: Prevent Data Exfiltration
+        """
+        if allowed_aad_tenant_ids_for_linking is not None:
+            pulumi.set(__self__, "allowed_aad_tenant_ids_for_linking", allowed_aad_tenant_ids_for_linking)
+        if linked_access_check_on_target_resource is not None:
+            pulumi.set(__self__, "linked_access_check_on_target_resource", linked_access_check_on_target_resource)
+        if prevent_data_exfiltration is not None:
+            pulumi.set(__self__, "prevent_data_exfiltration", prevent_data_exfiltration)
+
+    @property
+    @pulumi.getter(name="allowedAadTenantIdsForLinking")
+    def allowed_aad_tenant_ids_for_linking(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowed Aad Tenant Ids For Linking
+        """
+        return pulumi.get(self, "allowed_aad_tenant_ids_for_linking")
+
+    @allowed_aad_tenant_ids_for_linking.setter
+    def allowed_aad_tenant_ids_for_linking(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_aad_tenant_ids_for_linking", value)
+
+    @property
+    @pulumi.getter(name="linkedAccessCheckOnTargetResource")
+    def linked_access_check_on_target_resource(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Linked Access Check On Target Resource
+        """
+        return pulumi.get(self, "linked_access_check_on_target_resource")
+
+    @linked_access_check_on_target_resource.setter
+    def linked_access_check_on_target_resource(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "linked_access_check_on_target_resource", value)
+
+    @property
+    @pulumi.getter(name="preventDataExfiltration")
+    def prevent_data_exfiltration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Prevent Data Exfiltration
+        """
+        return pulumi.get(self, "prevent_data_exfiltration")
+
+    @prevent_data_exfiltration.setter
+    def prevent_data_exfiltration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "prevent_data_exfiltration", value)
 
 
 @pulumi.input_type

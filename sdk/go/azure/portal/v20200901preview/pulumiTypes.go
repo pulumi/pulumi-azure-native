@@ -1526,6 +1526,124 @@ func (o MarkdownPartMetadataSettingsPtrOutput) Content() MarkdownPartMetadataCon
 	}).(MarkdownPartMetadataContentPtrOutput)
 }
 
+// Violation information.
+type ViolationResponse struct {
+	// Error message.
+	ErrorMessage string `pulumi:"errorMessage"`
+	// Id of the item that violates tenant configuration.
+	Id string `pulumi:"id"`
+	// Id of the user who owns violated item.
+	UserId string `pulumi:"userId"`
+}
+
+// ViolationResponseInput is an input type that accepts ViolationResponseArgs and ViolationResponseOutput values.
+// You can construct a concrete instance of `ViolationResponseInput` via:
+//
+//          ViolationResponseArgs{...}
+type ViolationResponseInput interface {
+	pulumi.Input
+
+	ToViolationResponseOutput() ViolationResponseOutput
+	ToViolationResponseOutputWithContext(context.Context) ViolationResponseOutput
+}
+
+// Violation information.
+type ViolationResponseArgs struct {
+	// Error message.
+	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// Id of the item that violates tenant configuration.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Id of the user who owns violated item.
+	UserId pulumi.StringInput `pulumi:"userId"`
+}
+
+func (ViolationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViolationResponse)(nil)).Elem()
+}
+
+func (i ViolationResponseArgs) ToViolationResponseOutput() ViolationResponseOutput {
+	return i.ToViolationResponseOutputWithContext(context.Background())
+}
+
+func (i ViolationResponseArgs) ToViolationResponseOutputWithContext(ctx context.Context) ViolationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViolationResponseOutput)
+}
+
+// ViolationResponseArrayInput is an input type that accepts ViolationResponseArray and ViolationResponseArrayOutput values.
+// You can construct a concrete instance of `ViolationResponseArrayInput` via:
+//
+//          ViolationResponseArray{ ViolationResponseArgs{...} }
+type ViolationResponseArrayInput interface {
+	pulumi.Input
+
+	ToViolationResponseArrayOutput() ViolationResponseArrayOutput
+	ToViolationResponseArrayOutputWithContext(context.Context) ViolationResponseArrayOutput
+}
+
+type ViolationResponseArray []ViolationResponseInput
+
+func (ViolationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ViolationResponse)(nil)).Elem()
+}
+
+func (i ViolationResponseArray) ToViolationResponseArrayOutput() ViolationResponseArrayOutput {
+	return i.ToViolationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ViolationResponseArray) ToViolationResponseArrayOutputWithContext(ctx context.Context) ViolationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViolationResponseArrayOutput)
+}
+
+// Violation information.
+type ViolationResponseOutput struct{ *pulumi.OutputState }
+
+func (ViolationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViolationResponse)(nil)).Elem()
+}
+
+func (o ViolationResponseOutput) ToViolationResponseOutput() ViolationResponseOutput {
+	return o
+}
+
+func (o ViolationResponseOutput) ToViolationResponseOutputWithContext(ctx context.Context) ViolationResponseOutput {
+	return o
+}
+
+// Error message.
+func (o ViolationResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ViolationResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// Id of the item that violates tenant configuration.
+func (o ViolationResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ViolationResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Id of the user who owns violated item.
+func (o ViolationResponseOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v ViolationResponse) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+type ViolationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ViolationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ViolationResponse)(nil)).Elem()
+}
+
+func (o ViolationResponseArrayOutput) ToViolationResponseArrayOutput() ViolationResponseArrayOutput {
+	return o
+}
+
+func (o ViolationResponseArrayOutput) ToViolationResponseArrayOutputWithContext(ctx context.Context) ViolationResponseArrayOutput {
+	return o
+}
+
+func (o ViolationResponseArrayOutput) Index(i pulumi.IntInput) ViolationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ViolationResponse {
+		return vs[0].([]ViolationResponse)[vs[1].(int)]
+	}).(ViolationResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DashboardLensOutput{})
 	pulumi.RegisterOutputType(DashboardLensArrayOutput{})
@@ -1549,4 +1667,6 @@ func init() {
 	pulumi.RegisterOutputType(MarkdownPartMetadataResponseSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MarkdownPartMetadataSettingsOutput{})
 	pulumi.RegisterOutputType(MarkdownPartMetadataSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ViolationResponseOutput{})
+	pulumi.RegisterOutputType(ViolationResponseArrayOutput{})
 }

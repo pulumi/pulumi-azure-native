@@ -8737,6 +8737,7 @@
         "portal/v20200901preview/getDashboard.ts",
         "portal/v20200901preview/getTenantConfiguration.ts",
         "portal/v20200901preview/index.ts",
+        "portal/v20200901preview/listListTenantConfigurationViolation.ts",
         "portal/v20200901preview/tenantConfiguration.ts",
         "powerbi/index.ts",
         "powerbi/latest/getWorkspaceCollection.ts",

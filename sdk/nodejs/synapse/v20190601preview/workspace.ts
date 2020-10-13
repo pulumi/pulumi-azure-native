@@ -65,6 +65,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly managedVirtualNetwork!: pulumi.Output<string | undefined>;
     /**
+     * Managed Virtual Network Settings
+     */
+    public readonly managedVirtualNetworkSettings!: pulumi.Output<outputs.synapse.v20190601preview.ManagedVirtualNetworkSettingsResponse | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -122,6 +126,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["managedVirtualNetwork"] = args ? args.managedVirtualNetwork : undefined;
+            inputs["managedVirtualNetworkSettings"] = args ? args.managedVirtualNetworkSettings : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
@@ -141,6 +146,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["managedResourceGroupName"] = undefined /*out*/;
             inputs["managedVirtualNetwork"] = undefined /*out*/;
+            inputs["managedVirtualNetworkSettings"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -189,6 +195,10 @@ export interface WorkspaceArgs {
      * Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
      */
     readonly managedVirtualNetwork?: pulumi.Input<string>;
+    /**
+     * Managed Virtual Network Settings
+     */
+    readonly managedVirtualNetworkSettings?: pulumi.Input<inputs.synapse.v20190601preview.ManagedVirtualNetworkSettings>;
     /**
      * Private endpoint connections to the workspace
      */

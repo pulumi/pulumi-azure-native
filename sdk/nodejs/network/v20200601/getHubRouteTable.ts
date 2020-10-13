@@ -43,7 +43,7 @@ export interface GetHubRouteTableResult {
     /**
      * List of all connections associated with this route table.
      */
-    readonly associatedConnections: outputs.network.v20200601.SubResourceResponse[];
+    readonly associatedConnections: string[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -59,7 +59,7 @@ export interface GetHubRouteTableResult {
     /**
      * List of all connections that advertise to this route table.
      */
-    readonly propagatingConnections: outputs.network.v20200601.SubResourceResponse[];
+    readonly propagatingConnections: string[];
     /**
      * The provisioning state of the RouteTable resource.
      */

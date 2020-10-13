@@ -6056,6 +6056,350 @@ func (o ManagedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutpu
 	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettings struct {
+	// Allowed Aad Tenant Ids For Linking
+	AllowedAadTenantIdsForLinking []string `pulumi:"allowedAadTenantIdsForLinking"`
+	// Linked Access Check On Target Resource
+	LinkedAccessCheckOnTargetResource *bool `pulumi:"linkedAccessCheckOnTargetResource"`
+	// Prevent Data Exfiltration
+	PreventDataExfiltration *bool `pulumi:"preventDataExfiltration"`
+}
+
+// ManagedVirtualNetworkSettingsInput is an input type that accepts ManagedVirtualNetworkSettingsArgs and ManagedVirtualNetworkSettingsOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkSettingsInput` via:
+//
+//          ManagedVirtualNetworkSettingsArgs{...}
+type ManagedVirtualNetworkSettingsInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkSettingsOutput() ManagedVirtualNetworkSettingsOutput
+	ToManagedVirtualNetworkSettingsOutputWithContext(context.Context) ManagedVirtualNetworkSettingsOutput
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettingsArgs struct {
+	// Allowed Aad Tenant Ids For Linking
+	AllowedAadTenantIdsForLinking pulumi.StringArrayInput `pulumi:"allowedAadTenantIdsForLinking"`
+	// Linked Access Check On Target Resource
+	LinkedAccessCheckOnTargetResource pulumi.BoolPtrInput `pulumi:"linkedAccessCheckOnTargetResource"`
+	// Prevent Data Exfiltration
+	PreventDataExfiltration pulumi.BoolPtrInput `pulumi:"preventDataExfiltration"`
+}
+
+func (ManagedVirtualNetworkSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkSettings)(nil)).Elem()
+}
+
+func (i ManagedVirtualNetworkSettingsArgs) ToManagedVirtualNetworkSettingsOutput() ManagedVirtualNetworkSettingsOutput {
+	return i.ToManagedVirtualNetworkSettingsOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkSettingsArgs) ToManagedVirtualNetworkSettingsOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsOutput)
+}
+
+func (i ManagedVirtualNetworkSettingsArgs) ToManagedVirtualNetworkSettingsPtrOutput() ManagedVirtualNetworkSettingsPtrOutput {
+	return i.ToManagedVirtualNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkSettingsArgs) ToManagedVirtualNetworkSettingsPtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsOutput).ToManagedVirtualNetworkSettingsPtrOutputWithContext(ctx)
+}
+
+// ManagedVirtualNetworkSettingsPtrInput is an input type that accepts ManagedVirtualNetworkSettingsArgs, ManagedVirtualNetworkSettingsPtr and ManagedVirtualNetworkSettingsPtrOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkSettingsPtrInput` via:
+//
+//          ManagedVirtualNetworkSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedVirtualNetworkSettingsPtrInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkSettingsPtrOutput() ManagedVirtualNetworkSettingsPtrOutput
+	ToManagedVirtualNetworkSettingsPtrOutputWithContext(context.Context) ManagedVirtualNetworkSettingsPtrOutput
+}
+
+type managedVirtualNetworkSettingsPtrType ManagedVirtualNetworkSettingsArgs
+
+func ManagedVirtualNetworkSettingsPtr(v *ManagedVirtualNetworkSettingsArgs) ManagedVirtualNetworkSettingsPtrInput {
+	return (*managedVirtualNetworkSettingsPtrType)(v)
+}
+
+func (*managedVirtualNetworkSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkSettings)(nil)).Elem()
+}
+
+func (i *managedVirtualNetworkSettingsPtrType) ToManagedVirtualNetworkSettingsPtrOutput() ManagedVirtualNetworkSettingsPtrOutput {
+	return i.ToManagedVirtualNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *managedVirtualNetworkSettingsPtrType) ToManagedVirtualNetworkSettingsPtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsPtrOutput)
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettingsOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkSettings)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkSettingsOutput) ToManagedVirtualNetworkSettingsOutput() ManagedVirtualNetworkSettingsOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsOutput) ToManagedVirtualNetworkSettingsOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsOutput) ToManagedVirtualNetworkSettingsPtrOutput() ManagedVirtualNetworkSettingsPtrOutput {
+	return o.ToManagedVirtualNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedVirtualNetworkSettingsOutput) ToManagedVirtualNetworkSettingsPtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsPtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettings) *ManagedVirtualNetworkSettings {
+		return &v
+	}).(ManagedVirtualNetworkSettingsPtrOutput)
+}
+
+// Allowed Aad Tenant Ids For Linking
+func (o ManagedVirtualNetworkSettingsOutput) AllowedAadTenantIdsForLinking() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettings) []string { return v.AllowedAadTenantIdsForLinking }).(pulumi.StringArrayOutput)
+}
+
+// Linked Access Check On Target Resource
+func (o ManagedVirtualNetworkSettingsOutput) LinkedAccessCheckOnTargetResource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettings) *bool { return v.LinkedAccessCheckOnTargetResource }).(pulumi.BoolPtrOutput)
+}
+
+// Prevent Data Exfiltration
+func (o ManagedVirtualNetworkSettingsOutput) PreventDataExfiltration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettings) *bool { return v.PreventDataExfiltration }).(pulumi.BoolPtrOutput)
+}
+
+type ManagedVirtualNetworkSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkSettings)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkSettingsPtrOutput) ToManagedVirtualNetworkSettingsPtrOutput() ManagedVirtualNetworkSettingsPtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsPtrOutput) ToManagedVirtualNetworkSettingsPtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsPtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsPtrOutput) Elem() ManagedVirtualNetworkSettingsOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettings) ManagedVirtualNetworkSettings { return *v }).(ManagedVirtualNetworkSettingsOutput)
+}
+
+// Allowed Aad Tenant Ids For Linking
+func (o ManagedVirtualNetworkSettingsPtrOutput) AllowedAadTenantIdsForLinking() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAadTenantIdsForLinking
+	}).(pulumi.StringArrayOutput)
+}
+
+// Linked Access Check On Target Resource
+func (o ManagedVirtualNetworkSettingsPtrOutput) LinkedAccessCheckOnTargetResource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedAccessCheckOnTargetResource
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Prevent Data Exfiltration
+func (o ManagedVirtualNetworkSettingsPtrOutput) PreventDataExfiltration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreventDataExfiltration
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettingsResponse struct {
+	// Allowed Aad Tenant Ids For Linking
+	AllowedAadTenantIdsForLinking []string `pulumi:"allowedAadTenantIdsForLinking"`
+	// Linked Access Check On Target Resource
+	LinkedAccessCheckOnTargetResource *bool `pulumi:"linkedAccessCheckOnTargetResource"`
+	// Prevent Data Exfiltration
+	PreventDataExfiltration *bool `pulumi:"preventDataExfiltration"`
+}
+
+// ManagedVirtualNetworkSettingsResponseInput is an input type that accepts ManagedVirtualNetworkSettingsResponseArgs and ManagedVirtualNetworkSettingsResponseOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkSettingsResponseInput` via:
+//
+//          ManagedVirtualNetworkSettingsResponseArgs{...}
+type ManagedVirtualNetworkSettingsResponseInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkSettingsResponseOutput() ManagedVirtualNetworkSettingsResponseOutput
+	ToManagedVirtualNetworkSettingsResponseOutputWithContext(context.Context) ManagedVirtualNetworkSettingsResponseOutput
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettingsResponseArgs struct {
+	// Allowed Aad Tenant Ids For Linking
+	AllowedAadTenantIdsForLinking pulumi.StringArrayInput `pulumi:"allowedAadTenantIdsForLinking"`
+	// Linked Access Check On Target Resource
+	LinkedAccessCheckOnTargetResource pulumi.BoolPtrInput `pulumi:"linkedAccessCheckOnTargetResource"`
+	// Prevent Data Exfiltration
+	PreventDataExfiltration pulumi.BoolPtrInput `pulumi:"preventDataExfiltration"`
+}
+
+func (ManagedVirtualNetworkSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (i ManagedVirtualNetworkSettingsResponseArgs) ToManagedVirtualNetworkSettingsResponseOutput() ManagedVirtualNetworkSettingsResponseOutput {
+	return i.ToManagedVirtualNetworkSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkSettingsResponseArgs) ToManagedVirtualNetworkSettingsResponseOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsResponseOutput)
+}
+
+func (i ManagedVirtualNetworkSettingsResponseArgs) ToManagedVirtualNetworkSettingsResponsePtrOutput() ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return i.ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkSettingsResponseArgs) ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsResponseOutput).ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedVirtualNetworkSettingsResponsePtrInput is an input type that accepts ManagedVirtualNetworkSettingsResponseArgs, ManagedVirtualNetworkSettingsResponsePtr and ManagedVirtualNetworkSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkSettingsResponsePtrInput` via:
+//
+//          ManagedVirtualNetworkSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedVirtualNetworkSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkSettingsResponsePtrOutput() ManagedVirtualNetworkSettingsResponsePtrOutput
+	ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(context.Context) ManagedVirtualNetworkSettingsResponsePtrOutput
+}
+
+type managedVirtualNetworkSettingsResponsePtrType ManagedVirtualNetworkSettingsResponseArgs
+
+func ManagedVirtualNetworkSettingsResponsePtr(v *ManagedVirtualNetworkSettingsResponseArgs) ManagedVirtualNetworkSettingsResponsePtrInput {
+	return (*managedVirtualNetworkSettingsResponsePtrType)(v)
+}
+
+func (*managedVirtualNetworkSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (i *managedVirtualNetworkSettingsResponsePtrType) ToManagedVirtualNetworkSettingsResponsePtrOutput() ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return i.ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedVirtualNetworkSettingsResponsePtrType) ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsResponsePtrOutput)
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkSettingsResponseOutput) ToManagedVirtualNetworkSettingsResponseOutput() ManagedVirtualNetworkSettingsResponseOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsResponseOutput) ToManagedVirtualNetworkSettingsResponseOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponseOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsResponseOutput) ToManagedVirtualNetworkSettingsResponsePtrOutput() ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return o.ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedVirtualNetworkSettingsResponseOutput) ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettingsResponse) *ManagedVirtualNetworkSettingsResponse {
+		return &v
+	}).(ManagedVirtualNetworkSettingsResponsePtrOutput)
+}
+
+// Allowed Aad Tenant Ids For Linking
+func (o ManagedVirtualNetworkSettingsResponseOutput) AllowedAadTenantIdsForLinking() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettingsResponse) []string { return v.AllowedAadTenantIdsForLinking }).(pulumi.StringArrayOutput)
+}
+
+// Linked Access Check On Target Resource
+func (o ManagedVirtualNetworkSettingsResponseOutput) LinkedAccessCheckOnTargetResource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettingsResponse) *bool { return v.LinkedAccessCheckOnTargetResource }).(pulumi.BoolPtrOutput)
+}
+
+// Prevent Data Exfiltration
+func (o ManagedVirtualNetworkSettingsResponseOutput) PreventDataExfiltration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettingsResponse) *bool { return v.PreventDataExfiltration }).(pulumi.BoolPtrOutput)
+}
+
+type ManagedVirtualNetworkSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) ToManagedVirtualNetworkSettingsResponsePtrOutput() ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) Elem() ManagedVirtualNetworkSettingsResponseOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettingsResponse) ManagedVirtualNetworkSettingsResponse { return *v }).(ManagedVirtualNetworkSettingsResponseOutput)
+}
+
+// Allowed Aad Tenant Ids For Linking
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) AllowedAadTenantIdsForLinking() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettingsResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAadTenantIdsForLinking
+	}).(pulumi.StringArrayOutput)
+}
+
+// Linked Access Check On Target Resource
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) LinkedAccessCheckOnTargetResource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedAccessCheckOnTargetResource
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Prevent Data Exfiltration
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) PreventDataExfiltration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreventDataExfiltration
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A private endpoint connection
 type PrivateEndpointConnectionType struct {
 	// Connection state of the private endpoint connection.
@@ -9623,6 +9967,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagedIntegrationRuntimeOperationResultResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIntegrationRuntimeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIntegrationRuntimeStatusResponseOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
