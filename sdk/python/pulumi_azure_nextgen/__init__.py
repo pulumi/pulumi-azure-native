@@ -40,6 +40,7 @@ from . import (
     communication,
     compute,
     config,
+    confluent,
     consumption,
     containerinstance,
     containerregistry,

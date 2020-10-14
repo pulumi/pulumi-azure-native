@@ -58,6 +58,12 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
         public Input<string>? MinSupportedTlsVersion { get; set; }
 
         /// <summary>
+        /// The network properties.
+        /// </summary>
+        [Input("networkProperties")]
+        public Input<Inputs.NetworkPropertiesArgs>? NetworkProperties { get; set; }
+
+        /// <summary>
         /// The type of operating system.
         /// </summary>
         [Input("osType")]

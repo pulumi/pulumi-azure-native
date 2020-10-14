@@ -28,6 +28,9 @@ func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 	if args == nil || args.EndpointName == nil {
 		return nil, errors.New("missing required argument 'EndpointName'")
 	}
+	if args == nil || args.Properties == nil {
+		return nil, errors.New("missing required argument 'Properties'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
