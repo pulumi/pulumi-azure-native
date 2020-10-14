@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly Outputs.ClusterDefinitionResponse ClusterDefinition;
         /// <summary>
+        /// The cluster id.
+        /// </summary>
+        public readonly string? ClusterId;
+        /// <summary>
         /// The state of the cluster.
         /// </summary>
         public readonly string? ClusterState;
@@ -58,6 +62,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly string? MinSupportedTlsVersion;
         /// <summary>
+        /// The network properties.
+        /// </summary>
+        public readonly Outputs.NetworkPropertiesResponse? NetworkProperties;
+        /// <summary>
         /// The type of operating system.
         /// </summary>
         public readonly string? OsType;
@@ -82,6 +90,8 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         private ClusterGetPropertiesResponse(
             Outputs.ClusterDefinitionResponse clusterDefinition,
 
+            string? clusterId,
+
             string? clusterState,
 
             string? clusterVersion,
@@ -102,6 +112,8 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
 
             string? minSupportedTlsVersion,
 
+            Outputs.NetworkPropertiesResponse? networkProperties,
+
             string? osType,
 
             string? provisioningState,
@@ -113,6 +125,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
             string? tier)
         {
             ClusterDefinition = clusterDefinition;
+            ClusterId = clusterId;
             ClusterState = clusterState;
             ClusterVersion = clusterVersion;
             ComputeProfile = computeProfile;
@@ -123,6 +136,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
             Errors = errors;
             KafkaRestProperties = kafkaRestProperties;
             MinSupportedTlsVersion = minSupportedTlsVersion;
+            NetworkProperties = networkProperties;
             OsType = osType;
             ProvisioningState = provisioningState;
             QuotaInfo = quotaInfo;

@@ -29,6 +29,7 @@ __all__ = [
     'HardwareProfileArgs',
     'KafkaRestPropertiesArgs',
     'LinuxOperatingSystemProfileArgs',
+    'NetworkPropertiesArgs',
     'OsProfileArgs',
     'RoleArgs',
     'RuntimeScriptActionArgs',
@@ -587,6 +588,7 @@ class ClusterCreatePropertiesArgs:
                  encryption_in_transit_properties: Optional[pulumi.Input['EncryptionInTransitPropertiesArgs']] = None,
                  kafka_rest_properties: Optional[pulumi.Input['KafkaRestPropertiesArgs']] = None,
                  min_supported_tls_version: Optional[pulumi.Input[str]] = None,
+                 network_properties: Optional[pulumi.Input['NetworkPropertiesArgs']] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
@@ -600,6 +602,7 @@ class ClusterCreatePropertiesArgs:
         :param pulumi.Input['EncryptionInTransitPropertiesArgs'] encryption_in_transit_properties: The encryption-in-transit properties.
         :param pulumi.Input['KafkaRestPropertiesArgs'] kafka_rest_properties: The cluster kafka rest proxy configuration.
         :param pulumi.Input[str] min_supported_tls_version: The minimal supported tls version.
+        :param pulumi.Input['NetworkPropertiesArgs'] network_properties: The network properties.
         :param pulumi.Input[str] os_type: The type of operating system.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: The security profile.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile.
@@ -619,6 +622,8 @@ class ClusterCreatePropertiesArgs:
             pulumi.set(__self__, "kafka_rest_properties", kafka_rest_properties)
         if min_supported_tls_version is not None:
             pulumi.set(__self__, "min_supported_tls_version", min_supported_tls_version)
+        if network_properties is not None:
+            pulumi.set(__self__, "network_properties", network_properties)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if security_profile is not None:
@@ -711,6 +716,18 @@ class ClusterCreatePropertiesArgs:
     @min_supported_tls_version.setter
     def min_supported_tls_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "min_supported_tls_version", value)
+
+    @property
+    @pulumi.getter(name="networkProperties")
+    def network_properties(self) -> Optional[pulumi.Input['NetworkPropertiesArgs']]:
+        """
+        The network properties.
+        """
+        return pulumi.get(self, "network_properties")
+
+    @network_properties.setter
+    def network_properties(self, value: Optional[pulumi.Input['NetworkPropertiesArgs']]):
+        pulumi.set(self, "network_properties", value)
 
     @property
     @pulumi.getter(name="osType")
@@ -1175,6 +1192,46 @@ class LinuxOperatingSystemProfileArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class NetworkPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link: Optional[pulumi.Input[str]] = None,
+                 resource_provider_connection: Optional[pulumi.Input[str]] = None):
+        """
+        The network properties.
+        :param pulumi.Input[str] private_link: Indicates whether or not private link is enabled.
+        :param pulumi.Input[str] resource_provider_connection: The direction for the resource provider connection.
+        """
+        if private_link is not None:
+            pulumi.set(__self__, "private_link", private_link)
+        if resource_provider_connection is not None:
+            pulumi.set(__self__, "resource_provider_connection", resource_provider_connection)
+
+    @property
+    @pulumi.getter(name="privateLink")
+    def private_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether or not private link is enabled.
+        """
+        return pulumi.get(self, "private_link")
+
+    @private_link.setter
+    def private_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link", value)
+
+    @property
+    @pulumi.getter(name="resourceProviderConnection")
+    def resource_provider_connection(self) -> Optional[pulumi.Input[str]]:
+        """
+        The direction for the resource provider connection.
+        """
+        return pulumi.get(self, "resource_provider_connection")
+
+    @resource_provider_connection.setter
+    def resource_provider_connection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_provider_connection", value)
 
 
 @pulumi.input_type

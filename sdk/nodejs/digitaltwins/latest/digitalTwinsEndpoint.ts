@@ -62,6 +62,9 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
+            if (!args || args.properties === undefined) {
+                throw new Error("Missing required property 'properties'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -103,7 +106,7 @@ export interface DigitalTwinsEndpointArgs {
     /**
      * DigitalTwinsInstance endpoint resource properties.
      */
-    readonly properties?: pulumi.Input<inputs.digitaltwins.latest.EventGrid | inputs.digitaltwins.latest.EventHub | inputs.digitaltwins.latest.ServiceBus>;
+    readonly properties: pulumi.Input<inputs.digitaltwins.latest.EventGrid | inputs.digitaltwins.latest.EventHub | inputs.digitaltwins.latest.ServiceBus>;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */

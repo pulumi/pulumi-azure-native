@@ -5,4 +5,5 @@
 import * as v20190123preview from "./v20190123preview";
 import * as v20190924preview from "./v20190924preview";
 import * as v20191210preview from "./v20191210preview";
-export {v20190123preview, v20190924preview, v20191210preview};
+import * as v20200921preview from "./v20200921preview";
+export {v20190123preview, v20190924preview, v20191210preview, v20200921preview};
