@@ -51,6 +51,24 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Inputs
         [Input("exportConfiguration")]
         public Input<Inputs.ServiceExportConfigurationInfoArgs>? ExportConfiguration { get; set; }
 
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+
+        /// <summary>
+        /// The list of private endpoint connections that are set up for this resource.
+        /// </summary>
+        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
+            set => _privateEndpointConnections = value;
+        }
+
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
         public ServicesPropertiesArgs()
         {
         }

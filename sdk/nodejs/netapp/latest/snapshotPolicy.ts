@@ -131,7 +131,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20200601:SnapshotPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20200601:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200701:SnapshotPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SnapshotPolicy.__pulumiType, name, inputs, opts);
     }

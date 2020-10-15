@@ -159,6 +159,7 @@ namespace Pulumi.AzureNextGen.Cache.V20171001
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:Redis"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:Redis"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

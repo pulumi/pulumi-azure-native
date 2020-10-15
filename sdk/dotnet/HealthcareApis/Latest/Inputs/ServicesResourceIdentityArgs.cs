@@ -13,7 +13,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Inputs
     /// <summary>
     /// Setting indicating whether the service has a managed identity associated with it.
     /// </summary>
-    public sealed class ResourceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ServicesResourceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        public ResourceIdentityArgs()
+        public ServicesResourceIdentityArgs()
         {
         }
     }

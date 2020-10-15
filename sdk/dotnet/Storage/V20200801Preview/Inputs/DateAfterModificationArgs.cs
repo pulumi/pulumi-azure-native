@@ -16,10 +16,16 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
     public sealed class DateAfterModificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+        /// </summary>
+        [Input("daysAfterLastAccessTimeGreaterThan")]
+        public Input<double>? DaysAfterLastAccessTimeGreaterThan { get; set; }
+
+        /// <summary>
         /// Value indicating the age in days after last modification
         /// </summary>
-        [Input("daysAfterModificationGreaterThan", required: true)]
-        public Input<double> DaysAfterModificationGreaterThan { get; set; } = null!;
+        [Input("daysAfterModificationGreaterThan")]
+        public Input<double>? DaysAfterModificationGreaterThan { get; set; }
 
         public DateAfterModificationArgs()
         {

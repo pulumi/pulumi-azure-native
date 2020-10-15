@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     public sealed class GetBackupResult
     {
         /// <summary>
+        /// UUID v4 used to identify the Backup
+        /// </summary>
+        public readonly string BackupId;
+        /// <summary>
         /// Type of backup adhoc or scheduled
         /// </summary>
         public readonly string BackupType;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 
         [OutputConstructor]
         private GetBackupResult(
+            string backupId,
+
             string backupType,
 
             string creationDate,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 
             string type)
         {
+            BackupId = backupId;
             BackupType = backupType;
             CreationDate = creationDate;
             Label = label;

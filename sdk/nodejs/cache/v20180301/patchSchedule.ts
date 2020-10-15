@@ -88,7 +88,7 @@ export class PatchSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:PatchSchedule" }, { type: "azure-nextgen:cache/v20171001:PatchSchedule" }, { type: "azure-nextgen:cache/v20190701:PatchSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:PatchSchedule" }, { type: "azure-nextgen:cache/v20171001:PatchSchedule" }, { type: "azure-nextgen:cache/v20190701:PatchSchedule" }, { type: "azure-nextgen:cache/v20200601:PatchSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PatchSchedule.__pulumiType, name, inputs, opts);
     }

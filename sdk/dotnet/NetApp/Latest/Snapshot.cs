@@ -85,6 +85,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200301:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
