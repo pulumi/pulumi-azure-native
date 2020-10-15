@@ -60,6 +60,7 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:PatchSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:PatchSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

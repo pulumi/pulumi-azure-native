@@ -1809,8 +1809,10 @@ func (o DateAfterCreationResponsePtrOutput) DaysAfterCreationGreaterThan() pulum
 
 // Object to define the number of days after last modification.
 type DateAfterModification struct {
+	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+	DaysAfterLastAccessTimeGreaterThan *float64 `pulumi:"daysAfterLastAccessTimeGreaterThan"`
 	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan float64 `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan *float64 `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 // DateAfterModificationInput is an input type that accepts DateAfterModificationArgs and DateAfterModificationOutput values.
@@ -1826,8 +1828,10 @@ type DateAfterModificationInput interface {
 
 // Object to define the number of days after last modification.
 type DateAfterModificationArgs struct {
+	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+	DaysAfterLastAccessTimeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastAccessTimeGreaterThan"`
 	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan pulumi.Float64Input `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 func (DateAfterModificationArgs) ElementType() reflect.Type {
@@ -1908,9 +1912,14 @@ func (o DateAfterModificationOutput) ToDateAfterModificationPtrOutputWithContext
 	}).(DateAfterModificationPtrOutput)
 }
 
+// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+func (o DateAfterModificationOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModification) *float64 { return v.DaysAfterLastAccessTimeGreaterThan }).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last modification
-func (o DateAfterModificationOutput) DaysAfterModificationGreaterThan() pulumi.Float64Output {
-	return o.ApplyT(func(v DateAfterModification) float64 { return v.DaysAfterModificationGreaterThan }).(pulumi.Float64Output)
+func (o DateAfterModificationOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModification) *float64 { return v.DaysAfterModificationGreaterThan }).(pulumi.Float64PtrOutput)
 }
 
 type DateAfterModificationPtrOutput struct{ *pulumi.OutputState }
@@ -1931,20 +1940,32 @@ func (o DateAfterModificationPtrOutput) Elem() DateAfterModificationOutput {
 	return o.ApplyT(func(v *DateAfterModification) DateAfterModification { return *v }).(DateAfterModificationOutput)
 }
 
+// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+func (o DateAfterModificationPtrOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DateAfterModification) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DaysAfterLastAccessTimeGreaterThan
+	}).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last modification
 func (o DateAfterModificationPtrOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterModification) *float64 {
 		if v == nil {
 			return nil
 		}
-		return &v.DaysAfterModificationGreaterThan
+		return v.DaysAfterModificationGreaterThan
 	}).(pulumi.Float64PtrOutput)
 }
 
 // Object to define the number of days after last modification.
 type DateAfterModificationResponse struct {
+	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+	DaysAfterLastAccessTimeGreaterThan *float64 `pulumi:"daysAfterLastAccessTimeGreaterThan"`
 	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan float64 `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan *float64 `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 // DateAfterModificationResponseInput is an input type that accepts DateAfterModificationResponseArgs and DateAfterModificationResponseOutput values.
@@ -1960,8 +1981,10 @@ type DateAfterModificationResponseInput interface {
 
 // Object to define the number of days after last modification.
 type DateAfterModificationResponseArgs struct {
+	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+	DaysAfterLastAccessTimeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastAccessTimeGreaterThan"`
 	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan pulumi.Float64Input `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 func (DateAfterModificationResponseArgs) ElementType() reflect.Type {
@@ -2042,9 +2065,14 @@ func (o DateAfterModificationResponseOutput) ToDateAfterModificationResponsePtrO
 	}).(DateAfterModificationResponsePtrOutput)
 }
 
+// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+func (o DateAfterModificationResponseOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModificationResponse) *float64 { return v.DaysAfterLastAccessTimeGreaterThan }).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last modification
-func (o DateAfterModificationResponseOutput) DaysAfterModificationGreaterThan() pulumi.Float64Output {
-	return o.ApplyT(func(v DateAfterModificationResponse) float64 { return v.DaysAfterModificationGreaterThan }).(pulumi.Float64Output)
+func (o DateAfterModificationResponseOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModificationResponse) *float64 { return v.DaysAfterModificationGreaterThan }).(pulumi.Float64PtrOutput)
 }
 
 type DateAfterModificationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2065,13 +2093,23 @@ func (o DateAfterModificationResponsePtrOutput) Elem() DateAfterModificationResp
 	return o.ApplyT(func(v *DateAfterModificationResponse) DateAfterModificationResponse { return *v }).(DateAfterModificationResponseOutput)
 }
 
+// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+func (o DateAfterModificationResponsePtrOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DateAfterModificationResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DaysAfterLastAccessTimeGreaterThan
+	}).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last modification
 func (o DateAfterModificationResponsePtrOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterModificationResponse) *float64 {
 		if v == nil {
 			return nil
 		}
-		return &v.DaysAfterModificationGreaterThan
+		return v.DaysAfterModificationGreaterThan
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -5310,6 +5348,8 @@ func (o ManagementPolicyActionResponseOutput) Snapshot() ManagementPolicySnapSho
 type ManagementPolicyBaseBlob struct {
 	// The function to delete the blob
 	Delete *DateAfterModification `pulumi:"delete"`
+	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+	EnableAutoTierToHotFromCool *bool `pulumi:"enableAutoTierToHotFromCool"`
 	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 	TierToArchive *DateAfterModification `pulumi:"tierToArchive"`
 	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
@@ -5331,6 +5371,8 @@ type ManagementPolicyBaseBlobInput interface {
 type ManagementPolicyBaseBlobArgs struct {
 	// The function to delete the blob
 	Delete DateAfterModificationPtrInput `pulumi:"delete"`
+	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+	EnableAutoTierToHotFromCool pulumi.BoolPtrInput `pulumi:"enableAutoTierToHotFromCool"`
 	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 	TierToArchive DateAfterModificationPtrInput `pulumi:"tierToArchive"`
 	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
@@ -5420,6 +5462,11 @@ func (o ManagementPolicyBaseBlobOutput) Delete() DateAfterModificationPtrOutput 
 	return o.ApplyT(func(v ManagementPolicyBaseBlob) *DateAfterModification { return v.Delete }).(DateAfterModificationPtrOutput)
 }
 
+// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+func (o ManagementPolicyBaseBlobOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyBaseBlob) *bool { return v.EnableAutoTierToHotFromCool }).(pulumi.BoolPtrOutput)
+}
+
 // The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 func (o ManagementPolicyBaseBlobOutput) TierToArchive() DateAfterModificationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlob) *DateAfterModification { return v.TierToArchive }).(DateAfterModificationPtrOutput)
@@ -5458,6 +5505,16 @@ func (o ManagementPolicyBaseBlobPtrOutput) Delete() DateAfterModificationPtrOutp
 	}).(DateAfterModificationPtrOutput)
 }
 
+// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+func (o ManagementPolicyBaseBlobPtrOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyBaseBlob) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAutoTierToHotFromCool
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 func (o ManagementPolicyBaseBlobPtrOutput) TierToArchive() DateAfterModificationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyBaseBlob) *DateAfterModification {
@@ -5482,6 +5539,8 @@ func (o ManagementPolicyBaseBlobPtrOutput) TierToCool() DateAfterModificationPtr
 type ManagementPolicyBaseBlobResponse struct {
 	// The function to delete the blob
 	Delete *DateAfterModificationResponse `pulumi:"delete"`
+	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+	EnableAutoTierToHotFromCool *bool `pulumi:"enableAutoTierToHotFromCool"`
 	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 	TierToArchive *DateAfterModificationResponse `pulumi:"tierToArchive"`
 	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
@@ -5503,6 +5562,8 @@ type ManagementPolicyBaseBlobResponseInput interface {
 type ManagementPolicyBaseBlobResponseArgs struct {
 	// The function to delete the blob
 	Delete DateAfterModificationResponsePtrInput `pulumi:"delete"`
+	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+	EnableAutoTierToHotFromCool pulumi.BoolPtrInput `pulumi:"enableAutoTierToHotFromCool"`
 	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 	TierToArchive DateAfterModificationResponsePtrInput `pulumi:"tierToArchive"`
 	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
@@ -5592,6 +5653,11 @@ func (o ManagementPolicyBaseBlobResponseOutput) Delete() DateAfterModificationRe
 	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *DateAfterModificationResponse { return v.Delete }).(DateAfterModificationResponsePtrOutput)
 }
 
+// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+func (o ManagementPolicyBaseBlobResponseOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *bool { return v.EnableAutoTierToHotFromCool }).(pulumi.BoolPtrOutput)
+}
+
 // The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 func (o ManagementPolicyBaseBlobResponseOutput) TierToArchive() DateAfterModificationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *DateAfterModificationResponse { return v.TierToArchive }).(DateAfterModificationResponsePtrOutput)
@@ -5628,6 +5694,16 @@ func (o ManagementPolicyBaseBlobResponsePtrOutput) Delete() DateAfterModificatio
 		}
 		return v.Delete
 	}).(DateAfterModificationResponsePtrOutput)
+}
+
+// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+func (o ManagementPolicyBaseBlobResponsePtrOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyBaseBlobResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAutoTierToHotFromCool
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier

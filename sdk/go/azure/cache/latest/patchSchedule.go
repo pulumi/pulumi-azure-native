@@ -50,6 +50,9 @@ func NewPatchSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20190701:PatchSchedule"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:cache/v20200601:PatchSchedule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PatchSchedule

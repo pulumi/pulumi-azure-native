@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Outputs
+namespace Pulumi.AzureNextGen.HealthcareApis.V20200330.Outputs
 {
 
     [OutputType]
-    public sealed class ResourceResponseIdentity
+    public sealed class ServicesResourceResponseIdentity
     {
         /// <summary>
         /// The principal ID of the resource identity.
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Outputs
         public readonly string? Type;
 
         [OutputConstructor]
-        private ResourceResponseIdentity(
+        private ServicesResourceResponseIdentity(
             string principalId,
 
             string tenantId,

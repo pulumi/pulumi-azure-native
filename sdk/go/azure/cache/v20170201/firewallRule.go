@@ -61,6 +61,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20190701:FirewallRule"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:cache/v20200601:FirewallRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule

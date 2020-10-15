@@ -73,7 +73,7 @@ class RedisLinkedServer(pulumi.CustomResource):
             __props__['server_role'] = server_role
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/latest:RedisLinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:RedisLinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:RedisLinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:RedisLinkedServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/latest:RedisLinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:RedisLinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:RedisLinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:RedisLinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:RedisLinkedServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RedisLinkedServer, __self__).__init__(
             'azure-nextgen:cache/v20170201:RedisLinkedServer',

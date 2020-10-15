@@ -17,7 +17,7 @@ type Service struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourceResponseIdentityPtrOutput `pulumi:"identity"`
+	Identity ServicesResourceResponseIdentityPtrOutput `pulumi:"identity"`
 	// The kind of the service.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The resource location.
@@ -60,6 +60,9 @@ func NewService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20200315:Service"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:healthcareapis/v20200330:Service"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Service
@@ -87,7 +90,7 @@ type serviceState struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag *string `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ResourceResponseIdentity `pulumi:"identity"`
+	Identity *ServicesResourceResponseIdentity `pulumi:"identity"`
 	// The kind of the service.
 	Kind *string `pulumi:"kind"`
 	// The resource location.
@@ -106,7 +109,7 @@ type ServiceState struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrInput
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourceResponseIdentityPtrInput
+	Identity ServicesResourceResponseIdentityPtrInput
 	// The kind of the service.
 	Kind pulumi.StringPtrInput
 	// The resource location.
@@ -129,7 +132,7 @@ type serviceArgs struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag *string `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ResourceIdentity `pulumi:"identity"`
+	Identity *ServicesResourceIdentity `pulumi:"identity"`
 	// The kind of the service.
 	Kind string `pulumi:"kind"`
 	// The resource location.
@@ -149,7 +152,7 @@ type ServiceArgs struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrInput
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourceIdentityPtrInput
+	Identity ServicesResourceIdentityPtrInput
 	// The kind of the service.
 	Kind pulumi.StringInput
 	// The resource location.

@@ -74,13 +74,14 @@ class Backup(pulumi.CustomResource):
             if volume_name is None:
                 raise TypeError("Missing required property 'volume_name'")
             __props__['volume_name'] = volume_name
+            __props__['backup_id'] = None
             __props__['backup_type'] = None
             __props__['creation_date'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['size'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/latest:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/latest:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azure-nextgen:netapp/v20200601:Backup',
@@ -105,6 +106,14 @@ class Backup(pulumi.CustomResource):
         __props__ = dict()
 
         return Backup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> pulumi.Output[str]:
+        """
+        UUID v4 used to identify the Backup
+        """
+        return pulumi.get(self, "backup_id")
 
     @property
     @pulumi.getter(name="backupType")

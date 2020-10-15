@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
         /// </summary>
         public readonly string? AdName;
         /// <summary>
+        /// If enabled, AES encryption will be enabled for SMB communication.
+        /// </summary>
+        public readonly bool? AesEncryption;
+        /// <summary>
         /// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         /// </summary>
         public readonly ImmutableArray<string> BackupOperators;
@@ -37,6 +41,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
         /// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
         /// </summary>
         public readonly string? KdcIP;
+        /// <summary>
+        /// Specifies whether or not the LDAP traffic needs to be signed.
+        /// </summary>
+        public readonly bool? LdapSigning;
         /// <summary>
         /// The Organizational Unit (OU) within the Windows Active Directory
         /// </summary>
@@ -76,6 +84,8 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
 
             string? adName,
 
+            bool? aesEncryption,
+
             ImmutableArray<string> backupOperators,
 
             string? dns,
@@ -83,6 +93,8 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
             string? domain,
 
             string? kdcIP,
+
+            bool? ldapSigning,
 
             string? organizationalUnit,
 
@@ -102,10 +114,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
         {
             ActiveDirectoryId = activeDirectoryId;
             AdName = adName;
+            AesEncryption = aesEncryption;
             BackupOperators = backupOperators;
             Dns = dns;
             Domain = domain;
             KdcIP = kdcIP;
+            LdapSigning = ldapSigning;
             OrganizationalUnit = organizationalUnit;
             Password = password;
             ServerRootCACertificate = serverRootCACertificate;

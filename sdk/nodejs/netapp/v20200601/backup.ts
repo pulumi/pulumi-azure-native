@@ -35,6 +35,10 @@ export class Backup extends pulumi.CustomResource {
     }
 
     /**
+     * UUID v4 used to identify the Backup
+     */
+    public /*out*/ readonly backupId!: pulumi.Output<string>;
+    /**
      * Type of backup adhoc or scheduled
      */
     public /*out*/ readonly backupType!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class Backup extends pulumi.CustomResource {
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["volumeName"] = args ? args.volumeName : undefined;
+            inputs["backupId"] = undefined /*out*/;
             inputs["backupType"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -109,6 +114,7 @@ export class Backup extends pulumi.CustomResource {
             inputs["size"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["backupId"] = undefined /*out*/;
             inputs["backupType"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["label"] = undefined /*out*/;
@@ -125,7 +131,7 @@ export class Backup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backup.__pulumiType, name, inputs, opts);
     }

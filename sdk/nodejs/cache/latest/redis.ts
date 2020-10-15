@@ -73,9 +73,17 @@ export class Redis extends pulumi.CustomResource {
      */
     public /*out*/ readonly port!: pulumi.Output<number>;
     /**
+     * List of private endpoint connection associated with the specified redis cache
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.cache.latest.PrivateEndpointConnectionResponse[]>;
+    /**
      * Redis instance provisioning status.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */
@@ -151,6 +159,7 @@ export class Redis extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
             inputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -166,6 +175,7 @@ export class Redis extends pulumi.CustomResource {
             inputs["instances"] = undefined /*out*/;
             inputs["linkedServers"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["redisVersion"] = undefined /*out*/;
             inputs["sslPort"] = undefined /*out*/;
@@ -180,7 +190,9 @@ export class Redis extends pulumi.CustomResource {
             inputs["minimumTlsVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["redisConfiguration"] = undefined /*out*/;
             inputs["redisVersion"] = undefined /*out*/;
             inputs["replicasPerMaster"] = undefined /*out*/;
@@ -201,7 +213,7 @@ export class Redis extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/v20150801:Redis" }, { type: "azure-nextgen:cache/v20160401:Redis" }, { type: "azure-nextgen:cache/v20170201:Redis" }, { type: "azure-nextgen:cache/v20171001:Redis" }, { type: "azure-nextgen:cache/v20180301:Redis" }, { type: "azure-nextgen:cache/v20190701:Redis" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/v20150801:Redis" }, { type: "azure-nextgen:cache/v20160401:Redis" }, { type: "azure-nextgen:cache/v20170201:Redis" }, { type: "azure-nextgen:cache/v20171001:Redis" }, { type: "azure-nextgen:cache/v20180301:Redis" }, { type: "azure-nextgen:cache/v20190701:Redis" }, { type: "azure-nextgen:cache/v20200601:Redis" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Redis.__pulumiType, name, inputs, opts);
     }
@@ -227,6 +239,10 @@ export interface RedisArgs {
      * The name of the Redis cache.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+     */
+    readonly publicNetworkAccess?: pulumi.Input<string>;
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */

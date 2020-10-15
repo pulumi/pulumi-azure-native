@@ -18,7 +18,7 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServicesResourceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ServicesPropertiesArgs']]] = None,
@@ -34,7 +34,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
+        :param pulumi.Input[pulumi.InputType['ServicesResourceIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[str] kind: The kind of the service.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[pulumi.InputType['ServicesPropertiesArgs']] properties: The common properties of a service.
@@ -77,7 +77,7 @@ class Service(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthcareapis/v20180820preview:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20190916:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20200315:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthcareapis/v20180820preview:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20190916:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20200315:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20200330:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-nextgen:healthcareapis/latest:Service',
@@ -113,7 +113,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceResponseIdentity']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ServicesResourceResponseIdentity']]:
         """
         Setting indicating whether the service has a managed identity associated with it.
         """

@@ -28,7 +28,7 @@ type LookupServiceResult struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag *string `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ResourceResponseIdentity `pulumi:"identity"`
+	Identity *ServicesResourceResponseIdentity `pulumi:"identity"`
 	// The kind of the service.
 	Kind string `pulumi:"kind"`
 	// The resource location.

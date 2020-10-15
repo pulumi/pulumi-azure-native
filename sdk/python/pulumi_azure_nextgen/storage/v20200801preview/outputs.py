@@ -369,16 +369,29 @@ class DateAfterModificationResponse(dict):
     Object to define the number of days after last modification.
     """
     def __init__(__self__, *,
-                 days_after_modification_greater_than: float):
+                 days_after_last_access_time_greater_than: Optional[float] = None,
+                 days_after_modification_greater_than: Optional[float] = None):
         """
         Object to define the number of days after last modification.
+        :param float days_after_last_access_time_greater_than: Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
         :param float days_after_modification_greater_than: Value indicating the age in days after last modification
         """
-        pulumi.set(__self__, "days_after_modification_greater_than", days_after_modification_greater_than)
+        if days_after_last_access_time_greater_than is not None:
+            pulumi.set(__self__, "days_after_last_access_time_greater_than", days_after_last_access_time_greater_than)
+        if days_after_modification_greater_than is not None:
+            pulumi.set(__self__, "days_after_modification_greater_than", days_after_modification_greater_than)
+
+    @property
+    @pulumi.getter(name="daysAfterLastAccessTimeGreaterThan")
+    def days_after_last_access_time_greater_than(self) -> Optional[float]:
+        """
+        Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+        """
+        return pulumi.get(self, "days_after_last_access_time_greater_than")
 
     @property
     @pulumi.getter(name="daysAfterModificationGreaterThan")
-    def days_after_modification_greater_than(self) -> float:
+    def days_after_modification_greater_than(self) -> Optional[float]:
         """
         Value indicating the age in days after last modification
         """
@@ -1058,16 +1071,20 @@ class ManagementPolicyBaseBlobResponse(dict):
     """
     def __init__(__self__, *,
                  delete: Optional['outputs.DateAfterModificationResponse'] = None,
+                 enable_auto_tier_to_hot_from_cool: Optional[bool] = None,
                  tier_to_archive: Optional['outputs.DateAfterModificationResponse'] = None,
                  tier_to_cool: Optional['outputs.DateAfterModificationResponse'] = None):
         """
         Management policy action for base blob.
         :param 'DateAfterModificationResponseArgs' delete: The function to delete the blob
+        :param bool enable_auto_tier_to_hot_from_cool: This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
         :param 'DateAfterModificationResponseArgs' tier_to_archive: The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
         :param 'DateAfterModificationResponseArgs' tier_to_cool: The function to tier blobs to cool storage. Support blobs currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
+        if enable_auto_tier_to_hot_from_cool is not None:
+            pulumi.set(__self__, "enable_auto_tier_to_hot_from_cool", enable_auto_tier_to_hot_from_cool)
         if tier_to_archive is not None:
             pulumi.set(__self__, "tier_to_archive", tier_to_archive)
         if tier_to_cool is not None:
@@ -1080,6 +1097,14 @@ class ManagementPolicyBaseBlobResponse(dict):
         The function to delete the blob
         """
         return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter(name="enableAutoTierToHotFromCool")
+    def enable_auto_tier_to_hot_from_cool(self) -> Optional[bool]:
+        """
+        This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+        """
+        return pulumi.get(self, "enable_auto_tier_to_hot_from_cool")
 
     @property
     @pulumi.getter(name="tierToArchive")

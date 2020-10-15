@@ -34,9 +34,17 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Outputs
         /// </summary>
         public readonly Outputs.ServiceExportConfigurationInfoResponse? ExportConfiguration;
         /// <summary>
+        /// The list of private endpoint connections that are set up for this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
 
         [OutputConstructor]
         private ServicesPropertiesResponse(
@@ -50,14 +58,20 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Outputs
 
             Outputs.ServiceExportConfigurationInfoResponse? exportConfiguration,
 
-            string provisioningState)
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            string provisioningState,
+
+            string? publicNetworkAccess)
         {
             AccessPolicies = accessPolicies;
             AuthenticationConfiguration = authenticationConfiguration;
             CorsConfiguration = corsConfiguration;
             CosmosDbConfiguration = cosmosDbConfiguration;
             ExportConfiguration = exportConfiguration;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
         }
     }
 }
