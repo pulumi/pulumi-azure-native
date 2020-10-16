@@ -960,9 +960,19 @@ func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *provider.Azu
 		return nil
 	}
 
+	var oneOf []string
+	for _, subType := range typ.OneOf {
+		if subType.Ref != "" {
+			oneOf = append(oneOf, subType.Ref)
+		} else {
+			oneOf = append(oneOf, subType.Type)
+		}
+	}
+
 	return &provider.AzureAPIProperty{
 		Type:  typ.Type,
 		Ref:   typ.Ref,
+		OneOf: oneOf,
 		Items: m.itemTypeToProperty(typ.Items),
 	}
 }
