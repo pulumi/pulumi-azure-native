@@ -1202,29 +1202,35 @@ class AmazonS3LinkedServiceResponse(dict):
                  type: str,
                  access_key_id: Optional[Any] = None,
                  annotations: Optional[Sequence[Any]] = None,
+                 authentication_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_access_key: Optional[Any] = None,
-                 service_url: Optional[Any] = None):
+                 service_url: Optional[Any] = None,
+                 session_token: Optional[Any] = None):
         """
         Linked service for Amazon S3.
         :param str type: Type of linked service.
         :param Any access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any authentication_type: The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_access_key: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] session_token: The session token for the S3 temporary security credential.
         """
         pulumi.set(__self__, "type", 'AmazonS3')
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
@@ -1237,6 +1243,8 @@ class AmazonS3LinkedServiceResponse(dict):
             pulumi.set(__self__, "secret_access_key", secret_access_key)
         if service_url is not None:
             pulumi.set(__self__, "service_url", service_url)
+        if session_token is not None:
+            pulumi.set(__self__, "session_token", session_token)
 
     @property
     @pulumi.getter
@@ -1261,6 +1269,14 @@ class AmazonS3LinkedServiceResponse(dict):
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[Any]:
+        """
+        The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "authentication_type")
 
     @property
     @pulumi.getter(name="connectVia")
@@ -1309,6 +1325,14 @@ class AmazonS3LinkedServiceResponse(dict):
         This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_url")
+
+    @property
+    @pulumi.getter(name="sessionToken")
+    def session_token(self) -> Optional[Any]:
+        """
+        The session token for the S3 temporary security credential.
+        """
+        return pulumi.get(self, "session_token")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -7810,6 +7834,7 @@ class ConcurLinkedServiceResponse(dict):
                  username: Any,
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 connection_properties: Optional[Any] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -7824,6 +7849,7 @@ class ConcurLinkedServiceResponse(dict):
         :param Any username: The user name that you use to access Concur Service.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Any connection_properties: Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
@@ -7839,6 +7865,8 @@ class ConcurLinkedServiceResponse(dict):
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_properties is not None:
+            pulumi.set(__self__, "connection_properties", connection_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -7893,6 +7921,14 @@ class ConcurLinkedServiceResponse(dict):
         The integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter(name="connectionProperties")
+    def connection_properties(self) -> Optional[Any]:
+        """
+        Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
+        """
+        return pulumi.get(self, "connection_properties")
 
     @property
     @pulumi.getter
