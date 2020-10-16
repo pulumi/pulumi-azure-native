@@ -134,7 +134,9 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 	k.client.Authorizer = authorizer
 	k.client.UserAgent = k.getUserAgent()
 
-	return &rpc.ConfigureResponse{}, nil
+	return &rpc.ConfigureResponse{
+		SupportsPreview: true,
+	}, nil
 }
 
 // Invoke dynamically executes a built-in function in the provider.
@@ -552,6 +554,22 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 		return nil, err
 	}
 
+	if req.GetPreview() {
+		// Currently, the preview outputs are conservative: the provider returns the inputs back, removing the unknowns.
+		// The effect is the same as if Create did not support provider-side preview at all.
+		previewState, err := plugin.MarshalProperties(
+			inputs,
+			plugin.MarshalOptions{Label: fmt.Sprintf("%s.previewState", label), KeepUnknowns: false, SkipNulls: true},
+		)
+		if err != nil {
+			return nil, err
+		}
+
+		return &rpc.CreateResponse{
+			Properties: previewState,
+		}, nil
+	}
+
 	resourceKey := string(urn.Type())
 	res, ok := k.resourceMap.Resources[resourceKey]
 	if !ok {
@@ -699,6 +717,40 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 	})
 	if err != nil {
 		return nil, err
+	}
+
+	if req.GetPreview() {
+		// The preview outputs are inputs + a limited list of outputs that are universally immutable.
+		// We know that their values won't change, so it's safe to propagate the values to dependent
+		// resources during the preview.
+		outputs := inputs
+
+		oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+		})
+		if err != nil {
+			return nil, err
+		}
+
+		stableOutputs := []string{"name", "location"}
+		for _, name := range stableOutputs {
+			key := resource.PropertyKey(name)
+			if value, ok := oldState[key]; ok {
+				outputs[key] = value
+			}
+		}
+
+		previewOutputs, err := plugin.MarshalProperties(
+			outputs,
+			plugin.MarshalOptions{Label: fmt.Sprintf("%s.previewOutputs", label), KeepUnknowns: false, SkipNulls: true},
+		)
+		if err != nil {
+			return nil, err
+		}
+
+		return &rpc.UpdateResponse{
+			Properties: previewOutputs,
+		}, nil
 	}
 
 	resourceKey := string(urn.Type())
