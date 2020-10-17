@@ -2216,6 +2216,8 @@ type AmazonS3LinkedService struct {
 	AccessKeyId interface{} `pulumi:"accessKeyId"`
 	// List of tags that can be used for describing the linked service.
 	Annotations []interface{} `pulumi:"annotations"`
+	// The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
+	AuthenticationType interface{} `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
 	// Linked service description.
@@ -2228,6 +2230,8 @@ type AmazonS3LinkedService struct {
 	SecretAccessKey interface{} `pulumi:"secretAccessKey"`
 	// This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
 	ServiceUrl interface{} `pulumi:"serviceUrl"`
+	// The session token for the S3 temporary security credential.
+	SessionToken interface{} `pulumi:"sessionToken"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
 }
@@ -2249,6 +2253,8 @@ type AmazonS3LinkedServiceArgs struct {
 	AccessKeyId pulumi.Input `pulumi:"accessKeyId"`
 	// List of tags that can be used for describing the linked service.
 	Annotations pulumi.ArrayInput `pulumi:"annotations"`
+	// The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
+	AuthenticationType pulumi.Input `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia IntegrationRuntimeReferencePtrInput `pulumi:"connectVia"`
 	// Linked service description.
@@ -2261,6 +2267,8 @@ type AmazonS3LinkedServiceArgs struct {
 	SecretAccessKey pulumi.Input `pulumi:"secretAccessKey"`
 	// This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
 	ServiceUrl pulumi.Input `pulumi:"serviceUrl"`
+	// The session token for the S3 temporary security credential.
+	SessionToken pulumi.Input `pulumi:"sessionToken"`
 	// Type of linked service.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2302,6 +2310,11 @@ func (o AmazonS3LinkedServiceOutput) Annotations() pulumi.ArrayOutput {
 	return o.ApplyT(func(v AmazonS3LinkedService) []interface{} { return v.Annotations }).(pulumi.ArrayOutput)
 }
 
+// The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
+func (o AmazonS3LinkedServiceOutput) AuthenticationType() pulumi.AnyOutput {
+	return o.ApplyT(func(v AmazonS3LinkedService) interface{} { return v.AuthenticationType }).(pulumi.AnyOutput)
+}
+
 // The integration runtime reference.
 func (o AmazonS3LinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
 	return o.ApplyT(func(v AmazonS3LinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
@@ -2332,6 +2345,11 @@ func (o AmazonS3LinkedServiceOutput) ServiceUrl() pulumi.AnyOutput {
 	return o.ApplyT(func(v AmazonS3LinkedService) interface{} { return v.ServiceUrl }).(pulumi.AnyOutput)
 }
 
+// The session token for the S3 temporary security credential.
+func (o AmazonS3LinkedServiceOutput) SessionToken() pulumi.AnyOutput {
+	return o.ApplyT(func(v AmazonS3LinkedService) interface{} { return v.SessionToken }).(pulumi.AnyOutput)
+}
+
 // Type of linked service.
 func (o AmazonS3LinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AmazonS3LinkedService) string { return v.Type }).(pulumi.StringOutput)
@@ -2343,6 +2361,8 @@ type AmazonS3LinkedServiceResponse struct {
 	AccessKeyId interface{} `pulumi:"accessKeyId"`
 	// List of tags that can be used for describing the linked service.
 	Annotations []interface{} `pulumi:"annotations"`
+	// The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
+	AuthenticationType interface{} `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
 	// Linked service description.
@@ -2355,6 +2375,8 @@ type AmazonS3LinkedServiceResponse struct {
 	SecretAccessKey interface{} `pulumi:"secretAccessKey"`
 	// This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
 	ServiceUrl interface{} `pulumi:"serviceUrl"`
+	// The session token for the S3 temporary security credential.
+	SessionToken interface{} `pulumi:"sessionToken"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
 }
@@ -2376,6 +2398,8 @@ type AmazonS3LinkedServiceResponseArgs struct {
 	AccessKeyId pulumi.Input `pulumi:"accessKeyId"`
 	// List of tags that can be used for describing the linked service.
 	Annotations pulumi.ArrayInput `pulumi:"annotations"`
+	// The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
+	AuthenticationType pulumi.Input `pulumi:"authenticationType"`
 	// The integration runtime reference.
 	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
 	// Linked service description.
@@ -2388,6 +2412,8 @@ type AmazonS3LinkedServiceResponseArgs struct {
 	SecretAccessKey pulumi.Input `pulumi:"secretAccessKey"`
 	// This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
 	ServiceUrl pulumi.Input `pulumi:"serviceUrl"`
+	// The session token for the S3 temporary security credential.
+	SessionToken pulumi.Input `pulumi:"sessionToken"`
 	// Type of linked service.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2429,6 +2455,11 @@ func (o AmazonS3LinkedServiceResponseOutput) Annotations() pulumi.ArrayOutput {
 	return o.ApplyT(func(v AmazonS3LinkedServiceResponse) []interface{} { return v.Annotations }).(pulumi.ArrayOutput)
 }
 
+// The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
+func (o AmazonS3LinkedServiceResponseOutput) AuthenticationType() pulumi.AnyOutput {
+	return o.ApplyT(func(v AmazonS3LinkedServiceResponse) interface{} { return v.AuthenticationType }).(pulumi.AnyOutput)
+}
+
 // The integration runtime reference.
 func (o AmazonS3LinkedServiceResponseOutput) ConnectVia() IntegrationRuntimeReferenceResponsePtrOutput {
 	return o.ApplyT(func(v AmazonS3LinkedServiceResponse) *IntegrationRuntimeReferenceResponse { return v.ConnectVia }).(IntegrationRuntimeReferenceResponsePtrOutput)
@@ -2457,6 +2488,11 @@ func (o AmazonS3LinkedServiceResponseOutput) SecretAccessKey() pulumi.AnyOutput 
 // This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
 func (o AmazonS3LinkedServiceResponseOutput) ServiceUrl() pulumi.AnyOutput {
 	return o.ApplyT(func(v AmazonS3LinkedServiceResponse) interface{} { return v.ServiceUrl }).(pulumi.AnyOutput)
+}
+
+// The session token for the S3 temporary security credential.
+func (o AmazonS3LinkedServiceResponseOutput) SessionToken() pulumi.AnyOutput {
+	return o.ApplyT(func(v AmazonS3LinkedServiceResponse) interface{} { return v.SessionToken }).(pulumi.AnyOutput)
 }
 
 // Type of linked service.
@@ -16353,6 +16389,8 @@ type ConcurLinkedService struct {
 	ClientId interface{} `pulumi:"clientId"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
+	ConnectionProperties interface{} `pulumi:"connectionProperties"`
 	// Linked service description.
 	Description *string `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -16392,6 +16430,8 @@ type ConcurLinkedServiceArgs struct {
 	ClientId pulumi.Input `pulumi:"clientId"`
 	// The integration runtime reference.
 	ConnectVia IntegrationRuntimeReferencePtrInput `pulumi:"connectVia"`
+	// Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
+	ConnectionProperties pulumi.Input `pulumi:"connectionProperties"`
 	// Linked service description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -16454,6 +16494,11 @@ func (o ConcurLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOu
 	return o.ApplyT(func(v ConcurLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
 }
 
+// Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
+func (o ConcurLinkedServiceOutput) ConnectionProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConcurLinkedService) interface{} { return v.ConnectionProperties }).(pulumi.AnyOutput)
+}
+
 // Linked service description.
 func (o ConcurLinkedServiceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConcurLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -16507,6 +16552,8 @@ type ConcurLinkedServiceResponse struct {
 	ClientId interface{} `pulumi:"clientId"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
+	ConnectionProperties interface{} `pulumi:"connectionProperties"`
 	// Linked service description.
 	Description *string `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -16546,6 +16593,8 @@ type ConcurLinkedServiceResponseArgs struct {
 	ClientId pulumi.Input `pulumi:"clientId"`
 	// The integration runtime reference.
 	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
+	// Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
+	ConnectionProperties pulumi.Input `pulumi:"connectionProperties"`
 	// Linked service description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -16606,6 +16655,11 @@ func (o ConcurLinkedServiceResponseOutput) ClientId() pulumi.AnyOutput {
 // The integration runtime reference.
 func (o ConcurLinkedServiceResponseOutput) ConnectVia() IntegrationRuntimeReferenceResponsePtrOutput {
 	return o.ApplyT(func(v ConcurLinkedServiceResponse) *IntegrationRuntimeReferenceResponse { return v.ConnectVia }).(IntegrationRuntimeReferenceResponsePtrOutput)
+}
+
+// Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
+func (o ConcurLinkedServiceResponseOutput) ConnectionProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConcurLinkedServiceResponse) interface{} { return v.ConnectionProperties }).(pulumi.AnyOutput)
 }
 
 // Linked service description.
