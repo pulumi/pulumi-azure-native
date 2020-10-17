@@ -39,8 +39,14 @@ func TestTemplateCoverage(t *testing.T) {
 	renderer := arm2pulumi.NewRenderer(loadSchema(t), loadMetadata(t))
 	for _, match := range matches {
 		t.Run(match, func(t *testing.T) {
-			body, _, err := renderer.RenderFileIR(match)
+			body, diags, err := renderer.RenderFileIR(match)
 			require.NoError(t, err)
+			for k, v := range diags {
+				t.Logf("Diagnostics for %s", k)
+				for _, diag := range v {
+					t.Logf("[%s] '%s' @%s - %s", diag.Severity, diag.SourceToken, diag.SourceElement, diag.Description)
+				}
+			}
 			fmt.Printf("%s\n%s\n", match, body)
 			var langs []string
 			var expected []string

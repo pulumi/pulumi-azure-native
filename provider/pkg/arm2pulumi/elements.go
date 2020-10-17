@@ -24,13 +24,15 @@ type TemplateElement interface {
 	Name() string
 	Args() interface{}
 	SetArgs(interface{})
-	// FinishInitializing is called after all template evaluation phases are complete
-	// but before PCLExpression. Most relevant usecase is to inject
-	// implicit default variables and validate against metadata. Returns a general
-	// error if a fatal issue is hit. Returned error may be a Diagnostic in which
-	// case the error may be non-fatal but may result in the element being excluded
-	// in the IR format.
-	FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error
+	// IntrospectElement is called after all template evaluation phases are complete
+	// but before PCLExpression. This allows element to introspect the raw properties
+	// specified in the template, validate and load then in preparation for linking and
+	// code-generation (PCLExpression). Most relevant to resource elements where we inject
+	// implicit default variables and validate against metadata.
+	// Returns a general error if a fatal issue is hit. Returned error may be a
+	// Diagnostic in which case the error may be non-fatal but may result in the
+	// element being excluded in the IR format.
+	IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error
 	PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error)
 }
 
@@ -44,6 +46,7 @@ type pclRenderContext struct {
 	pkgSpec                *schema.PackageSpec
 	dep                    *dependencyTracking
 	resourceTokenConverter *resourceTokenConverter
+	resourceIdMap          map[string]model.Expression
 }
 
 func newParameter(name string, rawBody map[string]interface{}) *parameter {
@@ -58,7 +61,7 @@ type parameter struct {
 	rawBody   map[string]interface{}
 }
 
-func (p *parameter) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+func (p *parameter) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
 	return nil
 }
 
@@ -127,7 +130,7 @@ type variable struct {
 	rawBody interface{}
 }
 
-func (v *variable) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+func (v *variable) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
 	return nil
 }
 
@@ -172,7 +175,7 @@ type output struct {
 	rawBody    map[string]interface{}
 }
 
-func (o *output) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+func (o *output) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
 	return nil
 }
 
@@ -238,6 +241,7 @@ func NewTemplateElements() *TemplateElements {
 		elements:       map[string]*dependencyTracking{},
 		canonicalNames: map[string]string{},
 		diagnostics:    map[string][]Diagnostic{},
+		resourceIdMap:  map[string]model.Expression{},
 	}
 }
 
@@ -247,6 +251,7 @@ type TemplateElements struct {
 	elements       map[string]*dependencyTracking
 	canonicalNames map[string]string
 	diagnostics    map[string][]Diagnostic
+	resourceIdMap  map[string]model.Expression
 }
 
 func (t *TemplateElements) lookup(name string) *dependencyTracking {
@@ -279,7 +284,7 @@ func (t *TemplateElements) EvaluateExpressions(preliminaryPhase bool) error {
 		args := el.TemplateElement.Args()
 		var err error
 		if preliminaryPhase {
-			args, err = t.evalTemplateExpressions(el, args, "", "reference")
+			args, err = t.evalTemplateExpressions(el, args, "", "reference", "resourceId")
 		} else {
 			args, err = t.evalTemplateExpressions(el, args, "")
 		}
@@ -578,8 +583,9 @@ func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *provi
 			pkgSpec:                pkgSpec,
 			dep:                    el,
 			resourceTokenConverter: resourceTokenConverter,
+			resourceIdMap:          t.resourceIdMap,
 		}
-		if err := el.TemplateElement.FinishInitializing(&ctx, t); err != nil {
+		if err := el.TemplateElement.IntrospectElement(&ctx, t); err != nil {
 			diag := &Diagnostic{}
 			if errors.As(err, &diag) {
 				t.addDiagnostic(*diag)
@@ -611,6 +617,7 @@ func (t *TemplateElements) RenderPCL(
 			pkgSpec:                pkgSpec,
 			dep:                    el,
 			resourceTokenConverter: resourceTokenConverter,
+			resourceIdMap:          t.resourceIdMap,
 		}
 		bodyItems, err := el.PCLExpression(&ctx)
 		if err != nil {

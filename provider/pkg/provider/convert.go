@@ -96,6 +96,9 @@ func (k *SdkShapeConverter) bodyPropertyToSdk(prop *AzureAPIProperty, value inte
 		return value
 	}
 
+	if value == nil {
+		return value
+	}
 	switch reflect.TypeOf(value).Kind() {
 	case reflect.Map:
 		// For union types, iterate through types and find the first one that matches the shape.

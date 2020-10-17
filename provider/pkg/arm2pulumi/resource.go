@@ -22,8 +22,10 @@ func newResource(name string, rawBody map[string]interface{}, resourceToken stri
 type resource struct {
 	resourceName   string
 	rawBody        map[string]interface{}
+	nameParam      string
 	resourceToken  string // initial guess at pulumi resource token
 	resourceParams map[string]interface{}
+	dependsOn      model.BodyItem
 	exclude        bool
 }
 
@@ -39,7 +41,7 @@ func (r *resource) SetArgs(body interface{}) {
 	r.rawBody = body.(map[string]interface{})
 }
 
-func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+func (r *resource) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
 	diag := Diagnostic{
 		SourceElement: r.resourceName,
 		Severity:      SevHigh,
@@ -74,8 +76,43 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 		case "properties":
 			r.resourceParams = map[string]interface{}{"properties": r.rawBody[k].(map[string]interface{})}
 		case "dependsOn":
-			// TODO
-			continue
+			asSlice, ok := v.([]interface{})
+			if !ok {
+				r.exclude = true
+				diag.Description = "expect dependsOn to be a list"
+				return &diag
+			}
+
+			var refs []model.Expression
+			for _, dependency := range asSlice {
+				switch dependency.(type) {
+				case string:
+					resourceId := dependency.(string)
+					if variable, ok := ctx.resourceIdMap[resourceId]; ok {
+						refs = append(refs, variable)
+					}
+				default:
+					if expr, ok := dependency.(model.Expression); ok {
+						refs = append(refs, expr)
+					}
+				}
+			}
+
+			if len(refs) > 0 {
+				r.dependsOn = &model.Block{
+					Type: "options",
+					Body: &model.Body{
+						Items: []model.BodyItem{
+							&model.Attribute{
+								Name: "dependsOn",
+								Value: &model.TupleConsExpression{
+									Expressions: refs,
+								},
+							},
+						},
+					},
+				}
+			}
 		case "location":
 			location = v
 		case "tags", "sku", "plan", "kind":
@@ -111,13 +148,17 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 		return &diag
 	}
 
-	var err error
-
 	// TODO: simplify lookupResource
 	_, res, _ := lookupResource(ctx, token)
-	r.resourceParams, err = r.transformRequestBody(ctx, res, r.resourceParams, templateName)
+	// Set the name
+	nameParam, err := extractResourceNameParameter(res)
 	if err != nil {
 		return err
+	}
+	r.nameParam = nameParam.Name
+	r.resourceParams, err = r.transformRequestBody(ctx, res, r.resourceParams, templateName)
+	if err != nil {
+		return fmt.Errorf("missing resource name attribute for resource: %s", r.resourceName)
 	}
 
 	supported := codegen.NewStringSet()
@@ -181,6 +222,10 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 	return nil
 }
 
+func (r *resource) LinkElements(ctx *pclRenderContext) error {
+	return nil
+}
+
 func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error) {
 	if r.exclude {
 		needsManualConversion := &model.Variable{
@@ -195,8 +240,6 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 	}
 
 	var items []model.BodyItem
-	var dependsOn []model.BodyItem
-
 	keys := codegen.SortedKeys(r.resourceParams)
 	for _, k := range keys {
 		v := r.resourceParams[k]
@@ -210,8 +253,9 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 		})
 	}
 
-	items = append(items, dependsOn...)
-
+	if r.dependsOn != nil {
+		items = append(items, r.dependsOn)
+	}
 	comment := extractDescription(r.rawBody)
 	block := model.Block{
 		Tokens: getLeadingTriviaTokens(comment),
@@ -258,12 +302,7 @@ func (r *resource) transformRequestBody(ctx *pclRenderContext,
 		}
 	}
 
-	// Set the name
-	nameParamFromMetadata, err := extractResourceNameParameter(res)
-	if err != nil {
-		return nil, fmt.Errorf("missing resource name attribute for resource: %s", r.resourceName)
-	}
-	resourceParams[nameParamFromMetadata.Name] = templateResourceName
+	resourceParams[r.nameParam] = templateResourceName
 
 	flattened, err := gen.FlattenParams(resourceParams, metadataResParams, ctx.metadata.Types)
 	if err != nil {

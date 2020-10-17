@@ -320,7 +320,6 @@
             "name": "[parameters('virtualMachines_pulumirancher_name')]",
             "location": "westus2",
             "dependsOn": [
-                "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_pulumirancher_avset_name'))]",
                 "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_pulumirancher_nic_name'))]"
             ],
             "properties": {

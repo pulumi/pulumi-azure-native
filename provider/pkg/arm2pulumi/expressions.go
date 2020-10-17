@@ -294,6 +294,88 @@ func (t *TemplateElements) evalFunctionCall(
 			})
 			return nil
 		case "resourceId":
+			expression, err := tle.ToTemplateExpressionString(f)
+			if err != nil {
+				return err
+			}
+			expression = unquote(expression)
+
+			if len(f.ArgumentExpressions) == 0 {
+				return nyiError("resourceId") // empty resourceId?
+			}
+			arg, err := t.evalValue(d, f.ArgumentExpressions[0], exclusions)
+			if err != nil {
+				return err
+			}
+			if refString, ok := arg.(string); ok {
+				// If the first arg is a provider name then we are dealing with
+				// resources initialized in this template. Otherwise, we might be
+				// dealing with global resources which we don't support
+				// TODO: How to detect providers? There may be third-party providers which
+				// don't use the "Microsoft.XXXX" format.
+				if !strings.HasPrefix(strings.ToLower(refString), "microsoft.") {
+					return nyiError("resourceId")
+				}
+			} else {
+				// need resource type to resolve to a string
+				return nyiError("resourceId")
+			}
+
+			var evaledResourceName interface{}
+			if len(f.ArgumentExpressions) == 2 {
+				evaledResourceName, err = t.evalValue(d, f.ArgumentExpressions[1], exclusions)
+				if err != nil {
+					return err
+				}
+			} else {
+				// Multiple args likely mean the name had a concatenation
+				resourceNameConcatFunc := tle.FunctionCallValue{
+					NameToken:           tle.CreateLiteral(0, "concat"),
+					ArgumentExpressions: []tle.Value{},
+				}
+				for _, a := range f.ArgumentExpressions[1:] {
+					if len(resourceNameConcatFunc.ArgumentExpressions) > 0 {
+						resourceNameConcatFunc.ArgumentExpressions = append(resourceNameConcatFunc.ArgumentExpressions, tle.NewStringValue(tle.CreateQuotedString(0, "/")))
+					}
+					resourceNameConcatFunc.ArgumentExpressions = append(resourceNameConcatFunc.ArgumentExpressions, a)
+					evaledResourceName, err = t.evalValue(d, &resourceNameConcatFunc, exclusions)
+					if err != nil {
+						return err
+					}
+				}
+			}
+
+			for k, v := range t.elements {
+				switch v.TemplateElement.(type) {
+				case *resource:
+					args := v.Args()
+					argsMap, ok := args.(map[string]interface{})
+					if !ok {
+						return fmt.Errorf("invalid payload for resource %s: %T", k, args)
+					}
+					name, ok := argsMap["name"]
+					if !ok {
+						continue
+					}
+					_, ok = argsMap["type"]
+					if !ok {
+						continue
+					}
+					if reflect.DeepEqual(name, evaledResourceName) {
+						t.resourceIdMap[expression] = model.VariableReference(&model.Variable{
+							Name:         k,
+							VariableType: model.DynamicType,
+						})
+						d.RefersTo(v)
+						break
+					}
+				}
+			}
+			// Leave the expression as is for now since we will know how to use the
+			// variable based on the context where the template is defined. This determination
+			// is done at render time.
+			*target = expression
+			return nil
 			// TODO: Add subscriptionid and resource group id to the concat list
 		case "reference":
 			var referencedResource interface{}
@@ -440,4 +522,4 @@ func plainLit(v string) *model.LiteralValueExpression {
 }
 
 var isResourceID = regexp.MustCompile(
-	`(?i)/subscriptions/(.+?)/resourcegroups/(.+?)/providers/Microsoft.(.*)/(.*)/(.*)`).MatchString
+	`(?i)/subscriptions/(.+?)/resourcegroups/(.+?)/providers/Microsoft..*`).MatchString
