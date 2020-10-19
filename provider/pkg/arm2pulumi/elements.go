@@ -40,9 +40,10 @@ type implicitVariables interface {
 }
 
 type pclRenderContext struct {
-	metadata *provider.AzureAPIMetadata
-	pkgSpec  *schema.PackageSpec
-	dep      *dependencyTracking
+	metadata               *provider.AzureAPIMetadata
+	pkgSpec                *schema.PackageSpec
+	dep                    *dependencyTracking
+	resourceTokenConverter *resourceTokenConverter
 }
 
 func newParameter(name string, rawBody map[string]interface{}) *parameter {
@@ -510,9 +511,12 @@ func (t *TemplateElements) handleAddResource(args map[string]interface{}, parent
 	}
 
 	// Similarly, the subresource's type is also derived from the parent by prefixing
-	// the parent's type to its type name.
+	// the parent's type to its type name, unless it starts with the provider definition,
+	// i.e. is an absolute ARM type
 	if parentType != "" {
-		typestr = fmt.Sprintf("%s/%s", parentType, typestr)
+		if !strings.HasPrefix(strings.ToLower(typestr), "microsoft.") {
+			typestr = fmt.Sprintf("%s/%s", parentType, typestr)
+		}
 		args["type"] = typestr
 	}
 
@@ -567,11 +571,13 @@ func (t *TemplateElements) GetDiagnostics() map[string][]Diagnostic {
 }
 
 func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata) error {
+	resourceTokenConverter := newResourceTokenConverter(metadata)
 	for _, el := range t.elements {
 		ctx := pclRenderContext{
-			metadata: metadata,
-			pkgSpec:  pkgSpec,
-			dep:      el,
+			metadata:               metadata,
+			pkgSpec:                pkgSpec,
+			dep:                    el,
+			resourceTokenConverter: resourceTokenConverter,
 		}
 		if err := el.TemplateElement.FinishInitializing(&ctx, t); err != nil {
 			diag := &Diagnostic{}
@@ -587,11 +593,7 @@ func (t *TemplateElements) RenderPCL(
 	metadata *provider.AzureAPIMetadata,
 	pkgSpec *schema.PackageSpec,
 ) (*model.Body, error) {
-	ctx := pclRenderContext{
-		metadata: metadata,
-		pkgSpec:  pkgSpec,
-	}
-
+	resourceTokenConverter := newResourceTokenConverter(metadata)
 	elements, err := t.topologicalOrder()
 	if err != nil {
 		return nil, err
@@ -604,6 +606,12 @@ func (t *TemplateElements) RenderPCL(
 
 	var items []model.BodyItem
 	for _, el := range elements {
+		ctx := pclRenderContext{
+			metadata:               metadata,
+			pkgSpec:                pkgSpec,
+			dep:                    el,
+			resourceTokenConverter: resourceTokenConverter,
+		}
 		bodyItems, err := el.PCLExpression(&ctx)
 		if err != nil {
 			return nil, err
