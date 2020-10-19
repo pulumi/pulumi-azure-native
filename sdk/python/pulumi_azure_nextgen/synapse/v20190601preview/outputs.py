@@ -43,6 +43,7 @@ __all__ = [
     'SelfHostedIntegrationRuntimeResponse',
     'SelfHostedIntegrationRuntimeStatusResponseResult',
     'SkuResponse',
+    'SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse',
     'SsisEnvironmentReferenceResponseResult',
     'SsisEnvironmentResponseResult',
     'SsisFolderResponseResult',
@@ -2132,6 +2133,31 @@ class SkuResponse(dict):
         The service tier
         """
         return pulumi.get(self, "tier")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse(dict):
+    """
+    Properties for an Sql pool vulnerability assessment rule baseline's result.
+    """
+    def __init__(__self__, *,
+                 result: Sequence[str]):
+        """
+        Properties for an Sql pool vulnerability assessment rule baseline's result.
+        :param Sequence[str] result: The rule baseline result
+        """
+        pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter
+    def result(self) -> Sequence[str]:
+        """
+        The rule baseline result
+        """
+        return pulumi.get(self, "result")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
