@@ -17,14 +17,14 @@ func ListDeviceRegistrationKey(ctx *pulumi.Context, args *ListDeviceRegistration
 }
 
 type ListDeviceRegistrationKeyArgs struct {
-	// The name of the hybrid network device.
+	// The name of the device resource.
 	DeviceName string `pulumi:"deviceName"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// The hybrid network device registration key
+// The device registration key.
 type ListDeviceRegistrationKeyResult struct {
-	// The registration key for hybrid network device.
+	// The registration key for the device.
 	RegistrationKey string `pulumi:"registrationKey"`
 }

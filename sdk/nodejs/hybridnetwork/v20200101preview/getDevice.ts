@@ -22,37 +22,41 @@ export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Pro
 
 export interface GetDeviceArgs {
     /**
-     * The name of hybrid network device.
+     * The name of the device resource.
      */
     readonly deviceName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }
 
 /**
- * Hybrid network device resource.
+ * Device resource.
  */
 export interface GetDeviceResult {
     /**
-     * The reference to the azure stack edge device.
+     * The reference to the Azure stack edge device.
      */
     readonly azureStackEdge?: outputs.hybridnetwork.v20200101preview.SubResourceResponse;
     /**
-     * The type of the hybrid network device.
+     * The type of the device.
      */
     readonly deviceType: string;
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
-    readonly location?: string;
+    readonly location: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning state of the hybrid network device resource.
+     * The list of network functions deployed on the device.
+     */
+    readonly networkFunctions: outputs.hybridnetwork.v20200101preview.SubResourceResponse[];
+    /**
+     * The provisioning state of the device resource.
      */
     readonly provisioningState: string;
     /**
@@ -64,11 +68,7 @@ export interface GetDeviceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
-    /**
-     * The list of virtual network functions deployed on the hybrid network device.
-     */
-    readonly virtualNetworkFunctions: outputs.hybridnetwork.v20200101preview.SubResourceResponse[];
 }

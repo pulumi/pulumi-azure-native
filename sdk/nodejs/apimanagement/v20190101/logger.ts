@@ -115,7 +115,7 @@ export class Logger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Logger" }, { type: "azure-nextgen:apimanagement/v20160707:Logger" }, { type: "azure-nextgen:apimanagement/v20161010:Logger" }, { type: "azure-nextgen:apimanagement/v20170301:Logger" }, { type: "azure-nextgen:apimanagement/v20180101:Logger" }, { type: "azure-nextgen:apimanagement/v20180601preview:Logger" }, { type: "azure-nextgen:apimanagement/v20191201:Logger" }, { type: "azure-nextgen:apimanagement/v20191201preview:Logger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Logger" }, { type: "azure-nextgen:apimanagement/v20160707:Logger" }, { type: "azure-nextgen:apimanagement/v20161010:Logger" }, { type: "azure-nextgen:apimanagement/v20170301:Logger" }, { type: "azure-nextgen:apimanagement/v20180101:Logger" }, { type: "azure-nextgen:apimanagement/v20180601preview:Logger" }, { type: "azure-nextgen:apimanagement/v20191201:Logger" }, { type: "azure-nextgen:apimanagement/v20191201preview:Logger" }, { type: "azure-nextgen:apimanagement/v20200601preview:Logger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Logger.__pulumiType, name, inputs, opts);
     }

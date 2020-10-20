@@ -244,7 +244,7 @@ export class ApiManagementService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20160707:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20161010:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20170301:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20180101:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20191201:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiManagementService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20160707:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20161010:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20170301:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20180101:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20191201:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiManagementService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiManagementService.__pulumiType, name, inputs, opts);
     }

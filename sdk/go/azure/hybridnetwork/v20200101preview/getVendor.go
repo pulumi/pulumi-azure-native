@@ -17,22 +17,18 @@ func LookupVendor(ctx *pulumi.Context, args *LookupVendorArgs, opts ...pulumi.In
 }
 
 type LookupVendorArgs struct {
-	// The name of vendor.
+	// The name of the vendor.
 	VendorName string `pulumi:"vendorName"`
 }
 
 // Vendor resource.
 type LookupVendorResult struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The provisioning state of the vendor resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// A list of ids of the vendor skus offered by the vendor.
+	// A list of IDs of the vendor skus offered by the vendor.
 	Skus []SubResourceResponse `pulumi:"skus"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

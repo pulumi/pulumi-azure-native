@@ -227,6 +227,14 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
         /// </summary>
         public readonly string? VnetName;
         /// <summary>
+        /// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        /// </summary>
+        public readonly int? VnetPrivatePortsCount;
+        /// <summary>
+        /// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        /// </summary>
+        public readonly bool? VnetRouteAllEnabled;
+        /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if WebSocket is enabled; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         public readonly bool? WebSocketsEnabled;
@@ -347,6 +355,10 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
 
             string? vnetName,
 
+            int? vnetPrivatePortsCount,
+
+            bool? vnetRouteAllEnabled,
+
             bool? webSocketsEnabled,
 
             string? windowsFxVersion,
@@ -406,6 +418,8 @@ namespace Pulumi.AzureNextGen.Web.Latest.Outputs
             Use32BitWorkerProcess = use32BitWorkerProcess;
             VirtualApplications = virtualApplications;
             VnetName = vnetName;
+            VnetPrivatePortsCount = vnetPrivatePortsCount;
+            VnetRouteAllEnabled = vnetRouteAllEnabled;
             WebSocketsEnabled = webSocketsEnabled;
             WindowsFxVersion = windowsFxVersion;
             XManagedServiceIdentityId = xManagedServiceIdentityId;

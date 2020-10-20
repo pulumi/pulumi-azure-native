@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Gateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Gateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

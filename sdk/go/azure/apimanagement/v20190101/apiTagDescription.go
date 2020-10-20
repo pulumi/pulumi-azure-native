@@ -65,6 +65,9 @@ func NewApiTagDescription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiTagDescription"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiTagDescription"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApiTagDescription

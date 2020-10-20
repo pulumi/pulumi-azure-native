@@ -92,7 +92,7 @@ export class Gateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20191201:Gateway" }, { type: "azure-nextgen:apimanagement/v20191201preview:Gateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20191201:Gateway" }, { type: "azure-nextgen:apimanagement/v20191201preview:Gateway" }, { type: "azure-nextgen:apimanagement/v20200601preview:Gateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Gateway.__pulumiType, name, inputs, opts);
     }
