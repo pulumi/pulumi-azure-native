@@ -154,11 +154,6 @@
             "properties": {
                 "platformUpdateDomainCount": 1,
                 "platformFaultDomainCount": 1,
-                "virtualMachines": [
-                    {
-                        "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_pulumirancher_name'))]"
-                    }
-                ]
             }
         },
         {

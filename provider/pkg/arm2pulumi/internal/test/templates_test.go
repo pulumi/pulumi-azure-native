@@ -16,6 +16,8 @@ import (
 
 var testdataPath = filepath.Join("../testdata", "*/", "*.json")
 
+// var testdataPath = filepath.Join("../testdata", "*/", "sqldb-auditing.json")
+
 func loadMetadata(t *testing.T) *provider.AzureAPIMetadata {
 	bytes, err := ioutil.ReadFile("../../../../cmd/pulumi-resource-azure-nextgen/metadata.json")
 	require.NoError(t, err)
@@ -40,6 +42,9 @@ func TestTemplateCoverage(t *testing.T) {
 	for _, match := range matches {
 		t.Run(match, func(t *testing.T) {
 			body, diags, err := renderer.RenderFileIR(match)
+			if err != nil {
+				t.Logf("%+v", err)
+			}
 			require.NoError(t, err)
 			for k, v := range diags {
 				t.Logf("Diagnostics for %s", k)

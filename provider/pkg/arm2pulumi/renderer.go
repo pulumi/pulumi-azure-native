@@ -138,8 +138,7 @@ func renderTemplate(
 	metadata *provider.AzureAPIMetadata,
 	templates map[string]*jsonx.Node,
 ) (*model.Body, map[string][]Diagnostic, error) {
-	switch len(templates) {
-	case 0:
+	if len(templates) == 0 {
 		return &model.Body{}, nil, nil
 	}
 	templ := NewTemplateElements()

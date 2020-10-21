@@ -23,11 +23,9 @@ const componentResource = new azure_nextgen.insights.v20200202preview.Component(
     location: locationParam,
     resourceGroupName: resourceGroupNameParam,
     resourceName: applicationInsightsNameParam,
-    workspaceResourceId: "[resourceId('Microsoft.OperationalInsights/workspaces',parameters('workspaceName'))]",
-}, {
-    dependsOn: [workspaceResource],
+    workspaceResourceId: workspaceResource.id,
 });
-const emailActionGroup = new azure_nextgen.insights.latest.ActionGroup("emailActionGroup", {
+const emailActionGroup = new azure_nextgen.insights.v20190601.ActionGroup("emailActionGroup", {
     actionGroupName: "emailActionGroup",
     emailReceivers: [{
         emailAddress: "example@test.com",
@@ -41,9 +39,9 @@ const emailActionGroup = new azure_nextgen.insights.latest.ActionGroup("emailAct
 });
 const responseAlertNameVar = "[concat('ResponseTime-', toLower(parameters('applicationInsightsName')))]";
 const responseTimeParam = config.getNumber("responseTimeParam") || 3;
-const metricAlertResource = new azure_nextgen.insights.latest.MetricAlert("metricAlertResource", {
+const metricAlertResource = new azure_nextgen.insights.v20180301.MetricAlert("metricAlertResource", {
     actions: [{
-        actionGroupId: "[resourceId('microsoft.insights/actionGroups','emailActionGroup')]",
+        actionGroupId: emailActionGroup.id,
     }],
     criteria: {
         allOf: [{
@@ -62,7 +60,7 @@ const metricAlertResource = new azure_nextgen.insights.latest.MetricAlert("metri
     location: "global",
     resourceGroupName: resourceGroupNameParam,
     ruleName: responseAlertNameVar,
-    scopes: ["[resourceId('Microsoft.Insights/components',parameters('applicationInsightsName'))]"],
+    scopes: [componentResource.id],
     severity: 0,
     windowSize: "PT5M",
 });

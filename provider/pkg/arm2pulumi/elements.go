@@ -33,6 +33,7 @@ type TemplateElement interface {
 	// Diagnostic in which case the error may be non-fatal but may result in the
 	// element being excluded in the IR format.
 	IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error
+	LinkElements(ctx *pclRenderContext, elements *TemplateElements) error
 	PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error)
 }
 
@@ -46,7 +47,7 @@ type pclRenderContext struct {
 	pkgSpec                *schema.PackageSpec
 	dep                    *dependencyTracking
 	resourceTokenConverter *resourceTokenConverter
-	resourceIdMap          map[string]model.Expression
+	resourceIdMap          map[string]resourceIdTargetEntry
 }
 
 func newParameter(name string, rawBody map[string]interface{}) *parameter {
@@ -59,6 +60,10 @@ func newParameter(name string, rawBody map[string]interface{}) *parameter {
 type parameter struct {
 	paramName string
 	rawBody   map[string]interface{}
+}
+
+func (p *parameter) LinkElements(ctx *pclRenderContext, elements *TemplateElements) error {
+	return nil
 }
 
 func (p *parameter) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
@@ -130,6 +135,10 @@ type variable struct {
 	rawBody interface{}
 }
 
+func (v *variable) LinkElements(ctx *pclRenderContext, elements *TemplateElements) error {
+	return nil
+}
+
 func (v *variable) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
 	return nil
 }
@@ -173,6 +182,10 @@ func newOutput(name string, rawBody map[string]interface{}) *output {
 type output struct {
 	outputName string
 	rawBody    map[string]interface{}
+}
+
+func (o *output) LinkElements(ctx *pclRenderContext, elements *TemplateElements) error {
+	return nil
 }
 
 func (o *output) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
@@ -241,7 +254,7 @@ func NewTemplateElements() *TemplateElements {
 		elements:       map[string]*dependencyTracking{},
 		canonicalNames: map[string]string{},
 		diagnostics:    map[string][]Diagnostic{},
-		resourceIdMap:  map[string]model.Expression{},
+		resourceIdMap:  map[string]resourceIdTargetEntry{},
 	}
 }
 
@@ -251,7 +264,12 @@ type TemplateElements struct {
 	elements       map[string]*dependencyTracking
 	canonicalNames map[string]string
 	diagnostics    map[string][]Diagnostic
-	resourceIdMap  map[string]model.Expression
+	resourceIdMap  map[string]resourceIdTargetEntry
+}
+
+type resourceIdTargetEntry struct {
+	variableExpression model.Expression
+	targetElementName  string
 }
 
 func (t *TemplateElements) lookup(name string) *dependencyTracking {
@@ -577,7 +595,8 @@ func (t *TemplateElements) GetDiagnostics() map[string][]Diagnostic {
 
 func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata) error {
 	resourceTokenConverter := newResourceTokenConverter(metadata)
-	for _, el := range t.elements {
+	for i := range t.elements {
+		el := t.elements[i]
 		ctx := pclRenderContext{
 			metadata:               metadata,
 			pkgSpec:                pkgSpec,
@@ -586,6 +605,25 @@ func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *provi
 			resourceIdMap:          t.resourceIdMap,
 		}
 		if err := el.TemplateElement.IntrospectElement(&ctx, t); err != nil {
+			diag := &Diagnostic{}
+			if errors.As(err, &diag) {
+				t.addDiagnostic(*diag)
+			}
+		}
+	}
+
+	// Linking may rely on properties derived from introspection so we do another
+	// full pass for linking
+	for i := range t.elements {
+		el := t.elements[i]
+		ctx := pclRenderContext{
+			metadata:               metadata,
+			pkgSpec:                pkgSpec,
+			dep:                    el,
+			resourceTokenConverter: resourceTokenConverter,
+			resourceIdMap:          t.resourceIdMap,
+		}
+		if err := el.TemplateElement.LinkElements(&ctx, t); err != nil {
 			diag := &Diagnostic{}
 			if errors.As(err, &diag) {
 				t.addDiagnostic(*diag)

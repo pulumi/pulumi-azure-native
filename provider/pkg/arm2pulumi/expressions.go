@@ -362,11 +362,13 @@ func (t *TemplateElements) evalFunctionCall(
 						continue
 					}
 					if reflect.DeepEqual(name, evaledResourceName) {
-						t.resourceIdMap[expression] = model.VariableReference(&model.Variable{
-							Name:         k,
-							VariableType: model.DynamicType,
-						})
-						d.RefersTo(v)
+						t.resourceIdMap[expression] = resourceIdTargetEntry{
+							variableExpression: model.VariableReference(&model.Variable{
+								Name:         k,
+								VariableType: model.DynamicType,
+							}),
+							targetElementName: k,
+						}
 						break
 					}
 				}

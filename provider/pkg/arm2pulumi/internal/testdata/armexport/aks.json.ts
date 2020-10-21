@@ -73,8 +73,7 @@ const agentPoolResource = new azure_nextgen.containerservice.v20200701.AgentPool
     osDiskSizeGB: 30,
     osType: "Linux",
     resourceGroupName: resourceGroupNameParam,
+    resourceName: managedClusterResource.name,
     type: "VirtualMachineScaleSets",
     vmSize: "Standard_DS2_v2",
-}, {
-    dependsOn: [managedClusterResource],
 });

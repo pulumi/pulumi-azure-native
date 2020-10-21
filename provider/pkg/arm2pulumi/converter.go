@@ -2,6 +2,7 @@ package arm2pulumi
 
 import (
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/sdk/go/common/util/contract"
 	"path/filepath"
 	"regexp"
@@ -11,39 +12,48 @@ import (
 var stripScopeRegex = regexp.MustCompile(`.*providers/`)
 
 func newResourceTokenConverter(metadata *provider.AzureAPIMetadata) *resourceTokenConverter {
-	stableResourceTypeToTokenMap := map[string][]tokenWrapper{}
-	previewResourceTypeToTokenMap := map[string][]tokenWrapper{}
+	stableResourceTypeToTokenWrapperSet := map[string]map[string]tokenWrapper{}
+	previewResourceTypeToTokenWrapperSet := map[string]map[string]tokenWrapper{}
 	for k, v := range metadata.Resources {
 		armResourceType := parseArmResourceType(v.Path)
 		if armResourceType == "" {
 			continue
 		}
-		resourceTypeToTokenMap := stableResourceTypeToTokenMap
+		resourceTypeToTokenMap := stableResourceTypeToTokenWrapperSet
 		if strings.Contains(strings.ToLower(v.APIVersion), "preview") {
-			resourceTypeToTokenMap = previewResourceTypeToTokenMap
+			resourceTypeToTokenMap = previewResourceTypeToTokenWrapperSet
 		}
 		existing := resourceTypeToTokenMap[armResourceType]
-		insertAt := 0
-		duplicate := false
-		for i, e := range existing {
-			if e.apiVersion == v.APIVersion {
-				duplicate = true
-				break
-			}
-			if e.apiVersion > v.APIVersion {
-				insertAt = i
-				break
-			}
-			insertAt = i + 1
+		if existing == nil {
+			existing = map[string]tokenWrapper{}
 		}
-		if duplicate {
+		if _, ok := existing[v.APIVersion]; ok {
 			continue
 		}
-		existing = append(existing, tokenWrapper{})
-		copy(existing[insertAt+1:], existing[insertAt:])
-		existing[insertAt] = tokenWrapper{apiVersion: v.APIVersion, resourceToken: k}
+		existing[v.APIVersion] = tokenWrapper{apiVersion: v.APIVersion, resourceToken: k}
 		resourceTypeToTokenMap[armResourceType] = existing
 	}
+
+	stableResourceTypeToTokenMap := map[string][]tokenWrapper{}
+	for k, m := range stableResourceTypeToTokenWrapperSet {
+		var tokenWrappers []tokenWrapper
+		sorted := codegen.SortedKeys(m)
+		for _, s := range sorted {
+			tokenWrappers = append(tokenWrappers, m[s])
+		}
+		stableResourceTypeToTokenMap[k] = tokenWrappers
+	}
+
+	previewResourceTypeToTokenMap := map[string][]tokenWrapper{}
+	for k, m := range previewResourceTypeToTokenWrapperSet {
+		var tokenWrappers []tokenWrapper
+		sorted := codegen.SortedKeys(m)
+		for _, s := range sorted {
+			tokenWrappers = append(tokenWrappers, m[s])
+		}
+		previewResourceTypeToTokenMap[k] = tokenWrappers
+	}
+
 	return &resourceTokenConverter{
 		stableResourceTypeToTokenMap:  stableResourceTypeToTokenMap,
 		previewResourceTypeToTokenMap: previewResourceTypeToTokenMap,
