@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:IdentityProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

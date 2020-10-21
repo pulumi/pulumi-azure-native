@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * Hybrid network device resource.
+ * Device resource.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -37,23 +37,27 @@ export class Device extends pulumi.CustomResource {
     }
 
     /**
-     * The reference to the azure stack edge device.
+     * The reference to the Azure stack edge device.
      */
     public readonly azureStackEdge!: pulumi.Output<outputs.hybridnetwork.v20200101preview.SubResourceResponse | undefined>;
     /**
-     * The type of the hybrid network device.
+     * The type of the device.
      */
     public readonly deviceType!: pulumi.Output<string>;
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the hybrid network device resource.
+     * The list of network functions deployed on the device.
+     */
+    public /*out*/ readonly networkFunctions!: pulumi.Output<outputs.hybridnetwork.v20200101preview.SubResourceResponse[]>;
+    /**
+     * The provisioning state of the device resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -65,13 +69,9 @@ export class Device extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The list of virtual network functions deployed on the hybrid network device.
-     */
-    public /*out*/ readonly virtualNetworkFunctions!: pulumi.Output<outputs.hybridnetwork.v20200101preview.SubResourceResponse[]>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -89,6 +89,9 @@ export class Device extends pulumi.CustomResource {
             if (!args || args.deviceType === undefined) {
                 throw new Error("Missing required property 'deviceType'");
             }
+            if (!args || args.location === undefined) {
+                throw new Error("Missing required property 'location'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -99,20 +102,20 @@ export class Device extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["networkFunctions"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkFunctions"] = undefined /*out*/;
         } else {
             inputs["azureStackEdge"] = undefined /*out*/;
             inputs["deviceType"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["networkFunctions"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkFunctions"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -130,7 +133,7 @@ export class Device extends pulumi.CustomResource {
  */
 export interface DeviceArgs {
     /**
-     * The reference to the azure stack edge device.
+     * The reference to the Azure stack edge device.
      */
     readonly azureStackEdge?: pulumi.Input<inputs.hybridnetwork.v20200101preview.SubResource>;
     /**
@@ -138,15 +141,15 @@ export interface DeviceArgs {
      */
     readonly deviceName: pulumi.Input<string>;
     /**
-     * The type of the hybrid network device.
+     * The type of the device.
      */
     readonly deviceType: pulumi.Input<string>;
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    readonly location: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

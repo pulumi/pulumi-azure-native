@@ -14,9 +14,9 @@ import (
 type VendorSkuPreview struct {
 	pulumi.CustomResourceState
 
-	// Preview subscription id
+	// The preview subscription ID.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Type of the resource
+	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -57,16 +57,16 @@ func GetVendorSkuPreview(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VendorSkuPreview resources.
 type vendorSkuPreviewState struct {
-	// Preview subscription id
+	// The preview subscription ID.
 	Name *string `pulumi:"name"`
-	// Type of the resource
+	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type VendorSkuPreviewState struct {
-	// Preview subscription id
+	// The preview subscription ID.
 	Name pulumi.StringPtrInput
-	// Type of the resource
+	// The type of the resource.
 	Type pulumi.StringPtrInput
 }
 
@@ -75,7 +75,7 @@ func (VendorSkuPreviewState) ElementType() reflect.Type {
 }
 
 type vendorSkuPreviewArgs struct {
-	// Preview subscription id.
+	// Preview subscription ID.
 	PreviewSubscription string `pulumi:"previewSubscription"`
 	// The name of the vendor sku.
 	SkuName string `pulumi:"skuName"`
@@ -85,7 +85,7 @@ type vendorSkuPreviewArgs struct {
 
 // The set of arguments for constructing a VendorSkuPreview resource.
 type VendorSkuPreviewArgs struct {
-	// Preview subscription id.
+	// Preview subscription ID.
 	PreviewSubscription pulumi.StringInput
 	// The name of the vendor sku.
 	SkuName pulumi.StringInput

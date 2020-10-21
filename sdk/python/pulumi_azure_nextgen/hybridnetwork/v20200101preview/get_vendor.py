@@ -20,10 +20,7 @@ class GetVendorResult:
     """
     Vendor resource.
     """
-    def __init__(__self__, location=None, name=None, provisioning_state=None, skus=None, tags=None, type=None):
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
+    def __init__(__self__, name=None, provisioning_state=None, skus=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -33,26 +30,15 @@ class GetVendorResult:
         if skus and not isinstance(skus, list):
             raise TypeError("Expected argument 'skus' to be a list")
         pulumi.set(__self__, "skus", skus)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -68,23 +54,15 @@ class GetVendorResult:
     @pulumi.getter
     def skus(self) -> Sequence['outputs.SubResourceResponse']:
         """
-        A list of ids of the vendor skus offered by the vendor.
+        A list of IDs of the vendor skus offered by the vendor.
         """
         return pulumi.get(self, "skus")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 
@@ -95,11 +73,9 @@ class AwaitableGetVendorResult(GetVendorResult):
         if False:
             yield self
         return GetVendorResult(
-            location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             skus=self.skus,
-            tags=self.tags,
             type=self.type)
 
 
@@ -108,7 +84,7 @@ def get_vendor(vendor_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str vendor_name: The name of vendor.
+    :param str vendor_name: The name of the vendor.
     """
     __args__ = dict()
     __args__['vendorName'] = vendor_name
@@ -119,9 +95,7 @@ def get_vendor(vendor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:hybridnetwork/v20200101preview:getVendor', __args__, opts=opts, typ=GetVendorResult).value
 
     return AwaitableGetVendorResult(
-        location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         skus=__ret__.skus,
-        tags=__ret__.tags,
         type=__ret__.type)

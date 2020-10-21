@@ -35,11 +35,11 @@ export class VendorSkuPreview extends pulumi.CustomResource {
     }
 
     /**
-     * Preview subscription id
+     * The preview subscription ID.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Type of the resource
+     * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -87,7 +87,7 @@ export class VendorSkuPreview extends pulumi.CustomResource {
  */
 export interface VendorSkuPreviewArgs {
     /**
-     * Preview subscription id.
+     * Preview subscription ID.
      */
     readonly previewSubscription: pulumi.Input<string>;
     /**

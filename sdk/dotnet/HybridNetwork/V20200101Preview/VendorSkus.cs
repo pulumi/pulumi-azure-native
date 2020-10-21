@@ -15,19 +15,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public partial class VendorSkus : Pulumi.CustomResource
     {
         /// <summary>
-        /// Sku deployment mode.
+        /// The sku deployment mode.
         /// </summary>
         [Output("deploymentMode")]
         public Output<string?> DeploymentMode { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The parameters for the managed application to be supplied by vendor.
+        /// The parameters for the managed application to be supplied by the vendor.
         /// </summary>
         [Output("managedApplicationParameters")]
         public Output<object?> ManagedApplicationParameters { get; private set; } = null!;
@@ -39,10 +33,16 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         public Output<object?> ManagedApplicationTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The template definition of the network function.
+        /// </summary>
+        [Output("networkFunctionTemplate")]
+        public Output<Outputs.NetworkFunctionTemplateResponse?> NetworkFunctionTemplate { get; private set; } = null!;
 
         /// <summary>
         /// Indicates if the vendor sku is in preview mode.
@@ -57,28 +57,16 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Sku type.
+        /// The sku type.
         /// </summary>
         [Output("skuType")]
         public Output<string?> SkuType { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The template definition of the virtual network function.
-        /// </summary>
-        [Output("virtualNetworkFunctionTemplate")]
-        public Output<Outputs.VirtualNetworkFunctionTemplateResponse?> VirtualNetworkFunctionTemplate { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,19 +114,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class VendorSkusArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sku deployment mode.
+        /// The sku deployment mode.
         /// </summary>
         [Input("deploymentMode")]
         public Input<string>? DeploymentMode { get; set; }
 
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The parameters for the managed application to be supplied by vendor.
+        /// The parameters for the managed application to be supplied by the vendor.
         /// </summary>
         [Input("managedApplicationParameters")]
         public Input<object>? ManagedApplicationParameters { get; set; }
@@ -148,6 +130,12 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// </summary>
         [Input("managedApplicationTemplate")]
         public Input<object>? ManagedApplicationTemplate { get; set; }
+
+        /// <summary>
+        /// The template definition of the network function.
+        /// </summary>
+        [Input("networkFunctionTemplate")]
+        public Input<Inputs.NetworkFunctionTemplateArgs>? NetworkFunctionTemplate { get; set; }
 
         /// <summary>
         /// Indicates if the vendor sku is in preview mode.
@@ -162,34 +150,16 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// Sku type.
+        /// The sku type.
         /// </summary>
         [Input("skuType")]
         public Input<string>? SkuType { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         /// <summary>
         /// The name of the vendor.
         /// </summary>
         [Input("vendorName", required: true)]
         public Input<string> VendorName { get; set; } = null!;
-
-        /// <summary>
-        /// The template definition of the virtual network function.
-        /// </summary>
-        [Input("virtualNetworkFunctionTemplate")]
-        public Input<Inputs.VirtualNetworkFunctionTemplateArgs>? VirtualNetworkFunctionTemplate { get; set; }
 
         public VendorSkusArgs()
         {

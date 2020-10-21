@@ -371,6 +371,18 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
         public Input<string>? VnetName { get; set; }
 
         /// <summary>
+        /// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        /// </summary>
+        [Input("vnetPrivatePortsCount")]
+        public Input<int>? VnetPrivatePortsCount { get; set; }
+
+        /// <summary>
+        /// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        /// </summary>
+        [Input("vnetRouteAllEnabled")]
+        public Input<bool>? VnetRouteAllEnabled { get; set; }
+
+        /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if WebSocket is enabled; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         [Input("webSocketsEnabled")]

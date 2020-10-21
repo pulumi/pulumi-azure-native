@@ -14,17 +14,13 @@ import (
 type Vendor struct {
 	pulumi.CustomResourceState
 
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the vendor resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// A list of ids of the vendor skus offered by the vendor.
+	// A list of IDs of the vendor skus offered by the vendor.
 	Skus SubResourceResponseArrayOutput `pulumi:"skus"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -59,32 +55,24 @@ func GetVendor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vendor resources.
 type vendorState struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The provisioning state of the vendor resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// A list of ids of the vendor skus offered by the vendor.
+	// A list of IDs of the vendor skus offered by the vendor.
 	Skus []SubResourceResponse `pulumi:"skus"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type VendorState struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The provisioning state of the vendor resource.
 	ProvisioningState pulumi.StringPtrInput
-	// A list of ids of the vendor skus offered by the vendor.
+	// A list of IDs of the vendor skus offered by the vendor.
 	Skus SubResourceResponseArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }
 
@@ -93,20 +81,12 @@ func (VendorState) ElementType() reflect.Type {
 }
 
 type vendorArgs struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
 	// The name of the vendor.
 	VendorName string `pulumi:"vendorName"`
 }
 
 // The set of arguments for constructing a Vendor resource.
 type VendorArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
 	// The name of the vendor.
 	VendorName pulumi.StringInput
 }

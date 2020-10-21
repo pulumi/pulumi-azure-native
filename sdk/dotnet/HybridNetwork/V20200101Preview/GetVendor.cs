@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class GetVendorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of vendor.
+        /// The name of the vendor.
         /// </summary>
         [Input("vendorName", required: true)]
         public string VendorName { get; set; } = null!;
@@ -34,11 +34,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class GetVendorResult
     {
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        public readonly string? Location;
-        /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -46,37 +42,27 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// A list of ids of the vendor skus offered by the vendor.
+        /// A list of IDs of the vendor skus offered by the vendor.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> Skus;
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetVendorResult(
-            string? location,
-
             string name,
 
             string provisioningState,
 
             ImmutableArray<Outputs.SubResourceResponse> skus,
 
-            ImmutableDictionary<string, string>? tags,
-
             string type)
         {
-            Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             Skus = skus;
-            Tags = tags;
             Type = type;
         }
     }

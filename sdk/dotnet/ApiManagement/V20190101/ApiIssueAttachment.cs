@@ -75,6 +75,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

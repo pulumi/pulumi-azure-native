@@ -19,6 +19,12 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
     public sealed class GetTemplateSpecArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Allows for expansion of additional Template Spec details in the response. Optional.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -67,6 +73,10 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// Type of this resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.TemplateSpecVersionInfoResponse> Versions;
 
         [OutputConstructor]
         private GetTemplateSpecResult(
@@ -82,7 +92,9 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableDictionary<string, Outputs.TemplateSpecVersionInfoResponse> versions)
         {
             Description = description;
             DisplayName = displayName;
@@ -91,6 +103,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            Versions = versions;
         }
     }
 }

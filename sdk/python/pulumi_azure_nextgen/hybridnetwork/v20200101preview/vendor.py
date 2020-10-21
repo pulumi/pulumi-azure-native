@@ -16,8 +16,6 @@ class Vendor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -27,8 +25,6 @@ class Vendor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vendor_name: The name of the vendor.
         """
         if __name__ is not None:
@@ -48,8 +44,6 @@ class Vendor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['location'] = location
-            __props__['tags'] = tags
             if vendor_name is None:
                 raise TypeError("Missing required property 'vendor_name'")
             __props__['vendor_name'] = vendor_name
@@ -83,17 +77,9 @@ class Vendor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -109,23 +95,15 @@ class Vendor(pulumi.CustomResource):
     @pulumi.getter
     def skus(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
-        A list of ids of the vendor skus offered by the vendor.
+        A list of IDs of the vendor skus offered by the vendor.
         """
         return pulumi.get(self, "skus")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 

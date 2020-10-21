@@ -31,7 +31,7 @@ class GetVendorSkuPreviewResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Preview subscription id
+        The preview subscription ID.
         """
         return pulumi.get(self, "name")
 
@@ -39,7 +39,7 @@ class GetVendorSkuPreviewResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the resource
+        The type of the resource.
         """
         return pulumi.get(self, "type")
 
@@ -61,7 +61,7 @@ def get_vendor_sku_preview(preview_subscription: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str preview_subscription: Preview subscription id.
+    :param str preview_subscription: Preview subscription ID.
     :param str sku_name: The name of the vendor sku.
     :param str vendor_name: The name of the vendor.
     """

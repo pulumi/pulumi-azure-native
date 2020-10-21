@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Backend"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Backend"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

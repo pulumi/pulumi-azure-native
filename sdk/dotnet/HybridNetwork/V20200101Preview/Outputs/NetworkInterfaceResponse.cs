@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Outputs
         /// </summary>
         public readonly string? NetworkInterfaceName;
         /// <summary>
-        /// The type of VM switch
+        /// The type of the VM switch.
         /// </summary>
         public readonly string? VmSwitchType;
 

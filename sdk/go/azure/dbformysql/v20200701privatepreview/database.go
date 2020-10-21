@@ -39,6 +39,12 @@ func NewDatabase(ctx *pulumi.Context,
 	if args == nil {
 		args = &DatabaseArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:dbformysql/v20200701preview:Database"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Database
 	err := ctx.RegisterResource("azure-nextgen:dbformysql/v20200701privatepreview:Database", name, args, &resource, opts...)
 	if err != nil {
