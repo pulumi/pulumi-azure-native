@@ -1,9 +1,0 @@
-{
-    "name": "ts-cdn-endpoint",
-    "devDependencies": {
-        "@types/node": "latest"
-    },
-    "dependencies": {
-        "@pulumi/pulumi": "^2.0.0"
-    }
-}

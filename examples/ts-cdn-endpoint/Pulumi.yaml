@@ -1,3 +1,0 @@
-name: ts-cdn-endpoint
-runtime: nodejs
-description: A minimal Azure NextGen TypeScript Pulumi program to demonstrate creation and clean deletion
