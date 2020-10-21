@@ -928,7 +928,7 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 	err = autorest.Respond(
 		res,
 		k.client.ByInspecting(),
-		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent),
+		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing(),
 	)
