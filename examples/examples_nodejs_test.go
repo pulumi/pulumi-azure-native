@@ -38,6 +38,16 @@ func TestAccSimpleTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestCDNEndpointTs(t *testing.T) {
+	// Tests eventually-consistent deletion handling.
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "ts-cdn-endpoint"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestImportTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
