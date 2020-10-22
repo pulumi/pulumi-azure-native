@@ -136,6 +136,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:WebTest"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20201005preview:WebTest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -123,7 +123,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20170301:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20180101:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20190101:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20191201:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiDiagnostic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20170301:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20180101:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20190101:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20191201:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiDiagnostic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiDiagnostic.__pulumiType, name, inputs, opts);
     }

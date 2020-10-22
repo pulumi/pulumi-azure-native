@@ -71,9 +71,6 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
             if (!args || args.keyspaceName === undefined) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            if (!args || args.options === undefined) {
-                throw new Error("Missing required property 'options'");
-            }
             if (!args || args.resource === undefined) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -108,7 +105,7 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CassandraResourceCassandraTable.__pulumiType, name, inputs, opts);
     }
@@ -133,7 +130,7 @@ export interface CassandraResourceCassandraTableArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
     /**
      * The standard JSON format of a Cassandra table
      */

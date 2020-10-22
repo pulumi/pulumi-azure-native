@@ -1868,7 +1868,7 @@ class RestoreParametersArgs:
         Parameters to indicate the information about the restore.
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]] databases_to_restore: List of specific databases to restore.
         :param pulumi.Input[str] restore_mode: Describes the mode of the restore.
-        :param pulumi.Input[str] restore_source: Path of the source account from which the restore has to be initiated
+        :param pulumi.Input[str] restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param pulumi.Input[str] restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
         """
         if databases_to_restore is not None:
@@ -1908,7 +1908,7 @@ class RestoreParametersArgs:
     @pulumi.getter(name="restoreSource")
     def restore_source(self) -> Optional[pulumi.Input[str]]:
         """
-        Path of the source account from which the restore has to be initiated
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         """
         return pulumi.get(self, "restore_source")
 

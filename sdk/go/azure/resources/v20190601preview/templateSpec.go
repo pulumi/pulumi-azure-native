@@ -28,6 +28,8 @@ type TemplateSpec struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of this resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+	Versions TemplateSpecVersionInfoResponseMapOutput `pulumi:"versions"`
 }
 
 // NewTemplateSpec registers a new resource with the given unique name, arguments, and options.
@@ -87,6 +89,8 @@ type templateSpecState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of this resource.
 	Type *string `pulumi:"type"`
+	// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+	Versions map[string]TemplateSpecVersionInfoResponse `pulumi:"versions"`
 }
 
 type TemplateSpecState struct {
@@ -104,6 +108,8 @@ type TemplateSpecState struct {
 	Tags pulumi.StringMapInput
 	// Type of this resource.
 	Type pulumi.StringPtrInput
+	// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+	Versions TemplateSpecVersionInfoResponseMapInput
 }
 
 func (TemplateSpecState) ElementType() reflect.Type {

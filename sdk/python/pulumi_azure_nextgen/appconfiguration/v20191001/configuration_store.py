@@ -74,7 +74,7 @@ class ConfigurationStore(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appconfiguration/latest:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20200601:ConfigurationStore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appconfiguration/latest:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20200601:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationStore, __self__).__init__(
             'azure-nextgen:appconfiguration/v20191001:ConfigurationStore',

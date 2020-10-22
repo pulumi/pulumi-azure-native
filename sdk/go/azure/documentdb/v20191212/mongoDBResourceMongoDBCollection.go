@@ -65,6 +65,9 @@ func NewMongoDBResourceMongoDBCollection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MongoDBResourceMongoDBCollection

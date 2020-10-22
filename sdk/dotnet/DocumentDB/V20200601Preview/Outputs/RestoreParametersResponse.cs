@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Outputs
         /// </summary>
         public readonly string? RestoreMode;
         /// <summary>
-        /// Path of the source account from which the restore has to be initiated
+        /// The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         /// </summary>
         public readonly string? RestoreSource;
         /// <summary>

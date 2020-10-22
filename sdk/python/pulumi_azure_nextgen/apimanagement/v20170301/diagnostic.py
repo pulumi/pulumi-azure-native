@@ -63,7 +63,7 @@ class Diagnostic(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Diagnostic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Diagnostic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Diagnostic, __self__).__init__(
             'azure-nextgen:apimanagement/v20170301:Diagnostic',

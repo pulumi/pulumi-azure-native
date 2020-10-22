@@ -1412,29 +1412,35 @@ class AmazonS3LinkedServiceArgs:
                  type: pulumi.Input[str],
                  access_key_id: Optional[Any] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  secret_access_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 service_url: Optional[Any] = None):
+                 service_url: Optional[Any] = None,
+                 session_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None):
         """
         Linked service for Amazon S3.
         :param pulumi.Input[str] type: Type of linked service.
         :param Any access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any authentication_type: The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] secret_access_key: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] session_token: The session token for the S3 temporary security credential.
         """
         pulumi.set(__self__, "type", 'AmazonS3')
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
@@ -1447,6 +1453,8 @@ class AmazonS3LinkedServiceArgs:
             pulumi.set(__self__, "secret_access_key", secret_access_key)
         if service_url is not None:
             pulumi.set(__self__, "service_url", service_url)
+        if session_token is not None:
+            pulumi.set(__self__, "session_token", session_token)
 
     @property
     @pulumi.getter
@@ -1483,6 +1491,18 @@ class AmazonS3LinkedServiceArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[Any]:
+        """
+        The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[Any]):
+        pulumi.set(self, "authentication_type", value)
 
     @property
     @pulumi.getter(name="connectVia")
@@ -1555,6 +1575,18 @@ class AmazonS3LinkedServiceArgs:
     @service_url.setter
     def service_url(self, value: Optional[Any]):
         pulumi.set(self, "service_url", value)
+
+    @property
+    @pulumi.getter(name="sessionToken")
+    def session_token(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The session token for the S3 temporary security credential.
+        """
+        return pulumi.get(self, "session_token")
+
+    @session_token.setter
+    def session_token(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "session_token", value)
 
 
 @pulumi.input_type
@@ -9683,6 +9715,7 @@ class ConcurLinkedServiceArgs:
                  username: Any,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 connection_properties: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -9697,6 +9730,7 @@ class ConcurLinkedServiceArgs:
         :param Any username: The user name that you use to access Concur Service.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param Any connection_properties: Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -9712,6 +9746,8 @@ class ConcurLinkedServiceArgs:
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_properties is not None:
+            pulumi.set(__self__, "connection_properties", connection_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -9786,6 +9822,18 @@ class ConcurLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter(name="connectionProperties")
+    def connection_properties(self) -> Optional[Any]:
+        """
+        Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
+        """
+        return pulumi.get(self, "connection_properties")
+
+    @connection_properties.setter
+    def connection_properties(self, value: Optional[Any]):
+        pulumi.set(self, "connection_properties", value)
 
     @property
     @pulumi.getter

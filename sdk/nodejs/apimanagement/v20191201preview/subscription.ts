@@ -163,7 +163,7 @@ export class Subscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Subscription" }, { type: "azure-nextgen:apimanagement/v20160707:Subscription" }, { type: "azure-nextgen:apimanagement/v20161010:Subscription" }, { type: "azure-nextgen:apimanagement/v20170301:Subscription" }, { type: "azure-nextgen:apimanagement/v20180101:Subscription" }, { type: "azure-nextgen:apimanagement/v20180601preview:Subscription" }, { type: "azure-nextgen:apimanagement/v20190101:Subscription" }, { type: "azure-nextgen:apimanagement/v20191201:Subscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Subscription" }, { type: "azure-nextgen:apimanagement/v20160707:Subscription" }, { type: "azure-nextgen:apimanagement/v20161010:Subscription" }, { type: "azure-nextgen:apimanagement/v20170301:Subscription" }, { type: "azure-nextgen:apimanagement/v20180101:Subscription" }, { type: "azure-nextgen:apimanagement/v20180601preview:Subscription" }, { type: "azure-nextgen:apimanagement/v20190101:Subscription" }, { type: "azure-nextgen:apimanagement/v20191201:Subscription" }, { type: "azure-nextgen:apimanagement/v20200601preview:Subscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Subscription.__pulumiType, name, inputs, opts);
     }

@@ -19,6 +19,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  api_properties: Optional[pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]] = None,
+                 backup_policy: Optional[pulumi.Input[Union[pulumi.InputType['ContinuousModeBackupPolicyArgs'], pulumi.InputType['PeriodicModeBackupPolicyArgs']]]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
                  connector_offer: Optional[pulumi.Input[str]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
@@ -49,6 +50,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[pulumi.InputType['ApiPropertiesArgs']] api_properties: API specific properties. Currently, supported only for MongoDB API.
+        :param pulumi.Input[Union[pulumi.InputType['ContinuousModeBackupPolicyArgs'], pulumi.InputType['PeriodicModeBackupPolicyArgs']]] backup_policy: The object representing the policy for taking backups on an account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]] capabilities: List of Cosmos DB capabilities for the account
         :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
         :param pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']] consistency_policy: The consistency policy for the Cosmos DB account.
@@ -91,6 +93,7 @@ class DatabaseAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['api_properties'] = api_properties
+            __props__['backup_policy'] = backup_policy
             __props__['capabilities'] = capabilities
             __props__['connector_offer'] = connector_offer
             __props__['consistency_policy'] = consistency_policy
@@ -126,7 +129,7 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__['read_locations'] = None
             __props__['type'] = None
             __props__['write_locations'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:DatabaseAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:DatabaseAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccount, __self__).__init__(
             'azure-nextgen:documentdb/latest:DatabaseAccount',
@@ -159,6 +162,14 @@ class DatabaseAccount(pulumi.CustomResource):
         API specific properties.
         """
         return pulumi.get(self, "api_properties")
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The object representing the policy for taking backups on an account.
+        """
+        return pulumi.get(self, "backup_policy")
 
     @property
     @pulumi.getter

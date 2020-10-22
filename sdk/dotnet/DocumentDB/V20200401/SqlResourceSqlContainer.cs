@@ -74,6 +74,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

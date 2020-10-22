@@ -17,30 +17,30 @@ func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.In
 }
 
 type LookupDeviceArgs struct {
-	// The name of hybrid network device.
+	// The name of the device resource.
 	DeviceName string `pulumi:"deviceName"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Hybrid network device resource.
+// Device resource.
 type LookupDeviceResult struct {
-	// The reference to the azure stack edge device.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge *SubResourceResponse `pulumi:"azureStackEdge"`
-	// The type of the hybrid network device.
+	// The type of the device.
 	DeviceType string `pulumi:"deviceType"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// The provisioning state of the hybrid network device resource.
+	// The list of network functions deployed on the device.
+	NetworkFunctions []SubResourceResponse `pulumi:"networkFunctions"`
+	// The provisioning state of the device resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The current device status.
 	Status string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
-	// The list of virtual network functions deployed on the hybrid network device.
-	VirtualNetworkFunctions []SubResourceResponse `pulumi:"virtualNetworkFunctions"`
 }

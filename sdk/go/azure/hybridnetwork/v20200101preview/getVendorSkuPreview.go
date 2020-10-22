@@ -17,7 +17,7 @@ func LookupVendorSkuPreview(ctx *pulumi.Context, args *LookupVendorSkuPreviewArg
 }
 
 type LookupVendorSkuPreviewArgs struct {
-	// Preview subscription id.
+	// Preview subscription ID.
 	PreviewSubscription string `pulumi:"previewSubscription"`
 	// The name of the vendor sku.
 	SkuName string `pulumi:"skuName"`
@@ -27,8 +27,8 @@ type LookupVendorSkuPreviewArgs struct {
 
 // Customer subscription which can use a sku.
 type LookupVendorSkuPreviewResult struct {
-	// Preview subscription id
+	// The preview subscription ID.
 	Name string `pulumi:"name"`
-	// Type of the resource
+	// The type of the resource.
 	Type string `pulumi:"type"`
 }

@@ -110,7 +110,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlTrigger.__pulumiType, name, inputs, opts);
     }

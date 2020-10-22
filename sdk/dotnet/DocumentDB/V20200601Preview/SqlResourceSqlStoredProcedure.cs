@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlStoredProcedure"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:SqlResourceSqlStoredProcedure"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

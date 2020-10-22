@@ -37,9 +37,6 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 	if args == nil || args.DatabaseName == nil {
 		return nil, errors.New("missing required argument 'DatabaseName'")
 	}
-	if args == nil || args.Options == nil {
-		return nil, errors.New("missing required argument 'Options'")
-	}
 	if args == nil || args.Resource == nil {
 		return nil, errors.New("missing required argument 'Resource'")
 	}
@@ -67,6 +64,9 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -129,7 +129,7 @@ type sqlResourceSqlUserDefinedFunctionArgs struct {
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptions `pulumi:"options"`
+	Options *CreateUpdateOptions `pulumi:"options"`
 	// The standard JSON format of a userDefinedFunction
 	Resource SqlUserDefinedFunctionResource `pulumi:"resource"`
 	// The name of the resource group. The name is case insensitive.
@@ -151,7 +151,7 @@ type SqlResourceSqlUserDefinedFunctionArgs struct {
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptionsInput
+	Options CreateUpdateOptionsPtrInput
 	// The standard JSON format of a userDefinedFunction
 	Resource SqlUserDefinedFunctionResourceInput
 	// The name of the resource group. The name is case insensitive.

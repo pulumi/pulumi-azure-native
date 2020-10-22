@@ -73,9 +73,6 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
             if (!args || args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.options === undefined) {
-                throw new Error("Missing required property 'options'");
-            }
             if (!args || args.resource === undefined) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -110,7 +107,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlUserDefinedFunction.__pulumiType, name, inputs, opts);
     }
@@ -139,7 +136,7 @@ export interface SqlResourceSqlUserDefinedFunctionArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
     /**
      * The standard JSON format of a userDefinedFunction
      */

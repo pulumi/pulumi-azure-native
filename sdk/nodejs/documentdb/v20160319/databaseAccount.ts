@@ -191,7 +191,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20190801:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20191212:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200301:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20190801:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20191212:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200301:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200901:DatabaseAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccount.__pulumiType, name, inputs, opts);
     }
