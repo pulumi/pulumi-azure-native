@@ -20,7 +20,7 @@ class GetTemplateSpecResult:
     """
     Template Spec object.
     """
-    def __init__(__self__, description=None, display_name=None, location=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, description=None, display_name=None, location=None, name=None, system_data=None, tags=None, type=None, versions=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -42,6 +42,9 @@ class GetTemplateSpecResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if versions and not isinstance(versions, dict):
+            raise TypeError("Expected argument 'versions' to be a dict")
+        pulumi.set(__self__, "versions", versions)
 
     @property
     @pulumi.getter
@@ -99,6 +102,14 @@ class GetTemplateSpecResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter
+    def versions(self) -> Mapping[str, 'outputs.TemplateSpecVersionInfoResponse']:
+        """
+        High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+        """
+        return pulumi.get(self, "versions")
+
 
 class AwaitableGetTemplateSpecResult(GetTemplateSpecResult):
     # pylint: disable=using-constant-test
@@ -112,19 +123,23 @@ class AwaitableGetTemplateSpecResult(GetTemplateSpecResult):
             name=self.name,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            versions=self.versions)
 
 
-def get_template_spec(resource_group_name: Optional[str] = None,
+def get_template_spec(expand: Optional[str] = None,
+                      resource_group_name: Optional[str] = None,
                       template_spec_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateSpecResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str template_spec_name: Name of the Template Spec.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['templateSpecName'] = template_spec_name
     if opts is None:
@@ -140,4 +155,5 @@ def get_template_spec(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type)
+        type=__ret__.type,
+        versions=__ret__.versions)

@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? AuthenticationType;
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -46,6 +50,10 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// </summary>
         public readonly object? ServiceUrl;
         /// <summary>
+        /// The session token for the S3 temporary security credential.
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? SessionToken;
+        /// <summary>
         /// Type of linked service.
         /// </summary>
         public readonly string Type;
@@ -55,6 +63,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
             object? accessKeyId,
 
             ImmutableArray<object> annotations,
+
+            object? authenticationType,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
@@ -68,16 +78,20 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             object? serviceUrl,
 
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? sessionToken,
+
             string type)
         {
             AccessKeyId = accessKeyId;
             Annotations = annotations;
+            AuthenticationType = authenticationType;
             ConnectVia = connectVia;
             Description = description;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             SecretAccessKey = secretAccessKey;
             ServiceUrl = serviceUrl;
+            SessionToken = sessionToken;
             Type = type;
         }
     }

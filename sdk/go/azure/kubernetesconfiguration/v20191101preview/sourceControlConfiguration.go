@@ -63,6 +63,12 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &SourceControlConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SourceControlConfiguration
 	err := ctx.RegisterResource("azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration", name, args, &resource, opts...)
 	if err != nil {

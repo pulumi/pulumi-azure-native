@@ -22,6 +22,12 @@ namespace Pulumi.AzureNextGen.Management.Latest.Inputs
         public Input<Inputs.DebugSettingArgs>? DebugSetting { get; set; }
 
         /// <summary>
+        /// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
+        /// </summary>
+        [Input("expressionEvaluationOptions")]
+        public Input<Inputs.ExpressionEvaluationOptionsArgs>? ExpressionEvaluationOptions { get; set; }
+
+        /// <summary>
         /// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
         /// </summary>
         [Input("mode", required: true)]

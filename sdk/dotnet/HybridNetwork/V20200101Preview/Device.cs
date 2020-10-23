@@ -10,36 +10,42 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 {
     /// <summary>
-    /// Hybrid network device resource.
+    /// Device resource.
     /// </summary>
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>
-        /// The reference to the azure stack edge device.
+        /// The reference to the Azure stack edge device.
         /// </summary>
         [Output("azureStackEdge")]
         public Output<Outputs.SubResourceResponse?> AzureStackEdge { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the hybrid network device.
+        /// The type of the device.
         /// </summary>
         [Output("deviceType")]
         public Output<string> DeviceType { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the hybrid network device resource.
+        /// The list of network functions deployed on the device.
+        /// </summary>
+        [Output("networkFunctions")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> NetworkFunctions { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the device resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -57,16 +63,10 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of virtual network functions deployed on the hybrid network device.
-        /// </summary>
-        [Output("virtualNetworkFunctions")]
-        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualNetworkFunctions { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class DeviceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The reference to the azure stack edge device.
+        /// The reference to the Azure stack edge device.
         /// </summary>
         [Input("azureStackEdge")]
         public Input<Inputs.SubResourceArgs>? AzureStackEdge { get; set; }
@@ -126,19 +126,19 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the hybrid network device.
+        /// The type of the device.
         /// </summary>
         [Input("deviceType", required: true)]
         public Input<string> DeviceType { get; set; } = null!;
 
         /// <summary>
-        /// Resource location.
+        /// The geo-location where the resource lives
         /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -56,6 +56,12 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+        /// </summary>
+        [Output("versions")]
+        public Output<ImmutableDictionary<string, Outputs.TemplateSpecVersionInfoResponse>> Versions { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TemplateSpec resource with the given unique name, arguments, and options.

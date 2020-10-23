@@ -93,6 +93,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:EmailTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

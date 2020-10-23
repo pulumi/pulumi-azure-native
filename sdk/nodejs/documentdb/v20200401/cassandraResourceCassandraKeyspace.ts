@@ -104,7 +104,7 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraKeyspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CassandraResourceCassandraKeyspace.__pulumiType, name, inputs, opts);
     }

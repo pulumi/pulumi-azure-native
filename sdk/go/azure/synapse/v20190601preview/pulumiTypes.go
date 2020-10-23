@@ -8378,6 +8378,206 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItem struct {
+	// The rule baseline result
+	Result []string `pulumi:"result"`
+}
+
+// SqlPoolVulnerabilityAssessmentRuleBaselineItemInput is an input type that accepts SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs and SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRuleBaselineItemInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs{...}
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput
+}
+
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs struct {
+	// The rule baseline result
+	Result pulumi.StringArrayInput `pulumi:"result"`
+}
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRuleBaselineItem)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput)
+}
+
+// SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayInput is an input type that accepts SqlPoolVulnerabilityAssessmentRuleBaselineItemArray and SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentRuleBaselineItemArray{ SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs{...} }
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput
+}
+
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemArray []SqlPoolVulnerabilityAssessmentRuleBaselineItemInput
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPoolVulnerabilityAssessmentRuleBaselineItem)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemArray) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemArray) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput)
+}
+
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRuleBaselineItem)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput {
+	return o
+}
+
+// The rule baseline result
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput) Result() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRuleBaselineItem) []string { return v.Result }).(pulumi.StringArrayOutput)
+}
+
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPoolVulnerabilityAssessmentRuleBaselineItem)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput) Index(i pulumi.IntInput) SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlPoolVulnerabilityAssessmentRuleBaselineItem {
+		return vs[0].([]SqlPoolVulnerabilityAssessmentRuleBaselineItem)[vs[1].(int)]
+	}).(SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput)
+}
+
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse struct {
+	// The rule baseline result
+	Result []string `pulumi:"result"`
+}
+
+// SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseInput is an input type that accepts SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs and SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs{...}
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput
+}
+
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs struct {
+	// The rule baseline result
+	Result pulumi.StringArrayInput `pulumi:"result"`
+}
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput)
+}
+
+// SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayInput is an input type that accepts SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray and SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray{ SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs{...} }
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput
+}
+
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray []SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseInput
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput)
+}
+
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput {
+	return o
+}
+
+// The rule baseline result
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput) Result() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse) []string { return v.Result }).(pulumi.StringArrayOutput)
+}
+
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) Index(i pulumi.IntInput) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse {
+		return vs[0].([]SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse)[vs[1].(int)]
+	}).(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput)
+}
+
 // Ssis environment reference.
 type SsisEnvironmentReferenceResponse struct {
 	// Environment folder name.
@@ -9994,6 +10194,10 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(SsisEnvironmentReferenceResponseOutput{})
 	pulumi.RegisterOutputType(SsisEnvironmentReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(SsisEnvironmentResponseOutput{})

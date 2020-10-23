@@ -102,7 +102,7 @@ export class TableResourceTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20191212:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200301:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200401:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200601preview:TableResourceTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20191212:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200301:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200401:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200901:TableResourceTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TableResourceTable.__pulumiType, name, inputs, opts);
     }

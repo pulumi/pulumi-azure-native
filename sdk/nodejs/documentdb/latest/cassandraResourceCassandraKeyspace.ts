@@ -71,9 +71,6 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
             if (!args || args.keyspaceName === undefined) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            if (!args || args.options === undefined) {
-                throw new Error("Missing required property 'options'");
-            }
             if (!args || args.resource === undefined) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -104,7 +101,7 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraKeyspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CassandraResourceCassandraKeyspace.__pulumiType, name, inputs, opts);
     }
@@ -129,7 +126,7 @@ export interface CassandraResourceCassandraKeyspaceArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
     /**
      * The standard JSON format of a Cassandra keyspace
      */

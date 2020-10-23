@@ -126,7 +126,7 @@ export class ApiIssue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20170301:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20180101:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20190101:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20191201:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiIssue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20170301:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20180101:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20190101:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20191201:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiIssue" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiIssue.__pulumiType, name, inputs, opts);
     }

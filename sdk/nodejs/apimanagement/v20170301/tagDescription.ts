@@ -106,7 +106,7 @@ export class TagDescription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:TagDescription" }, { type: "azure-nextgen:apimanagement/v20180101:TagDescription" }, { type: "azure-nextgen:apimanagement/v20180601preview:TagDescription" }, { type: "azure-nextgen:apimanagement/v20190101:TagDescription" }, { type: "azure-nextgen:apimanagement/v20191201:TagDescription" }, { type: "azure-nextgen:apimanagement/v20191201preview:TagDescription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:TagDescription" }, { type: "azure-nextgen:apimanagement/v20180101:TagDescription" }, { type: "azure-nextgen:apimanagement/v20180601preview:TagDescription" }, { type: "azure-nextgen:apimanagement/v20190101:TagDescription" }, { type: "azure-nextgen:apimanagement/v20191201:TagDescription" }, { type: "azure-nextgen:apimanagement/v20191201preview:TagDescription" }, { type: "azure-nextgen:apimanagement/v20200601preview:TagDescription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagDescription.__pulumiType, name, inputs, opts);
     }

@@ -34,6 +34,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         }
 
         /// <summary>
+        /// The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("authenticationType")]
+        public Input<object>? AuthenticationType { get; set; }
+
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -74,6 +80,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// </summary>
         [Input("serviceUrl")]
         public Input<object>? ServiceUrl { get; set; }
+
+        /// <summary>
+        /// The session token for the S3 temporary security credential.
+        /// </summary>
+        [Input("sessionToken")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? SessionToken { get; set; }
 
         /// <summary>
         /// Type of linked service.

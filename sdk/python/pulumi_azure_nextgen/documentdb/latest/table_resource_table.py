@@ -61,8 +61,6 @@ class TableResourceTable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['location'] = location
-            if options is None:
-                raise TypeError("Missing required property 'options'")
             __props__['options'] = options
             if resource is None:
                 raise TypeError("Missing required property 'resource'")
@@ -76,7 +74,7 @@ class TableResourceTable(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:TableResourceTable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:TableResourceTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TableResourceTable, __self__).__init__(
             'azure-nextgen:documentdb/latest:TableResourceTable',

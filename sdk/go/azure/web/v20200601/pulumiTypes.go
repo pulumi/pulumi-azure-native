@@ -8697,6 +8697,10 @@ type SiteConfig struct {
 	VirtualApplications []VirtualApplication `pulumi:"virtualApplications"`
 	// Virtual Network name.
 	VnetName *string `pulumi:"vnetName"`
+	// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+	VnetPrivatePortsCount *int `pulumi:"vnetPrivatePortsCount"`
+	// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
 	// Xenon App Framework and version
@@ -8823,6 +8827,10 @@ type SiteConfigArgs struct {
 	VirtualApplications VirtualApplicationArrayInput `pulumi:"virtualApplications"`
 	// Virtual Network name.
 	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
+	// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+	VnetPrivatePortsCount pulumi.IntPtrInput `pulumi:"vnetPrivatePortsCount"`
+	// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
 	// Xenon App Framework and version
@@ -9168,6 +9176,16 @@ func (o SiteConfigOutput) VirtualApplications() VirtualApplicationArrayOutput {
 // Virtual Network name.
 func (o SiteConfigOutput) VnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+}
+
+// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+func (o SiteConfigOutput) VnetPrivatePortsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *int { return v.VnetPrivatePortsCount }).(pulumi.IntPtrOutput)
+}
+
+// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+func (o SiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.VnetRouteAllEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
@@ -9724,6 +9742,26 @@ func (o SiteConfigPtrOutput) VnetName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+func (o SiteConfigPtrOutput) VnetPrivatePortsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VnetPrivatePortsCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+func (o SiteConfigPtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VnetRouteAllEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
@@ -9863,6 +9901,10 @@ type SiteConfigResponse struct {
 	VirtualApplications []VirtualApplicationResponse `pulumi:"virtualApplications"`
 	// Virtual Network name.
 	VnetName *string `pulumi:"vnetName"`
+	// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+	VnetPrivatePortsCount *int `pulumi:"vnetPrivatePortsCount"`
+	// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
 	// Xenon App Framework and version
@@ -9991,6 +10033,10 @@ type SiteConfigResponseArgs struct {
 	VirtualApplications VirtualApplicationResponseArrayInput `pulumi:"virtualApplications"`
 	// Virtual Network name.
 	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
+	// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+	VnetPrivatePortsCount pulumi.IntPtrInput `pulumi:"vnetPrivatePortsCount"`
+	// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
 	// Xenon App Framework and version
@@ -10341,6 +10387,16 @@ func (o SiteConfigResponseOutput) VirtualApplications() VirtualApplicationRespon
 // Virtual Network name.
 func (o SiteConfigResponseOutput) VnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+}
+
+// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+func (o SiteConfigResponseOutput) VnetPrivatePortsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *int { return v.VnetPrivatePortsCount }).(pulumi.IntPtrOutput)
+}
+
+// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+func (o SiteConfigResponseOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.VnetRouteAllEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
@@ -10905,6 +10961,26 @@ func (o SiteConfigResponsePtrOutput) VnetName() pulumi.StringPtrOutput {
 		}
 		return v.VnetName
 	}).(pulumi.StringPtrOutput)
+}
+
+// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+func (o SiteConfigResponsePtrOutput) VnetPrivatePortsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VnetPrivatePortsCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+func (o SiteConfigResponsePtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VnetRouteAllEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.

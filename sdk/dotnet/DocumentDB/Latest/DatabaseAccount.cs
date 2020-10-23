@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         public Output<Outputs.ApiPropertiesResponse?> ApiProperties { get; private set; } = null!;
 
         /// <summary>
+        /// The object representing the policy for taking backups on an account.
+        /// </summary>
+        [Output("backupPolicy")]
+        public Output<Union<Outputs.ContinuousModeBackupPolicyResponse, Outputs.PeriodicModeBackupPolicyResponse>?> BackupPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// List of Cosmos DB capabilities for the account
         /// </summary>
         [Output("capabilities")]
@@ -223,6 +229,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:DatabaseAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -257,6 +264,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// </summary>
         [Input("apiProperties")]
         public Input<Inputs.ApiPropertiesArgs>? ApiProperties { get; set; }
+
+        /// <summary>
+        /// The object representing the policy for taking backups on an account.
+        /// </summary>
+        [Input("backupPolicy")]
+        public InputUnion<Inputs.ContinuousModeBackupPolicyArgs, Inputs.PeriodicModeBackupPolicyArgs>? BackupPolicy { get; set; }
 
         [Input("capabilities")]
         private InputList<Inputs.CapabilityArgs>? _capabilities;

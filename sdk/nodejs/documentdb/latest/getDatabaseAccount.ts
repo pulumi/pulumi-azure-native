@@ -40,6 +40,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly apiProperties?: outputs.documentdb.latest.ApiPropertiesResponse;
     /**
+     * The object representing the policy for taking backups on an account.
+     */
+    readonly backupPolicy?: outputs.documentdb.latest.ContinuousModeBackupPolicyResponse | outputs.documentdb.latest.PeriodicModeBackupPolicyResponse;
+    /**
      * List of Cosmos DB capabilities for the account
      */
     readonly capabilities?: outputs.documentdb.latest.CapabilityResponse[];

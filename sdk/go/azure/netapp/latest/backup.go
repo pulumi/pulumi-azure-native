@@ -60,6 +60,9 @@ func NewBackup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200501:Backup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200601:Backup"),
 		},
 		{

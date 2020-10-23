@@ -115,6 +115,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20191001:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200601:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
