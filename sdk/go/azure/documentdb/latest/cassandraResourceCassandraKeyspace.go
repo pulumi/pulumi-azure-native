@@ -35,9 +35,6 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 	if args == nil || args.KeyspaceName == nil {
 		return nil, errors.New("missing required argument 'KeyspaceName'")
 	}
-	if args == nil || args.Options == nil {
-		return nil, errors.New("missing required argument 'Options'")
-	}
 	if args == nil || args.Resource == nil {
 		return nil, errors.New("missing required argument 'Resource'")
 	}
@@ -62,6 +59,9 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200901:CassandraResourceCassandraKeyspace"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -124,7 +124,7 @@ type cassandraResourceCassandraKeyspaceArgs struct {
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptions `pulumi:"options"`
+	Options *CreateUpdateOptions `pulumi:"options"`
 	// The standard JSON format of a Cassandra keyspace
 	Resource CassandraKeyspaceResource `pulumi:"resource"`
 	// The name of the resource group. The name is case insensitive.
@@ -142,7 +142,7 @@ type CassandraResourceCassandraKeyspaceArgs struct {
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptionsInput
+	Options CreateUpdateOptionsPtrInput
 	// The standard JSON format of a Cassandra keyspace
 	Resource CassandraKeyspaceResourceInput
 	// The name of the resource group. The name is case insensitive.

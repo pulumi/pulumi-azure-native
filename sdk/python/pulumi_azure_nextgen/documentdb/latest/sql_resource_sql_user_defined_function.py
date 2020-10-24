@@ -71,8 +71,6 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['location'] = location
-            if options is None:
-                raise TypeError("Missing required property 'options'")
             __props__['options'] = options
             if resource is None:
                 raise TypeError("Missing required property 'resource'")
@@ -86,7 +84,7 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
             __props__['user_defined_function_name'] = user_defined_function_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlUserDefinedFunction, __self__).__init__(
             'azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction',

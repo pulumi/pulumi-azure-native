@@ -11,4 +11,5 @@ import * as v20180601preview from "./v20180601preview";
 import * as v20190101 from "./v20190101";
 import * as v20191201 from "./v20191201";
 import * as v20191201preview from "./v20191201preview";
-export {latest, v20160707, v20161010, v20170301, v20180101, v20180601preview, v20190101, v20191201, v20191201preview};
+import * as v20200601preview from "./v20200601preview";
+export {latest, v20160707, v20161010, v20170301, v20180101, v20180601preview, v20190101, v20191201, v20191201preview, v20200601preview};

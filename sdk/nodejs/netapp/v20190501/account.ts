@@ -103,7 +103,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Account" }, { type: "azure-nextgen:netapp/v20170815:Account" }, { type: "azure-nextgen:netapp/v20190601:Account" }, { type: "azure-nextgen:netapp/v20190701:Account" }, { type: "azure-nextgen:netapp/v20190801:Account" }, { type: "azure-nextgen:netapp/v20191001:Account" }, { type: "azure-nextgen:netapp/v20191101:Account" }, { type: "azure-nextgen:netapp/v20200201:Account" }, { type: "azure-nextgen:netapp/v20200301:Account" }, { type: "azure-nextgen:netapp/v20200601:Account" }, { type: "azure-nextgen:netapp/v20200701:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Account" }, { type: "azure-nextgen:netapp/v20170815:Account" }, { type: "azure-nextgen:netapp/v20190601:Account" }, { type: "azure-nextgen:netapp/v20190701:Account" }, { type: "azure-nextgen:netapp/v20190801:Account" }, { type: "azure-nextgen:netapp/v20191001:Account" }, { type: "azure-nextgen:netapp/v20191101:Account" }, { type: "azure-nextgen:netapp/v20200201:Account" }, { type: "azure-nextgen:netapp/v20200301:Account" }, { type: "azure-nextgen:netapp/v20200501:Account" }, { type: "azure-nextgen:netapp/v20200601:Account" }, { type: "azure-nextgen:netapp/v20200701:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

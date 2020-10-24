@@ -90,7 +90,7 @@ export class NotebookWorkspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20190801:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20191212:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200401:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200601preview:NotebookWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20190801:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20191212:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200401:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200601preview:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200901:NotebookWorkspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotebookWorkspace.__pulumiType, name, inputs, opts);
     }

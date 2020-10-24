@@ -76,7 +76,7 @@ class EmailTemplate(pulumi.CustomResource):
             __props__['is_default'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:EmailTemplate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:EmailTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EmailTemplate, __self__).__init__(
             'azure-nextgen:apimanagement/latest:EmailTemplate',

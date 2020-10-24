@@ -27,6 +27,8 @@ type LookupDatabaseAccountArgs struct {
 type LookupDatabaseAccountResult struct {
 	// API specific properties.
 	ApiProperties *ApiPropertiesResponse `pulumi:"apiProperties"`
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy interface{} `pulumi:"backupPolicy"`
 	// List of Cosmos DB capabilities for the account
 	Capabilities []CapabilityResponse `pulumi:"capabilities"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.

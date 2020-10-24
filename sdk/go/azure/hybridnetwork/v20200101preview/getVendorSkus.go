@@ -19,32 +19,28 @@ func LookupVendorSkus(ctx *pulumi.Context, args *LookupVendorSkusArgs, opts ...p
 type LookupVendorSkusArgs struct {
 	// The name of the sku.
 	SkuName string `pulumi:"skuName"`
-	// The name of vendor.
+	// The name of the vendor.
 	VendorName string `pulumi:"vendorName"`
 }
 
 // Sku sub resource.
 type LookupVendorSkusResult struct {
-	// Sku deployment mode.
+	// The sku deployment mode.
 	DeploymentMode *string `pulumi:"deploymentMode"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The parameters for the managed application to be supplied by vendor.
+	// The parameters for the managed application to be supplied by the vendor.
 	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The template for the managed application deployment.
 	ManagedApplicationTemplate interface{} `pulumi:"managedApplicationTemplate"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
+	// The template definition of the network function.
+	NetworkFunctionTemplate *NetworkFunctionTemplateResponse `pulumi:"networkFunctionTemplate"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview *bool `pulumi:"preview"`
 	// The provisioning state of the vendor sku sub resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Sku type.
+	// The sku type.
 	SkuType *string `pulumi:"skuType"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
-	// The template definition of the virtual network function.
-	VirtualNetworkFunctionTemplate *VirtualNetworkFunctionTemplateResponse `pulumi:"virtualNetworkFunctionTemplate"`
 }

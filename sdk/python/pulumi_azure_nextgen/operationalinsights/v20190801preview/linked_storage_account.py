@@ -28,7 +28,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_source_type: Linked storage accounts type.
-        :param pulumi.Input[str] resource_group_name: The workspace's resource group name.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to get. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: Linked storage accounts resources ids.
         :param pulumi.Input[str] workspace_name: Name of the Log Analytics Workspace that will contain the resource.
         """

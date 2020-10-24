@@ -101,7 +101,7 @@ func (LinkedStorageAccountState) ElementType() reflect.Type {
 type linkedStorageAccountArgs struct {
 	// Linked storage accounts type.
 	DataSourceType string `pulumi:"dataSourceType"`
-	// The workspace's resource group name.
+	// The name of the resource group to get. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Linked storage accounts resources ids.
 	StorageAccountIds []string `pulumi:"storageAccountIds"`
@@ -113,7 +113,7 @@ type linkedStorageAccountArgs struct {
 type LinkedStorageAccountArgs struct {
 	// Linked storage accounts type.
 	DataSourceType pulumi.StringInput
-	// The workspace's resource group name.
+	// The name of the resource group to get. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Linked storage accounts resources ids.
 	StorageAccountIds pulumi.StringArrayInput

@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:TableResourceTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

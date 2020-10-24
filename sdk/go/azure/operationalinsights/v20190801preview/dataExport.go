@@ -152,7 +152,7 @@ type dataExportArgs struct {
 	EventHubName *string `pulumi:"eventHubName"`
 	// Date and time when the export was last modified.
 	LastModifiedDate *string `pulumi:"lastModifiedDate"`
-	// The workspace's resource group name.
+	// The name of the resource group to get. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
 	ResourceId string `pulumi:"resourceId"`
@@ -178,7 +178,7 @@ type DataExportArgs struct {
 	EventHubName pulumi.StringPtrInput
 	// Date and time when the export was last modified.
 	LastModifiedDate pulumi.StringPtrInput
-	// The workspace's resource group name.
+	// The name of the resource group to get. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
 	ResourceId pulumi.StringInput

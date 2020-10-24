@@ -16,6 +16,8 @@ type DatabaseAccount struct {
 
 	// API specific properties.
 	ApiProperties ApiPropertiesResponsePtrOutput `pulumi:"apiProperties"`
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy pulumi.AnyOutput `pulumi:"backupPolicy"`
 	// List of Cosmos DB capabilities for the account
 	Capabilities CapabilityResponseArrayOutput `pulumi:"capabilities"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -123,6 +125,9 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:DatabaseAccount"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200901:DatabaseAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccount
@@ -149,6 +154,8 @@ func GetDatabaseAccount(ctx *pulumi.Context,
 type databaseAccountState struct {
 	// API specific properties.
 	ApiProperties *ApiPropertiesResponse `pulumi:"apiProperties"`
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy interface{} `pulumi:"backupPolicy"`
 	// List of Cosmos DB capabilities for the account
 	Capabilities []CapabilityResponse `pulumi:"capabilities"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -210,6 +217,8 @@ type databaseAccountState struct {
 type DatabaseAccountState struct {
 	// API specific properties.
 	ApiProperties ApiPropertiesResponsePtrInput
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy pulumi.Input
 	// List of Cosmos DB capabilities for the account
 	Capabilities CapabilityResponseArrayInput
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -277,6 +286,8 @@ type databaseAccountArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// API specific properties. Currently, supported only for MongoDB API.
 	ApiProperties *ApiProperties `pulumi:"apiProperties"`
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy interface{} `pulumi:"backupPolicy"`
 	// List of Cosmos DB capabilities for the account
 	Capabilities []Capability `pulumi:"capabilities"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -325,6 +336,8 @@ type DatabaseAccountArgs struct {
 	AccountName pulumi.StringInput
 	// API specific properties. Currently, supported only for MongoDB API.
 	ApiProperties ApiPropertiesPtrInput
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy pulumi.Input
 	// List of Cosmos DB capabilities for the account
 	Capabilities CapabilityArrayInput
 	// The cassandra connector offer type for the Cosmos DB database C* account.

@@ -9478,14 +9478,13 @@ func (o EncryptionSettingsElementResponseArrayOutput) Index(i pulumi.IntInput) E
 
 // The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfile struct {
-	// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-	ContentType *string `pulumi:"contentType"`
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
 	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
+	ExcludeFromLatest *bool               `pulumi:"excludeFromLatest"`
+	ManageActions     *UserArtifactManage `pulumi:"manageActions"`
 	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 	ReplicaCount *int `pulumi:"replicaCount"`
 	// The source image from which the Image Version is going to be created.
@@ -9509,14 +9508,13 @@ type GalleryApplicationVersionPublishingProfileInput interface {
 
 // The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileArgs struct {
-	// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck pulumi.BoolPtrInput `pulumi:"enableHealthCheck"`
 	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest pulumi.BoolPtrInput `pulumi:"excludeFromLatest"`
+	ExcludeFromLatest pulumi.BoolPtrInput        `pulumi:"excludeFromLatest"`
+	ManageActions     UserArtifactManagePtrInput `pulumi:"manageActions"`
 	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
 	// The source image from which the Image Version is going to be created.
@@ -9605,11 +9603,6 @@ func (o GalleryApplicationVersionPublishingProfileOutput) ToGalleryApplicationVe
 	}).(GalleryApplicationVersionPublishingProfilePtrOutput)
 }
 
-// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-func (o GalleryApplicationVersionPublishingProfileOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *string { return v.ContentType }).(pulumi.StringPtrOutput)
-}
-
 // Optional. Whether or not this application reports health.
 func (o GalleryApplicationVersionPublishingProfileOutput) EnableHealthCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *bool { return v.EnableHealthCheck }).(pulumi.BoolPtrOutput)
@@ -9623,6 +9616,10 @@ func (o GalleryApplicationVersionPublishingProfileOutput) EndOfLifeDate() pulumi
 // If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 func (o GalleryApplicationVersionPublishingProfileOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
+}
+
+func (o GalleryApplicationVersionPublishingProfileOutput) ManageActions() UserArtifactManagePtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *UserArtifactManage { return v.ManageActions }).(UserArtifactManagePtrOutput)
 }
 
 // The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
@@ -9665,16 +9662,6 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) Elem() GalleryAppli
 	}).(GalleryApplicationVersionPublishingProfileOutput)
 }
 
-// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-func (o GalleryApplicationVersionPublishingProfilePtrOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContentType
-	}).(pulumi.StringPtrOutput)
-}
-
 // Optional. Whether or not this application reports health.
 func (o GalleryApplicationVersionPublishingProfilePtrOutput) EnableHealthCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) *bool {
@@ -9703,6 +9690,15 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) ExcludeFromLatest()
 		}
 		return v.ExcludeFromLatest
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GalleryApplicationVersionPublishingProfilePtrOutput) ManageActions() UserArtifactManagePtrOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) *UserArtifactManage {
+		if v == nil {
+			return nil
+		}
+		return v.ManageActions
+	}).(UserArtifactManagePtrOutput)
 }
 
 // The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
@@ -9747,14 +9743,13 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) TargetRegions() Tar
 
 // The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponse struct {
-	// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-	ContentType *string `pulumi:"contentType"`
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
 	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
+	ExcludeFromLatest *bool                       `pulumi:"excludeFromLatest"`
+	ManageActions     *UserArtifactManageResponse `pulumi:"manageActions"`
 	// The timestamp for when the gallery image version is published.
 	PublishedDate string `pulumi:"publishedDate"`
 	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
@@ -9780,14 +9775,13 @@ type GalleryApplicationVersionPublishingProfileResponseInput interface {
 
 // The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponseArgs struct {
-	// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck pulumi.BoolPtrInput `pulumi:"enableHealthCheck"`
 	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest pulumi.BoolPtrInput `pulumi:"excludeFromLatest"`
+	ExcludeFromLatest pulumi.BoolPtrInput                `pulumi:"excludeFromLatest"`
+	ManageActions     UserArtifactManageResponsePtrInput `pulumi:"manageActions"`
 	// The timestamp for when the gallery image version is published.
 	PublishedDate pulumi.StringInput `pulumi:"publishedDate"`
 	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
@@ -9878,11 +9872,6 @@ func (o GalleryApplicationVersionPublishingProfileResponseOutput) ToGalleryAppli
 	}).(GalleryApplicationVersionPublishingProfileResponsePtrOutput)
 }
 
-// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-func (o GalleryApplicationVersionPublishingProfileResponseOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
-}
-
 // Optional. Whether or not this application reports health.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) EnableHealthCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *bool { return v.EnableHealthCheck }).(pulumi.BoolPtrOutput)
@@ -9896,6 +9885,12 @@ func (o GalleryApplicationVersionPublishingProfileResponseOutput) EndOfLifeDate(
 // If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
+}
+
+func (o GalleryApplicationVersionPublishingProfileResponseOutput) ManageActions() UserArtifactManageResponsePtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *UserArtifactManageResponse {
+		return v.ManageActions
+	}).(UserArtifactManageResponsePtrOutput)
 }
 
 // The timestamp for when the gallery image version is published.
@@ -9945,16 +9940,6 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) Elem() Gall
 	}).(GalleryApplicationVersionPublishingProfileResponseOutput)
 }
 
-// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContentType
-	}).(pulumi.StringPtrOutput)
-}
-
 // Optional. Whether or not this application reports health.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) EnableHealthCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *bool {
@@ -9983,6 +9968,15 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) ExcludeFrom
 		}
 		return v.ExcludeFromLatest
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) ManageActions() UserArtifactManageResponsePtrOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *UserArtifactManageResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ManageActions
+	}).(UserArtifactManageResponsePtrOutput)
 }
 
 // The timestamp for when the gallery image version is published.
@@ -28130,11 +28124,349 @@ func (o UpgradePolicyResponsePtrOutput) RollingUpgradePolicy() RollingUpgradePol
 	}).(RollingUpgradePolicyResponsePtrOutput)
 }
 
+type UserArtifactManage struct {
+	// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+	Install string `pulumi:"install"`
+	// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+	Remove string `pulumi:"remove"`
+	// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+	Update *string `pulumi:"update"`
+}
+
+// UserArtifactManageInput is an input type that accepts UserArtifactManageArgs and UserArtifactManageOutput values.
+// You can construct a concrete instance of `UserArtifactManageInput` via:
+//
+//          UserArtifactManageArgs{...}
+type UserArtifactManageInput interface {
+	pulumi.Input
+
+	ToUserArtifactManageOutput() UserArtifactManageOutput
+	ToUserArtifactManageOutputWithContext(context.Context) UserArtifactManageOutput
+}
+
+type UserArtifactManageArgs struct {
+	// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+	Install pulumi.StringInput `pulumi:"install"`
+	// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+	Remove pulumi.StringInput `pulumi:"remove"`
+	// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (UserArtifactManageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserArtifactManage)(nil)).Elem()
+}
+
+func (i UserArtifactManageArgs) ToUserArtifactManageOutput() UserArtifactManageOutput {
+	return i.ToUserArtifactManageOutputWithContext(context.Background())
+}
+
+func (i UserArtifactManageArgs) ToUserArtifactManageOutputWithContext(ctx context.Context) UserArtifactManageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactManageOutput)
+}
+
+func (i UserArtifactManageArgs) ToUserArtifactManagePtrOutput() UserArtifactManagePtrOutput {
+	return i.ToUserArtifactManagePtrOutputWithContext(context.Background())
+}
+
+func (i UserArtifactManageArgs) ToUserArtifactManagePtrOutputWithContext(ctx context.Context) UserArtifactManagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactManageOutput).ToUserArtifactManagePtrOutputWithContext(ctx)
+}
+
+// UserArtifactManagePtrInput is an input type that accepts UserArtifactManageArgs, UserArtifactManagePtr and UserArtifactManagePtrOutput values.
+// You can construct a concrete instance of `UserArtifactManagePtrInput` via:
+//
+//          UserArtifactManageArgs{...}
+//
+//  or:
+//
+//          nil
+type UserArtifactManagePtrInput interface {
+	pulumi.Input
+
+	ToUserArtifactManagePtrOutput() UserArtifactManagePtrOutput
+	ToUserArtifactManagePtrOutputWithContext(context.Context) UserArtifactManagePtrOutput
+}
+
+type userArtifactManagePtrType UserArtifactManageArgs
+
+func UserArtifactManagePtr(v *UserArtifactManageArgs) UserArtifactManagePtrInput {
+	return (*userArtifactManagePtrType)(v)
+}
+
+func (*userArtifactManagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserArtifactManage)(nil)).Elem()
+}
+
+func (i *userArtifactManagePtrType) ToUserArtifactManagePtrOutput() UserArtifactManagePtrOutput {
+	return i.ToUserArtifactManagePtrOutputWithContext(context.Background())
+}
+
+func (i *userArtifactManagePtrType) ToUserArtifactManagePtrOutputWithContext(ctx context.Context) UserArtifactManagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactManagePtrOutput)
+}
+
+type UserArtifactManageOutput struct{ *pulumi.OutputState }
+
+func (UserArtifactManageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserArtifactManage)(nil)).Elem()
+}
+
+func (o UserArtifactManageOutput) ToUserArtifactManageOutput() UserArtifactManageOutput {
+	return o
+}
+
+func (o UserArtifactManageOutput) ToUserArtifactManageOutputWithContext(ctx context.Context) UserArtifactManageOutput {
+	return o
+}
+
+func (o UserArtifactManageOutput) ToUserArtifactManagePtrOutput() UserArtifactManagePtrOutput {
+	return o.ToUserArtifactManagePtrOutputWithContext(context.Background())
+}
+
+func (o UserArtifactManageOutput) ToUserArtifactManagePtrOutputWithContext(ctx context.Context) UserArtifactManagePtrOutput {
+	return o.ApplyT(func(v UserArtifactManage) *UserArtifactManage {
+		return &v
+	}).(UserArtifactManagePtrOutput)
+}
+
+// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageOutput) Install() pulumi.StringOutput {
+	return o.ApplyT(func(v UserArtifactManage) string { return v.Install }).(pulumi.StringOutput)
+}
+
+// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageOutput) Remove() pulumi.StringOutput {
+	return o.ApplyT(func(v UserArtifactManage) string { return v.Remove }).(pulumi.StringOutput)
+}
+
+// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserArtifactManage) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type UserArtifactManagePtrOutput struct{ *pulumi.OutputState }
+
+func (UserArtifactManagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserArtifactManage)(nil)).Elem()
+}
+
+func (o UserArtifactManagePtrOutput) ToUserArtifactManagePtrOutput() UserArtifactManagePtrOutput {
+	return o
+}
+
+func (o UserArtifactManagePtrOutput) ToUserArtifactManagePtrOutputWithContext(ctx context.Context) UserArtifactManagePtrOutput {
+	return o
+}
+
+func (o UserArtifactManagePtrOutput) Elem() UserArtifactManageOutput {
+	return o.ApplyT(func(v *UserArtifactManage) UserArtifactManage { return *v }).(UserArtifactManageOutput)
+}
+
+// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManagePtrOutput) Install() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserArtifactManage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Install
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManagePtrOutput) Remove() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserArtifactManage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Remove
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManagePtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserArtifactManage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserArtifactManageResponse struct {
+	// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+	Install string `pulumi:"install"`
+	// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+	Remove string `pulumi:"remove"`
+	// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+	Update *string `pulumi:"update"`
+}
+
+// UserArtifactManageResponseInput is an input type that accepts UserArtifactManageResponseArgs and UserArtifactManageResponseOutput values.
+// You can construct a concrete instance of `UserArtifactManageResponseInput` via:
+//
+//          UserArtifactManageResponseArgs{...}
+type UserArtifactManageResponseInput interface {
+	pulumi.Input
+
+	ToUserArtifactManageResponseOutput() UserArtifactManageResponseOutput
+	ToUserArtifactManageResponseOutputWithContext(context.Context) UserArtifactManageResponseOutput
+}
+
+type UserArtifactManageResponseArgs struct {
+	// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+	Install pulumi.StringInput `pulumi:"install"`
+	// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+	Remove pulumi.StringInput `pulumi:"remove"`
+	// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (UserArtifactManageResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserArtifactManageResponse)(nil)).Elem()
+}
+
+func (i UserArtifactManageResponseArgs) ToUserArtifactManageResponseOutput() UserArtifactManageResponseOutput {
+	return i.ToUserArtifactManageResponseOutputWithContext(context.Background())
+}
+
+func (i UserArtifactManageResponseArgs) ToUserArtifactManageResponseOutputWithContext(ctx context.Context) UserArtifactManageResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactManageResponseOutput)
+}
+
+func (i UserArtifactManageResponseArgs) ToUserArtifactManageResponsePtrOutput() UserArtifactManageResponsePtrOutput {
+	return i.ToUserArtifactManageResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UserArtifactManageResponseArgs) ToUserArtifactManageResponsePtrOutputWithContext(ctx context.Context) UserArtifactManageResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactManageResponseOutput).ToUserArtifactManageResponsePtrOutputWithContext(ctx)
+}
+
+// UserArtifactManageResponsePtrInput is an input type that accepts UserArtifactManageResponseArgs, UserArtifactManageResponsePtr and UserArtifactManageResponsePtrOutput values.
+// You can construct a concrete instance of `UserArtifactManageResponsePtrInput` via:
+//
+//          UserArtifactManageResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UserArtifactManageResponsePtrInput interface {
+	pulumi.Input
+
+	ToUserArtifactManageResponsePtrOutput() UserArtifactManageResponsePtrOutput
+	ToUserArtifactManageResponsePtrOutputWithContext(context.Context) UserArtifactManageResponsePtrOutput
+}
+
+type userArtifactManageResponsePtrType UserArtifactManageResponseArgs
+
+func UserArtifactManageResponsePtr(v *UserArtifactManageResponseArgs) UserArtifactManageResponsePtrInput {
+	return (*userArtifactManageResponsePtrType)(v)
+}
+
+func (*userArtifactManageResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserArtifactManageResponse)(nil)).Elem()
+}
+
+func (i *userArtifactManageResponsePtrType) ToUserArtifactManageResponsePtrOutput() UserArtifactManageResponsePtrOutput {
+	return i.ToUserArtifactManageResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *userArtifactManageResponsePtrType) ToUserArtifactManageResponsePtrOutputWithContext(ctx context.Context) UserArtifactManageResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactManageResponsePtrOutput)
+}
+
+type UserArtifactManageResponseOutput struct{ *pulumi.OutputState }
+
+func (UserArtifactManageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserArtifactManageResponse)(nil)).Elem()
+}
+
+func (o UserArtifactManageResponseOutput) ToUserArtifactManageResponseOutput() UserArtifactManageResponseOutput {
+	return o
+}
+
+func (o UserArtifactManageResponseOutput) ToUserArtifactManageResponseOutputWithContext(ctx context.Context) UserArtifactManageResponseOutput {
+	return o
+}
+
+func (o UserArtifactManageResponseOutput) ToUserArtifactManageResponsePtrOutput() UserArtifactManageResponsePtrOutput {
+	return o.ToUserArtifactManageResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UserArtifactManageResponseOutput) ToUserArtifactManageResponsePtrOutputWithContext(ctx context.Context) UserArtifactManageResponsePtrOutput {
+	return o.ApplyT(func(v UserArtifactManageResponse) *UserArtifactManageResponse {
+		return &v
+	}).(UserArtifactManageResponsePtrOutput)
+}
+
+// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageResponseOutput) Install() pulumi.StringOutput {
+	return o.ApplyT(func(v UserArtifactManageResponse) string { return v.Install }).(pulumi.StringOutput)
+}
+
+// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageResponseOutput) Remove() pulumi.StringOutput {
+	return o.ApplyT(func(v UserArtifactManageResponse) string { return v.Remove }).(pulumi.StringOutput)
+}
+
+// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageResponseOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserArtifactManageResponse) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type UserArtifactManageResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserArtifactManageResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserArtifactManageResponse)(nil)).Elem()
+}
+
+func (o UserArtifactManageResponsePtrOutput) ToUserArtifactManageResponsePtrOutput() UserArtifactManageResponsePtrOutput {
+	return o
+}
+
+func (o UserArtifactManageResponsePtrOutput) ToUserArtifactManageResponsePtrOutputWithContext(ctx context.Context) UserArtifactManageResponsePtrOutput {
+	return o
+}
+
+func (o UserArtifactManageResponsePtrOutput) Elem() UserArtifactManageResponseOutput {
+	return o.ApplyT(func(v *UserArtifactManageResponse) UserArtifactManageResponse { return *v }).(UserArtifactManageResponseOutput)
+}
+
+// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageResponsePtrOutput) Install() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserArtifactManageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Install
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageResponsePtrOutput) Remove() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserArtifactManageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Remove
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageResponsePtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserArtifactManageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 // The source image from which the Image Version is going to be created.
 type UserArtifactSource struct {
-	// Required. The fileName of the artifact.
-	FileName string `pulumi:"fileName"`
-	// Required. The mediaLink of the artifact, must be a readable storage blob.
+	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+	DefaultConfigurationLink *string `pulumi:"defaultConfigurationLink"`
+	// Required. The mediaLink of the artifact, must be a readable storage page blob.
 	MediaLink string `pulumi:"mediaLink"`
 }
 
@@ -28151,9 +28483,9 @@ type UserArtifactSourceInput interface {
 
 // The source image from which the Image Version is going to be created.
 type UserArtifactSourceArgs struct {
-	// Required. The fileName of the artifact.
-	FileName pulumi.StringInput `pulumi:"fileName"`
-	// Required. The mediaLink of the artifact, must be a readable storage blob.
+	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+	DefaultConfigurationLink pulumi.StringPtrInput `pulumi:"defaultConfigurationLink"`
+	// Required. The mediaLink of the artifact, must be a readable storage page blob.
 	MediaLink pulumi.StringInput `pulumi:"mediaLink"`
 }
 
@@ -28235,12 +28567,12 @@ func (o UserArtifactSourceOutput) ToUserArtifactSourcePtrOutputWithContext(ctx c
 	}).(UserArtifactSourcePtrOutput)
 }
 
-// Required. The fileName of the artifact.
-func (o UserArtifactSourceOutput) FileName() pulumi.StringOutput {
-	return o.ApplyT(func(v UserArtifactSource) string { return v.FileName }).(pulumi.StringOutput)
+// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+func (o UserArtifactSourceOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserArtifactSource) *string { return v.DefaultConfigurationLink }).(pulumi.StringPtrOutput)
 }
 
-// Required. The mediaLink of the artifact, must be a readable storage blob.
+// Required. The mediaLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourceOutput) MediaLink() pulumi.StringOutput {
 	return o.ApplyT(func(v UserArtifactSource) string { return v.MediaLink }).(pulumi.StringOutput)
 }
@@ -28263,17 +28595,17 @@ func (o UserArtifactSourcePtrOutput) Elem() UserArtifactSourceOutput {
 	return o.ApplyT(func(v *UserArtifactSource) UserArtifactSource { return *v }).(UserArtifactSourceOutput)
 }
 
-// Required. The fileName of the artifact.
-func (o UserArtifactSourcePtrOutput) FileName() pulumi.StringPtrOutput {
+// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+func (o UserArtifactSourcePtrOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactSource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.FileName
+		return v.DefaultConfigurationLink
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required. The mediaLink of the artifact, must be a readable storage blob.
+// Required. The mediaLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourcePtrOutput) MediaLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactSource) *string {
 		if v == nil {
@@ -28285,9 +28617,9 @@ func (o UserArtifactSourcePtrOutput) MediaLink() pulumi.StringPtrOutput {
 
 // The source image from which the Image Version is going to be created.
 type UserArtifactSourceResponse struct {
-	// Required. The fileName of the artifact.
-	FileName string `pulumi:"fileName"`
-	// Required. The mediaLink of the artifact, must be a readable storage blob.
+	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+	DefaultConfigurationLink *string `pulumi:"defaultConfigurationLink"`
+	// Required. The mediaLink of the artifact, must be a readable storage page blob.
 	MediaLink string `pulumi:"mediaLink"`
 }
 
@@ -28304,9 +28636,9 @@ type UserArtifactSourceResponseInput interface {
 
 // The source image from which the Image Version is going to be created.
 type UserArtifactSourceResponseArgs struct {
-	// Required. The fileName of the artifact.
-	FileName pulumi.StringInput `pulumi:"fileName"`
-	// Required. The mediaLink of the artifact, must be a readable storage blob.
+	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+	DefaultConfigurationLink pulumi.StringPtrInput `pulumi:"defaultConfigurationLink"`
+	// Required. The mediaLink of the artifact, must be a readable storage page blob.
 	MediaLink pulumi.StringInput `pulumi:"mediaLink"`
 }
 
@@ -28388,12 +28720,12 @@ func (o UserArtifactSourceResponseOutput) ToUserArtifactSourceResponsePtrOutputW
 	}).(UserArtifactSourceResponsePtrOutput)
 }
 
-// Required. The fileName of the artifact.
-func (o UserArtifactSourceResponseOutput) FileName() pulumi.StringOutput {
-	return o.ApplyT(func(v UserArtifactSourceResponse) string { return v.FileName }).(pulumi.StringOutput)
+// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+func (o UserArtifactSourceResponseOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserArtifactSourceResponse) *string { return v.DefaultConfigurationLink }).(pulumi.StringPtrOutput)
 }
 
-// Required. The mediaLink of the artifact, must be a readable storage blob.
+// Required. The mediaLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourceResponseOutput) MediaLink() pulumi.StringOutput {
 	return o.ApplyT(func(v UserArtifactSourceResponse) string { return v.MediaLink }).(pulumi.StringOutput)
 }
@@ -28416,17 +28748,17 @@ func (o UserArtifactSourceResponsePtrOutput) Elem() UserArtifactSourceResponseOu
 	return o.ApplyT(func(v *UserArtifactSourceResponse) UserArtifactSourceResponse { return *v }).(UserArtifactSourceResponseOutput)
 }
 
-// Required. The fileName of the artifact.
-func (o UserArtifactSourceResponsePtrOutput) FileName() pulumi.StringPtrOutput {
+// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+func (o UserArtifactSourceResponsePtrOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactSourceResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.FileName
+		return v.DefaultConfigurationLink
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required. The mediaLink of the artifact, must be a readable storage blob.
+// Required. The mediaLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourceResponsePtrOutput) MediaLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactSourceResponse) *string {
 		if v == nil {
@@ -40448,6 +40780,10 @@ func init() {
 	pulumi.RegisterOutputType(UpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(UpgradePolicyResponseOutput{})
 	pulumi.RegisterOutputType(UpgradePolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserArtifactManageOutput{})
+	pulumi.RegisterOutputType(UserArtifactManagePtrOutput{})
+	pulumi.RegisterOutputType(UserArtifactManageResponseOutput{})
+	pulumi.RegisterOutputType(UserArtifactManageResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserArtifactSourceOutput{})
 	pulumi.RegisterOutputType(UserArtifactSourcePtrOutput{})
 	pulumi.RegisterOutputType(UserArtifactSourceResponseOutput{})

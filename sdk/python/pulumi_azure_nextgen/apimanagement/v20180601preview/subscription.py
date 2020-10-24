@@ -94,7 +94,7 @@ class Subscription(pulumi.CustomResource):
             __props__['start_date'] = None
             __props__['state_comment'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Subscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Subscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Subscription, __self__).__init__(
             'azure-nextgen:apimanagement/v20180601preview:Subscription',

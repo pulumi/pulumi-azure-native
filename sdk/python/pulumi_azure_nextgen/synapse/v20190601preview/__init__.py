@@ -13,7 +13,9 @@ from .get_ip_firewall_rule import *
 from .get_private_endpoint_connection import *
 from .get_private_link_hub import *
 from .get_sql_pool import *
+from .get_sql_pool_sensitivity_label import *
 from .get_sql_pool_vulnerability_assessment import *
+from .get_sql_pool_vulnerability_assessment_rule_baseline import *
 from .get_workspace import *
 from .get_workspace_aad_admin import *
 from .integration_runtime import *
@@ -22,7 +24,9 @@ from .list_integration_runtime_auth_key import *
 from .private_endpoint_connection import *
 from .private_link_hub import *
 from .sql_pool import *
+from .sql_pool_sensitivity_label import *
 from .sql_pool_vulnerability_assessment import *
+from .sql_pool_vulnerability_assessment_rule_baseline import *
 from .workspace import *
 from .workspace_aad_admin import *
 from ._inputs import *

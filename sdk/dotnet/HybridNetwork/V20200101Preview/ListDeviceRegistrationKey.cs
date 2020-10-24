@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class ListDeviceRegistrationKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the hybrid network device.
+        /// The name of the device resource.
         /// </summary>
         [Input("deviceName", required: true)]
         public string DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class ListDeviceRegistrationKeyResult
     {
         /// <summary>
-        /// The registration key for hybrid network device.
+        /// The registration key for the device.
         /// </summary>
         public readonly string RegistrationKey;
 

@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200701preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

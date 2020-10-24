@@ -46,6 +46,9 @@ func NewGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Gateway"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Gateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Gateway

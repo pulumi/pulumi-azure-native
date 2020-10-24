@@ -71,9 +71,6 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
             if (!args || args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.options === undefined) {
-                throw new Error("Missing required property 'options'");
-            }
             if (!args || args.resource === undefined) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -104,7 +101,7 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlDatabase.__pulumiType, name, inputs, opts);
     }
@@ -129,7 +126,7 @@ export interface SqlResourceSqlDatabaseArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
     /**
      * The standard JSON format of a SQL database
      */
