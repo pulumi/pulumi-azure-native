@@ -65,6 +65,9 @@ func NewConfigurationStore(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20200601:ConfigurationStore"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationStore

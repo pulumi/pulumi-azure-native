@@ -21,7 +21,7 @@ export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Pro
 
 export interface GetVendorArgs {
     /**
-     * The name of vendor.
+     * The name of the vendor.
      */
     readonly vendorName: string;
 }
@@ -31,11 +31,7 @@ export interface GetVendorArgs {
  */
 export interface GetVendorResult {
     /**
-     * Resource location.
-     */
-    readonly location?: string;
-    /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -43,15 +39,11 @@ export interface GetVendorResult {
      */
     readonly provisioningState: string;
     /**
-     * A list of ids of the vendor skus offered by the vendor.
+     * A list of IDs of the vendor skus offered by the vendor.
      */
     readonly skus: outputs.hybridnetwork.v20200101preview.SubResourceResponse[];
     /**
-     * Resource tags.
-     */
-    readonly tags?: {[key: string]: string};
-    /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
 }

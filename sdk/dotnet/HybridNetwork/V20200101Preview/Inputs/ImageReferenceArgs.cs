@@ -16,28 +16,34 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Inputs
     public sealed class ImageReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The OS type.
+        /// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
         /// </summary>
-        [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        [Input("exactVersion")]
+        public Input<string>? ExactVersion { get; set; }
 
         /// <summary>
-        /// The VHD SAS URI.
+        /// Specifies the offer of the image used to create the virtual machine.
         /// </summary>
-        [Input("sasUri")]
-        public Input<string>? SasUri { get; set; }
+        [Input("offer")]
+        public Input<string>? Offer { get; set; }
 
         /// <summary>
-        /// The VHD name.
+        /// The image publisher.
         /// </summary>
-        [Input("vhdName")]
-        public Input<string>? VhdName { get; set; }
+        [Input("publisher")]
+        public Input<string>? Publisher { get; set; }
 
         /// <summary>
-        /// The VHD type.
+        /// The image SKU.
         /// </summary>
-        [Input("vhdType")]
-        public Input<string>? VhdType { get; set; }
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public ImageReferenceArgs()
         {

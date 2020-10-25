@@ -22,21 +22,21 @@ export function listDeviceRegistrationKey(args: ListDeviceRegistrationKeyArgs, o
 
 export interface ListDeviceRegistrationKeyArgs {
     /**
-     * The name of the hybrid network device.
+     * The name of the device resource.
      */
     readonly deviceName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }
 
 /**
- * The hybrid network device registration key
+ * The device registration key.
  */
 export interface ListDeviceRegistrationKeyResult {
     /**
-     * The registration key for hybrid network device.
+     * The registration key for the device.
      */
     readonly registrationKey: string;
 }

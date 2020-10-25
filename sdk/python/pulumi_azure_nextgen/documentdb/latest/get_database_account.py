@@ -20,10 +20,13 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, api_properties=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, api_properties=None, backup_policy=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
         if api_properties and not isinstance(api_properties, dict):
             raise TypeError("Expected argument 'api_properties' to be a dict")
         pulumi.set(__self__, "api_properties", api_properties)
+        if backup_policy and not isinstance(backup_policy, dict):
+            raise TypeError("Expected argument 'backup_policy' to be a dict")
+        pulumi.set(__self__, "backup_policy", backup_policy)
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
@@ -116,6 +119,14 @@ class GetDatabaseAccountResult:
         API specific properties.
         """
         return pulumi.get(self, "api_properties")
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> Optional[Any]:
+        """
+        The object representing the policy for taking backups on an account.
+        """
+        return pulumi.get(self, "backup_policy")
 
     @property
     @pulumi.getter
@@ -349,6 +360,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             yield self
         return GetDatabaseAccountResult(
             api_properties=self.api_properties,
+            backup_policy=self.backup_policy,
             capabilities=self.capabilities,
             connector_offer=self.connector_offer,
             consistency_policy=self.consistency_policy,
@@ -399,6 +411,7 @@ def get_database_account(account_name: Optional[str] = None,
 
     return AwaitableGetDatabaseAccountResult(
         api_properties=__ret__.api_properties,
+        backup_policy=__ret__.backup_policy,
         capabilities=__ret__.capabilities,
         connector_offer=__ret__.connector_offer,
         consistency_policy=__ret__.consistency_policy,

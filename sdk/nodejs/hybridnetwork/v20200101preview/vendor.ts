@@ -37,11 +37,7 @@ export class Vendor extends pulumi.CustomResource {
     }
 
     /**
-     * Resource location.
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -49,15 +45,11 @@ export class Vendor extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * A list of ids of the vendor skus offered by the vendor.
+     * A list of IDs of the vendor skus offered by the vendor.
      */
     public /*out*/ readonly skus!: pulumi.Output<outputs.hybridnetwork.v20200101preview.SubResourceResponse[]>;
     /**
-     * Resource tags.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -74,19 +66,15 @@ export class Vendor extends pulumi.CustomResource {
             if (!args || args.vendorName === undefined) {
                 throw new Error("Missing required property 'vendorName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
             inputs["vendorName"] = args ? args.vendorName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["skus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["skus"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,14 +92,6 @@ export class Vendor extends pulumi.CustomResource {
  * The set of arguments for constructing a Vendor resource.
  */
 export interface VendorArgs {
-    /**
-     * Resource location.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the vendor.
      */

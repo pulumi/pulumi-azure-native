@@ -84,7 +84,7 @@ class ApiIssue(pulumi.CustomResource):
             __props__['user_id'] = user_id
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssue, __self__).__init__(
             'azure-nextgen:apimanagement/v20191201preview:ApiIssue',

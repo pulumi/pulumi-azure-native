@@ -18,15 +18,13 @@ class VendorSkus(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  managed_application_parameters: Optional[Any] = None,
                  managed_application_template: Optional[Any] = None,
+                 network_function_template: Optional[pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  sku_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None,
-                 virtual_network_function_template: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkFunctionTemplateArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,16 +33,14 @@ class VendorSkus(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deployment_mode: Sku deployment mode.
-        :param pulumi.Input[str] location: Resource location.
-        :param Any managed_application_parameters: The parameters for the managed application to be supplied by vendor.
+        :param pulumi.Input[str] deployment_mode: The sku deployment mode.
+        :param Any managed_application_parameters: The parameters for the managed application to be supplied by the vendor.
         :param Any managed_application_template: The template for the managed application deployment.
+        :param pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']] network_function_template: The template definition of the network function.
         :param pulumi.Input[bool] preview: Indicates if the vendor sku is in preview mode.
         :param pulumi.Input[str] sku_name: The name of the sku.
-        :param pulumi.Input[str] sku_type: Sku type.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] sku_type: The sku type.
         :param pulumi.Input[str] vendor_name: The name of the vendor.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkFunctionTemplateArgs']] virtual_network_function_template: The template definition of the virtual network function.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,19 +60,17 @@ class VendorSkus(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['deployment_mode'] = deployment_mode
-            __props__['location'] = location
             __props__['managed_application_parameters'] = managed_application_parameters
             __props__['managed_application_template'] = managed_application_template
+            __props__['network_function_template'] = network_function_template
             __props__['preview'] = preview
             if sku_name is None:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['sku_type'] = sku_type
-            __props__['tags'] = tags
             if vendor_name is None:
                 raise TypeError("Missing required property 'vendor_name'")
             __props__['vendor_name'] = vendor_name
-            __props__['virtual_network_function_template'] = virtual_network_function_template
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
@@ -108,23 +102,15 @@ class VendorSkus(pulumi.CustomResource):
     @pulumi.getter(name="deploymentMode")
     def deployment_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Sku deployment mode.
+        The sku deployment mode.
         """
         return pulumi.get(self, "deployment_mode")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="managedApplicationParameters")
     def managed_application_parameters(self) -> pulumi.Output[Optional[Any]]:
         """
-        The parameters for the managed application to be supplied by vendor.
+        The parameters for the managed application to be supplied by the vendor.
         """
         return pulumi.get(self, "managed_application_parameters")
 
@@ -140,9 +126,17 @@ class VendorSkus(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkFunctionTemplate")
+    def network_function_template(self) -> pulumi.Output[Optional['outputs.NetworkFunctionTemplateResponse']]:
+        """
+        The template definition of the network function.
+        """
+        return pulumi.get(self, "network_function_template")
 
     @property
     @pulumi.getter
@@ -164,33 +158,17 @@ class VendorSkus(pulumi.CustomResource):
     @pulumi.getter(name="skuType")
     def sku_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Sku type.
+        The sku type.
         """
         return pulumi.get(self, "sku_type")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualNetworkFunctionTemplate")
-    def virtual_network_function_template(self) -> pulumi.Output[Optional['outputs.VirtualNetworkFunctionTemplateResponse']]:
-        """
-        The template definition of the virtual network function.
-        """
-        return pulumi.get(self, "virtual_network_function_template")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

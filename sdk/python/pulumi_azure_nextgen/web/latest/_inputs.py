@@ -2968,6 +2968,8 @@ class SiteConfigArgs:
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
                  virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]]] = None,
                  vnet_name: Optional[pulumi.Input[str]] = None,
+                 vnet_private_ports_count: Optional[pulumi.Input[int]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
                  web_sockets_enabled: Optional[pulumi.Input[bool]] = None,
                  windows_fx_version: Optional[pulumi.Input[str]] = None,
                  x_managed_service_identity_id: Optional[pulumi.Input[int]] = None):
@@ -3026,6 +3028,8 @@ class SiteConfigArgs:
         :param pulumi.Input[bool] use32_bit_worker_process: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]] virtual_applications: Virtual applications.
         :param pulumi.Input[str] vnet_name: Virtual Network name.
+        :param pulumi.Input[int] vnet_private_ports_count: The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        :param pulumi.Input[bool] vnet_route_all_enabled: Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         :param pulumi.Input[bool] web_sockets_enabled: <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
         :param pulumi.Input[str] windows_fx_version: Xenon App Framework and version
         :param pulumi.Input[int] x_managed_service_identity_id: Explicit Managed Service Identity Id
@@ -3134,6 +3138,10 @@ class SiteConfigArgs:
             pulumi.set(__self__, "virtual_applications", virtual_applications)
         if vnet_name is not None:
             pulumi.set(__self__, "vnet_name", vnet_name)
+        if vnet_private_ports_count is not None:
+            pulumi.set(__self__, "vnet_private_ports_count", vnet_private_ports_count)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if web_sockets_enabled is not None:
             pulumi.set(__self__, "web_sockets_enabled", web_sockets_enabled)
         if windows_fx_version is not None:
@@ -3765,6 +3773,30 @@ class SiteConfigArgs:
     @vnet_name.setter
     def vnet_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_name", value)
+
+    @property
+    @pulumi.getter(name="vnetPrivatePortsCount")
+    def vnet_private_ports_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        """
+        return pulumi.get(self, "vnet_private_ports_count")
+
+    @vnet_private_ports_count.setter
+    def vnet_private_ports_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vnet_private_ports_count", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
 
     @property
     @pulumi.getter(name="webSocketsEnabled")

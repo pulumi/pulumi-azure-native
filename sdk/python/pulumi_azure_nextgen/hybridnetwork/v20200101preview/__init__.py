@@ -5,14 +5,14 @@
 # Export this package's modules as members:
 from .device import *
 from .get_device import *
+from .get_network_function import *
 from .get_vendor import *
 from .get_vendor_sku_preview import *
 from .get_vendor_skus import *
-from .get_virtual_network_function import *
 from .list_device_registration_key import *
+from .network_function import *
 from .vendor import *
 from .vendor_sku_preview import *
 from .vendor_skus import *
-from .virtual_network_function import *
 from ._inputs import *
 from . import outputs

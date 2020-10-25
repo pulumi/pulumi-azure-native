@@ -74,6 +74,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,8 +119,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// <summary>
         /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         /// </summary>
-        [Input("options", required: true)]
-        public Input<Inputs.CreateUpdateOptionsArgs> Options { get; set; } = null!;
+        [Input("options")]
+        public Input<Inputs.CreateUpdateOptionsArgs>? Options { get; set; }
 
         /// <summary>
         /// The standard JSON format of a Cassandra table

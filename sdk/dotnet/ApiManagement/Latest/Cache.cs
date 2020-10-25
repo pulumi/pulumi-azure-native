@@ -73,6 +73,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,13 +15,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public partial class Vendor : Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -33,19 +27,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// A list of ids of the vendor skus offered by the vendor.
+        /// A list of IDs of the vendor skus offered by the vendor.
         /// </summary>
         [Output("skus")]
         public Output<ImmutableArray<Outputs.SubResourceResponse>> Skus { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -95,24 +83,6 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
     public sealed class VendorArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         /// <summary>
         /// The name of the vendor.
         /// </summary>

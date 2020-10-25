@@ -26,7 +26,7 @@ export interface GetVendorSkusArgs {
      */
     readonly skuName: string;
     /**
-     * The name of vendor.
+     * The name of the vendor.
      */
     readonly vendorName: string;
 }
@@ -36,15 +36,11 @@ export interface GetVendorSkusArgs {
  */
 export interface GetVendorSkusResult {
     /**
-     * Sku deployment mode.
+     * The sku deployment mode.
      */
     readonly deploymentMode?: string;
     /**
-     * Resource location.
-     */
-    readonly location?: string;
-    /**
-     * The parameters for the managed application to be supplied by vendor.
+     * The parameters for the managed application to be supplied by the vendor.
      */
     readonly managedApplicationParameters?: any;
     /**
@@ -52,9 +48,13 @@ export interface GetVendorSkusResult {
      */
     readonly managedApplicationTemplate?: any;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
+    /**
+     * The template definition of the network function.
+     */
+    readonly networkFunctionTemplate?: outputs.hybridnetwork.v20200101preview.NetworkFunctionTemplateResponse;
     /**
      * Indicates if the vendor sku is in preview mode.
      */
@@ -64,19 +64,11 @@ export interface GetVendorSkusResult {
      */
     readonly provisioningState: string;
     /**
-     * Sku type.
+     * The sku type.
      */
     readonly skuType?: string;
     /**
-     * Resource tags.
-     */
-    readonly tags?: {[key: string]: string};
-    /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
-    /**
-     * The template definition of the virtual network function.
-     */
-    readonly virtualNetworkFunctionTemplate?: outputs.hybridnetwork.v20200101preview.VirtualNetworkFunctionTemplateResponse;
 }

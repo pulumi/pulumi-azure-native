@@ -108,7 +108,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlContainer.__pulumiType, name, inputs, opts);
     }

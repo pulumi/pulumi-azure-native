@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         /// <summary>
         /// A system generated property that denotes the last updated timestamp of the resource.
         /// </summary>
-        public readonly object Ts;
+        public readonly double Ts;
 
         [OutputConstructor]
         private CassandraTableGetPropertiesResponseResource(
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
 
             Outputs.CassandraSchemaResponse? schema,
 
-            object ts)
+            double ts)
         {
             AnalyticalStorageTtl = analyticalStorageTtl;
             DefaultTtl = defaultTtl;

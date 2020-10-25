@@ -17,6 +17,8 @@ func LookupTemplateSpec(ctx *pulumi.Context, args *LookupTemplateSpecArgs, opts 
 }
 
 type LookupTemplateSpecArgs struct {
+	// Allows for expansion of additional Template Spec details in the response. Optional.
+	Expand *string `pulumi:"expand"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the Template Spec.
@@ -39,4 +41,6 @@ type LookupTemplateSpecResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of this resource.
 	Type string `pulumi:"type"`
+	// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+	Versions map[string]TemplateSpecVersionInfoResponse `pulumi:"versions"`
 }

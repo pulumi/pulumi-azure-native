@@ -475,6 +475,124 @@ func (o TemplateSpecTemplateArtifactResponseArrayOutput) Index(i pulumi.IntInput
 	}).(TemplateSpecTemplateArtifactResponseOutput)
 }
 
+// High-level information about a Template Spec version.
+type TemplateSpecVersionInfoResponse struct {
+	// Template Spec version description.
+	Description string `pulumi:"description"`
+	// The timestamp of when the version was created.
+	TimeCreated string `pulumi:"timeCreated"`
+	// The timestamp of when the version was last modified.
+	TimeModified string `pulumi:"timeModified"`
+}
+
+// TemplateSpecVersionInfoResponseInput is an input type that accepts TemplateSpecVersionInfoResponseArgs and TemplateSpecVersionInfoResponseOutput values.
+// You can construct a concrete instance of `TemplateSpecVersionInfoResponseInput` via:
+//
+//          TemplateSpecVersionInfoResponseArgs{...}
+type TemplateSpecVersionInfoResponseInput interface {
+	pulumi.Input
+
+	ToTemplateSpecVersionInfoResponseOutput() TemplateSpecVersionInfoResponseOutput
+	ToTemplateSpecVersionInfoResponseOutputWithContext(context.Context) TemplateSpecVersionInfoResponseOutput
+}
+
+// High-level information about a Template Spec version.
+type TemplateSpecVersionInfoResponseArgs struct {
+	// Template Spec version description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The timestamp of when the version was created.
+	TimeCreated pulumi.StringInput `pulumi:"timeCreated"`
+	// The timestamp of when the version was last modified.
+	TimeModified pulumi.StringInput `pulumi:"timeModified"`
+}
+
+func (TemplateSpecVersionInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecVersionInfoResponse)(nil)).Elem()
+}
+
+func (i TemplateSpecVersionInfoResponseArgs) ToTemplateSpecVersionInfoResponseOutput() TemplateSpecVersionInfoResponseOutput {
+	return i.ToTemplateSpecVersionInfoResponseOutputWithContext(context.Background())
+}
+
+func (i TemplateSpecVersionInfoResponseArgs) ToTemplateSpecVersionInfoResponseOutputWithContext(ctx context.Context) TemplateSpecVersionInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecVersionInfoResponseOutput)
+}
+
+// TemplateSpecVersionInfoResponseMapInput is an input type that accepts TemplateSpecVersionInfoResponseMap and TemplateSpecVersionInfoResponseMapOutput values.
+// You can construct a concrete instance of `TemplateSpecVersionInfoResponseMapInput` via:
+//
+//          TemplateSpecVersionInfoResponseMap{ "key": TemplateSpecVersionInfoResponseArgs{...} }
+type TemplateSpecVersionInfoResponseMapInput interface {
+	pulumi.Input
+
+	ToTemplateSpecVersionInfoResponseMapOutput() TemplateSpecVersionInfoResponseMapOutput
+	ToTemplateSpecVersionInfoResponseMapOutputWithContext(context.Context) TemplateSpecVersionInfoResponseMapOutput
+}
+
+type TemplateSpecVersionInfoResponseMap map[string]TemplateSpecVersionInfoResponseInput
+
+func (TemplateSpecVersionInfoResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TemplateSpecVersionInfoResponse)(nil)).Elem()
+}
+
+func (i TemplateSpecVersionInfoResponseMap) ToTemplateSpecVersionInfoResponseMapOutput() TemplateSpecVersionInfoResponseMapOutput {
+	return i.ToTemplateSpecVersionInfoResponseMapOutputWithContext(context.Background())
+}
+
+func (i TemplateSpecVersionInfoResponseMap) ToTemplateSpecVersionInfoResponseMapOutputWithContext(ctx context.Context) TemplateSpecVersionInfoResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecVersionInfoResponseMapOutput)
+}
+
+// High-level information about a Template Spec version.
+type TemplateSpecVersionInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (TemplateSpecVersionInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecVersionInfoResponse)(nil)).Elem()
+}
+
+func (o TemplateSpecVersionInfoResponseOutput) ToTemplateSpecVersionInfoResponseOutput() TemplateSpecVersionInfoResponseOutput {
+	return o
+}
+
+func (o TemplateSpecVersionInfoResponseOutput) ToTemplateSpecVersionInfoResponseOutputWithContext(ctx context.Context) TemplateSpecVersionInfoResponseOutput {
+	return o
+}
+
+// Template Spec version description.
+func (o TemplateSpecVersionInfoResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecVersionInfoResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The timestamp of when the version was created.
+func (o TemplateSpecVersionInfoResponseOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecVersionInfoResponse) string { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// The timestamp of when the version was last modified.
+func (o TemplateSpecVersionInfoResponseOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecVersionInfoResponse) string { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+type TemplateSpecVersionInfoResponseMapOutput struct{ *pulumi.OutputState }
+
+func (TemplateSpecVersionInfoResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TemplateSpecVersionInfoResponse)(nil)).Elem()
+}
+
+func (o TemplateSpecVersionInfoResponseMapOutput) ToTemplateSpecVersionInfoResponseMapOutput() TemplateSpecVersionInfoResponseMapOutput {
+	return o
+}
+
+func (o TemplateSpecVersionInfoResponseMapOutput) ToTemplateSpecVersionInfoResponseMapOutputWithContext(ctx context.Context) TemplateSpecVersionInfoResponseMapOutput {
+	return o
+}
+
+func (o TemplateSpecVersionInfoResponseMapOutput) MapIndex(k pulumi.StringInput) TemplateSpecVersionInfoResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TemplateSpecVersionInfoResponse {
+		return vs[0].(map[string]TemplateSpecVersionInfoResponse)[vs[1].(string)]
+	}).(TemplateSpecVersionInfoResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
@@ -482,4 +600,6 @@ func init() {
 	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactArrayOutput{})
 	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactResponseOutput{})
 	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactResponseArrayOutput{})
+	pulumi.RegisterOutputType(TemplateSpecVersionInfoResponseOutput{})
+	pulumi.RegisterOutputType(TemplateSpecVersionInfoResponseMapOutput{})
 }

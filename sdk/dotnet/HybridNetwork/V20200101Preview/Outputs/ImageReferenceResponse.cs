@@ -14,36 +14,43 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Outputs
     public sealed class ImageReferenceResponse
     {
         /// <summary>
-        /// The OS type.
+        /// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
         /// </summary>
-        public readonly string? OsType;
+        public readonly string? ExactVersion;
         /// <summary>
-        /// The VHD SAS URI.
+        /// Specifies the offer of the image used to create the virtual machine.
         /// </summary>
-        public readonly string? SasUri;
+        public readonly string? Offer;
         /// <summary>
-        /// The VHD name.
+        /// The image publisher.
         /// </summary>
-        public readonly string? VhdName;
+        public readonly string? Publisher;
         /// <summary>
-        /// The VHD type.
+        /// The image SKU.
         /// </summary>
-        public readonly string? VhdType;
+        public readonly string? Sku;
+        /// <summary>
+        /// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private ImageReferenceResponse(
-            string? osType,
+            string? exactVersion,
 
-            string? sasUri,
+            string? offer,
 
-            string? vhdName,
+            string? publisher,
 
-            string? vhdType)
+            string? sku,
+
+            string? version)
         {
-            OsType = osType;
-            SasUri = sasUri;
-            VhdName = vhdName;
-            VhdType = vhdType;
+            ExactVersion = exactVersion;
+            Offer = offer;
+            Publisher = publisher;
+            Sku = sku;
+            Version = version;
         }
     }
 }

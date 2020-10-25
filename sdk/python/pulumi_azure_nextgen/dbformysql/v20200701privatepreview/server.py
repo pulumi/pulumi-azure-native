@@ -119,6 +119,8 @@ class Server(pulumi.CustomResource):
             __props__['standby_availability_zone'] = None
             __props__['state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbformysql/v20200701preview:Server")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azure-nextgen:dbformysql/v20200701privatepreview:Server',
             resource_name,

@@ -11,6 +11,7 @@ from ... import _utilities, _tables
 __all__ = [
     'SystemDataResponse',
     'TemplateSpecTemplateArtifactResponse',
+    'TemplateSpecVersionInfoResponse',
 ]
 
 @pulumi.output_type
@@ -141,6 +142,53 @@ class TemplateSpecTemplateArtifactResponse(dict):
         The Azure Resource Manager template.
         """
         return pulumi.get(self, "template")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TemplateSpecVersionInfoResponse(dict):
+    """
+    High-level information about a Template Spec version.
+    """
+    def __init__(__self__, *,
+                 description: str,
+                 time_created: str,
+                 time_modified: str):
+        """
+        High-level information about a Template Spec version.
+        :param str description: Template Spec version description.
+        :param str time_created: The timestamp of when the version was created.
+        :param str time_modified: The timestamp of when the version was last modified.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "time_created", time_created)
+        pulumi.set(__self__, "time_modified", time_modified)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Template Spec version description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        The timestamp of when the version was created.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter(name="timeModified")
+    def time_modified(self) -> str:
+        """
+        The timestamp of when the version was last modified.
+        """
+        return pulumi.get(self, "time_modified")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

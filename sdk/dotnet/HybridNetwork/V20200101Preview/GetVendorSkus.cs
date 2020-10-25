@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         public string SkuName { get; set; } = null!;
 
         /// <summary>
-        /// The name of vendor.
+        /// The name of the vendor.
         /// </summary>
         [Input("vendorName", required: true)]
         public string VendorName { get; set; } = null!;
@@ -40,15 +40,11 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class GetVendorSkusResult
     {
         /// <summary>
-        /// Sku deployment mode.
+        /// The sku deployment mode.
         /// </summary>
         public readonly string? DeploymentMode;
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        public readonly string? Location;
-        /// <summary>
-        /// The parameters for the managed application to be supplied by vendor.
+        /// The parameters for the managed application to be supplied by the vendor.
         /// </summary>
         public readonly object? ManagedApplicationParameters;
         /// <summary>
@@ -56,9 +52,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// </summary>
         public readonly object? ManagedApplicationTemplate;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The template definition of the network function.
+        /// </summary>
+        public readonly Outputs.NetworkFunctionTemplateResponse? NetworkFunctionTemplate;
         /// <summary>
         /// Indicates if the vendor sku is in preview mode.
         /// </summary>
@@ -68,27 +68,17 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Sku type.
+        /// The sku type.
         /// </summary>
         public readonly string? SkuType;
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The template definition of the virtual network function.
-        /// </summary>
-        public readonly Outputs.VirtualNetworkFunctionTemplateResponse? VirtualNetworkFunctionTemplate;
 
         [OutputConstructor]
         private GetVendorSkusResult(
             string? deploymentMode,
-
-            string? location,
 
             object? managedApplicationParameters,
 
@@ -96,29 +86,25 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             string name,
 
+            Outputs.NetworkFunctionTemplateResponse? networkFunctionTemplate,
+
             bool? preview,
 
             string provisioningState,
 
             string? skuType,
 
-            ImmutableDictionary<string, string>? tags,
-
-            string type,
-
-            Outputs.VirtualNetworkFunctionTemplateResponse? virtualNetworkFunctionTemplate)
+            string type)
         {
             DeploymentMode = deploymentMode;
-            Location = location;
             ManagedApplicationParameters = managedApplicationParameters;
             ManagedApplicationTemplate = managedApplicationTemplate;
             Name = name;
+            NetworkFunctionTemplate = networkFunctionTemplate;
             Preview = preview;
             ProvisioningState = provisioningState;
             SkuType = skuType;
-            Tags = tags;
             Type = type;
-            VirtualNetworkFunctionTemplate = virtualNetworkFunctionTemplate;
         }
     }
 }

@@ -14,10 +14,6 @@ namespace Pulumi.AzureNextGen.Compute.V20200930.Outputs
     public sealed class GalleryApplicationVersionPublishingProfileResponse
     {
         /// <summary>
-        /// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-        /// </summary>
-        public readonly string? ContentType;
-        /// <summary>
         /// Optional. Whether or not this application reports health.
         /// </summary>
         public readonly bool? EnableHealthCheck;
@@ -29,6 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930.Outputs
         /// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         /// </summary>
         public readonly bool? ExcludeFromLatest;
+        public readonly Outputs.UserArtifactManageResponse? ManageActions;
         /// <summary>
         /// The timestamp for when the gallery image version is published.
         /// </summary>
@@ -52,13 +49,13 @@ namespace Pulumi.AzureNextGen.Compute.V20200930.Outputs
 
         [OutputConstructor]
         private GalleryApplicationVersionPublishingProfileResponse(
-            string? contentType,
-
             bool? enableHealthCheck,
 
             string? endOfLifeDate,
 
             bool? excludeFromLatest,
+
+            Outputs.UserArtifactManageResponse? manageActions,
 
             string publishedDate,
 
@@ -70,10 +67,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200930.Outputs
 
             ImmutableArray<Outputs.TargetRegionResponse> targetRegions)
         {
-            ContentType = contentType;
             EnableHealthCheck = enableHealthCheck;
             EndOfLifeDate = endOfLifeDate;
             ExcludeFromLatest = excludeFromLatest;
+            ManageActions = manageActions;
             PublishedDate = publishedDate;
             ReplicaCount = replicaCount;
             Source = source;
