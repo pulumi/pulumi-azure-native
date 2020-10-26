@@ -204,8 +204,7 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
 // back as a series of messages.
-func (k *azureNextGenProvider) StreamInvoke(req *rpc.InvokeRequest,
-	server rpc.ResourceProvider_StreamInvokeServer) error {
+func (k *azureNextGenProvider) StreamInvoke(_ *rpc.InvokeRequest, _ rpc.ResourceProvider_StreamInvokeServer) error {
 	panic("StreamInvoke not implemented")
 }
 
@@ -215,7 +214,7 @@ func (k *azureNextGenProvider) StreamInvoke(req *rpc.InvokeRequest,
 // representation of the properties as present in the program inputs. Though this rule is not
 // required for correctness, violations thereof can negatively impact the end-user experience, as
 // the provider inputs are using for detecting and rendering diffs.
-func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
+func (k *azureNextGenProvider) Check(_ context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Check(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
@@ -428,8 +427,7 @@ func (k *azureNextGenProvider) validateProperty(ctx string, prop *AzureAPIProper
 	return failures
 }
 
-func (k *azureNextGenProvider) GetSchema(ctx context.Context,
-	req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
+func (k *azureNextGenProvider) GetSchema(_ context.Context,	req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
@@ -438,12 +436,12 @@ func (k *azureNextGenProvider) GetSchema(ctx context.Context,
 }
 
 // CheckConfig validates the configuration for this provider.
-func (k *azureNextGenProvider) CheckConfig(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
+func (k *azureNextGenProvider) CheckConfig(_ context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
 	return &rpc.CheckResponse{Inputs: req.GetNews()}, nil
 }
 
 // DiffConfig diffs the configuration for this provider.
-func (k *azureNextGenProvider) DiffConfig(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNextGenProvider) DiffConfig(context.Context, *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	return &rpc.DiffResponse{
 		Changes:             0,
 		Replaces:            []string{},
@@ -453,7 +451,7 @@ func (k *azureNextGenProvider) DiffConfig(ctx context.Context, req *rpc.DiffRequ
 }
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
-func (k *azureNextGenProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", k.name, urn)
 
@@ -592,13 +590,9 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 	// (though it's technically impossible since the only operation supported is an upsert).
-	_, err = k.azureGet(ctx, id, res.APIVersion)
-	if err == nil {
-		return nil, fmt.Errorf("cannot create already existing resource %v", id)
-	}
-
-	if resErr, ok := err.(*azure.RequestError); !ok || resErr.StatusCode != 404 {
-		return nil, errors.Wrapf(err, "cannot check existence of resource %v: %s", id, err.Error())
+	err = k.azureCanCreate(ctx, id, res.APIVersion)
+	if err != nil {
+		return nil, err
 	}
 
 	// Submit the `PUT` against the ARM endpoint
@@ -938,6 +932,39 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 	return nil
 }
 
+// azureCanCreate asserts that a resource with a given ID and API version can be created
+// or returns an error otherwise.
+func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, apiVersion string) error {
+	queryParameters := map[string]interface{}{
+		"api-version": apiVersion,
+	}
+	preparer := autorest.CreatePreparer(
+		autorest.AsGet(),
+		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithPath(id),
+		autorest.WithQueryParameters(queryParameters))
+	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
+	if err != nil {
+		return err
+	}
+	resp, err := autorest.SendWithSender(
+		k.client,
+		prepReq,
+		azure.DoRetryWithRegistration(k.client),
+	)
+	if err != nil {
+		return err
+	}
+	if resp.StatusCode == 200 {
+		return fmt.Errorf("cannot create already existing resource %v", id)
+	}
+	if resp.StatusCode != 404 {
+		return fmt.Errorf("cannot check existence of resource %v: status code %d", id, resp.StatusCode)
+	}
+
+	return nil
+}
+
 func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
 	apiVersion string) (map[string]interface{}, error) {
 	queryParameters := map[string]interface{}{
@@ -1119,8 +1146,8 @@ func (k *azureNextGenProvider) getAuthorizationToken(authConfig *authentication.
 		return nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
 	}
 
-	sender := sender.BuildSender("AzureNextGen")
-	return authConfig.GetAuthorizationToken(sender, oauthConfig, AuthTokenAudience)
+	buildSender := sender.BuildSender("AzureNextGen")
+	return authConfig.GetAuthorizationToken(buildSender, oauthConfig, AuthTokenAudience)
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.
