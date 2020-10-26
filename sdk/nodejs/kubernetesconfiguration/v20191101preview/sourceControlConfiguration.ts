@@ -154,6 +154,8 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SourceControlConfiguration.__pulumiType, name, inputs, opts);
     }
 }
