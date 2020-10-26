@@ -40,6 +40,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
+        /// Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
+        /// </summary>
+        [Input("connectionProperties")]
+        public Input<object>? ConnectionProperties { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]

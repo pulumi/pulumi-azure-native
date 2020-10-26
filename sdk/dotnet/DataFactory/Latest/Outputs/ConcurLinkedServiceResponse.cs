@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
+        /// Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
+        /// </summary>
+        public readonly object? ConnectionProperties;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
+            object? connectionProperties,
+
             string? description,
 
             object? encryptedCredential,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
             Annotations = annotations;
             ClientId = clientId;
             ConnectVia = connectVia;
+            ConnectionProperties = connectionProperties;
             Description = description;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;

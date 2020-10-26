@@ -34,6 +34,7 @@ __all__ = [
     'SecureStringArgs',
     'SelfHostedIntegrationRuntimeArgs',
     'SkuArgs',
+    'SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs',
     'VirtualNetworkProfileArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
 ]
@@ -1355,6 +1356,29 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs:
+    def __init__(__self__, *,
+                 result: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Properties for an Sql pool vulnerability assessment rule baseline's result.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] result: The rule baseline result
+        """
+        pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The rule baseline result
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "result", value)
 
 
 @pulumi.input_type
