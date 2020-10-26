@@ -37,15 +37,11 @@ export class VendorSkus extends pulumi.CustomResource {
     }
 
     /**
-     * Sku deployment mode.
+     * The sku deployment mode.
      */
     public readonly deploymentMode!: pulumi.Output<string | undefined>;
     /**
-     * Resource location.
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The parameters for the managed application to be supplied by vendor.
+     * The parameters for the managed application to be supplied by the vendor.
      */
     public readonly managedApplicationParameters!: pulumi.Output<any | undefined>;
     /**
@@ -53,9 +49,13 @@ export class VendorSkus extends pulumi.CustomResource {
      */
     public readonly managedApplicationTemplate!: pulumi.Output<any | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The template definition of the network function.
+     */
+    public readonly networkFunctionTemplate!: pulumi.Output<outputs.hybridnetwork.v20200101preview.NetworkFunctionTemplateResponse | undefined>;
     /**
      * Indicates if the vendor sku is in preview mode.
      */
@@ -65,21 +65,13 @@ export class VendorSkus extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Sku type.
+     * The sku type.
      */
     public readonly skuType!: pulumi.Output<string | undefined>;
     /**
-     * Resource tags.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The template definition of the virtual network function.
-     */
-    public readonly virtualNetworkFunctionTemplate!: pulumi.Output<outputs.hybridnetwork.v20200101preview.VirtualNetworkFunctionTemplateResponse | undefined>;
 
     /**
      * Create a VendorSkus resource with the given unique name, arguments, and options.
@@ -98,30 +90,26 @@ export class VendorSkus extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vendorName'");
             }
             inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["managedApplicationParameters"] = args ? args.managedApplicationParameters : undefined;
             inputs["managedApplicationTemplate"] = args ? args.managedApplicationTemplate : undefined;
+            inputs["networkFunctionTemplate"] = args ? args.networkFunctionTemplate : undefined;
             inputs["preview"] = args ? args.preview : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["skuType"] = args ? args.skuType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
             inputs["vendorName"] = args ? args.vendorName : undefined;
-            inputs["virtualNetworkFunctionTemplate"] = args ? args.virtualNetworkFunctionTemplate : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["deploymentMode"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
             inputs["managedApplicationParameters"] = undefined /*out*/;
             inputs["managedApplicationTemplate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["networkFunctionTemplate"] = undefined /*out*/;
             inputs["preview"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["skuType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkFunctionTemplate"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -139,21 +127,21 @@ export class VendorSkus extends pulumi.CustomResource {
  */
 export interface VendorSkusArgs {
     /**
-     * Sku deployment mode.
+     * The sku deployment mode.
      */
     readonly deploymentMode?: pulumi.Input<string>;
     /**
-     * Resource location.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The parameters for the managed application to be supplied by vendor.
+     * The parameters for the managed application to be supplied by the vendor.
      */
     readonly managedApplicationParameters?: any;
     /**
      * The template for the managed application deployment.
      */
     readonly managedApplicationTemplate?: any;
+    /**
+     * The template definition of the network function.
+     */
+    readonly networkFunctionTemplate?: pulumi.Input<inputs.hybridnetwork.v20200101preview.NetworkFunctionTemplate>;
     /**
      * Indicates if the vendor sku is in preview mode.
      */
@@ -163,19 +151,11 @@ export interface VendorSkusArgs {
      */
     readonly skuName: pulumi.Input<string>;
     /**
-     * Sku type.
+     * The sku type.
      */
     readonly skuType?: pulumi.Input<string>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the vendor.
      */
     readonly vendorName: pulumi.Input<string>;
-    /**
-     * The template definition of the virtual network function.
-     */
-    readonly virtualNetworkFunctionTemplate?: pulumi.Input<inputs.hybridnetwork.v20200101preview.VirtualNetworkFunctionTemplate>;
 }

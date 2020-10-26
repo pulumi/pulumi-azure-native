@@ -11,6 +11,7 @@ from ... import _utilities, _tables
 __all__ = [
     'DebugSettingArgs',
     'DeploymentPropertiesArgs',
+    'ExpressionEvaluationOptionsArgs',
     'IdentityArgs',
     'OnErrorDeploymentArgs',
     'ParametersLinkArgs',
@@ -49,6 +50,7 @@ class DeploymentPropertiesArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  debug_setting: Optional[pulumi.Input['DebugSettingArgs']] = None,
+                 expression_evaluation_options: Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']] = None,
                  on_error_deployment: Optional[pulumi.Input['OnErrorDeploymentArgs']] = None,
                  parameters: Optional[Any] = None,
                  parameters_link: Optional[pulumi.Input['ParametersLinkArgs']] = None,
@@ -58,6 +60,7 @@ class DeploymentPropertiesArgs:
         Deployment properties.
         :param pulumi.Input[str] mode: The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
         :param pulumi.Input['DebugSettingArgs'] debug_setting: The debug setting of the deployment.
+        :param pulumi.Input['ExpressionEvaluationOptionsArgs'] expression_evaluation_options: Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
         :param pulumi.Input['OnErrorDeploymentArgs'] on_error_deployment: The deployment on error behavior.
         :param Any parameters: Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
         :param pulumi.Input['ParametersLinkArgs'] parameters_link: The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
@@ -67,6 +70,8 @@ class DeploymentPropertiesArgs:
         pulumi.set(__self__, "mode", mode)
         if debug_setting is not None:
             pulumi.set(__self__, "debug_setting", debug_setting)
+        if expression_evaluation_options is not None:
+            pulumi.set(__self__, "expression_evaluation_options", expression_evaluation_options)
         if on_error_deployment is not None:
             pulumi.set(__self__, "on_error_deployment", on_error_deployment)
         if parameters is not None:
@@ -101,6 +106,18 @@ class DeploymentPropertiesArgs:
     @debug_setting.setter
     def debug_setting(self, value: Optional[pulumi.Input['DebugSettingArgs']]):
         pulumi.set(self, "debug_setting", value)
+
+    @property
+    @pulumi.getter(name="expressionEvaluationOptions")
+    def expression_evaluation_options(self) -> Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']]:
+        """
+        Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
+        """
+        return pulumi.get(self, "expression_evaluation_options")
+
+    @expression_evaluation_options.setter
+    def expression_evaluation_options(self, value: Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']]):
+        pulumi.set(self, "expression_evaluation_options", value)
 
     @property
     @pulumi.getter(name="onErrorDeployment")
@@ -161,6 +178,30 @@ class DeploymentPropertiesArgs:
     @template_link.setter
     def template_link(self, value: Optional[pulumi.Input['TemplateLinkArgs']]):
         pulumi.set(self, "template_link", value)
+
+
+@pulumi.input_type
+class ExpressionEvaluationOptionsArgs:
+    def __init__(__self__, *,
+                 scope: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
+        :param pulumi.Input[str] scope: The scope to be used for evaluation of parameters, variables and functions in a nested template.
+        """
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The scope to be used for evaluation of parameters, variables and functions in a nested template.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
 
 
 @pulumi.input_type

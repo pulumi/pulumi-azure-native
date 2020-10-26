@@ -84,6 +84,9 @@ func NewIdentityProvider(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:IdentityProvider"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:IdentityProvider"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IdentityProvider

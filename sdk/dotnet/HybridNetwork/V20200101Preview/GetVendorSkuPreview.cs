@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class GetVendorSkuPreviewArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Preview subscription id.
+        /// Preview subscription ID.
         /// </summary>
         [Input("previewSubscription", required: true)]
         public string PreviewSubscription { get; set; } = null!;
@@ -46,11 +46,11 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class GetVendorSkuPreviewResult
     {
         /// <summary>
-        /// Preview subscription id
+        /// The preview subscription ID.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Type of the resource
+        /// The type of the resource.
         /// </summary>
         public readonly string Type;
 

@@ -72,7 +72,7 @@ class Group(pulumi.CustomResource):
             __props__['type'] = type
             __props__['built_in'] = None
             __props__['name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Group")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Group")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(
             'azure-nextgen:apimanagement/v20180601preview:Group',

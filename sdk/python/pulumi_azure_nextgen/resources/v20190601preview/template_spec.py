@@ -69,6 +69,7 @@ class TemplateSpec(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
+            __props__['versions'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources/v20201001preview:TemplateSpec")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TemplateSpec, __self__).__init__(
@@ -150,6 +151,14 @@ class TemplateSpec(pulumi.CustomResource):
         Type of this resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def versions(self) -> pulumi.Output[Mapping[str, 'outputs.TemplateSpecVersionInfoResponse']]:
+        """
+        High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+        """
+        return pulumi.get(self, "versions")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

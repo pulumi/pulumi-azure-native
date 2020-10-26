@@ -114,7 +114,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiVersionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiVersionSet.__pulumiType, name, inputs, opts);
     }

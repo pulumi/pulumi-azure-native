@@ -91,7 +91,7 @@ export class ProductPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20180101:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20190101:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20191201:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20180101:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20190101:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20191201:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProductPolicy.__pulumiType, name, inputs, opts);
     }

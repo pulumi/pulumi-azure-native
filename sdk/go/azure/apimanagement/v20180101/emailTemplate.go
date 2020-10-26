@@ -66,6 +66,9 @@ func NewEmailTemplate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:EmailTemplate"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:EmailTemplate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource EmailTemplate

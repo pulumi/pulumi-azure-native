@@ -27,15 +27,15 @@ class Device(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Hybrid network device resource.
+        Device resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] azure_stack_edge: The reference to the azure stack edge device.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] azure_stack_edge: The reference to the Azure stack edge device.
         :param pulumi.Input[str] device_name: Resource name for the device resource.
-        :param pulumi.Input[str] device_type: The type of the hybrid network device.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] device_type: The type of the device.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -62,16 +62,18 @@ class Device(pulumi.CustomResource):
             if device_type is None:
                 raise TypeError("Missing required property 'device_type'")
             __props__['device_type'] = device_type
+            if location is None:
+                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['name'] = None
+            __props__['network_functions'] = None
             __props__['provisioning_state'] = None
             __props__['status'] = None
             __props__['type'] = None
-            __props__['virtual_network_functions'] = None
         super(Device, __self__).__init__(
             'azure-nextgen:hybridnetwork/v20200101preview:Device',
             resource_name,
@@ -100,7 +102,7 @@ class Device(pulumi.CustomResource):
     @pulumi.getter(name="azureStackEdge")
     def azure_stack_edge(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
-        The reference to the azure stack edge device.
+        The reference to the Azure stack edge device.
         """
         return pulumi.get(self, "azure_stack_edge")
 
@@ -108,15 +110,15 @@ class Device(pulumi.CustomResource):
     @pulumi.getter(name="deviceType")
     def device_type(self) -> pulumi.Output[str]:
         """
-        The type of the hybrid network device.
+        The type of the device.
         """
         return pulumi.get(self, "device_type")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -124,15 +126,23 @@ class Device(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkFunctions")
+    def network_functions(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
+        """
+        The list of network functions deployed on the device.
+        """
+        return pulumi.get(self, "network_functions")
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state of the hybrid network device resource.
+        The provisioning state of the device resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -156,17 +166,9 @@ class Device(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualNetworkFunctions")
-    def virtual_network_functions(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
-        """
-        The list of virtual network functions deployed on the hybrid network device.
-        """
-        return pulumi.get(self, "virtual_network_functions")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
