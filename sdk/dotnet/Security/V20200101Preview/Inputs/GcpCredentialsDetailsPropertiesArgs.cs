@@ -11,18 +11,18 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Inputs
 {
 
     /// <summary>
-    /// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)&lt;/a&gt;
+    /// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
     /// </summary>
     public sealed class GcpCredentialsDetailsPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Auth provider x509 certificate url field of the API key (write only)
+        /// Auth provider x509 certificate URL field of the API key (write only)
         /// </summary>
         [Input("authProviderX509CertUrl", required: true)]
         public Input<string> AuthProviderX509CertUrl { get; set; } = null!;
 
         /// <summary>
-        /// Auth Uri field of the API key (write only)
+        /// Auth URI field of the API key (write only)
         /// </summary>
         [Input("authUri", required: true)]
         public Input<string> AuthUri { get; set; } = null!;
@@ -40,19 +40,19 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Inputs
         public Input<string> ClientEmail { get; set; } = null!;
 
         /// <summary>
-        /// Client Id field of the API key (write only)
+        /// Client ID field of the API key (write only)
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// Client x509 certificate url field of the API key (write only)
+        /// Client x509 certificate URL field of the API key (write only)
         /// </summary>
         [Input("clientX509CertUrl", required: true)]
         public Input<string> ClientX509CertUrl { get; set; } = null!;
 
         /// <summary>
-        /// The Organization ID of the GCP cloud account
+        /// The organization ID of the GCP cloud account
         /// </summary>
         [Input("organizationId", required: true)]
         public Input<string> OrganizationId { get; set; } = null!;
@@ -64,19 +64,19 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Inputs
         public Input<string> PrivateKey { get; set; } = null!;
 
         /// <summary>
-        /// Private key Id field of the API key (write only)
+        /// Private key ID field of the API key (write only)
         /// </summary>
         [Input("privateKeyId", required: true)]
         public Input<string> PrivateKeyId { get; set; } = null!;
 
         /// <summary>
-        /// Project Id field of the API key (write only)
+        /// Project ID field of the API key (write only)
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// Token Uri field of the API key (write only)
+        /// Token URI field of the API key (write only)
         /// </summary>
         [Input("tokenUri", required: true)]
         public Input<string> TokenUri { get; set; } = null!;

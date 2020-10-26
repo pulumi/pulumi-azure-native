@@ -35,7 +35,7 @@ export interface GetConnectorResult {
      */
     readonly authenticationDetails?: outputs.security.v20200101preview.AwAssumeRoleAuthenticationDetailsPropertiesResponse | outputs.security.v20200101preview.AwsCredsAuthenticationDetailsPropertiesResponse | outputs.security.v20200101preview.GcpCredentialsDetailsPropertiesResponse;
     /**
-     * Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+     * Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
      */
     readonly hybridComputeSettings?: outputs.security.v20200101preview.HybridComputeSettingsPropertiesResponse;
     /**

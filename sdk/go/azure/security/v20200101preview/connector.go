@@ -16,7 +16,7 @@ type Connector struct {
 
 	// Settings for authentication management, these settings are relevant only for the cloud connector.
 	AuthenticationDetails pulumi.AnyOutput `pulumi:"authenticationDetails"`
-	// Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
 	HybridComputeSettings HybridComputeSettingsPropertiesResponsePtrOutput `pulumi:"hybridComputeSettings"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -57,7 +57,7 @@ func GetConnector(ctx *pulumi.Context,
 type connectorState struct {
 	// Settings for authentication management, these settings are relevant only for the cloud connector.
 	AuthenticationDetails interface{} `pulumi:"authenticationDetails"`
-	// Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
 	HybridComputeSettings *HybridComputeSettingsPropertiesResponse `pulumi:"hybridComputeSettings"`
 	// Resource name
 	Name *string `pulumi:"name"`
@@ -68,7 +68,7 @@ type connectorState struct {
 type ConnectorState struct {
 	// Settings for authentication management, these settings are relevant only for the cloud connector.
 	AuthenticationDetails pulumi.Input
-	// Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
 	HybridComputeSettings HybridComputeSettingsPropertiesResponsePtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
@@ -85,7 +85,7 @@ type connectorArgs struct {
 	AuthenticationDetails interface{} `pulumi:"authenticationDetails"`
 	// Name of the cloud account connector
 	ConnectorName string `pulumi:"connectorName"`
-	// Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
 	HybridComputeSettings *HybridComputeSettingsProperties `pulumi:"hybridComputeSettings"`
 }
 
@@ -95,7 +95,7 @@ type ConnectorArgs struct {
 	AuthenticationDetails pulumi.Input
 	// Name of the cloud account connector
 	ConnectorName pulumi.StringInput
-	// Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
 	HybridComputeSettings HybridComputeSettingsPropertiesPtrInput
 }
 

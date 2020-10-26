@@ -14,11 +14,11 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Outputs
     public sealed class GcpCredentialsDetailsPropertiesResponse
     {
         /// <summary>
-        /// Auth provider x509 certificate url field of the API key (write only)
+        /// Auth provider x509 certificate URL field of the API key (write only)
         /// </summary>
         public readonly string AuthProviderX509CertUrl;
         /// <summary>
-        /// Auth Uri field of the API key (write only)
+        /// Auth URI field of the API key (write only)
         /// </summary>
         public readonly string AuthUri;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Outputs
         /// </summary>
         public readonly string ClientEmail;
         /// <summary>
-        /// Client Id field of the API key (write only)
+        /// Client ID field of the API key (write only)
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// Client x509 certificate url field of the API key (write only)
+        /// Client x509 certificate URL field of the API key (write only)
         /// </summary>
         public readonly string ClientX509CertUrl;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GrantedPermissions;
         /// <summary>
-        /// The Organization ID of the GCP cloud account
+        /// The organization ID of the GCP cloud account
         /// </summary>
         public readonly string OrganizationId;
         /// <summary>
@@ -54,15 +54,15 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Outputs
         /// </summary>
         public readonly string PrivateKey;
         /// <summary>
-        /// Private key Id field of the API key (write only)
+        /// Private key ID field of the API key (write only)
         /// </summary>
         public readonly string PrivateKeyId;
         /// <summary>
-        /// Project Id field of the API key (write only)
+        /// Project ID field of the API key (write only)
         /// </summary>
         public readonly string ProjectId;
         /// <summary>
-        /// Token Uri field of the API key (write only)
+        /// Token URI field of the API key (write only)
         /// </summary>
         public readonly string TokenUri;
         /// <summary>

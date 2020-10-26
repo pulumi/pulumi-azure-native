@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Inputs
     public sealed class ServicePrincipalPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Application id of service principal.
+        /// Application ID of service principal.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
