@@ -26,7 +26,7 @@ class VendorSkuPreview(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] preview_subscription: Preview subscription id.
+        :param pulumi.Input[str] preview_subscription: Preview subscription ID.
         :param pulumi.Input[str] sku_name: The name of the vendor sku.
         :param pulumi.Input[str] vendor_name: The name of the vendor.
         """
@@ -86,7 +86,7 @@ class VendorSkuPreview(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Preview subscription id
+        The preview subscription ID.
         """
         return pulumi.get(self, "name")
 
@@ -94,7 +94,7 @@ class VendorSkuPreview(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the resource
+        The type of the resource.
         """
         return pulumi.get(self, "type")
 

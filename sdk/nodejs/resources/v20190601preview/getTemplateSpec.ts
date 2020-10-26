@@ -15,12 +15,17 @@ export function getTemplateSpec(args: GetTemplateSpecArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure-nextgen:resources/v20190601preview:getTemplateSpec", {
+        "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "templateSpecName": args.templateSpecName,
     }, opts);
 }
 
 export interface GetTemplateSpecArgs {
+    /**
+     * Allows for expansion of additional Template Spec details in the response. Optional.
+     */
+    readonly expand?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -63,4 +68,8 @@ export interface GetTemplateSpecResult {
      * Type of this resource.
      */
     readonly type: string;
+    /**
+     * High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+     */
+    readonly versions: {[key: string]: outputs.resources.v20190601preview.TemplateSpecVersionInfoResponse};
 }

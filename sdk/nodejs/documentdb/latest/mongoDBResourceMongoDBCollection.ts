@@ -74,9 +74,6 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
             if (!args || args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.options === undefined) {
-                throw new Error("Missing required property 'options'");
-            }
             if (!args || args.resource === undefined) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -108,7 +105,7 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MongoDBResourceMongoDBCollection.__pulumiType, name, inputs, opts);
     }
@@ -137,7 +134,7 @@ export interface MongoDBResourceMongoDBCollectionArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
     /**
      * The standard JSON format of a MongoDB collection
      */

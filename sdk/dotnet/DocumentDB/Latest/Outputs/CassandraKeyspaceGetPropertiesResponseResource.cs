@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         /// <summary>
         /// A system generated property that denotes the last updated timestamp of the resource.
         /// </summary>
-        public readonly object Ts;
+        public readonly double Ts;
 
         [OutputConstructor]
         private CassandraKeyspaceGetPropertiesResponseResource(
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
 
             string rid,
 
-            object ts)
+            double ts)
         {
             Etag = etag;
             Id = id;

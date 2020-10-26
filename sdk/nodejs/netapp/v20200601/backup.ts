@@ -131,7 +131,7 @@ export class Backup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Backup" }, { type: "azure-nextgen:netapp/v20200501:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backup.__pulumiType, name, inputs, opts);
     }

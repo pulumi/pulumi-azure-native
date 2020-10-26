@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class GetDeviceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of hybrid network device.
+        /// The name of the device resource.
         /// </summary>
         [Input("deviceName", required: true)]
         public string DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -40,23 +40,27 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class GetDeviceResult
     {
         /// <summary>
-        /// The reference to the azure stack edge device.
+        /// The reference to the Azure stack edge device.
         /// </summary>
         public readonly Outputs.SubResourceResponse? AzureStackEdge;
         /// <summary>
-        /// The type of the hybrid network device.
+        /// The type of the device.
         /// </summary>
         public readonly string DeviceType;
         /// <summary>
-        /// Resource location.
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the hybrid network device resource.
+        /// The list of network functions deployed on the device.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> NetworkFunctions;
+        /// <summary>
+        /// The provisioning state of the device resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -68,13 +72,9 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The list of virtual network functions deployed on the hybrid network device.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualNetworkFunctions;
 
         [OutputConstructor]
         private GetDeviceResult(
@@ -82,9 +82,11 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             string deviceType,
 
-            string? location,
+            string location,
 
             string name,
+
+            ImmutableArray<Outputs.SubResourceResponse> networkFunctions,
 
             string provisioningState,
 
@@ -92,19 +94,17 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<Outputs.SubResourceResponse> virtualNetworkFunctions)
+            string type)
         {
             AzureStackEdge = azureStackEdge;
             DeviceType = deviceType;
             Location = location;
             Name = name;
+            NetworkFunctions = networkFunctions;
             ProvisioningState = provisioningState;
             Status = status;
             Tags = tags;
             Type = type;
-            VirtualNetworkFunctions = virtualNetworkFunctions;
         }
     }
 }

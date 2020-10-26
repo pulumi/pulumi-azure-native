@@ -27,7 +27,7 @@ export interface GetLinkedStorageAccountArgs {
      */
     readonly dataSourceType: string;
     /**
-     * The workspace's resource group name.
+     * The name of the resource group to get. The name is case insensitive.
      */
     readonly resourceGroupName: string;
     /**

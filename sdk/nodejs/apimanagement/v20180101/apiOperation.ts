@@ -141,7 +141,7 @@ export class ApiOperation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20160707:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20161010:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20170301:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20190101:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20191201:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20160707:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20161010:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20170301:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20190101:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20191201:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiOperation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiOperation.__pulumiType, name, inputs, opts);
     }

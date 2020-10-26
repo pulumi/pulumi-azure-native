@@ -896,7 +896,7 @@ type CassandraKeyspaceGetPropertiesResponseResource struct {
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 }
 
 // CassandraKeyspaceGetPropertiesResponseResourceInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseResourceArgs and CassandraKeyspaceGetPropertiesResponseResourceOutput values.
@@ -918,7 +918,7 @@ type CassandraKeyspaceGetPropertiesResponseResourceArgs struct {
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (CassandraKeyspaceGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -1014,8 +1014,8 @@ func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Rid() pulumi.Strin
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 type CassandraKeyspaceGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -1069,13 +1069,13 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Rid() pulumi.St
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) interface{} {
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Cosmos DB Cassandra keyspace id object
@@ -1924,7 +1924,7 @@ type CassandraTableGetPropertiesResponseResource struct {
 	// Schema of the Cosmos DB Cassandra table
 	Schema *CassandraSchemaResponse `pulumi:"schema"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 }
 
 // CassandraTableGetPropertiesResponseResourceInput is an input type that accepts CassandraTableGetPropertiesResponseResourceArgs and CassandraTableGetPropertiesResponseResourceOutput values.
@@ -1952,7 +1952,7 @@ type CassandraTableGetPropertiesResponseResourceArgs struct {
 	// Schema of the Cosmos DB Cassandra table
 	Schema CassandraSchemaResponsePtrInput `pulumi:"schema"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (CassandraTableGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -2063,8 +2063,8 @@ func (o CassandraTableGetPropertiesResponseResourceOutput) Schema() CassandraSch
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraTableGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o CassandraTableGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 type CassandraTableGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -2148,13 +2148,13 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Schema() Cassandra
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) interface{} {
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Cosmos DB Cassandra table id object
@@ -4009,6 +4009,116 @@ func (o ContainerPartitionKeyResponsePtrOutput) Version() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicy struct {
+	// Describes the mode of backups.
+	Type string `pulumi:"type"`
+}
+
+// ContinuousModeBackupPolicyInput is an input type that accepts ContinuousModeBackupPolicyArgs and ContinuousModeBackupPolicyOutput values.
+// You can construct a concrete instance of `ContinuousModeBackupPolicyInput` via:
+//
+//          ContinuousModeBackupPolicyArgs{...}
+type ContinuousModeBackupPolicyInput interface {
+	pulumi.Input
+
+	ToContinuousModeBackupPolicyOutput() ContinuousModeBackupPolicyOutput
+	ToContinuousModeBackupPolicyOutputWithContext(context.Context) ContinuousModeBackupPolicyOutput
+}
+
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicyArgs struct {
+	// Describes the mode of backups.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ContinuousModeBackupPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousModeBackupPolicy)(nil)).Elem()
+}
+
+func (i ContinuousModeBackupPolicyArgs) ToContinuousModeBackupPolicyOutput() ContinuousModeBackupPolicyOutput {
+	return i.ToContinuousModeBackupPolicyOutputWithContext(context.Background())
+}
+
+func (i ContinuousModeBackupPolicyArgs) ToContinuousModeBackupPolicyOutputWithContext(ctx context.Context) ContinuousModeBackupPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousModeBackupPolicyOutput)
+}
+
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicyOutput struct{ *pulumi.OutputState }
+
+func (ContinuousModeBackupPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousModeBackupPolicy)(nil)).Elem()
+}
+
+func (o ContinuousModeBackupPolicyOutput) ToContinuousModeBackupPolicyOutput() ContinuousModeBackupPolicyOutput {
+	return o
+}
+
+func (o ContinuousModeBackupPolicyOutput) ToContinuousModeBackupPolicyOutputWithContext(ctx context.Context) ContinuousModeBackupPolicyOutput {
+	return o
+}
+
+// Describes the mode of backups.
+func (o ContinuousModeBackupPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ContinuousModeBackupPolicy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicyResponse struct {
+	// Describes the mode of backups.
+	Type string `pulumi:"type"`
+}
+
+// ContinuousModeBackupPolicyResponseInput is an input type that accepts ContinuousModeBackupPolicyResponseArgs and ContinuousModeBackupPolicyResponseOutput values.
+// You can construct a concrete instance of `ContinuousModeBackupPolicyResponseInput` via:
+//
+//          ContinuousModeBackupPolicyResponseArgs{...}
+type ContinuousModeBackupPolicyResponseInput interface {
+	pulumi.Input
+
+	ToContinuousModeBackupPolicyResponseOutput() ContinuousModeBackupPolicyResponseOutput
+	ToContinuousModeBackupPolicyResponseOutputWithContext(context.Context) ContinuousModeBackupPolicyResponseOutput
+}
+
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicyResponseArgs struct {
+	// Describes the mode of backups.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ContinuousModeBackupPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousModeBackupPolicyResponse)(nil)).Elem()
+}
+
+func (i ContinuousModeBackupPolicyResponseArgs) ToContinuousModeBackupPolicyResponseOutput() ContinuousModeBackupPolicyResponseOutput {
+	return i.ToContinuousModeBackupPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i ContinuousModeBackupPolicyResponseArgs) ToContinuousModeBackupPolicyResponseOutputWithContext(ctx context.Context) ContinuousModeBackupPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousModeBackupPolicyResponseOutput)
+}
+
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ContinuousModeBackupPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousModeBackupPolicyResponse)(nil)).Elem()
+}
+
+func (o ContinuousModeBackupPolicyResponseOutput) ToContinuousModeBackupPolicyResponseOutput() ContinuousModeBackupPolicyResponseOutput {
+	return o
+}
+
+func (o ContinuousModeBackupPolicyResponseOutput) ToContinuousModeBackupPolicyResponseOutputWithContext(ctx context.Context) ContinuousModeBackupPolicyResponseOutput {
+	return o
+}
+
+// Describes the mode of backups.
+func (o ContinuousModeBackupPolicyResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ContinuousModeBackupPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The CORS policy for the Cosmos DB database account.
 type CorsPolicy struct {
 	// The request headers that the origin domain may specify on the CORS request.
@@ -5017,7 +5127,7 @@ type GremlinDatabaseGetPropertiesResponseResource struct {
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 }
 
 // GremlinDatabaseGetPropertiesResponseResourceInput is an input type that accepts GremlinDatabaseGetPropertiesResponseResourceArgs and GremlinDatabaseGetPropertiesResponseResourceOutput values.
@@ -5039,7 +5149,7 @@ type GremlinDatabaseGetPropertiesResponseResourceArgs struct {
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (GremlinDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -5135,8 +5245,8 @@ func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringO
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 type GremlinDatabaseGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -5190,13 +5300,13 @@ func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.Stri
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) interface{} {
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Cosmos DB Gremlin database resource object
@@ -5501,7 +5611,7 @@ type GremlinGraphGetPropertiesResponseResource struct {
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy *UniqueKeyPolicyResponse `pulumi:"uniqueKeyPolicy"`
 }
@@ -5533,7 +5643,7 @@ type GremlinGraphGetPropertiesResponseResourceArgs struct {
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy UniqueKeyPolicyResponsePtrInput `pulumi:"uniqueKeyPolicy"`
 }
@@ -5655,8 +5765,8 @@ func (o GremlinGraphGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutp
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinGraphGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o GremlinGraphGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -5755,13 +5865,13 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringP
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) interface{} {
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -7546,7 +7656,7 @@ type MongoDBCollectionGetPropertiesResponseResource struct {
 	// A key-value pair of shard keys to be applied for the request.
 	ShardKey map[string]string `pulumi:"shardKey"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 }
 
 // MongoDBCollectionGetPropertiesResponseResourceInput is an input type that accepts MongoDBCollectionGetPropertiesResponseResourceArgs and MongoDBCollectionGetPropertiesResponseResourceOutput values.
@@ -7574,7 +7684,7 @@ type MongoDBCollectionGetPropertiesResponseResourceArgs struct {
 	// A key-value pair of shard keys to be applied for the request.
 	ShardKey pulumi.StringMapInput `pulumi:"shardKey"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (MongoDBCollectionGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -7685,8 +7795,8 @@ func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ShardKey() pulumi.
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 type MongoDBCollectionGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -7770,13 +7880,13 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ShardKey() pulu
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) interface{} {
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Cosmos DB MongoDB collection resource object
@@ -8132,7 +8242,7 @@ type MongoDBDatabaseGetPropertiesResponseResource struct {
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 }
 
 // MongoDBDatabaseGetPropertiesResponseResourceInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseResourceArgs and MongoDBDatabaseGetPropertiesResponseResourceOutput values.
@@ -8154,7 +8264,7 @@ type MongoDBDatabaseGetPropertiesResponseResourceArgs struct {
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (MongoDBDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -8250,8 +8360,8 @@ func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringO
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 type MongoDBDatabaseGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -8305,13 +8415,13 @@ func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.Stri
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) interface{} {
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Cosmos DB MongoDB database resource object
@@ -9240,6 +9350,442 @@ func (o MongoIndexResponseArrayOutput) Index(i pulumi.IntInput) MongoIndexRespon
 	}).(MongoIndexResponseOutput)
 }
 
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicy struct {
+	// Configuration values for periodic mode backup
+	PeriodicModeProperties *PeriodicModeProperties `pulumi:"periodicModeProperties"`
+	// Describes the mode of backups.
+	Type string `pulumi:"type"`
+}
+
+// PeriodicModeBackupPolicyInput is an input type that accepts PeriodicModeBackupPolicyArgs and PeriodicModeBackupPolicyOutput values.
+// You can construct a concrete instance of `PeriodicModeBackupPolicyInput` via:
+//
+//          PeriodicModeBackupPolicyArgs{...}
+type PeriodicModeBackupPolicyInput interface {
+	pulumi.Input
+
+	ToPeriodicModeBackupPolicyOutput() PeriodicModeBackupPolicyOutput
+	ToPeriodicModeBackupPolicyOutputWithContext(context.Context) PeriodicModeBackupPolicyOutput
+}
+
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicyArgs struct {
+	// Configuration values for periodic mode backup
+	PeriodicModeProperties PeriodicModePropertiesPtrInput `pulumi:"periodicModeProperties"`
+	// Describes the mode of backups.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PeriodicModeBackupPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeBackupPolicy)(nil)).Elem()
+}
+
+func (i PeriodicModeBackupPolicyArgs) ToPeriodicModeBackupPolicyOutput() PeriodicModeBackupPolicyOutput {
+	return i.ToPeriodicModeBackupPolicyOutputWithContext(context.Background())
+}
+
+func (i PeriodicModeBackupPolicyArgs) ToPeriodicModeBackupPolicyOutputWithContext(ctx context.Context) PeriodicModeBackupPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModeBackupPolicyOutput)
+}
+
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicyOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModeBackupPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeBackupPolicy)(nil)).Elem()
+}
+
+func (o PeriodicModeBackupPolicyOutput) ToPeriodicModeBackupPolicyOutput() PeriodicModeBackupPolicyOutput {
+	return o
+}
+
+func (o PeriodicModeBackupPolicyOutput) ToPeriodicModeBackupPolicyOutputWithContext(ctx context.Context) PeriodicModeBackupPolicyOutput {
+	return o
+}
+
+// Configuration values for periodic mode backup
+func (o PeriodicModeBackupPolicyOutput) PeriodicModeProperties() PeriodicModePropertiesPtrOutput {
+	return o.ApplyT(func(v PeriodicModeBackupPolicy) *PeriodicModeProperties { return v.PeriodicModeProperties }).(PeriodicModePropertiesPtrOutput)
+}
+
+// Describes the mode of backups.
+func (o PeriodicModeBackupPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PeriodicModeBackupPolicy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicyResponse struct {
+	// Configuration values for periodic mode backup
+	PeriodicModeProperties *PeriodicModePropertiesResponse `pulumi:"periodicModeProperties"`
+	// Describes the mode of backups.
+	Type string `pulumi:"type"`
+}
+
+// PeriodicModeBackupPolicyResponseInput is an input type that accepts PeriodicModeBackupPolicyResponseArgs and PeriodicModeBackupPolicyResponseOutput values.
+// You can construct a concrete instance of `PeriodicModeBackupPolicyResponseInput` via:
+//
+//          PeriodicModeBackupPolicyResponseArgs{...}
+type PeriodicModeBackupPolicyResponseInput interface {
+	pulumi.Input
+
+	ToPeriodicModeBackupPolicyResponseOutput() PeriodicModeBackupPolicyResponseOutput
+	ToPeriodicModeBackupPolicyResponseOutputWithContext(context.Context) PeriodicModeBackupPolicyResponseOutput
+}
+
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicyResponseArgs struct {
+	// Configuration values for periodic mode backup
+	PeriodicModeProperties PeriodicModePropertiesResponsePtrInput `pulumi:"periodicModeProperties"`
+	// Describes the mode of backups.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PeriodicModeBackupPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeBackupPolicyResponse)(nil)).Elem()
+}
+
+func (i PeriodicModeBackupPolicyResponseArgs) ToPeriodicModeBackupPolicyResponseOutput() PeriodicModeBackupPolicyResponseOutput {
+	return i.ToPeriodicModeBackupPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i PeriodicModeBackupPolicyResponseArgs) ToPeriodicModeBackupPolicyResponseOutputWithContext(ctx context.Context) PeriodicModeBackupPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModeBackupPolicyResponseOutput)
+}
+
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModeBackupPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeBackupPolicyResponse)(nil)).Elem()
+}
+
+func (o PeriodicModeBackupPolicyResponseOutput) ToPeriodicModeBackupPolicyResponseOutput() PeriodicModeBackupPolicyResponseOutput {
+	return o
+}
+
+func (o PeriodicModeBackupPolicyResponseOutput) ToPeriodicModeBackupPolicyResponseOutputWithContext(ctx context.Context) PeriodicModeBackupPolicyResponseOutput {
+	return o
+}
+
+// Configuration values for periodic mode backup
+func (o PeriodicModeBackupPolicyResponseOutput) PeriodicModeProperties() PeriodicModePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PeriodicModeBackupPolicyResponse) *PeriodicModePropertiesResponse {
+		return v.PeriodicModeProperties
+	}).(PeriodicModePropertiesResponsePtrOutput)
+}
+
+// Describes the mode of backups.
+func (o PeriodicModeBackupPolicyResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PeriodicModeBackupPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModeProperties struct {
+	// An integer representing the interval in minutes between two backups
+	BackupIntervalInMinutes *int `pulumi:"backupIntervalInMinutes"`
+	// An integer representing the time (in hours) that each backup is retained
+	BackupRetentionIntervalInHours *int `pulumi:"backupRetentionIntervalInHours"`
+}
+
+// PeriodicModePropertiesInput is an input type that accepts PeriodicModePropertiesArgs and PeriodicModePropertiesOutput values.
+// You can construct a concrete instance of `PeriodicModePropertiesInput` via:
+//
+//          PeriodicModePropertiesArgs{...}
+type PeriodicModePropertiesInput interface {
+	pulumi.Input
+
+	ToPeriodicModePropertiesOutput() PeriodicModePropertiesOutput
+	ToPeriodicModePropertiesOutputWithContext(context.Context) PeriodicModePropertiesOutput
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModePropertiesArgs struct {
+	// An integer representing the interval in minutes between two backups
+	BackupIntervalInMinutes pulumi.IntPtrInput `pulumi:"backupIntervalInMinutes"`
+	// An integer representing the time (in hours) that each backup is retained
+	BackupRetentionIntervalInHours pulumi.IntPtrInput `pulumi:"backupRetentionIntervalInHours"`
+}
+
+func (PeriodicModePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeProperties)(nil)).Elem()
+}
+
+func (i PeriodicModePropertiesArgs) ToPeriodicModePropertiesOutput() PeriodicModePropertiesOutput {
+	return i.ToPeriodicModePropertiesOutputWithContext(context.Background())
+}
+
+func (i PeriodicModePropertiesArgs) ToPeriodicModePropertiesOutputWithContext(ctx context.Context) PeriodicModePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesOutput)
+}
+
+func (i PeriodicModePropertiesArgs) ToPeriodicModePropertiesPtrOutput() PeriodicModePropertiesPtrOutput {
+	return i.ToPeriodicModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PeriodicModePropertiesArgs) ToPeriodicModePropertiesPtrOutputWithContext(ctx context.Context) PeriodicModePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesOutput).ToPeriodicModePropertiesPtrOutputWithContext(ctx)
+}
+
+// PeriodicModePropertiesPtrInput is an input type that accepts PeriodicModePropertiesArgs, PeriodicModePropertiesPtr and PeriodicModePropertiesPtrOutput values.
+// You can construct a concrete instance of `PeriodicModePropertiesPtrInput` via:
+//
+//          PeriodicModePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PeriodicModePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPeriodicModePropertiesPtrOutput() PeriodicModePropertiesPtrOutput
+	ToPeriodicModePropertiesPtrOutputWithContext(context.Context) PeriodicModePropertiesPtrOutput
+}
+
+type periodicModePropertiesPtrType PeriodicModePropertiesArgs
+
+func PeriodicModePropertiesPtr(v *PeriodicModePropertiesArgs) PeriodicModePropertiesPtrInput {
+	return (*periodicModePropertiesPtrType)(v)
+}
+
+func (*periodicModePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeriodicModeProperties)(nil)).Elem()
+}
+
+func (i *periodicModePropertiesPtrType) ToPeriodicModePropertiesPtrOutput() PeriodicModePropertiesPtrOutput {
+	return i.ToPeriodicModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *periodicModePropertiesPtrType) ToPeriodicModePropertiesPtrOutputWithContext(ctx context.Context) PeriodicModePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesPtrOutput)
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModePropertiesOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeProperties)(nil)).Elem()
+}
+
+func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesOutput() PeriodicModePropertiesOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesOutputWithContext(ctx context.Context) PeriodicModePropertiesOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesPtrOutput() PeriodicModePropertiesPtrOutput {
+	return o.ToPeriodicModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesPtrOutputWithContext(ctx context.Context) PeriodicModePropertiesPtrOutput {
+	return o.ApplyT(func(v PeriodicModeProperties) *PeriodicModeProperties {
+		return &v
+	}).(PeriodicModePropertiesPtrOutput)
+}
+
+// An integer representing the interval in minutes between two backups
+func (o PeriodicModePropertiesOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PeriodicModeProperties) *int { return v.BackupIntervalInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// An integer representing the time (in hours) that each backup is retained
+func (o PeriodicModePropertiesOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PeriodicModeProperties) *int { return v.BackupRetentionIntervalInHours }).(pulumi.IntPtrOutput)
+}
+
+type PeriodicModePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeriodicModeProperties)(nil)).Elem()
+}
+
+func (o PeriodicModePropertiesPtrOutput) ToPeriodicModePropertiesPtrOutput() PeriodicModePropertiesPtrOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesPtrOutput) ToPeriodicModePropertiesPtrOutputWithContext(ctx context.Context) PeriodicModePropertiesPtrOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesPtrOutput) Elem() PeriodicModePropertiesOutput {
+	return o.ApplyT(func(v *PeriodicModeProperties) PeriodicModeProperties { return *v }).(PeriodicModePropertiesOutput)
+}
+
+// An integer representing the interval in minutes between two backups
+func (o PeriodicModePropertiesPtrOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PeriodicModeProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupIntervalInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// An integer representing the time (in hours) that each backup is retained
+func (o PeriodicModePropertiesPtrOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PeriodicModeProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupRetentionIntervalInHours
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModePropertiesResponse struct {
+	// An integer representing the interval in minutes between two backups
+	BackupIntervalInMinutes *int `pulumi:"backupIntervalInMinutes"`
+	// An integer representing the time (in hours) that each backup is retained
+	BackupRetentionIntervalInHours *int `pulumi:"backupRetentionIntervalInHours"`
+}
+
+// PeriodicModePropertiesResponseInput is an input type that accepts PeriodicModePropertiesResponseArgs and PeriodicModePropertiesResponseOutput values.
+// You can construct a concrete instance of `PeriodicModePropertiesResponseInput` via:
+//
+//          PeriodicModePropertiesResponseArgs{...}
+type PeriodicModePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPeriodicModePropertiesResponseOutput() PeriodicModePropertiesResponseOutput
+	ToPeriodicModePropertiesResponseOutputWithContext(context.Context) PeriodicModePropertiesResponseOutput
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModePropertiesResponseArgs struct {
+	// An integer representing the interval in minutes between two backups
+	BackupIntervalInMinutes pulumi.IntPtrInput `pulumi:"backupIntervalInMinutes"`
+	// An integer representing the time (in hours) that each backup is retained
+	BackupRetentionIntervalInHours pulumi.IntPtrInput `pulumi:"backupRetentionIntervalInHours"`
+}
+
+func (PeriodicModePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModePropertiesResponse)(nil)).Elem()
+}
+
+func (i PeriodicModePropertiesResponseArgs) ToPeriodicModePropertiesResponseOutput() PeriodicModePropertiesResponseOutput {
+	return i.ToPeriodicModePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PeriodicModePropertiesResponseArgs) ToPeriodicModePropertiesResponseOutputWithContext(ctx context.Context) PeriodicModePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesResponseOutput)
+}
+
+func (i PeriodicModePropertiesResponseArgs) ToPeriodicModePropertiesResponsePtrOutput() PeriodicModePropertiesResponsePtrOutput {
+	return i.ToPeriodicModePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PeriodicModePropertiesResponseArgs) ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx context.Context) PeriodicModePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesResponseOutput).ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// PeriodicModePropertiesResponsePtrInput is an input type that accepts PeriodicModePropertiesResponseArgs, PeriodicModePropertiesResponsePtr and PeriodicModePropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `PeriodicModePropertiesResponsePtrInput` via:
+//
+//          PeriodicModePropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PeriodicModePropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToPeriodicModePropertiesResponsePtrOutput() PeriodicModePropertiesResponsePtrOutput
+	ToPeriodicModePropertiesResponsePtrOutputWithContext(context.Context) PeriodicModePropertiesResponsePtrOutput
+}
+
+type periodicModePropertiesResponsePtrType PeriodicModePropertiesResponseArgs
+
+func PeriodicModePropertiesResponsePtr(v *PeriodicModePropertiesResponseArgs) PeriodicModePropertiesResponsePtrInput {
+	return (*periodicModePropertiesResponsePtrType)(v)
+}
+
+func (*periodicModePropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeriodicModePropertiesResponse)(nil)).Elem()
+}
+
+func (i *periodicModePropertiesResponsePtrType) ToPeriodicModePropertiesResponsePtrOutput() PeriodicModePropertiesResponsePtrOutput {
+	return i.ToPeriodicModePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *periodicModePropertiesResponsePtrType) ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx context.Context) PeriodicModePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesResponsePtrOutput)
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModePropertiesResponse)(nil)).Elem()
+}
+
+func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponseOutput() PeriodicModePropertiesResponseOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponseOutputWithContext(ctx context.Context) PeriodicModePropertiesResponseOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponsePtrOutput() PeriodicModePropertiesResponsePtrOutput {
+	return o.ToPeriodicModePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx context.Context) PeriodicModePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PeriodicModePropertiesResponse) *PeriodicModePropertiesResponse {
+		return &v
+	}).(PeriodicModePropertiesResponsePtrOutput)
+}
+
+// An integer representing the interval in minutes between two backups
+func (o PeriodicModePropertiesResponseOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PeriodicModePropertiesResponse) *int { return v.BackupIntervalInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// An integer representing the time (in hours) that each backup is retained
+func (o PeriodicModePropertiesResponseOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PeriodicModePropertiesResponse) *int { return v.BackupRetentionIntervalInHours }).(pulumi.IntPtrOutput)
+}
+
+type PeriodicModePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeriodicModePropertiesResponse)(nil)).Elem()
+}
+
+func (o PeriodicModePropertiesResponsePtrOutput) ToPeriodicModePropertiesResponsePtrOutput() PeriodicModePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesResponsePtrOutput) ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx context.Context) PeriodicModePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesResponsePtrOutput) Elem() PeriodicModePropertiesResponseOutput {
+	return o.ApplyT(func(v *PeriodicModePropertiesResponse) PeriodicModePropertiesResponse { return *v }).(PeriodicModePropertiesResponseOutput)
+}
+
+// An integer representing the interval in minutes between two backups
+func (o PeriodicModePropertiesResponsePtrOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PeriodicModePropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupIntervalInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// An integer representing the time (in hours) that each backup is retained
+func (o PeriodicModePropertiesResponsePtrOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PeriodicModePropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupRetentionIntervalInHours
+	}).(pulumi.IntPtrOutput)
+}
+
 // A private endpoint connection
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -10049,7 +10595,7 @@ type SqlContainerGetPropertiesResponseResource struct {
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy *UniqueKeyPolicyResponse `pulumi:"uniqueKeyPolicy"`
 }
@@ -10083,7 +10629,7 @@ type SqlContainerGetPropertiesResponseResourceArgs struct {
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy UniqueKeyPolicyResponsePtrInput `pulumi:"uniqueKeyPolicy"`
 }
@@ -10210,8 +10756,8 @@ func (o SqlContainerGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutp
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlContainerGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o SqlContainerGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -10320,13 +10866,13 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringP
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) interface{} {
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -10747,7 +11293,7 @@ type SqlDatabaseGetPropertiesResponseResource struct {
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 	// A system generated property that specifies the addressable path of the users resource.
 	Users *string `pulumi:"users"`
 }
@@ -10773,7 +11319,7 @@ type SqlDatabaseGetPropertiesResponseResourceArgs struct {
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 	// A system generated property that specifies the addressable path of the users resource.
 	Users pulumi.StringPtrInput `pulumi:"users"`
 }
@@ -10876,8 +11422,8 @@ func (o SqlDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutpu
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 // A system generated property that specifies the addressable path of the users resource.
@@ -10944,13 +11490,13 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPt
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) interface{} {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // A system generated property that specifies the addressable path of the users resource.
@@ -11107,7 +11653,7 @@ type SqlStoredProcedureGetPropertiesResponseResource struct {
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 }
 
 // SqlStoredProcedureGetPropertiesResponseResourceInput is an input type that accepts SqlStoredProcedureGetPropertiesResponseResourceArgs and SqlStoredProcedureGetPropertiesResponseResourceOutput values.
@@ -11131,7 +11677,7 @@ type SqlStoredProcedureGetPropertiesResponseResourceArgs struct {
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (SqlStoredProcedureGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -11232,8 +11778,8 @@ func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Rid() pulumi.Stri
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 type SqlStoredProcedureGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -11297,13 +11843,13 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Rid() pulumi.S
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) interface{} {
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Cosmos DB SQL storedProcedure resource object
@@ -11473,7 +12019,7 @@ type SqlTriggerGetPropertiesResponseResource struct {
 	// Type of the Trigger
 	TriggerType *string `pulumi:"triggerType"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 }
 
 // SqlTriggerGetPropertiesResponseResourceInput is an input type that accepts SqlTriggerGetPropertiesResponseResourceArgs and SqlTriggerGetPropertiesResponseResourceOutput values.
@@ -11501,7 +12047,7 @@ type SqlTriggerGetPropertiesResponseResourceArgs struct {
 	// Type of the Trigger
 	TriggerType pulumi.StringPtrInput `pulumi:"triggerType"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (SqlTriggerGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -11612,8 +12158,8 @@ func (o SqlTriggerGetPropertiesResponseResourceOutput) TriggerType() pulumi.Stri
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlTriggerGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o SqlTriggerGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 type SqlTriggerGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -11695,13 +12241,13 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) TriggerType() pulumi.S
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) interface{} {
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Cosmos DB SQL trigger resource object
@@ -11905,7 +12451,7 @@ type SqlUserDefinedFunctionGetPropertiesResponseResource struct {
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 }
 
 // SqlUserDefinedFunctionGetPropertiesResponseResourceInput is an input type that accepts SqlUserDefinedFunctionGetPropertiesResponseResourceArgs and SqlUserDefinedFunctionGetPropertiesResponseResourceOutput values.
@@ -11929,7 +12475,7 @@ type SqlUserDefinedFunctionGetPropertiesResponseResourceArgs struct {
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (SqlUserDefinedFunctionGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -12030,8 +12576,8 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Rid() pulumi.
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 type SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -12095,13 +12641,13 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Rid() pulu
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) interface{} {
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Cosmos DB SQL userDefinedFunction resource object
@@ -12415,7 +12961,7 @@ type TableGetPropertiesResponseResource struct {
 	// A system generated property. A unique identifier.
 	Rid string `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts interface{} `pulumi:"ts"`
+	Ts float64 `pulumi:"ts"`
 }
 
 // TableGetPropertiesResponseResourceInput is an input type that accepts TableGetPropertiesResponseResourceArgs and TableGetPropertiesResponseResourceOutput values.
@@ -12437,7 +12983,7 @@ type TableGetPropertiesResponseResourceArgs struct {
 	// A system generated property. A unique identifier.
 	Rid pulumi.StringInput `pulumi:"rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.Input `pulumi:"ts"`
+	Ts pulumi.Float64Input `pulumi:"ts"`
 }
 
 func (TableGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -12533,8 +13079,8 @@ func (o TableGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o TableGetPropertiesResponseResourceOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v TableGetPropertiesResponseResource) interface{} { return v.Ts }).(pulumi.AnyOutput)
+func (o TableGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
+	return o.ApplyT(func(v TableGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 type TableGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -12586,13 +13132,13 @@ func (o TableGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutpu
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o TableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TableGetPropertiesResponseResource) interface{} {
+func (o TableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ts
-	}).(pulumi.AnyOutput)
+		return &v.Ts
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Cosmos DB table resource object
@@ -13472,6 +14018,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerPartitionKeyPtrOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContinuousModeBackupPolicyOutput{})
+	pulumi.RegisterOutputType(ContinuousModeBackupPolicyResponseOutput{})
 	pulumi.RegisterOutputType(CorsPolicyOutput{})
 	pulumi.RegisterOutputType(CorsPolicyArrayOutput{})
 	pulumi.RegisterOutputType(CorsPolicyResponseOutput{})
@@ -13542,6 +14090,12 @@ func init() {
 	pulumi.RegisterOutputType(MongoIndexOptionsResponsePtrOutput{})
 	pulumi.RegisterOutputType(MongoIndexResponseOutput{})
 	pulumi.RegisterOutputType(MongoIndexResponseArrayOutput{})
+	pulumi.RegisterOutputType(PeriodicModeBackupPolicyOutput{})
+	pulumi.RegisterOutputType(PeriodicModeBackupPolicyResponseOutput{})
+	pulumi.RegisterOutputType(PeriodicModePropertiesOutput{})
+	pulumi.RegisterOutputType(PeriodicModePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PeriodicModePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PeriodicModePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponseOutput{})

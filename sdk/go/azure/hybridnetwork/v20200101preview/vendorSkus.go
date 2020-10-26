@@ -14,28 +14,24 @@ import (
 type VendorSkus struct {
 	pulumi.CustomResourceState
 
-	// Sku deployment mode.
+	// The sku deployment mode.
 	DeploymentMode pulumi.StringPtrOutput `pulumi:"deploymentMode"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The parameters for the managed application to be supplied by vendor.
+	// The parameters for the managed application to be supplied by the vendor.
 	ManagedApplicationParameters pulumi.AnyOutput `pulumi:"managedApplicationParameters"`
 	// The template for the managed application deployment.
 	ManagedApplicationTemplate pulumi.AnyOutput `pulumi:"managedApplicationTemplate"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The template definition of the network function.
+	NetworkFunctionTemplate NetworkFunctionTemplateResponsePtrOutput `pulumi:"networkFunctionTemplate"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview pulumi.BoolPtrOutput `pulumi:"preview"`
 	// The provisioning state of the vendor sku sub resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Sku type.
+	// The sku type.
 	SkuType pulumi.StringPtrOutput `pulumi:"skuType"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The template definition of the virtual network function.
-	VirtualNetworkFunctionTemplate VirtualNetworkFunctionTemplateResponsePtrOutput `pulumi:"virtualNetworkFunctionTemplate"`
 }
 
 // NewVendorSkus registers a new resource with the given unique name, arguments, and options.
@@ -72,53 +68,45 @@ func GetVendorSkus(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VendorSkus resources.
 type vendorSkusState struct {
-	// Sku deployment mode.
+	// The sku deployment mode.
 	DeploymentMode *string `pulumi:"deploymentMode"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The parameters for the managed application to be supplied by vendor.
+	// The parameters for the managed application to be supplied by the vendor.
 	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The template for the managed application deployment.
 	ManagedApplicationTemplate interface{} `pulumi:"managedApplicationTemplate"`
-	// Resource name.
+	// The name of the resource
 	Name *string `pulumi:"name"`
+	// The template definition of the network function.
+	NetworkFunctionTemplate *NetworkFunctionTemplateResponse `pulumi:"networkFunctionTemplate"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview *bool `pulumi:"preview"`
 	// The provisioning state of the vendor sku sub resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Sku type.
+	// The sku type.
 	SkuType *string `pulumi:"skuType"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
-	// The template definition of the virtual network function.
-	VirtualNetworkFunctionTemplate *VirtualNetworkFunctionTemplateResponse `pulumi:"virtualNetworkFunctionTemplate"`
 }
 
 type VendorSkusState struct {
-	// Sku deployment mode.
+	// The sku deployment mode.
 	DeploymentMode pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The parameters for the managed application to be supplied by vendor.
+	// The parameters for the managed application to be supplied by the vendor.
 	ManagedApplicationParameters pulumi.Input
 	// The template for the managed application deployment.
 	ManagedApplicationTemplate pulumi.Input
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringPtrInput
+	// The template definition of the network function.
+	NetworkFunctionTemplate NetworkFunctionTemplateResponsePtrInput
 	// Indicates if the vendor sku is in preview mode.
 	Preview pulumi.BoolPtrInput
 	// The provisioning state of the vendor sku sub resource.
 	ProvisioningState pulumi.StringPtrInput
-	// Sku type.
+	// The sku type.
 	SkuType pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
-	// The template definition of the virtual network function.
-	VirtualNetworkFunctionTemplate VirtualNetworkFunctionTemplateResponsePtrInput
 }
 
 func (VendorSkusState) ElementType() reflect.Type {
@@ -126,50 +114,42 @@ func (VendorSkusState) ElementType() reflect.Type {
 }
 
 type vendorSkusArgs struct {
-	// Sku deployment mode.
+	// The sku deployment mode.
 	DeploymentMode *string `pulumi:"deploymentMode"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The parameters for the managed application to be supplied by vendor.
+	// The parameters for the managed application to be supplied by the vendor.
 	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The template for the managed application deployment.
 	ManagedApplicationTemplate interface{} `pulumi:"managedApplicationTemplate"`
+	// The template definition of the network function.
+	NetworkFunctionTemplate *NetworkFunctionTemplate `pulumi:"networkFunctionTemplate"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview *bool `pulumi:"preview"`
 	// The name of the sku.
 	SkuName string `pulumi:"skuName"`
-	// Sku type.
+	// The sku type.
 	SkuType *string `pulumi:"skuType"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
 	// The name of the vendor.
 	VendorName string `pulumi:"vendorName"`
-	// The template definition of the virtual network function.
-	VirtualNetworkFunctionTemplate *VirtualNetworkFunctionTemplate `pulumi:"virtualNetworkFunctionTemplate"`
 }
 
 // The set of arguments for constructing a VendorSkus resource.
 type VendorSkusArgs struct {
-	// Sku deployment mode.
+	// The sku deployment mode.
 	DeploymentMode pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The parameters for the managed application to be supplied by vendor.
+	// The parameters for the managed application to be supplied by the vendor.
 	ManagedApplicationParameters pulumi.Input
 	// The template for the managed application deployment.
 	ManagedApplicationTemplate pulumi.Input
+	// The template definition of the network function.
+	NetworkFunctionTemplate NetworkFunctionTemplatePtrInput
 	// Indicates if the vendor sku is in preview mode.
 	Preview pulumi.BoolPtrInput
 	// The name of the sku.
 	SkuName pulumi.StringInput
-	// Sku type.
+	// The sku type.
 	SkuType pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
 	// The name of the vendor.
 	VendorName pulumi.StringInput
-	// The template definition of the virtual network function.
-	VirtualNetworkFunctionTemplate VirtualNetworkFunctionTemplatePtrInput
 }
 
 func (VendorSkusArgs) ElementType() reflect.Type {

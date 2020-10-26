@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         /// <summary>
         /// A system generated property that denotes the last updated timestamp of the resource.
         /// </summary>
-        public readonly object Ts;
+        public readonly double Ts;
         /// <summary>
         /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
 
             string rid,
 
-            object ts,
+            double ts,
 
             Outputs.UniqueKeyPolicyResponse? uniqueKeyPolicy)
         {

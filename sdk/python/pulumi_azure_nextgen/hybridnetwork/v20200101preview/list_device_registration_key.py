@@ -17,7 +17,7 @@ __all__ = [
 @pulumi.output_type
 class ListDeviceRegistrationKeyResult:
     """
-    The hybrid network device registration key
+    The device registration key.
     """
     def __init__(__self__, registration_key=None):
         if registration_key and not isinstance(registration_key, str):
@@ -28,7 +28,7 @@ class ListDeviceRegistrationKeyResult:
     @pulumi.getter(name="registrationKey")
     def registration_key(self) -> str:
         """
-        The registration key for hybrid network device.
+        The registration key for the device.
         """
         return pulumi.get(self, "registration_key")
 
@@ -48,8 +48,8 @@ def list_device_registration_key(device_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str device_name: The name of the hybrid network device.
-    :param str resource_group_name: The name of the resource group.
+    :param str device_name: The name of the device resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['deviceName'] = device_name

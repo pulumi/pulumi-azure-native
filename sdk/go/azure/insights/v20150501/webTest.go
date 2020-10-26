@@ -76,6 +76,9 @@ func NewWebTest(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights/latest:WebTest"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:insights/v20201005preview:WebTest"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebTest

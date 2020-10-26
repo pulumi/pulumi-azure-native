@@ -61,6 +61,10 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200701preview:Database"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

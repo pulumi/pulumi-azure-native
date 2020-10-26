@@ -10,28 +10,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Hybrid network device resource.
+// Device resource.
 type Device struct {
 	pulumi.CustomResourceState
 
-	// The reference to the azure stack edge device.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge SubResourceResponsePtrOutput `pulumi:"azureStackEdge"`
-	// The type of the hybrid network device.
+	// The type of the device.
 	DeviceType pulumi.StringOutput `pulumi:"deviceType"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the hybrid network device resource.
+	// The list of network functions deployed on the device.
+	NetworkFunctions SubResourceResponseArrayOutput `pulumi:"networkFunctions"`
+	// The provisioning state of the device resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The current device status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The list of virtual network functions deployed on the hybrid network device.
-	VirtualNetworkFunctions SubResourceResponseArrayOutput `pulumi:"virtualNetworkFunctions"`
 }
 
 // NewDevice registers a new resource with the given unique name, arguments, and options.
@@ -42,6 +42,9 @@ func NewDevice(ctx *pulumi.Context,
 	}
 	if args == nil || args.DeviceType == nil {
 		return nil, errors.New("missing required argument 'DeviceType'")
+	}
+	if args == nil || args.Location == nil {
+		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -71,45 +74,45 @@ func GetDevice(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Device resources.
 type deviceState struct {
-	// The reference to the azure stack edge device.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge *SubResourceResponse `pulumi:"azureStackEdge"`
-	// The type of the hybrid network device.
+	// The type of the device.
 	DeviceType *string `pulumi:"deviceType"`
-	// Resource location.
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Resource name.
+	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The provisioning state of the hybrid network device resource.
+	// The list of network functions deployed on the device.
+	NetworkFunctions []SubResourceResponse `pulumi:"networkFunctions"`
+	// The provisioning state of the device resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The current device status.
 	Status *string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
-	// The list of virtual network functions deployed on the hybrid network device.
-	VirtualNetworkFunctions []SubResourceResponse `pulumi:"virtualNetworkFunctions"`
 }
 
 type DeviceState struct {
-	// The reference to the azure stack edge device.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge SubResourceResponsePtrInput
-	// The type of the hybrid network device.
+	// The type of the device.
 	DeviceType pulumi.StringPtrInput
-	// Resource location.
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The provisioning state of the hybrid network device resource.
+	// The list of network functions deployed on the device.
+	NetworkFunctions SubResourceResponseArrayInput
+	// The provisioning state of the device resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The current device status.
 	Status pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
-	// The list of virtual network functions deployed on the hybrid network device.
-	VirtualNetworkFunctions SubResourceResponseArrayInput
 }
 
 func (DeviceState) ElementType() reflect.Type {
@@ -117,15 +120,15 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	// The reference to the azure stack edge device.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge *SubResource `pulumi:"azureStackEdge"`
 	// Resource name for the device resource.
 	DeviceName string `pulumi:"deviceName"`
-	// The type of the hybrid network device.
+	// The type of the device.
 	DeviceType string `pulumi:"deviceType"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -133,15 +136,15 @@ type deviceArgs struct {
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
-	// The reference to the azure stack edge device.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge SubResourcePtrInput
 	// Resource name for the device resource.
 	DeviceName pulumi.StringInput
-	// The type of the hybrid network device.
+	// The type of the device.
 	DeviceType pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	// The geo-location where the resource lives
+	Location pulumi.StringInput
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput

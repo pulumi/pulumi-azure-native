@@ -104,7 +104,7 @@ export interface LinkedStorageAccountArgs {
      */
     readonly dataSourceType: pulumi.Input<string>;
     /**
-     * The workspace's resource group name.
+     * The name of the resource group to get. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

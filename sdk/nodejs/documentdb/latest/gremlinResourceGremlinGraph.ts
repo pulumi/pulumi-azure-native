@@ -74,9 +74,6 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
             if (!args || args.graphName === undefined) {
                 throw new Error("Missing required property 'graphName'");
             }
-            if (!args || args.options === undefined) {
-                throw new Error("Missing required property 'options'");
-            }
             if (!args || args.resource === undefined) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -108,7 +105,7 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200401:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200401:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GremlinResourceGremlinGraph.__pulumiType, name, inputs, opts);
     }
@@ -137,7 +134,7 @@ export interface GremlinResourceGremlinGraphArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.latest.CreateUpdateOptions>;
     /**
      * The standard JSON format of a Gremlin graph
      */
