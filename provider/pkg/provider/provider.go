@@ -644,6 +644,10 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 
 	response, err := k.azureGet(ctx, id, res.APIVersion)
 	if err != nil {
+		if reqErr, ok := err.(*azure.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
+			// 404 means that the resource was deleted.
+			return &rpc.ReadResponse{Id: ""}, nil
+		}
 		return nil, err
 	}
 
@@ -957,9 +961,9 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, ap
 	}
 
 	switch resp.StatusCode {
-	case 200:
+	case http.StatusOK:
 		return fmt.Errorf("cannot create already existing resource %v", id)
-	case 404:
+	case http.StatusNotFound:
 		return nil
 	default:
 		return fmt.Errorf("cannot check existence of resource %v: status code %d", id, resp.StatusCode)
@@ -993,12 +997,32 @@ func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
 		resp,
 		k.client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
+		forceRequestErrorForStatusNotFound,
 		autorest.ByUnmarshallingJSON(&outputs),
 		autorest.ByClosing())
 	if err != nil {
 		return nil, err
 	}
 	return outputs, nil
+}
+
+// If a Status Code is 404, always return a request error 'StatusNotFound'. This doesn't work out-of-the-box
+// in case the service returns an invalid response that failed to parse into an 'autorest.ServiceError'.
+// The parsing error (e.g., 'json.UnmarshalTypeError') would mask the 404 response and the provider wouldn't
+// be able to make the right decision for a missing resource.
+func forceRequestErrorForStatusNotFound(r autorest.Responder) autorest.Responder {
+	return autorest.ResponderFunc(func(resp *http.Response) error {
+		err := r.Respond(resp)
+		if err == nil || !autorest.ResponseHasStatusCode(resp, http.StatusNotFound) {
+			return err
+		}
+		if _, ok := err.(*azure.RequestError); ok {
+			return err
+		}
+		return &azure.RequestError{
+			DetailedError: autorest.DetailedError{StatusCode: http.StatusNotFound},
+		}
+	})
 }
 
 func (k *azureNextGenProvider) azurePost(
