@@ -427,7 +427,7 @@ func (k *azureNextGenProvider) validateProperty(ctx string, prop *AzureAPIProper
 	return failures
 }
 
-func (k *azureNextGenProvider) GetSchema(_ context.Context,	req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
+func (k *azureNextGenProvider) GetSchema(_ context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
