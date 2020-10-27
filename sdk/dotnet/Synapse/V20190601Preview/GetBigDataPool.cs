@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string? CreationDate;
         /// <summary>
+        /// List of custom libraries/packages associated with the spark pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LibraryInfoResponse> CustomLibraries;
+        /// <summary>
         /// The default folder where Spark logs will be written.
         /// </summary>
         public readonly string? DefaultSparkLogFolder;
@@ -94,6 +98,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
+        /// Whether session level library/package management is enabled or not.
+        /// </summary>
+        public readonly bool? SessionLevelPackagesEnabled;
+        /// <summary>
         /// Spark configuration file to specify additional properties
         /// </summary>
         public readonly Outputs.LibraryRequirementsResponse? SparkConfigProperties;
@@ -122,6 +130,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string? creationDate,
 
+            ImmutableArray<Outputs.LibraryInfoResponse> customLibraries,
+
             string? defaultSparkLogFolder,
 
             bool? isComputeIsolationEnabled,
@@ -140,6 +150,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string? provisioningState,
 
+            bool? sessionLevelPackagesEnabled,
+
             Outputs.LibraryRequirementsResponse? sparkConfigProperties,
 
             string? sparkEventsFolder,
@@ -153,6 +165,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             AutoPause = autoPause;
             AutoScale = autoScale;
             CreationDate = creationDate;
+            CustomLibraries = customLibraries;
             DefaultSparkLogFolder = defaultSparkLogFolder;
             IsComputeIsolationEnabled = isComputeIsolationEnabled;
             LibraryRequirements = libraryRequirements;
@@ -162,6 +175,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             NodeSize = nodeSize;
             NodeSizeFamily = nodeSizeFamily;
             ProvisioningState = provisioningState;
+            SessionLevelPackagesEnabled = sessionLevelPackagesEnabled;
             SparkConfigProperties = sparkConfigProperties;
             SparkEventsFolder = sparkEventsFolder;
             SparkVersion = sparkVersion;

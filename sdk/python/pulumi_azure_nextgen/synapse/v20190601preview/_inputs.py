@@ -23,6 +23,7 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoArgs',
     'IntegrationRuntimeSsisPropertiesArgs',
     'IntegrationRuntimeVNetPropertiesArgs',
+    'LibraryInfoArgs',
     'LibraryRequirementsArgs',
     'LinkedIntegrationRuntimeKeyAuthorizationArgs',
     'LinkedIntegrationRuntimeRbacAuthorizationArgs',
@@ -876,6 +877,94 @@ class IntegrationRuntimeVNetPropertiesArgs:
     @v_net_id.setter
     def v_net_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "v_net_id", value)
+
+
+@pulumi.input_type
+class LibraryInfoArgs:
+    def __init__(__self__, *,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 uploaded_timestamp: Optional[pulumi.Input[str]] = None):
+        """
+        Library/package information of a Big Data pool powered by Apache Spark
+        :param pulumi.Input[str] container_name: Storage blob container name.
+        :param pulumi.Input[str] name: Name of the library.
+        :param pulumi.Input[str] path: Storage blob path of library.
+        :param pulumi.Input[str] type: Type of the library.
+        :param pulumi.Input[str] uploaded_timestamp: The last update time of the library.
+        """
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uploaded_timestamp is not None:
+            pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Storage blob container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the library.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Storage blob path of library.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the library.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="uploadedTimestamp")
+    def uploaded_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last update time of the library.
+        """
+        return pulumi.get(self, "uploaded_timestamp")
+
+    @uploaded_timestamp.setter
+    def uploaded_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uploaded_timestamp", value)
 
 
 @pulumi.input_type

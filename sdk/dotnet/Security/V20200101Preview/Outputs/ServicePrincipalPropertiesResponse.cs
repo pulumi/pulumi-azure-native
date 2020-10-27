@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Outputs
     public sealed class ServicePrincipalPropertiesResponse
     {
         /// <summary>
-        /// Application id of service principal.
+        /// Application ID of service principal.
         /// </summary>
         public readonly string? ApplicationId;
         /// <summary>

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Inputs
         public Input<Inputs.ProxyServerPropertiesArgs>? ProxyServer { get; set; }
 
         /// <summary>
-        /// The location where the meta data of machines will be stored
+        /// The location where the metadata of machines will be stored
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

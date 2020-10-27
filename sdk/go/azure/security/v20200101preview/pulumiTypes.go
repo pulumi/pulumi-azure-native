@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsProperties struct {
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	AuthenticationType string `pulumi:"authenticationType"`
@@ -31,7 +31,7 @@ type AwAssumeRoleAuthenticationDetailsPropertiesInput interface {
 	ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesOutput
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesArgs struct {
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
@@ -53,7 +53,7 @@ func (i AwAssumeRoleAuthenticationDetailsPropertiesArgs) ToAwAssumeRoleAuthentic
 	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesOutput)
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AwAssumeRoleAuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
@@ -83,7 +83,7 @@ func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AwsExternalId() pulum
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AwsExternalId }).(pulumi.StringOutput)
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesResponse struct {
 	// The ID of the cloud account
 	AccountId string `pulumi:"accountId"`
@@ -110,7 +110,7 @@ type AwAssumeRoleAuthenticationDetailsPropertiesResponseInput interface {
 	ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs struct {
 	// The ID of the cloud account
 	AccountId pulumi.StringInput `pulumi:"accountId"`
@@ -138,7 +138,7 @@ func (i AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs) ToAwAssumeRoleA
 	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput)
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -185,7 +185,7 @@ func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) GrantedPermis
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsProperties struct {
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	AuthenticationType string `pulumi:"authenticationType"`
@@ -206,7 +206,7 @@ type AwsCredsAuthenticationDetailsPropertiesInput interface {
 	ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesOutput
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesArgs struct {
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
@@ -228,7 +228,7 @@ func (i AwsCredsAuthenticationDetailsPropertiesArgs) ToAwsCredsAuthenticationDet
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AwsCredsAuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
@@ -258,7 +258,7 @@ func (o AwsCredsAuthenticationDetailsPropertiesOutput) AwsSecretAccessKey() pulu
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AwsSecretAccessKey }).(pulumi.StringOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesResponse struct {
 	// The ID of the cloud account
 	AccountId string `pulumi:"accountId"`
@@ -285,7 +285,7 @@ type AwsCredsAuthenticationDetailsPropertiesResponseInput interface {
 	ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesResponseOutput
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesResponseArgs struct {
 	// The ID of the cloud account
 	AccountId pulumi.StringInput `pulumi:"accountId"`
@@ -313,7 +313,7 @@ func (i AwsCredsAuthenticationDetailsPropertiesResponseArgs) ToAwsCredsAuthentic
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesResponseOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AwsCredsAuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -360,29 +360,29 @@ func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) GrantedPermission
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsProperties struct {
-	// Auth provider x509 certificate url field of the API key (write only)
+	// Auth provider x509 certificate URL field of the API key (write only)
 	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
-	// Auth Uri field of the API key (write only)
+	// Auth URI field of the API key (write only)
 	AuthUri string `pulumi:"authUri"`
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// Client email field of the API key (write only)
 	ClientEmail string `pulumi:"clientEmail"`
-	// Client Id field of the API key (write only)
+	// Client ID field of the API key (write only)
 	ClientId string `pulumi:"clientId"`
-	// Client x509 certificate url field of the API key (write only)
+	// Client x509 certificate URL field of the API key (write only)
 	ClientX509CertUrl string `pulumi:"clientX509CertUrl"`
-	// The Organization ID of the GCP cloud account
+	// The organization ID of the GCP cloud account
 	OrganizationId string `pulumi:"organizationId"`
 	// Private key field of the API key (write only)
 	PrivateKey string `pulumi:"privateKey"`
-	// Private key Id field of the API key (write only)
+	// Private key ID field of the API key (write only)
 	PrivateKeyId string `pulumi:"privateKeyId"`
-	// Project Id field of the API key (write only)
+	// Project ID field of the API key (write only)
 	ProjectId string `pulumi:"projectId"`
-	// Token Uri field of the API key (write only)
+	// Token URI field of the API key (write only)
 	TokenUri string `pulumi:"tokenUri"`
 	// Type field of the API key (write only)
 	Type string `pulumi:"type"`
@@ -399,29 +399,29 @@ type GcpCredentialsDetailsPropertiesInput interface {
 	ToGcpCredentialsDetailsPropertiesOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesOutput
 }
 
-// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesArgs struct {
-	// Auth provider x509 certificate url field of the API key (write only)
+	// Auth provider x509 certificate URL field of the API key (write only)
 	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
-	// Auth Uri field of the API key (write only)
+	// Auth URI field of the API key (write only)
 	AuthUri pulumi.StringInput `pulumi:"authUri"`
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// Client email field of the API key (write only)
 	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
-	// Client Id field of the API key (write only)
+	// Client ID field of the API key (write only)
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// Client x509 certificate url field of the API key (write only)
+	// Client x509 certificate URL field of the API key (write only)
 	ClientX509CertUrl pulumi.StringInput `pulumi:"clientX509CertUrl"`
-	// The Organization ID of the GCP cloud account
+	// The organization ID of the GCP cloud account
 	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
 	// Private key field of the API key (write only)
 	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
-	// Private key Id field of the API key (write only)
+	// Private key ID field of the API key (write only)
 	PrivateKeyId pulumi.StringInput `pulumi:"privateKeyId"`
-	// Project Id field of the API key (write only)
+	// Project ID field of the API key (write only)
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
-	// Token Uri field of the API key (write only)
+	// Token URI field of the API key (write only)
 	TokenUri pulumi.StringInput `pulumi:"tokenUri"`
 	// Type field of the API key (write only)
 	Type pulumi.StringInput `pulumi:"type"`
@@ -439,7 +439,7 @@ func (i GcpCredentialsDetailsPropertiesArgs) ToGcpCredentialsDetailsPropertiesOu
 	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (GcpCredentialsDetailsPropertiesOutput) ElementType() reflect.Type {
@@ -454,12 +454,12 @@ func (o GcpCredentialsDetailsPropertiesOutput) ToGcpCredentialsDetailsProperties
 	return o
 }
 
-// Auth provider x509 certificate url field of the API key (write only)
+// Auth provider x509 certificate URL field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) AuthProviderX509CertUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthProviderX509CertUrl }).(pulumi.StringOutput)
 }
 
-// Auth Uri field of the API key (write only)
+// Auth URI field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) AuthUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthUri }).(pulumi.StringOutput)
 }
@@ -474,17 +474,17 @@ func (o GcpCredentialsDetailsPropertiesOutput) ClientEmail() pulumi.StringOutput
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientEmail }).(pulumi.StringOutput)
 }
 
-// Client Id field of the API key (write only)
+// Client ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Client x509 certificate url field of the API key (write only)
+// Client x509 certificate URL field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) ClientX509CertUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientX509CertUrl }).(pulumi.StringOutput)
 }
 
-// The Organization ID of the GCP cloud account
+// The organization ID of the GCP cloud account
 func (o GcpCredentialsDetailsPropertiesOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
@@ -494,17 +494,17 @@ func (o GcpCredentialsDetailsPropertiesOutput) PrivateKey() pulumi.StringOutput 
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Private key Id field of the API key (write only)
+// Private key ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) PrivateKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.PrivateKeyId }).(pulumi.StringOutput)
 }
 
-// Project Id field of the API key (write only)
+// Project ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Token Uri field of the API key (write only)
+// Token URI field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) TokenUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.TokenUri }).(pulumi.StringOutput)
 }
@@ -514,11 +514,11 @@ func (o GcpCredentialsDetailsPropertiesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesResponse struct {
-	// Auth provider x509 certificate url field of the API key (write only)
+	// Auth provider x509 certificate URL field of the API key (write only)
 	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
-	// Auth Uri field of the API key (write only)
+	// Auth URI field of the API key (write only)
 	AuthUri string `pulumi:"authUri"`
 	// State of the multi-cloud connector
 	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
@@ -526,21 +526,21 @@ type GcpCredentialsDetailsPropertiesResponse struct {
 	AuthenticationType string `pulumi:"authenticationType"`
 	// Client email field of the API key (write only)
 	ClientEmail string `pulumi:"clientEmail"`
-	// Client Id field of the API key (write only)
+	// Client ID field of the API key (write only)
 	ClientId string `pulumi:"clientId"`
-	// Client x509 certificate url field of the API key (write only)
+	// Client x509 certificate URL field of the API key (write only)
 	ClientX509CertUrl string `pulumi:"clientX509CertUrl"`
 	// The permissions detected in the cloud account.
 	GrantedPermissions []string `pulumi:"grantedPermissions"`
-	// The Organization ID of the GCP cloud account
+	// The organization ID of the GCP cloud account
 	OrganizationId string `pulumi:"organizationId"`
 	// Private key field of the API key (write only)
 	PrivateKey string `pulumi:"privateKey"`
-	// Private key Id field of the API key (write only)
+	// Private key ID field of the API key (write only)
 	PrivateKeyId string `pulumi:"privateKeyId"`
-	// Project Id field of the API key (write only)
+	// Project ID field of the API key (write only)
 	ProjectId string `pulumi:"projectId"`
-	// Token Uri field of the API key (write only)
+	// Token URI field of the API key (write only)
 	TokenUri string `pulumi:"tokenUri"`
 	// Type field of the API key (write only)
 	Type string `pulumi:"type"`
@@ -557,11 +557,11 @@ type GcpCredentialsDetailsPropertiesResponseInput interface {
 	ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesResponseOutput
 }
 
-// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesResponseArgs struct {
-	// Auth provider x509 certificate url field of the API key (write only)
+	// Auth provider x509 certificate URL field of the API key (write only)
 	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
-	// Auth Uri field of the API key (write only)
+	// Auth URI field of the API key (write only)
 	AuthUri pulumi.StringInput `pulumi:"authUri"`
 	// State of the multi-cloud connector
 	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
@@ -569,21 +569,21 @@ type GcpCredentialsDetailsPropertiesResponseArgs struct {
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
 	// Client email field of the API key (write only)
 	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
-	// Client Id field of the API key (write only)
+	// Client ID field of the API key (write only)
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// Client x509 certificate url field of the API key (write only)
+	// Client x509 certificate URL field of the API key (write only)
 	ClientX509CertUrl pulumi.StringInput `pulumi:"clientX509CertUrl"`
 	// The permissions detected in the cloud account.
 	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
-	// The Organization ID of the GCP cloud account
+	// The organization ID of the GCP cloud account
 	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
 	// Private key field of the API key (write only)
 	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
-	// Private key Id field of the API key (write only)
+	// Private key ID field of the API key (write only)
 	PrivateKeyId pulumi.StringInput `pulumi:"privateKeyId"`
-	// Project Id field of the API key (write only)
+	// Project ID field of the API key (write only)
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
-	// Token Uri field of the API key (write only)
+	// Token URI field of the API key (write only)
 	TokenUri pulumi.StringInput `pulumi:"tokenUri"`
 	// Type field of the API key (write only)
 	Type pulumi.StringInput `pulumi:"type"`
@@ -601,7 +601,7 @@ func (i GcpCredentialsDetailsPropertiesResponseArgs) ToGcpCredentialsDetailsProp
 	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesResponseOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (GcpCredentialsDetailsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -616,12 +616,12 @@ func (o GcpCredentialsDetailsPropertiesResponseOutput) ToGcpCredentialsDetailsPr
 	return o
 }
 
-// Auth provider x509 certificate url field of the API key (write only)
+// Auth provider x509 certificate URL field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthProviderX509CertUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthProviderX509CertUrl }).(pulumi.StringOutput)
 }
 
-// Auth Uri field of the API key (write only)
+// Auth URI field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthUri }).(pulumi.StringOutput)
 }
@@ -641,12 +641,12 @@ func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientEmail() pulumi.Stri
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientEmail }).(pulumi.StringOutput)
 }
 
-// Client Id field of the API key (write only)
+// Client ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Client x509 certificate url field of the API key (write only)
+// Client x509 certificate URL field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientX509CertUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientX509CertUrl }).(pulumi.StringOutput)
 }
@@ -656,7 +656,7 @@ func (o GcpCredentialsDetailsPropertiesResponseOutput) GrantedPermissions() pulu
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
 }
 
-// The Organization ID of the GCP cloud account
+// The organization ID of the GCP cloud account
 func (o GcpCredentialsDetailsPropertiesResponseOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
@@ -666,17 +666,17 @@ func (o GcpCredentialsDetailsPropertiesResponseOutput) PrivateKey() pulumi.Strin
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Private key Id field of the API key (write only)
+// Private key ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) PrivateKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.PrivateKeyId }).(pulumi.StringOutput)
 }
 
-// Project Id field of the API key (write only)
+// Project ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Token Uri field of the API key (write only)
+// Token URI field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) TokenUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.TokenUri }).(pulumi.StringOutput)
 }
@@ -692,7 +692,7 @@ type HybridComputeSettingsProperties struct {
 	AutoProvision string `pulumi:"autoProvision"`
 	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 	ProxyServer *ProxyServerProperties `pulumi:"proxyServer"`
-	// The location where the meta data of machines will be stored
+	// The location where the metadata of machines will be stored
 	Region *string `pulumi:"region"`
 	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -717,7 +717,7 @@ type HybridComputeSettingsPropertiesArgs struct {
 	AutoProvision pulumi.StringInput `pulumi:"autoProvision"`
 	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 	ProxyServer ProxyServerPropertiesPtrInput `pulumi:"proxyServer"`
-	// The location where the meta data of machines will be stored
+	// The location where the metadata of machines will be stored
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
@@ -813,7 +813,7 @@ func (o HybridComputeSettingsPropertiesOutput) ProxyServer() ProxyServerProperti
 	return o.ApplyT(func(v HybridComputeSettingsProperties) *ProxyServerProperties { return v.ProxyServer }).(ProxyServerPropertiesPtrOutput)
 }
 
-// The location where the meta data of machines will be stored
+// The location where the metadata of machines will be stored
 func (o HybridComputeSettingsPropertiesOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridComputeSettingsProperties) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -866,7 +866,7 @@ func (o HybridComputeSettingsPropertiesPtrOutput) ProxyServer() ProxyServerPrope
 	}).(ProxyServerPropertiesPtrOutput)
 }
 
-// The location where the meta data of machines will be stored
+// The location where the metadata of machines will be stored
 func (o HybridComputeSettingsPropertiesPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsProperties) *string {
 		if v == nil {
@@ -904,7 +904,7 @@ type HybridComputeSettingsPropertiesResponse struct {
 	HybridComputeProvisioningState string `pulumi:"hybridComputeProvisioningState"`
 	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 	ProxyServer *ProxyServerPropertiesResponse `pulumi:"proxyServer"`
-	// The location where the meta data of machines will be stored
+	// The location where the metadata of machines will be stored
 	Region *string `pulumi:"region"`
 	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -931,7 +931,7 @@ type HybridComputeSettingsPropertiesResponseArgs struct {
 	HybridComputeProvisioningState pulumi.StringInput `pulumi:"hybridComputeProvisioningState"`
 	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 	ProxyServer ProxyServerPropertiesResponsePtrInput `pulumi:"proxyServer"`
-	// The location where the meta data of machines will be stored
+	// The location where the metadata of machines will be stored
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
@@ -1032,7 +1032,7 @@ func (o HybridComputeSettingsPropertiesResponseOutput) ProxyServer() ProxyServer
 	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *ProxyServerPropertiesResponse { return v.ProxyServer }).(ProxyServerPropertiesResponsePtrOutput)
 }
 
-// The location where the meta data of machines will be stored
+// The location where the metadata of machines will be stored
 func (o HybridComputeSettingsPropertiesResponseOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -1097,7 +1097,7 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) ProxyServer() ProxySer
 	}).(ProxyServerPropertiesResponsePtrOutput)
 }
 
-// The location where the meta data of machines will be stored
+// The location where the metadata of machines will be stored
 func (o HybridComputeSettingsPropertiesResponsePtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *string {
 		if v == nil {
@@ -1745,7 +1745,7 @@ func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) State() p
 
 // Details of the service principal.
 type ServicePrincipalProperties struct {
-	// Application id of service principal.
+	// Application ID of service principal.
 	ApplicationId *string `pulumi:"applicationId"`
 	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
 	Secret *string `pulumi:"secret"`
@@ -1764,7 +1764,7 @@ type ServicePrincipalPropertiesInput interface {
 
 // Details of the service principal.
 type ServicePrincipalPropertiesArgs struct {
-	// Application id of service principal.
+	// Application ID of service principal.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
 	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
@@ -1848,7 +1848,7 @@ func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutputW
 	}).(ServicePrincipalPropertiesPtrOutput)
 }
 
-// Application id of service principal.
+// Application ID of service principal.
 func (o ServicePrincipalPropertiesOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePrincipalProperties) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -1876,7 +1876,7 @@ func (o ServicePrincipalPropertiesPtrOutput) Elem() ServicePrincipalPropertiesOu
 	return o.ApplyT(func(v *ServicePrincipalProperties) ServicePrincipalProperties { return *v }).(ServicePrincipalPropertiesOutput)
 }
 
-// Application id of service principal.
+// Application ID of service principal.
 func (o ServicePrincipalPropertiesPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalProperties) *string {
 		if v == nil {
@@ -1898,7 +1898,7 @@ func (o ServicePrincipalPropertiesPtrOutput) Secret() pulumi.StringPtrOutput {
 
 // Details of the service principal.
 type ServicePrincipalPropertiesResponse struct {
-	// Application id of service principal.
+	// Application ID of service principal.
 	ApplicationId *string `pulumi:"applicationId"`
 	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
 	Secret *string `pulumi:"secret"`
@@ -1917,7 +1917,7 @@ type ServicePrincipalPropertiesResponseInput interface {
 
 // Details of the service principal.
 type ServicePrincipalPropertiesResponseArgs struct {
-	// Application id of service principal.
+	// Application ID of service principal.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
 	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
@@ -2001,7 +2001,7 @@ func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesRe
 	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
-// Application id of service principal.
+// Application ID of service principal.
 func (o ServicePrincipalPropertiesResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -2029,7 +2029,7 @@ func (o ServicePrincipalPropertiesResponsePtrOutput) Elem() ServicePrincipalProp
 	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) ServicePrincipalPropertiesResponse { return *v }).(ServicePrincipalPropertiesResponseOutput)
 }
 
-// Application id of service principal.
+// Application ID of service principal.
 func (o ServicePrincipalPropertiesResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) *string {
 		if v == nil {

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Outputs
         /// </summary>
         public readonly Outputs.ProxyServerPropertiesResponse? ProxyServer;
         /// <summary>
-        /// The location where the meta data of machines will be stored
+        /// The location where the metadata of machines will be stored
         /// </summary>
         public readonly string? Region;
         /// <summary>

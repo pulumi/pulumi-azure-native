@@ -23,7 +23,7 @@ __all__ = [
 @pulumi.output_type
 class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
     """
-    AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+    AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
     """
     def __init__(__self__, *,
                  account_id: str,
@@ -33,7 +33,7 @@ class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
                  aws_external_id: str,
                  granted_permissions: Sequence[str]):
         """
-        AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+        AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
         :param str account_id: The ID of the cloud account
         :param str authentication_provisioning_state: State of the multi-cloud connector
         :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
@@ -103,7 +103,7 @@ class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
 @pulumi.output_type
 class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
     """
-    AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+    AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
     """
     def __init__(__self__, *,
                  account_id: str,
@@ -113,7 +113,7 @@ class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
                  aws_secret_access_key: str,
                  granted_permissions: Sequence[str]):
         """
-        AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+        AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
         :param str account_id: The ID of the cloud account
         :param str authentication_provisioning_state: State of the multi-cloud connector
         :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
@@ -183,7 +183,7 @@ class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
 @pulumi.output_type
 class GcpCredentialsDetailsPropertiesResponse(dict):
     """
-    GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+    GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
     """
     def __init__(__self__, *,
                  auth_provider_x509_cert_url: str,
@@ -201,20 +201,20 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
                  token_uri: str,
                  type: str):
         """
-        GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
-        :param str auth_provider_x509_cert_url: Auth provider x509 certificate url field of the API key (write only)
-        :param str auth_uri: Auth Uri field of the API key (write only)
+        GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
+        :param str auth_provider_x509_cert_url: Auth provider x509 certificate URL field of the API key (write only)
+        :param str auth_uri: Auth URI field of the API key (write only)
         :param str authentication_provisioning_state: State of the multi-cloud connector
         :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
         :param str client_email: Client email field of the API key (write only)
-        :param str client_id: Client Id field of the API key (write only)
-        :param str client_x509_cert_url: Client x509 certificate url field of the API key (write only)
+        :param str client_id: Client ID field of the API key (write only)
+        :param str client_x509_cert_url: Client x509 certificate URL field of the API key (write only)
         :param Sequence[str] granted_permissions: The permissions detected in the cloud account.
-        :param str organization_id: The Organization ID of the GCP cloud account
+        :param str organization_id: The organization ID of the GCP cloud account
         :param str private_key: Private key field of the API key (write only)
-        :param str private_key_id: Private key Id field of the API key (write only)
-        :param str project_id: Project Id field of the API key (write only)
-        :param str token_uri: Token Uri field of the API key (write only)
+        :param str private_key_id: Private key ID field of the API key (write only)
+        :param str project_id: Project ID field of the API key (write only)
+        :param str token_uri: Token URI field of the API key (write only)
         :param str type: Type field of the API key (write only)
         """
         pulumi.set(__self__, "auth_provider_x509_cert_url", auth_provider_x509_cert_url)
@@ -236,7 +236,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
     @pulumi.getter(name="authProviderX509CertUrl")
     def auth_provider_x509_cert_url(self) -> str:
         """
-        Auth provider x509 certificate url field of the API key (write only)
+        Auth provider x509 certificate URL field of the API key (write only)
         """
         return pulumi.get(self, "auth_provider_x509_cert_url")
 
@@ -244,7 +244,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
     @pulumi.getter(name="authUri")
     def auth_uri(self) -> str:
         """
-        Auth Uri field of the API key (write only)
+        Auth URI field of the API key (write only)
         """
         return pulumi.get(self, "auth_uri")
 
@@ -276,7 +276,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        Client Id field of the API key (write only)
+        Client ID field of the API key (write only)
         """
         return pulumi.get(self, "client_id")
 
@@ -284,7 +284,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
     @pulumi.getter(name="clientX509CertUrl")
     def client_x509_cert_url(self) -> str:
         """
-        Client x509 certificate url field of the API key (write only)
+        Client x509 certificate URL field of the API key (write only)
         """
         return pulumi.get(self, "client_x509_cert_url")
 
@@ -300,7 +300,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> str:
         """
-        The Organization ID of the GCP cloud account
+        The organization ID of the GCP cloud account
         """
         return pulumi.get(self, "organization_id")
 
@@ -316,7 +316,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
     @pulumi.getter(name="privateKeyId")
     def private_key_id(self) -> str:
         """
-        Private key Id field of the API key (write only)
+        Private key ID field of the API key (write only)
         """
         return pulumi.get(self, "private_key_id")
 
@@ -324,7 +324,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
         """
-        Project Id field of the API key (write only)
+        Project ID field of the API key (write only)
         """
         return pulumi.get(self, "project_id")
 
@@ -332,7 +332,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
     @pulumi.getter(name="tokenUri")
     def token_uri(self) -> str:
         """
-        Token Uri field of the API key (write only)
+        Token URI field of the API key (write only)
         """
         return pulumi.get(self, "token_uri")
 
@@ -365,7 +365,7 @@ class HybridComputeSettingsPropertiesResponse(dict):
         :param str auto_provision: Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
         :param str hybrid_compute_provisioning_state: State of the service principal and its secret
         :param 'ProxyServerPropertiesResponseArgs' proxy_server: For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-        :param str region: The location where the meta data of machines will be stored
+        :param str region: The location where the metadata of machines will be stored
         :param str resource_group_name: The name of the resource group where Arc (Hybrid Compute) connectors are connected.
         :param 'ServicePrincipalPropertiesResponseArgs' service_principal: An object to access resources that are secured by an Azure AD tenant.
         """
@@ -408,7 +408,7 @@ class HybridComputeSettingsPropertiesResponse(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        The location where the meta data of machines will be stored
+        The location where the metadata of machines will be stored
         """
         return pulumi.get(self, "region")
 
@@ -556,7 +556,7 @@ class ServicePrincipalPropertiesResponse(dict):
                  secret: Optional[str] = None):
         """
         Details of the service principal.
-        :param str application_id: Application id of service principal.
+        :param str application_id: Application ID of service principal.
         :param str secret: A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
         """
         if application_id is not None:
@@ -568,7 +568,7 @@ class ServicePrincipalPropertiesResponse(dict):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[str]:
         """
-        Application id of service principal.
+        Application ID of service principal.
         """
         return pulumi.get(self, "application_id")
 
