@@ -38,7 +38,7 @@ type NetworkFunction struct {
 	SkuType pulumi.StringOutput `pulumi:"skuType"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The vendor name for the network function.
 	VendorName pulumi.StringPtrOutput `pulumi:"vendorName"`
@@ -107,7 +107,7 @@ type networkFunctionState struct {
 	SkuType *string `pulumi:"skuType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The vendor name for the network function.
 	VendorName *string `pulumi:"vendorName"`
@@ -140,7 +140,7 @@ type NetworkFunctionState struct {
 	SkuType pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The vendor name for the network function.
 	VendorName pulumi.StringPtrInput

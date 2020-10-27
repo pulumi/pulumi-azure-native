@@ -20,7 +20,7 @@ type VirtualNetworkRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Virtual Network Rule State
 	State pulumi.StringOutput `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId pulumi.StringOutput `pulumi:"virtualNetworkSubnetId"`
@@ -81,7 +81,7 @@ type virtualNetworkRuleState struct {
 	Name *string `pulumi:"name"`
 	// Virtual Network Rule State
 	State *string `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
@@ -94,7 +94,7 @@ type VirtualNetworkRuleState struct {
 	Name pulumi.StringPtrInput
 	// Virtual Network Rule State
 	State pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId pulumi.StringPtrInput

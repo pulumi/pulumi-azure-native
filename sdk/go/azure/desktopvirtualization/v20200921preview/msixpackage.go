@@ -36,7 +36,7 @@ type MSIXPackage struct {
 	PackageName pulumi.StringPtrOutput `pulumi:"packageName"`
 	// Relative Path to the package inside the image.
 	PackageRelativePath pulumi.StringPtrOutput `pulumi:"packageRelativePath"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Package Version found in the appxmanifest.xml.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
@@ -101,7 +101,7 @@ type msixpackageState struct {
 	PackageName *string `pulumi:"packageName"`
 	// Relative Path to the package inside the image.
 	PackageRelativePath *string `pulumi:"packageRelativePath"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Package Version found in the appxmanifest.xml.
 	Version *string `pulumi:"version"`
@@ -130,7 +130,7 @@ type MSIXPackageState struct {
 	PackageName pulumi.StringPtrInput
 	// Relative Path to the package inside the image.
 	PackageRelativePath pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Package Version found in the appxmanifest.xml.
 	Version pulumi.StringPtrInput

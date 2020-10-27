@@ -30,7 +30,7 @@ type ClusterPrincipalAssignment struct {
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// The tenant name of the principal
 	TenantName pulumi.StringOutput `pulumi:"tenantName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -111,7 +111,7 @@ type clusterPrincipalAssignmentState struct {
 	TenantId *string `pulumi:"tenantId"`
 	// The tenant name of the principal
 	TenantName *string `pulumi:"tenantName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -132,7 +132,7 @@ type ClusterPrincipalAssignmentState struct {
 	TenantId pulumi.StringPtrInput
 	// The tenant name of the principal
 	TenantName pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

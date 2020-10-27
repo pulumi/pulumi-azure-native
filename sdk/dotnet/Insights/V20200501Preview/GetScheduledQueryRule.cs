@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// </summary>
         public readonly ImmutableArray<string> TargetResourceTypes;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>

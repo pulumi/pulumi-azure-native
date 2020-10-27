@@ -1950,7 +1950,7 @@ func (o ErrorAdditionalInfoResponseArrayOutput) Index(i pulumi.IntInput) ErrorAd
 	}).(ErrorAdditionalInfoResponseOutput)
 }
 
-// The resource management error response.
+// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
 type ErrorResponseResponse struct {
 	// The error additional info.
 	AdditionalInfo []ErrorAdditionalInfoResponse `pulumi:"additionalInfo"`
@@ -1975,7 +1975,7 @@ type ErrorResponseResponseInput interface {
 	ToErrorResponseResponseOutputWithContext(context.Context) ErrorResponseResponseOutput
 }
 
-// The resource management error response.
+// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
 type ErrorResponseResponseArgs struct {
 	// The error additional info.
 	AdditionalInfo ErrorAdditionalInfoResponseArrayInput `pulumi:"additionalInfo"`
@@ -2067,7 +2067,7 @@ func (i ErrorResponseResponseArray) ToErrorResponseResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseResponseArrayOutput)
 }
 
-// The resource management error response.
+// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
 type ErrorResponseResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorResponseResponseOutput) ElementType() reflect.Type {

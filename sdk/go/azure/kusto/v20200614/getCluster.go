@@ -59,7 +59,7 @@ type LookupClusterResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The cluster's external tenants.
 	TrustedExternalTenants []TrustedExternalTenantResponse `pulumi:"trustedExternalTenants"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The cluster URI.
 	Uri string `pulumi:"uri"`

@@ -43,7 +43,7 @@ type LookupSavedSearchResult struct {
 	Query string `pulumi:"query"`
 	// The tags attached to the saved search.
 	Tags []TagResponse `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The version number of the query language. The current version is 2 and is the default.
 	Version *int `pulumi:"version"`

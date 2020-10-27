@@ -22,7 +22,7 @@ type AssetFilter struct {
 	PresentationTimeRange PresentationTimeRangeResponsePtrOutput `pulumi:"presentationTimeRange"`
 	// The tracks selection conditions.
 	Tracks FilterTrackSelectionResponseArrayOutput `pulumi:"tracks"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -83,7 +83,7 @@ type assetFilterState struct {
 	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
 	// The tracks selection conditions.
 	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -96,7 +96,7 @@ type AssetFilterState struct {
 	PresentationTimeRange PresentationTimeRangeResponsePtrInput
 	// The tracks selection conditions.
 	Tracks FilterTrackSelectionResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

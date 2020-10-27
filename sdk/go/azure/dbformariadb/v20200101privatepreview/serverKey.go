@@ -22,7 +22,7 @@ type ServerKey struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The key type like  'AzureKeyVault'.
 	ServerKeyType pulumi.StringOutput `pulumi:"serverKeyType"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The URI of the key.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
@@ -76,7 +76,7 @@ type serverKeyState struct {
 	Name *string `pulumi:"name"`
 	// The key type like  'AzureKeyVault'.
 	ServerKeyType *string `pulumi:"serverKeyType"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The URI of the key.
 	Uri *string `pulumi:"uri"`
@@ -91,7 +91,7 @@ type ServerKeyState struct {
 	Name pulumi.StringPtrInput
 	// The key type like  'AzureKeyVault'.
 	ServerKeyType pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The URI of the key.
 	Uri pulumi.StringPtrInput

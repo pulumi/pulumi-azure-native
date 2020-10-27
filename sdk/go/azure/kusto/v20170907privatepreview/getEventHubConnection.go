@@ -43,6 +43,6 @@ type LookupEventHubConnectionResult struct {
 	Name string `pulumi:"name"`
 	// The table where the data should be ingested. Optionally the table information can be added to each message.
 	TableName *string `pulumi:"tableName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

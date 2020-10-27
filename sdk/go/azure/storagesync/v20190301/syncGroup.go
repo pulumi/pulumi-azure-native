@@ -18,7 +18,7 @@ type SyncGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Sync group status
 	SyncGroupStatus pulumi.StringOutput `pulumi:"syncGroupStatus"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Unique Id
 	UniqueId pulumi.StringPtrOutput `pulumi:"uniqueId"`
@@ -98,7 +98,7 @@ type syncGroupState struct {
 	Name *string `pulumi:"name"`
 	// Sync group status
 	SyncGroupStatus *string `pulumi:"syncGroupStatus"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Unique Id
 	UniqueId *string `pulumi:"uniqueId"`
@@ -109,7 +109,7 @@ type SyncGroupState struct {
 	Name pulumi.StringPtrInput
 	// Sync group status
 	SyncGroupStatus pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Unique Id
 	UniqueId pulumi.StringPtrInput

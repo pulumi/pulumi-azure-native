@@ -28,7 +28,7 @@ type AttachedDatabaseConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioned state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -110,7 +110,7 @@ type attachedDatabaseConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// The provisioned state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -129,7 +129,7 @@ type AttachedDatabaseConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// The provisioned state of the resource.
 	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

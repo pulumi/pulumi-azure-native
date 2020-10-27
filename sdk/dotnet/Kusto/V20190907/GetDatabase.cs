@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190907
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

@@ -26,7 +26,7 @@ type Database struct {
 	SoftDeletePeriod pulumi.StringPtrOutput `pulumi:"softDeletePeriod"`
 	// The statistics of the database.
 	Statistics DatabaseStatisticsResponseOutput `pulumi:"statistics"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -109,7 +109,7 @@ type databaseState struct {
 	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
 	// The statistics of the database.
 	Statistics *DatabaseStatisticsResponse `pulumi:"statistics"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -126,7 +126,7 @@ type DatabaseState struct {
 	SoftDeletePeriod pulumi.StringPtrInput
 	// The statistics of the database.
 	Statistics DatabaseStatisticsResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

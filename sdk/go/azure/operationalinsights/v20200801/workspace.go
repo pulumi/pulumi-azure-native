@@ -36,7 +36,7 @@ type Workspace struct {
 	Sku WorkspaceSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The daily volume cap for ingestion.
 	WorkspaceCapping WorkspaceCappingResponsePtrOutput `pulumi:"workspaceCapping"`
@@ -113,7 +113,7 @@ type workspaceState struct {
 	Sku *WorkspaceSkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The daily volume cap for ingestion.
 	WorkspaceCapping *WorkspaceCappingResponse `pulumi:"workspaceCapping"`
@@ -142,7 +142,7 @@ type WorkspaceState struct {
 	Sku WorkspaceSkuResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The daily volume cap for ingestion.
 	WorkspaceCapping WorkspaceCappingResponsePtrInput

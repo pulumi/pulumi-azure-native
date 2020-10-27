@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         /// </summary>
         public readonly string TargetResourceGroup;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

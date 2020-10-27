@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
         public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

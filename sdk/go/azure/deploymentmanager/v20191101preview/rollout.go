@@ -30,7 +30,7 @@ type Rollout struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
 	TargetServiceTopologyId pulumi.StringOutput `pulumi:"targetServiceTopologyId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -105,7 +105,7 @@ type rolloutState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
 	TargetServiceTopologyId *string `pulumi:"targetServiceTopologyId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -126,7 +126,7 @@ type RolloutState struct {
 	Tags pulumi.StringMapInput
 	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
 	TargetServiceTopologyId pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

@@ -18,7 +18,7 @@ type ConfigurationProfileAssignment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the configuration profile assignment.
 	Properties ConfigurationProfileAssignmentPropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -63,7 +63,7 @@ type configurationProfileAssignmentState struct {
 	Name *string `pulumi:"name"`
 	// Properties of the configuration profile assignment.
 	Properties *ConfigurationProfileAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -72,7 +72,7 @@ type ConfigurationProfileAssignmentState struct {
 	Name pulumi.StringPtrInput
 	// Properties of the configuration profile assignment.
 	Properties ConfigurationProfileAssignmentPropertiesResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

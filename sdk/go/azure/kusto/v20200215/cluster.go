@@ -46,7 +46,7 @@ type Cluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The cluster's external tenants.
 	TrustedExternalTenants TrustedExternalTenantResponseArrayOutput `pulumi:"trustedExternalTenants"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The cluster URI.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -158,7 +158,7 @@ type clusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The cluster's external tenants.
 	TrustedExternalTenants []TrustedExternalTenantResponse `pulumi:"trustedExternalTenants"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The cluster URI.
 	Uri *string `pulumi:"uri"`
@@ -201,7 +201,7 @@ type ClusterState struct {
 	Tags pulumi.StringMapInput
 	// The cluster's external tenants.
 	TrustedExternalTenants TrustedExternalTenantResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The cluster URI.
 	Uri pulumi.StringPtrInput

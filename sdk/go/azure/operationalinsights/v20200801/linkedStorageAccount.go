@@ -20,7 +20,7 @@ type LinkedStorageAccount struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Linked storage accounts resources ids.
 	StorageAccountIds pulumi.StringArrayOutput `pulumi:"storageAccountIds"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -79,7 +79,7 @@ type linkedStorageAccountState struct {
 	Name *string `pulumi:"name"`
 	// Linked storage accounts resources ids.
 	StorageAccountIds []string `pulumi:"storageAccountIds"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -90,7 +90,7 @@ type LinkedStorageAccountState struct {
 	Name pulumi.StringPtrInput
 	// Linked storage accounts resources ids.
 	StorageAccountIds pulumi.StringArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

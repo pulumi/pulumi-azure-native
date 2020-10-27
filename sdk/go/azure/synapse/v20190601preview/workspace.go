@@ -42,7 +42,7 @@ type Workspace struct {
 	SqlAdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"sqlAdministratorLoginPassword"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Virtual Network profile
 	VirtualNetworkProfile VirtualNetworkProfileResponsePtrOutput `pulumi:"virtualNetworkProfile"`
@@ -113,7 +113,7 @@ type workspaceState struct {
 	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Virtual Network profile
 	VirtualNetworkProfile *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
@@ -148,7 +148,7 @@ type WorkspaceState struct {
 	SqlAdministratorLoginPassword pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Virtual Network profile
 	VirtualNetworkProfile VirtualNetworkProfileResponsePtrInput

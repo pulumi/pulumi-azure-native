@@ -42,7 +42,7 @@ type Application struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal pulumi.BoolPtrOutput `pulumi:"showInPortal"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -126,7 +126,7 @@ type applicationState struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal *bool `pulumi:"showInPortal"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -159,7 +159,7 @@ type ApplicationState struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal pulumi.BoolPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

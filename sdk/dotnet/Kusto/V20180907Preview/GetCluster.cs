@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.TrustedExternalTenantResponse> TrustedExternalTenants;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>

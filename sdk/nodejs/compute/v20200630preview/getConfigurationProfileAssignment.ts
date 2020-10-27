@@ -49,7 +49,7 @@ export interface GetConfigurationProfileAssignmentResult {
      */
     readonly properties: outputs.compute.v20200630preview.ConfigurationProfileAssignmentPropertiesResponse;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

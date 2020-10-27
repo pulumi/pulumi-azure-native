@@ -36,7 +36,7 @@ type Job struct {
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
 	// The current state of the job.
 	State pulumi.StringOutput `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -123,7 +123,7 @@ type jobState struct {
 	StartTime *string `pulumi:"startTime"`
 	// The current state of the job.
 	State *string `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -150,7 +150,7 @@ type JobState struct {
 	StartTime pulumi.StringPtrInput
 	// The current state of the job.
 	State pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

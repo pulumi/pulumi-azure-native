@@ -263,16 +263,19 @@ class ManagementClusterResponse(dict):
     def __init__(__self__, *,
                  cluster_id: int,
                  cluster_size: int,
-                 hosts: Sequence[str]):
+                 hosts: Sequence[str],
+                 provisioning_state: str):
         """
         The properties of a default cluster
         :param int cluster_id: The identity
         :param int cluster_size: The cluster size
         :param Sequence[str] hosts: The hosts
+        :param str provisioning_state: The state of the cluster provisioning
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "cluster_size", cluster_size)
         pulumi.set(__self__, "hosts", hosts)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -297,6 +300,14 @@ class ManagementClusterResponse(dict):
         The hosts
         """
         return pulumi.get(self, "hosts")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The state of the cluster provisioning
+        """
+        return pulumi.get(self, "provisioning_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

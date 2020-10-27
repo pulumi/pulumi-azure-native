@@ -38,7 +38,7 @@ type BlobContainer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether data in the container may be accessed publicly and the level of access.
 	PublicAccess pulumi.StringPtrOutput `pulumi:"publicAccess"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -127,7 +127,7 @@ type blobContainerState struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether data in the container may be accessed publicly and the level of access.
 	PublicAccess *string `pulumi:"publicAccess"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -156,7 +156,7 @@ type BlobContainerState struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether data in the container may be accessed publicly and the level of access.
 	PublicAccess pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

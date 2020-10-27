@@ -37,6 +37,6 @@ type LookupBlobContainerImmutabilityPolicyResult struct {
 	Name string `pulumi:"name"`
 	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 	State string `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

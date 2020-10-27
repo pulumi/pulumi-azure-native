@@ -55,7 +55,7 @@ type LookupHostPoolResult struct {
 	SsoContext *string `pulumi:"ssoContext"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Is validation environment.
 	ValidationEnvironment *bool `pulumi:"validationEnvironment"`

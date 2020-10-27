@@ -61,7 +61,7 @@ export class HybridUseBenefit extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.softwareplan.latest.SkuResponse>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

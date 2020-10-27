@@ -42,7 +42,7 @@ type Cluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Number of days remaining in the trial period.
 	TrialDaysRemaining pulumi.Float64Output `pulumi:"trialDaysRemaining"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -126,7 +126,7 @@ type clusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Number of days remaining in the trial period.
 	TrialDaysRemaining *float64 `pulumi:"trialDaysRemaining"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -159,7 +159,7 @@ type ClusterState struct {
 	Tags pulumi.StringMapInput
 	// Number of days remaining in the trial period.
 	TrialDaysRemaining pulumi.Float64PtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

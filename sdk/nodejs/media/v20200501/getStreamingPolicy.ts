@@ -69,7 +69,7 @@ export interface GetStreamingPolicyResult {
      */
     readonly noEncryption?: outputs.media.v20200501.NoEncryptionResponse;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

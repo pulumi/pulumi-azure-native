@@ -44,7 +44,7 @@ type LiveEvent struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
 	Transcriptions LiveEventTranscriptionResponseArrayOutput `pulumi:"transcriptions"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
 	UseStaticHostname pulumi.BoolPtrOutput `pulumi:"useStaticHostname"`
@@ -141,7 +141,7 @@ type liveEventState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
 	Transcriptions []LiveEventTranscriptionResponse `pulumi:"transcriptions"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
 	UseStaticHostname *bool `pulumi:"useStaticHostname"`
@@ -178,7 +178,7 @@ type LiveEventState struct {
 	Tags pulumi.StringMapInput
 	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
 	Transcriptions LiveEventTranscriptionResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
 	UseStaticHostname pulumi.BoolPtrInput
