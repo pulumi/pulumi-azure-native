@@ -34,7 +34,7 @@ type CloudEndpoint struct {
 	StorageAccountResourceId pulumi.StringPtrOutput `pulumi:"storageAccountResourceId"`
 	// Storage Account Tenant Id
 	StorageAccountTenantId pulumi.StringPtrOutput `pulumi:"storageAccountTenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -131,7 +131,7 @@ type cloudEndpointState struct {
 	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
 	// Storage Account Tenant Id
 	StorageAccountTenantId *string `pulumi:"storageAccountTenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -156,7 +156,7 @@ type CloudEndpointState struct {
 	StorageAccountResourceId pulumi.StringPtrInput
 	// Storage Account Tenant Id
 	StorageAccountTenantId pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

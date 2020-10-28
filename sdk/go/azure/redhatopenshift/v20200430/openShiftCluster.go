@@ -36,7 +36,7 @@ type OpenShiftCluster struct {
 	ServicePrincipalProfile ServicePrincipalProfileResponsePtrOutput `pulumi:"servicePrincipalProfile"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The cluster worker profiles.
 	WorkerProfiles WorkerProfileResponseArrayOutput `pulumi:"workerProfiles"`
@@ -107,7 +107,7 @@ type openShiftClusterState struct {
 	ServicePrincipalProfile *ServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The cluster worker profiles.
 	WorkerProfiles []WorkerProfileResponse `pulumi:"workerProfiles"`
@@ -136,7 +136,7 @@ type OpenShiftClusterState struct {
 	ServicePrincipalProfile ServicePrincipalProfileResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The cluster worker profiles.
 	WorkerProfiles WorkerProfileResponseArrayInput

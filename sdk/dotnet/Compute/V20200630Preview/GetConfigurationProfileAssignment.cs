@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630Preview
         /// </summary>
         public readonly Outputs.ConfigurationProfileAssignmentPropertiesResponse Properties;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

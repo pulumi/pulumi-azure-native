@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20181001
         /// </summary>
         public readonly int? TierFilesOlderThanDays;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>

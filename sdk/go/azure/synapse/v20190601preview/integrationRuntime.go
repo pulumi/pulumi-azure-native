@@ -20,7 +20,7 @@ type IntegrationRuntime struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Integration runtime properties.
 	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -70,7 +70,7 @@ type integrationRuntimeState struct {
 	Name *string `pulumi:"name"`
 	// Integration runtime properties.
 	Properties interface{} `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -81,7 +81,7 @@ type IntegrationRuntimeState struct {
 	Name pulumi.StringPtrInput
 	// Integration runtime properties.
 	Properties pulumi.Input
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

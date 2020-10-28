@@ -115,8 +115,6 @@ export class TemplateSpec extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20201001preview:TemplateSpec" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TemplateSpec.__pulumiType, name, inputs, opts);
     }
 }

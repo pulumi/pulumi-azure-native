@@ -24,7 +24,7 @@ type BlobContainerImmutabilityPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 	State pulumi.StringOutput `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -102,7 +102,7 @@ type blobContainerImmutabilityPolicyState struct {
 	Name *string `pulumi:"name"`
 	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 	State *string `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -117,7 +117,7 @@ type BlobContainerImmutabilityPolicyState struct {
 	Name pulumi.StringPtrInput
 	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 	State pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

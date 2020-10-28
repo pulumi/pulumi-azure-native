@@ -49,7 +49,7 @@ type LookupServerEndpointResult struct {
 	SyncStatus interface{} `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
 	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`

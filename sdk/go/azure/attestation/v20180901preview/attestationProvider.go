@@ -26,7 +26,7 @@ type AttestationProvider struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Trust model for the attestation service instance.
 	TrustModel pulumi.StringPtrOutput `pulumi:"trustModel"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -82,7 +82,7 @@ type attestationProviderState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Trust model for the attestation service instance.
 	TrustModel *string `pulumi:"trustModel"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -99,7 +99,7 @@ type AttestationProviderState struct {
 	Tags pulumi.StringMapInput
 	// Trust model for the attestation service instance.
 	TrustModel pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

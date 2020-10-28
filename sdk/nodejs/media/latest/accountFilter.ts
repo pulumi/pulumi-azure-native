@@ -53,7 +53,7 @@ export class AccountFilter extends pulumi.CustomResource {
      */
     public readonly tracks!: pulumi.Output<outputs.media.latest.FilterTrackSelectionResponse[] | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

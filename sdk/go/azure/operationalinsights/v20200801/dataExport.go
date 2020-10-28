@@ -32,7 +32,7 @@ type DataExport struct {
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
 	TableNames pulumi.StringArrayOutput `pulumi:"tableNames"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -106,7 +106,7 @@ type dataExportState struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
 	TableNames []string `pulumi:"tableNames"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -129,7 +129,7 @@ type DataExportState struct {
 	ResourceId pulumi.StringPtrInput
 	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
 	TableNames pulumi.StringArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

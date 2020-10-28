@@ -35,7 +35,7 @@ type LookupServerKeyResult struct {
 	Name string `pulumi:"name"`
 	// The key type like 'AzureKeyVault'.
 	ServerKeyType string `pulumi:"serverKeyType"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The URI of the key.
 	Uri *string `pulumi:"uri"`

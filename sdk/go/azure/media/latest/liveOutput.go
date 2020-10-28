@@ -36,7 +36,7 @@ type LiveOutput struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource state of the live output.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -126,7 +126,7 @@ type liveOutputState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource state of the live output.
 	ResourceState *string `pulumi:"resourceState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -153,7 +153,7 @@ type LiveOutputState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The resource state of the live output.
 	ResourceState pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

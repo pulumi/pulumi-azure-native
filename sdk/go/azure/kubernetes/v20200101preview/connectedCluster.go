@@ -34,7 +34,7 @@ type ConnectedCluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Number of nodes present in the connected cluster resource
 	TotalNodeCount pulumi.IntOutput `pulumi:"totalNodeCount"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -104,7 +104,7 @@ type connectedClusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Number of nodes present in the connected cluster resource
 	TotalNodeCount *int `pulumi:"totalNodeCount"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -129,7 +129,7 @@ type ConnectedClusterState struct {
 	Tags pulumi.StringMapInput
 	// Number of nodes present in the connected cluster resource
 	TotalNodeCount pulumi.IntPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

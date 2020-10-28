@@ -30,7 +30,7 @@ type SavedSearch struct {
 	Query pulumi.StringOutput `pulumi:"query"`
 	// The tags attached to the saved search.
 	Tags TagResponseArrayOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version number of the query language. The current version is 2 and is the default.
 	Version pulumi.IntPtrOutput `pulumi:"version"`
@@ -110,7 +110,7 @@ type savedSearchState struct {
 	Query *string `pulumi:"query"`
 	// The tags attached to the saved search.
 	Tags []TagResponse `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The version number of the query language. The current version is 2 and is the default.
 	Version *int `pulumi:"version"`
@@ -133,7 +133,7 @@ type SavedSearchState struct {
 	Query pulumi.StringPtrInput
 	// The tags attached to the saved search.
 	Tags TagResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The version number of the query language. The current version is 2 and is the default.
 	Version pulumi.IntPtrInput

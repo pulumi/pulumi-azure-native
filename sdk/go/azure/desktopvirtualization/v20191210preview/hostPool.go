@@ -44,7 +44,7 @@ type HostPool struct {
 	SsoContext pulumi.StringPtrOutput `pulumi:"ssoContext"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Is validation environment.
 	ValidationEnvironment pulumi.BoolPtrOutput `pulumi:"validationEnvironment"`
@@ -140,7 +140,7 @@ type hostPoolState struct {
 	SsoContext *string `pulumi:"ssoContext"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Is validation environment.
 	ValidationEnvironment *bool `pulumi:"validationEnvironment"`
@@ -179,7 +179,7 @@ type HostPoolState struct {
 	SsoContext pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Is validation environment.
 	ValidationEnvironment pulumi.BoolPtrInput

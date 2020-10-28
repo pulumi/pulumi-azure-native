@@ -74,7 +74,7 @@ type StorageAccount struct {
 	StatusOfSecondary pulumi.StringOutput `pulumi:"statusOfSecondary"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -226,7 +226,7 @@ type storageAccountState struct {
 	StatusOfSecondary *string `pulumi:"statusOfSecondary"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -291,7 +291,7 @@ type StorageAccountState struct {
 	StatusOfSecondary pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

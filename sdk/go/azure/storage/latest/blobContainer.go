@@ -48,7 +48,7 @@ type BlobContainer struct {
 	PublicAccess pulumi.StringPtrOutput `pulumi:"publicAccess"`
 	// Remaining retention days for soft deleted blob container.
 	RemainingRetentionDays pulumi.IntOutput `pulumi:"remainingRetentionDays"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version of the deleted blob container.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -149,7 +149,7 @@ type blobContainerState struct {
 	PublicAccess *string `pulumi:"publicAccess"`
 	// Remaining retention days for soft deleted blob container.
 	RemainingRetentionDays *int `pulumi:"remainingRetentionDays"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The version of the deleted blob container.
 	Version *string `pulumi:"version"`
@@ -190,7 +190,7 @@ type BlobContainerState struct {
 	PublicAccess pulumi.StringPtrInput
 	// Remaining retention days for soft deleted blob container.
 	RemainingRetentionDays pulumi.IntPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The version of the deleted blob container.
 	Version pulumi.StringPtrInput

@@ -34,7 +34,7 @@ type MachineExtension struct {
 	Settings pulumi.AnyOutput `pulumi:"settings"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the version of the script handler.
 	TypeHandlerVersion pulumi.StringPtrOutput `pulumi:"typeHandlerVersion"`
@@ -118,7 +118,7 @@ type machineExtensionState struct {
 	Settings interface{} `pulumi:"settings"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
@@ -145,7 +145,7 @@ type MachineExtensionState struct {
 	Settings pulumi.Input
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Specifies the version of the script handler.
 	TypeHandlerVersion pulumi.StringPtrInput

@@ -18,7 +18,7 @@ type Table struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Table name under the specified account
 	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -72,7 +72,7 @@ type tableState struct {
 	Name *string `pulumi:"name"`
 	// Table name under the specified account
 	TableName *string `pulumi:"tableName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -81,7 +81,7 @@ type TableState struct {
 	Name pulumi.StringPtrInput
 	// Table name under the specified account
 	TableName pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

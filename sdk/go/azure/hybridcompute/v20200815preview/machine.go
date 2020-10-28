@@ -57,7 +57,7 @@ type Machine struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the hybrid machine unique ID.
 	VmId pulumi.StringPtrOutput `pulumi:"vmId"`
@@ -166,7 +166,7 @@ type machineState struct {
 	Status *string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Specifies the hybrid machine unique ID.
 	VmId *string `pulumi:"vmId"`
@@ -218,7 +218,7 @@ type MachineState struct {
 	Status pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Specifies the hybrid machine unique ID.
 	VmId pulumi.StringPtrInput

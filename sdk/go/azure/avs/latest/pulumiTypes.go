@@ -877,6 +877,8 @@ type ManagementClusterResponse struct {
 	ClusterSize int `pulumi:"clusterSize"`
 	// The hosts
 	Hosts []string `pulumi:"hosts"`
+	// The state of the cluster provisioning
+	ProvisioningState string `pulumi:"provisioningState"`
 }
 
 // ManagementClusterResponseInput is an input type that accepts ManagementClusterResponseArgs and ManagementClusterResponseOutput values.
@@ -898,6 +900,8 @@ type ManagementClusterResponseArgs struct {
 	ClusterSize pulumi.IntInput `pulumi:"clusterSize"`
 	// The hosts
 	Hosts pulumi.StringArrayInput `pulumi:"hosts"`
+	// The state of the cluster provisioning
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
 
 func (ManagementClusterResponseArgs) ElementType() reflect.Type {
@@ -993,6 +997,11 @@ func (o ManagementClusterResponseOutput) Hosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementClusterResponse) []string { return v.Hosts }).(pulumi.StringArrayOutput)
 }
 
+// The state of the cluster provisioning
+func (o ManagementClusterResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementClusterResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 type ManagementClusterResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ManagementClusterResponsePtrOutput) ElementType() reflect.Type {
@@ -1039,6 +1048,16 @@ func (o ManagementClusterResponsePtrOutput) Hosts() pulumi.StringArrayOutput {
 		}
 		return v.Hosts
 	}).(pulumi.StringArrayOutput)
+}
+
+// The state of the cluster provisioning
+func (o ManagementClusterResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementClusterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
 }
 
 // The resource model definition representing SKU

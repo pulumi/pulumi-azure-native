@@ -55,6 +55,6 @@ type LookupApplicationResult struct {
 	Name string `pulumi:"name"`
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal *bool `pulumi:"showInPortal"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

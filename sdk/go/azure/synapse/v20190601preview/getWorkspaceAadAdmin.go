@@ -35,6 +35,6 @@ type LookupWorkspaceAadAdminResult struct {
 	Sid *string `pulumi:"sid"`
 	// Tenant ID of the workspace active directory administrator
 	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

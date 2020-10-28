@@ -60,7 +60,7 @@ export interface GetHybridUseBenefitResult {
      */
     readonly sku: outputs.softwareplan.v20191201.SkuResponse;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

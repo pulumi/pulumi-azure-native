@@ -30,7 +30,7 @@ type VendorSkus struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The sku type.
 	SkuType pulumi.StringPtrOutput `pulumi:"skuType"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -84,7 +84,7 @@ type vendorSkusState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The sku type.
 	SkuType *string `pulumi:"skuType"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -105,7 +105,7 @@ type VendorSkusState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The sku type.
 	SkuType pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

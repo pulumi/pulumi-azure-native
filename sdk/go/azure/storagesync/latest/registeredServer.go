@@ -62,7 +62,7 @@ type RegisteredServer struct {
 	ServiceLocation pulumi.StringOutput `pulumi:"serviceLocation"`
 	// Registered Server storageSyncServiceUid
 	StorageSyncServiceUid pulumi.StringOutput `pulumi:"storageSyncServiceUid"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -184,7 +184,7 @@ type registeredServerState struct {
 	ServiceLocation *string `pulumi:"serviceLocation"`
 	// Registered Server storageSyncServiceUid
 	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -237,7 +237,7 @@ type RegisteredServerState struct {
 	ServiceLocation pulumi.StringPtrInput
 	// Registered Server storageSyncServiceUid
 	StorageSyncServiceUid pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

@@ -10903,7 +10903,7 @@ func (o PermissionResponseArrayOutput) Index(i pulumi.IntInput) PermissionRespon
 
 // A private endpoint connection
 type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
@@ -10911,7 +10911,7 @@ type PrivateEndpointConnectionResponse struct {
 	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -10928,7 +10928,7 @@ type PrivateEndpointConnectionResponseInput interface {
 
 // A private endpoint connection
 type PrivateEndpointConnectionResponseArgs struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of the resource
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10936,7 +10936,7 @@ type PrivateEndpointConnectionResponseArgs struct {
 	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10992,7 +10992,7 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -11014,7 +11014,7 @@ func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionSta
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }

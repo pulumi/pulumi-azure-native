@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.SoftwarePlan.Latest
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

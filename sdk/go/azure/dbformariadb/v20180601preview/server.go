@@ -40,7 +40,7 @@ type Server struct {
 	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A state of a server that is visible to user.
 	UserVisibleState pulumi.StringPtrOutput `pulumi:"userVisibleState"`
@@ -123,7 +123,7 @@ type serverState struct {
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// A state of a server that is visible to user.
 	UserVisibleState *string `pulumi:"userVisibleState"`
@@ -158,7 +158,7 @@ type ServerState struct {
 	StorageProfile StorageProfileResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// A state of a server that is visible to user.
 	UserVisibleState pulumi.StringPtrInput

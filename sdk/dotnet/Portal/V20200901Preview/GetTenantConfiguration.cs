@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

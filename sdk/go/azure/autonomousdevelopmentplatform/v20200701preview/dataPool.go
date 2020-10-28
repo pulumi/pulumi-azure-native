@@ -22,7 +22,7 @@ type DataPool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Gets the status of the data pool at the time the operation was called.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -74,7 +74,7 @@ type dataPoolState struct {
 	Name *string `pulumi:"name"`
 	// Gets the status of the data pool at the time the operation was called.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -87,7 +87,7 @@ type DataPoolState struct {
 	Name pulumi.StringPtrInput
 	// Gets the status of the data pool at the time the operation was called.
 	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

@@ -24,7 +24,7 @@ type Transform struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of one or more TransformOutputs that the Transform should generate.
 	Outputs TransformOutputResponseArrayOutput `pulumi:"outputs"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -93,7 +93,7 @@ type transformState struct {
 	Name *string `pulumi:"name"`
 	// An array of one or more TransformOutputs that the Transform should generate.
 	Outputs []TransformOutputResponse `pulumi:"outputs"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -108,7 +108,7 @@ type TransformState struct {
 	Name pulumi.StringPtrInput
 	// An array of one or more TransformOutputs that the Transform should generate.
 	Outputs TransformOutputResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

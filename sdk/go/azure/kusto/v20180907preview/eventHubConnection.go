@@ -28,7 +28,7 @@ type EventHubConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The table where the data should be ingested. Optionally the table information can be added to each message.
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -98,7 +98,7 @@ type eventHubConnectionState struct {
 	Name *string `pulumi:"name"`
 	// The table where the data should be ingested. Optionally the table information can be added to each message.
 	TableName *string `pulumi:"tableName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -117,7 +117,7 @@ type EventHubConnectionState struct {
 	Name pulumi.StringPtrInput
 	// The table where the data should be ingested. Optionally the table information can be added to each message.
 	TableName pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

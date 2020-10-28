@@ -22,7 +22,7 @@ type ProviderInstance struct {
 	Properties pulumi.StringOutput `pulumi:"properties"`
 	// State of provisioning of the provider instance
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -71,7 +71,7 @@ type providerInstanceState struct {
 	Properties *string `pulumi:"properties"`
 	// State of provisioning of the provider instance
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -84,7 +84,7 @@ type ProviderInstanceState struct {
 	Properties pulumi.StringPtrInput
 	// State of provisioning of the provider instance
 	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

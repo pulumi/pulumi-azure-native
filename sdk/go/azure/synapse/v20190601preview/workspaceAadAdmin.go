@@ -24,7 +24,7 @@ type WorkspaceAadAdmin struct {
 	Sid pulumi.StringPtrOutput `pulumi:"sid"`
 	// Tenant ID of the workspace active directory administrator
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -72,7 +72,7 @@ type workspaceAadAdminState struct {
 	Sid *string `pulumi:"sid"`
 	// Tenant ID of the workspace active directory administrator
 	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -87,7 +87,7 @@ type WorkspaceAadAdminState struct {
 	Sid pulumi.StringPtrInput
 	// Tenant ID of the workspace active directory administrator
 	TenantId pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

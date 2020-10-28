@@ -18,7 +18,7 @@ type SharedPrivateLinkResource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
 	Properties SharedPrivateLinkResourcePropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -72,7 +72,7 @@ type sharedPrivateLinkResourceState struct {
 	Name *string `pulumi:"name"`
 	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
 	Properties *SharedPrivateLinkResourcePropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -81,7 +81,7 @@ type SharedPrivateLinkResourceState struct {
 	Name pulumi.StringPtrInput
 	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
 	Properties SharedPrivateLinkResourcePropertiesResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

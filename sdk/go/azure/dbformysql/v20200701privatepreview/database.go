@@ -20,7 +20,7 @@ type Database struct {
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -73,7 +73,7 @@ type databaseState struct {
 	Collation *string `pulumi:"collation"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -84,7 +84,7 @@ type DatabaseState struct {
 	Collation pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

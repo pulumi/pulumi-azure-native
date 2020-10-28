@@ -20,7 +20,7 @@ type FirewallRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The start IP address of the server firewall rule. Must be IPv4 format.
 	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -82,7 +82,7 @@ type firewallRuleState struct {
 	Name *string `pulumi:"name"`
 	// The start IP address of the server firewall rule. Must be IPv4 format.
 	StartIpAddress *string `pulumi:"startIpAddress"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -93,7 +93,7 @@ type FirewallRuleState struct {
 	Name pulumi.StringPtrInput
 	// The start IP address of the server firewall rule. Must be IPv4 format.
 	StartIpAddress pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

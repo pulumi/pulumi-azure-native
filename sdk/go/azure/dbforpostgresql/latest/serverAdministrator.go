@@ -24,7 +24,7 @@ type ServerAdministrator struct {
 	Sid pulumi.StringOutput `pulumi:"sid"`
 	// The server Active Directory Administrator tenant id.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -93,7 +93,7 @@ type serverAdministratorState struct {
 	Sid *string `pulumi:"sid"`
 	// The server Active Directory Administrator tenant id.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -108,7 +108,7 @@ type ServerAdministratorState struct {
 	Sid pulumi.StringPtrInput
 	// The server Active Directory Administrator tenant id.
 	TenantId pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

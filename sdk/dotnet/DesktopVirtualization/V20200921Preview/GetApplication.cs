@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20200921Preview
         /// </summary>
         public readonly bool? ShowInPortal;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

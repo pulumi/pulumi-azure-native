@@ -26,7 +26,7 @@ type ContentKeyPolicy struct {
 	Options ContentKeyPolicyOptionResponseArrayOutput `pulumi:"options"`
 	// The legacy Policy ID.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -97,7 +97,7 @@ type contentKeyPolicyState struct {
 	Options []ContentKeyPolicyOptionResponse `pulumi:"options"`
 	// The legacy Policy ID.
 	PolicyId *string `pulumi:"policyId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -114,7 +114,7 @@ type ContentKeyPolicyState struct {
 	Options ContentKeyPolicyOptionResponseArrayInput
 	// The legacy Policy ID.
 	PolicyId pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

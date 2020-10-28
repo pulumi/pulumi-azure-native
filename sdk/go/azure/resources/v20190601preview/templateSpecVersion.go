@@ -50,12 +50,6 @@ func NewTemplateSpecVersion(ctx *pulumi.Context,
 	if args == nil {
 		args = &TemplateSpecVersionArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20201001preview:TemplateSpecVersion"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource TemplateSpecVersion
 	err := ctx.RegisterResource("azure-nextgen:resources/v20190601preview:TemplateSpecVersion", name, args, &resource, opts...)
 	if err != nil {

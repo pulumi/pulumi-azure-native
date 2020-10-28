@@ -26,7 +26,7 @@ type ServiceUnit struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
 	TargetResourceGroup pulumi.StringOutput `pulumi:"targetResourceGroup"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -97,7 +97,7 @@ type serviceUnitState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
 	TargetResourceGroup *string `pulumi:"targetResourceGroup"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -114,7 +114,7 @@ type ServiceUnitState struct {
 	Tags pulumi.StringMapInput
 	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
 	TargetResourceGroup pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 

@@ -34,7 +34,7 @@ type ServerEndpoint struct {
 	SyncStatus pulumi.AnyOutput `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays pulumi.IntPtrOutput `pulumi:"tierFilesOlderThanDays"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
 	VolumeFreeSpacePercent pulumi.IntPtrOutput `pulumi:"volumeFreeSpacePercent"`
@@ -133,7 +133,7 @@ type serverEndpointState struct {
 	SyncStatus interface{} `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
 	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
@@ -160,7 +160,7 @@ type ServerEndpointState struct {
 	SyncStatus pulumi.Input
 	// Tier files older than days.
 	TierFilesOlderThanDays pulumi.IntPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
 	VolumeFreeSpacePercent pulumi.IntPtrInput
