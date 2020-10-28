@@ -1020,7 +1020,10 @@ func forceRequestErrorForStatusNotFound(r autorest.Responder) autorest.Responder
 			return err
 		}
 		return &azure.RequestError{
-			DetailedError: autorest.DetailedError{StatusCode: http.StatusNotFound},
+			DetailedError: autorest.DetailedError{
+				Original:   err,
+				StatusCode: http.StatusNotFound,
+			},
 		}
 	})
 }
