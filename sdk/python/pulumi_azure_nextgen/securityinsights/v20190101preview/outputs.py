@@ -10,6 +10,7 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'ClientInfoResponse',
     'IncidentAdditionalDataResponse',
     'IncidentInfoResponse',
     'IncidentLabelResponse',
@@ -17,6 +18,68 @@ __all__ = [
     'UserInfoResponse',
     'WatchlistItemResponse',
 ]
+
+@pulumi.output_type
+class ClientInfoResponse(dict):
+    """
+    Information on the client (user or application) that made some action
+    """
+    def __init__(__self__, *,
+                 email: Optional[str] = None,
+                 name: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 user_principal_name: Optional[str] = None):
+        """
+        Information on the client (user or application) that made some action
+        :param str email: The email of the client.
+        :param str name: The name of the client.
+        :param str object_id: The object id of the client.
+        :param str user_principal_name: The user principal name of the client.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_principal_name is not None:
+            pulumi.set(__self__, "user_principal_name", user_principal_name)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        The email of the client.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the client.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object id of the client.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userPrincipalName")
+    def user_principal_name(self) -> Optional[str]:
+        """
+        The user principal name of the client.
+        """
+        return pulumi.get(self, "user_principal_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class IncidentAdditionalDataResponse(dict):

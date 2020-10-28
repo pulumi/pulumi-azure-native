@@ -18,9 +18,9 @@ __all__ = [
 @pulumi.output_type
 class GetVirtualMachineScaleSetVMExtensionResult:
     """
-    Describes a Virtual Machine Extension.
+    Describes a VMSS VM Extension.
     """
-    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, instance_view=None, location=None, name=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, tags=None, type=None, type_handler_version=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, instance_view=None, name=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, type=None, type_handler_version=None):
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
@@ -33,9 +33,6 @@ class GetVirtualMachineScaleSetVMExtensionResult:
         if instance_view and not isinstance(instance_view, dict):
             raise TypeError("Expected argument 'instance_view' to be a dict")
         pulumi.set(__self__, "instance_view", instance_view)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -51,9 +48,6 @@ class GetVirtualMachineScaleSetVMExtensionResult:
         if settings and not isinstance(settings, dict):
             raise TypeError("Expected argument 'settings' to be a dict")
         pulumi.set(__self__, "settings", settings)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -95,17 +89,9 @@ class GetVirtualMachineScaleSetVMExtensionResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
-        """
-        Resource location
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the extension.
         """
         return pulumi.get(self, "name")
 
@@ -143,14 +129,6 @@ class GetVirtualMachineScaleSetVMExtensionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         Resource type
@@ -176,13 +154,11 @@ class AwaitableGetVirtualMachineScaleSetVMExtensionResult(GetVirtualMachineScale
             enable_automatic_upgrade=self.enable_automatic_upgrade,
             force_update_tag=self.force_update_tag,
             instance_view=self.instance_view,
-            location=self.location,
             name=self.name,
             protected_settings=self.protected_settings,
             provisioning_state=self.provisioning_state,
             publisher=self.publisher,
             settings=self.settings,
-            tags=self.tags,
             type=self.type,
             type_handler_version=self.type_handler_version)
 
@@ -219,12 +195,10 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
         enable_automatic_upgrade=__ret__.enable_automatic_upgrade,
         force_update_tag=__ret__.force_update_tag,
         instance_view=__ret__.instance_view,
-        location=__ret__.location,
         name=__ret__.name,
         protected_settings=__ret__.protected_settings,
         provisioning_state=__ret__.provisioning_state,
         publisher=__ret__.publisher,
         settings=__ret__.settings,
-        tags=__ret__.tags,
         type=__ret__.type,
         type_handler_version=__ret__.type_handler_version)

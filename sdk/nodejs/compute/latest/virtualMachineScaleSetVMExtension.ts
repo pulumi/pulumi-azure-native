@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a Virtual Machine Extension.
+ * Describes a VMSS VM Extension.
  */
 export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
     /**
@@ -53,11 +53,7 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      */
     public readonly instanceView!: pulumi.Output<outputs.compute.latest.VirtualMachineExtensionInstanceViewResponse | undefined>;
     /**
-     * Resource location
-     */
-    public readonly location!: pulumi.Output<string>;
-    /**
-     * Resource name
+     * The name of the extension.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -76,10 +72,6 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      * Json formatted public settings for the extension.
      */
     public readonly settings!: pulumi.Output<any | undefined>;
-    /**
-     * Resource tags
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -102,9 +94,6 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             if (!args || args.instanceId === undefined) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -119,12 +108,10 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
             inputs["instanceView"] = args ? args.instanceView : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
             inputs["publisher"] = args ? args.publisher : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["settings"] = args ? args.settings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             inputs["vmExtensionName"] = args ? args.vmExtensionName : undefined;
@@ -136,13 +123,11 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             inputs["enableAutomaticUpgrade"] = undefined /*out*/;
             inputs["forceUpdateTag"] = undefined /*out*/;
             inputs["instanceView"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["protectedSettings"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publisher"] = undefined /*out*/;
             inputs["settings"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["typeHandlerVersion"] = undefined /*out*/;
         }
@@ -184,10 +169,6 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
      */
     readonly instanceView?: pulumi.Input<inputs.compute.latest.VirtualMachineExtensionInstanceView>;
     /**
-     * Resource location
-     */
-    readonly location: pulumi.Input<string>;
-    /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
     readonly protectedSettings?: any;
@@ -203,10 +184,6 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
      * Json formatted public settings for the extension.
      */
     readonly settings?: any;
-    /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the type of the extension; an example is "CustomScriptExtension".
      */

@@ -29,7 +29,7 @@ type LookupVirtualMachineScaleSetVMExtensionArgs struct {
 	VmScaleSetName string `pulumi:"vmScaleSetName"`
 }
 
-// Describes a Virtual Machine Extension.
+// Describes a VMSS VM Extension.
 type LookupVirtualMachineScaleSetVMExtensionResult struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
@@ -39,9 +39,7 @@ type LookupVirtualMachineScaleSetVMExtensionResult struct {
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The virtual machine extension instance view.
 	InstanceView *VirtualMachineExtensionInstanceViewResponse `pulumi:"instanceView"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
+	// The name of the extension.
 	Name string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings interface{} `pulumi:"protectedSettings"`
@@ -51,8 +49,6 @@ type LookupVirtualMachineScaleSetVMExtensionResult struct {
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
 	Settings interface{} `pulumi:"settings"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// Specifies the version of the script handler.

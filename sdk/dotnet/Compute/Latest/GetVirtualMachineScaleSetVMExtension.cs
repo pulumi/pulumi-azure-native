@@ -74,11 +74,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly Outputs.VirtualMachineExtensionInstanceViewResponse? InstanceView;
         /// <summary>
-        /// Resource location
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
-        /// Resource name
+        /// The name of the extension.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -98,10 +94,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly object? Settings;
         /// <summary>
-        /// Resource tags
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -120,8 +112,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             Outputs.VirtualMachineExtensionInstanceViewResponse? instanceView,
 
-            string location,
-
             string name,
 
             object? protectedSettings,
@@ -132,8 +122,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             object? settings,
 
-            ImmutableDictionary<string, string>? tags,
-
             string type,
 
             string? typeHandlerVersion)
@@ -142,13 +130,11 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             EnableAutomaticUpgrade = enableAutomaticUpgrade;
             ForceUpdateTag = forceUpdateTag;
             InstanceView = instanceView;
-            Location = location;
             Name = name;
             ProtectedSettings = protectedSettings;
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;
-            Tags = tags;
             Type = type;
             TypeHandlerVersion = typeHandlerVersion;
         }
