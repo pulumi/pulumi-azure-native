@@ -47,7 +47,7 @@ export interface GetVirtualMachineScaleSetVMExtensionArgs {
 }
 
 /**
- * Describes a Virtual Machine Extension.
+ * Describes a VMSS VM Extension.
  */
 export interface GetVirtualMachineScaleSetVMExtensionResult {
     /**
@@ -67,11 +67,7 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
      */
     readonly instanceView?: outputs.compute.v20200601.VirtualMachineExtensionInstanceViewResponse;
     /**
-     * Resource location
-     */
-    readonly location: string;
-    /**
-     * Resource name
+     * The name of the extension.
      */
     readonly name: string;
     /**
@@ -90,10 +86,6 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
      * Json formatted public settings for the extension.
      */
     readonly settings?: any;
-    /**
-     * Resource tags
-     */
-    readonly tags?: {[key: string]: string};
     /**
      * Resource type
      */

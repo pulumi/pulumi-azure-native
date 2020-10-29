@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Describes a Virtual Machine Extension.
+// Describes a VMSS VM Extension.
 type VirtualMachineScaleSetVMExtension struct {
 	pulumi.CustomResourceState
 
@@ -22,9 +22,7 @@ type VirtualMachineScaleSetVMExtension struct {
 	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
 	// The virtual machine extension instance view.
 	InstanceView VirtualMachineExtensionInstanceViewResponsePtrOutput `pulumi:"instanceView"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
+	// The name of the extension.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings pulumi.AnyOutput `pulumi:"protectedSettings"`
@@ -34,8 +32,6 @@ type VirtualMachineScaleSetVMExtension struct {
 	Publisher pulumi.StringPtrOutput `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
 	Settings pulumi.AnyOutput `pulumi:"settings"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -47,9 +43,6 @@ func NewVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 	name string, args *VirtualMachineScaleSetVMExtensionArgs, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetVMExtension, error) {
 	if args == nil || args.InstanceId == nil {
 		return nil, errors.New("missing required argument 'InstanceId'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -105,9 +98,7 @@ type virtualMachineScaleSetVMExtensionState struct {
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The virtual machine extension instance view.
 	InstanceView *VirtualMachineExtensionInstanceViewResponse `pulumi:"instanceView"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
+	// The name of the extension.
 	Name *string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings interface{} `pulumi:"protectedSettings"`
@@ -117,8 +108,6 @@ type virtualMachineScaleSetVMExtensionState struct {
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
 	Settings interface{} `pulumi:"settings"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -134,9 +123,7 @@ type VirtualMachineScaleSetVMExtensionState struct {
 	ForceUpdateTag pulumi.StringPtrInput
 	// The virtual machine extension instance view.
 	InstanceView VirtualMachineExtensionInstanceViewResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
+	// The name of the extension.
 	Name pulumi.StringPtrInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings pulumi.Input
@@ -146,8 +133,6 @@ type VirtualMachineScaleSetVMExtensionState struct {
 	Publisher pulumi.StringPtrInput
 	// Json formatted public settings for the extension.
 	Settings pulumi.Input
-	// Resource tags
-	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
 	// Specifies the version of the script handler.
@@ -169,8 +154,6 @@ type virtualMachineScaleSetVMExtensionArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// The virtual machine extension instance view.
 	InstanceView *VirtualMachineExtensionInstanceView `pulumi:"instanceView"`
-	// Resource location
-	Location string `pulumi:"location"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings interface{} `pulumi:"protectedSettings"`
 	// The name of the extension handler publisher.
@@ -179,8 +162,6 @@ type virtualMachineScaleSetVMExtensionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Json formatted public settings for the extension.
 	Settings interface{} `pulumi:"settings"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -203,8 +184,6 @@ type VirtualMachineScaleSetVMExtensionArgs struct {
 	InstanceId pulumi.StringInput
 	// The virtual machine extension instance view.
 	InstanceView VirtualMachineExtensionInstanceViewPtrInput
-	// Resource location
-	Location pulumi.StringInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings pulumi.Input
 	// The name of the extension handler publisher.
@@ -213,8 +192,6 @@ type VirtualMachineScaleSetVMExtensionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Json formatted public settings for the extension.
 	Settings pulumi.Input
-	// Resource tags
-	Tags pulumi.StringMapInput
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type pulumi.StringPtrInput
 	// Specifies the version of the script handler.

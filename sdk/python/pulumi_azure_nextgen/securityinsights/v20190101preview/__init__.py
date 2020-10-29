@@ -14,11 +14,13 @@ from .get_bookmark import *
 from .get_bookmark_relation import *
 from .get_data_connector import *
 from .get_incident import *
+from .get_incident_comment import *
 from .get_incident_relation import *
 from .get_product_setting import *
 from .get_threat_intelligence_indicator import *
 from .get_watchlist import *
 from .incident import *
+from .incident_comment import *
 from .incident_relation import *
 from .product_setting import *
 from .threat_intelligence_indicator import *

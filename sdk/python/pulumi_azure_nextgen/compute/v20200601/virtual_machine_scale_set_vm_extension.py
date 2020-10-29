@@ -22,12 +22,10 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  instance_view: Optional[pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[Any] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  vm_extension_name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +34,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Describes a Virtual Machine Extension.
+        Describes a VMSS VM Extension.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -45,12 +43,10 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']] instance_view: The virtual machine extension instance view.
-        :param pulumi.Input[str] location: Resource location
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param Any settings: Json formatted public settings for the extension.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         :param pulumi.Input[str] vm_extension_name: The name of the virtual machine extension.
@@ -80,16 +76,12 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_id'")
             __props__['instance_id'] = instance_id
             __props__['instance_view'] = instance_view
-            if location is None:
-                raise TypeError("Missing required property 'location'")
-            __props__['location'] = location
             __props__['protected_settings'] = protected_settings
             __props__['publisher'] = publisher
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['settings'] = settings
-            __props__['tags'] = tags
             __props__['type'] = type
             __props__['type_handler_version'] = type_handler_version
             if vm_extension_name is None:
@@ -160,17 +152,9 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        Resource location
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the extension.
         """
         return pulumi.get(self, "name")
 
@@ -205,14 +189,6 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         Json formatted public settings for the extension.
         """
         return pulumi.get(self, "settings")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

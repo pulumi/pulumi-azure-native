@@ -10,6 +10,197 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Information on the client (user or application) that made some action
+type ClientInfoResponse struct {
+	// The email of the client.
+	Email *string `pulumi:"email"`
+	// The name of the client.
+	Name *string `pulumi:"name"`
+	// The object id of the client.
+	ObjectId *string `pulumi:"objectId"`
+	// The user principal name of the client.
+	UserPrincipalName *string `pulumi:"userPrincipalName"`
+}
+
+// ClientInfoResponseInput is an input type that accepts ClientInfoResponseArgs and ClientInfoResponseOutput values.
+// You can construct a concrete instance of `ClientInfoResponseInput` via:
+//
+//          ClientInfoResponseArgs{...}
+type ClientInfoResponseInput interface {
+	pulumi.Input
+
+	ToClientInfoResponseOutput() ClientInfoResponseOutput
+	ToClientInfoResponseOutputWithContext(context.Context) ClientInfoResponseOutput
+}
+
+// Information on the client (user or application) that made some action
+type ClientInfoResponseArgs struct {
+	// The email of the client.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The name of the client.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The object id of the client.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The user principal name of the client.
+	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
+}
+
+func (ClientInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientInfoResponse)(nil)).Elem()
+}
+
+func (i ClientInfoResponseArgs) ToClientInfoResponseOutput() ClientInfoResponseOutput {
+	return i.ToClientInfoResponseOutputWithContext(context.Background())
+}
+
+func (i ClientInfoResponseArgs) ToClientInfoResponseOutputWithContext(ctx context.Context) ClientInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientInfoResponseOutput)
+}
+
+func (i ClientInfoResponseArgs) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
+	return i.ToClientInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ClientInfoResponseArgs) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientInfoResponseOutput).ToClientInfoResponsePtrOutputWithContext(ctx)
+}
+
+// ClientInfoResponsePtrInput is an input type that accepts ClientInfoResponseArgs, ClientInfoResponsePtr and ClientInfoResponsePtrOutput values.
+// You can construct a concrete instance of `ClientInfoResponsePtrInput` via:
+//
+//          ClientInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput
+	ToClientInfoResponsePtrOutputWithContext(context.Context) ClientInfoResponsePtrOutput
+}
+
+type clientInfoResponsePtrType ClientInfoResponseArgs
+
+func ClientInfoResponsePtr(v *ClientInfoResponseArgs) ClientInfoResponsePtrInput {
+	return (*clientInfoResponsePtrType)(v)
+}
+
+func (*clientInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientInfoResponse)(nil)).Elem()
+}
+
+func (i *clientInfoResponsePtrType) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
+	return i.ToClientInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *clientInfoResponsePtrType) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientInfoResponsePtrOutput)
+}
+
+// Information on the client (user or application) that made some action
+type ClientInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ClientInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientInfoResponse)(nil)).Elem()
+}
+
+func (o ClientInfoResponseOutput) ToClientInfoResponseOutput() ClientInfoResponseOutput {
+	return o
+}
+
+func (o ClientInfoResponseOutput) ToClientInfoResponseOutputWithContext(ctx context.Context) ClientInfoResponseOutput {
+	return o
+}
+
+func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
+	return o.ToClientInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
+	return o.ApplyT(func(v ClientInfoResponse) *ClientInfoResponse {
+		return &v
+	}).(ClientInfoResponsePtrOutput)
+}
+
+// The email of the client.
+func (o ClientInfoResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientInfoResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The name of the client.
+func (o ClientInfoResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The object id of the client.
+func (o ClientInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the client.
+func (o ClientInfoResponseOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientInfoResponse) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
+}
+
+type ClientInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ClientInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientInfoResponse)(nil)).Elem()
+}
+
+func (o ClientInfoResponsePtrOutput) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
+	return o
+}
+
+func (o ClientInfoResponsePtrOutput) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
+	return o
+}
+
+func (o ClientInfoResponsePtrOutput) Elem() ClientInfoResponseOutput {
+	return o.ApplyT(func(v *ClientInfoResponse) ClientInfoResponse { return *v }).(ClientInfoResponseOutput)
+}
+
+// The email of the client.
+func (o ClientInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the client.
+func (o ClientInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object id of the client.
+func (o ClientInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the client.
+func (o ClientInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPrincipalName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Incident additional data property bag.
 type IncidentAdditionalDataResponse struct {
 	// List of product names of alerts in the incident
@@ -2134,6 +2325,8 @@ func (o WatchlistItemResponseArrayOutput) Index(i pulumi.IntInput) WatchlistItem
 }
 
 func init() {
+	pulumi.RegisterOutputType(ClientInfoResponseOutput{})
+	pulumi.RegisterOutputType(ClientInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponseOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentInfoOutput{})

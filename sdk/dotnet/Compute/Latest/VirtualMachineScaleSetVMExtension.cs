@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
-    /// Describes a Virtual Machine Extension.
+    /// Describes a VMSS VM Extension.
     /// </summary>
     public partial class VirtualMachineScaleSetVMExtension : Pulumi.CustomResource
     {
@@ -39,13 +39,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         public Output<Outputs.VirtualMachineExtensionInstanceViewResponse?> InstanceView { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource name
+        /// The name of the extension.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -73,12 +67,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Output("settings")]
         public Output<object?> Settings { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -174,12 +162,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         public Input<Inputs.VirtualMachineExtensionInstanceViewArgs>? InstanceView { get; set; }
 
         /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
         [Input("protectedSettings")]
@@ -202,18 +184,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Input("settings")]
         public Input<object>? Settings { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         /// <summary>
         /// Specifies the type of the extension; an example is "CustomScriptExtension".
