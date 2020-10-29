@@ -4202,6 +4202,274 @@ func (o DiskSecretResponseArrayOutput) Index(i pulumi.IntInput) DiskSecretRespon
 	}).(DiskSecretResponseOutput)
 }
 
+// Preferences related to the Encryption.
+type EncryptionPreferences struct {
+	// Defines secondary layer of software-based encryption enablement.
+	DoubleEncryption *string `pulumi:"doubleEncryption"`
+}
+
+// EncryptionPreferencesInput is an input type that accepts EncryptionPreferencesArgs and EncryptionPreferencesOutput values.
+// You can construct a concrete instance of `EncryptionPreferencesInput` via:
+//
+//          EncryptionPreferencesArgs{...}
+type EncryptionPreferencesInput interface {
+	pulumi.Input
+
+	ToEncryptionPreferencesOutput() EncryptionPreferencesOutput
+	ToEncryptionPreferencesOutputWithContext(context.Context) EncryptionPreferencesOutput
+}
+
+// Preferences related to the Encryption.
+type EncryptionPreferencesArgs struct {
+	// Defines secondary layer of software-based encryption enablement.
+	DoubleEncryption pulumi.StringPtrInput `pulumi:"doubleEncryption"`
+}
+
+func (EncryptionPreferencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPreferences)(nil)).Elem()
+}
+
+func (i EncryptionPreferencesArgs) ToEncryptionPreferencesOutput() EncryptionPreferencesOutput {
+	return i.ToEncryptionPreferencesOutputWithContext(context.Background())
+}
+
+func (i EncryptionPreferencesArgs) ToEncryptionPreferencesOutputWithContext(ctx context.Context) EncryptionPreferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesOutput)
+}
+
+func (i EncryptionPreferencesArgs) ToEncryptionPreferencesPtrOutput() EncryptionPreferencesPtrOutput {
+	return i.ToEncryptionPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPreferencesArgs) ToEncryptionPreferencesPtrOutputWithContext(ctx context.Context) EncryptionPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesOutput).ToEncryptionPreferencesPtrOutputWithContext(ctx)
+}
+
+// EncryptionPreferencesPtrInput is an input type that accepts EncryptionPreferencesArgs, EncryptionPreferencesPtr and EncryptionPreferencesPtrOutput values.
+// You can construct a concrete instance of `EncryptionPreferencesPtrInput` via:
+//
+//          EncryptionPreferencesArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPreferencesPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPreferencesPtrOutput() EncryptionPreferencesPtrOutput
+	ToEncryptionPreferencesPtrOutputWithContext(context.Context) EncryptionPreferencesPtrOutput
+}
+
+type encryptionPreferencesPtrType EncryptionPreferencesArgs
+
+func EncryptionPreferencesPtr(v *EncryptionPreferencesArgs) EncryptionPreferencesPtrInput {
+	return (*encryptionPreferencesPtrType)(v)
+}
+
+func (*encryptionPreferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPreferences)(nil)).Elem()
+}
+
+func (i *encryptionPreferencesPtrType) ToEncryptionPreferencesPtrOutput() EncryptionPreferencesPtrOutput {
+	return i.ToEncryptionPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPreferencesPtrType) ToEncryptionPreferencesPtrOutputWithContext(ctx context.Context) EncryptionPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesPtrOutput)
+}
+
+// Preferences related to the Encryption.
+type EncryptionPreferencesOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPreferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPreferences)(nil)).Elem()
+}
+
+func (o EncryptionPreferencesOutput) ToEncryptionPreferencesOutput() EncryptionPreferencesOutput {
+	return o
+}
+
+func (o EncryptionPreferencesOutput) ToEncryptionPreferencesOutputWithContext(ctx context.Context) EncryptionPreferencesOutput {
+	return o
+}
+
+func (o EncryptionPreferencesOutput) ToEncryptionPreferencesPtrOutput() EncryptionPreferencesPtrOutput {
+	return o.ToEncryptionPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPreferencesOutput) ToEncryptionPreferencesPtrOutputWithContext(ctx context.Context) EncryptionPreferencesPtrOutput {
+	return o.ApplyT(func(v EncryptionPreferences) *EncryptionPreferences {
+		return &v
+	}).(EncryptionPreferencesPtrOutput)
+}
+
+// Defines secondary layer of software-based encryption enablement.
+func (o EncryptionPreferencesOutput) DoubleEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPreferences) *string { return v.DoubleEncryption }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPreferencesPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPreferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPreferences)(nil)).Elem()
+}
+
+func (o EncryptionPreferencesPtrOutput) ToEncryptionPreferencesPtrOutput() EncryptionPreferencesPtrOutput {
+	return o
+}
+
+func (o EncryptionPreferencesPtrOutput) ToEncryptionPreferencesPtrOutputWithContext(ctx context.Context) EncryptionPreferencesPtrOutput {
+	return o
+}
+
+func (o EncryptionPreferencesPtrOutput) Elem() EncryptionPreferencesOutput {
+	return o.ApplyT(func(v *EncryptionPreferences) EncryptionPreferences { return *v }).(EncryptionPreferencesOutput)
+}
+
+// Defines secondary layer of software-based encryption enablement.
+func (o EncryptionPreferencesPtrOutput) DoubleEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPreferences) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DoubleEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// Preferences related to the Encryption.
+type EncryptionPreferencesResponse struct {
+	// Defines secondary layer of software-based encryption enablement.
+	DoubleEncryption *string `pulumi:"doubleEncryption"`
+}
+
+// EncryptionPreferencesResponseInput is an input type that accepts EncryptionPreferencesResponseArgs and EncryptionPreferencesResponseOutput values.
+// You can construct a concrete instance of `EncryptionPreferencesResponseInput` via:
+//
+//          EncryptionPreferencesResponseArgs{...}
+type EncryptionPreferencesResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionPreferencesResponseOutput() EncryptionPreferencesResponseOutput
+	ToEncryptionPreferencesResponseOutputWithContext(context.Context) EncryptionPreferencesResponseOutput
+}
+
+// Preferences related to the Encryption.
+type EncryptionPreferencesResponseArgs struct {
+	// Defines secondary layer of software-based encryption enablement.
+	DoubleEncryption pulumi.StringPtrInput `pulumi:"doubleEncryption"`
+}
+
+func (EncryptionPreferencesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPreferencesResponse)(nil)).Elem()
+}
+
+func (i EncryptionPreferencesResponseArgs) ToEncryptionPreferencesResponseOutput() EncryptionPreferencesResponseOutput {
+	return i.ToEncryptionPreferencesResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionPreferencesResponseArgs) ToEncryptionPreferencesResponseOutputWithContext(ctx context.Context) EncryptionPreferencesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesResponseOutput)
+}
+
+func (i EncryptionPreferencesResponseArgs) ToEncryptionPreferencesResponsePtrOutput() EncryptionPreferencesResponsePtrOutput {
+	return i.ToEncryptionPreferencesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPreferencesResponseArgs) ToEncryptionPreferencesResponsePtrOutputWithContext(ctx context.Context) EncryptionPreferencesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesResponseOutput).ToEncryptionPreferencesResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionPreferencesResponsePtrInput is an input type that accepts EncryptionPreferencesResponseArgs, EncryptionPreferencesResponsePtr and EncryptionPreferencesResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionPreferencesResponsePtrInput` via:
+//
+//          EncryptionPreferencesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPreferencesResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPreferencesResponsePtrOutput() EncryptionPreferencesResponsePtrOutput
+	ToEncryptionPreferencesResponsePtrOutputWithContext(context.Context) EncryptionPreferencesResponsePtrOutput
+}
+
+type encryptionPreferencesResponsePtrType EncryptionPreferencesResponseArgs
+
+func EncryptionPreferencesResponsePtr(v *EncryptionPreferencesResponseArgs) EncryptionPreferencesResponsePtrInput {
+	return (*encryptionPreferencesResponsePtrType)(v)
+}
+
+func (*encryptionPreferencesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPreferencesResponse)(nil)).Elem()
+}
+
+func (i *encryptionPreferencesResponsePtrType) ToEncryptionPreferencesResponsePtrOutput() EncryptionPreferencesResponsePtrOutput {
+	return i.ToEncryptionPreferencesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPreferencesResponsePtrType) ToEncryptionPreferencesResponsePtrOutputWithContext(ctx context.Context) EncryptionPreferencesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesResponsePtrOutput)
+}
+
+// Preferences related to the Encryption.
+type EncryptionPreferencesResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPreferencesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPreferencesResponse)(nil)).Elem()
+}
+
+func (o EncryptionPreferencesResponseOutput) ToEncryptionPreferencesResponseOutput() EncryptionPreferencesResponseOutput {
+	return o
+}
+
+func (o EncryptionPreferencesResponseOutput) ToEncryptionPreferencesResponseOutputWithContext(ctx context.Context) EncryptionPreferencesResponseOutput {
+	return o
+}
+
+func (o EncryptionPreferencesResponseOutput) ToEncryptionPreferencesResponsePtrOutput() EncryptionPreferencesResponsePtrOutput {
+	return o.ToEncryptionPreferencesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPreferencesResponseOutput) ToEncryptionPreferencesResponsePtrOutputWithContext(ctx context.Context) EncryptionPreferencesResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionPreferencesResponse) *EncryptionPreferencesResponse {
+		return &v
+	}).(EncryptionPreferencesResponsePtrOutput)
+}
+
+// Defines secondary layer of software-based encryption enablement.
+func (o EncryptionPreferencesResponseOutput) DoubleEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPreferencesResponse) *string { return v.DoubleEncryption }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPreferencesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPreferencesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPreferencesResponse)(nil)).Elem()
+}
+
+func (o EncryptionPreferencesResponsePtrOutput) ToEncryptionPreferencesResponsePtrOutput() EncryptionPreferencesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPreferencesResponsePtrOutput) ToEncryptionPreferencesResponsePtrOutputWithContext(ctx context.Context) EncryptionPreferencesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPreferencesResponsePtrOutput) Elem() EncryptionPreferencesResponseOutput {
+	return o.ApplyT(func(v *EncryptionPreferencesResponse) EncryptionPreferencesResponse { return *v }).(EncryptionPreferencesResponseOutput)
+}
+
+// Defines secondary layer of software-based encryption enablement.
+func (o EncryptionPreferencesResponsePtrOutput) DoubleEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPreferencesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DoubleEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details of the filter files to be used for data transfer.
 type FilterFileDetails struct {
 	// Path of the file that contains the details of all items to transfer.
@@ -4418,6 +4686,159 @@ func (o FilterFileDetailsResponseArrayOutput) Index(i pulumi.IntInput) FilterFil
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFileDetailsResponse {
 		return vs[0].([]FilterFileDetailsResponse)[vs[1].(int)]
 	}).(FilterFileDetailsResponseOutput)
+}
+
+// Managed identity properties.
+type IdentityPropertiesResponse struct {
+	// Managed service identity type.
+	Type *string `pulumi:"type"`
+	// User assigned identity properties.
+	UserAssigned *UserAssignedPropertiesResponse `pulumi:"userAssigned"`
+}
+
+// IdentityPropertiesResponseInput is an input type that accepts IdentityPropertiesResponseArgs and IdentityPropertiesResponseOutput values.
+// You can construct a concrete instance of `IdentityPropertiesResponseInput` via:
+//
+//          IdentityPropertiesResponseArgs{...}
+type IdentityPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToIdentityPropertiesResponseOutput() IdentityPropertiesResponseOutput
+	ToIdentityPropertiesResponseOutputWithContext(context.Context) IdentityPropertiesResponseOutput
+}
+
+// Managed identity properties.
+type IdentityPropertiesResponseArgs struct {
+	// Managed service identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// User assigned identity properties.
+	UserAssigned UserAssignedPropertiesResponsePtrInput `pulumi:"userAssigned"`
+}
+
+func (IdentityPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (i IdentityPropertiesResponseArgs) ToIdentityPropertiesResponseOutput() IdentityPropertiesResponseOutput {
+	return i.ToIdentityPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityPropertiesResponseArgs) ToIdentityPropertiesResponseOutputWithContext(ctx context.Context) IdentityPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesResponseOutput)
+}
+
+func (i IdentityPropertiesResponseArgs) ToIdentityPropertiesResponsePtrOutput() IdentityPropertiesResponsePtrOutput {
+	return i.ToIdentityPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IdentityPropertiesResponseArgs) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesResponseOutput).ToIdentityPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// IdentityPropertiesResponsePtrInput is an input type that accepts IdentityPropertiesResponseArgs, IdentityPropertiesResponsePtr and IdentityPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `IdentityPropertiesResponsePtrInput` via:
+//
+//          IdentityPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToIdentityPropertiesResponsePtrOutput() IdentityPropertiesResponsePtrOutput
+	ToIdentityPropertiesResponsePtrOutputWithContext(context.Context) IdentityPropertiesResponsePtrOutput
+}
+
+type identityPropertiesResponsePtrType IdentityPropertiesResponseArgs
+
+func IdentityPropertiesResponsePtr(v *IdentityPropertiesResponseArgs) IdentityPropertiesResponsePtrInput {
+	return (*identityPropertiesResponsePtrType)(v)
+}
+
+func (*identityPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (i *identityPropertiesResponsePtrType) ToIdentityPropertiesResponsePtrOutput() IdentityPropertiesResponsePtrOutput {
+	return i.ToIdentityPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *identityPropertiesResponsePtrType) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesResponsePtrOutput)
+}
+
+// Managed identity properties.
+type IdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponseOutput() IdentityPropertiesResponseOutput {
+	return o
+}
+
+func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponseOutputWithContext(ctx context.Context) IdentityPropertiesResponseOutput {
+	return o
+}
+
+func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutput() IdentityPropertiesResponsePtrOutput {
+	return o.ToIdentityPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v IdentityPropertiesResponse) *IdentityPropertiesResponse {
+		return &v
+	}).(IdentityPropertiesResponsePtrOutput)
+}
+
+// Managed service identity type.
+func (o IdentityPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// User assigned identity properties.
+func (o IdentityPropertiesResponseOutput) UserAssigned() UserAssignedPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v IdentityPropertiesResponse) *UserAssignedPropertiesResponse { return v.UserAssigned }).(UserAssignedPropertiesResponsePtrOutput)
+}
+
+type IdentityPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (o IdentityPropertiesResponsePtrOutput) ToIdentityPropertiesResponsePtrOutput() IdentityPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o IdentityPropertiesResponsePtrOutput) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o IdentityPropertiesResponsePtrOutput) Elem() IdentityPropertiesResponseOutput {
+	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse { return *v }).(IdentityPropertiesResponseOutput)
+}
+
+// Managed service identity type.
+func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// User assigned identity properties.
+func (o IdentityPropertiesResponsePtrOutput) UserAssigned() UserAssignedPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *IdentityPropertiesResponse) *UserAssignedPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssigned
+	}).(UserAssignedPropertiesResponsePtrOutput)
 }
 
 // Additional delivery info.
@@ -4826,6 +5247,8 @@ func (o JobStagesResponseArrayOutput) Index(i pulumi.IntInput) JobStagesResponse
 
 // Encryption key containing details about key to encrypt different keys.
 type KeyEncryptionKeyResponse struct {
+	// Managed identity properties used for key encryption.
+	IdentityProperties *IdentityPropertiesResponse `pulumi:"identityProperties"`
 	// Type of encryption key used for key encryption.
 	KekType string `pulumi:"kekType"`
 	// Key encryption key. It is required in case of Customer managed KekType.
@@ -4847,6 +5270,8 @@ type KeyEncryptionKeyResponseInput interface {
 
 // Encryption key containing details about key to encrypt different keys.
 type KeyEncryptionKeyResponseArgs struct {
+	// Managed identity properties used for key encryption.
+	IdentityProperties IdentityPropertiesResponsePtrInput `pulumi:"identityProperties"`
 	// Type of encryption key used for key encryption.
 	KekType pulumi.StringInput `pulumi:"kekType"`
 	// Key encryption key. It is required in case of Customer managed KekType.
@@ -4880,6 +5305,11 @@ func (o KeyEncryptionKeyResponseOutput) ToKeyEncryptionKeyResponseOutput() KeyEn
 
 func (o KeyEncryptionKeyResponseOutput) ToKeyEncryptionKeyResponseOutputWithContext(ctx context.Context) KeyEncryptionKeyResponseOutput {
 	return o
+}
+
+// Managed identity properties used for key encryption.
+func (o KeyEncryptionKeyResponseOutput) IdentityProperties() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v KeyEncryptionKeyResponse) *IdentityPropertiesResponse { return v.IdentityProperties }).(IdentityPropertiesResponsePtrOutput)
 }
 
 // Type of encryption key used for key encryption.
@@ -5354,6 +5784,8 @@ func (o PackageShippingDetailsResponseOutput) TrackingUrl() pulumi.StringOutput 
 
 // Preferences related to the order
 type Preferences struct {
+	// Preferences related to the Encryption.
+	EncryptionPreferences *EncryptionPreferences `pulumi:"encryptionPreferences"`
 	// Preferred data center region.
 	PreferredDataCenterRegion []string `pulumi:"preferredDataCenterRegion"`
 	// Preferences related to the shipment logistics of the sku.
@@ -5373,6 +5805,8 @@ type PreferencesInput interface {
 
 // Preferences related to the order
 type PreferencesArgs struct {
+	// Preferences related to the Encryption.
+	EncryptionPreferences EncryptionPreferencesPtrInput `pulumi:"encryptionPreferences"`
 	// Preferred data center region.
 	PreferredDataCenterRegion pulumi.StringArrayInput `pulumi:"preferredDataCenterRegion"`
 	// Preferences related to the shipment logistics of the sku.
@@ -5457,6 +5891,11 @@ func (o PreferencesOutput) ToPreferencesPtrOutputWithContext(ctx context.Context
 	}).(PreferencesPtrOutput)
 }
 
+// Preferences related to the Encryption.
+func (o PreferencesOutput) EncryptionPreferences() EncryptionPreferencesPtrOutput {
+	return o.ApplyT(func(v Preferences) *EncryptionPreferences { return v.EncryptionPreferences }).(EncryptionPreferencesPtrOutput)
+}
+
 // Preferred data center region.
 func (o PreferencesOutput) PreferredDataCenterRegion() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Preferences) []string { return v.PreferredDataCenterRegion }).(pulumi.StringArrayOutput)
@@ -5485,6 +5924,16 @@ func (o PreferencesPtrOutput) Elem() PreferencesOutput {
 	return o.ApplyT(func(v *Preferences) Preferences { return *v }).(PreferencesOutput)
 }
 
+// Preferences related to the Encryption.
+func (o PreferencesPtrOutput) EncryptionPreferences() EncryptionPreferencesPtrOutput {
+	return o.ApplyT(func(v *Preferences) *EncryptionPreferences {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionPreferences
+	}).(EncryptionPreferencesPtrOutput)
+}
+
 // Preferred data center region.
 func (o PreferencesPtrOutput) PreferredDataCenterRegion() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Preferences) []string {
@@ -5507,6 +5956,8 @@ func (o PreferencesPtrOutput) TransportPreferences() TransportPreferencesPtrOutp
 
 // Preferences related to the order
 type PreferencesResponse struct {
+	// Preferences related to the Encryption.
+	EncryptionPreferences *EncryptionPreferencesResponse `pulumi:"encryptionPreferences"`
 	// Preferred data center region.
 	PreferredDataCenterRegion []string `pulumi:"preferredDataCenterRegion"`
 	// Preferences related to the shipment logistics of the sku.
@@ -5526,6 +5977,8 @@ type PreferencesResponseInput interface {
 
 // Preferences related to the order
 type PreferencesResponseArgs struct {
+	// Preferences related to the Encryption.
+	EncryptionPreferences EncryptionPreferencesResponsePtrInput `pulumi:"encryptionPreferences"`
 	// Preferred data center region.
 	PreferredDataCenterRegion pulumi.StringArrayInput `pulumi:"preferredDataCenterRegion"`
 	// Preferences related to the shipment logistics of the sku.
@@ -5610,6 +6063,11 @@ func (o PreferencesResponseOutput) ToPreferencesResponsePtrOutputWithContext(ctx
 	}).(PreferencesResponsePtrOutput)
 }
 
+// Preferences related to the Encryption.
+func (o PreferencesResponseOutput) EncryptionPreferences() EncryptionPreferencesResponsePtrOutput {
+	return o.ApplyT(func(v PreferencesResponse) *EncryptionPreferencesResponse { return v.EncryptionPreferences }).(EncryptionPreferencesResponsePtrOutput)
+}
+
 // Preferred data center region.
 func (o PreferencesResponseOutput) PreferredDataCenterRegion() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PreferencesResponse) []string { return v.PreferredDataCenterRegion }).(pulumi.StringArrayOutput)
@@ -5636,6 +6094,16 @@ func (o PreferencesResponsePtrOutput) ToPreferencesResponsePtrOutputWithContext(
 
 func (o PreferencesResponsePtrOutput) Elem() PreferencesResponseOutput {
 	return o.ApplyT(func(v *PreferencesResponse) PreferencesResponse { return *v }).(PreferencesResponseOutput)
+}
+
+// Preferences related to the Encryption.
+func (o PreferencesResponsePtrOutput) EncryptionPreferences() EncryptionPreferencesResponsePtrOutput {
+	return o.ApplyT(func(v *PreferencesResponse) *EncryptionPreferencesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionPreferences
+	}).(EncryptionPreferencesResponsePtrOutput)
 }
 
 // Preferred data center region.
@@ -5800,6 +6268,8 @@ type ResourceIdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// Identity type
 	Type *string `pulumi:"type"`
+	// User Assigned Identities
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // ResourceIdentityResponseInput is an input type that accepts ResourceIdentityResponseArgs and ResourceIdentityResponseOutput values.
@@ -5821,6 +6291,8 @@ type ResourceIdentityResponseArgs struct {
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// Identity type
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// User Assigned Identities
+	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ResourceIdentityResponseArgs) ElementType() reflect.Type {
@@ -5916,6 +6388,13 @@ func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// User Assigned Identities
+func (o ResourceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
 type ResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
@@ -5962,6 +6441,16 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// User Assigned Identities
+func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 // Credential details of the shares in account.
@@ -6111,7 +6600,7 @@ type ShippingAddress struct {
 	// Name of the Country.
 	Country string `pulumi:"country"`
 	// Postal code.
-	PostalCode string `pulumi:"postalCode"`
+	PostalCode *string `pulumi:"postalCode"`
 	// Name of the State or Province.
 	StateOrProvince *string `pulumi:"stateOrProvince"`
 	// Street Address line 1.
@@ -6146,7 +6635,7 @@ type ShippingAddressArgs struct {
 	// Name of the Country.
 	Country pulumi.StringInput `pulumi:"country"`
 	// Postal code.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
 	// Name of the State or Province.
 	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
 	// Street Address line 1.
@@ -6258,8 +6747,8 @@ func (o ShippingAddressOutput) Country() pulumi.StringOutput {
 }
 
 // Postal code.
-func (o ShippingAddressOutput) PostalCode() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingAddress) string { return v.PostalCode }).(pulumi.StringOutput)
+func (o ShippingAddressOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingAddress) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
 // Name of the State or Province.
@@ -6351,7 +6840,7 @@ func (o ShippingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.PostalCode
+		return v.PostalCode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6416,7 +6905,7 @@ type ShippingAddressResponse struct {
 	// Name of the Country.
 	Country string `pulumi:"country"`
 	// Postal code.
-	PostalCode string `pulumi:"postalCode"`
+	PostalCode *string `pulumi:"postalCode"`
 	// Name of the State or Province.
 	StateOrProvince *string `pulumi:"stateOrProvince"`
 	// Street Address line 1.
@@ -6451,7 +6940,7 @@ type ShippingAddressResponseArgs struct {
 	// Name of the Country.
 	Country pulumi.StringInput `pulumi:"country"`
 	// Postal code.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
 	// Name of the State or Province.
 	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
 	// Street Address line 1.
@@ -6563,8 +7052,8 @@ func (o ShippingAddressResponseOutput) Country() pulumi.StringOutput {
 }
 
 // Postal code.
-func (o ShippingAddressResponseOutput) PostalCode() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingAddressResponse) string { return v.PostalCode }).(pulumi.StringOutput)
+func (o ShippingAddressResponseOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingAddressResponse) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
 // Name of the State or Province.
@@ -6656,7 +7145,7 @@ func (o ShippingAddressResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.PostalCode
+		return v.PostalCode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8999,6 +9488,249 @@ func (o UnencryptedCredentialsResponseArrayOutput) Index(i pulumi.IntInput) Unen
 	}).(UnencryptedCredentialsResponseOutput)
 }
 
+// Class defining User assigned identity details.
+type UserAssignedIdentityResponse struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// UserAssignedIdentityResponseInput is an input type that accepts UserAssignedIdentityResponseArgs and UserAssignedIdentityResponseOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityResponseInput` via:
+//
+//          UserAssignedIdentityResponseArgs{...}
+type UserAssignedIdentityResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput
+	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
+}
+
+// Class defining User assigned identity details.
+type UserAssignedIdentityResponseArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserAssignedIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return i.ToUserAssignedIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseOutput)
+}
+
+// UserAssignedIdentityResponseMapInput is an input type that accepts UserAssignedIdentityResponseMap and UserAssignedIdentityResponseMapOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityResponseMapInput` via:
+//
+//          UserAssignedIdentityResponseMap{ "key": UserAssignedIdentityResponseArgs{...} }
+type UserAssignedIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput
+	ToUserAssignedIdentityResponseMapOutputWithContext(context.Context) UserAssignedIdentityResponseMapOutput
+}
+
+type UserAssignedIdentityResponseMap map[string]UserAssignedIdentityResponseInput
+
+func (UserAssignedIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return i.ToUserAssignedIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
+}
+
+// Class defining User assigned identity details.
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
+// User assigned identity properties.
+type UserAssignedPropertiesResponse struct {
+	// Arm resource id for user assigned identity to be used to fetch MSI token.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// UserAssignedPropertiesResponseInput is an input type that accepts UserAssignedPropertiesResponseArgs and UserAssignedPropertiesResponseOutput values.
+// You can construct a concrete instance of `UserAssignedPropertiesResponseInput` via:
+//
+//          UserAssignedPropertiesResponseArgs{...}
+type UserAssignedPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedPropertiesResponseOutput() UserAssignedPropertiesResponseOutput
+	ToUserAssignedPropertiesResponseOutputWithContext(context.Context) UserAssignedPropertiesResponseOutput
+}
+
+// User assigned identity properties.
+type UserAssignedPropertiesResponseArgs struct {
+	// Arm resource id for user assigned identity to be used to fetch MSI token.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (UserAssignedPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedPropertiesResponse)(nil)).Elem()
+}
+
+func (i UserAssignedPropertiesResponseArgs) ToUserAssignedPropertiesResponseOutput() UserAssignedPropertiesResponseOutput {
+	return i.ToUserAssignedPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedPropertiesResponseArgs) ToUserAssignedPropertiesResponseOutputWithContext(ctx context.Context) UserAssignedPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedPropertiesResponseOutput)
+}
+
+func (i UserAssignedPropertiesResponseArgs) ToUserAssignedPropertiesResponsePtrOutput() UserAssignedPropertiesResponsePtrOutput {
+	return i.ToUserAssignedPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UserAssignedPropertiesResponseArgs) ToUserAssignedPropertiesResponsePtrOutputWithContext(ctx context.Context) UserAssignedPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedPropertiesResponseOutput).ToUserAssignedPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// UserAssignedPropertiesResponsePtrInput is an input type that accepts UserAssignedPropertiesResponseArgs, UserAssignedPropertiesResponsePtr and UserAssignedPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `UserAssignedPropertiesResponsePtrInput` via:
+//
+//          UserAssignedPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UserAssignedPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToUserAssignedPropertiesResponsePtrOutput() UserAssignedPropertiesResponsePtrOutput
+	ToUserAssignedPropertiesResponsePtrOutputWithContext(context.Context) UserAssignedPropertiesResponsePtrOutput
+}
+
+type userAssignedPropertiesResponsePtrType UserAssignedPropertiesResponseArgs
+
+func UserAssignedPropertiesResponsePtr(v *UserAssignedPropertiesResponseArgs) UserAssignedPropertiesResponsePtrInput {
+	return (*userAssignedPropertiesResponsePtrType)(v)
+}
+
+func (*userAssignedPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAssignedPropertiesResponse)(nil)).Elem()
+}
+
+func (i *userAssignedPropertiesResponsePtrType) ToUserAssignedPropertiesResponsePtrOutput() UserAssignedPropertiesResponsePtrOutput {
+	return i.ToUserAssignedPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *userAssignedPropertiesResponsePtrType) ToUserAssignedPropertiesResponsePtrOutputWithContext(ctx context.Context) UserAssignedPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedPropertiesResponsePtrOutput)
+}
+
+// User assigned identity properties.
+type UserAssignedPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedPropertiesResponse)(nil)).Elem()
+}
+
+func (o UserAssignedPropertiesResponseOutput) ToUserAssignedPropertiesResponseOutput() UserAssignedPropertiesResponseOutput {
+	return o
+}
+
+func (o UserAssignedPropertiesResponseOutput) ToUserAssignedPropertiesResponseOutputWithContext(ctx context.Context) UserAssignedPropertiesResponseOutput {
+	return o
+}
+
+func (o UserAssignedPropertiesResponseOutput) ToUserAssignedPropertiesResponsePtrOutput() UserAssignedPropertiesResponsePtrOutput {
+	return o.ToUserAssignedPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UserAssignedPropertiesResponseOutput) ToUserAssignedPropertiesResponsePtrOutputWithContext(ctx context.Context) UserAssignedPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v UserAssignedPropertiesResponse) *UserAssignedPropertiesResponse {
+		return &v
+	}).(UserAssignedPropertiesResponsePtrOutput)
+}
+
+// Arm resource id for user assigned identity to be used to fetch MSI token.
+func (o UserAssignedPropertiesResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedPropertiesResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type UserAssignedPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAssignedPropertiesResponse)(nil)).Elem()
+}
+
+func (o UserAssignedPropertiesResponsePtrOutput) ToUserAssignedPropertiesResponsePtrOutput() UserAssignedPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o UserAssignedPropertiesResponsePtrOutput) ToUserAssignedPropertiesResponsePtrOutputWithContext(ctx context.Context) UserAssignedPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o UserAssignedPropertiesResponsePtrOutput) Elem() UserAssignedPropertiesResponseOutput {
+	return o.ApplyT(func(v *UserAssignedPropertiesResponse) UserAssignedPropertiesResponse { return *v }).(UserAssignedPropertiesResponseOutput)
+}
+
+// Arm resource id for user assigned identity to be used to fetch MSI token.
+func (o UserAssignedPropertiesResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAssignedPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountCredentialDetailsResponseOutput{})
 	pulumi.RegisterOutputType(AccountCredentialDetailsResponseArrayOutput{})
@@ -9050,10 +9782,16 @@ func init() {
 	pulumi.RegisterOutputType(DcAccessSecurityCodeResponseOutput{})
 	pulumi.RegisterOutputType(DiskSecretResponseOutput{})
 	pulumi.RegisterOutputType(DiskSecretResponseArrayOutput{})
+	pulumi.RegisterOutputType(EncryptionPreferencesOutput{})
+	pulumi.RegisterOutputType(EncryptionPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPreferencesResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionPreferencesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FilterFileDetailsOutput{})
 	pulumi.RegisterOutputType(FilterFileDetailsArrayOutput{})
 	pulumi.RegisterOutputType(FilterFileDetailsResponseOutput{})
 	pulumi.RegisterOutputType(FilterFileDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(IdentityPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(IdentityPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobDeliveryInfoOutput{})
 	pulumi.RegisterOutputType(JobDeliveryInfoPtrOutput{})
 	pulumi.RegisterOutputType(JobDeliveryInfoResponseOutput{})
@@ -9112,4 +9850,8 @@ func init() {
 	pulumi.RegisterOutputType(TransportPreferencesResponsePtrOutput{})
 	pulumi.RegisterOutputType(UnencryptedCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(UnencryptedCredentialsResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
+	pulumi.RegisterOutputType(UserAssignedPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedPropertiesResponsePtrOutput{})
 }

@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
     public sealed class PreferencesResponse
     {
         /// <summary>
+        /// Preferences related to the Encryption.
+        /// </summary>
+        public readonly Outputs.EncryptionPreferencesResponse? EncryptionPreferences;
+        /// <summary>
         /// Preferred data center region.
         /// </summary>
         public readonly ImmutableArray<string> PreferredDataCenterRegion;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
 
         [OutputConstructor]
         private PreferencesResponse(
+            Outputs.EncryptionPreferencesResponse? encryptionPreferences,
+
             ImmutableArray<string> preferredDataCenterRegion,
 
             Outputs.TransportPreferencesResponse? transportPreferences)
         {
+            EncryptionPreferences = encryptionPreferences;
             PreferredDataCenterRegion = preferredDataCenterRegion;
             TransportPreferences = transportPreferences;
         }

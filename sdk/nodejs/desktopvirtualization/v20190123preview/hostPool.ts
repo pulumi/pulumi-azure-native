@@ -184,7 +184,7 @@ export class HostPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization/v20190924preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20191210preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:HostPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization/v20190924preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20191210preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:HostPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HostPool.__pulumiType, name, inputs, opts);
     }

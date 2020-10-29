@@ -36,17 +36,18 @@ export interface GetPrivateStoreOfferArgs {
  */
 export interface GetPrivateStoreOfferResult {
     /**
-     * Private store offer creator name
+     * Private store offer creation date
      */
-    readonly createdBy: string;
-    /**
-     * Private store offer created date
-     */
-    readonly createdDate: string;
+    readonly createdAt: string;
     /**
      * Identifier for purposes of race condition
      */
     readonly eTag?: string;
+    readonly iconFileUris?: outputs.marketplace.latest.IconResponse[];
+    /**
+     * Private store offer modification date
+     */
+    readonly modifiedAt: string;
     /**
      * The name of the resource.
      */
@@ -75,4 +76,8 @@ export interface GetPrivateStoreOfferResult {
      * Offers unique id
      */
     readonly uniqueOfferId: string;
+    /**
+     * Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+     */
+    readonly updateSuppressedDueIdempotence?: string;
 }

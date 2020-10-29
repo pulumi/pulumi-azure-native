@@ -25,12 +25,13 @@ type LookupPrivateStoreOfferArgs struct {
 
 // The privateStore offer data structure.
 type LookupPrivateStoreOfferResult struct {
-	// Private store offer creator name
-	CreatedBy string `pulumi:"createdBy"`
-	// Private store offer created date
-	CreatedDate string `pulumi:"createdDate"`
+	// Private store offer creation date
+	CreatedAt string `pulumi:"createdAt"`
 	// Identifier for purposes of race condition
-	ETag *string `pulumi:"eTag"`
+	ETag         *string        `pulumi:"eTag"`
+	IconFileUris []IconResponse `pulumi:"iconFileUris"`
+	// Private store offer modification date
+	ModifiedAt string `pulumi:"modifiedAt"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// It will be displayed prominently in the marketplace
@@ -45,4 +46,6 @@ type LookupPrivateStoreOfferResult struct {
 	Type string `pulumi:"type"`
 	// Offers unique id
 	UniqueOfferId string `pulumi:"uniqueOfferId"`
+	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+	UpdateSuppressedDueIdempotence *string `pulumi:"updateSuppressedDueIdempotence"`
 }

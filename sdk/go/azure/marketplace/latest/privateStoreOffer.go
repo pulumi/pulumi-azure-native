@@ -14,12 +14,13 @@ import (
 type PrivateStoreOffer struct {
 	pulumi.CustomResourceState
 
-	// Private store offer creator name
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Private store offer created date
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	// Private store offer creation date
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Identifier for purposes of race condition
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
+	ETag         pulumi.StringPtrOutput  `pulumi:"eTag"`
+	IconFileUris IconResponseArrayOutput `pulumi:"iconFileUris"`
+	// Private store offer modification date
+	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// It will be displayed prominently in the marketplace
@@ -34,6 +35,8 @@ type PrivateStoreOffer struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Offers unique id
 	UniqueOfferId pulumi.StringOutput `pulumi:"uniqueOfferId"`
+	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+	UpdateSuppressedDueIdempotence pulumi.StringPtrOutput `pulumi:"updateSuppressedDueIdempotence"`
 }
 
 // NewPrivateStoreOffer registers a new resource with the given unique name, arguments, and options.
@@ -76,12 +79,13 @@ func GetPrivateStoreOffer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateStoreOffer resources.
 type privateStoreOfferState struct {
-	// Private store offer creator name
-	CreatedBy *string `pulumi:"createdBy"`
-	// Private store offer created date
-	CreatedDate *string `pulumi:"createdDate"`
+	// Private store offer creation date
+	CreatedAt *string `pulumi:"createdAt"`
 	// Identifier for purposes of race condition
-	ETag *string `pulumi:"eTag"`
+	ETag         *string        `pulumi:"eTag"`
+	IconFileUris []IconResponse `pulumi:"iconFileUris"`
+	// Private store offer modification date
+	ModifiedAt *string `pulumi:"modifiedAt"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// It will be displayed prominently in the marketplace
@@ -96,15 +100,18 @@ type privateStoreOfferState struct {
 	Type *string `pulumi:"type"`
 	// Offers unique id
 	UniqueOfferId *string `pulumi:"uniqueOfferId"`
+	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+	UpdateSuppressedDueIdempotence *string `pulumi:"updateSuppressedDueIdempotence"`
 }
 
 type PrivateStoreOfferState struct {
-	// Private store offer creator name
-	CreatedBy pulumi.StringPtrInput
-	// Private store offer created date
-	CreatedDate pulumi.StringPtrInput
+	// Private store offer creation date
+	CreatedAt pulumi.StringPtrInput
 	// Identifier for purposes of race condition
-	ETag pulumi.StringPtrInput
+	ETag         pulumi.StringPtrInput
+	IconFileUris IconResponseArrayInput
+	// Private store offer modification date
+	ModifiedAt pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// It will be displayed prominently in the marketplace
@@ -119,6 +126,8 @@ type PrivateStoreOfferState struct {
 	Type pulumi.StringPtrInput
 	// Offers unique id
 	UniqueOfferId pulumi.StringPtrInput
+	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+	UpdateSuppressedDueIdempotence pulumi.StringPtrInput
 }
 
 func (PrivateStoreOfferState) ElementType() reflect.Type {
@@ -127,25 +136,31 @@ func (PrivateStoreOfferState) ElementType() reflect.Type {
 
 type privateStoreOfferArgs struct {
 	// Identifier for purposes of race condition
-	ETag *string `pulumi:"eTag"`
+	ETag         *string `pulumi:"eTag"`
+	IconFileUris []Icon  `pulumi:"iconFileUris"`
 	// The offer ID to update or delete
 	OfferId string `pulumi:"offerId"`
 	// The store ID - must use the tenant ID
 	PrivateStoreId string `pulumi:"privateStoreId"`
 	// Plan ids limitation for this offer
 	SpecificPlanIdsLimitation []string `pulumi:"specificPlanIdsLimitation"`
+	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+	UpdateSuppressedDueIdempotence *string `pulumi:"updateSuppressedDueIdempotence"`
 }
 
 // The set of arguments for constructing a PrivateStoreOffer resource.
 type PrivateStoreOfferArgs struct {
 	// Identifier for purposes of race condition
-	ETag pulumi.StringPtrInput
+	ETag         pulumi.StringPtrInput
+	IconFileUris IconArrayInput
 	// The offer ID to update or delete
 	OfferId pulumi.StringInput
 	// The store ID - must use the tenant ID
 	PrivateStoreId pulumi.StringInput
 	// Plan ids limitation for this offer
 	SpecificPlanIdsLimitation pulumi.StringArrayInput
+	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+	UpdateSuppressedDueIdempotence pulumi.StringPtrInput
 }
 
 func (PrivateStoreOfferArgs) ElementType() reflect.Type {

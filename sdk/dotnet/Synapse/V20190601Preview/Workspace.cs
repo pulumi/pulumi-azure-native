@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<Outputs.DataLakeStorageAccountDetailsResponse?> DefaultDataLakeStorage { get; private set; } = null!;
 
         /// <summary>
+        /// The encryption details of the workspace
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionDetailsResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// Workspace level configs and feature flags
         /// </summary>
         [Output("extraProperties")]
@@ -110,6 +116,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         [Output("virtualNetworkProfile")]
         public Output<Outputs.VirtualNetworkProfileResponse?> VirtualNetworkProfile { get; private set; } = null!;
 
+        /// <summary>
+        /// The workspace unique identifier
+        /// </summary>
+        [Output("workspaceUID")]
+        public Output<string> WorkspaceUID { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Workspace resource with the given unique name, arguments, and options.
@@ -172,6 +184,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Input("defaultDataLakeStorage")]
         public Input<Inputs.DataLakeStorageAccountDetailsArgs>? DefaultDataLakeStorage { get; set; }
+
+        /// <summary>
+        /// The encryption details of the workspace
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionDetailsArgs>? Encryption { get; set; }
 
         /// <summary>
         /// Identity of the workspace

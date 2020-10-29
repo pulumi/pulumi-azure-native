@@ -40,17 +40,18 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
     public sealed class GetPrivateStoreOfferResult
     {
         /// <summary>
-        /// Private store offer creator name
+        /// Private store offer creation date
         /// </summary>
-        public readonly string CreatedBy;
-        /// <summary>
-        /// Private store offer created date
-        /// </summary>
-        public readonly string CreatedDate;
+        public readonly string CreatedAt;
         /// <summary>
         /// Identifier for purposes of race condition
         /// </summary>
         public readonly string? ETag;
+        public readonly ImmutableArray<Outputs.IconResponse> IconFileUris;
+        /// <summary>
+        /// Private store offer modification date
+        /// </summary>
+        public readonly string ModifiedAt;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -79,14 +80,20 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// Offers unique id
         /// </summary>
         public readonly string UniqueOfferId;
+        /// <summary>
+        /// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+        /// </summary>
+        public readonly string? UpdateSuppressedDueIdempotence;
 
         [OutputConstructor]
         private GetPrivateStoreOfferResult(
-            string createdBy,
-
-            string createdDate,
+            string createdAt,
 
             string? eTag,
+
+            ImmutableArray<Outputs.IconResponse> iconFileUris,
+
+            string modifiedAt,
 
             string name,
 
@@ -100,11 +107,14 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
 
             string type,
 
-            string uniqueOfferId)
+            string uniqueOfferId,
+
+            string? updateSuppressedDueIdempotence)
         {
-            CreatedBy = createdBy;
-            CreatedDate = createdDate;
+            CreatedAt = createdAt;
             ETag = eTag;
+            IconFileUris = iconFileUris;
+            ModifiedAt = modifiedAt;
             Name = name;
             OfferDisplayName = offerDisplayName;
             PrivateStoreId = privateStoreId;
@@ -112,6 +122,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
             SpecificPlanIdsLimitation = specificPlanIdsLimitation;
             Type = type;
             UniqueOfferId = uniqueOfferId;
+            UpdateSuppressedDueIdempotence = updateSuppressedDueIdempotence;
         }
     }
 }

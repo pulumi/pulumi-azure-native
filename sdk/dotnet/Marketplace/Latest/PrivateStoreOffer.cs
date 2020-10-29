@@ -15,22 +15,25 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
     public partial class PrivateStoreOffer : Pulumi.CustomResource
     {
         /// <summary>
-        /// Private store offer creator name
+        /// Private store offer creation date
         /// </summary>
-        [Output("createdBy")]
-        public Output<string> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// Private store offer created date
-        /// </summary>
-        [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// Identifier for purposes of race condition
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
+
+        [Output("iconFileUris")]
+        public Output<ImmutableArray<Outputs.IconResponse>> IconFileUris { get; private set; } = null!;
+
+        /// <summary>
+        /// Private store offer modification date
+        /// </summary>
+        [Output("modifiedAt")]
+        public Output<string> ModifiedAt { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -73,6 +76,12 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
         /// </summary>
         [Output("uniqueOfferId")]
         public Output<string> UniqueOfferId { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+        /// </summary>
+        [Output("updateSuppressedDueIdempotence")]
+        public Output<string?> UpdateSuppressedDueIdempotence { get; private set; } = null!;
 
 
         /// <summary>
@@ -129,6 +138,14 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
 
+        [Input("iconFileUris")]
+        private InputList<Inputs.IconArgs>? _iconFileUris;
+        public InputList<Inputs.IconArgs> IconFileUris
+        {
+            get => _iconFileUris ?? (_iconFileUris = new InputList<Inputs.IconArgs>());
+            set => _iconFileUris = value;
+        }
+
         /// <summary>
         /// The offer ID to update or delete
         /// </summary>
@@ -152,6 +169,12 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
             get => _specificPlanIdsLimitation ?? (_specificPlanIdsLimitation = new InputList<string>());
             set => _specificPlanIdsLimitation = value;
         }
+
+        /// <summary>
+        /// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+        /// </summary>
+        [Input("updateSuppressedDueIdempotence")]
+        public Input<string>? UpdateSuppressedDueIdempotence { get; set; }
 
         public PrivateStoreOfferArgs()
         {

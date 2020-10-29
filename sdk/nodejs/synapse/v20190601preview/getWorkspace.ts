@@ -44,6 +44,10 @@ export interface GetWorkspaceResult {
      */
     readonly defaultDataLakeStorage?: outputs.synapse.v20190601preview.DataLakeStorageAccountDetailsResponse;
     /**
+     * The encryption details of the workspace
+     */
+    readonly encryption?: outputs.synapse.v20190601preview.EncryptionDetailsResponse;
+    /**
      * Workspace level configs and feature flags
      */
     readonly extraProperties: {[key: string]: any};
@@ -99,4 +103,8 @@ export interface GetWorkspaceResult {
      * Virtual Network profile
      */
     readonly virtualNetworkProfile?: outputs.synapse.v20190601preview.VirtualNetworkProfileResponse;
+    /**
+     * The workspace unique identifier
+     */
+    readonly workspaceUID: string;
 }

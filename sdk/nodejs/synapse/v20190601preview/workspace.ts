@@ -45,6 +45,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly defaultDataLakeStorage!: pulumi.Output<outputs.synapse.v20190601preview.DataLakeStorageAccountDetailsResponse | undefined>;
     /**
+     * The encryption details of the workspace
+     */
+    public readonly encryption!: pulumi.Output<outputs.synapse.v20190601preview.EncryptionDetailsResponse | undefined>;
+    /**
      * Workspace level configs and feature flags
      */
     public /*out*/ readonly extraProperties!: pulumi.Output<{[key: string]: any}>;
@@ -100,6 +104,10 @@ export class Workspace extends pulumi.CustomResource {
      * Virtual Network profile
      */
     public readonly virtualNetworkProfile!: pulumi.Output<outputs.synapse.v20190601preview.VirtualNetworkProfileResponse | undefined>;
+    /**
+     * The workspace unique identifier
+     */
+    public /*out*/ readonly workspaceUID!: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -122,6 +130,7 @@ export class Workspace extends pulumi.CustomResource {
             }
             inputs["connectivityEndpoints"] = args ? args.connectivityEndpoints : undefined;
             inputs["defaultDataLakeStorage"] = args ? args.defaultDataLakeStorage : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
@@ -138,9 +147,11 @@ export class Workspace extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["workspaceUID"] = undefined /*out*/;
         } else {
             inputs["connectivityEndpoints"] = undefined /*out*/;
             inputs["defaultDataLakeStorage"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
             inputs["extraProperties"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -155,6 +166,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetworkProfile"] = undefined /*out*/;
+            inputs["workspaceUID"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -179,6 +191,10 @@ export interface WorkspaceArgs {
      * Workspace default data lake storage account details
      */
     readonly defaultDataLakeStorage?: pulumi.Input<inputs.synapse.v20190601preview.DataLakeStorageAccountDetails>;
+    /**
+     * The encryption details of the workspace
+     */
+    readonly encryption?: pulumi.Input<inputs.synapse.v20190601preview.EncryptionDetails>;
     /**
      * Identity of the workspace
      */

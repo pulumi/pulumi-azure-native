@@ -29,6 +29,8 @@ type LookupWorkspaceResult struct {
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage *DataLakeStorageAccountDetailsResponse `pulumi:"defaultDataLakeStorage"`
+	// The encryption details of the workspace
+	Encryption *EncryptionDetailsResponse `pulumi:"encryption"`
 	// Workspace level configs and feature flags
 	ExtraProperties map[string]interface{} `pulumi:"extraProperties"`
 	// Identity of the workspace
@@ -57,4 +59,6 @@ type LookupWorkspaceResult struct {
 	Type string `pulumi:"type"`
 	// Virtual Network profile
 	VirtualNetworkProfile *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
+	// The workspace unique identifier
+	WorkspaceUID string `pulumi:"workspaceUID"`
 }

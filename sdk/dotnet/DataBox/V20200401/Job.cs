@@ -156,6 +156,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:databox/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20180101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20190901:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databox/v20201101:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
