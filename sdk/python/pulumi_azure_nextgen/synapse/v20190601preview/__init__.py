@@ -10,6 +10,7 @@ from .get_integration_runtime_connection_info import *
 from .get_integration_runtime_object_metadatum import *
 from .get_integration_runtime_status import *
 from .get_ip_firewall_rule import *
+from .get_key import *
 from .get_private_endpoint_connection import *
 from .get_private_link_hub import *
 from .get_sql_pool import *
@@ -20,6 +21,7 @@ from .get_workspace import *
 from .get_workspace_aad_admin import *
 from .integration_runtime import *
 from .ip_firewall_rule import *
+from .key import *
 from .list_integration_runtime_auth_key import *
 from .private_endpoint_connection import *
 from .private_link_hub import *

@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
     public sealed class KeyEncryptionKeyResponse
     {
         /// <summary>
+        /// Managed identity properties used for key encryption.
+        /// </summary>
+        public readonly Outputs.IdentityPropertiesResponse? IdentityProperties;
+        /// <summary>
         /// Type of encryption key used for key encryption.
         /// </summary>
         public readonly string KekType;
@@ -28,12 +32,15 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
 
         [OutputConstructor]
         private KeyEncryptionKeyResponse(
+            Outputs.IdentityPropertiesResponse? identityProperties,
+
             string kekType,
 
             string? kekUrl,
 
             string? kekVaultResourceID)
         {
+            IdentityProperties = identityProperties;
             KekType = kekType;
             KekUrl = kekUrl;
             KekVaultResourceID = kekVaultResourceID;

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,17 +37,18 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
     }
 
     /**
-     * Private store offer creator name
+     * Private store offer creation date
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
-    /**
-     * Private store offer created date
-     */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * Identifier for purposes of race condition
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
+    public readonly iconFileUris!: pulumi.Output<outputs.marketplace.latest.IconResponse[] | undefined>;
+    /**
+     * Private store offer modification date
+     */
+    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
@@ -74,6 +77,10 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
      * Offers unique id
      */
     public /*out*/ readonly uniqueOfferId!: pulumi.Output<string>;
+    /**
+     * Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+     */
+    public readonly updateSuppressedDueIdempotence!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PrivateStoreOffer resource with the given unique name, arguments, and options.
@@ -92,20 +99,23 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'privateStoreId'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["iconFileUris"] = args ? args.iconFileUris : undefined;
             inputs["offerId"] = args ? args.offerId : undefined;
             inputs["privateStoreId"] = args ? args.privateStoreId : undefined;
             inputs["specificPlanIdsLimitation"] = args ? args.specificPlanIdsLimitation : undefined;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
+            inputs["updateSuppressedDueIdempotence"] = args ? args.updateSuppressedDueIdempotence : undefined;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["modifiedAt"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["offerDisplayName"] = undefined /*out*/;
             inputs["publisherDisplayName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueOfferId"] = undefined /*out*/;
         } else {
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
+            inputs["iconFileUris"] = undefined /*out*/;
+            inputs["modifiedAt"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["offerDisplayName"] = undefined /*out*/;
             inputs["privateStoreId"] = undefined /*out*/;
@@ -113,6 +123,7 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
             inputs["specificPlanIdsLimitation"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueOfferId"] = undefined /*out*/;
+            inputs["updateSuppressedDueIdempotence"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -135,6 +146,7 @@ export interface PrivateStoreOfferArgs {
      * Identifier for purposes of race condition
      */
     readonly eTag?: pulumi.Input<string>;
+    readonly iconFileUris?: pulumi.Input<pulumi.Input<inputs.marketplace.latest.Icon>[]>;
     /**
      * The offer ID to update or delete
      */
@@ -147,4 +159,8 @@ export interface PrivateStoreOfferArgs {
      * Plan ids limitation for this offer
      */
     readonly specificPlanIdsLimitation?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+     */
+    readonly updateSuppressedDueIdempotence?: pulumi.Input<string>;
 }

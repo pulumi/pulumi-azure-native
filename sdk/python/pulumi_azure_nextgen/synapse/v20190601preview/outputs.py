@@ -14,7 +14,9 @@ __all__ = [
     'AutoScalePropertiesResponse',
     'CmdkeySetupResponse',
     'ComponentSetupResponse',
+    'CustomerManagedKeyDetailsResponse',
     'DataLakeStorageAccountDetailsResponse',
+    'EncryptionDetailsResponse',
     'EntityReferenceResponse',
     'EnvironmentVariableSetupResponse',
     'IntegrationRuntimeComputePropertiesResponse',
@@ -54,6 +56,7 @@ __all__ = [
     'SsisVariableResponseResult',
     'VirtualNetworkProfileResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
+    'WorkspaceKeyDetailsResponse',
 ]
 
 @pulumi.output_type
@@ -251,6 +254,43 @@ class ComponentSetupResponse(dict):
 
 
 @pulumi.output_type
+class CustomerManagedKeyDetailsResponse(dict):
+    """
+    Details of the customer managed key associated with the workspace
+    """
+    def __init__(__self__, *,
+                 status: str,
+                 key: Optional['outputs.WorkspaceKeyDetailsResponse'] = None):
+        """
+        Details of the customer managed key associated with the workspace
+        :param str status: The customer managed key status on the workspace
+        :param 'WorkspaceKeyDetailsResponseArgs' key: The key object of the workspace
+        """
+        pulumi.set(__self__, "status", status)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The customer managed key status on the workspace
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional['outputs.WorkspaceKeyDetailsResponse']:
+        """
+        The key object of the workspace
+        """
+        return pulumi.get(self, "key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class DataLakeStorageAccountDetailsResponse(dict):
     """
     Details of the data lake storage account associated with the workspace
@@ -283,6 +323,43 @@ class DataLakeStorageAccountDetailsResponse(dict):
         Filesystem name
         """
         return pulumi.get(self, "filesystem")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionDetailsResponse(dict):
+    """
+    Details of the encryption associated with the workspace
+    """
+    def __init__(__self__, *,
+                 double_encryption_enabled: bool,
+                 cmk: Optional['outputs.CustomerManagedKeyDetailsResponse'] = None):
+        """
+        Details of the encryption associated with the workspace
+        :param bool double_encryption_enabled: Double Encryption enabled
+        :param 'CustomerManagedKeyDetailsResponseArgs' cmk: Customer Managed Key Details
+        """
+        pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
+        if cmk is not None:
+            pulumi.set(__self__, "cmk", cmk)
+
+    @property
+    @pulumi.getter(name="doubleEncryptionEnabled")
+    def double_encryption_enabled(self) -> bool:
+        """
+        Double Encryption enabled
+        """
+        return pulumi.get(self, "double_encryption_enabled")
+
+    @property
+    @pulumi.getter
+    def cmk(self) -> Optional['outputs.CustomerManagedKeyDetailsResponse']:
+        """
+        Customer Managed Key Details
+        """
+        return pulumi.get(self, "cmk")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2970,6 +3047,44 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
         Recurring scans state.
         """
         return pulumi.get(self, "is_enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WorkspaceKeyDetailsResponse(dict):
+    """
+    Details of the customer managed key associated with the workspace
+    """
+    def __init__(__self__, *,
+                 key_vault_url: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Details of the customer managed key associated with the workspace
+        :param str key_vault_url: Workspace Key sub-resource key vault url
+        :param str name: Workspace Key sub-resource name
+        """
+        if key_vault_url is not None:
+            pulumi.set(__self__, "key_vault_url", key_vault_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="keyVaultUrl")
+    def key_vault_url(self) -> Optional[str]:
+        """
+        Workspace Key sub-resource key vault url
+        """
+        return pulumi.get(self, "key_vault_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Workspace Key sub-resource name
+        """
+        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

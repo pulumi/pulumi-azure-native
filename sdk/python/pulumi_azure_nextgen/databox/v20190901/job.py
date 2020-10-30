@@ -85,7 +85,7 @@ class Job(pulumi.CustomResource):
             __props__['start_time'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databox/latest:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20180101:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20200401:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databox/latest:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20180101:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20200401:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20201101:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-nextgen:databox/v20190901:Job',

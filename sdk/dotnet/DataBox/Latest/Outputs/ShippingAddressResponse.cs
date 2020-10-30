@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
         /// <summary>
         /// Postal code.
         /// </summary>
-        public readonly string PostalCode;
+        public readonly string? PostalCode;
         /// <summary>
         /// Name of the State or Province.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
 
             string country,
 
-            string postalCode,
+            string? postalCode,
 
             string? stateOrProvince,
 

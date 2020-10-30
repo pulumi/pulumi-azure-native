@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly Outputs.DataLakeStorageAccountDetailsResponse? DefaultDataLakeStorage;
         /// <summary>
+        /// The encryption details of the workspace
+        /// </summary>
+        public readonly Outputs.EncryptionDetailsResponse? Encryption;
+        /// <summary>
         /// Workspace level configs and feature flags
         /// </summary>
         public readonly ImmutableDictionary<string, object> ExtraProperties;
@@ -103,12 +107,18 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// Virtual Network profile
         /// </summary>
         public readonly Outputs.VirtualNetworkProfileResponse? VirtualNetworkProfile;
+        /// <summary>
+        /// The workspace unique identifier
+        /// </summary>
+        public readonly string WorkspaceUID;
 
         [OutputConstructor]
         private GetWorkspaceResult(
             ImmutableDictionary<string, string>? connectivityEndpoints,
 
             Outputs.DataLakeStorageAccountDetailsResponse? defaultDataLakeStorage,
+
+            Outputs.EncryptionDetailsResponse? encryption,
 
             ImmutableDictionary<string, object> extraProperties,
 
@@ -136,10 +146,13 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string type,
 
-            Outputs.VirtualNetworkProfileResponse? virtualNetworkProfile)
+            Outputs.VirtualNetworkProfileResponse? virtualNetworkProfile,
+
+            string workspaceUID)
         {
             ConnectivityEndpoints = connectivityEndpoints;
             DefaultDataLakeStorage = defaultDataLakeStorage;
+            Encryption = encryption;
             ExtraProperties = extraProperties;
             Identity = identity;
             Location = location;
@@ -154,6 +167,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             Tags = tags;
             Type = type;
             VirtualNetworkProfile = virtualNetworkProfile;
+            WorkspaceUID = workspaceUID;
         }
     }
 }

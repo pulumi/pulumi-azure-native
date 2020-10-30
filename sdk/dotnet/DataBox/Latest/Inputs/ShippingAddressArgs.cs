@@ -42,8 +42,8 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
         /// <summary>
         /// Postal code.
         /// </summary>
-        [Input("postalCode", required: true)]
-        public Input<string> PostalCode { get; set; } = null!;
+        [Input("postalCode")]
+        public Input<string>? PostalCode { get; set; }
 
         /// <summary>
         /// Name of the State or Province.

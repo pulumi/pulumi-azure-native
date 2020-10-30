@@ -109,7 +109,7 @@ class HostPool(pulumi.CustomResource):
             __props__['application_group_references'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190123preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190924preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:HostPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190123preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190924preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201019preview:HostPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HostPool, __self__).__init__(
             'azure-nextgen:desktopvirtualization/v20191210preview:HostPool',

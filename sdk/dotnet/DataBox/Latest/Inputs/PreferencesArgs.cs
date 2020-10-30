@@ -15,6 +15,12 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
     /// </summary>
     public sealed class PreferencesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Preferences related to the Encryption.
+        /// </summary>
+        [Input("encryptionPreferences")]
+        public Input<Inputs.EncryptionPreferencesArgs>? EncryptionPreferences { get; set; }
+
         [Input("preferredDataCenterRegion")]
         private InputList<string>? _preferredDataCenterRegion;
 

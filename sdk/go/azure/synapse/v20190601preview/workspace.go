@@ -18,6 +18,8 @@ type Workspace struct {
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsResponsePtrOutput `pulumi:"defaultDataLakeStorage"`
+	// The encryption details of the workspace
+	Encryption EncryptionDetailsResponsePtrOutput `pulumi:"encryption"`
 	// Workspace level configs and feature flags
 	ExtraProperties pulumi.MapOutput `pulumi:"extraProperties"`
 	// Identity of the workspace
@@ -46,6 +48,8 @@ type Workspace struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Virtual Network profile
 	VirtualNetworkProfile VirtualNetworkProfileResponsePtrOutput `pulumi:"virtualNetworkProfile"`
+	// The workspace unique identifier
+	WorkspaceUID pulumi.StringOutput `pulumi:"workspaceUID"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -89,6 +93,8 @@ type workspaceState struct {
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage *DataLakeStorageAccountDetailsResponse `pulumi:"defaultDataLakeStorage"`
+	// The encryption details of the workspace
+	Encryption *EncryptionDetailsResponse `pulumi:"encryption"`
 	// Workspace level configs and feature flags
 	ExtraProperties map[string]interface{} `pulumi:"extraProperties"`
 	// Identity of the workspace
@@ -117,6 +123,8 @@ type workspaceState struct {
 	Type *string `pulumi:"type"`
 	// Virtual Network profile
 	VirtualNetworkProfile *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
+	// The workspace unique identifier
+	WorkspaceUID *string `pulumi:"workspaceUID"`
 }
 
 type WorkspaceState struct {
@@ -124,6 +132,8 @@ type WorkspaceState struct {
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsResponsePtrInput
+	// The encryption details of the workspace
+	Encryption EncryptionDetailsResponsePtrInput
 	// Workspace level configs and feature flags
 	ExtraProperties pulumi.MapInput
 	// Identity of the workspace
@@ -152,6 +162,8 @@ type WorkspaceState struct {
 	Type pulumi.StringPtrInput
 	// Virtual Network profile
 	VirtualNetworkProfile VirtualNetworkProfileResponsePtrInput
+	// The workspace unique identifier
+	WorkspaceUID pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -163,6 +175,8 @@ type workspaceArgs struct {
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage *DataLakeStorageAccountDetails `pulumi:"defaultDataLakeStorage"`
+	// The encryption details of the workspace
+	Encryption *EncryptionDetails `pulumi:"encryption"`
 	// Identity of the workspace
 	Identity *ManagedIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -195,6 +209,8 @@ type WorkspaceArgs struct {
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsPtrInput
+	// The encryption details of the workspace
+	Encryption EncryptionDetailsPtrInput
 	// Identity of the workspace
 	Identity ManagedIdentityPtrInput
 	// The geo-location where the resource lives

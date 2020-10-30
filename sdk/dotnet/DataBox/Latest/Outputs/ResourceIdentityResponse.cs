@@ -25,6 +25,10 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
         /// Identity type
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// User Assigned Identities
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ResourceIdentityResponse(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
 
             string tenantId,
 
-            string? type)
+            string? type,
+
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

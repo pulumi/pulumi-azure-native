@@ -57,6 +57,12 @@ func NewMSIXPackage(ctx *pulumi.Context,
 	if args == nil {
 		args = &MSIXPackageArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:MSIXPackage"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MSIXPackage
 	err := ctx.RegisterResource("azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage", name, args, &resource, opts...)
 	if err != nil {

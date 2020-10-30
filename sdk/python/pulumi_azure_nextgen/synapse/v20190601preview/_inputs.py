@@ -13,7 +13,9 @@ __all__ = [
     'AutoScalePropertiesArgs',
     'CmdkeySetupArgs',
     'ComponentSetupArgs',
+    'CustomerManagedKeyDetailsArgs',
     'DataLakeStorageAccountDetailsArgs',
+    'EncryptionDetailsArgs',
     'EntityReferenceArgs',
     'EnvironmentVariableSetupArgs',
     'IntegrationRuntimeComputePropertiesArgs',
@@ -38,6 +40,7 @@ __all__ = [
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs',
     'VirtualNetworkProfileArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
+    'WorkspaceKeyDetailsArgs',
 ]
 
 @pulumi.input_type
@@ -259,6 +262,30 @@ class ComponentSetupArgs:
 
 
 @pulumi.input_type
+class CustomerManagedKeyDetailsArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input['WorkspaceKeyDetailsArgs']] = None):
+        """
+        Details of the customer managed key associated with the workspace
+        :param pulumi.Input['WorkspaceKeyDetailsArgs'] key: The key object of the workspace
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input['WorkspaceKeyDetailsArgs']]:
+        """
+        The key object of the workspace
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input['WorkspaceKeyDetailsArgs']]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
 class DataLakeStorageAccountDetailsArgs:
     def __init__(__self__, *,
                  account_url: Optional[pulumi.Input[str]] = None,
@@ -296,6 +323,30 @@ class DataLakeStorageAccountDetailsArgs:
     @filesystem.setter
     def filesystem(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filesystem", value)
+
+
+@pulumi.input_type
+class EncryptionDetailsArgs:
+    def __init__(__self__, *,
+                 cmk: Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']] = None):
+        """
+        Details of the encryption associated with the workspace
+        :param pulumi.Input['CustomerManagedKeyDetailsArgs'] cmk: Customer Managed Key Details
+        """
+        if cmk is not None:
+            pulumi.set(__self__, "cmk", cmk)
+
+    @property
+    @pulumi.getter
+    def cmk(self) -> Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']]:
+        """
+        Customer Managed Key Details
+        """
+        return pulumi.get(self, "cmk")
+
+    @cmk.setter
+    def cmk(self, value: Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']]):
+        pulumi.set(self, "cmk", value)
 
 
 @pulumi.input_type
@@ -1548,5 +1599,45 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
     @is_enabled.setter
     def is_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_enabled", value)
+
+
+@pulumi.input_type
+class WorkspaceKeyDetailsArgs:
+    def __init__(__self__, *,
+                 key_vault_url: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Details of the customer managed key associated with the workspace
+        :param pulumi.Input[str] key_vault_url: Workspace Key sub-resource key vault url
+        :param pulumi.Input[str] name: Workspace Key sub-resource name
+        """
+        if key_vault_url is not None:
+            pulumi.set(__self__, "key_vault_url", key_vault_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="keyVaultUrl")
+    def key_vault_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workspace Key sub-resource key vault url
+        """
+        return pulumi.get(self, "key_vault_url")
+
+    @key_vault_url.setter
+    def key_vault_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_url", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workspace Key sub-resource name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 

@@ -970,6 +970,293 @@ func (o ComponentSetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentSetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetails struct {
+	// The key object of the workspace
+	Key *WorkspaceKeyDetails `pulumi:"key"`
+}
+
+// CustomerManagedKeyDetailsInput is an input type that accepts CustomerManagedKeyDetailsArgs and CustomerManagedKeyDetailsOutput values.
+// You can construct a concrete instance of `CustomerManagedKeyDetailsInput` via:
+//
+//          CustomerManagedKeyDetailsArgs{...}
+type CustomerManagedKeyDetailsInput interface {
+	pulumi.Input
+
+	ToCustomerManagedKeyDetailsOutput() CustomerManagedKeyDetailsOutput
+	ToCustomerManagedKeyDetailsOutputWithContext(context.Context) CustomerManagedKeyDetailsOutput
+}
+
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetailsArgs struct {
+	// The key object of the workspace
+	Key WorkspaceKeyDetailsPtrInput `pulumi:"key"`
+}
+
+func (CustomerManagedKeyDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKeyDetails)(nil)).Elem()
+}
+
+func (i CustomerManagedKeyDetailsArgs) ToCustomerManagedKeyDetailsOutput() CustomerManagedKeyDetailsOutput {
+	return i.ToCustomerManagedKeyDetailsOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedKeyDetailsArgs) ToCustomerManagedKeyDetailsOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsOutput)
+}
+
+func (i CustomerManagedKeyDetailsArgs) ToCustomerManagedKeyDetailsPtrOutput() CustomerManagedKeyDetailsPtrOutput {
+	return i.ToCustomerManagedKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedKeyDetailsArgs) ToCustomerManagedKeyDetailsPtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsOutput).ToCustomerManagedKeyDetailsPtrOutputWithContext(ctx)
+}
+
+// CustomerManagedKeyDetailsPtrInput is an input type that accepts CustomerManagedKeyDetailsArgs, CustomerManagedKeyDetailsPtr and CustomerManagedKeyDetailsPtrOutput values.
+// You can construct a concrete instance of `CustomerManagedKeyDetailsPtrInput` via:
+//
+//          CustomerManagedKeyDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type CustomerManagedKeyDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCustomerManagedKeyDetailsPtrOutput() CustomerManagedKeyDetailsPtrOutput
+	ToCustomerManagedKeyDetailsPtrOutputWithContext(context.Context) CustomerManagedKeyDetailsPtrOutput
+}
+
+type customerManagedKeyDetailsPtrType CustomerManagedKeyDetailsArgs
+
+func CustomerManagedKeyDetailsPtr(v *CustomerManagedKeyDetailsArgs) CustomerManagedKeyDetailsPtrInput {
+	return (*customerManagedKeyDetailsPtrType)(v)
+}
+
+func (*customerManagedKeyDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerManagedKeyDetails)(nil)).Elem()
+}
+
+func (i *customerManagedKeyDetailsPtrType) ToCustomerManagedKeyDetailsPtrOutput() CustomerManagedKeyDetailsPtrOutput {
+	return i.ToCustomerManagedKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *customerManagedKeyDetailsPtrType) ToCustomerManagedKeyDetailsPtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsPtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetailsOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedKeyDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKeyDetails)(nil)).Elem()
+}
+
+func (o CustomerManagedKeyDetailsOutput) ToCustomerManagedKeyDetailsOutput() CustomerManagedKeyDetailsOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsOutput) ToCustomerManagedKeyDetailsOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsOutput) ToCustomerManagedKeyDetailsPtrOutput() CustomerManagedKeyDetailsPtrOutput {
+	return o.ToCustomerManagedKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CustomerManagedKeyDetailsOutput) ToCustomerManagedKeyDetailsPtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsPtrOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetails) *CustomerManagedKeyDetails {
+		return &v
+	}).(CustomerManagedKeyDetailsPtrOutput)
+}
+
+// The key object of the workspace
+func (o CustomerManagedKeyDetailsOutput) Key() WorkspaceKeyDetailsPtrOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetails) *WorkspaceKeyDetails { return v.Key }).(WorkspaceKeyDetailsPtrOutput)
+}
+
+type CustomerManagedKeyDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedKeyDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerManagedKeyDetails)(nil)).Elem()
+}
+
+func (o CustomerManagedKeyDetailsPtrOutput) ToCustomerManagedKeyDetailsPtrOutput() CustomerManagedKeyDetailsPtrOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsPtrOutput) ToCustomerManagedKeyDetailsPtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsPtrOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsPtrOutput) Elem() CustomerManagedKeyDetailsOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetails) CustomerManagedKeyDetails { return *v }).(CustomerManagedKeyDetailsOutput)
+}
+
+// The key object of the workspace
+func (o CustomerManagedKeyDetailsPtrOutput) Key() WorkspaceKeyDetailsPtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetails) *WorkspaceKeyDetails {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(WorkspaceKeyDetailsPtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetailsResponse struct {
+	// The key object of the workspace
+	Key *WorkspaceKeyDetailsResponse `pulumi:"key"`
+	// The customer managed key status on the workspace
+	Status string `pulumi:"status"`
+}
+
+// CustomerManagedKeyDetailsResponseInput is an input type that accepts CustomerManagedKeyDetailsResponseArgs and CustomerManagedKeyDetailsResponseOutput values.
+// You can construct a concrete instance of `CustomerManagedKeyDetailsResponseInput` via:
+//
+//          CustomerManagedKeyDetailsResponseArgs{...}
+type CustomerManagedKeyDetailsResponseInput interface {
+	pulumi.Input
+
+	ToCustomerManagedKeyDetailsResponseOutput() CustomerManagedKeyDetailsResponseOutput
+	ToCustomerManagedKeyDetailsResponseOutputWithContext(context.Context) CustomerManagedKeyDetailsResponseOutput
+}
+
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetailsResponseArgs struct {
+	// The key object of the workspace
+	Key WorkspaceKeyDetailsResponsePtrInput `pulumi:"key"`
+	// The customer managed key status on the workspace
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (CustomerManagedKeyDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKeyDetailsResponse)(nil)).Elem()
+}
+
+func (i CustomerManagedKeyDetailsResponseArgs) ToCustomerManagedKeyDetailsResponseOutput() CustomerManagedKeyDetailsResponseOutput {
+	return i.ToCustomerManagedKeyDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedKeyDetailsResponseArgs) ToCustomerManagedKeyDetailsResponseOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsResponseOutput)
+}
+
+func (i CustomerManagedKeyDetailsResponseArgs) ToCustomerManagedKeyDetailsResponsePtrOutput() CustomerManagedKeyDetailsResponsePtrOutput {
+	return i.ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedKeyDetailsResponseArgs) ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsResponseOutput).ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// CustomerManagedKeyDetailsResponsePtrInput is an input type that accepts CustomerManagedKeyDetailsResponseArgs, CustomerManagedKeyDetailsResponsePtr and CustomerManagedKeyDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `CustomerManagedKeyDetailsResponsePtrInput` via:
+//
+//          CustomerManagedKeyDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CustomerManagedKeyDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToCustomerManagedKeyDetailsResponsePtrOutput() CustomerManagedKeyDetailsResponsePtrOutput
+	ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(context.Context) CustomerManagedKeyDetailsResponsePtrOutput
+}
+
+type customerManagedKeyDetailsResponsePtrType CustomerManagedKeyDetailsResponseArgs
+
+func CustomerManagedKeyDetailsResponsePtr(v *CustomerManagedKeyDetailsResponseArgs) CustomerManagedKeyDetailsResponsePtrInput {
+	return (*customerManagedKeyDetailsResponsePtrType)(v)
+}
+
+func (*customerManagedKeyDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerManagedKeyDetailsResponse)(nil)).Elem()
+}
+
+func (i *customerManagedKeyDetailsResponsePtrType) ToCustomerManagedKeyDetailsResponsePtrOutput() CustomerManagedKeyDetailsResponsePtrOutput {
+	return i.ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *customerManagedKeyDetailsResponsePtrType) ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsResponsePtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedKeyDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKeyDetailsResponse)(nil)).Elem()
+}
+
+func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResponseOutput() CustomerManagedKeyDetailsResponseOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResponseOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponseOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResponsePtrOutput() CustomerManagedKeyDetailsResponsePtrOutput {
+	return o.ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetailsResponse) *CustomerManagedKeyDetailsResponse {
+		return &v
+	}).(CustomerManagedKeyDetailsResponsePtrOutput)
+}
+
+// The key object of the workspace
+func (o CustomerManagedKeyDetailsResponseOutput) Key() WorkspaceKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetailsResponse) *WorkspaceKeyDetailsResponse { return v.Key }).(WorkspaceKeyDetailsResponsePtrOutput)
+}
+
+// The customer managed key status on the workspace
+func (o CustomerManagedKeyDetailsResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetailsResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type CustomerManagedKeyDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedKeyDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerManagedKeyDetailsResponse)(nil)).Elem()
+}
+
+func (o CustomerManagedKeyDetailsResponsePtrOutput) ToCustomerManagedKeyDetailsResponsePtrOutput() CustomerManagedKeyDetailsResponsePtrOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsResponsePtrOutput) ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponsePtrOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsResponsePtrOutput) Elem() CustomerManagedKeyDetailsResponseOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetailsResponse) CustomerManagedKeyDetailsResponse { return *v }).(CustomerManagedKeyDetailsResponseOutput)
+}
+
+// The key object of the workspace
+func (o CustomerManagedKeyDetailsResponsePtrOutput) Key() WorkspaceKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetailsResponse) *WorkspaceKeyDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(WorkspaceKeyDetailsResponsePtrOutput)
+}
+
+// The customer managed key status on the workspace
+func (o CustomerManagedKeyDetailsResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details of the data lake storage account associated with the workspace
 type DataLakeStorageAccountDetails struct {
 	// Account URL
@@ -1274,6 +1561,293 @@ func (o DataLakeStorageAccountDetailsResponsePtrOutput) Filesystem() pulumi.Stri
 		}
 		return v.Filesystem
 	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetails struct {
+	// Customer Managed Key Details
+	Cmk *CustomerManagedKeyDetails `pulumi:"cmk"`
+}
+
+// EncryptionDetailsInput is an input type that accepts EncryptionDetailsArgs and EncryptionDetailsOutput values.
+// You can construct a concrete instance of `EncryptionDetailsInput` via:
+//
+//          EncryptionDetailsArgs{...}
+type EncryptionDetailsInput interface {
+	pulumi.Input
+
+	ToEncryptionDetailsOutput() EncryptionDetailsOutput
+	ToEncryptionDetailsOutputWithContext(context.Context) EncryptionDetailsOutput
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetailsArgs struct {
+	// Customer Managed Key Details
+	Cmk CustomerManagedKeyDetailsPtrInput `pulumi:"cmk"`
+}
+
+func (EncryptionDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionDetails)(nil)).Elem()
+}
+
+func (i EncryptionDetailsArgs) ToEncryptionDetailsOutput() EncryptionDetailsOutput {
+	return i.ToEncryptionDetailsOutputWithContext(context.Background())
+}
+
+func (i EncryptionDetailsArgs) ToEncryptionDetailsOutputWithContext(ctx context.Context) EncryptionDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsOutput)
+}
+
+func (i EncryptionDetailsArgs) ToEncryptionDetailsPtrOutput() EncryptionDetailsPtrOutput {
+	return i.ToEncryptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionDetailsArgs) ToEncryptionDetailsPtrOutputWithContext(ctx context.Context) EncryptionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsOutput).ToEncryptionDetailsPtrOutputWithContext(ctx)
+}
+
+// EncryptionDetailsPtrInput is an input type that accepts EncryptionDetailsArgs, EncryptionDetailsPtr and EncryptionDetailsPtrOutput values.
+// You can construct a concrete instance of `EncryptionDetailsPtrInput` via:
+//
+//          EncryptionDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionDetailsPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionDetailsPtrOutput() EncryptionDetailsPtrOutput
+	ToEncryptionDetailsPtrOutputWithContext(context.Context) EncryptionDetailsPtrOutput
+}
+
+type encryptionDetailsPtrType EncryptionDetailsArgs
+
+func EncryptionDetailsPtr(v *EncryptionDetailsArgs) EncryptionDetailsPtrInput {
+	return (*encryptionDetailsPtrType)(v)
+}
+
+func (*encryptionDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionDetails)(nil)).Elem()
+}
+
+func (i *encryptionDetailsPtrType) ToEncryptionDetailsPtrOutput() EncryptionDetailsPtrOutput {
+	return i.ToEncryptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionDetailsPtrType) ToEncryptionDetailsPtrOutputWithContext(ctx context.Context) EncryptionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsPtrOutput)
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetailsOutput struct{ *pulumi.OutputState }
+
+func (EncryptionDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionDetails)(nil)).Elem()
+}
+
+func (o EncryptionDetailsOutput) ToEncryptionDetailsOutput() EncryptionDetailsOutput {
+	return o
+}
+
+func (o EncryptionDetailsOutput) ToEncryptionDetailsOutputWithContext(ctx context.Context) EncryptionDetailsOutput {
+	return o
+}
+
+func (o EncryptionDetailsOutput) ToEncryptionDetailsPtrOutput() EncryptionDetailsPtrOutput {
+	return o.ToEncryptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionDetailsOutput) ToEncryptionDetailsPtrOutputWithContext(ctx context.Context) EncryptionDetailsPtrOutput {
+	return o.ApplyT(func(v EncryptionDetails) *EncryptionDetails {
+		return &v
+	}).(EncryptionDetailsPtrOutput)
+}
+
+// Customer Managed Key Details
+func (o EncryptionDetailsOutput) Cmk() CustomerManagedKeyDetailsPtrOutput {
+	return o.ApplyT(func(v EncryptionDetails) *CustomerManagedKeyDetails { return v.Cmk }).(CustomerManagedKeyDetailsPtrOutput)
+}
+
+type EncryptionDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionDetails)(nil)).Elem()
+}
+
+func (o EncryptionDetailsPtrOutput) ToEncryptionDetailsPtrOutput() EncryptionDetailsPtrOutput {
+	return o
+}
+
+func (o EncryptionDetailsPtrOutput) ToEncryptionDetailsPtrOutputWithContext(ctx context.Context) EncryptionDetailsPtrOutput {
+	return o
+}
+
+func (o EncryptionDetailsPtrOutput) Elem() EncryptionDetailsOutput {
+	return o.ApplyT(func(v *EncryptionDetails) EncryptionDetails { return *v }).(EncryptionDetailsOutput)
+}
+
+// Customer Managed Key Details
+func (o EncryptionDetailsPtrOutput) Cmk() CustomerManagedKeyDetailsPtrOutput {
+	return o.ApplyT(func(v *EncryptionDetails) *CustomerManagedKeyDetails {
+		if v == nil {
+			return nil
+		}
+		return v.Cmk
+	}).(CustomerManagedKeyDetailsPtrOutput)
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetailsResponse struct {
+	// Customer Managed Key Details
+	Cmk *CustomerManagedKeyDetailsResponse `pulumi:"cmk"`
+	// Double Encryption enabled
+	DoubleEncryptionEnabled bool `pulumi:"doubleEncryptionEnabled"`
+}
+
+// EncryptionDetailsResponseInput is an input type that accepts EncryptionDetailsResponseArgs and EncryptionDetailsResponseOutput values.
+// You can construct a concrete instance of `EncryptionDetailsResponseInput` via:
+//
+//          EncryptionDetailsResponseArgs{...}
+type EncryptionDetailsResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionDetailsResponseOutput() EncryptionDetailsResponseOutput
+	ToEncryptionDetailsResponseOutputWithContext(context.Context) EncryptionDetailsResponseOutput
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetailsResponseArgs struct {
+	// Customer Managed Key Details
+	Cmk CustomerManagedKeyDetailsResponsePtrInput `pulumi:"cmk"`
+	// Double Encryption enabled
+	DoubleEncryptionEnabled pulumi.BoolInput `pulumi:"doubleEncryptionEnabled"`
+}
+
+func (EncryptionDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionDetailsResponse)(nil)).Elem()
+}
+
+func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponseOutput() EncryptionDetailsResponseOutput {
+	return i.ToEncryptionDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponseOutputWithContext(ctx context.Context) EncryptionDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponseOutput)
+}
+
+func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput {
+	return i.ToEncryptionDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponseOutput).ToEncryptionDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionDetailsResponsePtrInput is an input type that accepts EncryptionDetailsResponseArgs, EncryptionDetailsResponsePtr and EncryptionDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionDetailsResponsePtrInput` via:
+//
+//          EncryptionDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput
+	ToEncryptionDetailsResponsePtrOutputWithContext(context.Context) EncryptionDetailsResponsePtrOutput
+}
+
+type encryptionDetailsResponsePtrType EncryptionDetailsResponseArgs
+
+func EncryptionDetailsResponsePtr(v *EncryptionDetailsResponseArgs) EncryptionDetailsResponsePtrInput {
+	return (*encryptionDetailsResponsePtrType)(v)
+}
+
+func (*encryptionDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionDetailsResponse)(nil)).Elem()
+}
+
+func (i *encryptionDetailsResponsePtrType) ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput {
+	return i.ToEncryptionDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionDetailsResponsePtrType) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponsePtrOutput)
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionDetailsResponse)(nil)).Elem()
+}
+
+func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponseOutput() EncryptionDetailsResponseOutput {
+	return o
+}
+
+func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponseOutputWithContext(ctx context.Context) EncryptionDetailsResponseOutput {
+	return o
+}
+
+func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput {
+	return o.ToEncryptionDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionDetailsResponse) *EncryptionDetailsResponse {
+		return &v
+	}).(EncryptionDetailsResponsePtrOutput)
+}
+
+// Customer Managed Key Details
+func (o EncryptionDetailsResponseOutput) Cmk() CustomerManagedKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionDetailsResponse) *CustomerManagedKeyDetailsResponse { return v.Cmk }).(CustomerManagedKeyDetailsResponsePtrOutput)
+}
+
+// Double Encryption enabled
+func (o EncryptionDetailsResponseOutput) DoubleEncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v EncryptionDetailsResponse) bool { return v.DoubleEncryptionEnabled }).(pulumi.BoolOutput)
+}
+
+type EncryptionDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionDetailsResponse)(nil)).Elem()
+}
+
+func (o EncryptionDetailsResponsePtrOutput) ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionDetailsResponsePtrOutput) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionDetailsResponsePtrOutput) Elem() EncryptionDetailsResponseOutput {
+	return o.ApplyT(func(v *EncryptionDetailsResponse) EncryptionDetailsResponse { return *v }).(EncryptionDetailsResponseOutput)
+}
+
+// Customer Managed Key Details
+func (o EncryptionDetailsResponsePtrOutput) Cmk() CustomerManagedKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionDetailsResponse) *CustomerManagedKeyDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Cmk
+	}).(CustomerManagedKeyDetailsResponsePtrOutput)
+}
+
+// Double Encryption enabled
+func (o EncryptionDetailsResponsePtrOutput) DoubleEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EncryptionDetailsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DoubleEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The entity reference.
@@ -10366,6 +10940,312 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) IsEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetails struct {
+	// Workspace Key sub-resource key vault url
+	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
+	// Workspace Key sub-resource name
+	Name *string `pulumi:"name"`
+}
+
+// WorkspaceKeyDetailsInput is an input type that accepts WorkspaceKeyDetailsArgs and WorkspaceKeyDetailsOutput values.
+// You can construct a concrete instance of `WorkspaceKeyDetailsInput` via:
+//
+//          WorkspaceKeyDetailsArgs{...}
+type WorkspaceKeyDetailsInput interface {
+	pulumi.Input
+
+	ToWorkspaceKeyDetailsOutput() WorkspaceKeyDetailsOutput
+	ToWorkspaceKeyDetailsOutputWithContext(context.Context) WorkspaceKeyDetailsOutput
+}
+
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetailsArgs struct {
+	// Workspace Key sub-resource key vault url
+	KeyVaultUrl pulumi.StringPtrInput `pulumi:"keyVaultUrl"`
+	// Workspace Key sub-resource name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (WorkspaceKeyDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceKeyDetails)(nil)).Elem()
+}
+
+func (i WorkspaceKeyDetailsArgs) ToWorkspaceKeyDetailsOutput() WorkspaceKeyDetailsOutput {
+	return i.ToWorkspaceKeyDetailsOutputWithContext(context.Background())
+}
+
+func (i WorkspaceKeyDetailsArgs) ToWorkspaceKeyDetailsOutputWithContext(ctx context.Context) WorkspaceKeyDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsOutput)
+}
+
+func (i WorkspaceKeyDetailsArgs) ToWorkspaceKeyDetailsPtrOutput() WorkspaceKeyDetailsPtrOutput {
+	return i.ToWorkspaceKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceKeyDetailsArgs) ToWorkspaceKeyDetailsPtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsOutput).ToWorkspaceKeyDetailsPtrOutputWithContext(ctx)
+}
+
+// WorkspaceKeyDetailsPtrInput is an input type that accepts WorkspaceKeyDetailsArgs, WorkspaceKeyDetailsPtr and WorkspaceKeyDetailsPtrOutput values.
+// You can construct a concrete instance of `WorkspaceKeyDetailsPtrInput` via:
+//
+//          WorkspaceKeyDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceKeyDetailsPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceKeyDetailsPtrOutput() WorkspaceKeyDetailsPtrOutput
+	ToWorkspaceKeyDetailsPtrOutputWithContext(context.Context) WorkspaceKeyDetailsPtrOutput
+}
+
+type workspaceKeyDetailsPtrType WorkspaceKeyDetailsArgs
+
+func WorkspaceKeyDetailsPtr(v *WorkspaceKeyDetailsArgs) WorkspaceKeyDetailsPtrInput {
+	return (*workspaceKeyDetailsPtrType)(v)
+}
+
+func (*workspaceKeyDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceKeyDetails)(nil)).Elem()
+}
+
+func (i *workspaceKeyDetailsPtrType) ToWorkspaceKeyDetailsPtrOutput() WorkspaceKeyDetailsPtrOutput {
+	return i.ToWorkspaceKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceKeyDetailsPtrType) ToWorkspaceKeyDetailsPtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsPtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetailsOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceKeyDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceKeyDetails)(nil)).Elem()
+}
+
+func (o WorkspaceKeyDetailsOutput) ToWorkspaceKeyDetailsOutput() WorkspaceKeyDetailsOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsOutput) ToWorkspaceKeyDetailsOutputWithContext(ctx context.Context) WorkspaceKeyDetailsOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsOutput) ToWorkspaceKeyDetailsPtrOutput() WorkspaceKeyDetailsPtrOutput {
+	return o.ToWorkspaceKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceKeyDetailsOutput) ToWorkspaceKeyDetailsPtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsPtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetails) *WorkspaceKeyDetails {
+		return &v
+	}).(WorkspaceKeyDetailsPtrOutput)
+}
+
+// Workspace Key sub-resource key vault url
+func (o WorkspaceKeyDetailsOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetails) *string { return v.KeyVaultUrl }).(pulumi.StringPtrOutput)
+}
+
+// Workspace Key sub-resource name
+func (o WorkspaceKeyDetailsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceKeyDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceKeyDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceKeyDetails)(nil)).Elem()
+}
+
+func (o WorkspaceKeyDetailsPtrOutput) ToWorkspaceKeyDetailsPtrOutput() WorkspaceKeyDetailsPtrOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsPtrOutput) ToWorkspaceKeyDetailsPtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsPtrOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsPtrOutput) Elem() WorkspaceKeyDetailsOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetails) WorkspaceKeyDetails { return *v }).(WorkspaceKeyDetailsOutput)
+}
+
+// Workspace Key sub-resource key vault url
+func (o WorkspaceKeyDetailsPtrOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Workspace Key sub-resource name
+func (o WorkspaceKeyDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetailsResponse struct {
+	// Workspace Key sub-resource key vault url
+	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
+	// Workspace Key sub-resource name
+	Name *string `pulumi:"name"`
+}
+
+// WorkspaceKeyDetailsResponseInput is an input type that accepts WorkspaceKeyDetailsResponseArgs and WorkspaceKeyDetailsResponseOutput values.
+// You can construct a concrete instance of `WorkspaceKeyDetailsResponseInput` via:
+//
+//          WorkspaceKeyDetailsResponseArgs{...}
+type WorkspaceKeyDetailsResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceKeyDetailsResponseOutput() WorkspaceKeyDetailsResponseOutput
+	ToWorkspaceKeyDetailsResponseOutputWithContext(context.Context) WorkspaceKeyDetailsResponseOutput
+}
+
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetailsResponseArgs struct {
+	// Workspace Key sub-resource key vault url
+	KeyVaultUrl pulumi.StringPtrInput `pulumi:"keyVaultUrl"`
+	// Workspace Key sub-resource name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (WorkspaceKeyDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceKeyDetailsResponse)(nil)).Elem()
+}
+
+func (i WorkspaceKeyDetailsResponseArgs) ToWorkspaceKeyDetailsResponseOutput() WorkspaceKeyDetailsResponseOutput {
+	return i.ToWorkspaceKeyDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceKeyDetailsResponseArgs) ToWorkspaceKeyDetailsResponseOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsResponseOutput)
+}
+
+func (i WorkspaceKeyDetailsResponseArgs) ToWorkspaceKeyDetailsResponsePtrOutput() WorkspaceKeyDetailsResponsePtrOutput {
+	return i.ToWorkspaceKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceKeyDetailsResponseArgs) ToWorkspaceKeyDetailsResponsePtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsResponseOutput).ToWorkspaceKeyDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceKeyDetailsResponsePtrInput is an input type that accepts WorkspaceKeyDetailsResponseArgs, WorkspaceKeyDetailsResponsePtr and WorkspaceKeyDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceKeyDetailsResponsePtrInput` via:
+//
+//          WorkspaceKeyDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceKeyDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceKeyDetailsResponsePtrOutput() WorkspaceKeyDetailsResponsePtrOutput
+	ToWorkspaceKeyDetailsResponsePtrOutputWithContext(context.Context) WorkspaceKeyDetailsResponsePtrOutput
+}
+
+type workspaceKeyDetailsResponsePtrType WorkspaceKeyDetailsResponseArgs
+
+func WorkspaceKeyDetailsResponsePtr(v *WorkspaceKeyDetailsResponseArgs) WorkspaceKeyDetailsResponsePtrInput {
+	return (*workspaceKeyDetailsResponsePtrType)(v)
+}
+
+func (*workspaceKeyDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceKeyDetailsResponse)(nil)).Elem()
+}
+
+func (i *workspaceKeyDetailsResponsePtrType) ToWorkspaceKeyDetailsResponsePtrOutput() WorkspaceKeyDetailsResponsePtrOutput {
+	return i.ToWorkspaceKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceKeyDetailsResponsePtrType) ToWorkspaceKeyDetailsResponsePtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsResponsePtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceKeyDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceKeyDetailsResponse)(nil)).Elem()
+}
+
+func (o WorkspaceKeyDetailsResponseOutput) ToWorkspaceKeyDetailsResponseOutput() WorkspaceKeyDetailsResponseOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsResponseOutput) ToWorkspaceKeyDetailsResponseOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponseOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsResponseOutput) ToWorkspaceKeyDetailsResponsePtrOutput() WorkspaceKeyDetailsResponsePtrOutput {
+	return o.ToWorkspaceKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceKeyDetailsResponseOutput) ToWorkspaceKeyDetailsResponsePtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetailsResponse) *WorkspaceKeyDetailsResponse {
+		return &v
+	}).(WorkspaceKeyDetailsResponsePtrOutput)
+}
+
+// Workspace Key sub-resource key vault url
+func (o WorkspaceKeyDetailsResponseOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetailsResponse) *string { return v.KeyVaultUrl }).(pulumi.StringPtrOutput)
+}
+
+// Workspace Key sub-resource name
+func (o WorkspaceKeyDetailsResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetailsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceKeyDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceKeyDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceKeyDetailsResponse)(nil)).Elem()
+}
+
+func (o WorkspaceKeyDetailsResponsePtrOutput) ToWorkspaceKeyDetailsResponsePtrOutput() WorkspaceKeyDetailsResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsResponsePtrOutput) ToWorkspaceKeyDetailsResponsePtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsResponsePtrOutput) Elem() WorkspaceKeyDetailsResponseOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetailsResponse) WorkspaceKeyDetailsResponse { return *v }).(WorkspaceKeyDetailsResponseOutput)
+}
+
+// Workspace Key sub-resource key vault url
+func (o WorkspaceKeyDetailsResponsePtrOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Workspace Key sub-resource name
+func (o WorkspaceKeyDetailsResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutoPausePropertiesOutput{})
 	pulumi.RegisterOutputType(AutoPausePropertiesPtrOutput{})
@@ -10379,10 +11259,18 @@ func init() {
 	pulumi.RegisterOutputType(CmdkeySetupResponseOutput{})
 	pulumi.RegisterOutputType(ComponentSetupOutput{})
 	pulumi.RegisterOutputType(ComponentSetupResponseOutput{})
+	pulumi.RegisterOutputType(CustomerManagedKeyDetailsOutput{})
+	pulumi.RegisterOutputType(CustomerManagedKeyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CustomerManagedKeyDetailsResponseOutput{})
+	pulumi.RegisterOutputType(CustomerManagedKeyDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionDetailsOutput{})
+	pulumi.RegisterOutputType(EncryptionDetailsPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionDetailsResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EntityReferenceOutput{})
 	pulumi.RegisterOutputType(EntityReferencePtrOutput{})
 	pulumi.RegisterOutputType(EntityReferenceResponseOutput{})
@@ -10492,4 +11380,8 @@ func init() {
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceKeyDetailsOutput{})
+	pulumi.RegisterOutputType(WorkspaceKeyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceKeyDetailsResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceKeyDetailsResponsePtrOutput{})
 }

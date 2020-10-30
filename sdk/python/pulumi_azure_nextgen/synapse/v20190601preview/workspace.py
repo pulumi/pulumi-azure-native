@@ -19,6 +19,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  default_data_lake_storage: Optional[pulumi.Input[pulumi.InputType['DataLakeStorageAccountDetailsArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionDetailsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -41,6 +42,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: Connectivity endpoints
         :param pulumi.Input[pulumi.InputType['DataLakeStorageAccountDetailsArgs']] default_data_lake_storage: Workspace default data lake storage account details
+        :param pulumi.Input[pulumi.InputType['EncryptionDetailsArgs']] encryption: The encryption details of the workspace
         :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: Identity of the workspace
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
@@ -73,6 +75,7 @@ class Workspace(pulumi.CustomResource):
 
             __props__['connectivity_endpoints'] = connectivity_endpoints
             __props__['default_data_lake_storage'] = default_data_lake_storage
+            __props__['encryption'] = encryption
             __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -95,6 +98,7 @@ class Workspace(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['workspace_uid'] = None
         super(Workspace, __self__).__init__(
             'azure-nextgen:synapse/v20190601preview:Workspace',
             resource_name,
@@ -134,6 +138,14 @@ class Workspace(pulumi.CustomResource):
         Workspace default data lake storage account details
         """
         return pulumi.get(self, "default_data_lake_storage")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionDetailsResponse']]:
+        """
+        The encryption details of the workspace
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="extraProperties")
@@ -246,6 +258,14 @@ class Workspace(pulumi.CustomResource):
         Virtual Network profile
         """
         return pulumi.get(self, "virtual_network_profile")
+
+    @property
+    @pulumi.getter(name="workspaceUID")
+    def workspace_uid(self) -> pulumi.Output[str]:
+        """
+        The workspace unique identifier
+        """
+        return pulumi.get(self, "workspace_uid")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
