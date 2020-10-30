@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -219,4 +220,43 @@ type VirtualMachineScaleSetExtensionArgs struct {
 
 func (VirtualMachineScaleSetExtensionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineScaleSetExtensionArgs)(nil)).Elem()
+}
+
+type VirtualMachineScaleSetExtensionInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetExtensionOutput() VirtualMachineScaleSetExtensionOutput
+	ToVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionOutput
+}
+
+func (VirtualMachineScaleSetExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutput() VirtualMachineScaleSetExtensionOutput {
+	return i.ToVirtualMachineScaleSetExtensionOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionOutput)
+}
+
+type VirtualMachineScaleSetExtensionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineScaleSetExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetExtensionOutput)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtensionOutput() VirtualMachineScaleSetExtensionOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionOutput{})
 }

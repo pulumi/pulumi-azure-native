@@ -4,6 +4,7 @@
 package v20151101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -129,4 +130,43 @@ type ManagementAssociationArgs struct {
 
 func (ManagementAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementAssociationArgs)(nil)).Elem()
+}
+
+type ManagementAssociationInput interface {
+	pulumi.Input
+
+	ToManagementAssociationOutput() ManagementAssociationOutput
+	ToManagementAssociationOutputWithContext(ctx context.Context) ManagementAssociationOutput
+}
+
+func (ManagementAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementAssociation)(nil)).Elem()
+}
+
+func (i ManagementAssociation) ToManagementAssociationOutput() ManagementAssociationOutput {
+	return i.ToManagementAssociationOutputWithContext(context.Background())
+}
+
+func (i ManagementAssociation) ToManagementAssociationOutputWithContext(ctx context.Context) ManagementAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementAssociationOutput)
+}
+
+type ManagementAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementAssociationOutput)(nil)).Elem()
+}
+
+func (o ManagementAssociationOutput) ToManagementAssociationOutput() ManagementAssociationOutput {
+	return o
+}
+
+func (o ManagementAssociationOutput) ToManagementAssociationOutputWithContext(ctx context.Context) ManagementAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementAssociationOutput{})
 }

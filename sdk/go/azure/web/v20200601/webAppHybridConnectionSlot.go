@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -218,4 +219,43 @@ type WebAppHybridConnectionSlotArgs struct {
 
 func (WebAppHybridConnectionSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppHybridConnectionSlotArgs)(nil)).Elem()
+}
+
+type WebAppHybridConnectionSlotInput interface {
+	pulumi.Input
+
+	ToWebAppHybridConnectionSlotOutput() WebAppHybridConnectionSlotOutput
+	ToWebAppHybridConnectionSlotOutputWithContext(ctx context.Context) WebAppHybridConnectionSlotOutput
+}
+
+func (WebAppHybridConnectionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHybridConnectionSlot)(nil)).Elem()
+}
+
+func (i WebAppHybridConnectionSlot) ToWebAppHybridConnectionSlotOutput() WebAppHybridConnectionSlotOutput {
+	return i.ToWebAppHybridConnectionSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppHybridConnectionSlot) ToWebAppHybridConnectionSlotOutputWithContext(ctx context.Context) WebAppHybridConnectionSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionSlotOutput)
+}
+
+type WebAppHybridConnectionSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppHybridConnectionSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHybridConnectionSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppHybridConnectionSlotOutput) ToWebAppHybridConnectionSlotOutput() WebAppHybridConnectionSlotOutput {
+	return o
+}
+
+func (o WebAppHybridConnectionSlotOutput) ToWebAppHybridConnectionSlotOutputWithContext(ctx context.Context) WebAppHybridConnectionSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppHybridConnectionSlotOutput{})
 }

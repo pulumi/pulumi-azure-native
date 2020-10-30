@@ -4,6 +4,7 @@
 package v20190301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -148,4 +149,43 @@ type ApplicationTypeArgs struct {
 
 func (ApplicationTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationTypeArgs)(nil)).Elem()
+}
+
+type ApplicationTypeInput interface {
+	pulumi.Input
+
+	ToApplicationTypeOutput() ApplicationTypeOutput
+	ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput
+}
+
+func (ApplicationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (i ApplicationType) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return i.ToApplicationTypeOutputWithContext(context.Background())
+}
+
+func (i ApplicationType) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
+}
+
+type ApplicationTypeOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTypeOutput)(nil)).Elem()
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return o
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationTypeOutput{})
 }

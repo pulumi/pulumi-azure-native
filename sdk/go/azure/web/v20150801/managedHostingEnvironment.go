@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -443,4 +444,43 @@ type ManagedHostingEnvironmentArgs struct {
 
 func (ManagedHostingEnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedHostingEnvironmentArgs)(nil)).Elem()
+}
+
+type ManagedHostingEnvironmentInput interface {
+	pulumi.Input
+
+	ToManagedHostingEnvironmentOutput() ManagedHostingEnvironmentOutput
+	ToManagedHostingEnvironmentOutputWithContext(ctx context.Context) ManagedHostingEnvironmentOutput
+}
+
+func (ManagedHostingEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHostingEnvironment)(nil)).Elem()
+}
+
+func (i ManagedHostingEnvironment) ToManagedHostingEnvironmentOutput() ManagedHostingEnvironmentOutput {
+	return i.ToManagedHostingEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ManagedHostingEnvironment) ToManagedHostingEnvironmentOutputWithContext(ctx context.Context) ManagedHostingEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHostingEnvironmentOutput)
+}
+
+type ManagedHostingEnvironmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedHostingEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHostingEnvironmentOutput)(nil)).Elem()
+}
+
+func (o ManagedHostingEnvironmentOutput) ToManagedHostingEnvironmentOutput() ManagedHostingEnvironmentOutput {
+	return o
+}
+
+func (o ManagedHostingEnvironmentOutput) ToManagedHostingEnvironmentOutputWithContext(ctx context.Context) ManagedHostingEnvironmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedHostingEnvironmentOutput{})
 }

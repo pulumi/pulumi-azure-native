@@ -4,6 +4,7 @@
 package v20150501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -283,4 +284,43 @@ type ComponentArgs struct {
 
 func (ComponentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*componentArgs)(nil)).Elem()
+}
+
+type ComponentInput interface {
+	pulumi.Input
+
+	ToComponentOutput() ComponentOutput
+	ToComponentOutputWithContext(ctx context.Context) ComponentOutput
+}
+
+func (Component) ElementType() reflect.Type {
+	return reflect.TypeOf((*Component)(nil)).Elem()
+}
+
+func (i Component) ToComponentOutput() ComponentOutput {
+	return i.ToComponentOutputWithContext(context.Background())
+}
+
+func (i Component) ToComponentOutputWithContext(ctx context.Context) ComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentOutput)
+}
+
+type ComponentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentOutput)(nil)).Elem()
+}
+
+func (o ComponentOutput) ToComponentOutput() ComponentOutput {
+	return o
+}
+
+func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) ComponentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ComponentOutput{})
 }

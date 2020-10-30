@@ -4,6 +4,7 @@
 package v20181101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -132,4 +133,43 @@ type ManagementPolicyArgs struct {
 
 func (ManagementPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementPolicyArgs)(nil)).Elem()
+}
+
+type ManagementPolicyInput interface {
+	pulumi.Input
+
+	ToManagementPolicyOutput() ManagementPolicyOutput
+	ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput
+}
+
+func (ManagementPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicy)(nil)).Elem()
+}
+
+func (i ManagementPolicy) ToManagementPolicyOutput() ManagementPolicyOutput {
+	return i.ToManagementPolicyOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicy) ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyOutput)
+}
+
+type ManagementPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyOutput)(nil)).Elem()
+}
+
+func (o ManagementPolicyOutput) ToManagementPolicyOutput() ManagementPolicyOutput {
+	return o
+}
+
+func (o ManagementPolicyOutput) ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementPolicyOutput{})
 }

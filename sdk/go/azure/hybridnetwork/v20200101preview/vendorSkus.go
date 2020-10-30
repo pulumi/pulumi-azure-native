@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -154,4 +155,43 @@ type VendorSkusArgs struct {
 
 func (VendorSkusArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vendorSkusArgs)(nil)).Elem()
+}
+
+type VendorSkusInput interface {
+	pulumi.Input
+
+	ToVendorSkusOutput() VendorSkusOutput
+	ToVendorSkusOutputWithContext(ctx context.Context) VendorSkusOutput
+}
+
+func (VendorSkus) ElementType() reflect.Type {
+	return reflect.TypeOf((*VendorSkus)(nil)).Elem()
+}
+
+func (i VendorSkus) ToVendorSkusOutput() VendorSkusOutput {
+	return i.ToVendorSkusOutputWithContext(context.Background())
+}
+
+func (i VendorSkus) ToVendorSkusOutputWithContext(ctx context.Context) VendorSkusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VendorSkusOutput)
+}
+
+type VendorSkusOutput struct {
+	*pulumi.OutputState
+}
+
+func (VendorSkusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VendorSkusOutput)(nil)).Elem()
+}
+
+func (o VendorSkusOutput) ToVendorSkusOutput() VendorSkusOutput {
+	return o
+}
+
+func (o VendorSkusOutput) ToVendorSkusOutputWithContext(ctx context.Context) VendorSkusOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VendorSkusOutput{})
 }

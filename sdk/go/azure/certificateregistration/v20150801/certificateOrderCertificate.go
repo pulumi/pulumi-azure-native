@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -181,4 +182,43 @@ type CertificateOrderCertificateArgs struct {
 
 func (CertificateOrderCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateOrderCertificateArgs)(nil)).Elem()
+}
+
+type CertificateOrderCertificateInput interface {
+	pulumi.Input
+
+	ToCertificateOrderCertificateOutput() CertificateOrderCertificateOutput
+	ToCertificateOrderCertificateOutputWithContext(ctx context.Context) CertificateOrderCertificateOutput
+}
+
+func (CertificateOrderCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOrderCertificate)(nil)).Elem()
+}
+
+func (i CertificateOrderCertificate) ToCertificateOrderCertificateOutput() CertificateOrderCertificateOutput {
+	return i.ToCertificateOrderCertificateOutputWithContext(context.Background())
+}
+
+func (i CertificateOrderCertificate) ToCertificateOrderCertificateOutputWithContext(ctx context.Context) CertificateOrderCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderCertificateOutput)
+}
+
+type CertificateOrderCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateOrderCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOrderCertificateOutput)(nil)).Elem()
+}
+
+func (o CertificateOrderCertificateOutput) ToCertificateOrderCertificateOutput() CertificateOrderCertificateOutput {
+	return o
+}
+
+func (o CertificateOrderCertificateOutput) ToCertificateOrderCertificateOutputWithContext(ctx context.Context) CertificateOrderCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CertificateOrderCertificateOutput{})
 }

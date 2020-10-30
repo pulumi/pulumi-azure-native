@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -157,4 +158,43 @@ type WebAppRelayServiceConnectionArgs struct {
 
 func (WebAppRelayServiceConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppRelayServiceConnectionArgs)(nil)).Elem()
+}
+
+type WebAppRelayServiceConnectionInput interface {
+	pulumi.Input
+
+	ToWebAppRelayServiceConnectionOutput() WebAppRelayServiceConnectionOutput
+	ToWebAppRelayServiceConnectionOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionOutput
+}
+
+func (WebAppRelayServiceConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppRelayServiceConnection)(nil)).Elem()
+}
+
+func (i WebAppRelayServiceConnection) ToWebAppRelayServiceConnectionOutput() WebAppRelayServiceConnectionOutput {
+	return i.ToWebAppRelayServiceConnectionOutputWithContext(context.Background())
+}
+
+func (i WebAppRelayServiceConnection) ToWebAppRelayServiceConnectionOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppRelayServiceConnectionOutput)
+}
+
+type WebAppRelayServiceConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppRelayServiceConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppRelayServiceConnectionOutput)(nil)).Elem()
+}
+
+func (o WebAppRelayServiceConnectionOutput) ToWebAppRelayServiceConnectionOutput() WebAppRelayServiceConnectionOutput {
+	return o
+}
+
+func (o WebAppRelayServiceConnectionOutput) ToWebAppRelayServiceConnectionOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppRelayServiceConnectionOutput{})
 }

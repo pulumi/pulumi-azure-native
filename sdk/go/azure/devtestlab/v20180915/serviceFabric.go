@@ -4,6 +4,7 @@
 package v20180915
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -166,4 +167,43 @@ type ServiceFabricArgs struct {
 
 func (ServiceFabricArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceFabricArgs)(nil)).Elem()
+}
+
+type ServiceFabricInput interface {
+	pulumi.Input
+
+	ToServiceFabricOutput() ServiceFabricOutput
+	ToServiceFabricOutputWithContext(ctx context.Context) ServiceFabricOutput
+}
+
+func (ServiceFabric) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFabric)(nil)).Elem()
+}
+
+func (i ServiceFabric) ToServiceFabricOutput() ServiceFabricOutput {
+	return i.ToServiceFabricOutputWithContext(context.Background())
+}
+
+func (i ServiceFabric) ToServiceFabricOutputWithContext(ctx context.Context) ServiceFabricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFabricOutput)
+}
+
+type ServiceFabricOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceFabricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFabricOutput)(nil)).Elem()
+}
+
+func (o ServiceFabricOutput) ToServiceFabricOutput() ServiceFabricOutput {
+	return o
+}
+
+func (o ServiceFabricOutput) ToServiceFabricOutputWithContext(ctx context.Context) ServiceFabricOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceFabricOutput{})
 }

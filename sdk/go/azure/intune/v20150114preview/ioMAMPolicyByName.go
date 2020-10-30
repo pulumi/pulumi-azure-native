@@ -4,6 +4,7 @@
 package v20150114preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -211,4 +212,43 @@ type IoMAMPolicyByNameArgs struct {
 
 func (IoMAMPolicyByNameArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ioMAMPolicyByNameArgs)(nil)).Elem()
+}
+
+type IoMAMPolicyByNameInput interface {
+	pulumi.Input
+
+	ToIoMAMPolicyByNameOutput() IoMAMPolicyByNameOutput
+	ToIoMAMPolicyByNameOutputWithContext(ctx context.Context) IoMAMPolicyByNameOutput
+}
+
+func (IoMAMPolicyByName) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoMAMPolicyByName)(nil)).Elem()
+}
+
+func (i IoMAMPolicyByName) ToIoMAMPolicyByNameOutput() IoMAMPolicyByNameOutput {
+	return i.ToIoMAMPolicyByNameOutputWithContext(context.Background())
+}
+
+func (i IoMAMPolicyByName) ToIoMAMPolicyByNameOutputWithContext(ctx context.Context) IoMAMPolicyByNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoMAMPolicyByNameOutput)
+}
+
+type IoMAMPolicyByNameOutput struct {
+	*pulumi.OutputState
+}
+
+func (IoMAMPolicyByNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoMAMPolicyByNameOutput)(nil)).Elem()
+}
+
+func (o IoMAMPolicyByNameOutput) ToIoMAMPolicyByNameOutput() IoMAMPolicyByNameOutput {
+	return o
+}
+
+func (o IoMAMPolicyByNameOutput) ToIoMAMPolicyByNameOutputWithContext(ctx context.Context) IoMAMPolicyByNameOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IoMAMPolicyByNameOutput{})
 }

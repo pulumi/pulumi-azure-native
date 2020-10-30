@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -154,4 +155,43 @@ type TemplateSpecVersionArgs struct {
 
 func (TemplateSpecVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateSpecVersionArgs)(nil)).Elem()
+}
+
+type TemplateSpecVersionInput interface {
+	pulumi.Input
+
+	ToTemplateSpecVersionOutput() TemplateSpecVersionOutput
+	ToTemplateSpecVersionOutputWithContext(ctx context.Context) TemplateSpecVersionOutput
+}
+
+func (TemplateSpecVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecVersion)(nil)).Elem()
+}
+
+func (i TemplateSpecVersion) ToTemplateSpecVersionOutput() TemplateSpecVersionOutput {
+	return i.ToTemplateSpecVersionOutputWithContext(context.Background())
+}
+
+func (i TemplateSpecVersion) ToTemplateSpecVersionOutputWithContext(ctx context.Context) TemplateSpecVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecVersionOutput)
+}
+
+type TemplateSpecVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (TemplateSpecVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecVersionOutput)(nil)).Elem()
+}
+
+func (o TemplateSpecVersionOutput) ToTemplateSpecVersionOutput() TemplateSpecVersionOutput {
+	return o
+}
+
+func (o TemplateSpecVersionOutput) ToTemplateSpecVersionOutputWithContext(ctx context.Context) TemplateSpecVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TemplateSpecVersionOutput{})
 }

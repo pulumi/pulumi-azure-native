@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -146,4 +147,43 @@ type ReportConfigByResourceGroupNameArgs struct {
 
 func (ReportConfigByResourceGroupNameArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportConfigByResourceGroupNameArgs)(nil)).Elem()
+}
+
+type ReportConfigByResourceGroupNameInput interface {
+	pulumi.Input
+
+	ToReportConfigByResourceGroupNameOutput() ReportConfigByResourceGroupNameOutput
+	ToReportConfigByResourceGroupNameOutputWithContext(ctx context.Context) ReportConfigByResourceGroupNameOutput
+}
+
+func (ReportConfigByResourceGroupName) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportConfigByResourceGroupName)(nil)).Elem()
+}
+
+func (i ReportConfigByResourceGroupName) ToReportConfigByResourceGroupNameOutput() ReportConfigByResourceGroupNameOutput {
+	return i.ToReportConfigByResourceGroupNameOutputWithContext(context.Background())
+}
+
+func (i ReportConfigByResourceGroupName) ToReportConfigByResourceGroupNameOutputWithContext(ctx context.Context) ReportConfigByResourceGroupNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigByResourceGroupNameOutput)
+}
+
+type ReportConfigByResourceGroupNameOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReportConfigByResourceGroupNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportConfigByResourceGroupNameOutput)(nil)).Elem()
+}
+
+func (o ReportConfigByResourceGroupNameOutput) ToReportConfigByResourceGroupNameOutput() ReportConfigByResourceGroupNameOutput {
+	return o
+}
+
+func (o ReportConfigByResourceGroupNameOutput) ToReportConfigByResourceGroupNameOutputWithContext(ctx context.Context) ReportConfigByResourceGroupNameOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReportConfigByResourceGroupNameOutput{})
 }

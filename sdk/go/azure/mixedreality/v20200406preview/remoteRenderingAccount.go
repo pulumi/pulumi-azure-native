@@ -4,6 +4,7 @@
 package v20200406preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type RemoteRenderingAccountArgs struct {
 
 func (RemoteRenderingAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteRenderingAccountArgs)(nil)).Elem()
+}
+
+type RemoteRenderingAccountInput interface {
+	pulumi.Input
+
+	ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput
+	ToRemoteRenderingAccountOutputWithContext(ctx context.Context) RemoteRenderingAccountOutput
+}
+
+func (RemoteRenderingAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteRenderingAccount)(nil)).Elem()
+}
+
+func (i RemoteRenderingAccount) ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput {
+	return i.ToRemoteRenderingAccountOutputWithContext(context.Background())
+}
+
+func (i RemoteRenderingAccount) ToRemoteRenderingAccountOutputWithContext(ctx context.Context) RemoteRenderingAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteRenderingAccountOutput)
+}
+
+type RemoteRenderingAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (RemoteRenderingAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteRenderingAccountOutput)(nil)).Elem()
+}
+
+func (o RemoteRenderingAccountOutput) ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput {
+	return o
+}
+
+func (o RemoteRenderingAccountOutput) ToRemoteRenderingAccountOutputWithContext(ctx context.Context) RemoteRenderingAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RemoteRenderingAccountOutput{})
 }

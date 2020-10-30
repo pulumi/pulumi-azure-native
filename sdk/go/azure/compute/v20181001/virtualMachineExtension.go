@@ -4,6 +4,7 @@
 package v20181001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -237,4 +238,43 @@ type VirtualMachineExtensionArgs struct {
 
 func (VirtualMachineExtensionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineExtensionArgs)(nil)).Elem()
+}
+
+type VirtualMachineExtensionInput interface {
+	pulumi.Input
+
+	ToVirtualMachineExtensionOutput() VirtualMachineExtensionOutput
+	ToVirtualMachineExtensionOutputWithContext(ctx context.Context) VirtualMachineExtensionOutput
+}
+
+func (VirtualMachineExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineExtension)(nil)).Elem()
+}
+
+func (i VirtualMachineExtension) ToVirtualMachineExtensionOutput() VirtualMachineExtensionOutput {
+	return i.ToVirtualMachineExtensionOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineExtension) ToVirtualMachineExtensionOutputWithContext(ctx context.Context) VirtualMachineExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionOutput)
+}
+
+type VirtualMachineExtensionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineExtensionOutput)(nil)).Elem()
+}
+
+func (o VirtualMachineExtensionOutput) ToVirtualMachineExtensionOutput() VirtualMachineExtensionOutput {
+	return o
+}
+
+func (o VirtualMachineExtensionOutput) ToVirtualMachineExtensionOutputWithContext(ctx context.Context) VirtualMachineExtensionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualMachineExtensionOutput{})
 }

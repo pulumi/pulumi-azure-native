@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -256,4 +257,43 @@ type ServerFarmArgs struct {
 
 func (ServerFarmArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverFarmArgs)(nil)).Elem()
+}
+
+type ServerFarmInput interface {
+	pulumi.Input
+
+	ToServerFarmOutput() ServerFarmOutput
+	ToServerFarmOutputWithContext(ctx context.Context) ServerFarmOutput
+}
+
+func (ServerFarm) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerFarm)(nil)).Elem()
+}
+
+func (i ServerFarm) ToServerFarmOutput() ServerFarmOutput {
+	return i.ToServerFarmOutputWithContext(context.Background())
+}
+
+func (i ServerFarm) ToServerFarmOutputWithContext(ctx context.Context) ServerFarmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmOutput)
+}
+
+type ServerFarmOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerFarmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerFarmOutput)(nil)).Elem()
+}
+
+func (o ServerFarmOutput) ToServerFarmOutput() ServerFarmOutput {
+	return o
+}
+
+func (o ServerFarmOutput) ToServerFarmOutputWithContext(ctx context.Context) ServerFarmOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerFarmOutput{})
 }

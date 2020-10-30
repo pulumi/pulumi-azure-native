@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -257,4 +258,43 @@ type LiveEventArgs struct {
 
 func (LiveEventArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*liveEventArgs)(nil)).Elem()
+}
+
+type LiveEventInput interface {
+	pulumi.Input
+
+	ToLiveEventOutput() LiveEventOutput
+	ToLiveEventOutputWithContext(ctx context.Context) LiveEventOutput
+}
+
+func (LiveEvent) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEvent)(nil)).Elem()
+}
+
+func (i LiveEvent) ToLiveEventOutput() LiveEventOutput {
+	return i.ToLiveEventOutputWithContext(context.Background())
+}
+
+func (i LiveEvent) ToLiveEventOutputWithContext(ctx context.Context) LiveEventOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutput)
+}
+
+type LiveEventOutput struct {
+	*pulumi.OutputState
+}
+
+func (LiveEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventOutput)(nil)).Elem()
+}
+
+func (o LiveEventOutput) ToLiveEventOutput() LiveEventOutput {
+	return o
+}
+
+func (o LiveEventOutput) ToLiveEventOutputWithContext(ctx context.Context) LiveEventOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LiveEventOutput{})
 }

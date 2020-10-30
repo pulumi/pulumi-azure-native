@@ -4,6 +4,7 @@
 package v20170501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -151,4 +152,43 @@ type SubscriptionDiagnosticSettingArgs struct {
 
 func (SubscriptionDiagnosticSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionDiagnosticSettingArgs)(nil)).Elem()
+}
+
+type SubscriptionDiagnosticSettingInput interface {
+	pulumi.Input
+
+	ToSubscriptionDiagnosticSettingOutput() SubscriptionDiagnosticSettingOutput
+	ToSubscriptionDiagnosticSettingOutputWithContext(ctx context.Context) SubscriptionDiagnosticSettingOutput
+}
+
+func (SubscriptionDiagnosticSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionDiagnosticSetting)(nil)).Elem()
+}
+
+func (i SubscriptionDiagnosticSetting) ToSubscriptionDiagnosticSettingOutput() SubscriptionDiagnosticSettingOutput {
+	return i.ToSubscriptionDiagnosticSettingOutputWithContext(context.Background())
+}
+
+func (i SubscriptionDiagnosticSetting) ToSubscriptionDiagnosticSettingOutputWithContext(ctx context.Context) SubscriptionDiagnosticSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDiagnosticSettingOutput)
+}
+
+type SubscriptionDiagnosticSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubscriptionDiagnosticSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionDiagnosticSettingOutput)(nil)).Elem()
+}
+
+func (o SubscriptionDiagnosticSettingOutput) ToSubscriptionDiagnosticSettingOutput() SubscriptionDiagnosticSettingOutput {
+	return o
+}
+
+func (o SubscriptionDiagnosticSettingOutput) ToSubscriptionDiagnosticSettingOutputWithContext(ctx context.Context) SubscriptionDiagnosticSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubscriptionDiagnosticSettingOutput{})
 }

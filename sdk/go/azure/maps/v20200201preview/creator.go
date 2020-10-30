@@ -4,6 +4,7 @@
 package v20200201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,4 +125,43 @@ type CreatorArgs struct {
 
 func (CreatorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*creatorArgs)(nil)).Elem()
+}
+
+type CreatorInput interface {
+	pulumi.Input
+
+	ToCreatorOutput() CreatorOutput
+	ToCreatorOutputWithContext(ctx context.Context) CreatorOutput
+}
+
+func (Creator) ElementType() reflect.Type {
+	return reflect.TypeOf((*Creator)(nil)).Elem()
+}
+
+func (i Creator) ToCreatorOutput() CreatorOutput {
+	return i.ToCreatorOutputWithContext(context.Background())
+}
+
+func (i Creator) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreatorOutput)
+}
+
+type CreatorOutput struct {
+	*pulumi.OutputState
+}
+
+func (CreatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreatorOutput)(nil)).Elem()
+}
+
+func (o CreatorOutput) ToCreatorOutput() CreatorOutput {
+	return o
+}
+
+func (o CreatorOutput) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CreatorOutput{})
 }

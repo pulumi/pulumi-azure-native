@@ -4,6 +4,7 @@
 package v20160810
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -126,4 +127,43 @@ type ReplicationRecoveryPlanArgs struct {
 
 func (ReplicationRecoveryPlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationRecoveryPlanArgs)(nil)).Elem()
+}
+
+type ReplicationRecoveryPlanInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryPlanOutput() ReplicationRecoveryPlanOutput
+	ToReplicationRecoveryPlanOutputWithContext(ctx context.Context) ReplicationRecoveryPlanOutput
+}
+
+func (ReplicationRecoveryPlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlan)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutput() ReplicationRecoveryPlanOutput {
+	return i.ToReplicationRecoveryPlanOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutputWithContext(ctx context.Context) ReplicationRecoveryPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanOutput)
+}
+
+type ReplicationRecoveryPlanOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationRecoveryPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanOutput)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryPlanOutput) ToReplicationRecoveryPlanOutput() ReplicationRecoveryPlanOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanOutput) ToReplicationRecoveryPlanOutputWithContext(ctx context.Context) ReplicationRecoveryPlanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationRecoveryPlanOutput{})
 }

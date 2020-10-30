@@ -4,6 +4,7 @@
 package v20150701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -119,4 +120,43 @@ type RoleAssignmentArgs struct {
 
 func (RoleAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleAssignmentArgs)(nil)).Elem()
+}
+
+type RoleAssignmentInput interface {
+	pulumi.Input
+
+	ToRoleAssignmentOutput() RoleAssignmentOutput
+	ToRoleAssignmentOutputWithContext(ctx context.Context) RoleAssignmentOutput
+}
+
+func (RoleAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignment)(nil)).Elem()
+}
+
+func (i RoleAssignment) ToRoleAssignmentOutput() RoleAssignmentOutput {
+	return i.ToRoleAssignmentOutputWithContext(context.Background())
+}
+
+func (i RoleAssignment) ToRoleAssignmentOutputWithContext(ctx context.Context) RoleAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput)
+}
+
+type RoleAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (RoleAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentOutput)(nil)).Elem()
+}
+
+func (o RoleAssignmentOutput) ToRoleAssignmentOutput() RoleAssignmentOutput {
+	return o
+}
+
+func (o RoleAssignmentOutput) ToRoleAssignmentOutputWithContext(ctx context.Context) RoleAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RoleAssignmentOutput{})
 }

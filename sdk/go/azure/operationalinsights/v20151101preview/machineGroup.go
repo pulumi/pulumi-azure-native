@@ -4,6 +4,7 @@
 package v20151101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -162,4 +163,43 @@ type MachineGroupArgs struct {
 
 func (MachineGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*machineGroupArgs)(nil)).Elem()
+}
+
+type MachineGroupInput interface {
+	pulumi.Input
+
+	ToMachineGroupOutput() MachineGroupOutput
+	ToMachineGroupOutputWithContext(ctx context.Context) MachineGroupOutput
+}
+
+func (MachineGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineGroup)(nil)).Elem()
+}
+
+func (i MachineGroup) ToMachineGroupOutput() MachineGroupOutput {
+	return i.ToMachineGroupOutputWithContext(context.Background())
+}
+
+func (i MachineGroup) ToMachineGroupOutputWithContext(ctx context.Context) MachineGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineGroupOutput)
+}
+
+type MachineGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (MachineGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineGroupOutput)(nil)).Elem()
+}
+
+func (o MachineGroupOutput) ToMachineGroupOutput() MachineGroupOutput {
+	return o
+}
+
+func (o MachineGroupOutput) ToMachineGroupOutputWithContext(ctx context.Context) MachineGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MachineGroupOutput{})
 }

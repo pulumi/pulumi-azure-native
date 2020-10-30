@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -158,4 +159,43 @@ type ManagementGroupDiagnosticSettingArgs struct {
 
 func (ManagementGroupDiagnosticSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementGroupDiagnosticSettingArgs)(nil)).Elem()
+}
+
+type ManagementGroupDiagnosticSettingInput interface {
+	pulumi.Input
+
+	ToManagementGroupDiagnosticSettingOutput() ManagementGroupDiagnosticSettingOutput
+	ToManagementGroupDiagnosticSettingOutputWithContext(ctx context.Context) ManagementGroupDiagnosticSettingOutput
+}
+
+func (ManagementGroupDiagnosticSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupDiagnosticSetting)(nil)).Elem()
+}
+
+func (i ManagementGroupDiagnosticSetting) ToManagementGroupDiagnosticSettingOutput() ManagementGroupDiagnosticSettingOutput {
+	return i.ToManagementGroupDiagnosticSettingOutputWithContext(context.Background())
+}
+
+func (i ManagementGroupDiagnosticSetting) ToManagementGroupDiagnosticSettingOutputWithContext(ctx context.Context) ManagementGroupDiagnosticSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupDiagnosticSettingOutput)
+}
+
+type ManagementGroupDiagnosticSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementGroupDiagnosticSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupDiagnosticSettingOutput)(nil)).Elem()
+}
+
+func (o ManagementGroupDiagnosticSettingOutput) ToManagementGroupDiagnosticSettingOutput() ManagementGroupDiagnosticSettingOutput {
+	return o
+}
+
+func (o ManagementGroupDiagnosticSettingOutput) ToManagementGroupDiagnosticSettingOutputWithContext(ctx context.Context) ManagementGroupDiagnosticSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementGroupDiagnosticSettingOutput{})
 }

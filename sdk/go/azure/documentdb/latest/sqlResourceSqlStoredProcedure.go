@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -164,4 +165,43 @@ type SqlResourceSqlStoredProcedureArgs struct {
 
 func (SqlResourceSqlStoredProcedureArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlResourceSqlStoredProcedureArgs)(nil)).Elem()
+}
+
+type SqlResourceSqlStoredProcedureInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlStoredProcedureOutput() SqlResourceSqlStoredProcedureOutput
+	ToSqlResourceSqlStoredProcedureOutputWithContext(ctx context.Context) SqlResourceSqlStoredProcedureOutput
+}
+
+func (SqlResourceSqlStoredProcedure) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlStoredProcedure)(nil)).Elem()
+}
+
+func (i SqlResourceSqlStoredProcedure) ToSqlResourceSqlStoredProcedureOutput() SqlResourceSqlStoredProcedureOutput {
+	return i.ToSqlResourceSqlStoredProcedureOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlStoredProcedure) ToSqlResourceSqlStoredProcedureOutputWithContext(ctx context.Context) SqlResourceSqlStoredProcedureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlStoredProcedureOutput)
+}
+
+type SqlResourceSqlStoredProcedureOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlResourceSqlStoredProcedureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlStoredProcedureOutput)(nil)).Elem()
+}
+
+func (o SqlResourceSqlStoredProcedureOutput) ToSqlResourceSqlStoredProcedureOutput() SqlResourceSqlStoredProcedureOutput {
+	return o
+}
+
+func (o SqlResourceSqlStoredProcedureOutput) ToSqlResourceSqlStoredProcedureOutputWithContext(ctx context.Context) SqlResourceSqlStoredProcedureOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlResourceSqlStoredProcedureOutput{})
 }

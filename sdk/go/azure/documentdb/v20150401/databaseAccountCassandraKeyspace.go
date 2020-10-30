@@ -4,6 +4,7 @@
 package v20150401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -139,4 +140,43 @@ type DatabaseAccountCassandraKeyspaceArgs struct {
 
 func (DatabaseAccountCassandraKeyspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseAccountCassandraKeyspaceArgs)(nil)).Elem()
+}
+
+type DatabaseAccountCassandraKeyspaceInput interface {
+	pulumi.Input
+
+	ToDatabaseAccountCassandraKeyspaceOutput() DatabaseAccountCassandraKeyspaceOutput
+	ToDatabaseAccountCassandraKeyspaceOutputWithContext(ctx context.Context) DatabaseAccountCassandraKeyspaceOutput
+}
+
+func (DatabaseAccountCassandraKeyspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountCassandraKeyspace)(nil)).Elem()
+}
+
+func (i DatabaseAccountCassandraKeyspace) ToDatabaseAccountCassandraKeyspaceOutput() DatabaseAccountCassandraKeyspaceOutput {
+	return i.ToDatabaseAccountCassandraKeyspaceOutputWithContext(context.Background())
+}
+
+func (i DatabaseAccountCassandraKeyspace) ToDatabaseAccountCassandraKeyspaceOutputWithContext(ctx context.Context) DatabaseAccountCassandraKeyspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountCassandraKeyspaceOutput)
+}
+
+type DatabaseAccountCassandraKeyspaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatabaseAccountCassandraKeyspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountCassandraKeyspaceOutput)(nil)).Elem()
+}
+
+func (o DatabaseAccountCassandraKeyspaceOutput) ToDatabaseAccountCassandraKeyspaceOutput() DatabaseAccountCassandraKeyspaceOutput {
+	return o
+}
+
+func (o DatabaseAccountCassandraKeyspaceOutput) ToDatabaseAccountCassandraKeyspaceOutputWithContext(ctx context.Context) DatabaseAccountCassandraKeyspaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatabaseAccountCassandraKeyspaceOutput{})
 }

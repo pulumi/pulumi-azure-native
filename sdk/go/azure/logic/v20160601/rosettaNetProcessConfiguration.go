@@ -4,6 +4,7 @@
 package v20160601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -231,4 +232,43 @@ type RosettaNetProcessConfigurationArgs struct {
 
 func (RosettaNetProcessConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rosettaNetProcessConfigurationArgs)(nil)).Elem()
+}
+
+type RosettaNetProcessConfigurationInput interface {
+	pulumi.Input
+
+	ToRosettaNetProcessConfigurationOutput() RosettaNetProcessConfigurationOutput
+	ToRosettaNetProcessConfigurationOutputWithContext(ctx context.Context) RosettaNetProcessConfigurationOutput
+}
+
+func (RosettaNetProcessConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*RosettaNetProcessConfiguration)(nil)).Elem()
+}
+
+func (i RosettaNetProcessConfiguration) ToRosettaNetProcessConfigurationOutput() RosettaNetProcessConfigurationOutput {
+	return i.ToRosettaNetProcessConfigurationOutputWithContext(context.Background())
+}
+
+func (i RosettaNetProcessConfiguration) ToRosettaNetProcessConfigurationOutputWithContext(ctx context.Context) RosettaNetProcessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetProcessConfigurationOutput)
+}
+
+type RosettaNetProcessConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (RosettaNetProcessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RosettaNetProcessConfigurationOutput)(nil)).Elem()
+}
+
+func (o RosettaNetProcessConfigurationOutput) ToRosettaNetProcessConfigurationOutput() RosettaNetProcessConfigurationOutput {
+	return o
+}
+
+func (o RosettaNetProcessConfigurationOutput) ToRosettaNetProcessConfigurationOutputWithContext(ctx context.Context) RosettaNetProcessConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RosettaNetProcessConfigurationOutput{})
 }

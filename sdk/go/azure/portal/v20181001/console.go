@@ -4,6 +4,7 @@
 package v20181001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -88,4 +89,43 @@ type ConsoleArgs struct {
 
 func (ConsoleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*consoleArgs)(nil)).Elem()
+}
+
+type ConsoleInput interface {
+	pulumi.Input
+
+	ToConsoleOutput() ConsoleOutput
+	ToConsoleOutputWithContext(ctx context.Context) ConsoleOutput
+}
+
+func (Console) ElementType() reflect.Type {
+	return reflect.TypeOf((*Console)(nil)).Elem()
+}
+
+func (i Console) ToConsoleOutput() ConsoleOutput {
+	return i.ToConsoleOutputWithContext(context.Background())
+}
+
+func (i Console) ToConsoleOutputWithContext(ctx context.Context) ConsoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsoleOutput)
+}
+
+type ConsoleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConsoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsoleOutput)(nil)).Elem()
+}
+
+func (o ConsoleOutput) ToConsoleOutput() ConsoleOutput {
+	return o
+}
+
+func (o ConsoleOutput) ToConsoleOutputWithContext(ctx context.Context) ConsoleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConsoleOutput{})
 }

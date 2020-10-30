@@ -4,6 +4,7 @@
 package v20170131
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -221,4 +222,43 @@ type ContainerServiceArgs struct {
 
 func (ContainerServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerServiceArgs)(nil)).Elem()
+}
+
+type ContainerServiceInput interface {
+	pulumi.Input
+
+	ToContainerServiceOutput() ContainerServiceOutput
+	ToContainerServiceOutputWithContext(ctx context.Context) ContainerServiceOutput
+}
+
+func (ContainerService) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerService)(nil)).Elem()
+}
+
+func (i ContainerService) ToContainerServiceOutput() ContainerServiceOutput {
+	return i.ToContainerServiceOutputWithContext(context.Background())
+}
+
+func (i ContainerService) ToContainerServiceOutputWithContext(ctx context.Context) ContainerServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOutput)
+}
+
+type ContainerServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContainerServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceOutput)(nil)).Elem()
+}
+
+func (o ContainerServiceOutput) ToContainerServiceOutput() ContainerServiceOutput {
+	return o
+}
+
+func (o ContainerServiceOutput) ToContainerServiceOutputWithContext(ctx context.Context) ContainerServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContainerServiceOutput{})
 }

@@ -4,6 +4,7 @@
 package v20151031
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -214,4 +215,43 @@ type DscConfigurationArgs struct {
 
 func (DscConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dscConfigurationArgs)(nil)).Elem()
+}
+
+type DscConfigurationInput interface {
+	pulumi.Input
+
+	ToDscConfigurationOutput() DscConfigurationOutput
+	ToDscConfigurationOutputWithContext(ctx context.Context) DscConfigurationOutput
+}
+
+func (DscConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfiguration)(nil)).Elem()
+}
+
+func (i DscConfiguration) ToDscConfigurationOutput() DscConfigurationOutput {
+	return i.ToDscConfigurationOutputWithContext(context.Background())
+}
+
+func (i DscConfiguration) ToDscConfigurationOutputWithContext(ctx context.Context) DscConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationOutput)
+}
+
+type DscConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (DscConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfigurationOutput)(nil)).Elem()
+}
+
+func (o DscConfigurationOutput) ToDscConfigurationOutput() DscConfigurationOutput {
+	return o
+}
+
+func (o DscConfigurationOutput) ToDscConfigurationOutputWithContext(ctx context.Context) DscConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DscConfigurationOutput{})
 }

@@ -4,6 +4,7 @@
 package v20170301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -165,4 +166,43 @@ type SqlVirtualMachineGroupArgs struct {
 
 func (SqlVirtualMachineGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlVirtualMachineGroupArgs)(nil)).Elem()
+}
+
+type SqlVirtualMachineGroupInput interface {
+	pulumi.Input
+
+	ToSqlVirtualMachineGroupOutput() SqlVirtualMachineGroupOutput
+	ToSqlVirtualMachineGroupOutputWithContext(ctx context.Context) SqlVirtualMachineGroupOutput
+}
+
+func (SqlVirtualMachineGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlVirtualMachineGroup)(nil)).Elem()
+}
+
+func (i SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutput() SqlVirtualMachineGroupOutput {
+	return i.ToSqlVirtualMachineGroupOutputWithContext(context.Background())
+}
+
+func (i SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutputWithContext(ctx context.Context) SqlVirtualMachineGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlVirtualMachineGroupOutput)
+}
+
+type SqlVirtualMachineGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlVirtualMachineGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlVirtualMachineGroupOutput)(nil)).Elem()
+}
+
+func (o SqlVirtualMachineGroupOutput) ToSqlVirtualMachineGroupOutput() SqlVirtualMachineGroupOutput {
+	return o
+}
+
+func (o SqlVirtualMachineGroupOutput) ToSqlVirtualMachineGroupOutputWithContext(ctx context.Context) SqlVirtualMachineGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlVirtualMachineGroupOutput{})
 }

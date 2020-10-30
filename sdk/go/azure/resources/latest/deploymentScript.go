@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type DeploymentScriptArgs struct {
 
 func (DeploymentScriptArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentScriptArgs)(nil)).Elem()
+}
+
+type DeploymentScriptInput interface {
+	pulumi.Input
+
+	ToDeploymentScriptOutput() DeploymentScriptOutput
+	ToDeploymentScriptOutputWithContext(ctx context.Context) DeploymentScriptOutput
+}
+
+func (DeploymentScript) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScript)(nil)).Elem()
+}
+
+func (i DeploymentScript) ToDeploymentScriptOutput() DeploymentScriptOutput {
+	return i.ToDeploymentScriptOutputWithContext(context.Background())
+}
+
+func (i DeploymentScript) ToDeploymentScriptOutputWithContext(ctx context.Context) DeploymentScriptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScriptOutput)
+}
+
+type DeploymentScriptOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentScriptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScriptOutput)(nil)).Elem()
+}
+
+func (o DeploymentScriptOutput) ToDeploymentScriptOutput() DeploymentScriptOutput {
+	return o
+}
+
+func (o DeploymentScriptOutput) ToDeploymentScriptOutputWithContext(ctx context.Context) DeploymentScriptOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentScriptOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200401preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -217,4 +218,43 @@ type PartnerTopicEventSubscriptionArgs struct {
 
 func (PartnerTopicEventSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*partnerTopicEventSubscriptionArgs)(nil)).Elem()
+}
+
+type PartnerTopicEventSubscriptionInput interface {
+	pulumi.Input
+
+	ToPartnerTopicEventSubscriptionOutput() PartnerTopicEventSubscriptionOutput
+	ToPartnerTopicEventSubscriptionOutputWithContext(ctx context.Context) PartnerTopicEventSubscriptionOutput
+}
+
+func (PartnerTopicEventSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerTopicEventSubscription)(nil)).Elem()
+}
+
+func (i PartnerTopicEventSubscription) ToPartnerTopicEventSubscriptionOutput() PartnerTopicEventSubscriptionOutput {
+	return i.ToPartnerTopicEventSubscriptionOutputWithContext(context.Background())
+}
+
+func (i PartnerTopicEventSubscription) ToPartnerTopicEventSubscriptionOutputWithContext(ctx context.Context) PartnerTopicEventSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerTopicEventSubscriptionOutput)
+}
+
+type PartnerTopicEventSubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (PartnerTopicEventSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerTopicEventSubscriptionOutput)(nil)).Elem()
+}
+
+func (o PartnerTopicEventSubscriptionOutput) ToPartnerTopicEventSubscriptionOutput() PartnerTopicEventSubscriptionOutput {
+	return o
+}
+
+func (o PartnerTopicEventSubscriptionOutput) ToPartnerTopicEventSubscriptionOutputWithContext(ctx context.Context) PartnerTopicEventSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PartnerTopicEventSubscriptionOutput{})
 }

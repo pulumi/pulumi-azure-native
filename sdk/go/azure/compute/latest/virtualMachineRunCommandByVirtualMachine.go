@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -226,4 +227,43 @@ type VirtualMachineRunCommandByVirtualMachineArgs struct {
 
 func (VirtualMachineRunCommandByVirtualMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineRunCommandByVirtualMachineArgs)(nil)).Elem()
+}
+
+type VirtualMachineRunCommandByVirtualMachineInput interface {
+	pulumi.Input
+
+	ToVirtualMachineRunCommandByVirtualMachineOutput() VirtualMachineRunCommandByVirtualMachineOutput
+	ToVirtualMachineRunCommandByVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineRunCommandByVirtualMachineOutput
+}
+
+func (VirtualMachineRunCommandByVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineRunCommandByVirtualMachine)(nil)).Elem()
+}
+
+func (i VirtualMachineRunCommandByVirtualMachine) ToVirtualMachineRunCommandByVirtualMachineOutput() VirtualMachineRunCommandByVirtualMachineOutput {
+	return i.ToVirtualMachineRunCommandByVirtualMachineOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineRunCommandByVirtualMachine) ToVirtualMachineRunCommandByVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineRunCommandByVirtualMachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandByVirtualMachineOutput)
+}
+
+type VirtualMachineRunCommandByVirtualMachineOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineRunCommandByVirtualMachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineRunCommandByVirtualMachineOutput)(nil)).Elem()
+}
+
+func (o VirtualMachineRunCommandByVirtualMachineOutput) ToVirtualMachineRunCommandByVirtualMachineOutput() VirtualMachineRunCommandByVirtualMachineOutput {
+	return o
+}
+
+func (o VirtualMachineRunCommandByVirtualMachineOutput) ToVirtualMachineRunCommandByVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineRunCommandByVirtualMachineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualMachineRunCommandByVirtualMachineOutput{})
 }

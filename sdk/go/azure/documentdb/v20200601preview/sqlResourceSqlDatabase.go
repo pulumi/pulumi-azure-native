@@ -4,6 +4,7 @@
 package v20200601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -166,4 +167,43 @@ type SqlResourceSqlDatabaseArgs struct {
 
 func (SqlResourceSqlDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlResourceSqlDatabaseArgs)(nil)).Elem()
+}
+
+type SqlResourceSqlDatabaseInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlDatabaseOutput() SqlResourceSqlDatabaseOutput
+	ToSqlResourceSqlDatabaseOutputWithContext(ctx context.Context) SqlResourceSqlDatabaseOutput
+}
+
+func (SqlResourceSqlDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlDatabase)(nil)).Elem()
+}
+
+func (i SqlResourceSqlDatabase) ToSqlResourceSqlDatabaseOutput() SqlResourceSqlDatabaseOutput {
+	return i.ToSqlResourceSqlDatabaseOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlDatabase) ToSqlResourceSqlDatabaseOutputWithContext(ctx context.Context) SqlResourceSqlDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlDatabaseOutput)
+}
+
+type SqlResourceSqlDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlResourceSqlDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlDatabaseOutput)(nil)).Elem()
+}
+
+func (o SqlResourceSqlDatabaseOutput) ToSqlResourceSqlDatabaseOutput() SqlResourceSqlDatabaseOutput {
+	return o
+}
+
+func (o SqlResourceSqlDatabaseOutput) ToSqlResourceSqlDatabaseOutputWithContext(ctx context.Context) SqlResourceSqlDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlResourceSqlDatabaseOutput{})
 }

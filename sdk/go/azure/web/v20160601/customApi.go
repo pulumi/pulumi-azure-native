@@ -4,6 +4,7 @@
 package v20160601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type CustomApiArgs struct {
 
 func (CustomApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customApiArgs)(nil)).Elem()
+}
+
+type CustomApiInput interface {
+	pulumi.Input
+
+	ToCustomApiOutput() CustomApiOutput
+	ToCustomApiOutputWithContext(ctx context.Context) CustomApiOutput
+}
+
+func (CustomApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomApi)(nil)).Elem()
+}
+
+func (i CustomApi) ToCustomApiOutput() CustomApiOutput {
+	return i.ToCustomApiOutputWithContext(context.Background())
+}
+
+func (i CustomApi) ToCustomApiOutputWithContext(ctx context.Context) CustomApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomApiOutput)
+}
+
+type CustomApiOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomApiOutput)(nil)).Elem()
+}
+
+func (o CustomApiOutput) ToCustomApiOutput() CustomApiOutput {
+	return o
+}
+
+func (o CustomApiOutput) ToCustomApiOutputWithContext(ctx context.Context) CustomApiOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomApiOutput{})
 }

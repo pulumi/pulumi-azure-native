@@ -4,6 +4,7 @@
 package v20171001preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type IoTSpaceArgs struct {
 
 func (IoTSpaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ioTSpaceArgs)(nil)).Elem()
+}
+
+type IoTSpaceInput interface {
+	pulumi.Input
+
+	ToIoTSpaceOutput() IoTSpaceOutput
+	ToIoTSpaceOutputWithContext(ctx context.Context) IoTSpaceOutput
+}
+
+func (IoTSpace) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTSpace)(nil)).Elem()
+}
+
+func (i IoTSpace) ToIoTSpaceOutput() IoTSpaceOutput {
+	return i.ToIoTSpaceOutputWithContext(context.Background())
+}
+
+func (i IoTSpace) ToIoTSpaceOutputWithContext(ctx context.Context) IoTSpaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTSpaceOutput)
+}
+
+type IoTSpaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (IoTSpaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTSpaceOutput)(nil)).Elem()
+}
+
+func (o IoTSpaceOutput) ToIoTSpaceOutput() IoTSpaceOutput {
+	return o
+}
+
+func (o IoTSpaceOutput) ToIoTSpaceOutputWithContext(ctx context.Context) IoTSpaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IoTSpaceOutput{})
 }

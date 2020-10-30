@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -219,4 +220,43 @@ type IotSecuritySolutionArgs struct {
 
 func (IotSecuritySolutionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotSecuritySolutionArgs)(nil)).Elem()
+}
+
+type IotSecuritySolutionInput interface {
+	pulumi.Input
+
+	ToIotSecuritySolutionOutput() IotSecuritySolutionOutput
+	ToIotSecuritySolutionOutputWithContext(ctx context.Context) IotSecuritySolutionOutput
+}
+
+func (IotSecuritySolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotSecuritySolution)(nil)).Elem()
+}
+
+func (i IotSecuritySolution) ToIotSecuritySolutionOutput() IotSecuritySolutionOutput {
+	return i.ToIotSecuritySolutionOutputWithContext(context.Background())
+}
+
+func (i IotSecuritySolution) ToIotSecuritySolutionOutputWithContext(ctx context.Context) IotSecuritySolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotSecuritySolutionOutput)
+}
+
+type IotSecuritySolutionOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotSecuritySolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotSecuritySolutionOutput)(nil)).Elem()
+}
+
+func (o IotSecuritySolutionOutput) ToIotSecuritySolutionOutput() IotSecuritySolutionOutput {
+	return o
+}
+
+func (o IotSecuritySolutionOutput) ToIotSecuritySolutionOutputWithContext(ctx context.Context) IotSecuritySolutionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IotSecuritySolutionOutput{})
 }

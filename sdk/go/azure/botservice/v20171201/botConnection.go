@@ -4,6 +4,7 @@
 package v20171201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -167,4 +168,43 @@ type BotConnectionArgs struct {
 
 func (BotConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*botConnectionArgs)(nil)).Elem()
+}
+
+type BotConnectionInput interface {
+	pulumi.Input
+
+	ToBotConnectionOutput() BotConnectionOutput
+	ToBotConnectionOutputWithContext(ctx context.Context) BotConnectionOutput
+}
+
+func (BotConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotConnection)(nil)).Elem()
+}
+
+func (i BotConnection) ToBotConnectionOutput() BotConnectionOutput {
+	return i.ToBotConnectionOutputWithContext(context.Background())
+}
+
+func (i BotConnection) ToBotConnectionOutputWithContext(ctx context.Context) BotConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotConnectionOutput)
+}
+
+type BotConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (BotConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotConnectionOutput)(nil)).Elem()
+}
+
+func (o BotConnectionOutput) ToBotConnectionOutput() BotConnectionOutput {
+	return o
+}
+
+func (o BotConnectionOutput) ToBotConnectionOutputWithContext(ctx context.Context) BotConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BotConnectionOutput{})
 }

@@ -4,6 +4,7 @@
 package v20160330
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -184,4 +185,43 @@ type ADCCatalogArgs struct {
 
 func (ADCCatalogArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*adccatalogArgs)(nil)).Elem()
+}
+
+type ADCCatalogInput interface {
+	pulumi.Input
+
+	ToADCCatalogOutput() ADCCatalogOutput
+	ToADCCatalogOutputWithContext(ctx context.Context) ADCCatalogOutput
+}
+
+func (ADCCatalog) ElementType() reflect.Type {
+	return reflect.TypeOf((*ADCCatalog)(nil)).Elem()
+}
+
+func (i ADCCatalog) ToADCCatalogOutput() ADCCatalogOutput {
+	return i.ToADCCatalogOutputWithContext(context.Background())
+}
+
+func (i ADCCatalog) ToADCCatalogOutputWithContext(ctx context.Context) ADCCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ADCCatalogOutput)
+}
+
+type ADCCatalogOutput struct {
+	*pulumi.OutputState
+}
+
+func (ADCCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ADCCatalogOutput)(nil)).Elem()
+}
+
+func (o ADCCatalogOutput) ToADCCatalogOutput() ADCCatalogOutput {
+	return o
+}
+
+func (o ADCCatalogOutput) ToADCCatalogOutputWithContext(ctx context.Context) ADCCatalogOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ADCCatalogOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190809preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type PrivateCloudArgs struct {
 
 func (PrivateCloudArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateCloudArgs)(nil)).Elem()
+}
+
+type PrivateCloudInput interface {
+	pulumi.Input
+
+	ToPrivateCloudOutput() PrivateCloudOutput
+	ToPrivateCloudOutputWithContext(ctx context.Context) PrivateCloudOutput
+}
+
+func (PrivateCloud) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateCloud)(nil)).Elem()
+}
+
+func (i PrivateCloud) ToPrivateCloudOutput() PrivateCloudOutput {
+	return i.ToPrivateCloudOutputWithContext(context.Background())
+}
+
+func (i PrivateCloud) ToPrivateCloudOutputWithContext(ctx context.Context) PrivateCloudOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudOutput)
+}
+
+type PrivateCloudOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateCloudOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateCloudOutput)(nil)).Elem()
+}
+
+func (o PrivateCloudOutput) ToPrivateCloudOutput() PrivateCloudOutput {
+	return o
+}
+
+func (o PrivateCloudOutput) ToPrivateCloudOutputWithContext(ctx context.Context) PrivateCloudOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateCloudOutput{})
 }

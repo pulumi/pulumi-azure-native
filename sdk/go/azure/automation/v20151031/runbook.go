@@ -4,6 +4,7 @@
 package v20151031
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -255,4 +256,43 @@ type RunbookArgs struct {
 
 func (RunbookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*runbookArgs)(nil)).Elem()
+}
+
+type RunbookInput interface {
+	pulumi.Input
+
+	ToRunbookOutput() RunbookOutput
+	ToRunbookOutputWithContext(ctx context.Context) RunbookOutput
+}
+
+func (Runbook) ElementType() reflect.Type {
+	return reflect.TypeOf((*Runbook)(nil)).Elem()
+}
+
+func (i Runbook) ToRunbookOutput() RunbookOutput {
+	return i.ToRunbookOutputWithContext(context.Background())
+}
+
+func (i Runbook) ToRunbookOutputWithContext(ctx context.Context) RunbookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookOutput)
+}
+
+type RunbookOutput struct {
+	*pulumi.OutputState
+}
+
+func (RunbookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookOutput)(nil)).Elem()
+}
+
+func (o RunbookOutput) ToRunbookOutput() RunbookOutput {
+	return o
+}
+
+func (o RunbookOutput) ToRunbookOutputWithContext(ctx context.Context) RunbookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RunbookOutput{})
 }

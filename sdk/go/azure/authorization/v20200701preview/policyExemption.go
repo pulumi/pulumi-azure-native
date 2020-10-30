@@ -4,6 +4,7 @@
 package v20200701preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -170,4 +171,43 @@ type PolicyExemptionArgs struct {
 
 func (PolicyExemptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyExemptionArgs)(nil)).Elem()
+}
+
+type PolicyExemptionInput interface {
+	pulumi.Input
+
+	ToPolicyExemptionOutput() PolicyExemptionOutput
+	ToPolicyExemptionOutputWithContext(ctx context.Context) PolicyExemptionOutput
+}
+
+func (PolicyExemption) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyExemption)(nil)).Elem()
+}
+
+func (i PolicyExemption) ToPolicyExemptionOutput() PolicyExemptionOutput {
+	return i.ToPolicyExemptionOutputWithContext(context.Background())
+}
+
+func (i PolicyExemption) ToPolicyExemptionOutputWithContext(ctx context.Context) PolicyExemptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyExemptionOutput)
+}
+
+type PolicyExemptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyExemptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyExemptionOutput)(nil)).Elem()
+}
+
+func (o PolicyExemptionOutput) ToPolicyExemptionOutput() PolicyExemptionOutput {
+	return o
+}
+
+func (o PolicyExemptionOutput) ToPolicyExemptionOutputWithContext(ctx context.Context) PolicyExemptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyExemptionOutput{})
 }

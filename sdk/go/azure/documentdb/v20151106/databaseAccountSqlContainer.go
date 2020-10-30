@@ -4,6 +4,7 @@
 package v20151106
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -194,4 +195,43 @@ type DatabaseAccountSqlContainerArgs struct {
 
 func (DatabaseAccountSqlContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseAccountSqlContainerArgs)(nil)).Elem()
+}
+
+type DatabaseAccountSqlContainerInput interface {
+	pulumi.Input
+
+	ToDatabaseAccountSqlContainerOutput() DatabaseAccountSqlContainerOutput
+	ToDatabaseAccountSqlContainerOutputWithContext(ctx context.Context) DatabaseAccountSqlContainerOutput
+}
+
+func (DatabaseAccountSqlContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountSqlContainer)(nil)).Elem()
+}
+
+func (i DatabaseAccountSqlContainer) ToDatabaseAccountSqlContainerOutput() DatabaseAccountSqlContainerOutput {
+	return i.ToDatabaseAccountSqlContainerOutputWithContext(context.Background())
+}
+
+func (i DatabaseAccountSqlContainer) ToDatabaseAccountSqlContainerOutputWithContext(ctx context.Context) DatabaseAccountSqlContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountSqlContainerOutput)
+}
+
+type DatabaseAccountSqlContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatabaseAccountSqlContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountSqlContainerOutput)(nil)).Elem()
+}
+
+func (o DatabaseAccountSqlContainerOutput) ToDatabaseAccountSqlContainerOutput() DatabaseAccountSqlContainerOutput {
+	return o
+}
+
+func (o DatabaseAccountSqlContainerOutput) ToDatabaseAccountSqlContainerOutputWithContext(ctx context.Context) DatabaseAccountSqlContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatabaseAccountSqlContainerOutput{})
 }

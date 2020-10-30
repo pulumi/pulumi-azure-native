@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -119,4 +120,43 @@ type IntegrationServiceEnvironmentManagedApiArgs struct {
 
 func (IntegrationServiceEnvironmentManagedApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationServiceEnvironmentManagedApiArgs)(nil)).Elem()
+}
+
+type IntegrationServiceEnvironmentManagedApiInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentManagedApiOutput() IntegrationServiceEnvironmentManagedApiOutput
+	ToIntegrationServiceEnvironmentManagedApiOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiOutput
+}
+
+func (IntegrationServiceEnvironmentManagedApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApi)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmentManagedApi) ToIntegrationServiceEnvironmentManagedApiOutput() IntegrationServiceEnvironmentManagedApiOutput {
+	return i.ToIntegrationServiceEnvironmentManagedApiOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentManagedApi) ToIntegrationServiceEnvironmentManagedApiOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentManagedApiOutput)
+}
+
+type IntegrationServiceEnvironmentManagedApiOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationServiceEnvironmentManagedApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiOutput)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentManagedApiOutput) ToIntegrationServiceEnvironmentManagedApiOutput() IntegrationServiceEnvironmentManagedApiOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentManagedApiOutput) ToIntegrationServiceEnvironmentManagedApiOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentManagedApiOutput{})
 }

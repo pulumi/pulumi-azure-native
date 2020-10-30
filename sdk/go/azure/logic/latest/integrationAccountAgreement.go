@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -230,4 +231,43 @@ type IntegrationAccountAgreementArgs struct {
 
 func (IntegrationAccountAgreementArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountAgreementArgs)(nil)).Elem()
+}
+
+type IntegrationAccountAgreementInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAgreementOutput() IntegrationAccountAgreementOutput
+	ToIntegrationAccountAgreementOutputWithContext(ctx context.Context) IntegrationAccountAgreementOutput
+}
+
+func (IntegrationAccountAgreement) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAgreement)(nil)).Elem()
+}
+
+func (i IntegrationAccountAgreement) ToIntegrationAccountAgreementOutput() IntegrationAccountAgreementOutput {
+	return i.ToIntegrationAccountAgreementOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAgreement) ToIntegrationAccountAgreementOutputWithContext(ctx context.Context) IntegrationAccountAgreementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementOutput)
+}
+
+type IntegrationAccountAgreementOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationAccountAgreementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAgreementOutput)(nil)).Elem()
+}
+
+func (o IntegrationAccountAgreementOutput) ToIntegrationAccountAgreementOutput() IntegrationAccountAgreementOutput {
+	return o
+}
+
+func (o IntegrationAccountAgreementOutput) ToIntegrationAccountAgreementOutputWithContext(ctx context.Context) IntegrationAccountAgreementOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationAccountAgreementOutput{})
 }

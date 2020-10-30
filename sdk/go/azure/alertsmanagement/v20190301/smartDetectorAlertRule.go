@@ -4,6 +4,7 @@
 package v20190301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -195,4 +196,43 @@ type SmartDetectorAlertRuleArgs struct {
 
 func (SmartDetectorAlertRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smartDetectorAlertRuleArgs)(nil)).Elem()
+}
+
+type SmartDetectorAlertRuleInput interface {
+	pulumi.Input
+
+	ToSmartDetectorAlertRuleOutput() SmartDetectorAlertRuleOutput
+	ToSmartDetectorAlertRuleOutputWithContext(ctx context.Context) SmartDetectorAlertRuleOutput
+}
+
+func (SmartDetectorAlertRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmartDetectorAlertRule)(nil)).Elem()
+}
+
+func (i SmartDetectorAlertRule) ToSmartDetectorAlertRuleOutput() SmartDetectorAlertRuleOutput {
+	return i.ToSmartDetectorAlertRuleOutputWithContext(context.Background())
+}
+
+func (i SmartDetectorAlertRule) ToSmartDetectorAlertRuleOutputWithContext(ctx context.Context) SmartDetectorAlertRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleOutput)
+}
+
+type SmartDetectorAlertRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (SmartDetectorAlertRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmartDetectorAlertRuleOutput)(nil)).Elem()
+}
+
+func (o SmartDetectorAlertRuleOutput) ToSmartDetectorAlertRuleOutput() SmartDetectorAlertRuleOutput {
+	return o
+}
+
+func (o SmartDetectorAlertRuleOutput) ToSmartDetectorAlertRuleOutputWithContext(ctx context.Context) SmartDetectorAlertRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SmartDetectorAlertRuleOutput{})
 }

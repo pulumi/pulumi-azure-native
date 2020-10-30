@@ -4,6 +4,7 @@
 package v20180201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -169,4 +170,43 @@ type AppServiceCertificateOrderCertificateArgs struct {
 
 func (AppServiceCertificateOrderCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*appServiceCertificateOrderCertificateArgs)(nil)).Elem()
+}
+
+type AppServiceCertificateOrderCertificateInput interface {
+	pulumi.Input
+
+	ToAppServiceCertificateOrderCertificateOutput() AppServiceCertificateOrderCertificateOutput
+	ToAppServiceCertificateOrderCertificateOutputWithContext(ctx context.Context) AppServiceCertificateOrderCertificateOutput
+}
+
+func (AppServiceCertificateOrderCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceCertificateOrderCertificate)(nil)).Elem()
+}
+
+func (i AppServiceCertificateOrderCertificate) ToAppServiceCertificateOrderCertificateOutput() AppServiceCertificateOrderCertificateOutput {
+	return i.ToAppServiceCertificateOrderCertificateOutputWithContext(context.Background())
+}
+
+func (i AppServiceCertificateOrderCertificate) ToAppServiceCertificateOrderCertificateOutputWithContext(ctx context.Context) AppServiceCertificateOrderCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderCertificateOutput)
+}
+
+type AppServiceCertificateOrderCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (AppServiceCertificateOrderCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceCertificateOrderCertificateOutput)(nil)).Elem()
+}
+
+func (o AppServiceCertificateOrderCertificateOutput) ToAppServiceCertificateOrderCertificateOutput() AppServiceCertificateOrderCertificateOutput {
+	return o
+}
+
+func (o AppServiceCertificateOrderCertificateOutput) ToAppServiceCertificateOrderCertificateOutputWithContext(ctx context.Context) AppServiceCertificateOrderCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AppServiceCertificateOrderCertificateOutput{})
 }

@@ -4,6 +4,7 @@
 package v20180901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -128,4 +129,43 @@ type MigrateProjectArgs struct {
 
 func (MigrateProjectArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*migrateProjectArgs)(nil)).Elem()
+}
+
+type MigrateProjectInput interface {
+	pulumi.Input
+
+	ToMigrateProjectOutput() MigrateProjectOutput
+	ToMigrateProjectOutputWithContext(ctx context.Context) MigrateProjectOutput
+}
+
+func (MigrateProject) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrateProject)(nil)).Elem()
+}
+
+func (i MigrateProject) ToMigrateProjectOutput() MigrateProjectOutput {
+	return i.ToMigrateProjectOutputWithContext(context.Background())
+}
+
+func (i MigrateProject) ToMigrateProjectOutputWithContext(ctx context.Context) MigrateProjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectOutput)
+}
+
+type MigrateProjectOutput struct {
+	*pulumi.OutputState
+}
+
+func (MigrateProjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrateProjectOutput)(nil)).Elem()
+}
+
+func (o MigrateProjectOutput) ToMigrateProjectOutput() MigrateProjectOutput {
+	return o
+}
+
+func (o MigrateProjectOutput) ToMigrateProjectOutputWithContext(ctx context.Context) MigrateProjectOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MigrateProjectOutput{})
 }

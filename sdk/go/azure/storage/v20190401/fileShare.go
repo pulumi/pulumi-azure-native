@@ -4,6 +4,7 @@
 package v20190401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -139,4 +140,43 @@ type FileShareArgs struct {
 
 func (FileShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileShareArgs)(nil)).Elem()
+}
+
+type FileShareInput interface {
+	pulumi.Input
+
+	ToFileShareOutput() FileShareOutput
+	ToFileShareOutputWithContext(ctx context.Context) FileShareOutput
+}
+
+func (FileShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileShare)(nil)).Elem()
+}
+
+func (i FileShare) ToFileShareOutput() FileShareOutput {
+	return i.ToFileShareOutputWithContext(context.Background())
+}
+
+func (i FileShare) ToFileShareOutputWithContext(ctx context.Context) FileShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileShareOutput)
+}
+
+type FileShareOutput struct {
+	*pulumi.OutputState
+}
+
+func (FileShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileShareOutput)(nil)).Elem()
+}
+
+func (o FileShareOutput) ToFileShareOutput() FileShareOutput {
+	return o
+}
+
+func (o FileShareOutput) ToFileShareOutputWithContext(ctx context.Context) FileShareOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FileShareOutput{})
 }

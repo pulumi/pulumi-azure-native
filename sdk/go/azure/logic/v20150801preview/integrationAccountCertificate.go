@@ -4,6 +4,7 @@
 package v20150801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -183,4 +184,43 @@ type IntegrationAccountCertificateArgs struct {
 
 func (IntegrationAccountCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountCertificateArgs)(nil)).Elem()
+}
+
+type IntegrationAccountCertificateInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountCertificateOutput() IntegrationAccountCertificateOutput
+	ToIntegrationAccountCertificateOutputWithContext(ctx context.Context) IntegrationAccountCertificateOutput
+}
+
+func (IntegrationAccountCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountCertificate)(nil)).Elem()
+}
+
+func (i IntegrationAccountCertificate) ToIntegrationAccountCertificateOutput() IntegrationAccountCertificateOutput {
+	return i.ToIntegrationAccountCertificateOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountCertificate) ToIntegrationAccountCertificateOutputWithContext(ctx context.Context) IntegrationAccountCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateOutput)
+}
+
+type IntegrationAccountCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationAccountCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountCertificateOutput)(nil)).Elem()
+}
+
+func (o IntegrationAccountCertificateOutput) ToIntegrationAccountCertificateOutput() IntegrationAccountCertificateOutput {
+	return o
+}
+
+func (o IntegrationAccountCertificateOutput) ToIntegrationAccountCertificateOutputWithContext(ctx context.Context) IntegrationAccountCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationAccountCertificateOutput{})
 }

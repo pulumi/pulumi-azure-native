@@ -4,6 +4,7 @@
 package v20190701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -199,4 +200,43 @@ type StorageAccountCredentialArgs struct {
 
 func (StorageAccountCredentialArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageAccountCredentialArgs)(nil)).Elem()
+}
+
+type StorageAccountCredentialInput interface {
+	pulumi.Input
+
+	ToStorageAccountCredentialOutput() StorageAccountCredentialOutput
+	ToStorageAccountCredentialOutputWithContext(ctx context.Context) StorageAccountCredentialOutput
+}
+
+func (StorageAccountCredential) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountCredential)(nil)).Elem()
+}
+
+func (i StorageAccountCredential) ToStorageAccountCredentialOutput() StorageAccountCredentialOutput {
+	return i.ToStorageAccountCredentialOutputWithContext(context.Background())
+}
+
+func (i StorageAccountCredential) ToStorageAccountCredentialOutputWithContext(ctx context.Context) StorageAccountCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialOutput)
+}
+
+type StorageAccountCredentialOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageAccountCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountCredentialOutput)(nil)).Elem()
+}
+
+func (o StorageAccountCredentialOutput) ToStorageAccountCredentialOutput() StorageAccountCredentialOutput {
+	return o
+}
+
+func (o StorageAccountCredentialOutput) ToStorageAccountCredentialOutputWithContext(ctx context.Context) StorageAccountCredentialOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageAccountCredentialOutput{})
 }

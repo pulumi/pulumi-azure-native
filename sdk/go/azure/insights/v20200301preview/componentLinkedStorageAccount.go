@@ -4,6 +4,7 @@
 package v20200301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -105,4 +106,43 @@ type ComponentLinkedStorageAccountArgs struct {
 
 func (ComponentLinkedStorageAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*componentLinkedStorageAccountArgs)(nil)).Elem()
+}
+
+type ComponentLinkedStorageAccountInput interface {
+	pulumi.Input
+
+	ToComponentLinkedStorageAccountOutput() ComponentLinkedStorageAccountOutput
+	ToComponentLinkedStorageAccountOutputWithContext(ctx context.Context) ComponentLinkedStorageAccountOutput
+}
+
+func (ComponentLinkedStorageAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentLinkedStorageAccount)(nil)).Elem()
+}
+
+func (i ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutput() ComponentLinkedStorageAccountOutput {
+	return i.ToComponentLinkedStorageAccountOutputWithContext(context.Background())
+}
+
+func (i ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutputWithContext(ctx context.Context) ComponentLinkedStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentLinkedStorageAccountOutput)
+}
+
+type ComponentLinkedStorageAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (ComponentLinkedStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentLinkedStorageAccountOutput)(nil)).Elem()
+}
+
+func (o ComponentLinkedStorageAccountOutput) ToComponentLinkedStorageAccountOutput() ComponentLinkedStorageAccountOutput {
+	return o
+}
+
+func (o ComponentLinkedStorageAccountOutput) ToComponentLinkedStorageAccountOutputWithContext(ctx context.Context) ComponentLinkedStorageAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ComponentLinkedStorageAccountOutput{})
 }

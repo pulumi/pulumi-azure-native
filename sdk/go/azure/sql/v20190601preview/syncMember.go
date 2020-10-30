@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -219,4 +220,43 @@ type SyncMemberArgs struct {
 
 func (SyncMemberArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*syncMemberArgs)(nil)).Elem()
+}
+
+type SyncMemberInput interface {
+	pulumi.Input
+
+	ToSyncMemberOutput() SyncMemberOutput
+	ToSyncMemberOutputWithContext(ctx context.Context) SyncMemberOutput
+}
+
+func (SyncMember) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncMember)(nil)).Elem()
+}
+
+func (i SyncMember) ToSyncMemberOutput() SyncMemberOutput {
+	return i.ToSyncMemberOutputWithContext(context.Background())
+}
+
+func (i SyncMember) ToSyncMemberOutputWithContext(ctx context.Context) SyncMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncMemberOutput)
+}
+
+type SyncMemberOutput struct {
+	*pulumi.OutputState
+}
+
+func (SyncMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncMemberOutput)(nil)).Elem()
+}
+
+func (o SyncMemberOutput) ToSyncMemberOutput() SyncMemberOutput {
+	return o
+}
+
+func (o SyncMemberOutput) ToSyncMemberOutputWithContext(ctx context.Context) SyncMemberOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SyncMemberOutput{})
 }

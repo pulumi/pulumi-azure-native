@@ -4,6 +4,7 @@
 package v20181015
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -215,4 +216,43 @@ type EnvironmentSettingArgs struct {
 
 func (EnvironmentSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentSettingArgs)(nil)).Elem()
+}
+
+type EnvironmentSettingInput interface {
+	pulumi.Input
+
+	ToEnvironmentSettingOutput() EnvironmentSettingOutput
+	ToEnvironmentSettingOutputWithContext(ctx context.Context) EnvironmentSettingOutput
+}
+
+func (EnvironmentSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentSetting)(nil)).Elem()
+}
+
+func (i EnvironmentSetting) ToEnvironmentSettingOutput() EnvironmentSettingOutput {
+	return i.ToEnvironmentSettingOutputWithContext(context.Background())
+}
+
+func (i EnvironmentSetting) ToEnvironmentSettingOutputWithContext(ctx context.Context) EnvironmentSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingOutput)
+}
+
+type EnvironmentSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (EnvironmentSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentSettingOutput)(nil)).Elem()
+}
+
+func (o EnvironmentSettingOutput) ToEnvironmentSettingOutput() EnvironmentSettingOutput {
+	return o
+}
+
+func (o EnvironmentSettingOutput) ToEnvironmentSettingOutputWithContext(ctx context.Context) EnvironmentSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EnvironmentSettingOutput{})
 }

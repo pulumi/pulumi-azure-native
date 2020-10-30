@@ -4,6 +4,7 @@
 package v20191017preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,4 +124,43 @@ type PrivateLinkScopeArgs struct {
 
 func (PrivateLinkScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkScopeArgs)(nil)).Elem()
+}
+
+type PrivateLinkScopeInput interface {
+	pulumi.Input
+
+	ToPrivateLinkScopeOutput() PrivateLinkScopeOutput
+	ToPrivateLinkScopeOutputWithContext(ctx context.Context) PrivateLinkScopeOutput
+}
+
+func (PrivateLinkScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScope)(nil)).Elem()
+}
+
+func (i PrivateLinkScope) ToPrivateLinkScopeOutput() PrivateLinkScopeOutput {
+	return i.ToPrivateLinkScopeOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkScope) ToPrivateLinkScopeOutputWithContext(ctx context.Context) PrivateLinkScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopeOutput)
+}
+
+type PrivateLinkScopeOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateLinkScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopeOutput)(nil)).Elem()
+}
+
+func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutput() PrivateLinkScopeOutput {
+	return o
+}
+
+func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutputWithContext(ctx context.Context) PrivateLinkScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateLinkScopeOutput{})
 }

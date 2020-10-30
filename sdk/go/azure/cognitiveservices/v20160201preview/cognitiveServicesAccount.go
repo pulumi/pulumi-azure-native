@@ -4,6 +4,7 @@
 package v20160201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -164,4 +165,43 @@ type CognitiveServicesAccountArgs struct {
 
 func (CognitiveServicesAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cognitiveServicesAccountArgs)(nil)).Elem()
+}
+
+type CognitiveServicesAccountInput interface {
+	pulumi.Input
+
+	ToCognitiveServicesAccountOutput() CognitiveServicesAccountOutput
+	ToCognitiveServicesAccountOutputWithContext(ctx context.Context) CognitiveServicesAccountOutput
+}
+
+func (CognitiveServicesAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*CognitiveServicesAccount)(nil)).Elem()
+}
+
+func (i CognitiveServicesAccount) ToCognitiveServicesAccountOutput() CognitiveServicesAccountOutput {
+	return i.ToCognitiveServicesAccountOutputWithContext(context.Background())
+}
+
+func (i CognitiveServicesAccount) ToCognitiveServicesAccountOutputWithContext(ctx context.Context) CognitiveServicesAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CognitiveServicesAccountOutput)
+}
+
+type CognitiveServicesAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (CognitiveServicesAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CognitiveServicesAccountOutput)(nil)).Elem()
+}
+
+func (o CognitiveServicesAccountOutput) ToCognitiveServicesAccountOutput() CognitiveServicesAccountOutput {
+	return o
+}
+
+func (o CognitiveServicesAccountOutput) ToCognitiveServicesAccountOutputWithContext(ctx context.Context) CognitiveServicesAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CognitiveServicesAccountOutput{})
 }

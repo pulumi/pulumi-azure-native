@@ -4,6 +4,7 @@
 package v20170515preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -181,4 +182,43 @@ type SourceControlArgs struct {
 
 func (SourceControlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceControlArgs)(nil)).Elem()
+}
+
+type SourceControlInput interface {
+	pulumi.Input
+
+	ToSourceControlOutput() SourceControlOutput
+	ToSourceControlOutputWithContext(ctx context.Context) SourceControlOutput
+}
+
+func (SourceControl) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControl)(nil)).Elem()
+}
+
+func (i SourceControl) ToSourceControlOutput() SourceControlOutput {
+	return i.ToSourceControlOutputWithContext(context.Background())
+}
+
+func (i SourceControl) ToSourceControlOutputWithContext(ctx context.Context) SourceControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlOutput)
+}
+
+type SourceControlOutput struct {
+	*pulumi.OutputState
+}
+
+func (SourceControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlOutput)(nil)).Elem()
+}
+
+func (o SourceControlOutput) ToSourceControlOutput() SourceControlOutput {
+	return o
+}
+
+func (o SourceControlOutput) ToSourceControlOutputWithContext(ctx context.Context) SourceControlOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SourceControlOutput{})
 }

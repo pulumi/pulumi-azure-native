@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type ManagementLockByScopeArgs struct {
 
 func (ManagementLockByScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementLockByScopeArgs)(nil)).Elem()
+}
+
+type ManagementLockByScopeInput interface {
+	pulumi.Input
+
+	ToManagementLockByScopeOutput() ManagementLockByScopeOutput
+	ToManagementLockByScopeOutputWithContext(ctx context.Context) ManagementLockByScopeOutput
+}
+
+func (ManagementLockByScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockByScope)(nil)).Elem()
+}
+
+func (i ManagementLockByScope) ToManagementLockByScopeOutput() ManagementLockByScopeOutput {
+	return i.ToManagementLockByScopeOutputWithContext(context.Background())
+}
+
+func (i ManagementLockByScope) ToManagementLockByScopeOutputWithContext(ctx context.Context) ManagementLockByScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockByScopeOutput)
+}
+
+type ManagementLockByScopeOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementLockByScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockByScopeOutput)(nil)).Elem()
+}
+
+func (o ManagementLockByScopeOutput) ToManagementLockByScopeOutput() ManagementLockByScopeOutput {
+	return o
+}
+
+func (o ManagementLockByScopeOutput) ToManagementLockByScopeOutputWithContext(ctx context.Context) ManagementLockByScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementLockByScopeOutput{})
 }

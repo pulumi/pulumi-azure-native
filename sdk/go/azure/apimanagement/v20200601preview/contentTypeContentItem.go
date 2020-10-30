@@ -4,6 +4,7 @@
 package v20200601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -117,4 +118,43 @@ type ContentTypeContentItemArgs struct {
 
 func (ContentTypeContentItemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*contentTypeContentItemArgs)(nil)).Elem()
+}
+
+type ContentTypeContentItemInput interface {
+	pulumi.Input
+
+	ToContentTypeContentItemOutput() ContentTypeContentItemOutput
+	ToContentTypeContentItemOutputWithContext(ctx context.Context) ContentTypeContentItemOutput
+}
+
+func (ContentTypeContentItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentTypeContentItem)(nil)).Elem()
+}
+
+func (i ContentTypeContentItem) ToContentTypeContentItemOutput() ContentTypeContentItemOutput {
+	return i.ToContentTypeContentItemOutputWithContext(context.Background())
+}
+
+func (i ContentTypeContentItem) ToContentTypeContentItemOutputWithContext(ctx context.Context) ContentTypeContentItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentTypeContentItemOutput)
+}
+
+type ContentTypeContentItemOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContentTypeContentItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentTypeContentItemOutput)(nil)).Elem()
+}
+
+func (o ContentTypeContentItemOutput) ToContentTypeContentItemOutput() ContentTypeContentItemOutput {
+	return o
+}
+
+func (o ContentTypeContentItemOutput) ToContentTypeContentItemOutputWithContext(ctx context.Context) ContentTypeContentItemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContentTypeContentItemOutput{})
 }

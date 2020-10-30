@@ -4,6 +4,7 @@
 package v20201031
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -144,4 +145,43 @@ type DigitalTwinArgs struct {
 
 func (DigitalTwinArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*digitalTwinArgs)(nil)).Elem()
+}
+
+type DigitalTwinInput interface {
+	pulumi.Input
+
+	ToDigitalTwinOutput() DigitalTwinOutput
+	ToDigitalTwinOutputWithContext(ctx context.Context) DigitalTwinOutput
+}
+
+func (DigitalTwin) ElementType() reflect.Type {
+	return reflect.TypeOf((*DigitalTwin)(nil)).Elem()
+}
+
+func (i DigitalTwin) ToDigitalTwinOutput() DigitalTwinOutput {
+	return i.ToDigitalTwinOutputWithContext(context.Background())
+}
+
+func (i DigitalTwin) ToDigitalTwinOutputWithContext(ctx context.Context) DigitalTwinOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DigitalTwinOutput)
+}
+
+type DigitalTwinOutput struct {
+	*pulumi.OutputState
+}
+
+func (DigitalTwinOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DigitalTwinOutput)(nil)).Elem()
+}
+
+func (o DigitalTwinOutput) ToDigitalTwinOutput() DigitalTwinOutput {
+	return o
+}
+
+func (o DigitalTwinOutput) ToDigitalTwinOutputWithContext(ctx context.Context) DigitalTwinOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DigitalTwinOutput{})
 }

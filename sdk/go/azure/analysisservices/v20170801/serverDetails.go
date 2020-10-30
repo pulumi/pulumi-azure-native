@@ -4,6 +4,7 @@
 package v20170801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -207,4 +208,43 @@ type ServerDetailsArgs struct {
 
 func (ServerDetailsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverDetailsArgs)(nil)).Elem()
+}
+
+type ServerDetailsInput interface {
+	pulumi.Input
+
+	ToServerDetailsOutput() ServerDetailsOutput
+	ToServerDetailsOutputWithContext(ctx context.Context) ServerDetailsOutput
+}
+
+func (ServerDetails) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDetails)(nil)).Elem()
+}
+
+func (i ServerDetails) ToServerDetailsOutput() ServerDetailsOutput {
+	return i.ToServerDetailsOutputWithContext(context.Background())
+}
+
+func (i ServerDetails) ToServerDetailsOutputWithContext(ctx context.Context) ServerDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerDetailsOutput)
+}
+
+type ServerDetailsOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDetailsOutput)(nil)).Elem()
+}
+
+func (o ServerDetailsOutput) ToServerDetailsOutput() ServerDetailsOutput {
+	return o
+}
+
+func (o ServerDetailsOutput) ToServerDetailsOutputWithContext(ctx context.Context) ServerDetailsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerDetailsOutput{})
 }

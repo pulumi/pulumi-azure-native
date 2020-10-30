@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -150,4 +151,43 @@ type IncidentRelationArgs struct {
 
 func (IncidentRelationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentRelationArgs)(nil)).Elem()
+}
+
+type IncidentRelationInput interface {
+	pulumi.Input
+
+	ToIncidentRelationOutput() IncidentRelationOutput
+	ToIncidentRelationOutputWithContext(ctx context.Context) IncidentRelationOutput
+}
+
+func (IncidentRelation) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentRelation)(nil)).Elem()
+}
+
+func (i IncidentRelation) ToIncidentRelationOutput() IncidentRelationOutput {
+	return i.ToIncidentRelationOutputWithContext(context.Background())
+}
+
+func (i IncidentRelation) ToIncidentRelationOutputWithContext(ctx context.Context) IncidentRelationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentRelationOutput)
+}
+
+type IncidentRelationOutput struct {
+	*pulumi.OutputState
+}
+
+func (IncidentRelationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentRelationOutput)(nil)).Elem()
+}
+
+func (o IncidentRelationOutput) ToIncidentRelationOutput() IncidentRelationOutput {
+	return o
+}
+
+func (o IncidentRelationOutput) ToIncidentRelationOutputWithContext(ctx context.Context) IncidentRelationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IncidentRelationOutput{})
 }

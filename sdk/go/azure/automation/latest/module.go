@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -204,4 +205,43 @@ type ModuleArgs struct {
 
 func (ModuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*moduleArgs)(nil)).Elem()
+}
+
+type ModuleInput interface {
+	pulumi.Input
+
+	ToModuleOutput() ModuleOutput
+	ToModuleOutputWithContext(ctx context.Context) ModuleOutput
+}
+
+func (Module) ElementType() reflect.Type {
+	return reflect.TypeOf((*Module)(nil)).Elem()
+}
+
+func (i Module) ToModuleOutput() ModuleOutput {
+	return i.ToModuleOutputWithContext(context.Background())
+}
+
+func (i Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleOutput)
+}
+
+type ModuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ModuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleOutput)(nil)).Elem()
+}
+
+func (o ModuleOutput) ToModuleOutput() ModuleOutput {
+	return o
+}
+
+func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ModuleOutput{})
 }

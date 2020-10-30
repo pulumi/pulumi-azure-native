@@ -4,6 +4,7 @@
 package v20180901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -179,4 +180,43 @@ type RolloutArgs struct {
 
 func (RolloutArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rolloutArgs)(nil)).Elem()
+}
+
+type RolloutInput interface {
+	pulumi.Input
+
+	ToRolloutOutput() RolloutOutput
+	ToRolloutOutputWithContext(ctx context.Context) RolloutOutput
+}
+
+func (Rollout) ElementType() reflect.Type {
+	return reflect.TypeOf((*Rollout)(nil)).Elem()
+}
+
+func (i Rollout) ToRolloutOutput() RolloutOutput {
+	return i.ToRolloutOutputWithContext(context.Background())
+}
+
+func (i Rollout) ToRolloutOutputWithContext(ctx context.Context) RolloutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolloutOutput)
+}
+
+type RolloutOutput struct {
+	*pulumi.OutputState
+}
+
+func (RolloutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolloutOutput)(nil)).Elem()
+}
+
+func (o RolloutOutput) ToRolloutOutput() RolloutOutput {
+	return o
+}
+
+func (o RolloutOutput) ToRolloutOutputWithContext(ctx context.Context) RolloutOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RolloutOutput{})
 }

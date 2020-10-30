@@ -4,6 +4,7 @@
 package v20171001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -152,4 +153,43 @@ type CapacityDetailsArgs struct {
 
 func (CapacityDetailsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityDetailsArgs)(nil)).Elem()
+}
+
+type CapacityDetailsInput interface {
+	pulumi.Input
+
+	ToCapacityDetailsOutput() CapacityDetailsOutput
+	ToCapacityDetailsOutputWithContext(ctx context.Context) CapacityDetailsOutput
+}
+
+func (CapacityDetails) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityDetails)(nil)).Elem()
+}
+
+func (i CapacityDetails) ToCapacityDetailsOutput() CapacityDetailsOutput {
+	return i.ToCapacityDetailsOutputWithContext(context.Background())
+}
+
+func (i CapacityDetails) ToCapacityDetailsOutputWithContext(ctx context.Context) CapacityDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityDetailsOutput)
+}
+
+type CapacityDetailsOutput struct {
+	*pulumi.OutputState
+}
+
+func (CapacityDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityDetailsOutput)(nil)).Elem()
+}
+
+func (o CapacityDetailsOutput) ToCapacityDetailsOutput() CapacityDetailsOutput {
+	return o
+}
+
+func (o CapacityDetailsOutput) ToCapacityDetailsOutputWithContext(ctx context.Context) CapacityDetailsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CapacityDetailsOutput{})
 }

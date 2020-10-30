@@ -4,6 +4,7 @@
 package v20191001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -158,4 +159,43 @@ type StorageSyncServiceArgs struct {
 
 func (StorageSyncServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageSyncServiceArgs)(nil)).Elem()
+}
+
+type StorageSyncServiceInput interface {
+	pulumi.Input
+
+	ToStorageSyncServiceOutput() StorageSyncServiceOutput
+	ToStorageSyncServiceOutputWithContext(ctx context.Context) StorageSyncServiceOutput
+}
+
+func (StorageSyncService) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSyncService)(nil)).Elem()
+}
+
+func (i StorageSyncService) ToStorageSyncServiceOutput() StorageSyncServiceOutput {
+	return i.ToStorageSyncServiceOutputWithContext(context.Background())
+}
+
+func (i StorageSyncService) ToStorageSyncServiceOutputWithContext(ctx context.Context) StorageSyncServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSyncServiceOutput)
+}
+
+type StorageSyncServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageSyncServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSyncServiceOutput)(nil)).Elem()
+}
+
+func (o StorageSyncServiceOutput) ToStorageSyncServiceOutput() StorageSyncServiceOutput {
+	return o
+}
+
+func (o StorageSyncServiceOutput) ToStorageSyncServiceOutputWithContext(ctx context.Context) StorageSyncServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageSyncServiceOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -219,4 +220,43 @@ type WebAppHostNameBindingSlotArgs struct {
 
 func (WebAppHostNameBindingSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppHostNameBindingSlotArgs)(nil)).Elem()
+}
+
+type WebAppHostNameBindingSlotInput interface {
+	pulumi.Input
+
+	ToWebAppHostNameBindingSlotOutput() WebAppHostNameBindingSlotOutput
+	ToWebAppHostNameBindingSlotOutputWithContext(ctx context.Context) WebAppHostNameBindingSlotOutput
+}
+
+func (WebAppHostNameBindingSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHostNameBindingSlot)(nil)).Elem()
+}
+
+func (i WebAppHostNameBindingSlot) ToWebAppHostNameBindingSlotOutput() WebAppHostNameBindingSlotOutput {
+	return i.ToWebAppHostNameBindingSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppHostNameBindingSlot) ToWebAppHostNameBindingSlotOutputWithContext(ctx context.Context) WebAppHostNameBindingSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppHostNameBindingSlotOutput)
+}
+
+type WebAppHostNameBindingSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppHostNameBindingSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHostNameBindingSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppHostNameBindingSlotOutput) ToWebAppHostNameBindingSlotOutput() WebAppHostNameBindingSlotOutput {
+	return o
+}
+
+func (o WebAppHostNameBindingSlotOutput) ToWebAppHostNameBindingSlotOutputWithContext(ctx context.Context) WebAppHostNameBindingSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppHostNameBindingSlotOutput{})
 }

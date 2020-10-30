@@ -4,6 +4,7 @@
 package v20201031
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -117,4 +118,43 @@ type DigitalTwinsEndpointArgs struct {
 
 func (DigitalTwinsEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*digitalTwinsEndpointArgs)(nil)).Elem()
+}
+
+type DigitalTwinsEndpointInput interface {
+	pulumi.Input
+
+	ToDigitalTwinsEndpointOutput() DigitalTwinsEndpointOutput
+	ToDigitalTwinsEndpointOutputWithContext(ctx context.Context) DigitalTwinsEndpointOutput
+}
+
+func (DigitalTwinsEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*DigitalTwinsEndpoint)(nil)).Elem()
+}
+
+func (i DigitalTwinsEndpoint) ToDigitalTwinsEndpointOutput() DigitalTwinsEndpointOutput {
+	return i.ToDigitalTwinsEndpointOutputWithContext(context.Background())
+}
+
+func (i DigitalTwinsEndpoint) ToDigitalTwinsEndpointOutputWithContext(ctx context.Context) DigitalTwinsEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DigitalTwinsEndpointOutput)
+}
+
+type DigitalTwinsEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (DigitalTwinsEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DigitalTwinsEndpointOutput)(nil)).Elem()
+}
+
+func (o DigitalTwinsEndpointOutput) ToDigitalTwinsEndpointOutput() DigitalTwinsEndpointOutput {
+	return o
+}
+
+func (o DigitalTwinsEndpointOutput) ToDigitalTwinsEndpointOutputWithContext(ctx context.Context) DigitalTwinsEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DigitalTwinsEndpointOutput{})
 }

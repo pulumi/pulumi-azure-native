@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -236,4 +237,43 @@ type WebAppSiteExtensionArgs struct {
 
 func (WebAppSiteExtensionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppSiteExtensionArgs)(nil)).Elem()
+}
+
+type WebAppSiteExtensionInput interface {
+	pulumi.Input
+
+	ToWebAppSiteExtensionOutput() WebAppSiteExtensionOutput
+	ToWebAppSiteExtensionOutputWithContext(ctx context.Context) WebAppSiteExtensionOutput
+}
+
+func (WebAppSiteExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSiteExtension)(nil)).Elem()
+}
+
+func (i WebAppSiteExtension) ToWebAppSiteExtensionOutput() WebAppSiteExtensionOutput {
+	return i.ToWebAppSiteExtensionOutputWithContext(context.Background())
+}
+
+func (i WebAppSiteExtension) ToWebAppSiteExtensionOutputWithContext(ctx context.Context) WebAppSiteExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSiteExtensionOutput)
+}
+
+type WebAppSiteExtensionOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppSiteExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSiteExtensionOutput)(nil)).Elem()
+}
+
+func (o WebAppSiteExtensionOutput) ToWebAppSiteExtensionOutput() WebAppSiteExtensionOutput {
+	return o
+}
+
+func (o WebAppSiteExtensionOutput) ToWebAppSiteExtensionOutputWithContext(ctx context.Context) WebAppSiteExtensionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppSiteExtensionOutput{})
 }

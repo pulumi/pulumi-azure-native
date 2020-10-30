@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type StorageDomainArgs struct {
 
 func (StorageDomainArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageDomainArgs)(nil)).Elem()
+}
+
+type StorageDomainInput interface {
+	pulumi.Input
+
+	ToStorageDomainOutput() StorageDomainOutput
+	ToStorageDomainOutputWithContext(ctx context.Context) StorageDomainOutput
+}
+
+func (StorageDomain) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageDomain)(nil)).Elem()
+}
+
+func (i StorageDomain) ToStorageDomainOutput() StorageDomainOutput {
+	return i.ToStorageDomainOutputWithContext(context.Background())
+}
+
+func (i StorageDomain) ToStorageDomainOutputWithContext(ctx context.Context) StorageDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageDomainOutput)
+}
+
+type StorageDomainOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageDomainOutput)(nil)).Elem()
+}
+
+func (o StorageDomainOutput) ToStorageDomainOutput() StorageDomainOutput {
+	return o
+}
+
+func (o StorageDomainOutput) ToStorageDomainOutputWithContext(ctx context.Context) StorageDomainOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageDomainOutput{})
 }

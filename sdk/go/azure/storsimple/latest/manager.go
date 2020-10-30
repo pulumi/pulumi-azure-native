@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -160,4 +161,43 @@ type ManagerArgs struct {
 
 func (ManagerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managerArgs)(nil)).Elem()
+}
+
+type ManagerInput interface {
+	pulumi.Input
+
+	ToManagerOutput() ManagerOutput
+	ToManagerOutputWithContext(ctx context.Context) ManagerOutput
+}
+
+func (Manager) ElementType() reflect.Type {
+	return reflect.TypeOf((*Manager)(nil)).Elem()
+}
+
+func (i Manager) ToManagerOutput() ManagerOutput {
+	return i.ToManagerOutputWithContext(context.Background())
+}
+
+func (i Manager) ToManagerOutputWithContext(ctx context.Context) ManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagerOutput)
+}
+
+type ManagerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerOutput)(nil)).Elem()
+}
+
+func (o ManagerOutput) ToManagerOutput() ManagerOutput {
+	return o
+}
+
+func (o ManagerOutput) ToManagerOutputWithContext(ctx context.Context) ManagerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagerOutput{})
 }

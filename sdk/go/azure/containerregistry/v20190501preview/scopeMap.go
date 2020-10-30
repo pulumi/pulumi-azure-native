@@ -4,6 +4,7 @@
 package v20190501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type ScopeMapArgs struct {
 
 func (ScopeMapArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scopeMapArgs)(nil)).Elem()
+}
+
+type ScopeMapInput interface {
+	pulumi.Input
+
+	ToScopeMapOutput() ScopeMapOutput
+	ToScopeMapOutputWithContext(ctx context.Context) ScopeMapOutput
+}
+
+func (ScopeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeMap)(nil)).Elem()
+}
+
+func (i ScopeMap) ToScopeMapOutput() ScopeMapOutput {
+	return i.ToScopeMapOutputWithContext(context.Background())
+}
+
+func (i ScopeMap) ToScopeMapOutputWithContext(ctx context.Context) ScopeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeMapOutput)
+}
+
+type ScopeMapOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScopeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeMapOutput)(nil)).Elem()
+}
+
+func (o ScopeMapOutput) ToScopeMapOutput() ScopeMapOutput {
+	return o
+}
+
+func (o ScopeMapOutput) ToScopeMapOutputWithContext(ctx context.Context) ScopeMapOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScopeMapOutput{})
 }

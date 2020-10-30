@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -165,4 +166,43 @@ type PrivateStoreOfferArgs struct {
 
 func (PrivateStoreOfferArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateStoreOfferArgs)(nil)).Elem()
+}
+
+type PrivateStoreOfferInput interface {
+	pulumi.Input
+
+	ToPrivateStoreOfferOutput() PrivateStoreOfferOutput
+	ToPrivateStoreOfferOutputWithContext(ctx context.Context) PrivateStoreOfferOutput
+}
+
+func (PrivateStoreOffer) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateStoreOffer)(nil)).Elem()
+}
+
+func (i PrivateStoreOffer) ToPrivateStoreOfferOutput() PrivateStoreOfferOutput {
+	return i.ToPrivateStoreOfferOutputWithContext(context.Background())
+}
+
+func (i PrivateStoreOffer) ToPrivateStoreOfferOutputWithContext(ctx context.Context) PrivateStoreOfferOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateStoreOfferOutput)
+}
+
+type PrivateStoreOfferOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateStoreOfferOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateStoreOfferOutput)(nil)).Elem()
+}
+
+func (o PrivateStoreOfferOutput) ToPrivateStoreOfferOutput() PrivateStoreOfferOutput {
+	return o
+}
+
+func (o PrivateStoreOfferOutput) ToPrivateStoreOfferOutputWithContext(ctx context.Context) PrivateStoreOfferOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateStoreOfferOutput{})
 }

@@ -4,6 +4,7 @@
 package v20180701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -212,4 +213,43 @@ type StreamingLocatorArgs struct {
 
 func (StreamingLocatorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamingLocatorArgs)(nil)).Elem()
+}
+
+type StreamingLocatorInput interface {
+	pulumi.Input
+
+	ToStreamingLocatorOutput() StreamingLocatorOutput
+	ToStreamingLocatorOutputWithContext(ctx context.Context) StreamingLocatorOutput
+}
+
+func (StreamingLocator) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocator)(nil)).Elem()
+}
+
+func (i StreamingLocator) ToStreamingLocatorOutput() StreamingLocatorOutput {
+	return i.ToStreamingLocatorOutputWithContext(context.Background())
+}
+
+func (i StreamingLocator) ToStreamingLocatorOutputWithContext(ctx context.Context) StreamingLocatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorOutput)
+}
+
+type StreamingLocatorOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamingLocatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocatorOutput)(nil)).Elem()
+}
+
+func (o StreamingLocatorOutput) ToStreamingLocatorOutput() StreamingLocatorOutput {
+	return o
+}
+
+func (o StreamingLocatorOutput) ToStreamingLocatorOutputWithContext(ctx context.Context) StreamingLocatorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StreamingLocatorOutput{})
 }

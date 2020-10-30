@@ -4,6 +4,7 @@
 package v20180110
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -130,4 +131,43 @@ type ReplicationvCenterArgs struct {
 
 func (ReplicationvCenterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationvCenterArgs)(nil)).Elem()
+}
+
+type ReplicationvCenterInput interface {
+	pulumi.Input
+
+	ToReplicationvCenterOutput() ReplicationvCenterOutput
+	ToReplicationvCenterOutputWithContext(ctx context.Context) ReplicationvCenterOutput
+}
+
+func (ReplicationvCenter) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationvCenter)(nil)).Elem()
+}
+
+func (i ReplicationvCenter) ToReplicationvCenterOutput() ReplicationvCenterOutput {
+	return i.ToReplicationvCenterOutputWithContext(context.Background())
+}
+
+func (i ReplicationvCenter) ToReplicationvCenterOutputWithContext(ctx context.Context) ReplicationvCenterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationvCenterOutput)
+}
+
+type ReplicationvCenterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationvCenterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationvCenterOutput)(nil)).Elem()
+}
+
+func (o ReplicationvCenterOutput) ToReplicationvCenterOutput() ReplicationvCenterOutput {
+	return o
+}
+
+func (o ReplicationvCenterOutput) ToReplicationvCenterOutputWithContext(ctx context.Context) ReplicationvCenterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationvCenterOutput{})
 }

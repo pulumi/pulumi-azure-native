@@ -4,6 +4,7 @@
 package v20200501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -115,4 +116,43 @@ type LinkedWorkspaceArgs struct {
 
 func (LinkedWorkspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedWorkspaceArgs)(nil)).Elem()
+}
+
+type LinkedWorkspaceInput interface {
+	pulumi.Input
+
+	ToLinkedWorkspaceOutput() LinkedWorkspaceOutput
+	ToLinkedWorkspaceOutputWithContext(ctx context.Context) LinkedWorkspaceOutput
+}
+
+func (LinkedWorkspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedWorkspace)(nil)).Elem()
+}
+
+func (i LinkedWorkspace) ToLinkedWorkspaceOutput() LinkedWorkspaceOutput {
+	return i.ToLinkedWorkspaceOutputWithContext(context.Background())
+}
+
+func (i LinkedWorkspace) ToLinkedWorkspaceOutputWithContext(ctx context.Context) LinkedWorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspaceOutput)
+}
+
+type LinkedWorkspaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedWorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedWorkspaceOutput)(nil)).Elem()
+}
+
+func (o LinkedWorkspaceOutput) ToLinkedWorkspaceOutput() LinkedWorkspaceOutput {
+	return o
+}
+
+func (o LinkedWorkspaceOutput) ToLinkedWorkspaceOutputWithContext(ctx context.Context) LinkedWorkspaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedWorkspaceOutput{})
 }

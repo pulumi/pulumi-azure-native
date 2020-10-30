@@ -4,6 +4,7 @@
 package v20180801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type ReportByBillingAccountArgs struct {
 
 func (ReportByBillingAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportByBillingAccountArgs)(nil)).Elem()
+}
+
+type ReportByBillingAccountInput interface {
+	pulumi.Input
+
+	ToReportByBillingAccountOutput() ReportByBillingAccountOutput
+	ToReportByBillingAccountOutputWithContext(ctx context.Context) ReportByBillingAccountOutput
+}
+
+func (ReportByBillingAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportByBillingAccount)(nil)).Elem()
+}
+
+func (i ReportByBillingAccount) ToReportByBillingAccountOutput() ReportByBillingAccountOutput {
+	return i.ToReportByBillingAccountOutputWithContext(context.Background())
+}
+
+func (i ReportByBillingAccount) ToReportByBillingAccountOutputWithContext(ctx context.Context) ReportByBillingAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportByBillingAccountOutput)
+}
+
+type ReportByBillingAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReportByBillingAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportByBillingAccountOutput)(nil)).Elem()
+}
+
+func (o ReportByBillingAccountOutput) ToReportByBillingAccountOutput() ReportByBillingAccountOutput {
+	return o
+}
+
+func (o ReportByBillingAccountOutput) ToReportByBillingAccountOutputWithContext(ctx context.Context) ReportByBillingAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReportByBillingAccountOutput{})
 }

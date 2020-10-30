@@ -4,6 +4,7 @@
 package v20180701preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type IntegrationAccountAssemblyArgs struct {
 
 func (IntegrationAccountAssemblyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountAssemblyArgs)(nil)).Elem()
+}
+
+type IntegrationAccountAssemblyInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountAssemblyOutput() IntegrationAccountAssemblyOutput
+	ToIntegrationAccountAssemblyOutputWithContext(ctx context.Context) IntegrationAccountAssemblyOutput
+}
+
+func (IntegrationAccountAssembly) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAssembly)(nil)).Elem()
+}
+
+func (i IntegrationAccountAssembly) ToIntegrationAccountAssemblyOutput() IntegrationAccountAssemblyOutput {
+	return i.ToIntegrationAccountAssemblyOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountAssembly) ToIntegrationAccountAssemblyOutputWithContext(ctx context.Context) IntegrationAccountAssemblyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAssemblyOutput)
+}
+
+type IntegrationAccountAssemblyOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationAccountAssemblyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountAssemblyOutput)(nil)).Elem()
+}
+
+func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyOutput() IntegrationAccountAssemblyOutput {
+	return o
+}
+
+func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyOutputWithContext(ctx context.Context) IntegrationAccountAssemblyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationAccountAssemblyOutput{})
 }

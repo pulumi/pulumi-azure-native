@@ -4,6 +4,7 @@
 package v20170901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -155,4 +156,43 @@ type FactoryArgs struct {
 
 func (FactoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*factoryArgs)(nil)).Elem()
+}
+
+type FactoryInput interface {
+	pulumi.Input
+
+	ToFactoryOutput() FactoryOutput
+	ToFactoryOutputWithContext(ctx context.Context) FactoryOutput
+}
+
+func (Factory) ElementType() reflect.Type {
+	return reflect.TypeOf((*Factory)(nil)).Elem()
+}
+
+func (i Factory) ToFactoryOutput() FactoryOutput {
+	return i.ToFactoryOutputWithContext(context.Background())
+}
+
+func (i Factory) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactoryOutput)
+}
+
+type FactoryOutput struct {
+	*pulumi.OutputState
+}
+
+func (FactoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FactoryOutput)(nil)).Elem()
+}
+
+func (o FactoryOutput) ToFactoryOutput() FactoryOutput {
+	return o
+}
+
+func (o FactoryOutput) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FactoryOutput{})
 }

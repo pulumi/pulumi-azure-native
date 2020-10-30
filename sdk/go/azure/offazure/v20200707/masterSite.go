@@ -4,6 +4,7 @@
 package v20200707
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -128,4 +129,43 @@ type MasterSiteArgs struct {
 
 func (MasterSiteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*masterSiteArgs)(nil)).Elem()
+}
+
+type MasterSiteInput interface {
+	pulumi.Input
+
+	ToMasterSiteOutput() MasterSiteOutput
+	ToMasterSiteOutputWithContext(ctx context.Context) MasterSiteOutput
+}
+
+func (MasterSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*MasterSite)(nil)).Elem()
+}
+
+func (i MasterSite) ToMasterSiteOutput() MasterSiteOutput {
+	return i.ToMasterSiteOutputWithContext(context.Background())
+}
+
+func (i MasterSite) ToMasterSiteOutputWithContext(ctx context.Context) MasterSiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MasterSiteOutput)
+}
+
+type MasterSiteOutput struct {
+	*pulumi.OutputState
+}
+
+func (MasterSiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MasterSiteOutput)(nil)).Elem()
+}
+
+func (o MasterSiteOutput) ToMasterSiteOutput() MasterSiteOutput {
+	return o
+}
+
+func (o MasterSiteOutput) ToMasterSiteOutputWithContext(ctx context.Context) MasterSiteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MasterSiteOutput{})
 }

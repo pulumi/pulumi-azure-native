@@ -4,6 +4,7 @@
 package v20200630preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -105,4 +106,43 @@ type ConfigurationProfileAssignmentArgs struct {
 
 func (ConfigurationProfileAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationProfileAssignmentArgs)(nil)).Elem()
+}
+
+type ConfigurationProfileAssignmentInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput
+	ToConfigurationProfileAssignmentOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentOutput
+}
+
+func (ConfigurationProfileAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignment)(nil)).Elem()
+}
+
+func (i ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput {
+	return i.ToConfigurationProfileAssignmentOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentOutput)
+}
+
+type ConfigurationProfileAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationProfileAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignmentOutput)(nil)).Elem()
+}
+
+func (o ConfigurationProfileAssignmentOutput) ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentOutput) ToConfigurationProfileAssignmentOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationProfileAssignmentOutput{})
 }

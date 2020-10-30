@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -128,4 +129,43 @@ type WorkspaceAadAdminArgs struct {
 
 func (WorkspaceAadAdminArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceAadAdminArgs)(nil)).Elem()
+}
+
+type WorkspaceAadAdminInput interface {
+	pulumi.Input
+
+	ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput
+	ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput
+}
+
+func (WorkspaceAadAdmin) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceAadAdmin)(nil)).Elem()
+}
+
+func (i WorkspaceAadAdmin) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
+	return i.ToWorkspaceAadAdminOutputWithContext(context.Background())
+}
+
+func (i WorkspaceAadAdmin) ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminOutput)
+}
+
+type WorkspaceAadAdminOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceAadAdminOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceAadAdminOutput)(nil)).Elem()
+}
+
+func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
+	return o
+}
+
+func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -125,4 +126,43 @@ type ProductSettingArgs struct {
 
 func (ProductSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*productSettingArgs)(nil)).Elem()
+}
+
+type ProductSettingInput interface {
+	pulumi.Input
+
+	ToProductSettingOutput() ProductSettingOutput
+	ToProductSettingOutputWithContext(ctx context.Context) ProductSettingOutput
+}
+
+func (ProductSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductSetting)(nil)).Elem()
+}
+
+func (i ProductSetting) ToProductSettingOutput() ProductSettingOutput {
+	return i.ToProductSettingOutputWithContext(context.Background())
+}
+
+func (i ProductSetting) ToProductSettingOutputWithContext(ctx context.Context) ProductSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductSettingOutput)
+}
+
+type ProductSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProductSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductSettingOutput)(nil)).Elem()
+}
+
+func (o ProductSettingOutput) ToProductSettingOutput() ProductSettingOutput {
+	return o
+}
+
+func (o ProductSettingOutput) ToProductSettingOutputWithContext(ctx context.Context) ProductSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProductSettingOutput{})
 }

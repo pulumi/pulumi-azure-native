@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -139,4 +140,43 @@ type TagByOperationArgs struct {
 
 func (TagByOperationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagByOperationArgs)(nil)).Elem()
+}
+
+type TagByOperationInput interface {
+	pulumi.Input
+
+	ToTagByOperationOutput() TagByOperationOutput
+	ToTagByOperationOutputWithContext(ctx context.Context) TagByOperationOutput
+}
+
+func (TagByOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByOperation)(nil)).Elem()
+}
+
+func (i TagByOperation) ToTagByOperationOutput() TagByOperationOutput {
+	return i.ToTagByOperationOutputWithContext(context.Background())
+}
+
+func (i TagByOperation) ToTagByOperationOutputWithContext(ctx context.Context) TagByOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagByOperationOutput)
+}
+
+type TagByOperationOutput struct {
+	*pulumi.OutputState
+}
+
+func (TagByOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByOperationOutput)(nil)).Elem()
+}
+
+func (o TagByOperationOutput) ToTagByOperationOutput() TagByOperationOutput {
+	return o
+}
+
+func (o TagByOperationOutput) ToTagByOperationOutputWithContext(ctx context.Context) TagByOperationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TagByOperationOutput{})
 }

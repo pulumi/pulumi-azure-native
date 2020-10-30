@@ -4,6 +4,7 @@
 package v20190401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -179,4 +180,43 @@ type ControllerArgs struct {
 
 func (ControllerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*controllerArgs)(nil)).Elem()
+}
+
+type ControllerInput interface {
+	pulumi.Input
+
+	ToControllerOutput() ControllerOutput
+	ToControllerOutputWithContext(ctx context.Context) ControllerOutput
+}
+
+func (Controller) ElementType() reflect.Type {
+	return reflect.TypeOf((*Controller)(nil)).Elem()
+}
+
+func (i Controller) ToControllerOutput() ControllerOutput {
+	return i.ToControllerOutputWithContext(context.Background())
+}
+
+func (i Controller) ToControllerOutputWithContext(ctx context.Context) ControllerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerOutput)
+}
+
+type ControllerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ControllerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControllerOutput)(nil)).Elem()
+}
+
+func (o ControllerOutput) ToControllerOutput() ControllerOutput {
+	return o
+}
+
+func (o ControllerOutput) ToControllerOutputWithContext(ctx context.Context) ControllerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ControllerOutput{})
 }

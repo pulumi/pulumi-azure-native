@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -239,4 +240,43 @@ type ExportConfigurationArgs struct {
 
 func (ExportConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*exportConfigurationArgs)(nil)).Elem()
+}
+
+type ExportConfigurationInput interface {
+	pulumi.Input
+
+	ToExportConfigurationOutput() ExportConfigurationOutput
+	ToExportConfigurationOutputWithContext(ctx context.Context) ExportConfigurationOutput
+}
+
+func (ExportConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportConfiguration)(nil)).Elem()
+}
+
+func (i ExportConfiguration) ToExportConfigurationOutput() ExportConfigurationOutput {
+	return i.ToExportConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExportConfiguration) ToExportConfigurationOutputWithContext(ctx context.Context) ExportConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportConfigurationOutput)
+}
+
+type ExportConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExportConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportConfigurationOutput)(nil)).Elem()
+}
+
+func (o ExportConfigurationOutput) ToExportConfigurationOutput() ExportConfigurationOutput {
+	return o
+}
+
+func (o ExportConfigurationOutput) ToExportConfigurationOutputWithContext(ctx context.Context) ExportConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExportConfigurationOutput{})
 }

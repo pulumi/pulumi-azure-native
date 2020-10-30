@@ -4,6 +4,7 @@
 package v20200801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -110,4 +111,43 @@ type TableArgs struct {
 
 func (TableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableArgs)(nil)).Elem()
+}
+
+type TableInput interface {
+	pulumi.Input
+
+	ToTableOutput() TableOutput
+	ToTableOutputWithContext(ctx context.Context) TableOutput
+}
+
+func (Table) ElementType() reflect.Type {
+	return reflect.TypeOf((*Table)(nil)).Elem()
+}
+
+func (i Table) ToTableOutput() TableOutput {
+	return i.ToTableOutputWithContext(context.Background())
+}
+
+func (i Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOutput)
+}
+
+type TableOutput struct {
+	*pulumi.OutputState
+}
+
+func (TableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOutput)(nil)).Elem()
+}
+
+func (o TableOutput) ToTableOutput() TableOutput {
+	return o
+}
+
+func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TableOutput{})
 }

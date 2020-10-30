@@ -4,6 +4,7 @@
 package v20191101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,4 +125,43 @@ type SynchronizationSettingArgs struct {
 
 func (SynchronizationSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*synchronizationSettingArgs)(nil)).Elem()
+}
+
+type SynchronizationSettingInput interface {
+	pulumi.Input
+
+	ToSynchronizationSettingOutput() SynchronizationSettingOutput
+	ToSynchronizationSettingOutputWithContext(ctx context.Context) SynchronizationSettingOutput
+}
+
+func (SynchronizationSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*SynchronizationSetting)(nil)).Elem()
+}
+
+func (i SynchronizationSetting) ToSynchronizationSettingOutput() SynchronizationSettingOutput {
+	return i.ToSynchronizationSettingOutputWithContext(context.Background())
+}
+
+func (i SynchronizationSetting) ToSynchronizationSettingOutputWithContext(ctx context.Context) SynchronizationSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SynchronizationSettingOutput)
+}
+
+type SynchronizationSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (SynchronizationSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SynchronizationSettingOutput)(nil)).Elem()
+}
+
+func (o SynchronizationSettingOutput) ToSynchronizationSettingOutput() SynchronizationSettingOutput {
+	return o
+}
+
+func (o SynchronizationSettingOutput) ToSynchronizationSettingOutputWithContext(ctx context.Context) SynchronizationSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SynchronizationSettingOutput{})
 }

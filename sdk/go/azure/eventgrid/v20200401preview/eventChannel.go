@@ -4,6 +4,7 @@
 package v20200401preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -167,4 +168,43 @@ type EventChannelArgs struct {
 
 func (EventChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventChannelArgs)(nil)).Elem()
+}
+
+type EventChannelInput interface {
+	pulumi.Input
+
+	ToEventChannelOutput() EventChannelOutput
+	ToEventChannelOutputWithContext(ctx context.Context) EventChannelOutput
+}
+
+func (EventChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannel)(nil)).Elem()
+}
+
+func (i EventChannel) ToEventChannelOutput() EventChannelOutput {
+	return i.ToEventChannelOutputWithContext(context.Background())
+}
+
+func (i EventChannel) ToEventChannelOutputWithContext(ctx context.Context) EventChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelOutput)
+}
+
+type EventChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelOutput)(nil)).Elem()
+}
+
+func (o EventChannelOutput) ToEventChannelOutput() EventChannelOutput {
+	return o
+}
+
+func (o EventChannelOutput) ToEventChannelOutputWithContext(ctx context.Context) EventChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventChannelOutput{})
 }

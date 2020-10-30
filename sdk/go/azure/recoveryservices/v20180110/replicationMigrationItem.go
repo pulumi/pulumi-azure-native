@@ -4,6 +4,7 @@
 package v20180110
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type ReplicationMigrationItemArgs struct {
 
 func (ReplicationMigrationItemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationMigrationItemArgs)(nil)).Elem()
+}
+
+type ReplicationMigrationItemInput interface {
+	pulumi.Input
+
+	ToReplicationMigrationItemOutput() ReplicationMigrationItemOutput
+	ToReplicationMigrationItemOutputWithContext(ctx context.Context) ReplicationMigrationItemOutput
+}
+
+func (ReplicationMigrationItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationMigrationItem)(nil)).Elem()
+}
+
+func (i ReplicationMigrationItem) ToReplicationMigrationItemOutput() ReplicationMigrationItemOutput {
+	return i.ToReplicationMigrationItemOutputWithContext(context.Background())
+}
+
+func (i ReplicationMigrationItem) ToReplicationMigrationItemOutputWithContext(ctx context.Context) ReplicationMigrationItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationMigrationItemOutput)
+}
+
+type ReplicationMigrationItemOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationMigrationItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationMigrationItemOutput)(nil)).Elem()
+}
+
+func (o ReplicationMigrationItemOutput) ToReplicationMigrationItemOutput() ReplicationMigrationItemOutput {
+	return o
+}
+
+func (o ReplicationMigrationItemOutput) ToReplicationMigrationItemOutputWithContext(ctx context.Context) ReplicationMigrationItemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationMigrationItemOutput{})
 }

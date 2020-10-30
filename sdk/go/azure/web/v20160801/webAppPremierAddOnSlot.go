@@ -4,6 +4,7 @@
 package v20160801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -212,4 +213,43 @@ type WebAppPremierAddOnSlotArgs struct {
 
 func (WebAppPremierAddOnSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppPremierAddOnSlotArgs)(nil)).Elem()
+}
+
+type WebAppPremierAddOnSlotInput interface {
+	pulumi.Input
+
+	ToWebAppPremierAddOnSlotOutput() WebAppPremierAddOnSlotOutput
+	ToWebAppPremierAddOnSlotOutputWithContext(ctx context.Context) WebAppPremierAddOnSlotOutput
+}
+
+func (WebAppPremierAddOnSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPremierAddOnSlot)(nil)).Elem()
+}
+
+func (i WebAppPremierAddOnSlot) ToWebAppPremierAddOnSlotOutput() WebAppPremierAddOnSlotOutput {
+	return i.ToWebAppPremierAddOnSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppPremierAddOnSlot) ToWebAppPremierAddOnSlotOutputWithContext(ctx context.Context) WebAppPremierAddOnSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppPremierAddOnSlotOutput)
+}
+
+type WebAppPremierAddOnSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppPremierAddOnSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPremierAddOnSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppPremierAddOnSlotOutput) ToWebAppPremierAddOnSlotOutput() WebAppPremierAddOnSlotOutput {
+	return o
+}
+
+func (o WebAppPremierAddOnSlotOutput) ToWebAppPremierAddOnSlotOutputWithContext(ctx context.Context) WebAppPremierAddOnSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppPremierAddOnSlotOutput{})
 }

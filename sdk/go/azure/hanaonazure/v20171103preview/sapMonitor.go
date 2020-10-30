@@ -4,6 +4,7 @@
 package v20171103preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -252,4 +253,43 @@ type SapMonitorArgs struct {
 
 func (SapMonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sapMonitorArgs)(nil)).Elem()
+}
+
+type SapMonitorInput interface {
+	pulumi.Input
+
+	ToSapMonitorOutput() SapMonitorOutput
+	ToSapMonitorOutputWithContext(ctx context.Context) SapMonitorOutput
+}
+
+func (SapMonitor) ElementType() reflect.Type {
+	return reflect.TypeOf((*SapMonitor)(nil)).Elem()
+}
+
+func (i SapMonitor) ToSapMonitorOutput() SapMonitorOutput {
+	return i.ToSapMonitorOutputWithContext(context.Background())
+}
+
+func (i SapMonitor) ToSapMonitorOutputWithContext(ctx context.Context) SapMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SapMonitorOutput)
+}
+
+type SapMonitorOutput struct {
+	*pulumi.OutputState
+}
+
+func (SapMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SapMonitorOutput)(nil)).Elem()
+}
+
+func (o SapMonitorOutput) ToSapMonitorOutput() SapMonitorOutput {
+	return o
+}
+
+func (o SapMonitorOutput) ToSapMonitorOutputWithContext(ctx context.Context) SapMonitorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SapMonitorOutput{})
 }

@@ -4,6 +4,7 @@
 package v20191101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type ServiceTopologyArgs struct {
 
 func (ServiceTopologyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceTopologyArgs)(nil)).Elem()
+}
+
+type ServiceTopologyInput interface {
+	pulumi.Input
+
+	ToServiceTopologyOutput() ServiceTopologyOutput
+	ToServiceTopologyOutputWithContext(ctx context.Context) ServiceTopologyOutput
+}
+
+func (ServiceTopology) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTopology)(nil)).Elem()
+}
+
+func (i ServiceTopology) ToServiceTopologyOutput() ServiceTopologyOutput {
+	return i.ToServiceTopologyOutputWithContext(context.Background())
+}
+
+func (i ServiceTopology) ToServiceTopologyOutputWithContext(ctx context.Context) ServiceTopologyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTopologyOutput)
+}
+
+type ServiceTopologyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceTopologyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTopologyOutput)(nil)).Elem()
+}
+
+func (o ServiceTopologyOutput) ToServiceTopologyOutput() ServiceTopologyOutput {
+	return o
+}
+
+func (o ServiceTopologyOutput) ToServiceTopologyOutputWithContext(ctx context.Context) ServiceTopologyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceTopologyOutput{})
 }

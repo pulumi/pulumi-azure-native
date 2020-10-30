@@ -4,6 +4,7 @@
 package v20180301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -158,4 +159,43 @@ type LinkedServerArgs struct {
 
 func (LinkedServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServerArgs)(nil)).Elem()
+}
+
+type LinkedServerInput interface {
+	pulumi.Input
+
+	ToLinkedServerOutput() LinkedServerOutput
+	ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput
+}
+
+func (LinkedServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServer)(nil)).Elem()
+}
+
+func (i LinkedServer) ToLinkedServerOutput() LinkedServerOutput {
+	return i.ToLinkedServerOutputWithContext(context.Background())
+}
+
+func (i LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerOutput)
+}
+
+type LinkedServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServerOutput)(nil)).Elem()
+}
+
+func (o LinkedServerOutput) ToLinkedServerOutput() LinkedServerOutput {
+	return o
+}
+
+func (o LinkedServerOutput) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServerOutput{})
 }

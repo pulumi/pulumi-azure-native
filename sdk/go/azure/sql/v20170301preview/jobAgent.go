@@ -4,6 +4,7 @@
 package v20170301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -147,4 +148,43 @@ type JobAgentArgs struct {
 
 func (JobAgentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobAgentArgs)(nil)).Elem()
+}
+
+type JobAgentInput interface {
+	pulumi.Input
+
+	ToJobAgentOutput() JobAgentOutput
+	ToJobAgentOutputWithContext(ctx context.Context) JobAgentOutput
+}
+
+func (JobAgent) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAgent)(nil)).Elem()
+}
+
+func (i JobAgent) ToJobAgentOutput() JobAgentOutput {
+	return i.ToJobAgentOutputWithContext(context.Background())
+}
+
+func (i JobAgent) ToJobAgentOutputWithContext(ctx context.Context) JobAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAgentOutput)
+}
+
+type JobAgentOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAgentOutput)(nil)).Elem()
+}
+
+func (o JobAgentOutput) ToJobAgentOutput() JobAgentOutput {
+	return o
+}
+
+func (o JobAgentOutput) ToJobAgentOutputWithContext(ctx context.Context) JobAgentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobAgentOutput{})
 }

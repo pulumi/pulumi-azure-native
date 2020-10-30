@@ -4,6 +4,7 @@
 package v20200401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -156,4 +157,43 @@ type TableResourceTableArgs struct {
 
 func (TableResourceTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableResourceTableArgs)(nil)).Elem()
+}
+
+type TableResourceTableInput interface {
+	pulumi.Input
+
+	ToTableResourceTableOutput() TableResourceTableOutput
+	ToTableResourceTableOutputWithContext(ctx context.Context) TableResourceTableOutput
+}
+
+func (TableResourceTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableResourceTable)(nil)).Elem()
+}
+
+func (i TableResourceTable) ToTableResourceTableOutput() TableResourceTableOutput {
+	return i.ToTableResourceTableOutputWithContext(context.Background())
+}
+
+func (i TableResourceTable) ToTableResourceTableOutputWithContext(ctx context.Context) TableResourceTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableResourceTableOutput)
+}
+
+type TableResourceTableOutput struct {
+	*pulumi.OutputState
+}
+
+func (TableResourceTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableResourceTableOutput)(nil)).Elem()
+}
+
+func (o TableResourceTableOutput) ToTableResourceTableOutput() TableResourceTableOutput {
+	return o
+}
+
+func (o TableResourceTableOutput) ToTableResourceTableOutputWithContext(ctx context.Context) TableResourceTableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TableResourceTableOutput{})
 }

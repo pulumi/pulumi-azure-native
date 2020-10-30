@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -162,4 +163,43 @@ type FirewallPolicyRuleGroupArgs struct {
 
 func (FirewallPolicyRuleGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallPolicyRuleGroupArgs)(nil)).Elem()
+}
+
+type FirewallPolicyRuleGroupInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleGroupOutput() FirewallPolicyRuleGroupOutput
+	ToFirewallPolicyRuleGroupOutputWithContext(ctx context.Context) FirewallPolicyRuleGroupOutput
+}
+
+func (FirewallPolicyRuleGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleGroup)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleGroup) ToFirewallPolicyRuleGroupOutput() FirewallPolicyRuleGroupOutput {
+	return i.ToFirewallPolicyRuleGroupOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleGroup) ToFirewallPolicyRuleGroupOutputWithContext(ctx context.Context) FirewallPolicyRuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleGroupOutput)
+}
+
+type FirewallPolicyRuleGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (FirewallPolicyRuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleGroupOutput)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleGroupOutput) ToFirewallPolicyRuleGroupOutput() FirewallPolicyRuleGroupOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleGroupOutput) ToFirewallPolicyRuleGroupOutputWithContext(ctx context.Context) FirewallPolicyRuleGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FirewallPolicyRuleGroupOutput{})
 }

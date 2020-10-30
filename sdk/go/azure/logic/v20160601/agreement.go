@@ -4,6 +4,7 @@
 package v20160601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -230,4 +231,43 @@ type AgreementArgs struct {
 
 func (AgreementArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*agreementArgs)(nil)).Elem()
+}
+
+type AgreementInput interface {
+	pulumi.Input
+
+	ToAgreementOutput() AgreementOutput
+	ToAgreementOutputWithContext(ctx context.Context) AgreementOutput
+}
+
+func (Agreement) ElementType() reflect.Type {
+	return reflect.TypeOf((*Agreement)(nil)).Elem()
+}
+
+func (i Agreement) ToAgreementOutput() AgreementOutput {
+	return i.ToAgreementOutputWithContext(context.Background())
+}
+
+func (i Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgreementOutput)
+}
+
+type AgreementOutput struct {
+	*pulumi.OutputState
+}
+
+func (AgreementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgreementOutput)(nil)).Elem()
+}
+
+func (o AgreementOutput) ToAgreementOutput() AgreementOutput {
+	return o
+}
+
+func (o AgreementOutput) ToAgreementOutputWithContext(ctx context.Context) AgreementOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AgreementOutput{})
 }

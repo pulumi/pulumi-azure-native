@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -260,4 +261,43 @@ type NodeTypeArgs struct {
 
 func (NodeTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nodeTypeArgs)(nil)).Elem()
+}
+
+type NodeTypeInput interface {
+	pulumi.Input
+
+	ToNodeTypeOutput() NodeTypeOutput
+	ToNodeTypeOutputWithContext(ctx context.Context) NodeTypeOutput
+}
+
+func (NodeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeType)(nil)).Elem()
+}
+
+func (i NodeType) ToNodeTypeOutput() NodeTypeOutput {
+	return i.ToNodeTypeOutputWithContext(context.Background())
+}
+
+func (i NodeType) ToNodeTypeOutputWithContext(ctx context.Context) NodeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeOutput)
+}
+
+type NodeTypeOutput struct {
+	*pulumi.OutputState
+}
+
+func (NodeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeTypeOutput)(nil)).Elem()
+}
+
+func (o NodeTypeOutput) ToNodeTypeOutput() NodeTypeOutput {
+	return o
+}
+
+func (o NodeTypeOutput) ToNodeTypeOutputWithContext(ctx context.Context) NodeTypeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NodeTypeOutput{})
 }

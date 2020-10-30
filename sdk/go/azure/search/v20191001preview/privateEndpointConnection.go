@@ -4,6 +4,7 @@
 package v20191001preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,4 +125,43 @@ type PrivateEndpointConnectionArgs struct {
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateEndpointConnectionArgs)(nil)).Elem()
+}
+
+type PrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput
+	ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput
+}
+
+func (PrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnection) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
+	return i.ToPrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnection) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
+}
+
+type PrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionOutput)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
 }

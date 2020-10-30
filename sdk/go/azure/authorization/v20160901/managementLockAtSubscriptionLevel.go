@@ -4,6 +4,7 @@
 package v20160901
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,4 +124,43 @@ type ManagementLockAtSubscriptionLevelArgs struct {
 
 func (ManagementLockAtSubscriptionLevelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementLockAtSubscriptionLevelArgs)(nil)).Elem()
+}
+
+type ManagementLockAtSubscriptionLevelInput interface {
+	pulumi.Input
+
+	ToManagementLockAtSubscriptionLevelOutput() ManagementLockAtSubscriptionLevelOutput
+	ToManagementLockAtSubscriptionLevelOutputWithContext(ctx context.Context) ManagementLockAtSubscriptionLevelOutput
+}
+
+func (ManagementLockAtSubscriptionLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockAtSubscriptionLevel)(nil)).Elem()
+}
+
+func (i ManagementLockAtSubscriptionLevel) ToManagementLockAtSubscriptionLevelOutput() ManagementLockAtSubscriptionLevelOutput {
+	return i.ToManagementLockAtSubscriptionLevelOutputWithContext(context.Background())
+}
+
+func (i ManagementLockAtSubscriptionLevel) ToManagementLockAtSubscriptionLevelOutputWithContext(ctx context.Context) ManagementLockAtSubscriptionLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockAtSubscriptionLevelOutput)
+}
+
+type ManagementLockAtSubscriptionLevelOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementLockAtSubscriptionLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockAtSubscriptionLevelOutput)(nil)).Elem()
+}
+
+func (o ManagementLockAtSubscriptionLevelOutput) ToManagementLockAtSubscriptionLevelOutput() ManagementLockAtSubscriptionLevelOutput {
+	return o
+}
+
+func (o ManagementLockAtSubscriptionLevelOutput) ToManagementLockAtSubscriptionLevelOutputWithContext(ctx context.Context) ManagementLockAtSubscriptionLevelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementLockAtSubscriptionLevelOutput{})
 }

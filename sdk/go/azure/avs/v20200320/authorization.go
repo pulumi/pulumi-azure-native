@@ -4,6 +4,7 @@
 package v20200320
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -119,4 +120,43 @@ type AuthorizationArgs struct {
 
 func (AuthorizationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationArgs)(nil)).Elem()
+}
+
+type AuthorizationInput interface {
+	pulumi.Input
+
+	ToAuthorizationOutput() AuthorizationOutput
+	ToAuthorizationOutputWithContext(ctx context.Context) AuthorizationOutput
+}
+
+func (Authorization) ElementType() reflect.Type {
+	return reflect.TypeOf((*Authorization)(nil)).Elem()
+}
+
+func (i Authorization) ToAuthorizationOutput() AuthorizationOutput {
+	return i.ToAuthorizationOutputWithContext(context.Background())
+}
+
+func (i Authorization) ToAuthorizationOutputWithContext(ctx context.Context) AuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationOutput)
+}
+
+type AuthorizationOutput struct {
+	*pulumi.OutputState
+}
+
+func (AuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationOutput)(nil)).Elem()
+}
+
+func (o AuthorizationOutput) ToAuthorizationOutput() AuthorizationOutput {
+	return o
+}
+
+func (o AuthorizationOutput) ToAuthorizationOutputWithContext(ctx context.Context) AuthorizationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AuthorizationOutput{})
 }

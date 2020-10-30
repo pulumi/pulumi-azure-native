@@ -4,6 +4,7 @@
 package v20200630preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -121,4 +122,43 @@ type ConfigurationProfilePreferenceArgs struct {
 
 func (ConfigurationProfilePreferenceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationProfilePreferenceArgs)(nil)).Elem()
+}
+
+type ConfigurationProfilePreferenceInput interface {
+	pulumi.Input
+
+	ToConfigurationProfilePreferenceOutput() ConfigurationProfilePreferenceOutput
+	ToConfigurationProfilePreferenceOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceOutput
+}
+
+func (ConfigurationProfilePreference) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfilePreference)(nil)).Elem()
+}
+
+func (i ConfigurationProfilePreference) ToConfigurationProfilePreferenceOutput() ConfigurationProfilePreferenceOutput {
+	return i.ToConfigurationProfilePreferenceOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfilePreference) ToConfigurationProfilePreferenceOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceOutput)
+}
+
+type ConfigurationProfilePreferenceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationProfilePreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfilePreferenceOutput)(nil)).Elem()
+}
+
+func (o ConfigurationProfilePreferenceOutput) ToConfigurationProfilePreferenceOutput() ConfigurationProfilePreferenceOutput {
+	return o
+}
+
+func (o ConfigurationProfilePreferenceOutput) ToConfigurationProfilePreferenceOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationProfilePreferenceOutput{})
 }

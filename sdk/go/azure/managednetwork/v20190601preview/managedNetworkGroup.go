@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -167,4 +168,43 @@ type ManagedNetworkGroupArgs struct {
 
 func (ManagedNetworkGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedNetworkGroupArgs)(nil)).Elem()
+}
+
+type ManagedNetworkGroupInput interface {
+	pulumi.Input
+
+	ToManagedNetworkGroupOutput() ManagedNetworkGroupOutput
+	ToManagedNetworkGroupOutputWithContext(ctx context.Context) ManagedNetworkGroupOutput
+}
+
+func (ManagedNetworkGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkGroup)(nil)).Elem()
+}
+
+func (i ManagedNetworkGroup) ToManagedNetworkGroupOutput() ManagedNetworkGroupOutput {
+	return i.ToManagedNetworkGroupOutputWithContext(context.Background())
+}
+
+func (i ManagedNetworkGroup) ToManagedNetworkGroupOutputWithContext(ctx context.Context) ManagedNetworkGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkGroupOutput)
+}
+
+type ManagedNetworkGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedNetworkGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkGroupOutput)(nil)).Elem()
+}
+
+func (o ManagedNetworkGroupOutput) ToManagedNetworkGroupOutput() ManagedNetworkGroupOutput {
+	return o
+}
+
+func (o ManagedNetworkGroupOutput) ToManagedNetworkGroupOutputWithContext(ctx context.Context) ManagedNetworkGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedNetworkGroupOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200808preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -196,4 +197,43 @@ type OrchestratorInstanceServiceDetailsArgs struct {
 
 func (OrchestratorInstanceServiceDetailsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*orchestratorInstanceServiceDetailsArgs)(nil)).Elem()
+}
+
+type OrchestratorInstanceServiceDetailsInput interface {
+	pulumi.Input
+
+	ToOrchestratorInstanceServiceDetailsOutput() OrchestratorInstanceServiceDetailsOutput
+	ToOrchestratorInstanceServiceDetailsOutputWithContext(ctx context.Context) OrchestratorInstanceServiceDetailsOutput
+}
+
+func (OrchestratorInstanceServiceDetails) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratorInstanceServiceDetails)(nil)).Elem()
+}
+
+func (i OrchestratorInstanceServiceDetails) ToOrchestratorInstanceServiceDetailsOutput() OrchestratorInstanceServiceDetailsOutput {
+	return i.ToOrchestratorInstanceServiceDetailsOutputWithContext(context.Background())
+}
+
+func (i OrchestratorInstanceServiceDetails) ToOrchestratorInstanceServiceDetailsOutputWithContext(ctx context.Context) OrchestratorInstanceServiceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorInstanceServiceDetailsOutput)
+}
+
+type OrchestratorInstanceServiceDetailsOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrchestratorInstanceServiceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratorInstanceServiceDetailsOutput)(nil)).Elem()
+}
+
+func (o OrchestratorInstanceServiceDetailsOutput) ToOrchestratorInstanceServiceDetailsOutput() OrchestratorInstanceServiceDetailsOutput {
+	return o
+}
+
+func (o OrchestratorInstanceServiceDetailsOutput) ToOrchestratorInstanceServiceDetailsOutputWithContext(ctx context.Context) OrchestratorInstanceServiceDetailsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrchestratorInstanceServiceDetailsOutput{})
 }

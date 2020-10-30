@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -115,4 +116,43 @@ type ManagedNetworkPeeringPolicyArgs struct {
 
 func (ManagedNetworkPeeringPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedNetworkPeeringPolicyArgs)(nil)).Elem()
+}
+
+type ManagedNetworkPeeringPolicyInput interface {
+	pulumi.Input
+
+	ToManagedNetworkPeeringPolicyOutput() ManagedNetworkPeeringPolicyOutput
+	ToManagedNetworkPeeringPolicyOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyOutput
+}
+
+func (ManagedNetworkPeeringPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkPeeringPolicy)(nil)).Elem()
+}
+
+func (i ManagedNetworkPeeringPolicy) ToManagedNetworkPeeringPolicyOutput() ManagedNetworkPeeringPolicyOutput {
+	return i.ToManagedNetworkPeeringPolicyOutputWithContext(context.Background())
+}
+
+func (i ManagedNetworkPeeringPolicy) ToManagedNetworkPeeringPolicyOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyOutput)
+}
+
+type ManagedNetworkPeeringPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedNetworkPeeringPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkPeeringPolicyOutput)(nil)).Elem()
+}
+
+func (o ManagedNetworkPeeringPolicyOutput) ToManagedNetworkPeeringPolicyOutput() ManagedNetworkPeeringPolicyOutput {
+	return o
+}
+
+func (o ManagedNetworkPeeringPolicyOutput) ToManagedNetworkPeeringPolicyOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyOutput{})
 }

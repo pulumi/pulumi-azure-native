@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -133,4 +134,43 @@ type WebAppDomainOwnershipIdentifierArgs struct {
 
 func (WebAppDomainOwnershipIdentifierArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppDomainOwnershipIdentifierArgs)(nil)).Elem()
+}
+
+type WebAppDomainOwnershipIdentifierInput interface {
+	pulumi.Input
+
+	ToWebAppDomainOwnershipIdentifierOutput() WebAppDomainOwnershipIdentifierOutput
+	ToWebAppDomainOwnershipIdentifierOutputWithContext(ctx context.Context) WebAppDomainOwnershipIdentifierOutput
+}
+
+func (WebAppDomainOwnershipIdentifier) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDomainOwnershipIdentifier)(nil)).Elem()
+}
+
+func (i WebAppDomainOwnershipIdentifier) ToWebAppDomainOwnershipIdentifierOutput() WebAppDomainOwnershipIdentifierOutput {
+	return i.ToWebAppDomainOwnershipIdentifierOutputWithContext(context.Background())
+}
+
+func (i WebAppDomainOwnershipIdentifier) ToWebAppDomainOwnershipIdentifierOutputWithContext(ctx context.Context) WebAppDomainOwnershipIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppDomainOwnershipIdentifierOutput)
+}
+
+type WebAppDomainOwnershipIdentifierOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppDomainOwnershipIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierOutput)(nil)).Elem()
+}
+
+func (o WebAppDomainOwnershipIdentifierOutput) ToWebAppDomainOwnershipIdentifierOutput() WebAppDomainOwnershipIdentifierOutput {
+	return o
+}
+
+func (o WebAppDomainOwnershipIdentifierOutput) ToWebAppDomainOwnershipIdentifierOutputWithContext(ctx context.Context) WebAppDomainOwnershipIdentifierOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppDomainOwnershipIdentifierOutput{})
 }

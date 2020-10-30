@@ -4,6 +4,7 @@
 package v20180715preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -115,4 +116,43 @@ type ServiceTaskArgs struct {
 
 func (ServiceTaskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceTaskArgs)(nil)).Elem()
+}
+
+type ServiceTaskInput interface {
+	pulumi.Input
+
+	ToServiceTaskOutput() ServiceTaskOutput
+	ToServiceTaskOutputWithContext(ctx context.Context) ServiceTaskOutput
+}
+
+func (ServiceTask) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTask)(nil)).Elem()
+}
+
+func (i ServiceTask) ToServiceTaskOutput() ServiceTaskOutput {
+	return i.ToServiceTaskOutputWithContext(context.Background())
+}
+
+func (i ServiceTask) ToServiceTaskOutputWithContext(ctx context.Context) ServiceTaskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTaskOutput)
+}
+
+type ServiceTaskOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceTaskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTaskOutput)(nil)).Elem()
+}
+
+func (o ServiceTaskOutput) ToServiceTaskOutput() ServiceTaskOutput {
+	return o
+}
+
+func (o ServiceTaskOutput) ToServiceTaskOutputWithContext(ctx context.Context) ServiceTaskOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceTaskOutput{})
 }

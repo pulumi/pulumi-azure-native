@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,4 +124,43 @@ type IntegrationRuntimeArgs struct {
 
 func (IntegrationRuntimeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationRuntimeArgs)(nil)).Elem()
+}
+
+type IntegrationRuntimeInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeOutput() IntegrationRuntimeOutput
+	ToIntegrationRuntimeOutputWithContext(ctx context.Context) IntegrationRuntimeOutput
+}
+
+func (IntegrationRuntime) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntime)(nil)).Elem()
+}
+
+func (i IntegrationRuntime) ToIntegrationRuntimeOutput() IntegrationRuntimeOutput {
+	return i.ToIntegrationRuntimeOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntime) ToIntegrationRuntimeOutputWithContext(ctx context.Context) IntegrationRuntimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeOutput)
+}
+
+type IntegrationRuntimeOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationRuntimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeOutput)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeOutput) ToIntegrationRuntimeOutput() IntegrationRuntimeOutput {
+	return o
+}
+
+func (o IntegrationRuntimeOutput) ToIntegrationRuntimeOutputWithContext(ctx context.Context) IntegrationRuntimeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationRuntimeOutput{})
 }

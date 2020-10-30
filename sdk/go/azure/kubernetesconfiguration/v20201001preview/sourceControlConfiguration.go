@@ -4,6 +4,7 @@
 package v20201001preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -239,4 +240,43 @@ type SourceControlConfigurationArgs struct {
 
 func (SourceControlConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceControlConfigurationArgs)(nil)).Elem()
+}
+
+type SourceControlConfigurationInput interface {
+	pulumi.Input
+
+	ToSourceControlConfigurationOutput() SourceControlConfigurationOutput
+	ToSourceControlConfigurationOutputWithContext(ctx context.Context) SourceControlConfigurationOutput
+}
+
+func (SourceControlConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlConfiguration)(nil)).Elem()
+}
+
+func (i SourceControlConfiguration) ToSourceControlConfigurationOutput() SourceControlConfigurationOutput {
+	return i.ToSourceControlConfigurationOutputWithContext(context.Background())
+}
+
+func (i SourceControlConfiguration) ToSourceControlConfigurationOutputWithContext(ctx context.Context) SourceControlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlConfigurationOutput)
+}
+
+type SourceControlConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (SourceControlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlConfigurationOutput)(nil)).Elem()
+}
+
+func (o SourceControlConfigurationOutput) ToSourceControlConfigurationOutput() SourceControlConfigurationOutput {
+	return o
+}
+
+func (o SourceControlConfigurationOutput) ToSourceControlConfigurationOutputWithContext(ctx context.Context) SourceControlConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SourceControlConfigurationOutput{})
 }

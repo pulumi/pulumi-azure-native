@@ -4,6 +4,7 @@
 package v20190724preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -151,4 +152,43 @@ type SqlServerArgs struct {
 
 func (SqlServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlServerArgs)(nil)).Elem()
+}
+
+type SqlServerInput interface {
+	pulumi.Input
+
+	ToSqlServerOutput() SqlServerOutput
+	ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput
+}
+
+func (SqlServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServer)(nil)).Elem()
+}
+
+func (i SqlServer) ToSqlServerOutput() SqlServerOutput {
+	return i.ToSqlServerOutputWithContext(context.Background())
+}
+
+func (i SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerOutput)
+}
+
+type SqlServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerOutput)(nil)).Elem()
+}
+
+func (o SqlServerOutput) ToSqlServerOutput() SqlServerOutput {
+	return o
+}
+
+func (o SqlServerOutput) ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlServerOutput{})
 }

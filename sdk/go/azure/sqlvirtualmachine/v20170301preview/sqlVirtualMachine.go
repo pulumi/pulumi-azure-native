@@ -4,6 +4,7 @@
 package v20170301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -247,4 +248,43 @@ type SqlVirtualMachineArgs struct {
 
 func (SqlVirtualMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlVirtualMachineArgs)(nil)).Elem()
+}
+
+type SqlVirtualMachineInput interface {
+	pulumi.Input
+
+	ToSqlVirtualMachineOutput() SqlVirtualMachineOutput
+	ToSqlVirtualMachineOutputWithContext(ctx context.Context) SqlVirtualMachineOutput
+}
+
+func (SqlVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlVirtualMachine)(nil)).Elem()
+}
+
+func (i SqlVirtualMachine) ToSqlVirtualMachineOutput() SqlVirtualMachineOutput {
+	return i.ToSqlVirtualMachineOutputWithContext(context.Background())
+}
+
+func (i SqlVirtualMachine) ToSqlVirtualMachineOutputWithContext(ctx context.Context) SqlVirtualMachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlVirtualMachineOutput)
+}
+
+type SqlVirtualMachineOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlVirtualMachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlVirtualMachineOutput)(nil)).Elem()
+}
+
+func (o SqlVirtualMachineOutput) ToSqlVirtualMachineOutput() SqlVirtualMachineOutput {
+	return o
+}
+
+func (o SqlVirtualMachineOutput) ToSqlVirtualMachineOutputWithContext(ctx context.Context) SqlVirtualMachineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlVirtualMachineOutput{})
 }

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -168,4 +169,43 @@ type WCFRelayArgs struct {
 
 func (WCFRelayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*wcfrelayArgs)(nil)).Elem()
+}
+
+type WCFRelayInput interface {
+	pulumi.Input
+
+	ToWCFRelayOutput() WCFRelayOutput
+	ToWCFRelayOutputWithContext(ctx context.Context) WCFRelayOutput
+}
+
+func (WCFRelay) ElementType() reflect.Type {
+	return reflect.TypeOf((*WCFRelay)(nil)).Elem()
+}
+
+func (i WCFRelay) ToWCFRelayOutput() WCFRelayOutput {
+	return i.ToWCFRelayOutputWithContext(context.Background())
+}
+
+func (i WCFRelay) ToWCFRelayOutputWithContext(ctx context.Context) WCFRelayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayOutput)
+}
+
+type WCFRelayOutput struct {
+	*pulumi.OutputState
+}
+
+func (WCFRelayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WCFRelayOutput)(nil)).Elem()
+}
+
+func (o WCFRelayOutput) ToWCFRelayOutput() WCFRelayOutput {
+	return o
+}
+
+func (o WCFRelayOutput) ToWCFRelayOutputWithContext(ctx context.Context) WCFRelayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WCFRelayOutput{})
 }

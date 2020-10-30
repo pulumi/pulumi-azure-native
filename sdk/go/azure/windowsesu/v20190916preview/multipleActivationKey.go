@@ -4,6 +4,7 @@
 package v20190916preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -176,4 +177,43 @@ type MultipleActivationKeyArgs struct {
 
 func (MultipleActivationKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*multipleActivationKeyArgs)(nil)).Elem()
+}
+
+type MultipleActivationKeyInput interface {
+	pulumi.Input
+
+	ToMultipleActivationKeyOutput() MultipleActivationKeyOutput
+	ToMultipleActivationKeyOutputWithContext(ctx context.Context) MultipleActivationKeyOutput
+}
+
+func (MultipleActivationKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultipleActivationKey)(nil)).Elem()
+}
+
+func (i MultipleActivationKey) ToMultipleActivationKeyOutput() MultipleActivationKeyOutput {
+	return i.ToMultipleActivationKeyOutputWithContext(context.Background())
+}
+
+func (i MultipleActivationKey) ToMultipleActivationKeyOutputWithContext(ctx context.Context) MultipleActivationKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultipleActivationKeyOutput)
+}
+
+type MultipleActivationKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (MultipleActivationKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultipleActivationKeyOutput)(nil)).Elem()
+}
+
+func (o MultipleActivationKeyOutput) ToMultipleActivationKeyOutput() MultipleActivationKeyOutput {
+	return o
+}
+
+func (o MultipleActivationKeyOutput) ToMultipleActivationKeyOutputWithContext(ctx context.Context) MultipleActivationKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MultipleActivationKeyOutput{})
 }

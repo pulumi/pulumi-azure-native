@@ -4,6 +4,7 @@
 package v20160901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -213,4 +214,43 @@ type ApplianceArgs struct {
 
 func (ApplianceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applianceArgs)(nil)).Elem()
+}
+
+type ApplianceInput interface {
+	pulumi.Input
+
+	ToApplianceOutput() ApplianceOutput
+	ToApplianceOutputWithContext(ctx context.Context) ApplianceOutput
+}
+
+func (Appliance) ElementType() reflect.Type {
+	return reflect.TypeOf((*Appliance)(nil)).Elem()
+}
+
+func (i Appliance) ToApplianceOutput() ApplianceOutput {
+	return i.ToApplianceOutputWithContext(context.Background())
+}
+
+func (i Appliance) ToApplianceOutputWithContext(ctx context.Context) ApplianceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceOutput)
+}
+
+type ApplianceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplianceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceOutput)(nil)).Elem()
+}
+
+func (o ApplianceOutput) ToApplianceOutput() ApplianceOutput {
+	return o
+}
+
+func (o ApplianceOutput) ToApplianceOutputWithContext(ctx context.Context) ApplianceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplianceOutput{})
 }

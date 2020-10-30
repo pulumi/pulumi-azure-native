@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -162,4 +163,43 @@ type ServerAzureADAdministratorArgs struct {
 
 func (ServerAzureADAdministratorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverAzureADAdministratorArgs)(nil)).Elem()
+}
+
+type ServerAzureADAdministratorInput interface {
+	pulumi.Input
+
+	ToServerAzureADAdministratorOutput() ServerAzureADAdministratorOutput
+	ToServerAzureADAdministratorOutputWithContext(ctx context.Context) ServerAzureADAdministratorOutput
+}
+
+func (ServerAzureADAdministrator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAzureADAdministrator)(nil)).Elem()
+}
+
+func (i ServerAzureADAdministrator) ToServerAzureADAdministratorOutput() ServerAzureADAdministratorOutput {
+	return i.ToServerAzureADAdministratorOutputWithContext(context.Background())
+}
+
+func (i ServerAzureADAdministrator) ToServerAzureADAdministratorOutputWithContext(ctx context.Context) ServerAzureADAdministratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureADAdministratorOutput)
+}
+
+type ServerAzureADAdministratorOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerAzureADAdministratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAzureADAdministratorOutput)(nil)).Elem()
+}
+
+func (o ServerAzureADAdministratorOutput) ToServerAzureADAdministratorOutput() ServerAzureADAdministratorOutput {
+	return o
+}
+
+func (o ServerAzureADAdministratorOutput) ToServerAzureADAdministratorOutputWithContext(ctx context.Context) ServerAzureADAdministratorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerAzureADAdministratorOutput{})
 }

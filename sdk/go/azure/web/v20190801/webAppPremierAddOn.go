@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -199,4 +200,43 @@ type WebAppPremierAddOnArgs struct {
 
 func (WebAppPremierAddOnArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppPremierAddOnArgs)(nil)).Elem()
+}
+
+type WebAppPremierAddOnInput interface {
+	pulumi.Input
+
+	ToWebAppPremierAddOnOutput() WebAppPremierAddOnOutput
+	ToWebAppPremierAddOnOutputWithContext(ctx context.Context) WebAppPremierAddOnOutput
+}
+
+func (WebAppPremierAddOn) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPremierAddOn)(nil)).Elem()
+}
+
+func (i WebAppPremierAddOn) ToWebAppPremierAddOnOutput() WebAppPremierAddOnOutput {
+	return i.ToWebAppPremierAddOnOutputWithContext(context.Background())
+}
+
+func (i WebAppPremierAddOn) ToWebAppPremierAddOnOutputWithContext(ctx context.Context) WebAppPremierAddOnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppPremierAddOnOutput)
+}
+
+type WebAppPremierAddOnOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppPremierAddOnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPremierAddOnOutput)(nil)).Elem()
+}
+
+func (o WebAppPremierAddOnOutput) ToWebAppPremierAddOnOutput() WebAppPremierAddOnOutput {
+	return o
+}
+
+func (o WebAppPremierAddOnOutput) ToWebAppPremierAddOnOutputWithContext(ctx context.Context) WebAppPremierAddOnOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppPremierAddOnOutput{})
 }

@@ -4,6 +4,7 @@
 package v20160601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -210,4 +211,43 @@ type JobDefinitionArgs struct {
 
 func (JobDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobDefinitionArgs)(nil)).Elem()
+}
+
+type JobDefinitionInput interface {
+	pulumi.Input
+
+	ToJobDefinitionOutput() JobDefinitionOutput
+	ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput
+}
+
+func (JobDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinition)(nil)).Elem()
+}
+
+func (i JobDefinition) ToJobDefinitionOutput() JobDefinitionOutput {
+	return i.ToJobDefinitionOutputWithContext(context.Background())
+}
+
+func (i JobDefinition) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionOutput)
+}
+
+type JobDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionOutput)(nil)).Elem()
+}
+
+func (o JobDefinitionOutput) ToJobDefinitionOutput() JobDefinitionOutput {
+	return o
+}
+
+func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobDefinitionOutput{})
 }

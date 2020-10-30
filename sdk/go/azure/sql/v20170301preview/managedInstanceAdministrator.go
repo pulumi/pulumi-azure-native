@@ -4,6 +4,7 @@
 package v20170301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -144,4 +145,43 @@ type ManagedInstanceAdministratorArgs struct {
 
 func (ManagedInstanceAdministratorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedInstanceAdministratorArgs)(nil)).Elem()
+}
+
+type ManagedInstanceAdministratorInput interface {
+	pulumi.Input
+
+	ToManagedInstanceAdministratorOutput() ManagedInstanceAdministratorOutput
+	ToManagedInstanceAdministratorOutputWithContext(ctx context.Context) ManagedInstanceAdministratorOutput
+}
+
+func (ManagedInstanceAdministrator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceAdministrator)(nil)).Elem()
+}
+
+func (i ManagedInstanceAdministrator) ToManagedInstanceAdministratorOutput() ManagedInstanceAdministratorOutput {
+	return i.ToManagedInstanceAdministratorOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceAdministrator) ToManagedInstanceAdministratorOutputWithContext(ctx context.Context) ManagedInstanceAdministratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAdministratorOutput)
+}
+
+type ManagedInstanceAdministratorOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedInstanceAdministratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceAdministratorOutput)(nil)).Elem()
+}
+
+func (o ManagedInstanceAdministratorOutput) ToManagedInstanceAdministratorOutput() ManagedInstanceAdministratorOutput {
+	return o
+}
+
+func (o ManagedInstanceAdministratorOutput) ToManagedInstanceAdministratorOutputWithContext(ctx context.Context) ManagedInstanceAdministratorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedInstanceAdministratorOutput{})
 }

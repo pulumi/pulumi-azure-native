@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -242,4 +243,43 @@ type SiteInstanceDeploymentSlotArgs struct {
 
 func (SiteInstanceDeploymentSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteInstanceDeploymentSlotArgs)(nil)).Elem()
+}
+
+type SiteInstanceDeploymentSlotInput interface {
+	pulumi.Input
+
+	ToSiteInstanceDeploymentSlotOutput() SiteInstanceDeploymentSlotOutput
+	ToSiteInstanceDeploymentSlotOutputWithContext(ctx context.Context) SiteInstanceDeploymentSlotOutput
+}
+
+func (SiteInstanceDeploymentSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteInstanceDeploymentSlot)(nil)).Elem()
+}
+
+func (i SiteInstanceDeploymentSlot) ToSiteInstanceDeploymentSlotOutput() SiteInstanceDeploymentSlotOutput {
+	return i.ToSiteInstanceDeploymentSlotOutputWithContext(context.Background())
+}
+
+func (i SiteInstanceDeploymentSlot) ToSiteInstanceDeploymentSlotOutputWithContext(ctx context.Context) SiteInstanceDeploymentSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteInstanceDeploymentSlotOutput)
+}
+
+type SiteInstanceDeploymentSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteInstanceDeploymentSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteInstanceDeploymentSlotOutput)(nil)).Elem()
+}
+
+func (o SiteInstanceDeploymentSlotOutput) ToSiteInstanceDeploymentSlotOutput() SiteInstanceDeploymentSlotOutput {
+	return o
+}
+
+func (o SiteInstanceDeploymentSlotOutput) ToSiteInstanceDeploymentSlotOutputWithContext(ctx context.Context) SiteInstanceDeploymentSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteInstanceDeploymentSlotOutput{})
 }

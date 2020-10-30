@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -130,4 +131,43 @@ type SignalRPrivateEndpointConnectionArgs struct {
 
 func (SignalRPrivateEndpointConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*signalRPrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+type SignalRPrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToSignalRPrivateEndpointConnectionOutput() SignalRPrivateEndpointConnectionOutput
+	ToSignalRPrivateEndpointConnectionOutputWithContext(ctx context.Context) SignalRPrivateEndpointConnectionOutput
+}
+
+func (SignalRPrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i SignalRPrivateEndpointConnection) ToSignalRPrivateEndpointConnectionOutput() SignalRPrivateEndpointConnectionOutput {
+	return i.ToSignalRPrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i SignalRPrivateEndpointConnection) ToSignalRPrivateEndpointConnectionOutputWithContext(ctx context.Context) SignalRPrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRPrivateEndpointConnectionOutput)
+}
+
+type SignalRPrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SignalRPrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRPrivateEndpointConnectionOutput)(nil)).Elem()
+}
+
+func (o SignalRPrivateEndpointConnectionOutput) ToSignalRPrivateEndpointConnectionOutput() SignalRPrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o SignalRPrivateEndpointConnectionOutput) ToSignalRPrivateEndpointConnectionOutputWithContext(ctx context.Context) SignalRPrivateEndpointConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SignalRPrivateEndpointConnectionOutput{})
 }

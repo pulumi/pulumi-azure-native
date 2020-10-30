@@ -4,6 +4,7 @@
 package v20190901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -185,4 +186,43 @@ type QueryArgs struct {
 
 func (QueryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queryArgs)(nil)).Elem()
+}
+
+type QueryInput interface {
+	pulumi.Input
+
+	ToQueryOutput() QueryOutput
+	ToQueryOutputWithContext(ctx context.Context) QueryOutput
+}
+
+func (Query) ElementType() reflect.Type {
+	return reflect.TypeOf((*Query)(nil)).Elem()
+}
+
+func (i Query) ToQueryOutput() QueryOutput {
+	return i.ToQueryOutputWithContext(context.Background())
+}
+
+func (i Query) ToQueryOutputWithContext(ctx context.Context) QueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryOutput)
+}
+
+type QueryOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryOutput)(nil)).Elem()
+}
+
+func (o QueryOutput) ToQueryOutput() QueryOutput {
+	return o
+}
+
+func (o QueryOutput) ToQueryOutputWithContext(ctx context.Context) QueryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueryOutput{})
 }

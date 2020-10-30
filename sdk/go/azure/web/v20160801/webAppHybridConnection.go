@@ -4,6 +4,7 @@
 package v20160801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -211,4 +212,43 @@ type WebAppHybridConnectionArgs struct {
 
 func (WebAppHybridConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppHybridConnectionArgs)(nil)).Elem()
+}
+
+type WebAppHybridConnectionInput interface {
+	pulumi.Input
+
+	ToWebAppHybridConnectionOutput() WebAppHybridConnectionOutput
+	ToWebAppHybridConnectionOutputWithContext(ctx context.Context) WebAppHybridConnectionOutput
+}
+
+func (WebAppHybridConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHybridConnection)(nil)).Elem()
+}
+
+func (i WebAppHybridConnection) ToWebAppHybridConnectionOutput() WebAppHybridConnectionOutput {
+	return i.ToWebAppHybridConnectionOutputWithContext(context.Background())
+}
+
+func (i WebAppHybridConnection) ToWebAppHybridConnectionOutputWithContext(ctx context.Context) WebAppHybridConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionOutput)
+}
+
+type WebAppHybridConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppHybridConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHybridConnectionOutput)(nil)).Elem()
+}
+
+func (o WebAppHybridConnectionOutput) ToWebAppHybridConnectionOutput() WebAppHybridConnectionOutput {
+	return o
+}
+
+func (o WebAppHybridConnectionOutput) ToWebAppHybridConnectionOutputWithContext(ctx context.Context) WebAppHybridConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppHybridConnectionOutput{})
 }

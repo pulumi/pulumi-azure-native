@@ -4,6 +4,7 @@
 package v20180710
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type ReplicationNetworkMappingArgs struct {
 
 func (ReplicationNetworkMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationNetworkMappingArgs)(nil)).Elem()
+}
+
+type ReplicationNetworkMappingInput interface {
+	pulumi.Input
+
+	ToReplicationNetworkMappingOutput() ReplicationNetworkMappingOutput
+	ToReplicationNetworkMappingOutputWithContext(ctx context.Context) ReplicationNetworkMappingOutput
+}
+
+func (ReplicationNetworkMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationNetworkMapping)(nil)).Elem()
+}
+
+func (i ReplicationNetworkMapping) ToReplicationNetworkMappingOutput() ReplicationNetworkMappingOutput {
+	return i.ToReplicationNetworkMappingOutputWithContext(context.Background())
+}
+
+func (i ReplicationNetworkMapping) ToReplicationNetworkMappingOutputWithContext(ctx context.Context) ReplicationNetworkMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationNetworkMappingOutput)
+}
+
+type ReplicationNetworkMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationNetworkMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationNetworkMappingOutput)(nil)).Elem()
+}
+
+func (o ReplicationNetworkMappingOutput) ToReplicationNetworkMappingOutput() ReplicationNetworkMappingOutput {
+	return o
+}
+
+func (o ReplicationNetworkMappingOutput) ToReplicationNetworkMappingOutputWithContext(ctx context.Context) ReplicationNetworkMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationNetworkMappingOutput{})
 }

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -146,4 +147,43 @@ type CacheArgs struct {
 
 func (CacheArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheArgs)(nil)).Elem()
+}
+
+type CacheInput interface {
+	pulumi.Input
+
+	ToCacheOutput() CacheOutput
+	ToCacheOutputWithContext(ctx context.Context) CacheOutput
+}
+
+func (Cache) ElementType() reflect.Type {
+	return reflect.TypeOf((*Cache)(nil)).Elem()
+}
+
+func (i Cache) ToCacheOutput() CacheOutput {
+	return i.ToCacheOutputWithContext(context.Background())
+}
+
+func (i Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
+}
+
+type CacheOutput struct {
+	*pulumi.OutputState
+}
+
+func (CacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheOutput)(nil)).Elem()
+}
+
+func (o CacheOutput) ToCacheOutput() CacheOutput {
+	return o
+}
+
+func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CacheOutput{})
 }

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,4 +125,43 @@ type DataSetMappingArgs struct {
 
 func (DataSetMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSetMappingArgs)(nil)).Elem()
+}
+
+type DataSetMappingInput interface {
+	pulumi.Input
+
+	ToDataSetMappingOutput() DataSetMappingOutput
+	ToDataSetMappingOutputWithContext(ctx context.Context) DataSetMappingOutput
+}
+
+func (DataSetMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetMapping)(nil)).Elem()
+}
+
+func (i DataSetMapping) ToDataSetMappingOutput() DataSetMappingOutput {
+	return i.ToDataSetMappingOutputWithContext(context.Background())
+}
+
+func (i DataSetMapping) ToDataSetMappingOutputWithContext(ctx context.Context) DataSetMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetMappingOutput)
+}
+
+type DataSetMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataSetMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetMappingOutput)(nil)).Elem()
+}
+
+func (o DataSetMappingOutput) ToDataSetMappingOutput() DataSetMappingOutput {
+	return o
+}
+
+func (o DataSetMappingOutput) ToDataSetMappingOutputWithContext(ctx context.Context) DataSetMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataSetMappingOutput{})
 }

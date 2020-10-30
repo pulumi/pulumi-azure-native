@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -221,4 +222,43 @@ type ServerFarmRouteForVnetArgs struct {
 
 func (ServerFarmRouteForVnetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverFarmRouteForVnetArgs)(nil)).Elem()
+}
+
+type ServerFarmRouteForVnetInput interface {
+	pulumi.Input
+
+	ToServerFarmRouteForVnetOutput() ServerFarmRouteForVnetOutput
+	ToServerFarmRouteForVnetOutputWithContext(ctx context.Context) ServerFarmRouteForVnetOutput
+}
+
+func (ServerFarmRouteForVnet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerFarmRouteForVnet)(nil)).Elem()
+}
+
+func (i ServerFarmRouteForVnet) ToServerFarmRouteForVnetOutput() ServerFarmRouteForVnetOutput {
+	return i.ToServerFarmRouteForVnetOutputWithContext(context.Background())
+}
+
+func (i ServerFarmRouteForVnet) ToServerFarmRouteForVnetOutputWithContext(ctx context.Context) ServerFarmRouteForVnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmRouteForVnetOutput)
+}
+
+type ServerFarmRouteForVnetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerFarmRouteForVnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerFarmRouteForVnetOutput)(nil)).Elem()
+}
+
+func (o ServerFarmRouteForVnetOutput) ToServerFarmRouteForVnetOutput() ServerFarmRouteForVnetOutput {
+	return o
+}
+
+func (o ServerFarmRouteForVnetOutput) ToServerFarmRouteForVnetOutputWithContext(ctx context.Context) ServerFarmRouteForVnetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerFarmRouteForVnetOutput{})
 }

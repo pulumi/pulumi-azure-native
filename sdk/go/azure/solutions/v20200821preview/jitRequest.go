@@ -4,6 +4,7 @@
 package v20200821preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -186,4 +187,43 @@ type JitRequestArgs struct {
 
 func (JitRequestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jitRequestArgs)(nil)).Elem()
+}
+
+type JitRequestInput interface {
+	pulumi.Input
+
+	ToJitRequestOutput() JitRequestOutput
+	ToJitRequestOutputWithContext(ctx context.Context) JitRequestOutput
+}
+
+func (JitRequest) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitRequest)(nil)).Elem()
+}
+
+func (i JitRequest) ToJitRequestOutput() JitRequestOutput {
+	return i.ToJitRequestOutputWithContext(context.Background())
+}
+
+func (i JitRequest) ToJitRequestOutputWithContext(ctx context.Context) JitRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitRequestOutput)
+}
+
+type JitRequestOutput struct {
+	*pulumi.OutputState
+}
+
+func (JitRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitRequestOutput)(nil)).Elem()
+}
+
+func (o JitRequestOutput) ToJitRequestOutput() JitRequestOutput {
+	return o
+}
+
+func (o JitRequestOutput) ToJitRequestOutputWithContext(ctx context.Context) JitRequestOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JitRequestOutput{})
 }

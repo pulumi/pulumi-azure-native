@@ -4,6 +4,7 @@
 package v20181102privatepreview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type ActionRuleByNameArgs struct {
 
 func (ActionRuleByNameArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionRuleByNameArgs)(nil)).Elem()
+}
+
+type ActionRuleByNameInput interface {
+	pulumi.Input
+
+	ToActionRuleByNameOutput() ActionRuleByNameOutput
+	ToActionRuleByNameOutputWithContext(ctx context.Context) ActionRuleByNameOutput
+}
+
+func (ActionRuleByName) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleByName)(nil)).Elem()
+}
+
+func (i ActionRuleByName) ToActionRuleByNameOutput() ActionRuleByNameOutput {
+	return i.ToActionRuleByNameOutputWithContext(context.Background())
+}
+
+func (i ActionRuleByName) ToActionRuleByNameOutputWithContext(ctx context.Context) ActionRuleByNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleByNameOutput)
+}
+
+type ActionRuleByNameOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionRuleByNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleByNameOutput)(nil)).Elem()
+}
+
+func (o ActionRuleByNameOutput) ToActionRuleByNameOutput() ActionRuleByNameOutput {
+	return o
+}
+
+func (o ActionRuleByNameOutput) ToActionRuleByNameOutputWithContext(ctx context.Context) ActionRuleByNameOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActionRuleByNameOutput{})
 }

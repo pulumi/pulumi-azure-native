@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -136,4 +137,43 @@ type GuestDiagnosticsSettingArgs struct {
 
 func (GuestDiagnosticsSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*guestDiagnosticsSettingArgs)(nil)).Elem()
+}
+
+type GuestDiagnosticsSettingInput interface {
+	pulumi.Input
+
+	ToGuestDiagnosticsSettingOutput() GuestDiagnosticsSettingOutput
+	ToGuestDiagnosticsSettingOutputWithContext(ctx context.Context) GuestDiagnosticsSettingOutput
+}
+
+func (GuestDiagnosticsSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestDiagnosticsSetting)(nil)).Elem()
+}
+
+func (i GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutput() GuestDiagnosticsSettingOutput {
+	return i.ToGuestDiagnosticsSettingOutputWithContext(context.Background())
+}
+
+func (i GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutputWithContext(ctx context.Context) GuestDiagnosticsSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestDiagnosticsSettingOutput)
+}
+
+type GuestDiagnosticsSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (GuestDiagnosticsSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestDiagnosticsSettingOutput)(nil)).Elem()
+}
+
+func (o GuestDiagnosticsSettingOutput) ToGuestDiagnosticsSettingOutput() GuestDiagnosticsSettingOutput {
+	return o
+}
+
+func (o GuestDiagnosticsSettingOutput) ToGuestDiagnosticsSettingOutputWithContext(ctx context.Context) GuestDiagnosticsSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GuestDiagnosticsSettingOutput{})
 }

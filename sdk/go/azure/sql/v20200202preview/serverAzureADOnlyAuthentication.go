@@ -4,6 +4,7 @@
 package v20200202preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -108,4 +109,43 @@ type ServerAzureADOnlyAuthenticationArgs struct {
 
 func (ServerAzureADOnlyAuthenticationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverAzureADOnlyAuthenticationArgs)(nil)).Elem()
+}
+
+type ServerAzureADOnlyAuthenticationInput interface {
+	pulumi.Input
+
+	ToServerAzureADOnlyAuthenticationOutput() ServerAzureADOnlyAuthenticationOutput
+	ToServerAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ServerAzureADOnlyAuthenticationOutput
+}
+
+func (ServerAzureADOnlyAuthentication) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAzureADOnlyAuthentication)(nil)).Elem()
+}
+
+func (i ServerAzureADOnlyAuthentication) ToServerAzureADOnlyAuthenticationOutput() ServerAzureADOnlyAuthenticationOutput {
+	return i.ToServerAzureADOnlyAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ServerAzureADOnlyAuthentication) ToServerAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ServerAzureADOnlyAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureADOnlyAuthenticationOutput)
+}
+
+type ServerAzureADOnlyAuthenticationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerAzureADOnlyAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAzureADOnlyAuthenticationOutput)(nil)).Elem()
+}
+
+func (o ServerAzureADOnlyAuthenticationOutput) ToServerAzureADOnlyAuthenticationOutput() ServerAzureADOnlyAuthenticationOutput {
+	return o
+}
+
+func (o ServerAzureADOnlyAuthenticationOutput) ToServerAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ServerAzureADOnlyAuthenticationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerAzureADOnlyAuthenticationOutput{})
 }

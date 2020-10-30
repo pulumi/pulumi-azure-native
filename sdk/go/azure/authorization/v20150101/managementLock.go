@@ -4,6 +4,7 @@
 package v20150101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -114,4 +115,43 @@ type ManagementLockArgs struct {
 
 func (ManagementLockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementLockArgs)(nil)).Elem()
+}
+
+type ManagementLockInput interface {
+	pulumi.Input
+
+	ToManagementLockOutput() ManagementLockOutput
+	ToManagementLockOutputWithContext(ctx context.Context) ManagementLockOutput
+}
+
+func (ManagementLock) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLock)(nil)).Elem()
+}
+
+func (i ManagementLock) ToManagementLockOutput() ManagementLockOutput {
+	return i.ToManagementLockOutputWithContext(context.Background())
+}
+
+func (i ManagementLock) ToManagementLockOutputWithContext(ctx context.Context) ManagementLockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOutput)
+}
+
+type ManagementLockOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementLockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockOutput)(nil)).Elem()
+}
+
+func (o ManagementLockOutput) ToManagementLockOutput() ManagementLockOutput {
+	return o
+}
+
+func (o ManagementLockOutput) ToManagementLockOutputWithContext(ctx context.Context) ManagementLockOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementLockOutput{})
 }

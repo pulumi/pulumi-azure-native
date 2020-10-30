@@ -4,6 +4,7 @@
 package v20181101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,4 +125,43 @@ type DataSetArgs struct {
 
 func (DataSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSetArgs)(nil)).Elem()
+}
+
+type DataSetInput interface {
+	pulumi.Input
+
+	ToDataSetOutput() DataSetOutput
+	ToDataSetOutputWithContext(ctx context.Context) DataSetOutput
+}
+
+func (DataSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSet)(nil)).Elem()
+}
+
+func (i DataSet) ToDataSetOutput() DataSetOutput {
+	return i.ToDataSetOutputWithContext(context.Background())
+}
+
+func (i DataSet) ToDataSetOutputWithContext(ctx context.Context) DataSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetOutput)
+}
+
+type DataSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetOutput)(nil)).Elem()
+}
+
+func (o DataSetOutput) ToDataSetOutput() DataSetOutput {
+	return o
+}
+
+func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataSetOutput{})
 }

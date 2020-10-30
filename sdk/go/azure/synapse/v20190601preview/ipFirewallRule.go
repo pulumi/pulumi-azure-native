@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -121,4 +122,43 @@ type IpFirewallRuleArgs struct {
 
 func (IpFirewallRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipFirewallRuleArgs)(nil)).Elem()
+}
+
+type IpFirewallRuleInput interface {
+	pulumi.Input
+
+	ToIpFirewallRuleOutput() IpFirewallRuleOutput
+	ToIpFirewallRuleOutputWithContext(ctx context.Context) IpFirewallRuleOutput
+}
+
+func (IpFirewallRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpFirewallRule)(nil)).Elem()
+}
+
+func (i IpFirewallRule) ToIpFirewallRuleOutput() IpFirewallRuleOutput {
+	return i.ToIpFirewallRuleOutputWithContext(context.Background())
+}
+
+func (i IpFirewallRule) ToIpFirewallRuleOutputWithContext(ctx context.Context) IpFirewallRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpFirewallRuleOutput)
+}
+
+type IpFirewallRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (IpFirewallRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpFirewallRuleOutput)(nil)).Elem()
+}
+
+func (o IpFirewallRuleOutput) ToIpFirewallRuleOutput() IpFirewallRuleOutput {
+	return o
+}
+
+func (o IpFirewallRuleOutput) ToIpFirewallRuleOutputWithContext(ctx context.Context) IpFirewallRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IpFirewallRuleOutput{})
 }

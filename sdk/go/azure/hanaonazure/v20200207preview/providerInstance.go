@@ -4,6 +4,7 @@
 package v20200207preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -125,4 +126,43 @@ type ProviderInstanceArgs struct {
 
 func (ProviderInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerInstanceArgs)(nil)).Elem()
+}
+
+type ProviderInstanceInput interface {
+	pulumi.Input
+
+	ToProviderInstanceOutput() ProviderInstanceOutput
+	ToProviderInstanceOutputWithContext(ctx context.Context) ProviderInstanceOutput
+}
+
+func (ProviderInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderInstance)(nil)).Elem()
+}
+
+func (i ProviderInstance) ToProviderInstanceOutput() ProviderInstanceOutput {
+	return i.ToProviderInstanceOutputWithContext(context.Background())
+}
+
+func (i ProviderInstance) ToProviderInstanceOutputWithContext(ctx context.Context) ProviderInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderInstanceOutput)
+}
+
+type ProviderInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProviderInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderInstanceOutput)(nil)).Elem()
+}
+
+func (o ProviderInstanceOutput) ToProviderInstanceOutput() ProviderInstanceOutput {
+	return o
+}
+
+func (o ProviderInstanceOutput) ToProviderInstanceOutputWithContext(ctx context.Context) ProviderInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProviderInstanceOutput{})
 }

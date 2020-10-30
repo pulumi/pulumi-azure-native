@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -196,4 +197,43 @@ type WebAppVnetConnectionSlotArgs struct {
 
 func (WebAppVnetConnectionSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppVnetConnectionSlotArgs)(nil)).Elem()
+}
+
+type WebAppVnetConnectionSlotInput interface {
+	pulumi.Input
+
+	ToWebAppVnetConnectionSlotOutput() WebAppVnetConnectionSlotOutput
+	ToWebAppVnetConnectionSlotOutputWithContext(ctx context.Context) WebAppVnetConnectionSlotOutput
+}
+
+func (WebAppVnetConnectionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVnetConnectionSlot)(nil)).Elem()
+}
+
+func (i WebAppVnetConnectionSlot) ToWebAppVnetConnectionSlotOutput() WebAppVnetConnectionSlotOutput {
+	return i.ToWebAppVnetConnectionSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppVnetConnectionSlot) ToWebAppVnetConnectionSlotOutputWithContext(ctx context.Context) WebAppVnetConnectionSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppVnetConnectionSlotOutput)
+}
+
+type WebAppVnetConnectionSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppVnetConnectionSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVnetConnectionSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppVnetConnectionSlotOutput) ToWebAppVnetConnectionSlotOutput() WebAppVnetConnectionSlotOutput {
+	return o
+}
+
+func (o WebAppVnetConnectionSlotOutput) ToWebAppVnetConnectionSlotOutputWithContext(ctx context.Context) WebAppVnetConnectionSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppVnetConnectionSlotOutput{})
 }

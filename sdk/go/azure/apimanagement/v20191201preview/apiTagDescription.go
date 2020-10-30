@@ -4,6 +4,7 @@
 package v20191201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -168,4 +169,43 @@ type ApiTagDescriptionArgs struct {
 
 func (ApiTagDescriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiTagDescriptionArgs)(nil)).Elem()
+}
+
+type ApiTagDescriptionInput interface {
+	pulumi.Input
+
+	ToApiTagDescriptionOutput() ApiTagDescriptionOutput
+	ToApiTagDescriptionOutputWithContext(ctx context.Context) ApiTagDescriptionOutput
+}
+
+func (ApiTagDescription) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiTagDescription)(nil)).Elem()
+}
+
+func (i ApiTagDescription) ToApiTagDescriptionOutput() ApiTagDescriptionOutput {
+	return i.ToApiTagDescriptionOutputWithContext(context.Background())
+}
+
+func (i ApiTagDescription) ToApiTagDescriptionOutputWithContext(ctx context.Context) ApiTagDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiTagDescriptionOutput)
+}
+
+type ApiTagDescriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiTagDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiTagDescriptionOutput)(nil)).Elem()
+}
+
+func (o ApiTagDescriptionOutput) ToApiTagDescriptionOutput() ApiTagDescriptionOutput {
+	return o
+}
+
+func (o ApiTagDescriptionOutput) ToApiTagDescriptionOutputWithContext(ctx context.Context) ApiTagDescriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiTagDescriptionOutput{})
 }

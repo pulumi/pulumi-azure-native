@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -182,4 +183,43 @@ type PolicyDefinitionAtManagementGroupArgs struct {
 
 func (PolicyDefinitionAtManagementGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyDefinitionAtManagementGroupArgs)(nil)).Elem()
+}
+
+type PolicyDefinitionAtManagementGroupInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionAtManagementGroupOutput() PolicyDefinitionAtManagementGroupOutput
+	ToPolicyDefinitionAtManagementGroupOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupOutput
+}
+
+func (PolicyDefinitionAtManagementGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionAtManagementGroup)(nil)).Elem()
+}
+
+func (i PolicyDefinitionAtManagementGroup) ToPolicyDefinitionAtManagementGroupOutput() PolicyDefinitionAtManagementGroupOutput {
+	return i.ToPolicyDefinitionAtManagementGroupOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionAtManagementGroup) ToPolicyDefinitionAtManagementGroupOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionAtManagementGroupOutput)
+}
+
+type PolicyDefinitionAtManagementGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyDefinitionAtManagementGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionAtManagementGroupOutput)(nil)).Elem()
+}
+
+func (o PolicyDefinitionAtManagementGroupOutput) ToPolicyDefinitionAtManagementGroupOutput() PolicyDefinitionAtManagementGroupOutput {
+	return o
+}
+
+func (o PolicyDefinitionAtManagementGroupOutput) ToPolicyDefinitionAtManagementGroupOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyDefinitionAtManagementGroupOutput{})
 }

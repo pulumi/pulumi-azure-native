@@ -4,6 +4,7 @@
 package v20160515
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -203,4 +204,43 @@ type CustomImageArgs struct {
 
 func (CustomImageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customImageArgs)(nil)).Elem()
+}
+
+type CustomImageInput interface {
+	pulumi.Input
+
+	ToCustomImageOutput() CustomImageOutput
+	ToCustomImageOutputWithContext(ctx context.Context) CustomImageOutput
+}
+
+func (CustomImage) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImage)(nil)).Elem()
+}
+
+func (i CustomImage) ToCustomImageOutput() CustomImageOutput {
+	return i.ToCustomImageOutputWithContext(context.Background())
+}
+
+func (i CustomImage) ToCustomImageOutputWithContext(ctx context.Context) CustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomImageOutput)
+}
+
+type CustomImageOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImageOutput)(nil)).Elem()
+}
+
+func (o CustomImageOutput) ToCustomImageOutput() CustomImageOutput {
+	return o
+}
+
+func (o CustomImageOutput) ToCustomImageOutputWithContext(ctx context.Context) CustomImageOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomImageOutput{})
 }

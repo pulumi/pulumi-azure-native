@@ -4,6 +4,7 @@
 package v20191001preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -175,4 +176,43 @@ type BillingRoleAssignmentByEnrollmentAccountArgs struct {
 
 func (BillingRoleAssignmentByEnrollmentAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*billingRoleAssignmentByEnrollmentAccountArgs)(nil)).Elem()
+}
+
+type BillingRoleAssignmentByEnrollmentAccountInput interface {
+	pulumi.Input
+
+	ToBillingRoleAssignmentByEnrollmentAccountOutput() BillingRoleAssignmentByEnrollmentAccountOutput
+	ToBillingRoleAssignmentByEnrollmentAccountOutputWithContext(ctx context.Context) BillingRoleAssignmentByEnrollmentAccountOutput
+}
+
+func (BillingRoleAssignmentByEnrollmentAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingRoleAssignmentByEnrollmentAccount)(nil)).Elem()
+}
+
+func (i BillingRoleAssignmentByEnrollmentAccount) ToBillingRoleAssignmentByEnrollmentAccountOutput() BillingRoleAssignmentByEnrollmentAccountOutput {
+	return i.ToBillingRoleAssignmentByEnrollmentAccountOutputWithContext(context.Background())
+}
+
+func (i BillingRoleAssignmentByEnrollmentAccount) ToBillingRoleAssignmentByEnrollmentAccountOutputWithContext(ctx context.Context) BillingRoleAssignmentByEnrollmentAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingRoleAssignmentByEnrollmentAccountOutput)
+}
+
+type BillingRoleAssignmentByEnrollmentAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (BillingRoleAssignmentByEnrollmentAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingRoleAssignmentByEnrollmentAccountOutput)(nil)).Elem()
+}
+
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) ToBillingRoleAssignmentByEnrollmentAccountOutput() BillingRoleAssignmentByEnrollmentAccountOutput {
+	return o
+}
+
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) ToBillingRoleAssignmentByEnrollmentAccountOutputWithContext(ctx context.Context) BillingRoleAssignmentByEnrollmentAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BillingRoleAssignmentByEnrollmentAccountOutput{})
 }

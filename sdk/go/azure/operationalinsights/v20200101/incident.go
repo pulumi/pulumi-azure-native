@@ -4,6 +4,7 @@
 package v20200101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -266,4 +267,43 @@ type IncidentArgs struct {
 
 func (IncidentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentArgs)(nil)).Elem()
+}
+
+type IncidentInput interface {
+	pulumi.Input
+
+	ToIncidentOutput() IncidentOutput
+	ToIncidentOutputWithContext(ctx context.Context) IncidentOutput
+}
+
+func (Incident) ElementType() reflect.Type {
+	return reflect.TypeOf((*Incident)(nil)).Elem()
+}
+
+func (i Incident) ToIncidentOutput() IncidentOutput {
+	return i.ToIncidentOutputWithContext(context.Background())
+}
+
+func (i Incident) ToIncidentOutputWithContext(ctx context.Context) IncidentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOutput)
+}
+
+type IncidentOutput struct {
+	*pulumi.OutputState
+}
+
+func (IncidentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentOutput)(nil)).Elem()
+}
+
+func (o IncidentOutput) ToIncidentOutput() IncidentOutput {
+	return o
+}
+
+func (o IncidentOutput) ToIncidentOutputWithContext(ctx context.Context) IncidentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IncidentOutput{})
 }

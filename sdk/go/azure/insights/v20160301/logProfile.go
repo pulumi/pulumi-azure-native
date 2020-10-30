@@ -4,6 +4,7 @@
 package v20160301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -169,4 +170,43 @@ type LogProfileArgs struct {
 
 func (LogProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logProfileArgs)(nil)).Elem()
+}
+
+type LogProfileInput interface {
+	pulumi.Input
+
+	ToLogProfileOutput() LogProfileOutput
+	ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput
+}
+
+func (LogProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogProfile)(nil)).Elem()
+}
+
+func (i LogProfile) ToLogProfileOutput() LogProfileOutput {
+	return i.ToLogProfileOutputWithContext(context.Background())
+}
+
+func (i LogProfile) ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogProfileOutput)
+}
+
+type LogProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogProfileOutput)(nil)).Elem()
+}
+
+func (o LogProfileOutput) ToLogProfileOutput() LogProfileOutput {
+	return o
+}
+
+func (o LogProfileOutput) ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogProfileOutput{})
 }
