@@ -6,9 +6,6 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-/**
- * A private endpoint connection
- */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Get an existing PrivateEndpointConnection resource's state with the given name, ID, and optional extra
@@ -41,15 +38,15 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The private endpoint which the connection belongs to.
+     * Private Endpoint
      */
     public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.synapse.v20190601preview.PrivateEndpointResponse | undefined>;
     /**
-     * Connection state of the private endpoint connection.
+     * Private Link Service Connection State
      */
     public /*out*/ readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.synapse.v20190601preview.PrivateLinkServiceConnectionStateResponse | undefined>;
     /**
-     * Provisioning state of the private endpoint connection.
+     * Provisioning state
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**

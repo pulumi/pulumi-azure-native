@@ -22,15 +22,15 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The private endpoint which the connection belongs to.
+        /// Private Endpoint
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
-        /// Connection state of the private endpoint connection.
+        /// Private Link Service Connection State
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// Provisioning state of the private endpoint connection.
+        /// Provisioning state
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>

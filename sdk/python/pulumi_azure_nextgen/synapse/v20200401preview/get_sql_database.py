@@ -20,7 +20,7 @@ class GetSqlDatabaseResult:
     """
     A sql database resource.
     """
-    def __init__(__self__, collation=None, database_guid=None, location=None, max_size_bytes=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, collation=None, database_guid=None, location=None, max_size_bytes=None, name=None, status=None, system_data=None, tags=None, type=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
@@ -36,6 +36,9 @@ class GetSqlDatabaseResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -87,6 +90,14 @@ class GetSqlDatabaseResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the database.
+        """
+        return pulumi.get(self, "status")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -122,6 +133,7 @@ class AwaitableGetSqlDatabaseResult(GetSqlDatabaseResult):
             location=self.location,
             max_size_bytes=self.max_size_bytes,
             name=self.name,
+            status=self.status,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -154,6 +166,7 @@ def get_sql_database(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         max_size_bytes=__ret__.max_size_bytes,
         name=__ret__.name,
+        status=__ret__.status,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

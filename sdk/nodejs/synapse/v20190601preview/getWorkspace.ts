@@ -36,6 +36,10 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * Babylon Configuration
+     */
+    readonly babylonConfiguration?: outputs.synapse.v20190601preview.BabylonConfigurationResponse;
+    /**
      * Connectivity endpoints
      */
     readonly connectivityEndpoints?: {[key: string]: string};

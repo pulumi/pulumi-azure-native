@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
     public sealed class PrivateEndpointResponse
     {
         /// <summary>
-        /// Resource id of the private endpoint.
+        /// identifier
         /// </summary>
         public readonly string Id;
 

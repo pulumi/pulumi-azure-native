@@ -14,25 +14,25 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
     public sealed class PrivateLinkServiceConnectionStateResponse
     {
         /// <summary>
-        /// The actions required for private link service connection.
+        /// Actions Required
         /// </summary>
         public readonly string ActionsRequired;
         /// <summary>
-        /// The private link service connection description.
+        /// Description of private link service connection state
         /// </summary>
-        public readonly string? Description;
+        public readonly string Description;
         /// <summary>
-        /// The private link service connection status.
+        /// Status of private link service connection state
         /// </summary>
-        public readonly string? Status;
+        public readonly string Status;
 
         [OutputConstructor]
         private PrivateLinkServiceConnectionStateResponse(
             string actionsRequired,
 
-            string? description,
+            string description,
 
-            string? status)
+            string status)
         {
             ActionsRequired = actionsRequired;
             Description = description;

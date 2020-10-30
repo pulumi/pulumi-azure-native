@@ -18,6 +18,8 @@ type PrivateLinkHub struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of private endpoint connections
+	PrivateEndpointConnections PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// PrivateLinkHub provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
@@ -67,6 +69,8 @@ type privateLinkHubState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// List of private endpoint connections
+	PrivateEndpointConnections []PrivateEndpointConnectionForPrivateLinkHubBasicResponse `pulumi:"privateEndpointConnections"`
 	// PrivateLinkHub provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
@@ -80,6 +84,8 @@ type PrivateLinkHubState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// List of private endpoint connections
+	PrivateEndpointConnections PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayInput
 	// PrivateLinkHub provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.

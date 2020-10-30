@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connections
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// PrivateLinkHub provisioning state
         /// </summary>
         [Output("provisioningState")]

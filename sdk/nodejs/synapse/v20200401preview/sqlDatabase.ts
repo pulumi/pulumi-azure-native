@@ -57,6 +57,10 @@ export class SqlDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Status of the database.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
      * SystemData of SqlDatabase.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.synapse.v20200401preview.SystemDataResponse>;
@@ -100,6 +104,7 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["databaseGuid"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -108,6 +113,7 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["maxSizeBytes"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

@@ -9,9 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
-    /// <summary>
-    /// A private endpoint connection
-    /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -21,19 +18,19 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The private endpoint which the connection belongs to.
+        /// Private Endpoint
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Connection state of the private endpoint connection.
+        /// Private Link Service Connection State
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
         public Output<Outputs.PrivateLinkServiceConnectionStateResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the private endpoint connection.
+        /// Provisioning state
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

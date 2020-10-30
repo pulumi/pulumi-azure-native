@@ -36,24 +36,21 @@ export interface GetPrivateEndpointConnectionArgs {
     readonly workspaceName: string;
 }
 
-/**
- * A private endpoint connection
- */
 export interface GetPrivateEndpointConnectionResult {
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The private endpoint which the connection belongs to.
+     * Private Endpoint
      */
     readonly privateEndpoint?: outputs.synapse.v20190601preview.PrivateEndpointResponse;
     /**
-     * Connection state of the private endpoint connection.
+     * Private Link Service Connection State
      */
     readonly privateLinkServiceConnectionState?: outputs.synapse.v20190601preview.PrivateLinkServiceConnectionStateResponse;
     /**
-     * Provisioning state of the private endpoint connection.
+     * Provisioning state
      */
     readonly provisioningState: string;
     /**

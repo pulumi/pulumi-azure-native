@@ -37,6 +37,8 @@ type LookupSqlDatabaseResult struct {
 	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// Status of the database.
+	Status string `pulumi:"status"`
 	// SystemData of SqlDatabase.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.

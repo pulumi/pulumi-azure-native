@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// </summary>
         public readonly string LocalTimeZoneOffset;
         /// <summary>
+        /// The node communication Channel encryption mode
+        /// </summary>
+        public readonly string NodeCommunicationChannelEncryptionMode;
+        /// <summary>
         /// The list of nodes for this integration runtime.
         /// </summary>
         public readonly ImmutableArray<Outputs.SelfHostedIntegrationRuntimeNodeResponseResult> Nodes;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
 
             string localTimeZoneOffset,
 
+            string nodeCommunicationChannelEncryptionMode,
+
             ImmutableArray<Outputs.SelfHostedIntegrationRuntimeNodeResponseResult> nodes,
 
             string pushedVersion,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
             LatestVersion = latestVersion;
             Links = links;
             LocalTimeZoneOffset = localTimeZoneOffset;
+            NodeCommunicationChannelEncryptionMode = nodeCommunicationChannelEncryptionMode;
             Nodes = nodes;
             PushedVersion = pushedVersion;
             ScheduledUpdateDate = scheduledUpdateDate;

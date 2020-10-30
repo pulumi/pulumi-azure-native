@@ -25,15 +25,14 @@ type LookupPrivateEndpointConnectionArgs struct {
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
-// A private endpoint connection
 type LookupPrivateEndpointConnectionResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The private endpoint which the connection belongs to.
+	// Private Endpoint
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	// Private Link Service Connection State
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
+	// Provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`

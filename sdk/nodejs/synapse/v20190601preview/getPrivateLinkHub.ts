@@ -44,6 +44,10 @@ export interface GetPrivateLinkHubResult {
      */
     readonly name: string;
     /**
+     * List of private endpoint connections
+     */
+    readonly privateEndpointConnections: outputs.synapse.v20190601preview.PrivateEndpointConnectionForPrivateLinkHubBasicResponse[];
+    /**
      * PrivateLinkHub provisioning state
      */
     readonly provisioningState: string;
