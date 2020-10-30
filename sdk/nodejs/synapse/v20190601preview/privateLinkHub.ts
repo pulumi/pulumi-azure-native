@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,6 +45,10 @@ export class PrivateLinkHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * List of private endpoint connections
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.synapse.v20190601preview.PrivateEndpointConnectionForPrivateLinkHubBasicResponse[]>;
+    /**
      * PrivateLinkHub provisioning state
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -79,11 +85,13 @@ export class PrivateLinkHub extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

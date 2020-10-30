@@ -24,6 +24,8 @@ type SqlDatabase struct {
 	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Status of the database.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// SystemData of SqlDatabase.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -82,6 +84,8 @@ type sqlDatabaseState struct {
 	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// Status of the database.
+	Status *string `pulumi:"status"`
 	// SystemData of SqlDatabase.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
@@ -101,6 +105,8 @@ type SqlDatabaseState struct {
 	MaxSizeBytes pulumi.IntPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// Status of the database.
+	Status pulumi.StringPtrInput
 	// SystemData of SqlDatabase.
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.

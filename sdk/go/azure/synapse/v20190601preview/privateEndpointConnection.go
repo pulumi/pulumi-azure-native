@@ -10,17 +10,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A private endpoint connection
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The private endpoint which the connection belongs to.
+	// Private Endpoint
 	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	// Private Link Service Connection State
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
+	// Provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -65,11 +64,11 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 type privateEndpointConnectionState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The private endpoint which the connection belongs to.
+	// Private Endpoint
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	// Private Link Service Connection State
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
+	// Provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
@@ -78,11 +77,11 @@ type privateEndpointConnectionState struct {
 type PrivateEndpointConnectionState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The private endpoint which the connection belongs to.
+	// Private Endpoint
 	PrivateEndpoint PrivateEndpointResponsePtrInput
-	// Connection state of the private endpoint connection.
+	// Private Link Service Connection State
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
-	// Provisioning state of the private endpoint connection.
+	// Provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput

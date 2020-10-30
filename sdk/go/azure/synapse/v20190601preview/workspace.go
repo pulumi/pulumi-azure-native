@@ -14,6 +14,8 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
+	// Babylon Configuration
+	BabylonConfiguration BabylonConfigurationResponsePtrOutput `pulumi:"babylonConfiguration"`
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
@@ -89,6 +91,8 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
+	// Babylon Configuration
+	BabylonConfiguration *BabylonConfigurationResponse `pulumi:"babylonConfiguration"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
@@ -128,6 +132,8 @@ type workspaceState struct {
 }
 
 type WorkspaceState struct {
+	// Babylon Configuration
+	BabylonConfiguration BabylonConfigurationResponsePtrInput
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Workspace default data lake storage account details
@@ -171,6 +177,8 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
+	// Babylon Configuration
+	BabylonConfiguration *BabylonConfiguration `pulumi:"babylonConfiguration"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
@@ -187,8 +195,6 @@ type workspaceArgs struct {
 	ManagedVirtualNetwork *string `pulumi:"managedVirtualNetwork"`
 	// Managed Virtual Network Settings
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettings `pulumi:"managedVirtualNetworkSettings"`
-	// Private endpoint connections to the workspace
-	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Login for workspace SQL active directory administrator
@@ -205,6 +211,8 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
+	// Babylon Configuration
+	BabylonConfiguration BabylonConfigurationPtrInput
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Workspace default data lake storage account details
@@ -221,8 +229,6 @@ type WorkspaceArgs struct {
 	ManagedVirtualNetwork pulumi.StringPtrInput
 	// Managed Virtual Network Settings
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsPtrInput
-	// Private endpoint connections to the workspace
-	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Login for workspace SQL active directory administrator

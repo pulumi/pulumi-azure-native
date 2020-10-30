@@ -20,7 +20,10 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_uid=None):
+    def __init__(__self__, babylon_configuration=None, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_uid=None):
+        if babylon_configuration and not isinstance(babylon_configuration, dict):
+            raise TypeError("Expected argument 'babylon_configuration' to be a dict")
+        pulumi.set(__self__, "babylon_configuration", babylon_configuration)
         if connectivity_endpoints and not isinstance(connectivity_endpoints, dict):
             raise TypeError("Expected argument 'connectivity_endpoints' to be a dict")
         pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
@@ -75,6 +78,14 @@ class GetWorkspaceResult:
         if workspace_uid and not isinstance(workspace_uid, str):
             raise TypeError("Expected argument 'workspace_uid' to be a str")
         pulumi.set(__self__, "workspace_uid", workspace_uid)
+
+    @property
+    @pulumi.getter(name="babylonConfiguration")
+    def babylon_configuration(self) -> Optional['outputs.BabylonConfigurationResponse']:
+        """
+        Babylon Configuration
+        """
+        return pulumi.get(self, "babylon_configuration")
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
@@ -227,6 +238,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            babylon_configuration=self.babylon_configuration,
             connectivity_endpoints=self.connectivity_endpoints,
             default_data_lake_storage=self.default_data_lake_storage,
             encryption=self.encryption,
@@ -266,6 +278,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:synapse/v20190601preview:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        babylon_configuration=__ret__.babylon_configuration,
         connectivity_endpoints=__ret__.connectivity_endpoints,
         default_data_lake_storage=__ret__.default_data_lake_storage,
         encryption=__ret__.encryption,

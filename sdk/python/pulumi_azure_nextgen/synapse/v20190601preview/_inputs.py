@@ -11,6 +11,7 @@ from ... import _utilities, _tables
 __all__ = [
     'AutoPausePropertiesArgs',
     'AutoScalePropertiesArgs',
+    'BabylonConfigurationArgs',
     'CmdkeySetupArgs',
     'ComponentSetupArgs',
     'CustomerManagedKeyDetailsArgs',
@@ -32,8 +33,6 @@ __all__ = [
     'ManagedIdentityArgs',
     'ManagedIntegrationRuntimeArgs',
     'ManagedVirtualNetworkSettingsArgs',
-    'PrivateEndpointConnectionArgs',
-    'PrivateLinkServiceConnectionStateArgs',
     'SecureStringArgs',
     'SelfHostedIntegrationRuntimeArgs',
     'SkuArgs',
@@ -137,6 +136,30 @@ class AutoScalePropertiesArgs:
     @min_node_count.setter
     def min_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_node_count", value)
+
+
+@pulumi.input_type
+class BabylonConfigurationArgs:
+    def __init__(__self__, *,
+                 babylon_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Babylon Configuration
+        :param pulumi.Input[str] babylon_resource_id: Babylon Resource ID
+        """
+        if babylon_resource_id is not None:
+            pulumi.set(__self__, "babylon_resource_id", babylon_resource_id)
+
+    @property
+    @pulumi.getter(name="babylonResourceId")
+    def babylon_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Babylon Resource ID
+        """
+        return pulumi.get(self, "babylon_resource_id")
+
+    @babylon_resource_id.setter
+    def babylon_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "babylon_resource_id", value)
 
 
 @pulumi.input_type
@@ -1283,70 +1306,6 @@ class ManagedVirtualNetworkSettingsArgs:
     @prevent_data_exfiltration.setter
     def prevent_data_exfiltration(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "prevent_data_exfiltration", value)
-
-
-@pulumi.input_type
-class PrivateEndpointConnectionArgs:
-    def __init__(__self__, *,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
-        """
-        A private endpoint connection
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Connection state of the private endpoint connection.
-        """
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
-        """
-        Connection state of the private endpoint connection.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
-        """
-        Connection state details of the private endpoint
-        :param pulumi.Input[str] description: The private link service connection description.
-        :param pulumi.Input[str] status: The private link service connection status.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

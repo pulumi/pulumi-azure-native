@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Status of the database.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
         /// SystemData of SqlDatabase.
         /// </summary>
         [Output("systemData")]

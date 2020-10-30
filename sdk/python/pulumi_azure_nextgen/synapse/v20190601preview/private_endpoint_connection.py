@@ -23,8 +23,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        A private endpoint connection
-
+        Create a PrivateEndpointConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
@@ -98,7 +97,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
         """
-        The private endpoint which the connection belongs to.
+        Private Endpoint
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -106,7 +105,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceConnectionStateResponse']]:
         """
-        Connection state of the private endpoint connection.
+        Private Link Service Connection State
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -114,7 +113,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning state of the private endpoint connection.
+        Provisioning state
         """
         return pulumi.get(self, "provisioning_state")
 

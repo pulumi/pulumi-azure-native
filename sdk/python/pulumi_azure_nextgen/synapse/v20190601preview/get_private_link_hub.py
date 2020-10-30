@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetPrivateLinkHubResult',
@@ -19,13 +20,16 @@ class GetPrivateLinkHubResult:
     """
     A privateLinkHub
     """
-    def __init__(__self__, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -51,6 +55,14 @@ class GetPrivateLinkHubResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse']:
+        """
+        List of private endpoint connections
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -85,6 +97,7 @@ class AwaitableGetPrivateLinkHubResult(GetPrivateLinkHubResult):
         return GetPrivateLinkHubResult(
             location=self.location,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
@@ -111,6 +124,7 @@ def get_private_link_hub(private_link_hub_name: Optional[str] = None,
     return AwaitableGetPrivateLinkHubResult(
         location=__ret__.location,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)

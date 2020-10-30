@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// Babylon Configuration
+        /// </summary>
+        public readonly Outputs.BabylonConfigurationResponse? BabylonConfiguration;
+        /// <summary>
         /// Connectivity endpoints
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ConnectivityEndpoints;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            Outputs.BabylonConfigurationResponse? babylonConfiguration,
+
             ImmutableDictionary<string, string>? connectivityEndpoints,
 
             Outputs.DataLakeStorageAccountDetailsResponse? defaultDataLakeStorage,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string workspaceUID)
         {
+            BabylonConfiguration = babylonConfiguration;
             ConnectivityEndpoints = connectivityEndpoints;
             DefaultDataLakeStorage = defaultDataLakeStorage;
             Encryption = encryption;

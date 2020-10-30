@@ -17,9 +17,6 @@ __all__ = [
 
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
-    """
-    A private endpoint connection
-    """
     def __init__(__self__, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -49,7 +46,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        The private endpoint which the connection belongs to.
+        Private Endpoint
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -57,7 +54,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
-        Connection state of the private endpoint connection.
+        Private Link Service Connection State
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -65,7 +62,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the private endpoint connection.
+        Provisioning state
         """
         return pulumi.get(self, "provisioning_state")
 

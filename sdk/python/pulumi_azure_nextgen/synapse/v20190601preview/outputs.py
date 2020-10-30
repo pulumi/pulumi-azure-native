@@ -12,6 +12,7 @@ from . import outputs
 __all__ = [
     'AutoPausePropertiesResponse',
     'AutoScalePropertiesResponse',
+    'BabylonConfigurationResponse',
     'CmdkeySetupResponse',
     'ComponentSetupResponse',
     'CustomerManagedKeyDetailsResponse',
@@ -38,6 +39,8 @@ __all__ = [
     'ManagedIntegrationRuntimeResponse',
     'ManagedIntegrationRuntimeStatusResponseResult',
     'ManagedVirtualNetworkSettingsResponse',
+    'PrivateEndpointConnectionForPrivateLinkHubBasicResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -142,6 +145,32 @@ class AutoScalePropertiesResponse(dict):
         The minimum number of nodes the Big Data pool can support.
         """
         return pulumi.get(self, "min_node_count")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BabylonConfigurationResponse(dict):
+    """
+    Babylon Configuration
+    """
+    def __init__(__self__, *,
+                 babylon_resource_id: Optional[str] = None):
+        """
+        Babylon Configuration
+        :param str babylon_resource_id: Babylon Resource ID
+        """
+        if babylon_resource_id is not None:
+            pulumi.set(__self__, "babylon_resource_id", babylon_resource_id)
+
+    @property
+    @pulumi.getter(name="babylonResourceId")
+    def babylon_resource_id(self) -> Optional[str]:
+        """
+        Babylon Resource ID
+        """
+        return pulumi.get(self, "babylon_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1569,10 +1598,93 @@ class ManagedVirtualNetworkSettingsResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionForPrivateLinkHubBasicResponse(dict):
+    """
+    Private Endpoint Connection For Private Link Hub - Basic
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
+        """
+        Private Endpoint Connection For Private Link Hub - Basic
+        :param str id: identifier
+        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: Private Endpoint Connection Properties
+        """
+        pulumi.set(__self__, "id", id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.PrivateEndpointConnectionPropertiesResponse']:
+        """
+        Private Endpoint Connection Properties
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    Private Endpoint Connection Properties
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        Private Endpoint Connection Properties
+        :param str provisioning_state: Provisioning state
+        :param 'PrivateEndpointResponseArgs' private_endpoint: Private Endpoint
+        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Private Link Service Connection State
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        Private Endpoint
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        Private Link Service Connection State
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
-    """
-    A private endpoint connection
-    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -1581,13 +1693,12 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
-        A private endpoint connection
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
-        :param str provisioning_state: Provisioning state of the private endpoint connection.
+        :param str provisioning_state: Provisioning state
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointResponseArgs' private_endpoint: Private Endpoint
+        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Private Link Service Connection State
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1618,7 +1729,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the private endpoint connection.
+        Provisioning state
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -1634,7 +1745,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        The private endpoint which the connection belongs to.
+        Private Endpoint
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -1642,7 +1753,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
-        Connection state of the private endpoint connection.
+        Private Link Service Connection State
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -1653,13 +1764,13 @@ class PrivateEndpointConnectionResponse(dict):
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
-    Private endpoint details
+    Private Endpoint
     """
     def __init__(__self__, *,
                  id: str):
         """
-        Private endpoint details
-        :param str id: Resource id of the private endpoint.
+        Private Endpoint
+        :param str id: identifier
         """
         pulumi.set(__self__, "id", id)
 
@@ -1667,7 +1778,7 @@ class PrivateEndpointResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource id of the private endpoint.
+        identifier
         """
         return pulumi.get(self, "id")
 
@@ -1678,45 +1789,43 @@ class PrivateEndpointResponse(dict):
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
-    Connection state details of the private endpoint
+    Private Link Service Connection State
     """
     def __init__(__self__, *,
                  actions_required: str,
-                 description: Optional[str] = None,
-                 status: Optional[str] = None):
+                 description: str,
+                 status: str):
         """
-        Connection state details of the private endpoint
-        :param str actions_required: The actions required for private link service connection.
-        :param str description: The private link service connection description.
-        :param str status: The private link service connection status.
+        Private Link Service Connection State
+        :param str actions_required: Actions Required
+        :param str description: Description of private link service connection state
+        :param str status: Status of private link service connection state
         """
         pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
     def actions_required(self) -> str:
         """
-        The actions required for private link service connection.
+        Actions Required
         """
         return pulumi.get(self, "actions_required")
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> str:
         """
-        The private link service connection description.
+        Description of private link service connection state
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> str:
         """
-        The private link service connection status.
+        Status of private link service connection state
         """
         return pulumi.get(self, "status")
 
@@ -2032,6 +2141,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
                  internal_channel_encryption: str,
                  latest_version: str,
                  local_time_zone_offset: str,
+                 node_communication_channel_encryption_mode: str,
                  pushed_version: str,
                  scheduled_update_date: str,
                  service_urls: Sequence[str],
@@ -2053,6 +2163,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         :param str internal_channel_encryption: It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
         :param str latest_version: The latest version on download center.
         :param str local_time_zone_offset: The local time zone offset in hours.
+        :param str node_communication_channel_encryption_mode: The node communication Channel encryption mode
         :param str pushed_version: The version that the integration runtime is going to update to.
         :param str scheduled_update_date: The date at which the integration runtime will be scheduled to update, in ISO8601 format.
         :param Sequence[str] service_urls: The URLs for the services used in integration runtime backend service.
@@ -2073,6 +2184,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         pulumi.set(__self__, "internal_channel_encryption", internal_channel_encryption)
         pulumi.set(__self__, "latest_version", latest_version)
         pulumi.set(__self__, "local_time_zone_offset", local_time_zone_offset)
+        pulumi.set(__self__, "node_communication_channel_encryption_mode", node_communication_channel_encryption_mode)
         pulumi.set(__self__, "pushed_version", pushed_version)
         pulumi.set(__self__, "scheduled_update_date", scheduled_update_date)
         pulumi.set(__self__, "service_urls", service_urls)
@@ -2150,6 +2262,14 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         The local time zone offset in hours.
         """
         return pulumi.get(self, "local_time_zone_offset")
+
+    @property
+    @pulumi.getter(name="nodeCommunicationChannelEncryptionMode")
+    def node_communication_channel_encryption_mode(self) -> str:
+        """
+        The node communication Channel encryption mode
+        """
+        return pulumi.get(self, "node_communication_channel_encryption_mode")
 
     @property
     @pulumi.getter(name="pushedVersion")

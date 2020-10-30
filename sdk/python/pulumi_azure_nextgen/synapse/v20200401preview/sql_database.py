@@ -73,6 +73,7 @@ class SqlDatabase(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['database_guid'] = None
             __props__['name'] = None
+            __props__['status'] = None
             __props__['system_data'] = None
             __props__['type'] = None
         super(SqlDatabase, __self__).__init__(
@@ -138,6 +139,14 @@ class SqlDatabase(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[str]:
+        """
+        Status of the database.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="systemData")

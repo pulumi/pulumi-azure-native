@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['PrivateLinkHub']
 
@@ -60,6 +61,7 @@ class PrivateLinkHub(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['name'] = None
+            __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(PrivateLinkHub, __self__).__init__(
@@ -101,6 +103,14 @@ class PrivateLinkHub(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse']]:
+        """
+        List of private endpoint connections
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="provisioningState")

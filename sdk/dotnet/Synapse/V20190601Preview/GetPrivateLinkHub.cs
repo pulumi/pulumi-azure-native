@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// List of private endpoint connections
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse> PrivateEndpointConnections;
+        /// <summary>
         /// PrivateLinkHub provisioning state
         /// </summary>
         public readonly string ProvisioningState;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse> privateEndpointConnections,
+
             string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
@@ -74,6 +80,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         {
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
