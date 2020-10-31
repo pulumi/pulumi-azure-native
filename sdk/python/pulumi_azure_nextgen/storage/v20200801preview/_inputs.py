@@ -11,6 +11,10 @@ from ... import _utilities, _tables
 __all__ = [
     'ActiveDirectoryPropertiesArgs',
     'AzureFilesIdentityBasedAuthenticationArgs',
+    'BlobInventoryPolicyDefinitionArgs',
+    'BlobInventoryPolicyFilterArgs',
+    'BlobInventoryPolicyRuleArgs',
+    'BlobInventoryPolicySchemaArgs',
     'CustomDomainArgs',
     'DateAfterCreationArgs',
     'DateAfterModificationArgs',
@@ -174,6 +178,221 @@ class AzureFilesIdentityBasedAuthenticationArgs:
     @active_directory_properties.setter
     def active_directory_properties(self, value: Optional[pulumi.Input['ActiveDirectoryPropertiesArgs']]):
         pulumi.set(self, "active_directory_properties", value)
+
+
+@pulumi.input_type
+class BlobInventoryPolicyDefinitionArgs:
+    def __init__(__self__, *,
+                 filters: pulumi.Input['BlobInventoryPolicyFilterArgs']):
+        """
+        An object that defines the blob inventory rule. Each definition consists of a set of filters.
+        :param pulumi.Input['BlobInventoryPolicyFilterArgs'] filters: An object that defines the filter set.
+        """
+        pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input['BlobInventoryPolicyFilterArgs']:
+        """
+        An object that defines the filter set.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input['BlobInventoryPolicyFilterArgs']):
+        pulumi.set(self, "filters", value)
+
+
+@pulumi.input_type
+class BlobInventoryPolicyFilterArgs:
+    def __init__(__self__, *,
+                 blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 include_blob_versions: Optional[pulumi.Input[bool]] = None,
+                 include_snapshots: Optional[pulumi.Input[bool]] = None,
+                 prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        An object that defines the blob inventory rule filter conditions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+        :param pulumi.Input[bool] include_blob_versions: Includes blob versions in blob inventory when value set to true.
+        :param pulumi.Input[bool] include_snapshots: Includes blob snapshots in blob inventory when value set to true.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_match: An array of strings for blob prefixes to be matched.
+        """
+        pulumi.set(__self__, "blob_types", blob_types)
+        if include_blob_versions is not None:
+            pulumi.set(__self__, "include_blob_versions", include_blob_versions)
+        if include_snapshots is not None:
+            pulumi.set(__self__, "include_snapshots", include_snapshots)
+        if prefix_match is not None:
+            pulumi.set(__self__, "prefix_match", prefix_match)
+
+    @property
+    @pulumi.getter(name="blobTypes")
+    def blob_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+        """
+        return pulumi.get(self, "blob_types")
+
+    @blob_types.setter
+    def blob_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "blob_types", value)
+
+    @property
+    @pulumi.getter(name="includeBlobVersions")
+    def include_blob_versions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Includes blob versions in blob inventory when value set to true.
+        """
+        return pulumi.get(self, "include_blob_versions")
+
+    @include_blob_versions.setter
+    def include_blob_versions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_blob_versions", value)
+
+    @property
+    @pulumi.getter(name="includeSnapshots")
+    def include_snapshots(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Includes blob snapshots in blob inventory when value set to true.
+        """
+        return pulumi.get(self, "include_snapshots")
+
+    @include_snapshots.setter
+    def include_snapshots(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_snapshots", value)
+
+    @property
+    @pulumi.getter(name="prefixMatch")
+    def prefix_match(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of strings for blob prefixes to be matched.
+        """
+        return pulumi.get(self, "prefix_match")
+
+    @prefix_match.setter
+    def prefix_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "prefix_match", value)
+
+
+@pulumi.input_type
+class BlobInventoryPolicyRuleArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input['BlobInventoryPolicyDefinitionArgs'],
+                 enabled: pulumi.Input[bool],
+                 name: pulumi.Input[str]):
+        """
+        An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+        :param pulumi.Input['BlobInventoryPolicyDefinitionArgs'] definition: An object that defines the blob inventory policy rule.
+        :param pulumi.Input[bool] enabled: Rule is enabled when set to true.
+        :param pulumi.Input[str] name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input['BlobInventoryPolicyDefinitionArgs']:
+        """
+        An object that defines the blob inventory policy rule.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input['BlobInventoryPolicyDefinitionArgs']):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Rule is enabled when set to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class BlobInventoryPolicySchemaArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input[str],
+                 enabled: pulumi.Input[bool],
+                 rules: pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]],
+                 type: pulumi.Input[str]):
+        """
+        The storage account blob inventory policy rules.
+        :param pulumi.Input[str] destination: Container name where blob inventory files are stored. Must be pre-created.
+        :param pulumi.Input[bool] enabled: Policy is enabled if set to true.
+        :param pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
+        :param pulumi.Input[str] type: The valid value is Inventory
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[str]:
+        """
+        Container name where blob inventory files are stored. Must be pre-created.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Policy is enabled if set to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]:
+        """
+        The storage account blob inventory policy rules. The rule is applied when it is enabled.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The valid value is Inventory
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

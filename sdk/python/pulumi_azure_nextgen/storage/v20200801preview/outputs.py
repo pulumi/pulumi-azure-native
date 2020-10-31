@@ -12,6 +12,10 @@ from . import outputs
 __all__ = [
     'ActiveDirectoryPropertiesResponse',
     'AzureFilesIdentityBasedAuthenticationResponse',
+    'BlobInventoryPolicyDefinitionResponse',
+    'BlobInventoryPolicyFilterResponse',
+    'BlobInventoryPolicyRuleResponse',
+    'BlobInventoryPolicySchemaResponse',
     'BlobRestoreParametersResponse',
     'BlobRestoreRangeResponse',
     'BlobRestoreStatusResponse',
@@ -48,6 +52,7 @@ __all__ = [
     'StorageAccountInternetEndpointsResponse',
     'StorageAccountKeyResponseResult',
     'StorageAccountMicrosoftEndpointsResponse',
+    'SystemDataResponse',
     'TagFilterResponse',
     'TagPropertyResponse',
     'UpdateHistoryPropertyResponse',
@@ -166,6 +171,197 @@ class AzureFilesIdentityBasedAuthenticationResponse(dict):
         Required if choose AD.
         """
         return pulumi.get(self, "active_directory_properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BlobInventoryPolicyDefinitionResponse(dict):
+    """
+    An object that defines the blob inventory rule. Each definition consists of a set of filters.
+    """
+    def __init__(__self__, *,
+                 filters: 'outputs.BlobInventoryPolicyFilterResponse'):
+        """
+        An object that defines the blob inventory rule. Each definition consists of a set of filters.
+        :param 'BlobInventoryPolicyFilterResponseArgs' filters: An object that defines the filter set.
+        """
+        pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> 'outputs.BlobInventoryPolicyFilterResponse':
+        """
+        An object that defines the filter set.
+        """
+        return pulumi.get(self, "filters")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BlobInventoryPolicyFilterResponse(dict):
+    """
+    An object that defines the blob inventory rule filter conditions.
+    """
+    def __init__(__self__, *,
+                 blob_types: Sequence[str],
+                 include_blob_versions: Optional[bool] = None,
+                 include_snapshots: Optional[bool] = None,
+                 prefix_match: Optional[Sequence[str]] = None):
+        """
+        An object that defines the blob inventory rule filter conditions.
+        :param Sequence[str] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+        :param bool include_blob_versions: Includes blob versions in blob inventory when value set to true.
+        :param bool include_snapshots: Includes blob snapshots in blob inventory when value set to true.
+        :param Sequence[str] prefix_match: An array of strings for blob prefixes to be matched.
+        """
+        pulumi.set(__self__, "blob_types", blob_types)
+        if include_blob_versions is not None:
+            pulumi.set(__self__, "include_blob_versions", include_blob_versions)
+        if include_snapshots is not None:
+            pulumi.set(__self__, "include_snapshots", include_snapshots)
+        if prefix_match is not None:
+            pulumi.set(__self__, "prefix_match", prefix_match)
+
+    @property
+    @pulumi.getter(name="blobTypes")
+    def blob_types(self) -> Sequence[str]:
+        """
+        An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+        """
+        return pulumi.get(self, "blob_types")
+
+    @property
+    @pulumi.getter(name="includeBlobVersions")
+    def include_blob_versions(self) -> Optional[bool]:
+        """
+        Includes blob versions in blob inventory when value set to true.
+        """
+        return pulumi.get(self, "include_blob_versions")
+
+    @property
+    @pulumi.getter(name="includeSnapshots")
+    def include_snapshots(self) -> Optional[bool]:
+        """
+        Includes blob snapshots in blob inventory when value set to true.
+        """
+        return pulumi.get(self, "include_snapshots")
+
+    @property
+    @pulumi.getter(name="prefixMatch")
+    def prefix_match(self) -> Optional[Sequence[str]]:
+        """
+        An array of strings for blob prefixes to be matched.
+        """
+        return pulumi.get(self, "prefix_match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BlobInventoryPolicyRuleResponse(dict):
+    """
+    An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+    """
+    def __init__(__self__, *,
+                 definition: 'outputs.BlobInventoryPolicyDefinitionResponse',
+                 enabled: bool,
+                 name: str):
+        """
+        An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+        :param 'BlobInventoryPolicyDefinitionResponseArgs' definition: An object that defines the blob inventory policy rule.
+        :param bool enabled: Rule is enabled when set to true.
+        :param str name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> 'outputs.BlobInventoryPolicyDefinitionResponse':
+        """
+        An object that defines the blob inventory policy rule.
+        """
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Rule is enabled when set to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BlobInventoryPolicySchemaResponse(dict):
+    """
+    The storage account blob inventory policy rules.
+    """
+    def __init__(__self__, *,
+                 destination: str,
+                 enabled: bool,
+                 rules: Sequence['outputs.BlobInventoryPolicyRuleResponse'],
+                 type: str):
+        """
+        The storage account blob inventory policy rules.
+        :param str destination: Container name where blob inventory files are stored. Must be pre-created.
+        :param bool enabled: Policy is enabled if set to true.
+        :param Sequence['BlobInventoryPolicyRuleResponseArgs'] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
+        :param str type: The valid value is Inventory
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        """
+        Container name where blob inventory files are stored. Must be pre-created.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Policy is enabled if set to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.BlobInventoryPolicyRuleResponse']:
+        """
+        The storage account blob inventory policy rules. The rule is applied when it is enabled.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The valid value is Inventory
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1946,6 +2142,92 @@ class StorageAccountMicrosoftEndpointsResponse(dict):
         Gets the web endpoint.
         """
         return pulumi.get(self, "web")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
