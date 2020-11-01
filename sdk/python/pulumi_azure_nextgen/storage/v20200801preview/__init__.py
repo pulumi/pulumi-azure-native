@@ -5,9 +5,11 @@
 # Export this package's modules as members:
 from .blob_container import *
 from .blob_container_immutability_policy import *
+from .blob_inventory_policy import *
 from .file_share import *
 from .get_blob_container import *
 from .get_blob_container_immutability_policy import *
+from .get_blob_inventory_policy import *
 from .get_file_share import *
 from .get_management_policy import *
 from .get_object_replication_policy import *
