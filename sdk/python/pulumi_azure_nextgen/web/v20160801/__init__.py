@@ -23,6 +23,7 @@ from .get_web_app_relay_service_connection_slot import *
 from .get_web_app_site_extension import *
 from .get_web_app_site_extension_slot import *
 from .get_web_app_slot import *
+from .get_web_app_slot_configuration_names import *
 from .get_web_app_source_control import *
 from .get_web_app_source_control_slot import *
 from .get_web_app_vnet_connection import *
@@ -69,6 +70,7 @@ from .web_app_relay_service_connection_slot import *
 from .web_app_site_extension import *
 from .web_app_site_extension_slot import *
 from .web_app_slot import *
+from .web_app_slot_configuration_names import *
 from .web_app_source_control import *
 from .web_app_source_control_slot import *
 from .web_app_vnet_connection import *

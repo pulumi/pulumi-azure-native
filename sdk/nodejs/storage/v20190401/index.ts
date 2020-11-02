@@ -4,9 +4,11 @@
 // Export members:
 export * from "./blobContainer";
 export * from "./blobContainerImmutabilityPolicy";
+export * from "./blobServiceProperties";
 export * from "./fileShare";
 export * from "./getBlobContainer";
 export * from "./getBlobContainerImmutabilityPolicy";
+export * from "./getBlobServiceProperties";
 export * from "./getFileShare";
 export * from "./getManagementPolicy";
 export * from "./getStorageAccount";

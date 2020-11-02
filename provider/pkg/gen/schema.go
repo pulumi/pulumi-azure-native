@@ -277,7 +277,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 
 			for _, typeName := range resources {
 				resource := items.Resources[typeName]
-				gen.genResources(providerName, typeName, resource.Path, resource.PathItem, resource.Swagger, resource.CompatibleVersions)
+				gen.genResources(providerName, typeName, resource)
 			}
 
 			// Populate POST invokes.
@@ -350,9 +350,11 @@ type packageGenerator struct {
 	examples   map[string][]provider.AzureAPIExample
 	apiVersion string
 }
-
-func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.PathItem, swagger *openapi.Spec, otherVersions []string) {
+//resource.Path, resource.PathItem, resource.Swagger, resource.CompatibleVersions
+func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) {
 	module := g.providerToModule(prov)
+	swagger := resource.Swagger
+	path := resource.PathItem
 	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
 
 	// Generate the resource.
@@ -366,11 +368,30 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 		visitedTypes:  make(map[string]bool),
 	}
 
-	parameters := swagger.MergeParameters(path.Put.Parameters, path.Parameters)
+	parameters := resource.Swagger.MergeParameters(path.Put.Parameters, path.Parameters)
 	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", resourceTok, err.Error())
 		return
+	}
+
+	if path.Delete == nil {
+		if !resource.Ambient {
+			log.Printf("failed to generate '%s': no DELETE operation", resourceTok)
+			return
+		}
+
+		// We may support a path without a DELETE operation if there is a 'zero' UPDATE, i.e. if no properties
+		// inside UPDATE's body parameter are required.
+		for _, p := range resourceRequest.parameters {
+			if p.Body != nil {
+				if len(p.Body.RequiredProperties) > 0 {
+					log.Printf("failed to generate '%s': ambient resource has required body parameters", resourceTok)
+					return
+				}
+				break
+			}
+		}
 	}
 
 	resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext)
@@ -388,7 +409,7 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 
 	// Add an alias for each API version that has the same path in it.
 	var aliases []pschema.AliasSpec
-	for _, version := range otherVersions {
+	for _, version := range resource.CompatibleVersions {
 		alias := fmt.Sprintf("%s:%s/%s:%s", g.pkg.Name, strings.ToLower(prov), version, typeName)
 		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
 	}
@@ -439,16 +460,17 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 
 	r := provider.AzureAPIResource{
 		APIVersion:    swagger.Info.Version,
-		Path:          key,
+		Path:          resource.Path,
 		GetParameters: requestFunction.parameters,
 		PutParameters: resourceRequest.parameters,
 		Response:      resourceResponse.properties,
+		Ambient:       resource.Ambient,
 	}
 	g.metadata.Resources[resourceTok] = r
 
 	f := provider.AzureAPIInvoke{
 		APIVersion:    swagger.Info.Version,
-		Path:          key,
+		Path:          resource.Path,
 		GetParameters: requestFunction.parameters,
 		Response:      responseFunction.properties,
 	}

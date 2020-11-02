@@ -142,6 +142,18 @@ const appService = new web.WebApp("app", {
     name: randomString.result,
     location: "westus2",
     serverFarmId: appServicePlan.id,
+    siteConfig: {
+        appSettings: [{
+            name: "test",
+            value: "this is a slot setting",
+        }],
+    },
+});
+
+new web.WebAppSlotConfigurationNames("names", {
+    resourceGroupName: resourceGroup.name,
+    name: appService.name,
+    appSettingNames: ["test"],
 });
 
 const storageAccount = new storage.StorageAccount("sa", {
@@ -172,6 +184,13 @@ const eventGridSub = new eventgrid.EventSubscription("egsub", {
     filter: {
         isSubjectCaseSensitive: true,
     }
+});
+
+new storage.BlobServiceProperties("blobprops", {
+    resourceGroupName: resourceGroup.name,
+    accountName: storageAccount.name,
+    blobServicesName: "default",
+    isVersioningEnabled: true,
 });
 
 export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;

@@ -59,6 +59,9 @@ type AzureAPIResource struct {
 	GetParameters []AzureAPIParameter         `json:"GET"`
 	PutParameters []AzureAPIParameter         `json:"PUT"`
 	Response      map[string]AzureAPIProperty `json:"response"`
+	// Ambient resources can't be explicitly created or deleted: they are provisioned automatically with
+	// the parent resource. We can only update and read them.
+	Ambient bool `json:"ambient,omitempty"`
 }
 
 // AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.

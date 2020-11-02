@@ -10,6 +10,546 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Specifies a CORS rule for the Blob service.
+type CorsRule struct {
+	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+
+// CorsRuleInput is an input type that accepts CorsRuleArgs and CorsRuleOutput values.
+// You can construct a concrete instance of `CorsRuleInput` via:
+//
+//          CorsRuleArgs{...}
+type CorsRuleInput interface {
+	pulumi.Input
+
+	ToCorsRuleOutput() CorsRuleOutput
+	ToCorsRuleOutputWithContext(context.Context) CorsRuleOutput
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRuleArgs struct {
+	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (CorsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRule)(nil)).Elem()
+}
+
+func (i CorsRuleArgs) ToCorsRuleOutput() CorsRuleOutput {
+	return i.ToCorsRuleOutputWithContext(context.Background())
+}
+
+func (i CorsRuleArgs) ToCorsRuleOutputWithContext(ctx context.Context) CorsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRuleOutput)
+}
+
+// CorsRuleArrayInput is an input type that accepts CorsRuleArray and CorsRuleArrayOutput values.
+// You can construct a concrete instance of `CorsRuleArrayInput` via:
+//
+//          CorsRuleArray{ CorsRuleArgs{...} }
+type CorsRuleArrayInput interface {
+	pulumi.Input
+
+	ToCorsRuleArrayOutput() CorsRuleArrayOutput
+	ToCorsRuleArrayOutputWithContext(context.Context) CorsRuleArrayOutput
+}
+
+type CorsRuleArray []CorsRuleInput
+
+func (CorsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsRule)(nil)).Elem()
+}
+
+func (i CorsRuleArray) ToCorsRuleArrayOutput() CorsRuleArrayOutput {
+	return i.ToCorsRuleArrayOutputWithContext(context.Background())
+}
+
+func (i CorsRuleArray) ToCorsRuleArrayOutputWithContext(ctx context.Context) CorsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRuleArrayOutput)
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRuleOutput struct{ *pulumi.OutputState }
+
+func (CorsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRule)(nil)).Elem()
+}
+
+func (o CorsRuleOutput) ToCorsRuleOutput() CorsRuleOutput {
+	return o
+}
+
+func (o CorsRuleOutput) ToCorsRuleOutputWithContext(ctx context.Context) CorsRuleOutput {
+	return o
+}
+
+// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+func (o CorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+func (o CorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+func (o CorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+func (o CorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+func (o CorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v CorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type CorsRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (CorsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsRule)(nil)).Elem()
+}
+
+func (o CorsRuleArrayOutput) ToCorsRuleArrayOutput() CorsRuleArrayOutput {
+	return o
+}
+
+func (o CorsRuleArrayOutput) ToCorsRuleArrayOutputWithContext(ctx context.Context) CorsRuleArrayOutput {
+	return o
+}
+
+func (o CorsRuleArrayOutput) Index(i pulumi.IntInput) CorsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CorsRule {
+		return vs[0].([]CorsRule)[vs[1].(int)]
+	}).(CorsRuleOutput)
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRuleResponse struct {
+	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+
+// CorsRuleResponseInput is an input type that accepts CorsRuleResponseArgs and CorsRuleResponseOutput values.
+// You can construct a concrete instance of `CorsRuleResponseInput` via:
+//
+//          CorsRuleResponseArgs{...}
+type CorsRuleResponseInput interface {
+	pulumi.Input
+
+	ToCorsRuleResponseOutput() CorsRuleResponseOutput
+	ToCorsRuleResponseOutputWithContext(context.Context) CorsRuleResponseOutput
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRuleResponseArgs struct {
+	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (CorsRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRuleResponse)(nil)).Elem()
+}
+
+func (i CorsRuleResponseArgs) ToCorsRuleResponseOutput() CorsRuleResponseOutput {
+	return i.ToCorsRuleResponseOutputWithContext(context.Background())
+}
+
+func (i CorsRuleResponseArgs) ToCorsRuleResponseOutputWithContext(ctx context.Context) CorsRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRuleResponseOutput)
+}
+
+// CorsRuleResponseArrayInput is an input type that accepts CorsRuleResponseArray and CorsRuleResponseArrayOutput values.
+// You can construct a concrete instance of `CorsRuleResponseArrayInput` via:
+//
+//          CorsRuleResponseArray{ CorsRuleResponseArgs{...} }
+type CorsRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToCorsRuleResponseArrayOutput() CorsRuleResponseArrayOutput
+	ToCorsRuleResponseArrayOutputWithContext(context.Context) CorsRuleResponseArrayOutput
+}
+
+type CorsRuleResponseArray []CorsRuleResponseInput
+
+func (CorsRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsRuleResponse)(nil)).Elem()
+}
+
+func (i CorsRuleResponseArray) ToCorsRuleResponseArrayOutput() CorsRuleResponseArrayOutput {
+	return i.ToCorsRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CorsRuleResponseArray) ToCorsRuleResponseArrayOutputWithContext(ctx context.Context) CorsRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRuleResponseArrayOutput)
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (CorsRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRuleResponse)(nil)).Elem()
+}
+
+func (o CorsRuleResponseOutput) ToCorsRuleResponseOutput() CorsRuleResponseOutput {
+	return o
+}
+
+func (o CorsRuleResponseOutput) ToCorsRuleResponseOutputWithContext(ctx context.Context) CorsRuleResponseOutput {
+	return o
+}
+
+// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+func (o CorsRuleResponseOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRuleResponse) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+func (o CorsRuleResponseOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRuleResponse) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+func (o CorsRuleResponseOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRuleResponse) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+func (o CorsRuleResponseOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRuleResponse) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+func (o CorsRuleResponseOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v CorsRuleResponse) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type CorsRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CorsRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsRuleResponse)(nil)).Elem()
+}
+
+func (o CorsRuleResponseArrayOutput) ToCorsRuleResponseArrayOutput() CorsRuleResponseArrayOutput {
+	return o
+}
+
+func (o CorsRuleResponseArrayOutput) ToCorsRuleResponseArrayOutputWithContext(ctx context.Context) CorsRuleResponseArrayOutput {
+	return o
+}
+
+func (o CorsRuleResponseArrayOutput) Index(i pulumi.IntInput) CorsRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CorsRuleResponse {
+		return vs[0].([]CorsRuleResponse)[vs[1].(int)]
+	}).(CorsRuleResponseOutput)
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRules struct {
+	// The List of CORS rules. You can include up to five CorsRule elements in the request.
+	CorsRules []CorsRule `pulumi:"corsRules"`
+}
+
+// CorsRulesInput is an input type that accepts CorsRulesArgs and CorsRulesOutput values.
+// You can construct a concrete instance of `CorsRulesInput` via:
+//
+//          CorsRulesArgs{...}
+type CorsRulesInput interface {
+	pulumi.Input
+
+	ToCorsRulesOutput() CorsRulesOutput
+	ToCorsRulesOutputWithContext(context.Context) CorsRulesOutput
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRulesArgs struct {
+	// The List of CORS rules. You can include up to five CorsRule elements in the request.
+	CorsRules CorsRuleArrayInput `pulumi:"corsRules"`
+}
+
+func (CorsRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRules)(nil)).Elem()
+}
+
+func (i CorsRulesArgs) ToCorsRulesOutput() CorsRulesOutput {
+	return i.ToCorsRulesOutputWithContext(context.Background())
+}
+
+func (i CorsRulesArgs) ToCorsRulesOutputWithContext(ctx context.Context) CorsRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesOutput)
+}
+
+func (i CorsRulesArgs) ToCorsRulesPtrOutput() CorsRulesPtrOutput {
+	return i.ToCorsRulesPtrOutputWithContext(context.Background())
+}
+
+func (i CorsRulesArgs) ToCorsRulesPtrOutputWithContext(ctx context.Context) CorsRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesOutput).ToCorsRulesPtrOutputWithContext(ctx)
+}
+
+// CorsRulesPtrInput is an input type that accepts CorsRulesArgs, CorsRulesPtr and CorsRulesPtrOutput values.
+// You can construct a concrete instance of `CorsRulesPtrInput` via:
+//
+//          CorsRulesArgs{...}
+//
+//  or:
+//
+//          nil
+type CorsRulesPtrInput interface {
+	pulumi.Input
+
+	ToCorsRulesPtrOutput() CorsRulesPtrOutput
+	ToCorsRulesPtrOutputWithContext(context.Context) CorsRulesPtrOutput
+}
+
+type corsRulesPtrType CorsRulesArgs
+
+func CorsRulesPtr(v *CorsRulesArgs) CorsRulesPtrInput {
+	return (*corsRulesPtrType)(v)
+}
+
+func (*corsRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsRules)(nil)).Elem()
+}
+
+func (i *corsRulesPtrType) ToCorsRulesPtrOutput() CorsRulesPtrOutput {
+	return i.ToCorsRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *corsRulesPtrType) ToCorsRulesPtrOutputWithContext(ctx context.Context) CorsRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesPtrOutput)
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRulesOutput struct{ *pulumi.OutputState }
+
+func (CorsRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRules)(nil)).Elem()
+}
+
+func (o CorsRulesOutput) ToCorsRulesOutput() CorsRulesOutput {
+	return o
+}
+
+func (o CorsRulesOutput) ToCorsRulesOutputWithContext(ctx context.Context) CorsRulesOutput {
+	return o
+}
+
+func (o CorsRulesOutput) ToCorsRulesPtrOutput() CorsRulesPtrOutput {
+	return o.ToCorsRulesPtrOutputWithContext(context.Background())
+}
+
+func (o CorsRulesOutput) ToCorsRulesPtrOutputWithContext(ctx context.Context) CorsRulesPtrOutput {
+	return o.ApplyT(func(v CorsRules) *CorsRules {
+		return &v
+	}).(CorsRulesPtrOutput)
+}
+
+// The List of CORS rules. You can include up to five CorsRule elements in the request.
+func (o CorsRulesOutput) CorsRules() CorsRuleArrayOutput {
+	return o.ApplyT(func(v CorsRules) []CorsRule { return v.CorsRules }).(CorsRuleArrayOutput)
+}
+
+type CorsRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (CorsRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsRules)(nil)).Elem()
+}
+
+func (o CorsRulesPtrOutput) ToCorsRulesPtrOutput() CorsRulesPtrOutput {
+	return o
+}
+
+func (o CorsRulesPtrOutput) ToCorsRulesPtrOutputWithContext(ctx context.Context) CorsRulesPtrOutput {
+	return o
+}
+
+func (o CorsRulesPtrOutput) Elem() CorsRulesOutput {
+	return o.ApplyT(func(v *CorsRules) CorsRules { return *v }).(CorsRulesOutput)
+}
+
+// The List of CORS rules. You can include up to five CorsRule elements in the request.
+func (o CorsRulesPtrOutput) CorsRules() CorsRuleArrayOutput {
+	return o.ApplyT(func(v *CorsRules) []CorsRule {
+		if v == nil {
+			return nil
+		}
+		return v.CorsRules
+	}).(CorsRuleArrayOutput)
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRulesResponse struct {
+	// The List of CORS rules. You can include up to five CorsRule elements in the request.
+	CorsRules []CorsRuleResponse `pulumi:"corsRules"`
+}
+
+// CorsRulesResponseInput is an input type that accepts CorsRulesResponseArgs and CorsRulesResponseOutput values.
+// You can construct a concrete instance of `CorsRulesResponseInput` via:
+//
+//          CorsRulesResponseArgs{...}
+type CorsRulesResponseInput interface {
+	pulumi.Input
+
+	ToCorsRulesResponseOutput() CorsRulesResponseOutput
+	ToCorsRulesResponseOutputWithContext(context.Context) CorsRulesResponseOutput
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRulesResponseArgs struct {
+	// The List of CORS rules. You can include up to five CorsRule elements in the request.
+	CorsRules CorsRuleResponseArrayInput `pulumi:"corsRules"`
+}
+
+func (CorsRulesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRulesResponse)(nil)).Elem()
+}
+
+func (i CorsRulesResponseArgs) ToCorsRulesResponseOutput() CorsRulesResponseOutput {
+	return i.ToCorsRulesResponseOutputWithContext(context.Background())
+}
+
+func (i CorsRulesResponseArgs) ToCorsRulesResponseOutputWithContext(ctx context.Context) CorsRulesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesResponseOutput)
+}
+
+func (i CorsRulesResponseArgs) ToCorsRulesResponsePtrOutput() CorsRulesResponsePtrOutput {
+	return i.ToCorsRulesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CorsRulesResponseArgs) ToCorsRulesResponsePtrOutputWithContext(ctx context.Context) CorsRulesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesResponseOutput).ToCorsRulesResponsePtrOutputWithContext(ctx)
+}
+
+// CorsRulesResponsePtrInput is an input type that accepts CorsRulesResponseArgs, CorsRulesResponsePtr and CorsRulesResponsePtrOutput values.
+// You can construct a concrete instance of `CorsRulesResponsePtrInput` via:
+//
+//          CorsRulesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CorsRulesResponsePtrInput interface {
+	pulumi.Input
+
+	ToCorsRulesResponsePtrOutput() CorsRulesResponsePtrOutput
+	ToCorsRulesResponsePtrOutputWithContext(context.Context) CorsRulesResponsePtrOutput
+}
+
+type corsRulesResponsePtrType CorsRulesResponseArgs
+
+func CorsRulesResponsePtr(v *CorsRulesResponseArgs) CorsRulesResponsePtrInput {
+	return (*corsRulesResponsePtrType)(v)
+}
+
+func (*corsRulesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsRulesResponse)(nil)).Elem()
+}
+
+func (i *corsRulesResponsePtrType) ToCorsRulesResponsePtrOutput() CorsRulesResponsePtrOutput {
+	return i.ToCorsRulesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *corsRulesResponsePtrType) ToCorsRulesResponsePtrOutputWithContext(ctx context.Context) CorsRulesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesResponsePtrOutput)
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRulesResponseOutput struct{ *pulumi.OutputState }
+
+func (CorsRulesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRulesResponse)(nil)).Elem()
+}
+
+func (o CorsRulesResponseOutput) ToCorsRulesResponseOutput() CorsRulesResponseOutput {
+	return o
+}
+
+func (o CorsRulesResponseOutput) ToCorsRulesResponseOutputWithContext(ctx context.Context) CorsRulesResponseOutput {
+	return o
+}
+
+func (o CorsRulesResponseOutput) ToCorsRulesResponsePtrOutput() CorsRulesResponsePtrOutput {
+	return o.ToCorsRulesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CorsRulesResponseOutput) ToCorsRulesResponsePtrOutputWithContext(ctx context.Context) CorsRulesResponsePtrOutput {
+	return o.ApplyT(func(v CorsRulesResponse) *CorsRulesResponse {
+		return &v
+	}).(CorsRulesResponsePtrOutput)
+}
+
+// The List of CORS rules. You can include up to five CorsRule elements in the request.
+func (o CorsRulesResponseOutput) CorsRules() CorsRuleResponseArrayOutput {
+	return o.ApplyT(func(v CorsRulesResponse) []CorsRuleResponse { return v.CorsRules }).(CorsRuleResponseArrayOutput)
+}
+
+type CorsRulesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CorsRulesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsRulesResponse)(nil)).Elem()
+}
+
+func (o CorsRulesResponsePtrOutput) ToCorsRulesResponsePtrOutput() CorsRulesResponsePtrOutput {
+	return o
+}
+
+func (o CorsRulesResponsePtrOutput) ToCorsRulesResponsePtrOutputWithContext(ctx context.Context) CorsRulesResponsePtrOutput {
+	return o
+}
+
+func (o CorsRulesResponsePtrOutput) Elem() CorsRulesResponseOutput {
+	return o.ApplyT(func(v *CorsRulesResponse) CorsRulesResponse { return *v }).(CorsRulesResponseOutput)
+}
+
+// The List of CORS rules. You can include up to five CorsRule elements in the request.
+func (o CorsRulesResponsePtrOutput) CorsRules() CorsRuleResponseArrayOutput {
+	return o.ApplyT(func(v *CorsRulesResponse) []CorsRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CorsRules
+	}).(CorsRuleResponseArrayOutput)
+}
+
 // The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomain struct {
 	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
@@ -850,6 +1390,312 @@ func (o DateAfterModificationResponsePtrOutput) DaysAfterModificationGreaterThan
 		}
 		return &v.DaysAfterModificationGreaterThan
 	}).(pulumi.IntPtrOutput)
+}
+
+// The blob service properties for soft delete.
+type DeleteRetentionPolicy struct {
+	// Indicates the number of days that the deleted blob should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+	Days *int `pulumi:"days"`
+	// Indicates whether DeleteRetentionPolicy is enabled for the Blob service.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DeleteRetentionPolicyInput is an input type that accepts DeleteRetentionPolicyArgs and DeleteRetentionPolicyOutput values.
+// You can construct a concrete instance of `DeleteRetentionPolicyInput` via:
+//
+//          DeleteRetentionPolicyArgs{...}
+type DeleteRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToDeleteRetentionPolicyOutput() DeleteRetentionPolicyOutput
+	ToDeleteRetentionPolicyOutputWithContext(context.Context) DeleteRetentionPolicyOutput
+}
+
+// The blob service properties for soft delete.
+type DeleteRetentionPolicyArgs struct {
+	// Indicates the number of days that the deleted blob should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Indicates whether DeleteRetentionPolicy is enabled for the Blob service.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DeleteRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (i DeleteRetentionPolicyArgs) ToDeleteRetentionPolicyOutput() DeleteRetentionPolicyOutput {
+	return i.ToDeleteRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i DeleteRetentionPolicyArgs) ToDeleteRetentionPolicyOutputWithContext(ctx context.Context) DeleteRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyOutput)
+}
+
+func (i DeleteRetentionPolicyArgs) ToDeleteRetentionPolicyPtrOutput() DeleteRetentionPolicyPtrOutput {
+	return i.ToDeleteRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DeleteRetentionPolicyArgs) ToDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyOutput).ToDeleteRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// DeleteRetentionPolicyPtrInput is an input type that accepts DeleteRetentionPolicyArgs, DeleteRetentionPolicyPtr and DeleteRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `DeleteRetentionPolicyPtrInput` via:
+//
+//          DeleteRetentionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type DeleteRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDeleteRetentionPolicyPtrOutput() DeleteRetentionPolicyPtrOutput
+	ToDeleteRetentionPolicyPtrOutputWithContext(context.Context) DeleteRetentionPolicyPtrOutput
+}
+
+type deleteRetentionPolicyPtrType DeleteRetentionPolicyArgs
+
+func DeleteRetentionPolicyPtr(v *DeleteRetentionPolicyArgs) DeleteRetentionPolicyPtrInput {
+	return (*deleteRetentionPolicyPtrType)(v)
+}
+
+func (*deleteRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (i *deleteRetentionPolicyPtrType) ToDeleteRetentionPolicyPtrOutput() DeleteRetentionPolicyPtrOutput {
+	return i.ToDeleteRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *deleteRetentionPolicyPtrType) ToDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyPtrOutput)
+}
+
+// The blob service properties for soft delete.
+type DeleteRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (DeleteRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyOutput() DeleteRetentionPolicyOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyOutputWithContext(ctx context.Context) DeleteRetentionPolicyOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyPtrOutput() DeleteRetentionPolicyPtrOutput {
+	return o.ToDeleteRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicy) *DeleteRetentionPolicy {
+		return &v
+	}).(DeleteRetentionPolicyPtrOutput)
+}
+
+// Indicates the number of days that the deleted blob should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+func (o DeleteRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether DeleteRetentionPolicy is enabled for the Blob service.
+func (o DeleteRetentionPolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DeleteRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DeleteRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (o DeleteRetentionPolicyPtrOutput) ToDeleteRetentionPolicyPtrOutput() DeleteRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyPtrOutput) ToDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyPtrOutput) Elem() DeleteRetentionPolicyOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicy) DeleteRetentionPolicy { return *v }).(DeleteRetentionPolicyOutput)
+}
+
+// Indicates the number of days that the deleted blob should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+func (o DeleteRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether DeleteRetentionPolicy is enabled for the Blob service.
+func (o DeleteRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The blob service properties for soft delete.
+type DeleteRetentionPolicyResponse struct {
+	// Indicates the number of days that the deleted blob should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+	Days *int `pulumi:"days"`
+	// Indicates whether DeleteRetentionPolicy is enabled for the Blob service.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DeleteRetentionPolicyResponseInput is an input type that accepts DeleteRetentionPolicyResponseArgs and DeleteRetentionPolicyResponseOutput values.
+// You can construct a concrete instance of `DeleteRetentionPolicyResponseInput` via:
+//
+//          DeleteRetentionPolicyResponseArgs{...}
+type DeleteRetentionPolicyResponseInput interface {
+	pulumi.Input
+
+	ToDeleteRetentionPolicyResponseOutput() DeleteRetentionPolicyResponseOutput
+	ToDeleteRetentionPolicyResponseOutputWithContext(context.Context) DeleteRetentionPolicyResponseOutput
+}
+
+// The blob service properties for soft delete.
+type DeleteRetentionPolicyResponseArgs struct {
+	// Indicates the number of days that the deleted blob should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Indicates whether DeleteRetentionPolicy is enabled for the Blob service.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DeleteRetentionPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeleteRetentionPolicyResponse)(nil)).Elem()
+}
+
+func (i DeleteRetentionPolicyResponseArgs) ToDeleteRetentionPolicyResponseOutput() DeleteRetentionPolicyResponseOutput {
+	return i.ToDeleteRetentionPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i DeleteRetentionPolicyResponseArgs) ToDeleteRetentionPolicyResponseOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyResponseOutput)
+}
+
+func (i DeleteRetentionPolicyResponseArgs) ToDeleteRetentionPolicyResponsePtrOutput() DeleteRetentionPolicyResponsePtrOutput {
+	return i.ToDeleteRetentionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeleteRetentionPolicyResponseArgs) ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyResponseOutput).ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// DeleteRetentionPolicyResponsePtrInput is an input type that accepts DeleteRetentionPolicyResponseArgs, DeleteRetentionPolicyResponsePtr and DeleteRetentionPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `DeleteRetentionPolicyResponsePtrInput` via:
+//
+//          DeleteRetentionPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DeleteRetentionPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeleteRetentionPolicyResponsePtrOutput() DeleteRetentionPolicyResponsePtrOutput
+	ToDeleteRetentionPolicyResponsePtrOutputWithContext(context.Context) DeleteRetentionPolicyResponsePtrOutput
+}
+
+type deleteRetentionPolicyResponsePtrType DeleteRetentionPolicyResponseArgs
+
+func DeleteRetentionPolicyResponsePtr(v *DeleteRetentionPolicyResponseArgs) DeleteRetentionPolicyResponsePtrInput {
+	return (*deleteRetentionPolicyResponsePtrType)(v)
+}
+
+func (*deleteRetentionPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeleteRetentionPolicyResponse)(nil)).Elem()
+}
+
+func (i *deleteRetentionPolicyResponsePtrType) ToDeleteRetentionPolicyResponsePtrOutput() DeleteRetentionPolicyResponsePtrOutput {
+	return i.ToDeleteRetentionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deleteRetentionPolicyResponsePtrType) ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyResponsePtrOutput)
+}
+
+// The blob service properties for soft delete.
+type DeleteRetentionPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (DeleteRetentionPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeleteRetentionPolicyResponse)(nil)).Elem()
+}
+
+func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponseOutput() DeleteRetentionPolicyResponseOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponseOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponseOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponsePtrOutput() DeleteRetentionPolicyResponsePtrOutput {
+	return o.ToDeleteRetentionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicyResponse) *DeleteRetentionPolicyResponse {
+		return &v
+	}).(DeleteRetentionPolicyResponsePtrOutput)
+}
+
+// Indicates the number of days that the deleted blob should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+func (o DeleteRetentionPolicyResponseOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicyResponse) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether DeleteRetentionPolicy is enabled for the Blob service.
+func (o DeleteRetentionPolicyResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicyResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DeleteRetentionPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeleteRetentionPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeleteRetentionPolicyResponse)(nil)).Elem()
+}
+
+func (o DeleteRetentionPolicyResponsePtrOutput) ToDeleteRetentionPolicyResponsePtrOutput() DeleteRetentionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyResponsePtrOutput) ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyResponsePtrOutput) Elem() DeleteRetentionPolicyResponseOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) DeleteRetentionPolicyResponse { return *v }).(DeleteRetentionPolicyResponseOutput)
+}
+
+// Indicates the number of days that the deleted blob should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+func (o DeleteRetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether DeleteRetentionPolicy is enabled for the Blob service.
+func (o DeleteRetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The encryption settings on the storage account.
@@ -6882,6 +7728,14 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 }
 
 func init() {
+	pulumi.RegisterOutputType(CorsRuleOutput{})
+	pulumi.RegisterOutputType(CorsRuleArrayOutput{})
+	pulumi.RegisterOutputType(CorsRuleResponseOutput{})
+	pulumi.RegisterOutputType(CorsRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(CorsRulesOutput{})
+	pulumi.RegisterOutputType(CorsRulesPtrOutput{})
+	pulumi.RegisterOutputType(CorsRulesResponseOutput{})
+	pulumi.RegisterOutputType(CorsRulesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainOutput{})
 	pulumi.RegisterOutputType(CustomDomainPtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponseOutput{})
@@ -6894,6 +7748,10 @@ func init() {
 	pulumi.RegisterOutputType(DateAfterModificationPtrOutput{})
 	pulumi.RegisterOutputType(DateAfterModificationResponseOutput{})
 	pulumi.RegisterOutputType(DateAfterModificationResponsePtrOutput{})
+	pulumi.RegisterOutputType(DeleteRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(DeleteRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DeleteRetentionPolicyResponseOutput{})
+	pulumi.RegisterOutputType(DeleteRetentionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})

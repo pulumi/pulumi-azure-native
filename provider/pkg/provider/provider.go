@@ -588,11 +588,18 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 		return nil, err
 	}
 
-	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
-	// (though it's technically impossible since the only operation supported is an upsert).
-	err = k.azureCanCreate(ctx, id, res.APIVersion)
-	if err != nil {
-		return nil, err
+	if res.Ambient {
+		_, err = k.azureGet(ctx, id, res.APIVersion)
+		if err != nil {
+			return nil, fmt.Errorf("ambient resource %v not found", id)
+		}
+	} else {
+		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
+		// (though it's technically impossible since the only operation supported is an upsert).
+		err = k.azureCanCreate(ctx, id, res.APIVersion)
+		if err != nil {
+			return nil, fmt.Errorf("cannot create already existing resource %v", id)
+		}
 	}
 
 	// Submit the `PUT` against the ARM endpoint
@@ -806,9 +813,43 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 	if !ok {
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
-	err := k.azureDelete(ctx, id, res.APIVersion)
-	if err != nil {
-		return nil, err
+
+	switch {
+	// Ambient resources can't be deleted. Instead, put them to the default (empty) state.
+	case res.Ambient:
+		oldState, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.properties", label), KeepUnknowns: true, SkipNulls: true,
+		})
+		// Build query params from old inputs of the resource.
+		oldInputs := parseCheckpointObject(oldState)
+		if err != nil {
+			return nil, err
+		}
+		id, _, queryParams, err := k.prepareAzureRESTInputs(
+			res.Path,
+			res.PutParameters,
+			oldInputs.Mappable(),
+			map[string]interface{}{
+				"subscriptionId": k.subscriptionID,
+				"api-version":    res.APIVersion,
+			},
+		)
+		if err != nil {
+			return nil, err
+		}
+
+		// Build an empty body map.
+		bodyParams := k.emptyBody(res.PutParameters)
+
+		_, err = k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams)
+		if err != nil {
+			return nil, err
+		}
+	default:
+		err := k.azureDelete(ctx, id, res.APIVersion)
+		if err != nil {
+			return nil, errors.Wrapf(err, "deleting %s", label)
+		}
 	}
 	return &pbempty.Empty{}, nil
 }
@@ -1112,6 +1153,26 @@ func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []
 		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
 	}
 	return id, params["body"], params["query"], nil
+}
+
+func (k *azureNextGenProvider) emptyBody(parameters []AzureAPIParameter) map[string]interface{} {
+	result := map[string]interface{}{}
+
+	for _, param := range parameters {
+		if param.Location == "body" {
+			for _, prop := range param.Body.Properties {
+				// Azure expects a container parameter to always be present in the payload.
+				parent := result
+				for _, containerName := range prop.Containers {
+					child := map[string]interface{}{}
+					parent[containerName] = child
+					parent = child
+				}
+			}
+		}
+	}
+
+	return result
 }
 
 func (k *azureNextGenProvider) setLoggingContext(ctx context.Context) {

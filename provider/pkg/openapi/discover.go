@@ -30,6 +30,7 @@ type ResourceSpec struct {
 	PathItem           *spec.PathItem
 	Swagger            *Spec
 	CompatibleVersions []string
+	Ambient            bool
 }
 
 // AllVersions finds all Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
@@ -191,15 +192,16 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 	pathItem := spec.Paths.Paths[path]
 
 	// Add a resource entry.
-	if pathItem.Put != nil && !pathItem.Put.Deprecated &&
-		pathItem.Get != nil && !pathItem.Get.Deprecated &&
-		pathItem.Delete != nil && !pathItem.Delete.Deprecated {
+	if pathItem.Put != nil && !pathItem.Put.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
+		ambient := isAmbient(path)
+
 		typeName := provider.ResourceName(pathItem.Get.ID)
-		if typeName != "" {
+		if typeName != "" && (pathItem.Delete != nil || ambient) {
 			version.Resources[typeName] = &ResourceSpec{
 				Path:     path,
 				PathItem: &pathItem,
 				Swagger:  spec,
+				Ambient:  ambient,
 			}
 		}
 	}
