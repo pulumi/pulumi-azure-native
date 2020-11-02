@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+        /// </summary>
+        public readonly string? BillingType;
+        /// <summary>
         /// The ID associated with the cluster.
         /// </summary>
         public readonly string ClusterId;
@@ -47,6 +51,14 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
+        /// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
+        /// </summary>
+        public readonly bool? IsAvailabilityZonesEnabled;
+        /// <summary>
+        /// Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
+        /// </summary>
+        public readonly bool? IsDoubleEncryptionEnabled;
         /// <summary>
         /// The associated key properties.
         /// </summary>
@@ -59,10 +71,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The link used to get the next page of recommendations.
-        /// </summary>
-        public readonly string? NextLink;
         /// <summary>
         /// The provisioning state of the cluster.
         /// </summary>
@@ -82,17 +90,21 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
         [OutputConstructor]
         private GetClusterResult(
+            string? billingType,
+
             string clusterId,
 
             Outputs.IdentityResponse? identity,
+
+            bool? isAvailabilityZonesEnabled,
+
+            bool? isDoubleEncryptionEnabled,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
 
             string location,
 
             string name,
-
-            string? nextLink,
 
             string provisioningState,
 
@@ -102,12 +114,14 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
             string type)
         {
+            BillingType = billingType;
             ClusterId = clusterId;
             Identity = identity;
+            IsAvailabilityZonesEnabled = isAvailabilityZonesEnabled;
+            IsDoubleEncryptionEnabled = isDoubleEncryptionEnabled;
             KeyVaultProperties = keyVaultProperties;
             Location = location;
             Name = name;
-            NextLink = nextLink;
             ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;

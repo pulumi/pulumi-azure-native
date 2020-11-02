@@ -10,6 +10,251 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents Activity timeline item.
+type ActivityTimelineItemResponse struct {
+	// The grouping bucket end time.
+	BucketEndTimeUTC string `pulumi:"bucketEndTimeUTC"`
+	// The grouping bucket start time.
+	BucketStartTimeUTC string `pulumi:"bucketStartTimeUTC"`
+	// The activity timeline content.
+	Content string `pulumi:"content"`
+	// The time of the first activity in the grouping bucket.
+	FirstActivityTimeUTC string `pulumi:"firstActivityTimeUTC"`
+	// The entity query kind type.
+	Kind string `pulumi:"kind"`
+	// The time of the last activity in the grouping bucket.
+	LastActivityTimeUTC string `pulumi:"lastActivityTimeUTC"`
+	// The activity query id.
+	QueryId string `pulumi:"queryId"`
+	// The activity timeline title.
+	Title string `pulumi:"title"`
+}
+
+// ActivityTimelineItemResponseInput is an input type that accepts ActivityTimelineItemResponseArgs and ActivityTimelineItemResponseOutput values.
+// You can construct a concrete instance of `ActivityTimelineItemResponseInput` via:
+//
+//          ActivityTimelineItemResponseArgs{...}
+type ActivityTimelineItemResponseInput interface {
+	pulumi.Input
+
+	ToActivityTimelineItemResponseOutput() ActivityTimelineItemResponseOutput
+	ToActivityTimelineItemResponseOutputWithContext(context.Context) ActivityTimelineItemResponseOutput
+}
+
+// Represents Activity timeline item.
+type ActivityTimelineItemResponseArgs struct {
+	// The grouping bucket end time.
+	BucketEndTimeUTC pulumi.StringInput `pulumi:"bucketEndTimeUTC"`
+	// The grouping bucket start time.
+	BucketStartTimeUTC pulumi.StringInput `pulumi:"bucketStartTimeUTC"`
+	// The activity timeline content.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The time of the first activity in the grouping bucket.
+	FirstActivityTimeUTC pulumi.StringInput `pulumi:"firstActivityTimeUTC"`
+	// The entity query kind type.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The time of the last activity in the grouping bucket.
+	LastActivityTimeUTC pulumi.StringInput `pulumi:"lastActivityTimeUTC"`
+	// The activity query id.
+	QueryId pulumi.StringInput `pulumi:"queryId"`
+	// The activity timeline title.
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (ActivityTimelineItemResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityTimelineItemResponse)(nil)).Elem()
+}
+
+func (i ActivityTimelineItemResponseArgs) ToActivityTimelineItemResponseOutput() ActivityTimelineItemResponseOutput {
+	return i.ToActivityTimelineItemResponseOutputWithContext(context.Background())
+}
+
+func (i ActivityTimelineItemResponseArgs) ToActivityTimelineItemResponseOutputWithContext(ctx context.Context) ActivityTimelineItemResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityTimelineItemResponseOutput)
+}
+
+// Represents Activity timeline item.
+type ActivityTimelineItemResponseOutput struct{ *pulumi.OutputState }
+
+func (ActivityTimelineItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityTimelineItemResponse)(nil)).Elem()
+}
+
+func (o ActivityTimelineItemResponseOutput) ToActivityTimelineItemResponseOutput() ActivityTimelineItemResponseOutput {
+	return o
+}
+
+func (o ActivityTimelineItemResponseOutput) ToActivityTimelineItemResponseOutputWithContext(ctx context.Context) ActivityTimelineItemResponseOutput {
+	return o
+}
+
+// The grouping bucket end time.
+func (o ActivityTimelineItemResponseOutput) BucketEndTimeUTC() pulumi.StringOutput {
+	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.BucketEndTimeUTC }).(pulumi.StringOutput)
+}
+
+// The grouping bucket start time.
+func (o ActivityTimelineItemResponseOutput) BucketStartTimeUTC() pulumi.StringOutput {
+	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.BucketStartTimeUTC }).(pulumi.StringOutput)
+}
+
+// The activity timeline content.
+func (o ActivityTimelineItemResponseOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The time of the first activity in the grouping bucket.
+func (o ActivityTimelineItemResponseOutput) FirstActivityTimeUTC() pulumi.StringOutput {
+	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.FirstActivityTimeUTC }).(pulumi.StringOutput)
+}
+
+// The entity query kind type.
+func (o ActivityTimelineItemResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The time of the last activity in the grouping bucket.
+func (o ActivityTimelineItemResponseOutput) LastActivityTimeUTC() pulumi.StringOutput {
+	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.LastActivityTimeUTC }).(pulumi.StringOutput)
+}
+
+// The activity query id.
+func (o ActivityTimelineItemResponseOutput) QueryId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.QueryId }).(pulumi.StringOutput)
+}
+
+// The activity timeline title.
+func (o ActivityTimelineItemResponseOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// Represents bookmark timeline item.
+type BookmarkTimelineItemResponse struct {
+	// The bookmark azure resource id.
+	AzureResourceId string `pulumi:"azureResourceId"`
+	// Describes a user that created the bookmark
+	CreatedBy UserInfoResponse `pulumi:"createdBy"`
+	// The bookmark display name.
+	DisplayName string `pulumi:"displayName"`
+	// The bookmark end time.
+	EndTimeUtc string `pulumi:"endTimeUtc"`
+	// The bookmark event time.
+	EventTime *string `pulumi:"eventTime"`
+	// The entity query kind type.
+	Kind string `pulumi:"kind"`
+	// List of labels relevant to this bookmark
+	Labels []string `pulumi:"labels"`
+	// The notes of the bookmark
+	Notes string `pulumi:"notes"`
+	// TThe bookmark start time.
+	StartTimeUtc string `pulumi:"startTimeUtc"`
+}
+
+// BookmarkTimelineItemResponseInput is an input type that accepts BookmarkTimelineItemResponseArgs and BookmarkTimelineItemResponseOutput values.
+// You can construct a concrete instance of `BookmarkTimelineItemResponseInput` via:
+//
+//          BookmarkTimelineItemResponseArgs{...}
+type BookmarkTimelineItemResponseInput interface {
+	pulumi.Input
+
+	ToBookmarkTimelineItemResponseOutput() BookmarkTimelineItemResponseOutput
+	ToBookmarkTimelineItemResponseOutputWithContext(context.Context) BookmarkTimelineItemResponseOutput
+}
+
+// Represents bookmark timeline item.
+type BookmarkTimelineItemResponseArgs struct {
+	// The bookmark azure resource id.
+	AzureResourceId pulumi.StringInput `pulumi:"azureResourceId"`
+	// Describes a user that created the bookmark
+	CreatedBy UserInfoResponseInput `pulumi:"createdBy"`
+	// The bookmark display name.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The bookmark end time.
+	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
+	// The bookmark event time.
+	EventTime pulumi.StringPtrInput `pulumi:"eventTime"`
+	// The entity query kind type.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// List of labels relevant to this bookmark
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// The notes of the bookmark
+	Notes pulumi.StringInput `pulumi:"notes"`
+	// TThe bookmark start time.
+	StartTimeUtc pulumi.StringInput `pulumi:"startTimeUtc"`
+}
+
+func (BookmarkTimelineItemResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkTimelineItemResponse)(nil)).Elem()
+}
+
+func (i BookmarkTimelineItemResponseArgs) ToBookmarkTimelineItemResponseOutput() BookmarkTimelineItemResponseOutput {
+	return i.ToBookmarkTimelineItemResponseOutputWithContext(context.Background())
+}
+
+func (i BookmarkTimelineItemResponseArgs) ToBookmarkTimelineItemResponseOutputWithContext(ctx context.Context) BookmarkTimelineItemResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkTimelineItemResponseOutput)
+}
+
+// Represents bookmark timeline item.
+type BookmarkTimelineItemResponseOutput struct{ *pulumi.OutputState }
+
+func (BookmarkTimelineItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkTimelineItemResponse)(nil)).Elem()
+}
+
+func (o BookmarkTimelineItemResponseOutput) ToBookmarkTimelineItemResponseOutput() BookmarkTimelineItemResponseOutput {
+	return o
+}
+
+func (o BookmarkTimelineItemResponseOutput) ToBookmarkTimelineItemResponseOutputWithContext(ctx context.Context) BookmarkTimelineItemResponseOutput {
+	return o
+}
+
+// The bookmark azure resource id.
+func (o BookmarkTimelineItemResponseOutput) AzureResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.AzureResourceId }).(pulumi.StringOutput)
+}
+
+// Describes a user that created the bookmark
+func (o BookmarkTimelineItemResponseOutput) CreatedBy() UserInfoResponseOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) UserInfoResponse { return v.CreatedBy }).(UserInfoResponseOutput)
+}
+
+// The bookmark display name.
+func (o BookmarkTimelineItemResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The bookmark end time.
+func (o BookmarkTimelineItemResponseOutput) EndTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.EndTimeUtc }).(pulumi.StringOutput)
+}
+
+// The bookmark event time.
+func (o BookmarkTimelineItemResponseOutput) EventTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.EventTime }).(pulumi.StringPtrOutput)
+}
+
+// The entity query kind type.
+func (o BookmarkTimelineItemResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// List of labels relevant to this bookmark
+func (o BookmarkTimelineItemResponseOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// The notes of the bookmark
+func (o BookmarkTimelineItemResponseOutput) Notes() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.Notes }).(pulumi.StringOutput)
+}
+
+// TThe bookmark start time.
+func (o BookmarkTimelineItemResponseOutput) StartTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.StartTimeUtc }).(pulumi.StringOutput)
+}
+
 // Information on the client (user or application) that made some action
 type ClientInfoResponse struct {
 	// The email of the client.
@@ -1384,6 +1629,133 @@ func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents security alert timeline item.
+type SecurityAlertTimelineItemResponse struct {
+	// The name of the alert type.
+	AlertType string `pulumi:"alertType"`
+	// The alert azure resource id.
+	AzureResourceId string `pulumi:"azureResourceId"`
+	// The alert name.
+	DisplayName string `pulumi:"displayName"`
+	// The alert end time.
+	EndTimeUtc string `pulumi:"endTimeUtc"`
+	// The entity query kind type.
+	Kind string `pulumi:"kind"`
+	// The alert product name.
+	ProductName string `pulumi:"productName"`
+	// The alert severity.
+	Severity string `pulumi:"severity"`
+	// The alert start time.
+	StartTimeUtc string `pulumi:"startTimeUtc"`
+	// The alert generated time.
+	TimeGenerated string `pulumi:"timeGenerated"`
+}
+
+// SecurityAlertTimelineItemResponseInput is an input type that accepts SecurityAlertTimelineItemResponseArgs and SecurityAlertTimelineItemResponseOutput values.
+// You can construct a concrete instance of `SecurityAlertTimelineItemResponseInput` via:
+//
+//          SecurityAlertTimelineItemResponseArgs{...}
+type SecurityAlertTimelineItemResponseInput interface {
+	pulumi.Input
+
+	ToSecurityAlertTimelineItemResponseOutput() SecurityAlertTimelineItemResponseOutput
+	ToSecurityAlertTimelineItemResponseOutputWithContext(context.Context) SecurityAlertTimelineItemResponseOutput
+}
+
+// Represents security alert timeline item.
+type SecurityAlertTimelineItemResponseArgs struct {
+	// The name of the alert type.
+	AlertType pulumi.StringInput `pulumi:"alertType"`
+	// The alert azure resource id.
+	AzureResourceId pulumi.StringInput `pulumi:"azureResourceId"`
+	// The alert name.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The alert end time.
+	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
+	// The entity query kind type.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The alert product name.
+	ProductName pulumi.StringInput `pulumi:"productName"`
+	// The alert severity.
+	Severity pulumi.StringInput `pulumi:"severity"`
+	// The alert start time.
+	StartTimeUtc pulumi.StringInput `pulumi:"startTimeUtc"`
+	// The alert generated time.
+	TimeGenerated pulumi.StringInput `pulumi:"timeGenerated"`
+}
+
+func (SecurityAlertTimelineItemResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAlertTimelineItemResponse)(nil)).Elem()
+}
+
+func (i SecurityAlertTimelineItemResponseArgs) ToSecurityAlertTimelineItemResponseOutput() SecurityAlertTimelineItemResponseOutput {
+	return i.ToSecurityAlertTimelineItemResponseOutputWithContext(context.Background())
+}
+
+func (i SecurityAlertTimelineItemResponseArgs) ToSecurityAlertTimelineItemResponseOutputWithContext(ctx context.Context) SecurityAlertTimelineItemResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAlertTimelineItemResponseOutput)
+}
+
+// Represents security alert timeline item.
+type SecurityAlertTimelineItemResponseOutput struct{ *pulumi.OutputState }
+
+func (SecurityAlertTimelineItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAlertTimelineItemResponse)(nil)).Elem()
+}
+
+func (o SecurityAlertTimelineItemResponseOutput) ToSecurityAlertTimelineItemResponseOutput() SecurityAlertTimelineItemResponseOutput {
+	return o
+}
+
+func (o SecurityAlertTimelineItemResponseOutput) ToSecurityAlertTimelineItemResponseOutputWithContext(ctx context.Context) SecurityAlertTimelineItemResponseOutput {
+	return o
+}
+
+// The name of the alert type.
+func (o SecurityAlertTimelineItemResponseOutput) AlertType() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.AlertType }).(pulumi.StringOutput)
+}
+
+// The alert azure resource id.
+func (o SecurityAlertTimelineItemResponseOutput) AzureResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.AzureResourceId }).(pulumi.StringOutput)
+}
+
+// The alert name.
+func (o SecurityAlertTimelineItemResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The alert end time.
+func (o SecurityAlertTimelineItemResponseOutput) EndTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.EndTimeUtc }).(pulumi.StringOutput)
+}
+
+// The entity query kind type.
+func (o SecurityAlertTimelineItemResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The alert product name.
+func (o SecurityAlertTimelineItemResponseOutput) ProductName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.ProductName }).(pulumi.StringOutput)
+}
+
+// The alert severity.
+func (o SecurityAlertTimelineItemResponseOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The alert start time.
+func (o SecurityAlertTimelineItemResponseOutput) StartTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.StartTimeUtc }).(pulumi.StringOutput)
+}
+
+// The alert generated time.
+func (o SecurityAlertTimelineItemResponseOutput) TimeGenerated() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.TimeGenerated }).(pulumi.StringOutput)
+}
+
 // Describes threat granular marking model entity
 type ThreatIntelligenceGranularMarkingModel struct {
 	// Language granular marking model
@@ -1609,6 +1981,306 @@ func (o ThreatIntelligenceKillChainPhaseArrayOutput) Index(i pulumi.IntInput) Th
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreatIntelligenceKillChainPhase {
 		return vs[0].([]ThreatIntelligenceKillChainPhase)[vs[1].(int)]
 	}).(ThreatIntelligenceKillChainPhaseOutput)
+}
+
+// timeline aggregation information per kind
+type TimelineAggregationResponse struct {
+	// the total items found for a kind
+	Count int `pulumi:"count"`
+	// the query kind
+	Kind string `pulumi:"kind"`
+}
+
+// TimelineAggregationResponseInput is an input type that accepts TimelineAggregationResponseArgs and TimelineAggregationResponseOutput values.
+// You can construct a concrete instance of `TimelineAggregationResponseInput` via:
+//
+//          TimelineAggregationResponseArgs{...}
+type TimelineAggregationResponseInput interface {
+	pulumi.Input
+
+	ToTimelineAggregationResponseOutput() TimelineAggregationResponseOutput
+	ToTimelineAggregationResponseOutputWithContext(context.Context) TimelineAggregationResponseOutput
+}
+
+// timeline aggregation information per kind
+type TimelineAggregationResponseArgs struct {
+	// the total items found for a kind
+	Count pulumi.IntInput `pulumi:"count"`
+	// the query kind
+	Kind pulumi.StringInput `pulumi:"kind"`
+}
+
+func (TimelineAggregationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimelineAggregationResponse)(nil)).Elem()
+}
+
+func (i TimelineAggregationResponseArgs) ToTimelineAggregationResponseOutput() TimelineAggregationResponseOutput {
+	return i.ToTimelineAggregationResponseOutputWithContext(context.Background())
+}
+
+func (i TimelineAggregationResponseArgs) ToTimelineAggregationResponseOutputWithContext(ctx context.Context) TimelineAggregationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimelineAggregationResponseOutput)
+}
+
+// TimelineAggregationResponseArrayInput is an input type that accepts TimelineAggregationResponseArray and TimelineAggregationResponseArrayOutput values.
+// You can construct a concrete instance of `TimelineAggregationResponseArrayInput` via:
+//
+//          TimelineAggregationResponseArray{ TimelineAggregationResponseArgs{...} }
+type TimelineAggregationResponseArrayInput interface {
+	pulumi.Input
+
+	ToTimelineAggregationResponseArrayOutput() TimelineAggregationResponseArrayOutput
+	ToTimelineAggregationResponseArrayOutputWithContext(context.Context) TimelineAggregationResponseArrayOutput
+}
+
+type TimelineAggregationResponseArray []TimelineAggregationResponseInput
+
+func (TimelineAggregationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimelineAggregationResponse)(nil)).Elem()
+}
+
+func (i TimelineAggregationResponseArray) ToTimelineAggregationResponseArrayOutput() TimelineAggregationResponseArrayOutput {
+	return i.ToTimelineAggregationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TimelineAggregationResponseArray) ToTimelineAggregationResponseArrayOutputWithContext(ctx context.Context) TimelineAggregationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimelineAggregationResponseArrayOutput)
+}
+
+// timeline aggregation information per kind
+type TimelineAggregationResponseOutput struct{ *pulumi.OutputState }
+
+func (TimelineAggregationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimelineAggregationResponse)(nil)).Elem()
+}
+
+func (o TimelineAggregationResponseOutput) ToTimelineAggregationResponseOutput() TimelineAggregationResponseOutput {
+	return o
+}
+
+func (o TimelineAggregationResponseOutput) ToTimelineAggregationResponseOutputWithContext(ctx context.Context) TimelineAggregationResponseOutput {
+	return o
+}
+
+// the total items found for a kind
+func (o TimelineAggregationResponseOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v TimelineAggregationResponse) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// the query kind
+func (o TimelineAggregationResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v TimelineAggregationResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+type TimelineAggregationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TimelineAggregationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimelineAggregationResponse)(nil)).Elem()
+}
+
+func (o TimelineAggregationResponseArrayOutput) ToTimelineAggregationResponseArrayOutput() TimelineAggregationResponseArrayOutput {
+	return o
+}
+
+func (o TimelineAggregationResponseArrayOutput) ToTimelineAggregationResponseArrayOutputWithContext(ctx context.Context) TimelineAggregationResponseArrayOutput {
+	return o
+}
+
+func (o TimelineAggregationResponseArrayOutput) Index(i pulumi.IntInput) TimelineAggregationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimelineAggregationResponse {
+		return vs[0].([]TimelineAggregationResponse)[vs[1].(int)]
+	}).(TimelineAggregationResponseOutput)
+}
+
+// Timeline Query Errors.
+type TimelineErrorResponse struct {
+	// the error message
+	ErrorMessage string `pulumi:"errorMessage"`
+	// the query kind
+	Kind string `pulumi:"kind"`
+	// the query id
+	QueryId *string `pulumi:"queryId"`
+}
+
+// TimelineErrorResponseInput is an input type that accepts TimelineErrorResponseArgs and TimelineErrorResponseOutput values.
+// You can construct a concrete instance of `TimelineErrorResponseInput` via:
+//
+//          TimelineErrorResponseArgs{...}
+type TimelineErrorResponseInput interface {
+	pulumi.Input
+
+	ToTimelineErrorResponseOutput() TimelineErrorResponseOutput
+	ToTimelineErrorResponseOutputWithContext(context.Context) TimelineErrorResponseOutput
+}
+
+// Timeline Query Errors.
+type TimelineErrorResponseArgs struct {
+	// the error message
+	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// the query kind
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// the query id
+	QueryId pulumi.StringPtrInput `pulumi:"queryId"`
+}
+
+func (TimelineErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimelineErrorResponse)(nil)).Elem()
+}
+
+func (i TimelineErrorResponseArgs) ToTimelineErrorResponseOutput() TimelineErrorResponseOutput {
+	return i.ToTimelineErrorResponseOutputWithContext(context.Background())
+}
+
+func (i TimelineErrorResponseArgs) ToTimelineErrorResponseOutputWithContext(ctx context.Context) TimelineErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimelineErrorResponseOutput)
+}
+
+// TimelineErrorResponseArrayInput is an input type that accepts TimelineErrorResponseArray and TimelineErrorResponseArrayOutput values.
+// You can construct a concrete instance of `TimelineErrorResponseArrayInput` via:
+//
+//          TimelineErrorResponseArray{ TimelineErrorResponseArgs{...} }
+type TimelineErrorResponseArrayInput interface {
+	pulumi.Input
+
+	ToTimelineErrorResponseArrayOutput() TimelineErrorResponseArrayOutput
+	ToTimelineErrorResponseArrayOutputWithContext(context.Context) TimelineErrorResponseArrayOutput
+}
+
+type TimelineErrorResponseArray []TimelineErrorResponseInput
+
+func (TimelineErrorResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimelineErrorResponse)(nil)).Elem()
+}
+
+func (i TimelineErrorResponseArray) ToTimelineErrorResponseArrayOutput() TimelineErrorResponseArrayOutput {
+	return i.ToTimelineErrorResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TimelineErrorResponseArray) ToTimelineErrorResponseArrayOutputWithContext(ctx context.Context) TimelineErrorResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimelineErrorResponseArrayOutput)
+}
+
+// Timeline Query Errors.
+type TimelineErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (TimelineErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimelineErrorResponse)(nil)).Elem()
+}
+
+func (o TimelineErrorResponseOutput) ToTimelineErrorResponseOutput() TimelineErrorResponseOutput {
+	return o
+}
+
+func (o TimelineErrorResponseOutput) ToTimelineErrorResponseOutputWithContext(ctx context.Context) TimelineErrorResponseOutput {
+	return o
+}
+
+// the error message
+func (o TimelineErrorResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v TimelineErrorResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// the query kind
+func (o TimelineErrorResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v TimelineErrorResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// the query id
+func (o TimelineErrorResponseOutput) QueryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimelineErrorResponse) *string { return v.QueryId }).(pulumi.StringPtrOutput)
+}
+
+type TimelineErrorResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TimelineErrorResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimelineErrorResponse)(nil)).Elem()
+}
+
+func (o TimelineErrorResponseArrayOutput) ToTimelineErrorResponseArrayOutput() TimelineErrorResponseArrayOutput {
+	return o
+}
+
+func (o TimelineErrorResponseArrayOutput) ToTimelineErrorResponseArrayOutputWithContext(ctx context.Context) TimelineErrorResponseArrayOutput {
+	return o
+}
+
+func (o TimelineErrorResponseArrayOutput) Index(i pulumi.IntInput) TimelineErrorResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimelineErrorResponse {
+		return vs[0].([]TimelineErrorResponse)[vs[1].(int)]
+	}).(TimelineErrorResponseOutput)
+}
+
+// Expansion result metadata.
+type TimelineResultsMetadataResponse struct {
+	// timeline aggregation per kind
+	Aggregations []TimelineAggregationResponse `pulumi:"aggregations"`
+	// information about the failure queries
+	Errors []TimelineErrorResponse `pulumi:"errors"`
+	// the total items found for the timeline request
+	TotalCount int `pulumi:"totalCount"`
+}
+
+// TimelineResultsMetadataResponseInput is an input type that accepts TimelineResultsMetadataResponseArgs and TimelineResultsMetadataResponseOutput values.
+// You can construct a concrete instance of `TimelineResultsMetadataResponseInput` via:
+//
+//          TimelineResultsMetadataResponseArgs{...}
+type TimelineResultsMetadataResponseInput interface {
+	pulumi.Input
+
+	ToTimelineResultsMetadataResponseOutput() TimelineResultsMetadataResponseOutput
+	ToTimelineResultsMetadataResponseOutputWithContext(context.Context) TimelineResultsMetadataResponseOutput
+}
+
+// Expansion result metadata.
+type TimelineResultsMetadataResponseArgs struct {
+	// timeline aggregation per kind
+	Aggregations TimelineAggregationResponseArrayInput `pulumi:"aggregations"`
+	// information about the failure queries
+	Errors TimelineErrorResponseArrayInput `pulumi:"errors"`
+	// the total items found for the timeline request
+	TotalCount pulumi.IntInput `pulumi:"totalCount"`
+}
+
+func (TimelineResultsMetadataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimelineResultsMetadataResponse)(nil)).Elem()
+}
+
+func (i TimelineResultsMetadataResponseArgs) ToTimelineResultsMetadataResponseOutput() TimelineResultsMetadataResponseOutput {
+	return i.ToTimelineResultsMetadataResponseOutputWithContext(context.Background())
+}
+
+func (i TimelineResultsMetadataResponseArgs) ToTimelineResultsMetadataResponseOutputWithContext(ctx context.Context) TimelineResultsMetadataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimelineResultsMetadataResponseOutput)
+}
+
+// Expansion result metadata.
+type TimelineResultsMetadataResponseOutput struct{ *pulumi.OutputState }
+
+func (TimelineResultsMetadataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimelineResultsMetadataResponse)(nil)).Elem()
+}
+
+func (o TimelineResultsMetadataResponseOutput) ToTimelineResultsMetadataResponseOutput() TimelineResultsMetadataResponseOutput {
+	return o
+}
+
+func (o TimelineResultsMetadataResponseOutput) ToTimelineResultsMetadataResponseOutputWithContext(ctx context.Context) TimelineResultsMetadataResponseOutput {
+	return o
+}
+
+// timeline aggregation per kind
+func (o TimelineResultsMetadataResponseOutput) Aggregations() TimelineAggregationResponseArrayOutput {
+	return o.ApplyT(func(v TimelineResultsMetadataResponse) []TimelineAggregationResponse { return v.Aggregations }).(TimelineAggregationResponseArrayOutput)
+}
+
+// information about the failure queries
+func (o TimelineResultsMetadataResponseOutput) Errors() TimelineErrorResponseArrayOutput {
+	return o.ApplyT(func(v TimelineResultsMetadataResponse) []TimelineErrorResponse { return v.Errors }).(TimelineErrorResponseArrayOutput)
+}
+
+// the total items found for the timeline request
+func (o TimelineResultsMetadataResponseOutput) TotalCount() pulumi.IntOutput {
+	return o.ApplyT(func(v TimelineResultsMetadataResponse) int { return v.TotalCount }).(pulumi.IntOutput)
 }
 
 // User information that made some action
@@ -2325,6 +2997,8 @@ func (o WatchlistItemResponseArrayOutput) Index(i pulumi.IntInput) WatchlistItem
 }
 
 func init() {
+	pulumi.RegisterOutputType(ActivityTimelineItemResponseOutput{})
+	pulumi.RegisterOutputType(BookmarkTimelineItemResponseOutput{})
 	pulumi.RegisterOutputType(ClientInfoResponseOutput{})
 	pulumi.RegisterOutputType(ClientInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponseOutput{})
@@ -2341,10 +3015,16 @@ func init() {
 	pulumi.RegisterOutputType(IncidentOwnerInfoPtrOutput{})
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponseOutput{})
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecurityAlertTimelineItemResponseOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceGranularMarkingModelOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceGranularMarkingModelArrayOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceKillChainPhaseOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceKillChainPhaseArrayOutput{})
+	pulumi.RegisterOutputType(TimelineAggregationResponseOutput{})
+	pulumi.RegisterOutputType(TimelineAggregationResponseArrayOutput{})
+	pulumi.RegisterOutputType(TimelineErrorResponseOutput{})
+	pulumi.RegisterOutputType(TimelineErrorResponseArrayOutput{})
+	pulumi.RegisterOutputType(TimelineResultsMetadataResponseOutput{})
 	pulumi.RegisterOutputType(UserInfoOutput{})
 	pulumi.RegisterOutputType(UserInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserInfoResponseOutput{})

@@ -61,6 +61,9 @@ func NewCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:Cluster"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:operationalinsights/v20201001:Cluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Cluster

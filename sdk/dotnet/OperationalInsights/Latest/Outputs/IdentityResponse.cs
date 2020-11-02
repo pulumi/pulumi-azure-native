@@ -22,9 +22,13 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type.
+        /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.UserIdentityPropertiesResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityResponse(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest.Outputs
 
             string tenantId,
 
-            string type)
+            string type,
+
+            ImmutableDictionary<string, Outputs.UserIdentityPropertiesResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }
