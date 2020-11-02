@@ -12,6 +12,7 @@ export * from "./getAlertRuleAction";
 export * from "./getBookmark";
 export * from "./getBookmarkRelation";
 export * from "./getDataConnector";
+export * from "./getEntitiesGetTimelinelist";
 export * from "./getIncident";
 export * from "./getIncidentComment";
 export * from "./getIncidentRelation";

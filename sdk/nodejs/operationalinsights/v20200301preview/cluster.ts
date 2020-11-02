@@ -127,7 +127,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:Cluster" }, { type: "azure-nextgen:operationalinsights/v20190801preview:Cluster" }, { type: "azure-nextgen:operationalinsights/v20200801:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:Cluster" }, { type: "azure-nextgen:operationalinsights/v20190801preview:Cluster" }, { type: "azure-nextgen:operationalinsights/v20200801:Cluster" }, { type: "azure-nextgen:operationalinsights/v20201001:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

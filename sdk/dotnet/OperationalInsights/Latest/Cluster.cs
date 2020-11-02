@@ -15,6 +15,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+        /// </summary>
+        [Output("billingType")]
+        public Output<string?> BillingType { get; private set; } = null!;
+
+        /// <summary>
         /// The ID associated with the cluster.
         /// </summary>
         [Output("clusterId")]
@@ -25,6 +31,18 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
+        /// </summary>
+        [Output("isAvailabilityZonesEnabled")]
+        public Output<bool?> IsAvailabilityZonesEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
+        /// </summary>
+        [Output("isDoubleEncryptionEnabled")]
+        public Output<bool?> IsDoubleEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The associated key properties.
@@ -43,12 +61,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The link used to get the next page of recommendations.
-        /// </summary>
-        [Output("nextLink")]
-        public Output<string?> NextLink { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the cluster.
@@ -102,6 +114,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20201001:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,6 +139,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+        /// </summary>
+        [Input("billingType")]
+        public Input<string>? BillingType { get; set; }
+
+        /// <summary>
         /// The name of the Log Analytics cluster.
         /// </summary>
         [Input("clusterName", required: true)]
@@ -138,6 +157,18 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
+        /// </summary>
+        [Input("isAvailabilityZonesEnabled")]
+        public Input<bool>? IsAvailabilityZonesEnabled { get; set; }
+
+        /// <summary>
+        /// Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
+        /// </summary>
+        [Input("isDoubleEncryptionEnabled")]
+        public Input<bool>? IsDoubleEncryptionEnabled { get; set; }
+
+        /// <summary>
         /// The associated key properties.
         /// </summary>
         [Input("keyVaultProperties")]
@@ -148,12 +179,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The link used to get the next page of recommendations.
-        /// </summary>
-        [Input("nextLink")]
-        public Input<string>? NextLink { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
