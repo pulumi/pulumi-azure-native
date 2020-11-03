@@ -170,6 +170,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ConnectionMonitor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ConnectionMonitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -228,6 +229,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Value indicating whether connection monitor V1 should be migrated to V2 format.
+        /// </summary>
+        [Input("migrate")]
+        public Input<string>? Migrate { get; set; }
 
         /// <summary>
         /// Monitoring interval in seconds.

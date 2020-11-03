@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -50,15 +50,15 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Private Endpoint
+        /// The private endpoint which the connection belongs to.
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
-        /// Private Link Service Connection State
+        /// Connection state of the private endpoint connection.
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// Provisioning state
+        /// Provisioning state of the private endpoint connection.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>

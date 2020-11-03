@@ -45,6 +45,10 @@ export class P2sVpnGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+     */
+    public readonly isRoutingPreferenceInternet!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -107,6 +111,7 @@ export class P2sVpnGateway extends pulumi.CustomResource {
             inputs["customDnsServers"] = args ? args.customDnsServers : undefined;
             inputs["gatewayName"] = args ? args.gatewayName : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["isRoutingPreferenceInternet"] = args ? args.isRoutingPreferenceInternet : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["p2SConnectionConfigurations"] = args ? args.p2SConnectionConfigurations : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -122,6 +127,7 @@ export class P2sVpnGateway extends pulumi.CustomResource {
         } else {
             inputs["customDnsServers"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["isRoutingPreferenceInternet"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["p2SConnectionConfigurations"] = undefined /*out*/;
@@ -140,7 +146,7 @@ export class P2sVpnGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181001:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181101:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190401:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190601:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190701:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190801:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190901:P2sVpnGateway" }, { type: "azure-nextgen:network/v20191101:P2sVpnGateway" }, { type: "azure-nextgen:network/v20191201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200301:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200401:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200501:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200601:P2sVpnGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181001:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181101:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190401:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190601:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190701:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190801:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190901:P2sVpnGateway" }, { type: "azure-nextgen:network/v20191101:P2sVpnGateway" }, { type: "azure-nextgen:network/v20191201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200301:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200401:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200501:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200601:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200701:P2sVpnGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(P2sVpnGateway.__pulumiType, name, inputs, opts);
     }
@@ -162,6 +168,10 @@ export interface P2sVpnGatewayArgs {
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+     */
+    readonly isRoutingPreferenceInternet?: pulumi.Input<boolean>;
     /**
      * Resource location.
      */

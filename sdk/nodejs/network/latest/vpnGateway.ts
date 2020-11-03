@@ -53,6 +53,10 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipConfigurations!: pulumi.Output<outputs.network.latest.VpnGatewayIpConfigurationResponse[]>;
     /**
+     * Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+     */
+    public readonly isRoutingPreferenceInternet!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["connections"] = args ? args.connections : undefined;
             inputs["gatewayName"] = args ? args.gatewayName : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["isRoutingPreferenceInternet"] = args ? args.isRoutingPreferenceInternet : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -119,6 +124,7 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["connections"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["ipConfigurations"] = undefined /*out*/;
+            inputs["isRoutingPreferenceInternet"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -134,7 +140,7 @@ export class VpnGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180401:VpnGateway" }, { type: "azure-nextgen:network/v20180601:VpnGateway" }, { type: "azure-nextgen:network/v20180701:VpnGateway" }, { type: "azure-nextgen:network/v20180801:VpnGateway" }, { type: "azure-nextgen:network/v20181001:VpnGateway" }, { type: "azure-nextgen:network/v20181101:VpnGateway" }, { type: "azure-nextgen:network/v20181201:VpnGateway" }, { type: "azure-nextgen:network/v20190201:VpnGateway" }, { type: "azure-nextgen:network/v20190401:VpnGateway" }, { type: "azure-nextgen:network/v20190601:VpnGateway" }, { type: "azure-nextgen:network/v20190701:VpnGateway" }, { type: "azure-nextgen:network/v20190801:VpnGateway" }, { type: "azure-nextgen:network/v20190901:VpnGateway" }, { type: "azure-nextgen:network/v20191101:VpnGateway" }, { type: "azure-nextgen:network/v20191201:VpnGateway" }, { type: "azure-nextgen:network/v20200301:VpnGateway" }, { type: "azure-nextgen:network/v20200401:VpnGateway" }, { type: "azure-nextgen:network/v20200501:VpnGateway" }, { type: "azure-nextgen:network/v20200601:VpnGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180401:VpnGateway" }, { type: "azure-nextgen:network/v20180601:VpnGateway" }, { type: "azure-nextgen:network/v20180701:VpnGateway" }, { type: "azure-nextgen:network/v20180801:VpnGateway" }, { type: "azure-nextgen:network/v20181001:VpnGateway" }, { type: "azure-nextgen:network/v20181101:VpnGateway" }, { type: "azure-nextgen:network/v20181201:VpnGateway" }, { type: "azure-nextgen:network/v20190201:VpnGateway" }, { type: "azure-nextgen:network/v20190401:VpnGateway" }, { type: "azure-nextgen:network/v20190601:VpnGateway" }, { type: "azure-nextgen:network/v20190701:VpnGateway" }, { type: "azure-nextgen:network/v20190801:VpnGateway" }, { type: "azure-nextgen:network/v20190901:VpnGateway" }, { type: "azure-nextgen:network/v20191101:VpnGateway" }, { type: "azure-nextgen:network/v20191201:VpnGateway" }, { type: "azure-nextgen:network/v20200301:VpnGateway" }, { type: "azure-nextgen:network/v20200401:VpnGateway" }, { type: "azure-nextgen:network/v20200501:VpnGateway" }, { type: "azure-nextgen:network/v20200601:VpnGateway" }, { type: "azure-nextgen:network/v20200701:VpnGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VpnGateway.__pulumiType, name, inputs, opts);
     }
@@ -160,6 +166,10 @@ export interface VpnGatewayArgs {
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+     */
+    readonly isRoutingPreferenceInternet?: pulumi.Input<boolean>;
     /**
      * Resource location.
      */

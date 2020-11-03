@@ -49,6 +49,10 @@ export interface GetLoadBalancerResult {
      */
     readonly etag: string;
     /**
+     * The extended location of the load balancer.
+     */
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    /**
      * Object representing the frontend IPs to be used for the load balancer.
      */
     readonly frontendIPConfigurations?: outputs.network.latest.FrontendIPConfigurationResponse[];

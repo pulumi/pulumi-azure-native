@@ -123,6 +123,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:FlowLog"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

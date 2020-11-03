@@ -109,6 +109,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:RouteFilterRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

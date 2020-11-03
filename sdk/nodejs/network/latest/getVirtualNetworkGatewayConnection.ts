@@ -40,6 +40,10 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly authorizationKey?: string;
     /**
+     * The connection mode for this connection.
+     */
+    readonly connectionMode?: string;
+    /**
      * Connection protocol used for this connection.
      */
     readonly connectionProtocol?: string;

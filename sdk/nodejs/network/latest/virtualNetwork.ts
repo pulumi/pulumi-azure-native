@@ -65,6 +65,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The extended location of the virtual network.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.network.latest.ExtendedLocationResponse | undefined>;
+    /**
      * Array of IpAllocation which reference this VNET.
      */
     public readonly ipAllocations!: pulumi.Output<outputs.network.latest.SubResourceResponse[] | undefined>;
@@ -123,6 +127,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
             inputs["enableDdosProtection"] = args ? args.enableDdosProtection : undefined;
             inputs["enableVmProtection"] = args ? args.enableVmProtection : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipAllocations"] = args ? args.ipAllocations : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -144,6 +149,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["enableDdosProtection"] = undefined /*out*/;
             inputs["enableVmProtection"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["ipAllocations"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -161,7 +167,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:VirtualNetwork" }, { type: "azure-nextgen:network/v20150615:VirtualNetwork" }, { type: "azure-nextgen:network/v20160330:VirtualNetwork" }, { type: "azure-nextgen:network/v20160601:VirtualNetwork" }, { type: "azure-nextgen:network/v20160901:VirtualNetwork" }, { type: "azure-nextgen:network/v20161201:VirtualNetwork" }, { type: "azure-nextgen:network/v20170301:VirtualNetwork" }, { type: "azure-nextgen:network/v20170601:VirtualNetwork" }, { type: "azure-nextgen:network/v20170801:VirtualNetwork" }, { type: "azure-nextgen:network/v20170901:VirtualNetwork" }, { type: "azure-nextgen:network/v20171001:VirtualNetwork" }, { type: "azure-nextgen:network/v20171101:VirtualNetwork" }, { type: "azure-nextgen:network/v20180101:VirtualNetwork" }, { type: "azure-nextgen:network/v20180201:VirtualNetwork" }, { type: "azure-nextgen:network/v20180401:VirtualNetwork" }, { type: "azure-nextgen:network/v20180601:VirtualNetwork" }, { type: "azure-nextgen:network/v20180701:VirtualNetwork" }, { type: "azure-nextgen:network/v20180801:VirtualNetwork" }, { type: "azure-nextgen:network/v20181001:VirtualNetwork" }, { type: "azure-nextgen:network/v20181101:VirtualNetwork" }, { type: "azure-nextgen:network/v20181201:VirtualNetwork" }, { type: "azure-nextgen:network/v20190201:VirtualNetwork" }, { type: "azure-nextgen:network/v20190401:VirtualNetwork" }, { type: "azure-nextgen:network/v20190601:VirtualNetwork" }, { type: "azure-nextgen:network/v20190701:VirtualNetwork" }, { type: "azure-nextgen:network/v20190801:VirtualNetwork" }, { type: "azure-nextgen:network/v20190901:VirtualNetwork" }, { type: "azure-nextgen:network/v20191101:VirtualNetwork" }, { type: "azure-nextgen:network/v20191201:VirtualNetwork" }, { type: "azure-nextgen:network/v20200301:VirtualNetwork" }, { type: "azure-nextgen:network/v20200401:VirtualNetwork" }, { type: "azure-nextgen:network/v20200501:VirtualNetwork" }, { type: "azure-nextgen:network/v20200601:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:VirtualNetwork" }, { type: "azure-nextgen:network/v20150615:VirtualNetwork" }, { type: "azure-nextgen:network/v20160330:VirtualNetwork" }, { type: "azure-nextgen:network/v20160601:VirtualNetwork" }, { type: "azure-nextgen:network/v20160901:VirtualNetwork" }, { type: "azure-nextgen:network/v20161201:VirtualNetwork" }, { type: "azure-nextgen:network/v20170301:VirtualNetwork" }, { type: "azure-nextgen:network/v20170601:VirtualNetwork" }, { type: "azure-nextgen:network/v20170801:VirtualNetwork" }, { type: "azure-nextgen:network/v20170901:VirtualNetwork" }, { type: "azure-nextgen:network/v20171001:VirtualNetwork" }, { type: "azure-nextgen:network/v20171101:VirtualNetwork" }, { type: "azure-nextgen:network/v20180101:VirtualNetwork" }, { type: "azure-nextgen:network/v20180201:VirtualNetwork" }, { type: "azure-nextgen:network/v20180401:VirtualNetwork" }, { type: "azure-nextgen:network/v20180601:VirtualNetwork" }, { type: "azure-nextgen:network/v20180701:VirtualNetwork" }, { type: "azure-nextgen:network/v20180801:VirtualNetwork" }, { type: "azure-nextgen:network/v20181001:VirtualNetwork" }, { type: "azure-nextgen:network/v20181101:VirtualNetwork" }, { type: "azure-nextgen:network/v20181201:VirtualNetwork" }, { type: "azure-nextgen:network/v20190201:VirtualNetwork" }, { type: "azure-nextgen:network/v20190401:VirtualNetwork" }, { type: "azure-nextgen:network/v20190601:VirtualNetwork" }, { type: "azure-nextgen:network/v20190701:VirtualNetwork" }, { type: "azure-nextgen:network/v20190801:VirtualNetwork" }, { type: "azure-nextgen:network/v20190901:VirtualNetwork" }, { type: "azure-nextgen:network/v20191101:VirtualNetwork" }, { type: "azure-nextgen:network/v20191201:VirtualNetwork" }, { type: "azure-nextgen:network/v20200301:VirtualNetwork" }, { type: "azure-nextgen:network/v20200401:VirtualNetwork" }, { type: "azure-nextgen:network/v20200501:VirtualNetwork" }, { type: "azure-nextgen:network/v20200601:VirtualNetwork" }, { type: "azure-nextgen:network/v20200701:VirtualNetwork" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }
@@ -195,6 +201,10 @@ export interface VirtualNetworkArgs {
      * Indicates if VM protection is enabled for all the subnets in the virtual network.
      */
     readonly enableVmProtection?: pulumi.Input<boolean>;
+    /**
+     * The extended location of the virtual network.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.network.latest.ExtendedLocation>;
     /**
      * Resource ID.
      */

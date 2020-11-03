@@ -31,6 +31,8 @@ type LookupPublicIPPrefixResult struct {
 	CustomIPPrefix *SubResourceResponse `pulumi:"customIPPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The extended location of the public ip address.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The allocated Prefix.
 	IpPrefix string `pulumi:"ipPrefix"`
 	// The list of tags associated with the public IP prefix.

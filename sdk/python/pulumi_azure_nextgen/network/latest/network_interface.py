@@ -20,6 +20,7 @@ class NetworkInterface(pulumi.CustomResource):
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']] dns_settings: The DNS settings in network interface.
         :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is accelerated networking enabled.
         :param pulumi.Input[bool] enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the network interface.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: Resource location.
@@ -66,6 +68,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['dns_settings'] = dns_settings
             __props__['enable_accelerated_networking'] = enable_accelerated_networking
             __props__['enable_ip_forwarding'] = enable_ip_forwarding
+            __props__['extended_location'] = extended_location
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
@@ -89,7 +92,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['tap_configurations'] = None
             __props__['type'] = None
             __props__['virtual_machine'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20150615:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160330:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20161201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkInterface")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20150615:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160330:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20161201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200701:NetworkInterface")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkInterface, __self__).__init__(
             'azure-nextgen:network/latest:NetworkInterface',
@@ -154,6 +157,14 @@ class NetworkInterface(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location of the network interface.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="hostedWorkloads")

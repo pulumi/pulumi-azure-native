@@ -84,6 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualRouterPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

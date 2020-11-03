@@ -20,13 +20,16 @@ class GetPublicIPPrefixResult:
     """
     Public IP prefix resource.
     """
-    def __init__(__self__, custom_ip_prefix=None, etag=None, ip_prefix=None, ip_tags=None, load_balancer_frontend_ip_configuration=None, location=None, name=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, custom_ip_prefix=None, etag=None, extended_location=None, ip_prefix=None, ip_tags=None, load_balancer_frontend_ip_configuration=None, location=None, name=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
         if custom_ip_prefix and not isinstance(custom_ip_prefix, dict):
             raise TypeError("Expected argument 'custom_ip_prefix' to be a dict")
         pulumi.set(__self__, "custom_ip_prefix", custom_ip_prefix)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if ip_prefix and not isinstance(ip_prefix, str):
             raise TypeError("Expected argument 'ip_prefix' to be a str")
         pulumi.set(__self__, "ip_prefix", ip_prefix)
@@ -85,6 +88,14 @@ class GetPublicIPPrefixResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the public ip address.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="ipPrefix")
@@ -207,6 +218,7 @@ class AwaitableGetPublicIPPrefixResult(GetPublicIPPrefixResult):
         return GetPublicIPPrefixResult(
             custom_ip_prefix=self.custom_ip_prefix,
             etag=self.etag,
+            extended_location=self.extended_location,
             ip_prefix=self.ip_prefix,
             ip_tags=self.ip_tags,
             load_balancer_frontend_ip_configuration=self.load_balancer_frontend_ip_configuration,
@@ -247,6 +259,7 @@ def get_public_ip_prefix(expand: Optional[str] = None,
     return AwaitableGetPublicIPPrefixResult(
         custom_ip_prefix=__ret__.custom_ip_prefix,
         etag=__ret__.etag,
+        extended_location=__ret__.extended_location,
         ip_prefix=__ret__.ip_prefix,
         ip_tags=__ret__.ip_tags,
         load_balancer_frontend_ip_configuration=__ret__.load_balancer_frontend_ip_configuration,

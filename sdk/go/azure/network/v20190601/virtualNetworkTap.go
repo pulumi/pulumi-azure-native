@@ -99,6 +99,9 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualNetworkTap"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualNetworkTap"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkTap

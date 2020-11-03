@@ -20,10 +20,13 @@ class GetVirtualNetworkGatewayConnectionResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, authorization_key=None, connection_protocol=None, connection_status=None, connection_type=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, express_route_gateway_bypass=None, ingress_bytes_transferred=None, ipsec_policies=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, tunnel_connection_status=None, type=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
+    def __init__(__self__, authorization_key=None, connection_mode=None, connection_protocol=None, connection_status=None, connection_type=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, express_route_gateway_bypass=None, ingress_bytes_transferred=None, ipsec_policies=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, tunnel_connection_status=None, type=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
+        if connection_mode and not isinstance(connection_mode, str):
+            raise TypeError("Expected argument 'connection_mode' to be a str")
+        pulumi.set(__self__, "connection_mode", connection_mode)
         if connection_protocol and not isinstance(connection_protocol, str):
             raise TypeError("Expected argument 'connection_protocol' to be a str")
         pulumi.set(__self__, "connection_protocol", connection_protocol)
@@ -110,6 +113,14 @@ class GetVirtualNetworkGatewayConnectionResult:
         The authorizationKey.
         """
         return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> Optional[str]:
+        """
+        The connection mode for this connection.
+        """
+        return pulumi.get(self, "connection_mode")
 
     @property
     @pulumi.getter(name="connectionProtocol")
@@ -327,6 +338,7 @@ class AwaitableGetVirtualNetworkGatewayConnectionResult(GetVirtualNetworkGateway
             yield self
         return GetVirtualNetworkGatewayConnectionResult(
             authorization_key=self.authorization_key,
+            connection_mode=self.connection_mode,
             connection_protocol=self.connection_protocol,
             connection_status=self.connection_status,
             connection_type=self.connection_type,
@@ -375,6 +387,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
 
     return AwaitableGetVirtualNetworkGatewayConnectionResult(
         authorization_key=__ret__.authorization_key,
+        connection_mode=__ret__.connection_mode,
         connection_protocol=__ret__.connection_protocol,
         connection_status=__ret__.connection_status,
         connection_type=__ret__.connection_type,

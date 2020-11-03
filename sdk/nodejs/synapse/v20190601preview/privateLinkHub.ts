@@ -51,7 +51,7 @@ export class PrivateLinkHub extends pulumi.CustomResource {
     /**
      * PrivateLinkHub provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -82,11 +82,11 @@ export class PrivateLinkHub extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["privateLinkHubName"] = args ? args.privateLinkHubName : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
@@ -116,9 +116,13 @@ export interface PrivateLinkHubArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the privateLinkHub
+     * Name of the privateLinkHub
      */
     readonly privateLinkHubName: pulumi.Input<string>;
+    /**
+     * PrivateLinkHub provisioning state
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

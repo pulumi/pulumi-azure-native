@@ -61,6 +61,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly etag: string;
     /**
+     * The extended location of the network interface.
+     */
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    /**
      * A list of references to linked BareMetal resources.
      */
     readonly hostedWorkloads: string[];

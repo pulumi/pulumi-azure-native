@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

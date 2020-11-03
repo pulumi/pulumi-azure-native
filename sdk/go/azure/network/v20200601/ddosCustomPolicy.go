@@ -89,6 +89,9 @@ func NewDdosCustomPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:DdosCustomPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:DdosCustomPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DdosCustomPolicy

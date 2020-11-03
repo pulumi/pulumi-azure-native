@@ -27,12 +27,12 @@ type LookupVirtualHubArgs struct {
 type LookupVirtualHubResult struct {
 	// Address-prefix for this VirtualHub.
 	AddressPrefix *string `pulumi:"addressPrefix"`
+	// Flag to control transit for VirtualRouter hub.
+	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
 	// The azureFirewall associated with this VirtualHub.
 	AzureFirewall *SubResourceResponse `pulumi:"azureFirewall"`
 	// List of references to Bgp Connections.
 	BgpConnections []SubResourceResponse `pulumi:"bgpConnections"`
-	// Flag to control route propogation for VirtualRouter hub.
-	EnableVirtualRouterRoutePropogation *bool `pulumi:"enableVirtualRouterRoutePropogation"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The expressRouteGateway associated with this VirtualHub.

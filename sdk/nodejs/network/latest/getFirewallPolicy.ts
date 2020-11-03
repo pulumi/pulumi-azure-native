@@ -61,6 +61,14 @@ export interface GetFirewallPolicyResult {
      */
     readonly firewalls: outputs.network.latest.SubResourceResponse[];
     /**
+     * The identity of the firewall policy.
+     */
+    readonly identity?: outputs.network.latest.ManagedServiceIdentityResponse;
+    /**
+     * The configuration for Intrusion detection.
+     */
+    readonly intrusionDetection?: outputs.network.latest.FirewallPolicyIntrusionDetectionResponse;
+    /**
      * Resource location.
      */
     readonly location?: string;
@@ -77,6 +85,10 @@ export interface GetFirewallPolicyResult {
      */
     readonly ruleCollectionGroups: outputs.network.latest.SubResourceResponse[];
     /**
+     * The Firewall Policy SKU.
+     */
+    readonly sku?: outputs.network.latest.FirewallPolicySkuResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -88,6 +100,10 @@ export interface GetFirewallPolicyResult {
      * ThreatIntel Whitelist for Firewall Policy.
      */
     readonly threatIntelWhitelist?: outputs.network.latest.FirewallPolicyThreatIntelWhitelistResponse;
+    /**
+     * TLS Configuration definition.
+     */
+    readonly transportSecurity?: outputs.network.latest.FirewallPolicyTransportSecurityResponse;
     /**
      * Resource type.
      */

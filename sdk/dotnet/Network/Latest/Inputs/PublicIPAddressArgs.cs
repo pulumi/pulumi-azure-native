@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         public Input<Inputs.PublicIPAddressDnsSettingsArgs>? DnsSettings { get; set; }
 
         /// <summary>
+        /// The extended location of the public ip address.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]

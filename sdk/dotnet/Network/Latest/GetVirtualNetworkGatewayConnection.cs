@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string? AuthorizationKey;
         /// <summary>
+        /// The connection mode for this connection.
+        /// </summary>
+        public readonly string? ConnectionMode;
+        /// <summary>
         /// Connection protocol used for this connection.
         /// </summary>
         public readonly string? ConnectionProtocol;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         private GetVirtualNetworkGatewayConnectionResult(
             string? authorizationKey,
 
+            string? connectionMode,
+
             string? connectionProtocol,
 
             string connectionStatus,
@@ -205,6 +211,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             Outputs.VirtualNetworkGatewayResponse? virtualNetworkGateway2)
         {
             AuthorizationKey = authorizationKey;
+            ConnectionMode = connectionMode;
             ConnectionProtocol = connectionProtocol;
             ConnectionStatus = connectionStatus;
             ConnectionType = connectionType;

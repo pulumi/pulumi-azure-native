@@ -137,6 +137,9 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ConnectionMonitor"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:ConnectionMonitor"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionMonitor
@@ -253,6 +256,8 @@ type connectionMonitorArgs struct {
 	Endpoints []ConnectionMonitorEndpoint `pulumi:"endpoints"`
 	// Connection monitor location.
 	Location *string `pulumi:"location"`
+	// Value indicating whether connection monitor V1 should be migrated to V2 format.
+	Migrate *string `pulumi:"migrate"`
 	// Monitoring interval in seconds.
 	MonitoringIntervalInSeconds *int `pulumi:"monitoringIntervalInSeconds"`
 	// The name of the Network Watcher resource.
@@ -285,6 +290,8 @@ type ConnectionMonitorArgs struct {
 	Endpoints ConnectionMonitorEndpointArrayInput
 	// Connection monitor location.
 	Location pulumi.StringPtrInput
+	// Value indicating whether connection monitor V1 should be migrated to V2 format.
+	Migrate pulumi.StringPtrInput
 	// Monitoring interval in seconds.
 	MonitoringIntervalInSeconds pulumi.IntPtrInput
 	// The name of the Network Watcher resource.

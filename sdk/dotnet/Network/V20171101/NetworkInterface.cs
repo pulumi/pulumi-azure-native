@@ -162,6 +162,7 @@ namespace Pulumi.AzureNextGen.Network.V20171101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkInterface"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

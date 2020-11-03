@@ -18,18 +18,32 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Private Endpoint Connection Properties
+        /// The private endpoint which the connection belongs to.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse? Properties;
+        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        /// <summary>
+        /// Connection state of the private endpoint connection.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// Provisioning state of the private endpoint connection.
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private PrivateEndpointConnectionForPrivateLinkHubBasicResponse(
             string id,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponse? properties)
+            Outputs.PrivateEndpointResponse? privateEndpoint,
+
+            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+
+            string provisioningState)
         {
             Id = id;
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
         }
     }
 }

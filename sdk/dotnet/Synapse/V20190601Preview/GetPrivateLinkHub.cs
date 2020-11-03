@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public sealed class GetPrivateLinkHubArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the privateLinkHub
+        /// Name of the privateLinkHub
         /// </summary>
         [Input("privateLinkHubName", required: true)]
         public string PrivateLinkHubName { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// PrivateLinkHub provisioning state
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse> privateEndpointConnections,
 
-            string provisioningState,
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 

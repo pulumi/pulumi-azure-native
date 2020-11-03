@@ -133,6 +133,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             inputs["destination"] = args ? args.destination : undefined;
             inputs["endpoints"] = args ? args.endpoints : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["migrate"] = args ? args.migrate : undefined;
             inputs["monitoringIntervalInSeconds"] = args ? args.monitoringIntervalInSeconds : undefined;
             inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             inputs["notes"] = args ? args.notes : undefined;
@@ -176,7 +177,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20171001:ConnectionMonitor" }, { type: "azure-nextgen:network/v20171101:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180101:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180201:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180401:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180601:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180701:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180801:ConnectionMonitor" }, { type: "azure-nextgen:network/v20181001:ConnectionMonitor" }, { type: "azure-nextgen:network/v20181101:ConnectionMonitor" }, { type: "azure-nextgen:network/v20181201:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190201:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190401:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190601:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190701:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190801:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190901:ConnectionMonitor" }, { type: "azure-nextgen:network/v20191101:ConnectionMonitor" }, { type: "azure-nextgen:network/v20191201:ConnectionMonitor" }, { type: "azure-nextgen:network/v20200301:ConnectionMonitor" }, { type: "azure-nextgen:network/v20200401:ConnectionMonitor" }, { type: "azure-nextgen:network/v20200501:ConnectionMonitor" }, { type: "azure-nextgen:network/v20200601:ConnectionMonitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20171001:ConnectionMonitor" }, { type: "azure-nextgen:network/v20171101:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180101:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180201:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180401:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180601:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180701:ConnectionMonitor" }, { type: "azure-nextgen:network/v20180801:ConnectionMonitor" }, { type: "azure-nextgen:network/v20181001:ConnectionMonitor" }, { type: "azure-nextgen:network/v20181101:ConnectionMonitor" }, { type: "azure-nextgen:network/v20181201:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190201:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190401:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190601:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190701:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190801:ConnectionMonitor" }, { type: "azure-nextgen:network/v20190901:ConnectionMonitor" }, { type: "azure-nextgen:network/v20191101:ConnectionMonitor" }, { type: "azure-nextgen:network/v20191201:ConnectionMonitor" }, { type: "azure-nextgen:network/v20200301:ConnectionMonitor" }, { type: "azure-nextgen:network/v20200401:ConnectionMonitor" }, { type: "azure-nextgen:network/v20200501:ConnectionMonitor" }, { type: "azure-nextgen:network/v20200601:ConnectionMonitor" }, { type: "azure-nextgen:network/v20200701:ConnectionMonitor" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectionMonitor.__pulumiType, name, inputs, opts);
     }
@@ -206,6 +207,10 @@ export interface ConnectionMonitorArgs {
      * Connection monitor location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Value indicating whether connection monitor V1 should be migrated to V2 format.
+     */
+    readonly migrate?: pulumi.Input<string>;
     /**
      * Monitoring interval in seconds.
      */

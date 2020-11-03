@@ -9,6 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
+    /// <summary>
+    /// A private endpoint connection
+    /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -18,19 +21,19 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Private Endpoint
+        /// The private endpoint which the connection belongs to.
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Private Link Service Connection State
+        /// Connection state of the private endpoint connection.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
         public Output<Outputs.PrivateLinkServiceConnectionStateResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state
+        /// Provisioning state of the private endpoint connection.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -93,13 +96,19 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
+        /// Connection state of the private endpoint connection.
+        /// </summary>
+        [Input("privateLinkServiceConnectionState")]
+        public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

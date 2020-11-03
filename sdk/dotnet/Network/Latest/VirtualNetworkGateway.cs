@@ -57,6 +57,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The extended location of type local virtual network gateway.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
         [Output("gatewayDefaultSite")]
@@ -121,6 +127,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        /// </summary>
+        [Output("virtualNetworkExtendedLocationResourceId")]
+        public Output<string?> VirtualNetworkExtendedLocationResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
@@ -197,6 +209,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -257,6 +270,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Input<bool>? EnablePrivateIpAddress { get; set; }
 
         /// <summary>
+        /// The extended location of type local virtual network gateway.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
         /// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
         [Input("gatewayDefaultSite")]
@@ -315,6 +334,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        /// </summary>
+        [Input("virtualNetworkExtendedLocationResourceId")]
+        public Input<string>? VirtualNetworkExtendedLocationResourceId { get; set; }
 
         /// <summary>
         /// The name of the virtual network gateway.

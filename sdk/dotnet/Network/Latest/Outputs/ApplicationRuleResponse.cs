@@ -49,6 +49,18 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// List of FQDNs for this rule.
         /// </summary>
         public readonly ImmutableArray<string> TargetFqdns;
+        /// <summary>
+        /// List of Urls for this rule condition.
+        /// </summary>
+        public readonly ImmutableArray<string> TargetUrls;
+        /// <summary>
+        /// Terminate TLS connections for this rule.
+        /// </summary>
+        public readonly bool? TerminateTLS;
+        /// <summary>
+        /// List of destination azure web categories.
+        /// </summary>
+        public readonly ImmutableArray<string> WebCategories;
 
         [OutputConstructor]
         private ApplicationRuleResponse(
@@ -68,7 +80,13 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             ImmutableArray<string> sourceIpGroups,
 
-            ImmutableArray<string> targetFqdns)
+            ImmutableArray<string> targetFqdns,
+
+            ImmutableArray<string> targetUrls,
+
+            bool? terminateTLS,
+
+            ImmutableArray<string> webCategories)
         {
             Description = description;
             DestinationAddresses = destinationAddresses;
@@ -79,6 +97,9 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
             SourceAddresses = sourceAddresses;
             SourceIpGroups = sourceIpGroups;
             TargetFqdns = targetFqdns;
+            TargetUrls = targetUrls;
+            TerminateTLS = terminateTLS;
+            WebCategories = webCategories;
         }
     }
 }

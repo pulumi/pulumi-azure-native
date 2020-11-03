@@ -17,6 +17,9 @@ __all__ = [
 
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
+    """
+    A private endpoint connection
+    """
     def __init__(__self__, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -46,7 +49,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        Private Endpoint
+        The private endpoint which the connection belongs to.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -54,7 +57,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
-        Private Link Service Connection State
+        Connection state of the private endpoint connection.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -62,7 +65,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state
+        Provisioning state of the private endpoint connection.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -97,7 +100,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name

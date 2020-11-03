@@ -105,6 +105,36 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
             set => _targetFqdns = value;
         }
 
+        [Input("targetUrls")]
+        private InputList<string>? _targetUrls;
+
+        /// <summary>
+        /// List of Urls for this rule condition.
+        /// </summary>
+        public InputList<string> TargetUrls
+        {
+            get => _targetUrls ?? (_targetUrls = new InputList<string>());
+            set => _targetUrls = value;
+        }
+
+        /// <summary>
+        /// Terminate TLS connections for this rule.
+        /// </summary>
+        [Input("terminateTLS")]
+        public Input<bool>? TerminateTLS { get; set; }
+
+        [Input("webCategories")]
+        private InputList<string>? _webCategories;
+
+        /// <summary>
+        /// List of destination azure web categories.
+        /// </summary>
+        public InputList<string> WebCategories
+        {
+            get => _webCategories ?? (_webCategories = new InputList<string>());
+            set => _webCategories = value;
+        }
+
         public ApplicationRuleArgs()
         {
         }

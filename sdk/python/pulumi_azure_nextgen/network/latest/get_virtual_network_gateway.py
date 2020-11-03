@@ -20,7 +20,7 @@ class GetVirtualNetworkGatewayResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, active_active=None, bgp_settings=None, custom_routes=None, enable_bgp=None, enable_dns_forwarding=None, enable_private_ip_address=None, etag=None, gateway_default_site=None, gateway_type=None, inbound_dns_forwarding_endpoint=None, ip_configurations=None, location=None, name=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None):
+    def __init__(__self__, active_active=None, bgp_settings=None, custom_routes=None, enable_bgp=None, enable_dns_forwarding=None, enable_private_ip_address=None, etag=None, extended_location=None, gateway_default_site=None, gateway_type=None, inbound_dns_forwarding_endpoint=None, ip_configurations=None, location=None, name=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, virtual_network_extended_location_resource_id=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError("Expected argument 'active_active' to be a bool")
         pulumi.set(__self__, "active_active", active_active)
@@ -42,6 +42,9 @@ class GetVirtualNetworkGatewayResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if gateway_default_site and not isinstance(gateway_default_site, dict):
             raise TypeError("Expected argument 'gateway_default_site' to be a dict")
         pulumi.set(__self__, "gateway_default_site", gateway_default_site)
@@ -75,6 +78,9 @@ class GetVirtualNetworkGatewayResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if virtual_network_extended_location_resource_id and not isinstance(virtual_network_extended_location_resource_id, str):
+            raise TypeError("Expected argument 'virtual_network_extended_location_resource_id' to be a str")
+        pulumi.set(__self__, "virtual_network_extended_location_resource_id", virtual_network_extended_location_resource_id)
         if vpn_client_configuration and not isinstance(vpn_client_configuration, dict):
             raise TypeError("Expected argument 'vpn_client_configuration' to be a dict")
         pulumi.set(__self__, "vpn_client_configuration", vpn_client_configuration)
@@ -140,6 +146,14 @@ class GetVirtualNetworkGatewayResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of type local virtual network gateway.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="gatewayDefaultSite")
@@ -230,6 +244,14 @@ class GetVirtualNetworkGatewayResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="virtualNetworkExtendedLocationResourceId")
+    def virtual_network_extended_location_resource_id(self) -> Optional[str]:
+        """
+        MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        """
+        return pulumi.get(self, "virtual_network_extended_location_resource_id")
+
+    @property
     @pulumi.getter(name="vpnClientConfiguration")
     def vpn_client_configuration(self) -> Optional['outputs.VpnClientConfigurationResponse']:
         """
@@ -267,6 +289,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             enable_dns_forwarding=self.enable_dns_forwarding,
             enable_private_ip_address=self.enable_private_ip_address,
             etag=self.etag,
+            extended_location=self.extended_location,
             gateway_default_site=self.gateway_default_site,
             gateway_type=self.gateway_type,
             inbound_dns_forwarding_endpoint=self.inbound_dns_forwarding_endpoint,
@@ -278,6 +301,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             sku=self.sku,
             tags=self.tags,
             type=self.type,
+            virtual_network_extended_location_resource_id=self.virtual_network_extended_location_resource_id,
             vpn_client_configuration=self.vpn_client_configuration,
             vpn_gateway_generation=self.vpn_gateway_generation,
             vpn_type=self.vpn_type)
@@ -309,6 +333,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
         enable_dns_forwarding=__ret__.enable_dns_forwarding,
         enable_private_ip_address=__ret__.enable_private_ip_address,
         etag=__ret__.etag,
+        extended_location=__ret__.extended_location,
         gateway_default_site=__ret__.gateway_default_site,
         gateway_type=__ret__.gateway_type,
         inbound_dns_forwarding_endpoint=__ret__.inbound_dns_forwarding_endpoint,
@@ -320,6 +345,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type,
+        virtual_network_extended_location_resource_id=__ret__.virtual_network_extended_location_resource_id,
         vpn_client_configuration=__ret__.vpn_client_configuration,
         vpn_gateway_generation=__ret__.vpn_gateway_generation,
         vpn_type=__ret__.vpn_type)

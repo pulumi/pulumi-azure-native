@@ -45,6 +45,18 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<ImmutableArray<Outputs.SubResourceResponse>> Firewalls { get; private set; } = null!;
 
         /// <summary>
+        /// The identity of the firewall policy.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The configuration for Intrusion detection.
+        /// </summary>
+        [Output("intrusionDetection")]
+        public Output<Outputs.FirewallPolicyIntrusionDetectionResponse?> IntrusionDetection { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -69,6 +81,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<ImmutableArray<Outputs.SubResourceResponse>> RuleCollectionGroups { get; private set; } = null!;
 
         /// <summary>
+        /// The Firewall Policy SKU.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.FirewallPolicySkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -85,6 +103,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("threatIntelWhitelist")]
         public Output<Outputs.FirewallPolicyThreatIntelWhitelistResponse?> ThreatIntelWhitelist { get; private set; } = null!;
+
+        /// <summary>
+        /// TLS Configuration definition.
+        /// </summary>
+        [Output("transportSecurity")]
+        public Output<Outputs.FirewallPolicyTransportSecurityResponse?> TransportSecurity { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -127,6 +151,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:FirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,6 +200,18 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// The identity of the firewall policy.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The configuration for Intrusion detection.
+        /// </summary>
+        [Input("intrusionDetection")]
+        public Input<Inputs.FirewallPolicyIntrusionDetectionArgs>? IntrusionDetection { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
@@ -185,6 +222,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Firewall Policy SKU.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.FirewallPolicySkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -209,6 +252,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("threatIntelWhitelist")]
         public Input<Inputs.FirewallPolicyThreatIntelWhitelistArgs>? ThreatIntelWhitelist { get; set; }
+
+        /// <summary>
+        /// TLS Configuration definition.
+        /// </summary>
+        [Input("transportSecurity")]
+        public Input<Inputs.FirewallPolicyTransportSecurityArgs>? TransportSecurity { get; set; }
 
         public FirewallPolicyArgs()
         {

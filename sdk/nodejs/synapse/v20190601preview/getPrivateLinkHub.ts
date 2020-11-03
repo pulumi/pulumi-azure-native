@@ -22,7 +22,7 @@ export function getPrivateLinkHub(args: GetPrivateLinkHubArgs, opts?: pulumi.Inv
 
 export interface GetPrivateLinkHubArgs {
     /**
-     * The name of the privateLinkHub
+     * Name of the privateLinkHub
      */
     readonly privateLinkHubName: string;
     /**
@@ -50,7 +50,7 @@ export interface GetPrivateLinkHubResult {
     /**
      * PrivateLinkHub provisioning state
      */
-    readonly provisioningState: string;
+    readonly provisioningState?: string;
     /**
      * Resource tags.
      */

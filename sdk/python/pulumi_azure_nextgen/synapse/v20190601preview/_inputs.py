@@ -33,6 +33,8 @@ __all__ = [
     'ManagedIdentityArgs',
     'ManagedIntegrationRuntimeArgs',
     'ManagedVirtualNetworkSettingsArgs',
+    'PrivateEndpointConnectionArgs',
+    'PrivateLinkServiceConnectionStateArgs',
     'SecureStringArgs',
     'SelfHostedIntegrationRuntimeArgs',
     'SkuArgs',
@@ -1309,6 +1311,70 @@ class ManagedVirtualNetworkSettingsArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        A private endpoint connection
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Connection state of the private endpoint connection.
+        """
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+        """
+        Connection state of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        Connection state details of the private endpoint
+        :param pulumi.Input[str] description: The private link service connection description.
+        :param pulumi.Input[str] status: The private link service connection status.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
 class SecureStringArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -1356,7 +1422,7 @@ class SelfHostedIntegrationRuntimeArgs:
         Self-hosted integration runtime.
         :param pulumi.Input[str] type: Type of integration runtime.
         :param pulumi.Input[str] description: Integration runtime description.
-        :param pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']] linked_info: The base definition of a linked integration runtime.
+        :param pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']] linked_info: Linked integration runtime type from data factory
         """
         pulumi.set(__self__, "type", 'SelfHosted')
         if description is not None:
@@ -1392,7 +1458,7 @@ class SelfHostedIntegrationRuntimeArgs:
     @pulumi.getter(name="linkedInfo")
     def linked_info(self) -> Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]]:
         """
-        The base definition of a linked integration runtime.
+        Linked integration runtime type from data factory
         """
         return pulumi.get(self, "linked_info")
 

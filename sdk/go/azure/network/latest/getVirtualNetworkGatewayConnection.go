@@ -27,6 +27,8 @@ type LookupVirtualNetworkGatewayConnectionArgs struct {
 type LookupVirtualNetworkGatewayConnectionResult struct {
 	// The authorizationKey.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The connection mode for this connection.
+	ConnectionMode *string `pulumi:"connectionMode"`
 	// Connection protocol used for this connection.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// Virtual Network Gateway connection status.

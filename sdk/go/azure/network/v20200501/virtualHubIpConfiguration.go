@@ -54,6 +54,9 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHubIpConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHubIpConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualHubIpConfiguration

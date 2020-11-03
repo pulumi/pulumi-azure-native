@@ -105,6 +105,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

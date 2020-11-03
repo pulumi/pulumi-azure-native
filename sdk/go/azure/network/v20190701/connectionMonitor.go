@@ -131,6 +131,9 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ConnectionMonitor"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:ConnectionMonitor"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionMonitor

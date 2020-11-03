@@ -71,6 +71,9 @@ func NewVirtualRouterPeering(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualRouterPeering"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualRouterPeering"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualRouterPeering

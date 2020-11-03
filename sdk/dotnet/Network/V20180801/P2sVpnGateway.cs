@@ -121,6 +121,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:P2sVpnGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

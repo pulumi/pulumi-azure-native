@@ -21,7 +21,13 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// List of references to Azure resources that this IpGroups is associated with.
+        /// List of references to Firewall Policies resources that this IpGroups is associated with.
+        /// </summary>
+        [Output("firewallPolicies")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> FirewallPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// List of references to Firewall resources that this IpGroups is associated with.
         /// </summary>
         [Output("firewalls")]
         public Output<ImmutableArray<Outputs.SubResourceResponse>> Firewalls { get; private set; } = null!;
@@ -94,6 +100,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:IpGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

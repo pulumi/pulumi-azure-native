@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualWan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

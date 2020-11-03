@@ -33,6 +33,8 @@ type LookupExpressRouteConnectionResult struct {
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponse `pulumi:"expressRouteCircuitPeering"`
+	// Enable FastPath to vWan Firewall hub.
+	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The provisioning state of the express route connection resource.

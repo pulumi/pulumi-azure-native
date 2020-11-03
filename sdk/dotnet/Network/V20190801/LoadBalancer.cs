@@ -162,6 +162,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:LoadBalancer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -93,7 +93,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200401:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200501:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200601:PrivateDnsZoneGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200401:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200501:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200601:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200701:PrivateDnsZoneGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateDnsZoneGroup.__pulumiType, name, inputs, opts);
     }

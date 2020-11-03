@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The extended location of the load balancer.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Object representing the frontend IPs to be used for the load balancer.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontendIPConfigurationResponse> FrontendIPConfigurations;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             ImmutableArray<Outputs.FrontendIPConfigurationResponse> frontendIPConfigurations,
 
             ImmutableArray<Outputs.InboundNatPoolResponse> inboundNatPools,
@@ -140,6 +146,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         {
             BackendAddressPools = backendAddressPools;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             FrontendIPConfigurations = frontendIPConfigurations;
             InboundNatPools = inboundNatPools;
             InboundNatRules = inboundNatRules;

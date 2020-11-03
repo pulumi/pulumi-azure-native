@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Tier of a public IP address SKU.
+        /// </summary>
+        [Input("tier")]
+        public Input<string>? Tier { get; set; }
+
         public PublicIPAddressSkuArgs()
         {
         }

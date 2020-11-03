@@ -134,6 +134,9 @@ func NewRouteFilter(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:RouteFilter"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:RouteFilter"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RouteFilter

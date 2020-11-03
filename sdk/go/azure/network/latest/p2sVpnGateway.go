@@ -18,6 +18,8 @@ type P2sVpnGateway struct {
 	CustomDnsServers pulumi.StringArrayOutput `pulumi:"customDnsServers"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+	IsRoutingPreferenceInternet pulumi.BoolPtrOutput `pulumi:"isRoutingPreferenceInternet"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
@@ -104,6 +106,9 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:P2sVpnGateway"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:P2sVpnGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource P2sVpnGateway
@@ -132,6 +137,8 @@ type p2sVpnGatewayState struct {
 	CustomDnsServers []string `pulumi:"customDnsServers"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+	IsRoutingPreferenceInternet *bool `pulumi:"isRoutingPreferenceInternet"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -159,6 +166,8 @@ type P2sVpnGatewayState struct {
 	CustomDnsServers pulumi.StringArrayInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+	IsRoutingPreferenceInternet pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
@@ -192,6 +201,8 @@ type p2sVpnGatewayArgs struct {
 	GatewayName string `pulumi:"gatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+	IsRoutingPreferenceInternet *bool `pulumi:"isRoutingPreferenceInternet"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// List of all p2s connection configurations of the gateway.
@@ -216,6 +227,8 @@ type P2sVpnGatewayArgs struct {
 	GatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+	IsRoutingPreferenceInternet pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// List of all p2s connection configurations of the gateway.

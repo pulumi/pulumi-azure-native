@@ -18,6 +18,8 @@ type PublicIPPrefix struct {
 	CustomIPPrefix SubResourceResponsePtrOutput `pulumi:"customIPPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The extended location of the public ip address.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// The allocated Prefix.
 	IpPrefix pulumi.StringOutput `pulumi:"ipPrefix"`
 	// The list of tags associated with the public IP prefix.
@@ -112,6 +114,9 @@ func NewPublicIPPrefix(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PublicIPPrefix"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:PublicIPPrefix"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PublicIPPrefix
@@ -140,6 +145,8 @@ type publicIPPrefixState struct {
 	CustomIPPrefix *SubResourceResponse `pulumi:"customIPPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The extended location of the public ip address.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The allocated Prefix.
 	IpPrefix *string `pulumi:"ipPrefix"`
 	// The list of tags associated with the public IP prefix.
@@ -175,6 +182,8 @@ type PublicIPPrefixState struct {
 	CustomIPPrefix SubResourceResponsePtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The extended location of the public ip address.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// The allocated Prefix.
 	IpPrefix pulumi.StringPtrInput
 	// The list of tags associated with the public IP prefix.
@@ -212,6 +221,8 @@ func (PublicIPPrefixState) ElementType() reflect.Type {
 type publicIPPrefixArgs struct {
 	// The customIpPrefix that this prefix is associated with.
 	CustomIPPrefix *SubResource `pulumi:"customIPPrefix"`
+	// The extended location of the public ip address.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The list of tags associated with the public IP prefix.
@@ -238,6 +249,8 @@ type publicIPPrefixArgs struct {
 type PublicIPPrefixArgs struct {
 	// The customIpPrefix that this prefix is associated with.
 	CustomIPPrefix SubResourcePtrInput
+	// The extended location of the public ip address.
+	ExtendedLocation ExtendedLocationPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The list of tags associated with the public IP prefix.

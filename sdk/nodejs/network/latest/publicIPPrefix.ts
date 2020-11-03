@@ -45,6 +45,10 @@ export class PublicIPPrefix extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The extended location of the public ip address.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.network.latest.ExtendedLocationResponse | undefined>;
+    /**
      * The allocated Prefix.
      */
     public /*out*/ readonly ipPrefix!: pulumi.Output<string>;
@@ -118,6 +122,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customIPPrefix"] = args ? args.customIPPrefix : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipTags"] = args ? args.ipTags : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -139,6 +144,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
         } else {
             inputs["customIPPrefix"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["ipPrefix"] = undefined /*out*/;
             inputs["ipTags"] = undefined /*out*/;
             inputs["loadBalancerFrontendIpConfiguration"] = undefined /*out*/;
@@ -161,7 +167,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180701:PublicIPPrefix" }, { type: "azure-nextgen:network/v20180801:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181001:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181101:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190401:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190601:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190701:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190801:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190901:PublicIPPrefix" }, { type: "azure-nextgen:network/v20191101:PublicIPPrefix" }, { type: "azure-nextgen:network/v20191201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200301:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200401:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200501:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200601:PublicIPPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180701:PublicIPPrefix" }, { type: "azure-nextgen:network/v20180801:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181001:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181101:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190401:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190601:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190701:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190801:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190901:PublicIPPrefix" }, { type: "azure-nextgen:network/v20191101:PublicIPPrefix" }, { type: "azure-nextgen:network/v20191201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200301:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200401:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200501:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200601:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200701:PublicIPPrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PublicIPPrefix.__pulumiType, name, inputs, opts);
     }
@@ -175,6 +181,10 @@ export interface PublicIPPrefixArgs {
      * The customIpPrefix that this prefix is associated with.
      */
     readonly customIPPrefix?: pulumi.Input<inputs.network.latest.SubResource>;
+    /**
+     * The extended location of the public ip address.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.network.latest.ExtendedLocation>;
     /**
      * Resource ID.
      */
