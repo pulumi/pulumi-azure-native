@@ -49,6 +49,10 @@ export class PublicIPAddress extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The extended location of the public ip address.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.network.latest.ExtendedLocationResponse | undefined>;
+    /**
      * The idle timeout of the public IP address.
      */
     public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
@@ -127,6 +131,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
             }
             inputs["ddosSettings"] = args ? args.ddosSettings : undefined;
             inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
@@ -150,6 +155,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["ddosSettings"] = undefined /*out*/;
             inputs["dnsSettings"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["idleTimeoutInMinutes"] = undefined /*out*/;
             inputs["ipAddress"] = undefined /*out*/;
             inputs["ipConfiguration"] = undefined /*out*/;
@@ -173,7 +179,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:PublicIPAddress" }, { type: "azure-nextgen:network/v20150615:PublicIPAddress" }, { type: "azure-nextgen:network/v20160330:PublicIPAddress" }, { type: "azure-nextgen:network/v20160601:PublicIPAddress" }, { type: "azure-nextgen:network/v20160901:PublicIPAddress" }, { type: "azure-nextgen:network/v20161201:PublicIPAddress" }, { type: "azure-nextgen:network/v20170301:PublicIPAddress" }, { type: "azure-nextgen:network/v20170601:PublicIPAddress" }, { type: "azure-nextgen:network/v20170801:PublicIPAddress" }, { type: "azure-nextgen:network/v20170901:PublicIPAddress" }, { type: "azure-nextgen:network/v20171001:PublicIPAddress" }, { type: "azure-nextgen:network/v20171101:PublicIPAddress" }, { type: "azure-nextgen:network/v20180101:PublicIPAddress" }, { type: "azure-nextgen:network/v20180201:PublicIPAddress" }, { type: "azure-nextgen:network/v20180401:PublicIPAddress" }, { type: "azure-nextgen:network/v20180601:PublicIPAddress" }, { type: "azure-nextgen:network/v20180701:PublicIPAddress" }, { type: "azure-nextgen:network/v20180801:PublicIPAddress" }, { type: "azure-nextgen:network/v20181001:PublicIPAddress" }, { type: "azure-nextgen:network/v20181101:PublicIPAddress" }, { type: "azure-nextgen:network/v20181201:PublicIPAddress" }, { type: "azure-nextgen:network/v20190201:PublicIPAddress" }, { type: "azure-nextgen:network/v20190401:PublicIPAddress" }, { type: "azure-nextgen:network/v20190601:PublicIPAddress" }, { type: "azure-nextgen:network/v20190701:PublicIPAddress" }, { type: "azure-nextgen:network/v20190801:PublicIPAddress" }, { type: "azure-nextgen:network/v20190901:PublicIPAddress" }, { type: "azure-nextgen:network/v20191101:PublicIPAddress" }, { type: "azure-nextgen:network/v20191201:PublicIPAddress" }, { type: "azure-nextgen:network/v20200301:PublicIPAddress" }, { type: "azure-nextgen:network/v20200401:PublicIPAddress" }, { type: "azure-nextgen:network/v20200501:PublicIPAddress" }, { type: "azure-nextgen:network/v20200601:PublicIPAddress" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:PublicIPAddress" }, { type: "azure-nextgen:network/v20150615:PublicIPAddress" }, { type: "azure-nextgen:network/v20160330:PublicIPAddress" }, { type: "azure-nextgen:network/v20160601:PublicIPAddress" }, { type: "azure-nextgen:network/v20160901:PublicIPAddress" }, { type: "azure-nextgen:network/v20161201:PublicIPAddress" }, { type: "azure-nextgen:network/v20170301:PublicIPAddress" }, { type: "azure-nextgen:network/v20170601:PublicIPAddress" }, { type: "azure-nextgen:network/v20170801:PublicIPAddress" }, { type: "azure-nextgen:network/v20170901:PublicIPAddress" }, { type: "azure-nextgen:network/v20171001:PublicIPAddress" }, { type: "azure-nextgen:network/v20171101:PublicIPAddress" }, { type: "azure-nextgen:network/v20180101:PublicIPAddress" }, { type: "azure-nextgen:network/v20180201:PublicIPAddress" }, { type: "azure-nextgen:network/v20180401:PublicIPAddress" }, { type: "azure-nextgen:network/v20180601:PublicIPAddress" }, { type: "azure-nextgen:network/v20180701:PublicIPAddress" }, { type: "azure-nextgen:network/v20180801:PublicIPAddress" }, { type: "azure-nextgen:network/v20181001:PublicIPAddress" }, { type: "azure-nextgen:network/v20181101:PublicIPAddress" }, { type: "azure-nextgen:network/v20181201:PublicIPAddress" }, { type: "azure-nextgen:network/v20190201:PublicIPAddress" }, { type: "azure-nextgen:network/v20190401:PublicIPAddress" }, { type: "azure-nextgen:network/v20190601:PublicIPAddress" }, { type: "azure-nextgen:network/v20190701:PublicIPAddress" }, { type: "azure-nextgen:network/v20190801:PublicIPAddress" }, { type: "azure-nextgen:network/v20190901:PublicIPAddress" }, { type: "azure-nextgen:network/v20191101:PublicIPAddress" }, { type: "azure-nextgen:network/v20191201:PublicIPAddress" }, { type: "azure-nextgen:network/v20200301:PublicIPAddress" }, { type: "azure-nextgen:network/v20200401:PublicIPAddress" }, { type: "azure-nextgen:network/v20200501:PublicIPAddress" }, { type: "azure-nextgen:network/v20200601:PublicIPAddress" }, { type: "azure-nextgen:network/v20200701:PublicIPAddress" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PublicIPAddress.__pulumiType, name, inputs, opts);
     }
@@ -191,6 +197,10 @@ export interface PublicIPAddressArgs {
      * The FQDN of the DNS record associated with the public IP address.
      */
     readonly dnsSettings?: pulumi.Input<inputs.network.latest.PublicIPAddressDnsSettings>;
+    /**
+     * The extended location of the public ip address.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.network.latest.ExtendedLocation>;
     /**
      * Resource ID.
      */

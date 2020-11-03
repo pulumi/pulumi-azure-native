@@ -21,6 +21,7 @@ class VpnGateway(pulumi.CustomResource):
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 is_routing_preference_internet: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -38,6 +39,7 @@ class VpnGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]] connections: List of all vpn connections to the gateway.
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[bool] is_routing_preference_internet: Enable Routing Preference property for the Public IP Interface of the VpnGateway.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -67,6 +69,7 @@ class VpnGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gateway_name'")
             __props__['gateway_name'] = gateway_name
             __props__['id'] = id
+            __props__['is_routing_preference_internet'] = is_routing_preference_internet
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -81,7 +84,7 @@ class VpnGateway(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180401:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VpnGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180401:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VpnGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VpnGateway, __self__).__init__(
             'azure-nextgen:network/latest:VpnGateway',
@@ -138,6 +141,14 @@ class VpnGateway(pulumi.CustomResource):
         List of all IPs configured on the gateway.
         """
         return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="isRoutingPreferenceInternet")
+    def is_routing_preference_internet(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+        """
+        return pulumi.get(self, "is_routing_preference_internet")
 
     @property
     @pulumi.getter

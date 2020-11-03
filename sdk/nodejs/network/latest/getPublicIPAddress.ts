@@ -27,7 +27,7 @@ export interface GetPublicIPAddressArgs {
      */
     readonly expand?: string;
     /**
-     * The name of the subnet.
+     * The name of the public IP address.
      */
     readonly publicIpAddressName: string;
     /**
@@ -52,6 +52,10 @@ export interface GetPublicIPAddressResult {
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The extended location of the public ip address.
+     */
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
     /**
      * The idle timeout of the public IP address.
      */

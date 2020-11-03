@@ -233,6 +233,18 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         [Input("managedVirtualNetworkSettings")]
         public Input<Inputs.ManagedVirtualNetworkSettingsArgs>? ManagedVirtualNetworkSettings { get; set; }
 
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+
+        /// <summary>
+        /// Private endpoint connections to the workspace
+        /// </summary>
+        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
+            set => _privateEndpointConnections = value;
+        }
+
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>

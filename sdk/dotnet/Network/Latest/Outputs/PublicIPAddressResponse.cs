@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The extended location of the public ip address.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             string etag,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string? id,
 
             int? idleTimeoutInMinutes,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
             DdosSettings = ddosSettings;
             DnsSettings = dnsSettings;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             IpAddress = ipAddress;

@@ -6,6 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+/**
+ * A private endpoint connection
+ */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Get an existing PrivateEndpointConnection resource's state with the given name, ID, and optional extra
@@ -38,15 +41,15 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Private Endpoint
+     * The private endpoint which the connection belongs to.
      */
     public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.synapse.v20190601preview.PrivateEndpointResponse | undefined>;
     /**
-     * Private Link Service Connection State
+     * Connection state of the private endpoint connection.
      */
-    public /*out*/ readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.synapse.v20190601preview.PrivateLinkServiceConnectionStateResponse | undefined>;
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.synapse.v20190601preview.PrivateLinkServiceConnectionStateResponse | undefined>;
     /**
-     * Provisioning state
+     * Provisioning state of the private endpoint connection.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -74,11 +77,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
+            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
-            inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -108,11 +111,15 @@ export interface PrivateEndpointConnectionArgs {
      */
     readonly privateEndpointConnectionName: pulumi.Input<string>;
     /**
+     * Connection state of the private endpoint connection.
+     */
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.synapse.v20190601preview.PrivateLinkServiceConnectionState>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     readonly workspaceName: pulumi.Input<string>;
 }

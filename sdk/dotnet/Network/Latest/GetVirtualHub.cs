@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string? AddressPrefix;
         /// <summary>
+        /// Flag to control transit for VirtualRouter hub.
+        /// </summary>
+        public readonly bool? AllowBranchToBranchTraffic;
+        /// <summary>
         /// The azureFirewall associated with this VirtualHub.
         /// </summary>
         public readonly Outputs.SubResourceResponse? AzureFirewall;
@@ -51,10 +55,6 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// List of references to Bgp Connections.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> BgpConnections;
-        /// <summary>
-        /// Flag to control route propogation for VirtualRouter hub.
-        /// </summary>
-        public readonly bool? EnableVirtualRouterRoutePropogation;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -136,11 +136,11 @@ namespace Pulumi.AzureNextGen.Network.Latest
         private GetVirtualHubResult(
             string? addressPrefix,
 
+            bool? allowBranchToBranchTraffic,
+
             Outputs.SubResourceResponse? azureFirewall,
 
             ImmutableArray<Outputs.SubResourceResponse> bgpConnections,
-
-            bool? enableVirtualRouterRoutePropogation,
 
             string etag,
 
@@ -181,9 +181,9 @@ namespace Pulumi.AzureNextGen.Network.Latest
             Outputs.SubResourceResponse? vpnGateway)
         {
             AddressPrefix = addressPrefix;
+            AllowBranchToBranchTraffic = allowBranchToBranchTraffic;
             AzureFirewall = azureFirewall;
             BgpConnections = bgpConnections;
-            EnableVirtualRouterRoutePropogation = enableVirtualRouterRoutePropogation;
             Etag = etag;
             ExpressRouteGateway = expressRouteGateway;
             IpConfigurations = ipConfigurations;

@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The extended location of type local virtual network gateway.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
         public readonly Outputs.SubResourceResponse? GatewayDefaultSite;
@@ -112,6 +116,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        /// </summary>
+        public readonly string? VirtualNetworkExtendedLocationResourceId;
+        /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         /// </summary>
         public readonly Outputs.VpnClientConfigurationResponse? VpnClientConfiguration;
@@ -140,6 +148,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             Outputs.SubResourceResponse? gatewayDefaultSite,
 
             string? gatewayType,
@@ -162,6 +172,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string type,
 
+            string? virtualNetworkExtendedLocationResourceId,
+
             Outputs.VpnClientConfigurationResponse? vpnClientConfiguration,
 
             string? vpnGatewayGeneration,
@@ -175,6 +187,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             EnableDnsForwarding = enableDnsForwarding;
             EnablePrivateIpAddress = enablePrivateIpAddress;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             GatewayDefaultSite = gatewayDefaultSite;
             GatewayType = gatewayType;
             InboundDnsForwardingEndpoint = inboundDnsForwardingEndpoint;
@@ -186,6 +199,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             Sku = sku;
             Tags = tags;
             Type = type;
+            VirtualNetworkExtendedLocationResourceId = virtualNetworkExtendedLocationResourceId;
             VpnClientConfiguration = vpnClientConfiguration;
             VpnGatewayGeneration = vpnGatewayGeneration;
             VpnType = vpnType;

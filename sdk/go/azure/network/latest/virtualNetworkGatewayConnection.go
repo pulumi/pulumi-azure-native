@@ -16,6 +16,8 @@ type VirtualNetworkGatewayConnection struct {
 
 	// The authorizationKey.
 	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
+	// The connection mode for this connection.
+	ConnectionMode pulumi.StringPtrOutput `pulumi:"connectionMode"`
 	// Connection protocol used for this connection.
 	ConnectionProtocol pulumi.StringPtrOutput `pulumi:"connectionProtocol"`
 	// Virtual Network Gateway connection status.
@@ -185,6 +187,9 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualNetworkGatewayConnection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualNetworkGatewayConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkGatewayConnection
@@ -211,6 +216,8 @@ func GetVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 type virtualNetworkGatewayConnectionState struct {
 	// The authorizationKey.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The connection mode for this connection.
+	ConnectionMode *string `pulumi:"connectionMode"`
 	// Connection protocol used for this connection.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// Virtual Network Gateway connection status.
@@ -268,6 +275,8 @@ type virtualNetworkGatewayConnectionState struct {
 type VirtualNetworkGatewayConnectionState struct {
 	// The authorizationKey.
 	AuthorizationKey pulumi.StringPtrInput
+	// The connection mode for this connection.
+	ConnectionMode pulumi.StringPtrInput
 	// Connection protocol used for this connection.
 	ConnectionProtocol pulumi.StringPtrInput
 	// Virtual Network Gateway connection status.
@@ -329,6 +338,8 @@ func (VirtualNetworkGatewayConnectionState) ElementType() reflect.Type {
 type virtualNetworkGatewayConnectionArgs struct {
 	// The authorizationKey.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The connection mode for this connection.
+	ConnectionMode *string `pulumi:"connectionMode"`
 	// Connection protocol used for this connection.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// Gateway connection type.
@@ -375,6 +386,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 type VirtualNetworkGatewayConnectionArgs struct {
 	// The authorizationKey.
 	AuthorizationKey pulumi.StringPtrInput
+	// The connection mode for this connection.
+	ConnectionMode pulumi.StringPtrInput
 	// Connection protocol used for this connection.
 	ConnectionProtocol pulumi.StringPtrInput
 	// Gateway connection type.

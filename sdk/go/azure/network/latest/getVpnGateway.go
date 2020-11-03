@@ -33,6 +33,8 @@ type LookupVpnGatewayResult struct {
 	Etag string `pulumi:"etag"`
 	// List of all IPs configured on the gateway.
 	IpConfigurations []VpnGatewayIpConfigurationResponse `pulumi:"ipConfigurations"`
+	// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+	IsRoutingPreferenceInternet *bool `pulumi:"isRoutingPreferenceInternet"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.

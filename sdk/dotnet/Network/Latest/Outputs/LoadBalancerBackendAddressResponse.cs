@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>
+        /// Reference to the frontend ip address configuration defined in regional loadbalancer.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? LoadBalancerFrontendIPConfiguration;
+        /// <summary>
         /// Name of the backend address.
         /// </summary>
         public readonly string? Name;
@@ -34,6 +38,8 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         private LoadBalancerBackendAddressResponse(
             string? ipAddress,
 
+            Outputs.SubResourceResponse? loadBalancerFrontendIPConfiguration,
+
             string? name,
 
             Outputs.SubResourceResponse networkInterfaceIPConfiguration,
@@ -41,6 +47,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
             Outputs.SubResourceResponse? virtualNetwork)
         {
             IpAddress = ipAddress;
+            LoadBalancerFrontendIPConfiguration = loadBalancerFrontendIPConfiguration;
             Name = name;
             NetworkInterfaceIPConfiguration = networkInterfaceIPConfiguration;
             VirtualNetwork = virtualNetwork;

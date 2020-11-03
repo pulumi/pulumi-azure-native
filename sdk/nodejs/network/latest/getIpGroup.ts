@@ -45,7 +45,11 @@ export interface GetIpGroupResult {
      */
     readonly etag: string;
     /**
-     * List of references to Azure resources that this IpGroups is associated with.
+     * List of references to Firewall Policies resources that this IpGroups is associated with.
+     */
+    readonly firewallPolicies: outputs.network.latest.SubResourceResponse[];
+    /**
+     * List of references to Firewall resources that this IpGroups is associated with.
      */
     readonly firewalls: outputs.network.latest.SubResourceResponse[];
     /**

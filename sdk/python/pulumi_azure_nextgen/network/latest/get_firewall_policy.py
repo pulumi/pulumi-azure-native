@@ -20,7 +20,7 @@ class GetFirewallPolicyResult:
     """
     FirewallPolicy Resource.
     """
-    def __init__(__self__, base_policy=None, child_policies=None, dns_settings=None, etag=None, firewalls=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, type=None):
+    def __init__(__self__, base_policy=None, child_policies=None, dns_settings=None, etag=None, firewalls=None, identity=None, intrusion_detection=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, sku=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, transport_security=None, type=None):
         if base_policy and not isinstance(base_policy, dict):
             raise TypeError("Expected argument 'base_policy' to be a dict")
         pulumi.set(__self__, "base_policy", base_policy)
@@ -36,6 +36,12 @@ class GetFirewallPolicyResult:
         if firewalls and not isinstance(firewalls, list):
             raise TypeError("Expected argument 'firewalls' to be a list")
         pulumi.set(__self__, "firewalls", firewalls)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if intrusion_detection and not isinstance(intrusion_detection, dict):
+            raise TypeError("Expected argument 'intrusion_detection' to be a dict")
+        pulumi.set(__self__, "intrusion_detection", intrusion_detection)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -48,6 +54,9 @@ class GetFirewallPolicyResult:
         if rule_collection_groups and not isinstance(rule_collection_groups, list):
             raise TypeError("Expected argument 'rule_collection_groups' to be a list")
         pulumi.set(__self__, "rule_collection_groups", rule_collection_groups)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -57,6 +66,9 @@ class GetFirewallPolicyResult:
         if threat_intel_whitelist and not isinstance(threat_intel_whitelist, dict):
             raise TypeError("Expected argument 'threat_intel_whitelist' to be a dict")
         pulumi.set(__self__, "threat_intel_whitelist", threat_intel_whitelist)
+        if transport_security and not isinstance(transport_security, dict):
+            raise TypeError("Expected argument 'transport_security' to be a dict")
+        pulumi.set(__self__, "transport_security", transport_security)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -103,6 +115,22 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity of the firewall policy.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="intrusionDetection")
+    def intrusion_detection(self) -> Optional['outputs.FirewallPolicyIntrusionDetectionResponse']:
+        """
+        The configuration for Intrusion detection.
+        """
+        return pulumi.get(self, "intrusion_detection")
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[str]:
         """
         Resource location.
@@ -135,6 +163,14 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional['outputs.FirewallPolicySkuResponse']:
+        """
+        The Firewall Policy SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
@@ -158,6 +194,14 @@ class GetFirewallPolicyResult:
         return pulumi.get(self, "threat_intel_whitelist")
 
     @property
+    @pulumi.getter(name="transportSecurity")
+    def transport_security(self) -> Optional['outputs.FirewallPolicyTransportSecurityResponse']:
+        """
+        TLS Configuration definition.
+        """
+        return pulumi.get(self, "transport_security")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -177,13 +221,17 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
             dns_settings=self.dns_settings,
             etag=self.etag,
             firewalls=self.firewalls,
+            identity=self.identity,
+            intrusion_detection=self.intrusion_detection,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             rule_collection_groups=self.rule_collection_groups,
+            sku=self.sku,
             tags=self.tags,
             threat_intel_mode=self.threat_intel_mode,
             threat_intel_whitelist=self.threat_intel_whitelist,
+            transport_security=self.transport_security,
             type=self.type)
 
 
@@ -214,11 +262,15 @@ def get_firewall_policy(expand: Optional[str] = None,
         dns_settings=__ret__.dns_settings,
         etag=__ret__.etag,
         firewalls=__ret__.firewalls,
+        identity=__ret__.identity,
+        intrusion_detection=__ret__.intrusion_detection,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         rule_collection_groups=__ret__.rule_collection_groups,
+        sku=__ret__.sku,
         tags=__ret__.tags,
         threat_intel_mode=__ret__.threat_intel_mode,
         threat_intel_whitelist=__ret__.threat_intel_whitelist,
+        transport_security=__ret__.transport_security,
         type=__ret__.type)

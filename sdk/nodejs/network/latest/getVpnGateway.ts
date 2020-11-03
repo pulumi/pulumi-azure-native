@@ -52,6 +52,10 @@ export interface GetVpnGatewayResult {
      */
     readonly ipConfigurations: outputs.network.latest.VpnGatewayIpConfigurationResponse[];
     /**
+     * Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+     */
+    readonly isRoutingPreferenceInternet?: boolean;
+    /**
      * Resource location.
      */
     readonly location: string;

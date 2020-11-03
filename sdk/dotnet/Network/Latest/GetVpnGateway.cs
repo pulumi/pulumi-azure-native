@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnGatewayIpConfigurationResponse> IpConfigurations;
         /// <summary>
+        /// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+        /// </summary>
+        public readonly bool? IsRoutingPreferenceInternet;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             ImmutableArray<Outputs.VpnGatewayIpConfigurationResponse> ipConfigurations,
 
+            bool? isRoutingPreferenceInternet,
+
             string location,
 
             string name,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             Connections = connections;
             Etag = etag;
             IpConfigurations = ipConfigurations;
+            IsRoutingPreferenceInternet = isRoutingPreferenceInternet;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

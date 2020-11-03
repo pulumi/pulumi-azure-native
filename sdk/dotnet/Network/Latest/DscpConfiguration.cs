@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:DscpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:DscpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

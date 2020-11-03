@@ -195,6 +195,8 @@ type workspaceArgs struct {
 	ManagedVirtualNetwork *string `pulumi:"managedVirtualNetwork"`
 	// Managed Virtual Network Settings
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettings `pulumi:"managedVirtualNetworkSettings"`
+	// Private endpoint connections to the workspace
+	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Login for workspace SQL active directory administrator
@@ -229,6 +231,8 @@ type WorkspaceArgs struct {
 	ManagedVirtualNetwork pulumi.StringPtrInput
 	// Managed Virtual Network Settings
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsPtrInput
+	// Private endpoint connections to the workspace
+	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Login for workspace SQL active directory administrator

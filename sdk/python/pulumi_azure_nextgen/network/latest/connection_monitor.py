@@ -22,6 +22,7 @@ class ConnectionMonitor(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorEndpointArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 migrate: Optional[pulumi.Input[str]] = None,
                  monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class ConnectionMonitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']] destination: Describes the destination of connection monitor.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorEndpointArgs']]]] endpoints: List of connection monitor endpoints.
         :param pulumi.Input[str] location: Connection monitor location.
+        :param pulumi.Input[str] migrate: Value indicating whether connection monitor V1 should be migrated to V2 format.
         :param pulumi.Input[int] monitoring_interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher resource.
         :param pulumi.Input[str] notes: Optional notes to be associated with the connection monitor.
@@ -78,6 +80,7 @@ class ConnectionMonitor(pulumi.CustomResource):
             __props__['destination'] = destination
             __props__['endpoints'] = endpoints
             __props__['location'] = location
+            __props__['migrate'] = migrate
             __props__['monitoring_interval_in_seconds'] = monitoring_interval_in_seconds
             if network_watcher_name is None:
                 raise TypeError("Missing required property 'network_watcher_name'")
@@ -98,7 +101,7 @@ class ConnectionMonitor(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['start_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20171001:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20171101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180401:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180601:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ConnectionMonitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20171001:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20171101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180401:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180601:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ConnectionMonitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectionMonitor, __self__).__init__(
             'azure-nextgen:network/latest:ConnectionMonitor',

@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The base definition of a linked integration runtime.
+        /// Linked integration runtime type from data factory
         /// </summary>
         public readonly Union<Outputs.LinkedIntegrationRuntimeKeyAuthorizationResponse, Outputs.LinkedIntegrationRuntimeRbacAuthorizationResponse>? LinkedInfo;
         /// <summary>

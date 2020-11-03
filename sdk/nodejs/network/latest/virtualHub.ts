@@ -41,6 +41,10 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public readonly addressPrefix!: pulumi.Output<string | undefined>;
     /**
+     * Flag to control transit for VirtualRouter hub.
+     */
+    public readonly allowBranchToBranchTraffic!: pulumi.Output<boolean | undefined>;
+    /**
      * The azureFirewall associated with this VirtualHub.
      */
     public readonly azureFirewall!: pulumi.Output<outputs.network.latest.SubResourceResponse | undefined>;
@@ -48,10 +52,6 @@ export class VirtualHub extends pulumi.CustomResource {
      * List of references to Bgp Connections.
      */
     public /*out*/ readonly bgpConnections!: pulumi.Output<outputs.network.latest.SubResourceResponse[]>;
-    /**
-     * Flag to control route propogation for VirtualRouter hub.
-     */
-    public readonly enableVirtualRouterRoutePropogation!: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -149,8 +149,8 @@ export class VirtualHub extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualHubName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            inputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
             inputs["azureFirewall"] = args ? args.azureFirewall : undefined;
-            inputs["enableVirtualRouterRoutePropogation"] = args ? args.enableVirtualRouterRoutePropogation : undefined;
             inputs["expressRouteGateway"] = args ? args.expressRouteGateway : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -176,9 +176,9 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["addressPrefix"] = undefined /*out*/;
+            inputs["allowBranchToBranchTraffic"] = undefined /*out*/;
             inputs["azureFirewall"] = undefined /*out*/;
             inputs["bgpConnections"] = undefined /*out*/;
-            inputs["enableVirtualRouterRoutePropogation"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["expressRouteGateway"] = undefined /*out*/;
             inputs["ipConfigurations"] = undefined /*out*/;
@@ -206,7 +206,7 @@ export class VirtualHub extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180401:VirtualHub" }, { type: "azure-nextgen:network/v20180601:VirtualHub" }, { type: "azure-nextgen:network/v20180701:VirtualHub" }, { type: "azure-nextgen:network/v20180801:VirtualHub" }, { type: "azure-nextgen:network/v20181001:VirtualHub" }, { type: "azure-nextgen:network/v20181101:VirtualHub" }, { type: "azure-nextgen:network/v20181201:VirtualHub" }, { type: "azure-nextgen:network/v20190201:VirtualHub" }, { type: "azure-nextgen:network/v20190401:VirtualHub" }, { type: "azure-nextgen:network/v20190601:VirtualHub" }, { type: "azure-nextgen:network/v20190701:VirtualHub" }, { type: "azure-nextgen:network/v20190801:VirtualHub" }, { type: "azure-nextgen:network/v20190901:VirtualHub" }, { type: "azure-nextgen:network/v20191101:VirtualHub" }, { type: "azure-nextgen:network/v20191201:VirtualHub" }, { type: "azure-nextgen:network/v20200301:VirtualHub" }, { type: "azure-nextgen:network/v20200401:VirtualHub" }, { type: "azure-nextgen:network/v20200501:VirtualHub" }, { type: "azure-nextgen:network/v20200601:VirtualHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180401:VirtualHub" }, { type: "azure-nextgen:network/v20180601:VirtualHub" }, { type: "azure-nextgen:network/v20180701:VirtualHub" }, { type: "azure-nextgen:network/v20180801:VirtualHub" }, { type: "azure-nextgen:network/v20181001:VirtualHub" }, { type: "azure-nextgen:network/v20181101:VirtualHub" }, { type: "azure-nextgen:network/v20181201:VirtualHub" }, { type: "azure-nextgen:network/v20190201:VirtualHub" }, { type: "azure-nextgen:network/v20190401:VirtualHub" }, { type: "azure-nextgen:network/v20190601:VirtualHub" }, { type: "azure-nextgen:network/v20190701:VirtualHub" }, { type: "azure-nextgen:network/v20190801:VirtualHub" }, { type: "azure-nextgen:network/v20190901:VirtualHub" }, { type: "azure-nextgen:network/v20191101:VirtualHub" }, { type: "azure-nextgen:network/v20191201:VirtualHub" }, { type: "azure-nextgen:network/v20200301:VirtualHub" }, { type: "azure-nextgen:network/v20200401:VirtualHub" }, { type: "azure-nextgen:network/v20200501:VirtualHub" }, { type: "azure-nextgen:network/v20200601:VirtualHub" }, { type: "azure-nextgen:network/v20200701:VirtualHub" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualHub.__pulumiType, name, inputs, opts);
     }
@@ -221,13 +221,13 @@ export interface VirtualHubArgs {
      */
     readonly addressPrefix?: pulumi.Input<string>;
     /**
+     * Flag to control transit for VirtualRouter hub.
+     */
+    readonly allowBranchToBranchTraffic?: pulumi.Input<boolean>;
+    /**
      * The azureFirewall associated with this VirtualHub.
      */
     readonly azureFirewall?: pulumi.Input<inputs.network.latest.SubResource>;
-    /**
-     * Flag to control route propogation for VirtualRouter hub.
-     */
-    readonly enableVirtualRouterRoutePropogation?: pulumi.Input<boolean>;
     /**
      * The expressRouteGateway associated with this VirtualHub.
      */

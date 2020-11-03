@@ -150,6 +150,9 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:NetworkSecurityGroup"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:NetworkSecurityGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkSecurityGroup

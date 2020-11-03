@@ -17,11 +17,19 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// Name of a load balancer SKU.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Tier of a load balancer SKU.
+        /// </summary>
+        public readonly string? Tier;
 
         [OutputConstructor]
-        private LoadBalancerSkuResponse(string? name)
+        private LoadBalancerSkuResponse(
+            string? name,
+
+            string? tier)
         {
             Name = name;
+            Tier = tier;
         }
     }
 }

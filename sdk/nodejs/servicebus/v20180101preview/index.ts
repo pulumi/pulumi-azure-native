@@ -2,10 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./disasterRecoveryConfig";
+export * from "./getDisasterRecoveryConfig";
 export * from "./getNamespace";
 export * from "./getNamespaceIpFilterRule";
 export * from "./getNamespaceVirtualNetworkRule";
 export * from "./getPrivateEndpointConnection";
+export * from "./listDisasterRecoveryConfigKeys";
 export * from "./namespace";
 export * from "./namespaceIpFilterRule";
 export * from "./namespaceVirtualNetworkRule";

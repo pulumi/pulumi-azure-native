@@ -36,7 +36,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// PrivateLinkHub provisioning state
         /// </summary>
         [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -102,10 +102,16 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the privateLinkHub
+        /// Name of the privateLinkHub
         /// </summary>
         [Input("privateLinkHubName", required: true)]
         public Input<string> PrivateLinkHubName { get; set; } = null!;
+
+        /// <summary>
+        /// PrivateLinkHub provisioning state
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

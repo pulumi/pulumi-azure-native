@@ -17,11 +17,19 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// Name of a public IP prefix SKU.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Tier of a public IP prefix SKU.
+        /// </summary>
+        public readonly string? Tier;
 
         [OutputConstructor]
-        private PublicIPPrefixSkuResponse(string? name)
+        private PublicIPPrefixSkuResponse(
+            string? name,
+
+            string? tier)
         {
             Name = name;
+            Tier = tier;
         }
     }
 }

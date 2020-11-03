@@ -18,8 +18,8 @@ class VirtualHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
+                 allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
                  azure_firewall: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 enable_virtual_router_route_propogation: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -45,8 +45,8 @@ class VirtualHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: Address-prefix for this VirtualHub.
+        :param pulumi.Input[bool] allow_branch_to_branch_traffic: Flag to control transit for VirtualRouter hub.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] azure_firewall: The azureFirewall associated with this VirtualHub.
-        :param pulumi.Input[bool] enable_virtual_router_route_propogation: Flag to control route propogation for VirtualRouter hub.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] express_route_gateway: The expressRouteGateway associated with this VirtualHub.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
@@ -82,8 +82,8 @@ class VirtualHub(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['address_prefix'] = address_prefix
+            __props__['allow_branch_to_branch_traffic'] = allow_branch_to_branch_traffic
             __props__['azure_firewall'] = azure_firewall
-            __props__['enable_virtual_router_route_propogation'] = enable_virtual_router_route_propogation
             __props__['express_route_gateway'] = express_route_gateway
             __props__['id'] = id
             if location is None:
@@ -113,7 +113,7 @@ class VirtualHub(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['routing_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHub, __self__).__init__(
             'azure-nextgen:network/latest:VirtualHub',
@@ -148,6 +148,14 @@ class VirtualHub(pulumi.CustomResource):
         return pulumi.get(self, "address_prefix")
 
     @property
+    @pulumi.getter(name="allowBranchToBranchTraffic")
+    def allow_branch_to_branch_traffic(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Flag to control transit for VirtualRouter hub.
+        """
+        return pulumi.get(self, "allow_branch_to_branch_traffic")
+
+    @property
     @pulumi.getter(name="azureFirewall")
     def azure_firewall(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
@@ -162,14 +170,6 @@ class VirtualHub(pulumi.CustomResource):
         List of references to Bgp Connections.
         """
         return pulumi.get(self, "bgp_connections")
-
-    @property
-    @pulumi.getter(name="enableVirtualRouterRoutePropogation")
-    def enable_virtual_router_route_propogation(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Flag to control route propogation for VirtualRouter hub.
-        """
-        return pulumi.get(self, "enable_virtual_router_route_propogation")
 
     @property
     @pulumi.getter

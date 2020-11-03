@@ -20,19 +20,19 @@ class GetVirtualHubResult:
     """
     VirtualHub Resource.
     """
-    def __init__(__self__, address_prefix=None, azure_firewall=None, bgp_connections=None, enable_virtual_router_route_propogation=None, etag=None, express_route_gateway=None, ip_configurations=None, location=None, name=None, p2_s_vpn_gateway=None, provisioning_state=None, route_table=None, routing_state=None, security_partner_provider=None, security_provider_name=None, sku=None, tags=None, type=None, virtual_hub_route_table_v2s=None, virtual_router_asn=None, virtual_router_ips=None, virtual_wan=None, vpn_gateway=None):
+    def __init__(__self__, address_prefix=None, allow_branch_to_branch_traffic=None, azure_firewall=None, bgp_connections=None, etag=None, express_route_gateway=None, ip_configurations=None, location=None, name=None, p2_s_vpn_gateway=None, provisioning_state=None, route_table=None, routing_state=None, security_partner_provider=None, security_provider_name=None, sku=None, tags=None, type=None, virtual_hub_route_table_v2s=None, virtual_router_asn=None, virtual_router_ips=None, virtual_wan=None, vpn_gateway=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
+        if allow_branch_to_branch_traffic and not isinstance(allow_branch_to_branch_traffic, bool):
+            raise TypeError("Expected argument 'allow_branch_to_branch_traffic' to be a bool")
+        pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
         if azure_firewall and not isinstance(azure_firewall, dict):
             raise TypeError("Expected argument 'azure_firewall' to be a dict")
         pulumi.set(__self__, "azure_firewall", azure_firewall)
         if bgp_connections and not isinstance(bgp_connections, list):
             raise TypeError("Expected argument 'bgp_connections' to be a list")
         pulumi.set(__self__, "bgp_connections", bgp_connections)
-        if enable_virtual_router_route_propogation and not isinstance(enable_virtual_router_route_propogation, bool):
-            raise TypeError("Expected argument 'enable_virtual_router_route_propogation' to be a bool")
-        pulumi.set(__self__, "enable_virtual_router_route_propogation", enable_virtual_router_route_propogation)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -100,6 +100,14 @@ class GetVirtualHubResult:
         return pulumi.get(self, "address_prefix")
 
     @property
+    @pulumi.getter(name="allowBranchToBranchTraffic")
+    def allow_branch_to_branch_traffic(self) -> Optional[bool]:
+        """
+        Flag to control transit for VirtualRouter hub.
+        """
+        return pulumi.get(self, "allow_branch_to_branch_traffic")
+
+    @property
     @pulumi.getter(name="azureFirewall")
     def azure_firewall(self) -> Optional['outputs.SubResourceResponse']:
         """
@@ -114,14 +122,6 @@ class GetVirtualHubResult:
         List of references to Bgp Connections.
         """
         return pulumi.get(self, "bgp_connections")
-
-    @property
-    @pulumi.getter(name="enableVirtualRouterRoutePropogation")
-    def enable_virtual_router_route_propogation(self) -> Optional[bool]:
-        """
-        Flag to control route propogation for VirtualRouter hub.
-        """
-        return pulumi.get(self, "enable_virtual_router_route_propogation")
 
     @property
     @pulumi.getter
@@ -283,9 +283,9 @@ class AwaitableGetVirtualHubResult(GetVirtualHubResult):
             yield self
         return GetVirtualHubResult(
             address_prefix=self.address_prefix,
+            allow_branch_to_branch_traffic=self.allow_branch_to_branch_traffic,
             azure_firewall=self.azure_firewall,
             bgp_connections=self.bgp_connections,
-            enable_virtual_router_route_propogation=self.enable_virtual_router_route_propogation,
             etag=self.etag,
             express_route_gateway=self.express_route_gateway,
             ip_configurations=self.ip_configurations,
@@ -327,9 +327,9 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
 
     return AwaitableGetVirtualHubResult(
         address_prefix=__ret__.address_prefix,
+        allow_branch_to_branch_traffic=__ret__.allow_branch_to_branch_traffic,
         azure_firewall=__ret__.azure_firewall,
         bgp_connections=__ret__.bgp_connections,
-        enable_virtual_router_route_propogation=__ret__.enable_virtual_router_route_propogation,
         etag=__ret__.etag,
         express_route_gateway=__ret__.express_route_gateway,
         ip_configurations=__ret__.ip_configurations,

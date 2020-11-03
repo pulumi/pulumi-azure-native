@@ -20,10 +20,13 @@ class GetIpGroupResult:
     """
     The IpGroups resource information.
     """
-    def __init__(__self__, etag=None, firewalls=None, ip_addresses=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, etag=None, firewall_policies=None, firewalls=None, ip_addresses=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if firewall_policies and not isinstance(firewall_policies, list):
+            raise TypeError("Expected argument 'firewall_policies' to be a list")
+        pulumi.set(__self__, "firewall_policies", firewall_policies)
         if firewalls and not isinstance(firewalls, list):
             raise TypeError("Expected argument 'firewalls' to be a list")
         pulumi.set(__self__, "firewalls", firewalls)
@@ -55,10 +58,18 @@ class GetIpGroupResult:
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="firewallPolicies")
+    def firewall_policies(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        List of references to Firewall Policies resources that this IpGroups is associated with.
+        """
+        return pulumi.get(self, "firewall_policies")
+
+    @property
     @pulumi.getter
     def firewalls(self) -> Sequence['outputs.SubResourceResponse']:
         """
-        List of references to Azure resources that this IpGroups is associated with.
+        List of references to Firewall resources that this IpGroups is associated with.
         """
         return pulumi.get(self, "firewalls")
 
@@ -118,6 +129,7 @@ class AwaitableGetIpGroupResult(GetIpGroupResult):
             yield self
         return GetIpGroupResult(
             etag=self.etag,
+            firewall_policies=self.firewall_policies,
             firewalls=self.firewalls,
             ip_addresses=self.ip_addresses,
             location=self.location,
@@ -150,6 +162,7 @@ def get_ip_group(expand: Optional[str] = None,
 
     return AwaitableGetIpGroupResult(
         etag=__ret__.etag,
+        firewall_policies=__ret__.firewall_policies,
         firewalls=__ret__.firewalls,
         ip_addresses=__ret__.ip_addresses,
         location=__ret__.location,

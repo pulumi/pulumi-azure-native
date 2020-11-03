@@ -57,6 +57,14 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly firewalls!: pulumi.Output<outputs.network.latest.SubResourceResponse[]>;
     /**
+     * The identity of the firewall policy.
+     */
+    public readonly identity!: pulumi.Output<outputs.network.latest.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * The configuration for Intrusion detection.
+     */
+    public readonly intrusionDetection!: pulumi.Output<outputs.network.latest.FirewallPolicyIntrusionDetectionResponse | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -73,6 +81,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly ruleCollectionGroups!: pulumi.Output<outputs.network.latest.SubResourceResponse[]>;
     /**
+     * The Firewall Policy SKU.
+     */
+    public readonly sku!: pulumi.Output<outputs.network.latest.FirewallPolicySkuResponse | undefined>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -84,6 +96,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      * ThreatIntel Whitelist for Firewall Policy.
      */
     public readonly threatIntelWhitelist!: pulumi.Output<outputs.network.latest.FirewallPolicyThreatIntelWhitelistResponse | undefined>;
+    /**
+     * TLS Configuration definition.
+     */
+    public readonly transportSecurity!: pulumi.Output<outputs.network.latest.FirewallPolicyTransportSecurityResponse | undefined>;
     /**
      * Resource type.
      */
@@ -109,11 +125,15 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
             inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
+            inputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
             inputs["threatIntelWhitelist"] = args ? args.threatIntelWhitelist : undefined;
+            inputs["transportSecurity"] = args ? args.transportSecurity : undefined;
             inputs["childPolicies"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["firewalls"] = undefined /*out*/;
@@ -127,13 +147,17 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["dnsSettings"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["firewalls"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["intrusionDetection"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["ruleCollectionGroups"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["threatIntelMode"] = undefined /*out*/;
             inputs["threatIntelWhitelist"] = undefined /*out*/;
+            inputs["transportSecurity"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -143,7 +167,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190601:FirewallPolicy" }, { type: "azure-nextgen:network/v20190701:FirewallPolicy" }, { type: "azure-nextgen:network/v20190801:FirewallPolicy" }, { type: "azure-nextgen:network/v20190901:FirewallPolicy" }, { type: "azure-nextgen:network/v20191101:FirewallPolicy" }, { type: "azure-nextgen:network/v20191201:FirewallPolicy" }, { type: "azure-nextgen:network/v20200301:FirewallPolicy" }, { type: "azure-nextgen:network/v20200401:FirewallPolicy" }, { type: "azure-nextgen:network/v20200501:FirewallPolicy" }, { type: "azure-nextgen:network/v20200601:FirewallPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190601:FirewallPolicy" }, { type: "azure-nextgen:network/v20190701:FirewallPolicy" }, { type: "azure-nextgen:network/v20190801:FirewallPolicy" }, { type: "azure-nextgen:network/v20190901:FirewallPolicy" }, { type: "azure-nextgen:network/v20191101:FirewallPolicy" }, { type: "azure-nextgen:network/v20191201:FirewallPolicy" }, { type: "azure-nextgen:network/v20200301:FirewallPolicy" }, { type: "azure-nextgen:network/v20200401:FirewallPolicy" }, { type: "azure-nextgen:network/v20200501:FirewallPolicy" }, { type: "azure-nextgen:network/v20200601:FirewallPolicy" }, { type: "azure-nextgen:network/v20200701:FirewallPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallPolicy.__pulumiType, name, inputs, opts);
     }
@@ -170,6 +194,14 @@ export interface FirewallPolicyArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * The identity of the firewall policy.
+     */
+    readonly identity?: pulumi.Input<inputs.network.latest.ManagedServiceIdentity>;
+    /**
+     * The configuration for Intrusion detection.
+     */
+    readonly intrusionDetection?: pulumi.Input<inputs.network.latest.FirewallPolicyIntrusionDetection>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -177,6 +209,10 @@ export interface FirewallPolicyArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Firewall Policy SKU.
+     */
+    readonly sku?: pulumi.Input<inputs.network.latest.FirewallPolicySku>;
     /**
      * Resource tags.
      */
@@ -189,4 +225,8 @@ export interface FirewallPolicyArgs {
      * ThreatIntel Whitelist for Firewall Policy.
      */
     readonly threatIntelWhitelist?: pulumi.Input<inputs.network.latest.FirewallPolicyThreatIntelWhitelist>;
+    /**
+     * TLS Configuration definition.
+     */
+    readonly transportSecurity?: pulumi.Input<inputs.network.latest.FirewallPolicyTransportSecurity>;
 }

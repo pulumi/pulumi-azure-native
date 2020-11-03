@@ -21,7 +21,7 @@ type PrivateLinkHub struct {
 	// List of private endpoint connections
 	PrivateEndpointConnections PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// PrivateLinkHub provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -101,8 +101,10 @@ func (PrivateLinkHubState) ElementType() reflect.Type {
 type privateLinkHubArgs struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the privateLinkHub
+	// Name of the privateLinkHub
 	PrivateLinkHubName string `pulumi:"privateLinkHubName"`
+	// PrivateLinkHub provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -113,8 +115,10 @@ type privateLinkHubArgs struct {
 type PrivateLinkHubArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The name of the privateLinkHub
+	// Name of the privateLinkHub
 	PrivateLinkHubName pulumi.StringInput
+	// PrivateLinkHub provisioning state
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

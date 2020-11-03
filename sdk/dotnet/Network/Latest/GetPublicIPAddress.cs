@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the subnet.
+        /// The name of the public IP address.
         /// </summary>
         [Input("publicIpAddressName", required: true)]
         public string PublicIpAddressName { get; set; } = null!;
@@ -57,6 +57,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The extended location of the public ip address.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
         /// The idle timeout of the public IP address.
         /// </summary>
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             int? idleTimeoutInMinutes,
 
             string? ipAddress,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             DdosSettings = ddosSettings;
             DnsSettings = dnsSettings;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             IpAddress = ipAddress;
             IpConfiguration = ipConfiguration;

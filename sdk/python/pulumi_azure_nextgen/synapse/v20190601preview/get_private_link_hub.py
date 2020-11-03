@@ -66,7 +66,7 @@ class GetPrivateLinkHubResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> Optional[str]:
         """
         PrivateLinkHub provisioning state
         """
@@ -109,7 +109,7 @@ def get_private_link_hub(private_link_hub_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str private_link_hub_name: The name of the privateLinkHub
+    :param str private_link_hub_name: Name of the privateLinkHub
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

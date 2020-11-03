@@ -20,6 +20,7 @@ class P2sVpnGateway(pulumi.CustomResource):
                  custom_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 is_routing_preference_internet: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  p2_s_connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class P2sVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_dns_servers: List of all customer specified DNS servers IP addresses.
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[bool] is_routing_preference_internet: Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
         :param pulumi.Input[str] resource_group_name: The resource group name of the P2SVpnGateway.
@@ -68,6 +70,7 @@ class P2sVpnGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gateway_name'")
             __props__['gateway_name'] = gateway_name
             __props__['id'] = id
+            __props__['is_routing_preference_internet'] = is_routing_preference_internet
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -84,7 +87,7 @@ class P2sVpnGateway(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['vpn_client_connection_health'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181001:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181101:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181201:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190801:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:P2sVpnGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181001:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181101:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181201:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190801:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:P2sVpnGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200701:P2sVpnGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(P2sVpnGateway, __self__).__init__(
             'azure-nextgen:network/latest:P2sVpnGateway',
@@ -125,6 +128,14 @@ class P2sVpnGateway(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="isRoutingPreferenceInternet")
+    def is_routing_preference_internet(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+        """
+        return pulumi.get(self, "is_routing_preference_internet")
 
     @property
     @pulumi.getter

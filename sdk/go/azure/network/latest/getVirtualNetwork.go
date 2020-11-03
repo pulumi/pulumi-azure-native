@@ -41,6 +41,8 @@ type LookupVirtualNetworkResult struct {
 	EnableVmProtection *bool `pulumi:"enableVmProtection"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The extended location of the virtual network.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Array of IpAllocation which reference this VNET.
 	IpAllocations []SubResourceResponse `pulumi:"ipAllocations"`
 	// Resource location.

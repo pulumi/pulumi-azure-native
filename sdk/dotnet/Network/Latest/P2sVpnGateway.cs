@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+        /// </summary>
+        [Output("isRoutingPreferenceInternet")]
+        public Output<bool?> IsRoutingPreferenceInternet { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:P2sVpnGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -173,6 +180,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+        /// </summary>
+        [Input("isRoutingPreferenceInternet")]
+        public Input<bool>? IsRoutingPreferenceInternet { get; set; }
 
         /// <summary>
         /// Resource location.

@@ -20,7 +20,7 @@ class GetNetworkInterfaceResult:
     """
     A network interface in a resource group.
     """
-    def __init__(__self__, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, hosted_workloads=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group=None, primary=None, private_endpoint=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None):
+    def __init__(__self__, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group=None, primary=None, private_endpoint=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None):
         if dns_settings and not isinstance(dns_settings, dict):
             raise TypeError("Expected argument 'dns_settings' to be a dict")
         pulumi.set(__self__, "dns_settings", dns_settings)
@@ -36,6 +36,9 @@ class GetNetworkInterfaceResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if hosted_workloads and not isinstance(hosted_workloads, list):
             raise TypeError("Expected argument 'hosted_workloads' to be a list")
         pulumi.set(__self__, "hosted_workloads", hosted_workloads)
@@ -118,6 +121,14 @@ class GetNetworkInterfaceResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the network interface.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="hostedWorkloads")
@@ -243,6 +254,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             enable_accelerated_networking=self.enable_accelerated_networking,
             enable_ip_forwarding=self.enable_ip_forwarding,
             etag=self.etag,
+            extended_location=self.extended_location,
             hosted_workloads=self.hosted_workloads,
             ip_configurations=self.ip_configurations,
             location=self.location,
@@ -286,6 +298,7 @@ def get_network_interface(expand: Optional[str] = None,
         enable_accelerated_networking=__ret__.enable_accelerated_networking,
         enable_ip_forwarding=__ret__.enable_ip_forwarding,
         etag=__ret__.etag,
+        extended_location=__ret__.extended_location,
         hosted_workloads=__ret__.hosted_workloads,
         ip_configurations=__ret__.ip_configurations,
         location=__ret__.location,

@@ -20,6 +20,8 @@ type PublicIPAddress struct {
 	DnsSettings PublicIPAddressDnsSettingsResponsePtrOutput `pulumi:"dnsSettings"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The extended location of the public ip address.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// The idle timeout of the public IP address.
 	IdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeoutInMinutes"`
 	// The IP address associated with the public IP address resource.
@@ -164,6 +166,9 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PublicIPAddress"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:PublicIPAddress"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PublicIPAddress
@@ -194,6 +199,8 @@ type publicIPAddressState struct {
 	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The extended location of the public ip address.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The idle timeout of the public IP address.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The IP address associated with the public IP address resource.
@@ -233,6 +240,8 @@ type PublicIPAddressState struct {
 	DnsSettings PublicIPAddressDnsSettingsResponsePtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The extended location of the public ip address.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// The idle timeout of the public IP address.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The IP address associated with the public IP address resource.
@@ -274,6 +283,8 @@ type publicIPAddressArgs struct {
 	DdosSettings *DdosSettings `pulumi:"ddosSettings"`
 	// The FQDN of the DNS record associated with the public IP address.
 	DnsSettings *PublicIPAddressDnsSettings `pulumi:"dnsSettings"`
+	// The extended location of the public ip address.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The idle timeout of the public IP address.
@@ -308,6 +319,8 @@ type PublicIPAddressArgs struct {
 	DdosSettings DdosSettingsPtrInput
 	// The FQDN of the DNS record associated with the public IP address.
 	DnsSettings PublicIPAddressDnsSettingsPtrInput
+	// The extended location of the public ip address.
+	ExtendedLocation ExtendedLocationPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The idle timeout of the public IP address.

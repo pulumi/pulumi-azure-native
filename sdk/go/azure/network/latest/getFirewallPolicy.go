@@ -37,6 +37,10 @@ type LookupFirewallPolicyResult struct {
 	Etag string `pulumi:"etag"`
 	// List of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls []SubResourceResponse `pulumi:"firewalls"`
+	// The identity of the firewall policy.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// The configuration for Intrusion detection.
+	IntrusionDetection *FirewallPolicyIntrusionDetectionResponse `pulumi:"intrusionDetection"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -45,12 +49,16 @@ type LookupFirewallPolicyResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// List of references to FirewallPolicyRuleCollectionGroups.
 	RuleCollectionGroups []SubResourceResponse `pulumi:"ruleCollectionGroups"`
+	// The Firewall Policy SKU.
+	Sku *FirewallPolicySkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for Threat Intelligence.
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// ThreatIntel Whitelist for Firewall Policy.
 	ThreatIntelWhitelist *FirewallPolicyThreatIntelWhitelistResponse `pulumi:"threatIntelWhitelist"`
+	// TLS Configuration definition.
+	TransportSecurity *FirewallPolicyTransportSecurityResponse `pulumi:"transportSecurity"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

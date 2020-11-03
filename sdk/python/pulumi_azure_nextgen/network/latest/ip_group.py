@@ -65,11 +65,12 @@ class IpGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['firewall_policies'] = None
             __props__['firewalls'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190901:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191101:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191201:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:IpGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190901:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191101:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191201:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:IpGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpGroup, __self__).__init__(
             'azure-nextgen:network/latest:IpGroup',
@@ -104,10 +105,18 @@ class IpGroup(pulumi.CustomResource):
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="firewallPolicies")
+    def firewall_policies(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
+        """
+        List of references to Firewall Policies resources that this IpGroups is associated with.
+        """
+        return pulumi.get(self, "firewall_policies")
+
+    @property
     @pulumi.getter
     def firewalls(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
-        List of references to Azure resources that this IpGroups is associated with.
+        List of references to Firewall resources that this IpGroups is associated with.
         """
         return pulumi.get(self, "firewalls")
 

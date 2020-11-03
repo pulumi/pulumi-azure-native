@@ -131,7 +131,7 @@ export class VirtualRouter extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualRouter" }, { type: "azure-nextgen:network/v20190701:VirtualRouter" }, { type: "azure-nextgen:network/v20190801:VirtualRouter" }, { type: "azure-nextgen:network/v20190901:VirtualRouter" }, { type: "azure-nextgen:network/v20191201:VirtualRouter" }, { type: "azure-nextgen:network/v20200301:VirtualRouter" }, { type: "azure-nextgen:network/v20200401:VirtualRouter" }, { type: "azure-nextgen:network/v20200501:VirtualRouter" }, { type: "azure-nextgen:network/v20200601:VirtualRouter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualRouter" }, { type: "azure-nextgen:network/v20190701:VirtualRouter" }, { type: "azure-nextgen:network/v20190801:VirtualRouter" }, { type: "azure-nextgen:network/v20190901:VirtualRouter" }, { type: "azure-nextgen:network/v20191201:VirtualRouter" }, { type: "azure-nextgen:network/v20200301:VirtualRouter" }, { type: "azure-nextgen:network/v20200401:VirtualRouter" }, { type: "azure-nextgen:network/v20200501:VirtualRouter" }, { type: "azure-nextgen:network/v20200601:VirtualRouter" }, { type: "azure-nextgen:network/v20200701:VirtualRouter" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualRouter.__pulumiType, name, inputs, opts);
     }

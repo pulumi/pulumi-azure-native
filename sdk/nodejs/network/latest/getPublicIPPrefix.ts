@@ -49,6 +49,10 @@ export interface GetPublicIPPrefixResult {
      */
     readonly etag: string;
     /**
+     * The extended location of the public ip address.
+     */
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    /**
      * The allocated Prefix.
      */
     readonly ipPrefix: string;

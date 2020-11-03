@@ -24,6 +24,10 @@ type FirewallPolicy struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// List of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls SubResourceResponseArrayOutput `pulumi:"firewalls"`
+	// The identity of the firewall policy.
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
+	// The configuration for Intrusion detection.
+	IntrusionDetection FirewallPolicyIntrusionDetectionResponsePtrOutput `pulumi:"intrusionDetection"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
@@ -32,12 +36,16 @@ type FirewallPolicy struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// List of references to FirewallPolicyRuleCollectionGroups.
 	RuleCollectionGroups SubResourceResponseArrayOutput `pulumi:"ruleCollectionGroups"`
+	// The Firewall Policy SKU.
+	Sku FirewallPolicySkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The operation mode for Threat Intelligence.
 	ThreatIntelMode pulumi.StringPtrOutput `pulumi:"threatIntelMode"`
 	// ThreatIntel Whitelist for Firewall Policy.
 	ThreatIntelWhitelist FirewallPolicyThreatIntelWhitelistResponsePtrOutput `pulumi:"threatIntelWhitelist"`
+	// TLS Configuration definition.
+	TransportSecurity FirewallPolicyTransportSecurityResponsePtrOutput `pulumi:"transportSecurity"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -85,6 +93,9 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:FirewallPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:FirewallPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FirewallPolicy
@@ -119,6 +130,10 @@ type firewallPolicyState struct {
 	Etag *string `pulumi:"etag"`
 	// List of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls []SubResourceResponse `pulumi:"firewalls"`
+	// The identity of the firewall policy.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// The configuration for Intrusion detection.
+	IntrusionDetection *FirewallPolicyIntrusionDetectionResponse `pulumi:"intrusionDetection"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -127,12 +142,16 @@ type firewallPolicyState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// List of references to FirewallPolicyRuleCollectionGroups.
 	RuleCollectionGroups []SubResourceResponse `pulumi:"ruleCollectionGroups"`
+	// The Firewall Policy SKU.
+	Sku *FirewallPolicySkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for Threat Intelligence.
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// ThreatIntel Whitelist for Firewall Policy.
 	ThreatIntelWhitelist *FirewallPolicyThreatIntelWhitelistResponse `pulumi:"threatIntelWhitelist"`
+	// TLS Configuration definition.
+	TransportSecurity *FirewallPolicyTransportSecurityResponse `pulumi:"transportSecurity"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -148,6 +167,10 @@ type FirewallPolicyState struct {
 	Etag pulumi.StringPtrInput
 	// List of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls SubResourceResponseArrayInput
+	// The identity of the firewall policy.
+	Identity ManagedServiceIdentityResponsePtrInput
+	// The configuration for Intrusion detection.
+	IntrusionDetection FirewallPolicyIntrusionDetectionResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
@@ -156,12 +179,16 @@ type FirewallPolicyState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// List of references to FirewallPolicyRuleCollectionGroups.
 	RuleCollectionGroups SubResourceResponseArrayInput
+	// The Firewall Policy SKU.
+	Sku FirewallPolicySkuResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The operation mode for Threat Intelligence.
 	ThreatIntelMode pulumi.StringPtrInput
 	// ThreatIntel Whitelist for Firewall Policy.
 	ThreatIntelWhitelist FirewallPolicyThreatIntelWhitelistResponsePtrInput
+	// TLS Configuration definition.
+	TransportSecurity FirewallPolicyTransportSecurityResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }
@@ -179,16 +206,24 @@ type firewallPolicyArgs struct {
 	FirewallPolicyName string `pulumi:"firewallPolicyName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The identity of the firewall policy.
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
+	// The configuration for Intrusion detection.
+	IntrusionDetection *FirewallPolicyIntrusionDetection `pulumi:"intrusionDetection"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Firewall Policy SKU.
+	Sku *FirewallPolicySku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for Threat Intelligence.
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// ThreatIntel Whitelist for Firewall Policy.
 	ThreatIntelWhitelist *FirewallPolicyThreatIntelWhitelist `pulumi:"threatIntelWhitelist"`
+	// TLS Configuration definition.
+	TransportSecurity *FirewallPolicyTransportSecurity `pulumi:"transportSecurity"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
@@ -201,16 +236,24 @@ type FirewallPolicyArgs struct {
 	FirewallPolicyName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// The identity of the firewall policy.
+	Identity ManagedServiceIdentityPtrInput
+	// The configuration for Intrusion detection.
+	IntrusionDetection FirewallPolicyIntrusionDetectionPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The Firewall Policy SKU.
+	Sku FirewallPolicySkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The operation mode for Threat Intelligence.
 	ThreatIntelMode pulumi.StringPtrInput
 	// ThreatIntel Whitelist for Firewall Policy.
 	ThreatIntelWhitelist FirewallPolicyThreatIntelWhitelistPtrInput
+	// TLS Configuration definition.
+	TransportSecurity FirewallPolicyTransportSecurityPtrInput
 }
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {

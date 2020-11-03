@@ -69,6 +69,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly etag: string;
     /**
+     * The extended location of the virtual network.
+     */
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    /**
      * Array of IpAllocation which reference this VNET.
      */
     readonly ipAllocations?: outputs.network.latest.SubResourceResponse[];

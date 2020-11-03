@@ -66,6 +66,14 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> Firewalls;
         /// <summary>
+        /// The identity of the firewall policy.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// The configuration for Intrusion detection.
+        /// </summary>
+        public readonly Outputs.FirewallPolicyIntrusionDetectionResponse? IntrusionDetection;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -82,6 +90,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> RuleCollectionGroups;
         /// <summary>
+        /// The Firewall Policy SKU.
+        /// </summary>
+        public readonly Outputs.FirewallPolicySkuResponse? Sku;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -93,6 +105,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// ThreatIntel Whitelist for Firewall Policy.
         /// </summary>
         public readonly Outputs.FirewallPolicyThreatIntelWhitelistResponse? ThreatIntelWhitelist;
+        /// <summary>
+        /// TLS Configuration definition.
+        /// </summary>
+        public readonly Outputs.FirewallPolicyTransportSecurityResponse? TransportSecurity;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -110,6 +126,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             ImmutableArray<Outputs.SubResourceResponse> firewalls,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
+            Outputs.FirewallPolicyIntrusionDetectionResponse? intrusionDetection,
+
             string? location,
 
             string name,
@@ -118,11 +138,15 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             ImmutableArray<Outputs.SubResourceResponse> ruleCollectionGroups,
 
+            Outputs.FirewallPolicySkuResponse? sku,
+
             ImmutableDictionary<string, string>? tags,
 
             string? threatIntelMode,
 
             Outputs.FirewallPolicyThreatIntelWhitelistResponse? threatIntelWhitelist,
+
+            Outputs.FirewallPolicyTransportSecurityResponse? transportSecurity,
 
             string type)
         {
@@ -131,13 +155,17 @@ namespace Pulumi.AzureNextGen.Network.Latest
             DnsSettings = dnsSettings;
             Etag = etag;
             Firewalls = firewalls;
+            Identity = identity;
+            IntrusionDetection = intrusionDetection;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             RuleCollectionGroups = ruleCollectionGroups;
+            Sku = sku;
             Tags = tags;
             ThreatIntelMode = threatIntelMode;
             ThreatIntelWhitelist = threatIntelWhitelist;
+            TransportSecurity = transportSecurity;
             Type = type;
         }
     }

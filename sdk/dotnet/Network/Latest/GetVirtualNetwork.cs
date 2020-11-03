@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The extended location of the virtual network.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Array of IpAllocation which reference this VNET.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> IpAllocations;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             ImmutableArray<Outputs.SubResourceResponse> ipAllocations,
 
             string? location,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             EnableDdosProtection = enableDdosProtection;
             EnableVmProtection = enableVmProtection;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             IpAllocations = ipAllocations;
             Location = location;
             Name = name;

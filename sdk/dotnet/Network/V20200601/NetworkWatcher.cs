@@ -104,6 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkWatcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

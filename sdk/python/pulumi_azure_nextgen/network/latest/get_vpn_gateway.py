@@ -20,7 +20,7 @@ class GetVpnGatewayResult:
     """
     VpnGateway Resource.
     """
-    def __init__(__self__, bgp_settings=None, connections=None, etag=None, ip_configurations=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_gateway_scale_unit=None):
+    def __init__(__self__, bgp_settings=None, connections=None, etag=None, ip_configurations=None, is_routing_preference_internet=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_gateway_scale_unit=None):
         if bgp_settings and not isinstance(bgp_settings, dict):
             raise TypeError("Expected argument 'bgp_settings' to be a dict")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -33,6 +33,9 @@ class GetVpnGatewayResult:
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if is_routing_preference_internet and not isinstance(is_routing_preference_internet, bool):
+            raise TypeError("Expected argument 'is_routing_preference_internet' to be a bool")
+        pulumi.set(__self__, "is_routing_preference_internet", is_routing_preference_internet)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -86,6 +89,14 @@ class GetVpnGatewayResult:
         List of all IPs configured on the gateway.
         """
         return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="isRoutingPreferenceInternet")
+    def is_routing_preference_internet(self) -> Optional[bool]:
+        """
+        Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+        """
+        return pulumi.get(self, "is_routing_preference_internet")
 
     @property
     @pulumi.getter
@@ -154,6 +165,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
             connections=self.connections,
             etag=self.etag,
             ip_configurations=self.ip_configurations,
+            is_routing_preference_internet=self.is_routing_preference_internet,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -186,6 +198,7 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
         connections=__ret__.connections,
         etag=__ret__.etag,
         ip_configurations=__ret__.ip_configurations,
+        is_routing_preference_internet=__ret__.is_routing_preference_internet,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

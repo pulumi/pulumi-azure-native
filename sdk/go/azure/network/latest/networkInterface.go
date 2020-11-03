@@ -24,6 +24,8 @@ type NetworkInterface struct {
 	EnableIPForwarding pulumi.BoolPtrOutput `pulumi:"enableIPForwarding"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The extended location of the network interface.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// A list of references to linked BareMetal resources.
 	HostedWorkloads pulumi.StringArrayOutput `pulumi:"hostedWorkloads"`
 	// A list of IPConfigurations of the network interface.
@@ -166,6 +168,9 @@ func NewNetworkInterface(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:NetworkInterface"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:NetworkInterface"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkInterface
@@ -200,6 +205,8 @@ type networkInterfaceState struct {
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The extended location of the network interface.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// A list of references to linked BareMetal resources.
 	HostedWorkloads []string `pulumi:"hostedWorkloads"`
 	// A list of IPConfigurations of the network interface.
@@ -241,6 +248,8 @@ type NetworkInterfaceState struct {
 	EnableIPForwarding pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The extended location of the network interface.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// A list of references to linked BareMetal resources.
 	HostedWorkloads pulumi.StringArrayInput
 	// A list of IPConfigurations of the network interface.
@@ -282,6 +291,8 @@ type networkInterfaceArgs struct {
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
 	// Indicates whether IP forwarding is enabled on this network interface.
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
+	// The extended location of the network interface.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// A list of IPConfigurations of the network interface.
@@ -306,6 +317,8 @@ type NetworkInterfaceArgs struct {
 	EnableAcceleratedNetworking pulumi.BoolPtrInput
 	// Indicates whether IP forwarding is enabled on this network interface.
 	EnableIPForwarding pulumi.BoolPtrInput
+	// The extended location of the network interface.
+	ExtendedLocation ExtendedLocationPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// A list of IPConfigurations of the network interface.

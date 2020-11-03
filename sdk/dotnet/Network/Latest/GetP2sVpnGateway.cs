@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+        /// </summary>
+        public readonly bool? IsRoutingPreferenceInternet;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            bool? isRoutingPreferenceInternet,
+
             string location,
 
             string name,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         {
             CustomDnsServers = customDnsServers;
             Etag = etag;
+            IsRoutingPreferenceInternet = isRoutingPreferenceInternet;
             Location = location;
             Name = name;
             P2SConnectionConfigurations = p2SConnectionConfigurations;

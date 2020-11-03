@@ -67,6 +67,9 @@ func NewPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateLinkServicePrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:PrivateLinkServicePrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkServicePrivateEndpointConnection

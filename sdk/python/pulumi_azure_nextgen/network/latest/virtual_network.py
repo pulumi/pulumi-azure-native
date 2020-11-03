@@ -23,6 +23,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  dhcp_options: Optional[pulumi.Input[pulumi.InputType['DhcpOptionsArgs']]] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DhcpOptionsArgs']] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the virtual network.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] ip_allocations: Array of IpAllocation which reference this VNET.
         :param pulumi.Input[str] location: Resource location.
@@ -77,6 +79,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__['dhcp_options'] = dhcp_options
             __props__['enable_ddos_protection'] = enable_ddos_protection
             __props__['enable_vm_protection'] = enable_vm_protection
+            __props__['extended_location'] = extended_location
             __props__['id'] = id
             __props__['ip_allocations'] = ip_allocations
             __props__['location'] = location
@@ -94,7 +97,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20150615:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20160330:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20160601:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20160901:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20161201:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20170301:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20170601:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20170801:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20170901:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20171001:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20171101:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180101:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180201:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20150615:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20160330:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20160601:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20160901:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20161201:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20170301:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20170601:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20170801:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20170901:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20171001:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20171101:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180101:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180201:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetwork, __self__).__init__(
             'azure-nextgen:network/latest:VirtualNetwork',
@@ -175,6 +178,14 @@ class VirtualNetwork(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location of the virtual network.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="ipAllocations")
