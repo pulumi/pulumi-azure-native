@@ -46,10 +46,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
     public sealed class GetDataExportResult
     {
         /// <summary>
-        /// When ‘true’, all workspace's tables are exported.
-        /// </summary>
-        public readonly bool? AllTables;
-        /// <summary>
         /// The latest data export rule modification time.
         /// </summary>
         public readonly string? CreatedDate;
@@ -88,8 +84,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
 
         [OutputConstructor]
         private GetDataExportResult(
-            bool? allTables,
-
             string? createdDate,
 
             string? dataExportId,
@@ -108,7 +102,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
 
             string type)
         {
-            AllTables = allTables;
             CreatedDate = createdDate;
             DataExportId = dataExportId;
             Enable = enable;

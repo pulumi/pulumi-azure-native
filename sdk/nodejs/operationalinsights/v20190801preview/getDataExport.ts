@@ -41,10 +41,6 @@ export interface GetDataExportArgs {
  */
 export interface GetDataExportResult {
     /**
-     * When ‘true’, all workspace's tables are exported.
-     */
-    readonly allTables?: boolean;
-    /**
      * The latest data export rule modification time.
      */
     readonly createdDate?: string;
