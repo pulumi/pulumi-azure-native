@@ -4,6 +4,7 @@ import * as random from "@pulumi/random";
 import * as compute from "@pulumi/azure-nextgen/compute/latest";
 import * as containerinstance from "@pulumi/azure-nextgen/containerinstance/latest";
 import * as eventgrid from "@pulumi/azure-nextgen/eventgrid/latest";
+import * as managedidentity from "@pulumi/azure-nextgen/managedidentity/latest";
 import * as network from "@pulumi/azure-nextgen/network/latest";
 import * as resources from "@pulumi/azure-nextgen/resources/latest";
 import * as storage from "@pulumi/azure-nextgen/storage/latest";
@@ -182,3 +183,9 @@ const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, 
     storage.listStorageAccountKeys({ resourceGroupName, accountName }));
 
 export const primaryStorageKey = storageAccountKeys.keys[0].value;
+
+const exampleIdentity = new managedidentity.UserAssignedIdentity('example', {
+    resourceGroupName: resourceGroup.name,
+    location: resourceGroup.location,
+    resourceName: 'example',
+});

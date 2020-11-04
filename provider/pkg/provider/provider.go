@@ -11,6 +11,7 @@ import (
 	"log"
 	"math"
 	"net/http"
+	"net/url"
 	"os"
 	"regexp"
 	"strings"
@@ -861,6 +862,16 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	if err != nil {
 		return nil, err
 	}
+
+	// Work around https://github.com/pulumi/pulumi-azure-nextgen/issues/100
+	// If there's a location header but it's not an absolute URL, remove it (request URL will be used instead).
+	if location, ok := resp.Header["Location"]; ok && len(location) > 0 {
+		u, err := url.Parse(location[0])
+		if err != nil || !u.IsAbs() {
+			resp.Header["Location"] = []string{}
+		}
+	}
+
 	// Some APIs are explicitly marked `x-ms-long-running-operation` and possibly we should only do the
 	// Future+WaitForCompletion+GetResult steps in that case. Though in general it appears to be safe to do these
 	// always.
