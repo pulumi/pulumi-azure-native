@@ -341,7 +341,6 @@ const (
 	extensionMutability        = "x-ms-mutability"
 	extensionMutabilityCreate  = "create"
 	extensionMutabilityUpdate  = "update"
-	extensionParameterLocation = "x-ms-parameter-location"
 )
 
 type packageGenerator struct {
@@ -607,11 +606,9 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			return nil, err
 		}
 
-		location, _ := param.Extensions.GetString(extensionParameterLocation)
 		apiParameter := provider.AzureAPIParameter{
 			Name:       param.Name,
 			Location:   param.In,
-			Source:     location,
 			IsRequired: param.Required,
 			Value: &provider.AzureAPIProperty{
 				Type:      param.Type,

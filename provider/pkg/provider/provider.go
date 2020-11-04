@@ -1070,10 +1070,6 @@ func (k *azureNextGenProvider) azurePost(
 func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []AzureAPIParameter, methodInputs,
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
-	locations := map[string]map[string]interface{}{
-		"client": clientInputs,
-		"method": methodInputs,
-	}
 	params := map[string]map[string]interface{}{
 		"body": {},
 		"query": {
@@ -1092,14 +1088,10 @@ func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []
 			if param.Value.SdkName != "" {
 				sdkName = param.Value.SdkName
 			}
-			if param.Source != "" {
-				val, has = locations[param.Source][sdkName]
-			} else {
-				// If not specified where to find it, look in both with `method` first
-				val, has = methodInputs[sdkName]
-				if !has {
-					val, has = clientInputs[sdkName]
-				}
+			// Look in both `method` and `client` inputs with `method` first
+			val, has = methodInputs[sdkName]
+			if !has {
+				val, has = clientInputs[sdkName]
 			}
 			if has {
 				params[param.Location][param.Name] = val

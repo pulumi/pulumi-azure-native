@@ -13,8 +13,6 @@ type AzureAPIParameter struct {
 	Name string `json:"name"`
 	// Location defines the parameter's place the HTTP request: "path", "query", or "body".
 	Location string `json:"location"`
-	// Source defines the value source: "method" (resource arguments) or "client" (provider configuration).
-	Source string `json:"source,omitempty"`
 	// IsRequired is true for mandatory parameters.
 	IsRequired bool `json:"required,omitempty"`
 	// Value contains metadata for path/query parameters.
