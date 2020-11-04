@@ -73,6 +73,11 @@ const subnet = new network.Subnet("subnet2", {
     subnetName: randomString.result,
     virtualNetworkName: vnet.name,
     addressPrefix: "10.1.1.0/24",
+    serviceEndpoints: [{ service: "Microsoft.Storage" }],
+    delegations: [{
+        name: "webapp",
+        serviceName: "Microsoft.Web/serverFarms",
+    }],
 });
 
 const networkInterface = new network.NetworkInterface("nic", {
@@ -130,9 +135,8 @@ const appServicePlan  = new web.AppServicePlan("app-plan", {
     resourceGroupName: resourceGroup.name,
     name: randomString.result,
     location: "westus2",
-    kind: "Linux",
     sku: {
-        name: "F1",
+        name: "S1",
         capacity: 1
     },
 });
@@ -142,6 +146,26 @@ const appService = new web.WebApp("app", {
     name: randomString.result,
     location: "westus2",
     serverFarmId: appServicePlan.id,
+    kind: "app",
+    siteConfig: {
+        appSettings: [{
+            name: "test",
+            value: "this is a slot setting",
+        }],
+    },
+});
+
+new web.WebAppSlotConfigurationNames("names", {
+    resourceGroupName: resourceGroup.name,
+    name: appService.name,
+    appSettingNames: ["test"],
+});
+
+new web.WebAppSwiftVirtualNetworkConnection("swiftconn", {
+    subnetResourceId: subnet.id,
+    name: appService.name,
+    resourceGroupName: resourceGroup.name,
+    swiftSupported: true,
 });
 
 const storageAccount = new storage.StorageAccount("sa", {
@@ -172,6 +196,22 @@ const eventGridSub = new eventgrid.EventSubscription("egsub", {
     filter: {
         isSubjectCaseSensitive: true,
     }
+});
+
+new storage.BlobServiceProperties("blobprops", {
+    resourceGroupName: resourceGroup.name,
+    accountName: storageAccount.name,
+    blobServicesName: "default",
+    isVersioningEnabled: true,
+    cors: {
+        corsRules: [{
+            allowedHeaders: ["*"],
+            allowedMethods: ["GET", "PUT"],
+            allowedOrigins: ["*"],
+            exposedHeaders: ["*"],
+            maxAgeInSeconds: 1000,
+        }],
+    },
 });
 
 export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;
