@@ -27,8 +27,6 @@ type LookupDataExportArgs struct {
 
 // The top level data export resource container.
 type LookupDataExportResult struct {
-	// When ‘true’, all workspace's tables are exported.
-	AllTables *bool `pulumi:"allTables"`
 	// The latest data export rule modification time.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The data export rule ID.

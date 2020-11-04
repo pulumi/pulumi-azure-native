@@ -14,8 +14,6 @@ import (
 type DataExport struct {
 	pulumi.CustomResourceState
 
-	// When ‘true’, all workspace's tables are exported.
-	AllTables pulumi.BoolPtrOutput `pulumi:"allTables"`
 	// The latest data export rule modification time.
 	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// The data export rule ID.
@@ -88,8 +86,6 @@ func GetDataExport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataExport resources.
 type dataExportState struct {
-	// When ‘true’, all workspace's tables are exported.
-	AllTables *bool `pulumi:"allTables"`
 	// The latest data export rule modification time.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The data export rule ID.
@@ -111,8 +107,6 @@ type dataExportState struct {
 }
 
 type DataExportState struct {
-	// When ‘true’, all workspace's tables are exported.
-	AllTables pulumi.BoolPtrInput
 	// The latest data export rule modification time.
 	CreatedDate pulumi.StringPtrInput
 	// The data export rule ID.
@@ -138,8 +132,6 @@ func (DataExportState) ElementType() reflect.Type {
 }
 
 type dataExportArgs struct {
-	// When ‘true’, all workspace's tables are exported.
-	AllTables *bool `pulumi:"allTables"`
 	// The latest data export rule modification time.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The data export rule ID.
@@ -164,8 +156,6 @@ type dataExportArgs struct {
 
 // The set of arguments for constructing a DataExport resource.
 type DataExportArgs struct {
-	// When ‘true’, all workspace's tables are exported.
-	AllTables pulumi.BoolPtrInput
 	// The latest data export rule modification time.
 	CreatedDate pulumi.StringPtrInput
 	// The data export rule ID.

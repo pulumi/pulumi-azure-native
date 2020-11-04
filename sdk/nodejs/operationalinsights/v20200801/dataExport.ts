@@ -35,10 +35,6 @@ export class DataExport extends pulumi.CustomResource {
     }
 
     /**
-     * When ‘true’, all workspace's tables are exported.
-     */
-    public readonly allTables!: pulumi.Output<boolean | undefined>;
-    /**
      * The latest data export rule modification time.
      */
     public readonly createdDate!: pulumi.Output<string | undefined>;
@@ -97,7 +93,6 @@ export class DataExport extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["allTables"] = args ? args.allTables : undefined;
             inputs["createdDate"] = args ? args.createdDate : undefined;
             inputs["dataExportId"] = args ? args.dataExportId : undefined;
             inputs["dataExportName"] = args ? args.dataExportName : undefined;
@@ -111,7 +106,6 @@ export class DataExport extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["allTables"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["dataExportId"] = undefined /*out*/;
             inputs["enable"] = undefined /*out*/;
@@ -139,10 +133,6 @@ export class DataExport extends pulumi.CustomResource {
  * The set of arguments for constructing a DataExport resource.
  */
 export interface DataExportArgs {
-    /**
-     * When ‘true’, all workspace's tables are exported.
-     */
-    readonly allTables?: pulumi.Input<boolean>;
     /**
      * The latest data export rule modification time.
      */
