@@ -61,6 +61,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * ObjectId from the KeyVault
+     */
+    public readonly principalId!: pulumi.Output<string | undefined>;
+    /**
      * Provisioning state of the namespace.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -77,9 +81,13 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * TenantId from the KeyVault
+     */
+    public readonly tenantId!: pulumi.Output<string | undefined>;
+    /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * The time the namespace was updated.
      */
@@ -112,16 +120,18 @@ export class Namespace extends pulumi.CustomResource {
             inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
+            inputs["principalId"] = args ? args.principalId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["createdAt"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceBusEndpoint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         } else {
             inputs["createdAt"] = undefined /*out*/;
@@ -130,10 +140,12 @@ export class Namespace extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["principalId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceBusEndpoint"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
             inputs["zoneRedundant"] = undefined /*out*/;
@@ -172,6 +184,10 @@ export interface NamespaceArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
+     * ObjectId from the KeyVault
+     */
+    readonly principalId?: pulumi.Input<string>;
+    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -183,6 +199,14 @@ export interface NamespaceArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * TenantId from the KeyVault
+     */
+    readonly tenantId?: pulumi.Input<string>;
+    /**
+     * Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+     */
+    readonly type?: pulumi.Input<string>;
     /**
      * Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
      */

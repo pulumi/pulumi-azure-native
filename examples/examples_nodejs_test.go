@@ -38,6 +38,16 @@ func TestAccSimpleTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestDestroyTs(t *testing.T) {
+	// Tests eventually-consistent deletion handling.
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "static-website"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestImportTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{

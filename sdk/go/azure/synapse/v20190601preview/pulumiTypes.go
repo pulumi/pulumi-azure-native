@@ -4394,6 +4394,278 @@ func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) VNetId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfo struct {
+	// Storage blob container name.
+	ContainerName *string `pulumi:"containerName"`
+	// Name of the library.
+	Name *string `pulumi:"name"`
+	// Storage blob path of library.
+	Path *string `pulumi:"path"`
+	// Type of the library.
+	Type *string `pulumi:"type"`
+	// The last update time of the library.
+	UploadedTimestamp *string `pulumi:"uploadedTimestamp"`
+}
+
+// LibraryInfoInput is an input type that accepts LibraryInfoArgs and LibraryInfoOutput values.
+// You can construct a concrete instance of `LibraryInfoInput` via:
+//
+//          LibraryInfoArgs{...}
+type LibraryInfoInput interface {
+	pulumi.Input
+
+	ToLibraryInfoOutput() LibraryInfoOutput
+	ToLibraryInfoOutputWithContext(context.Context) LibraryInfoOutput
+}
+
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfoArgs struct {
+	// Storage blob container name.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Name of the library.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Storage blob path of library.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Type of the library.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The last update time of the library.
+	UploadedTimestamp pulumi.StringPtrInput `pulumi:"uploadedTimestamp"`
+}
+
+func (LibraryInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LibraryInfo)(nil)).Elem()
+}
+
+func (i LibraryInfoArgs) ToLibraryInfoOutput() LibraryInfoOutput {
+	return i.ToLibraryInfoOutputWithContext(context.Background())
+}
+
+func (i LibraryInfoArgs) ToLibraryInfoOutputWithContext(ctx context.Context) LibraryInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoOutput)
+}
+
+// LibraryInfoArrayInput is an input type that accepts LibraryInfoArray and LibraryInfoArrayOutput values.
+// You can construct a concrete instance of `LibraryInfoArrayInput` via:
+//
+//          LibraryInfoArray{ LibraryInfoArgs{...} }
+type LibraryInfoArrayInput interface {
+	pulumi.Input
+
+	ToLibraryInfoArrayOutput() LibraryInfoArrayOutput
+	ToLibraryInfoArrayOutputWithContext(context.Context) LibraryInfoArrayOutput
+}
+
+type LibraryInfoArray []LibraryInfoInput
+
+func (LibraryInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LibraryInfo)(nil)).Elem()
+}
+
+func (i LibraryInfoArray) ToLibraryInfoArrayOutput() LibraryInfoArrayOutput {
+	return i.ToLibraryInfoArrayOutputWithContext(context.Background())
+}
+
+func (i LibraryInfoArray) ToLibraryInfoArrayOutputWithContext(ctx context.Context) LibraryInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoArrayOutput)
+}
+
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfoOutput struct{ *pulumi.OutputState }
+
+func (LibraryInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LibraryInfo)(nil)).Elem()
+}
+
+func (o LibraryInfoOutput) ToLibraryInfoOutput() LibraryInfoOutput {
+	return o
+}
+
+func (o LibraryInfoOutput) ToLibraryInfoOutputWithContext(ctx context.Context) LibraryInfoOutput {
+	return o
+}
+
+// Storage blob container name.
+func (o LibraryInfoOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the library.
+func (o LibraryInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Storage blob path of library.
+func (o LibraryInfoOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Type of the library.
+func (o LibraryInfoOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The last update time of the library.
+func (o LibraryInfoOutput) UploadedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.UploadedTimestamp }).(pulumi.StringPtrOutput)
+}
+
+type LibraryInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (LibraryInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LibraryInfo)(nil)).Elem()
+}
+
+func (o LibraryInfoArrayOutput) ToLibraryInfoArrayOutput() LibraryInfoArrayOutput {
+	return o
+}
+
+func (o LibraryInfoArrayOutput) ToLibraryInfoArrayOutputWithContext(ctx context.Context) LibraryInfoArrayOutput {
+	return o
+}
+
+func (o LibraryInfoArrayOutput) Index(i pulumi.IntInput) LibraryInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LibraryInfo {
+		return vs[0].([]LibraryInfo)[vs[1].(int)]
+	}).(LibraryInfoOutput)
+}
+
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfoResponse struct {
+	// Storage blob container name.
+	ContainerName *string `pulumi:"containerName"`
+	// Name of the library.
+	Name *string `pulumi:"name"`
+	// Storage blob path of library.
+	Path *string `pulumi:"path"`
+	// Type of the library.
+	Type *string `pulumi:"type"`
+	// The last update time of the library.
+	UploadedTimestamp *string `pulumi:"uploadedTimestamp"`
+}
+
+// LibraryInfoResponseInput is an input type that accepts LibraryInfoResponseArgs and LibraryInfoResponseOutput values.
+// You can construct a concrete instance of `LibraryInfoResponseInput` via:
+//
+//          LibraryInfoResponseArgs{...}
+type LibraryInfoResponseInput interface {
+	pulumi.Input
+
+	ToLibraryInfoResponseOutput() LibraryInfoResponseOutput
+	ToLibraryInfoResponseOutputWithContext(context.Context) LibraryInfoResponseOutput
+}
+
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfoResponseArgs struct {
+	// Storage blob container name.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Name of the library.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Storage blob path of library.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Type of the library.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The last update time of the library.
+	UploadedTimestamp pulumi.StringPtrInput `pulumi:"uploadedTimestamp"`
+}
+
+func (LibraryInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LibraryInfoResponse)(nil)).Elem()
+}
+
+func (i LibraryInfoResponseArgs) ToLibraryInfoResponseOutput() LibraryInfoResponseOutput {
+	return i.ToLibraryInfoResponseOutputWithContext(context.Background())
+}
+
+func (i LibraryInfoResponseArgs) ToLibraryInfoResponseOutputWithContext(ctx context.Context) LibraryInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoResponseOutput)
+}
+
+// LibraryInfoResponseArrayInput is an input type that accepts LibraryInfoResponseArray and LibraryInfoResponseArrayOutput values.
+// You can construct a concrete instance of `LibraryInfoResponseArrayInput` via:
+//
+//          LibraryInfoResponseArray{ LibraryInfoResponseArgs{...} }
+type LibraryInfoResponseArrayInput interface {
+	pulumi.Input
+
+	ToLibraryInfoResponseArrayOutput() LibraryInfoResponseArrayOutput
+	ToLibraryInfoResponseArrayOutputWithContext(context.Context) LibraryInfoResponseArrayOutput
+}
+
+type LibraryInfoResponseArray []LibraryInfoResponseInput
+
+func (LibraryInfoResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LibraryInfoResponse)(nil)).Elem()
+}
+
+func (i LibraryInfoResponseArray) ToLibraryInfoResponseArrayOutput() LibraryInfoResponseArrayOutput {
+	return i.ToLibraryInfoResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LibraryInfoResponseArray) ToLibraryInfoResponseArrayOutputWithContext(ctx context.Context) LibraryInfoResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoResponseArrayOutput)
+}
+
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (LibraryInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LibraryInfoResponse)(nil)).Elem()
+}
+
+func (o LibraryInfoResponseOutput) ToLibraryInfoResponseOutput() LibraryInfoResponseOutput {
+	return o
+}
+
+func (o LibraryInfoResponseOutput) ToLibraryInfoResponseOutputWithContext(ctx context.Context) LibraryInfoResponseOutput {
+	return o
+}
+
+// Storage blob container name.
+func (o LibraryInfoResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the library.
+func (o LibraryInfoResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Storage blob path of library.
+func (o LibraryInfoResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Type of the library.
+func (o LibraryInfoResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The last update time of the library.
+func (o LibraryInfoResponseOutput) UploadedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.UploadedTimestamp }).(pulumi.StringPtrOutput)
+}
+
+type LibraryInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LibraryInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LibraryInfoResponse)(nil)).Elem()
+}
+
+func (o LibraryInfoResponseArrayOutput) ToLibraryInfoResponseArrayOutput() LibraryInfoResponseArrayOutput {
+	return o
+}
+
+func (o LibraryInfoResponseArrayOutput) ToLibraryInfoResponseArrayOutputWithContext(ctx context.Context) LibraryInfoResponseArrayOutput {
+	return o
+}
+
+func (o LibraryInfoResponseArrayOutput) Index(i pulumi.IntInput) LibraryInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LibraryInfoResponse {
+		return vs[0].([]LibraryInfoResponse)[vs[1].(int)]
+	}).(LibraryInfoResponseOutput)
+}
+
 // Library requirements for a Big Data pool powered by Apache Spark
 type LibraryRequirements struct {
 	// The library requirements.
@@ -6054,6 +6326,350 @@ func (o ManagedIntegrationRuntimeStatusResponseOutput) State() pulumi.StringOutp
 // Type of integration runtime.
 func (o ManagedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettings struct {
+	// Allowed Aad Tenant Ids For Linking
+	AllowedAadTenantIdsForLinking []string `pulumi:"allowedAadTenantIdsForLinking"`
+	// Linked Access Check On Target Resource
+	LinkedAccessCheckOnTargetResource *bool `pulumi:"linkedAccessCheckOnTargetResource"`
+	// Prevent Data Exfiltration
+	PreventDataExfiltration *bool `pulumi:"preventDataExfiltration"`
+}
+
+// ManagedVirtualNetworkSettingsInput is an input type that accepts ManagedVirtualNetworkSettingsArgs and ManagedVirtualNetworkSettingsOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkSettingsInput` via:
+//
+//          ManagedVirtualNetworkSettingsArgs{...}
+type ManagedVirtualNetworkSettingsInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkSettingsOutput() ManagedVirtualNetworkSettingsOutput
+	ToManagedVirtualNetworkSettingsOutputWithContext(context.Context) ManagedVirtualNetworkSettingsOutput
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettingsArgs struct {
+	// Allowed Aad Tenant Ids For Linking
+	AllowedAadTenantIdsForLinking pulumi.StringArrayInput `pulumi:"allowedAadTenantIdsForLinking"`
+	// Linked Access Check On Target Resource
+	LinkedAccessCheckOnTargetResource pulumi.BoolPtrInput `pulumi:"linkedAccessCheckOnTargetResource"`
+	// Prevent Data Exfiltration
+	PreventDataExfiltration pulumi.BoolPtrInput `pulumi:"preventDataExfiltration"`
+}
+
+func (ManagedVirtualNetworkSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkSettings)(nil)).Elem()
+}
+
+func (i ManagedVirtualNetworkSettingsArgs) ToManagedVirtualNetworkSettingsOutput() ManagedVirtualNetworkSettingsOutput {
+	return i.ToManagedVirtualNetworkSettingsOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkSettingsArgs) ToManagedVirtualNetworkSettingsOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsOutput)
+}
+
+func (i ManagedVirtualNetworkSettingsArgs) ToManagedVirtualNetworkSettingsPtrOutput() ManagedVirtualNetworkSettingsPtrOutput {
+	return i.ToManagedVirtualNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkSettingsArgs) ToManagedVirtualNetworkSettingsPtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsOutput).ToManagedVirtualNetworkSettingsPtrOutputWithContext(ctx)
+}
+
+// ManagedVirtualNetworkSettingsPtrInput is an input type that accepts ManagedVirtualNetworkSettingsArgs, ManagedVirtualNetworkSettingsPtr and ManagedVirtualNetworkSettingsPtrOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkSettingsPtrInput` via:
+//
+//          ManagedVirtualNetworkSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedVirtualNetworkSettingsPtrInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkSettingsPtrOutput() ManagedVirtualNetworkSettingsPtrOutput
+	ToManagedVirtualNetworkSettingsPtrOutputWithContext(context.Context) ManagedVirtualNetworkSettingsPtrOutput
+}
+
+type managedVirtualNetworkSettingsPtrType ManagedVirtualNetworkSettingsArgs
+
+func ManagedVirtualNetworkSettingsPtr(v *ManagedVirtualNetworkSettingsArgs) ManagedVirtualNetworkSettingsPtrInput {
+	return (*managedVirtualNetworkSettingsPtrType)(v)
+}
+
+func (*managedVirtualNetworkSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkSettings)(nil)).Elem()
+}
+
+func (i *managedVirtualNetworkSettingsPtrType) ToManagedVirtualNetworkSettingsPtrOutput() ManagedVirtualNetworkSettingsPtrOutput {
+	return i.ToManagedVirtualNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *managedVirtualNetworkSettingsPtrType) ToManagedVirtualNetworkSettingsPtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsPtrOutput)
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettingsOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkSettings)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkSettingsOutput) ToManagedVirtualNetworkSettingsOutput() ManagedVirtualNetworkSettingsOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsOutput) ToManagedVirtualNetworkSettingsOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsOutput) ToManagedVirtualNetworkSettingsPtrOutput() ManagedVirtualNetworkSettingsPtrOutput {
+	return o.ToManagedVirtualNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedVirtualNetworkSettingsOutput) ToManagedVirtualNetworkSettingsPtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsPtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettings) *ManagedVirtualNetworkSettings {
+		return &v
+	}).(ManagedVirtualNetworkSettingsPtrOutput)
+}
+
+// Allowed Aad Tenant Ids For Linking
+func (o ManagedVirtualNetworkSettingsOutput) AllowedAadTenantIdsForLinking() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettings) []string { return v.AllowedAadTenantIdsForLinking }).(pulumi.StringArrayOutput)
+}
+
+// Linked Access Check On Target Resource
+func (o ManagedVirtualNetworkSettingsOutput) LinkedAccessCheckOnTargetResource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettings) *bool { return v.LinkedAccessCheckOnTargetResource }).(pulumi.BoolPtrOutput)
+}
+
+// Prevent Data Exfiltration
+func (o ManagedVirtualNetworkSettingsOutput) PreventDataExfiltration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettings) *bool { return v.PreventDataExfiltration }).(pulumi.BoolPtrOutput)
+}
+
+type ManagedVirtualNetworkSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkSettings)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkSettingsPtrOutput) ToManagedVirtualNetworkSettingsPtrOutput() ManagedVirtualNetworkSettingsPtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsPtrOutput) ToManagedVirtualNetworkSettingsPtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsPtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsPtrOutput) Elem() ManagedVirtualNetworkSettingsOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettings) ManagedVirtualNetworkSettings { return *v }).(ManagedVirtualNetworkSettingsOutput)
+}
+
+// Allowed Aad Tenant Ids For Linking
+func (o ManagedVirtualNetworkSettingsPtrOutput) AllowedAadTenantIdsForLinking() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAadTenantIdsForLinking
+	}).(pulumi.StringArrayOutput)
+}
+
+// Linked Access Check On Target Resource
+func (o ManagedVirtualNetworkSettingsPtrOutput) LinkedAccessCheckOnTargetResource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedAccessCheckOnTargetResource
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Prevent Data Exfiltration
+func (o ManagedVirtualNetworkSettingsPtrOutput) PreventDataExfiltration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreventDataExfiltration
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettingsResponse struct {
+	// Allowed Aad Tenant Ids For Linking
+	AllowedAadTenantIdsForLinking []string `pulumi:"allowedAadTenantIdsForLinking"`
+	// Linked Access Check On Target Resource
+	LinkedAccessCheckOnTargetResource *bool `pulumi:"linkedAccessCheckOnTargetResource"`
+	// Prevent Data Exfiltration
+	PreventDataExfiltration *bool `pulumi:"preventDataExfiltration"`
+}
+
+// ManagedVirtualNetworkSettingsResponseInput is an input type that accepts ManagedVirtualNetworkSettingsResponseArgs and ManagedVirtualNetworkSettingsResponseOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkSettingsResponseInput` via:
+//
+//          ManagedVirtualNetworkSettingsResponseArgs{...}
+type ManagedVirtualNetworkSettingsResponseInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkSettingsResponseOutput() ManagedVirtualNetworkSettingsResponseOutput
+	ToManagedVirtualNetworkSettingsResponseOutputWithContext(context.Context) ManagedVirtualNetworkSettingsResponseOutput
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettingsResponseArgs struct {
+	// Allowed Aad Tenant Ids For Linking
+	AllowedAadTenantIdsForLinking pulumi.StringArrayInput `pulumi:"allowedAadTenantIdsForLinking"`
+	// Linked Access Check On Target Resource
+	LinkedAccessCheckOnTargetResource pulumi.BoolPtrInput `pulumi:"linkedAccessCheckOnTargetResource"`
+	// Prevent Data Exfiltration
+	PreventDataExfiltration pulumi.BoolPtrInput `pulumi:"preventDataExfiltration"`
+}
+
+func (ManagedVirtualNetworkSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (i ManagedVirtualNetworkSettingsResponseArgs) ToManagedVirtualNetworkSettingsResponseOutput() ManagedVirtualNetworkSettingsResponseOutput {
+	return i.ToManagedVirtualNetworkSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkSettingsResponseArgs) ToManagedVirtualNetworkSettingsResponseOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsResponseOutput)
+}
+
+func (i ManagedVirtualNetworkSettingsResponseArgs) ToManagedVirtualNetworkSettingsResponsePtrOutput() ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return i.ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedVirtualNetworkSettingsResponseArgs) ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsResponseOutput).ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedVirtualNetworkSettingsResponsePtrInput is an input type that accepts ManagedVirtualNetworkSettingsResponseArgs, ManagedVirtualNetworkSettingsResponsePtr and ManagedVirtualNetworkSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedVirtualNetworkSettingsResponsePtrInput` via:
+//
+//          ManagedVirtualNetworkSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedVirtualNetworkSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedVirtualNetworkSettingsResponsePtrOutput() ManagedVirtualNetworkSettingsResponsePtrOutput
+	ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(context.Context) ManagedVirtualNetworkSettingsResponsePtrOutput
+}
+
+type managedVirtualNetworkSettingsResponsePtrType ManagedVirtualNetworkSettingsResponseArgs
+
+func ManagedVirtualNetworkSettingsResponsePtr(v *ManagedVirtualNetworkSettingsResponseArgs) ManagedVirtualNetworkSettingsResponsePtrInput {
+	return (*managedVirtualNetworkSettingsResponsePtrType)(v)
+}
+
+func (*managedVirtualNetworkSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (i *managedVirtualNetworkSettingsResponsePtrType) ToManagedVirtualNetworkSettingsResponsePtrOutput() ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return i.ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedVirtualNetworkSettingsResponsePtrType) ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedVirtualNetworkSettingsResponsePtrOutput)
+}
+
+// Managed Virtual Network Settings
+type ManagedVirtualNetworkSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedVirtualNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkSettingsResponseOutput) ToManagedVirtualNetworkSettingsResponseOutput() ManagedVirtualNetworkSettingsResponseOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsResponseOutput) ToManagedVirtualNetworkSettingsResponseOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponseOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsResponseOutput) ToManagedVirtualNetworkSettingsResponsePtrOutput() ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return o.ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedVirtualNetworkSettingsResponseOutput) ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettingsResponse) *ManagedVirtualNetworkSettingsResponse {
+		return &v
+	}).(ManagedVirtualNetworkSettingsResponsePtrOutput)
+}
+
+// Allowed Aad Tenant Ids For Linking
+func (o ManagedVirtualNetworkSettingsResponseOutput) AllowedAadTenantIdsForLinking() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettingsResponse) []string { return v.AllowedAadTenantIdsForLinking }).(pulumi.StringArrayOutput)
+}
+
+// Linked Access Check On Target Resource
+func (o ManagedVirtualNetworkSettingsResponseOutput) LinkedAccessCheckOnTargetResource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettingsResponse) *bool { return v.LinkedAccessCheckOnTargetResource }).(pulumi.BoolPtrOutput)
+}
+
+// Prevent Data Exfiltration
+func (o ManagedVirtualNetworkSettingsResponseOutput) PreventDataExfiltration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedVirtualNetworkSettingsResponse) *bool { return v.PreventDataExfiltration }).(pulumi.BoolPtrOutput)
+}
+
+type ManagedVirtualNetworkSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedVirtualNetworkSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedVirtualNetworkSettingsResponse)(nil)).Elem()
+}
+
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) ToManagedVirtualNetworkSettingsResponsePtrOutput() ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) ToManagedVirtualNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) Elem() ManagedVirtualNetworkSettingsResponseOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettingsResponse) ManagedVirtualNetworkSettingsResponse { return *v }).(ManagedVirtualNetworkSettingsResponseOutput)
+}
+
+// Allowed Aad Tenant Ids For Linking
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) AllowedAadTenantIdsForLinking() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettingsResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAadTenantIdsForLinking
+	}).(pulumi.StringArrayOutput)
+}
+
+// Linked Access Check On Target Resource
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) LinkedAccessCheckOnTargetResource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedAccessCheckOnTargetResource
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Prevent Data Exfiltration
+func (o ManagedVirtualNetworkSettingsResponsePtrOutput) PreventDataExfiltration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedVirtualNetworkSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreventDataExfiltration
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A private endpoint connection
@@ -8034,6 +8650,206 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItem struct {
+	// The rule baseline result
+	Result []string `pulumi:"result"`
+}
+
+// SqlPoolVulnerabilityAssessmentRuleBaselineItemInput is an input type that accepts SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs and SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRuleBaselineItemInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs{...}
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput
+}
+
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs struct {
+	// The rule baseline result
+	Result pulumi.StringArrayInput `pulumi:"result"`
+}
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRuleBaselineItem)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput)
+}
+
+// SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayInput is an input type that accepts SqlPoolVulnerabilityAssessmentRuleBaselineItemArray and SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentRuleBaselineItemArray{ SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs{...} }
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput
+}
+
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemArray []SqlPoolVulnerabilityAssessmentRuleBaselineItemInput
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPoolVulnerabilityAssessmentRuleBaselineItem)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemArray) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemArray) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput)
+}
+
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRuleBaselineItem)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput {
+	return o
+}
+
+// The rule baseline result
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput) Result() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRuleBaselineItem) []string { return v.Result }).(pulumi.StringArrayOutput)
+}
+
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPoolVulnerabilityAssessmentRuleBaselineItem)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput) Index(i pulumi.IntInput) SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlPoolVulnerabilityAssessmentRuleBaselineItem {
+		return vs[0].([]SqlPoolVulnerabilityAssessmentRuleBaselineItem)[vs[1].(int)]
+	}).(SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput)
+}
+
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse struct {
+	// The rule baseline result
+	Result []string `pulumi:"result"`
+}
+
+// SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseInput is an input type that accepts SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs and SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs{...}
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput
+}
+
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs struct {
+	// The rule baseline result
+	Result pulumi.StringArrayInput `pulumi:"result"`
+}
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput)
+}
+
+// SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayInput is an input type that accepts SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray and SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray{ SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArgs{...} }
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput
+	ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput
+}
+
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray []SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseInput
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArray) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput)
+}
+
+// Properties for an Sql pool vulnerability assessment rule baseline's result.
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput {
+	return o
+}
+
+// The rule baseline result
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput) Result() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse) []string { return v.Result }).(pulumi.StringArrayOutput)
+}
+
+type SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput() SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) ToSqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) Index(i pulumi.IntInput) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse {
+		return vs[0].([]SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse)[vs[1].(int)]
+	}).(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput)
+}
+
 // Ssis environment reference.
 type SsisEnvironmentReferenceResponse struct {
 	// Environment folder name.
@@ -9601,6 +10417,10 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LibraryInfoOutput{})
+	pulumi.RegisterOutputType(LibraryInfoArrayOutput{})
+	pulumi.RegisterOutputType(LibraryInfoResponseOutput{})
+	pulumi.RegisterOutputType(LibraryInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsResponseOutput{})
@@ -9623,6 +10443,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagedIntegrationRuntimeOperationResultResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIntegrationRuntimeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIntegrationRuntimeStatusResponseOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
@@ -9646,6 +10470,10 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(SsisEnvironmentReferenceResponseOutput{})
 	pulumi.RegisterOutputType(SsisEnvironmentReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(SsisEnvironmentResponseOutput{})

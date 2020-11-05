@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Settings.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Properties;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -64,10 +68,13 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             string name,
 
+            ImmutableDictionary<string, string> properties,
+
             string type)
         {
             Kind = kind;
             Name = name;
+            Properties = properties;
             Type = type;
         }
     }

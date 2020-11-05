@@ -51,6 +51,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// ObjectId from the KeyVault
+        /// </summary>
+        [Output("principalId")]
+        public Output<string?> PrincipalId { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state of the namespace.
         /// </summary>
         [Output("provisioningState")]
@@ -73,6 +79,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// TenantId from the KeyVault
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -169,6 +181,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
+        /// ObjectId from the KeyVault
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -191,6 +209,18 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// TenantId from the KeyVault
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.

@@ -12,7 +12,6 @@ __all__ = [
     'IncidentInfoArgs',
     'IncidentLabelArgs',
     'IncidentOwnerInfoArgs',
-    'RelationNodeArgs',
     'ThreatIntelligenceGranularMarkingModelArgs',
     'ThreatIntelligenceKillChainPhaseArgs',
     'UserInfoArgs',
@@ -180,62 +179,6 @@ class IncidentOwnerInfoArgs:
     @user_principal_name.setter
     def user_principal_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_principal_name", value)
-
-
-@pulumi.input_type
-class RelationNodeArgs:
-    def __init__(__self__, *,
-                 etag: Optional[pulumi.Input[str]] = None,
-                 relation_additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 relation_node_id: Optional[pulumi.Input[str]] = None):
-        """
-        Relation node
-        :param pulumi.Input[str] etag: Etag for relation node
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] relation_additional_properties: Additional set of properties
-        :param pulumi.Input[str] relation_node_id: Relation Node Id
-        """
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
-        if relation_additional_properties is not None:
-            pulumi.set(__self__, "relation_additional_properties", relation_additional_properties)
-        if relation_node_id is not None:
-            pulumi.set(__self__, "relation_node_id", relation_node_id)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Etag for relation node
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
-
-    @property
-    @pulumi.getter(name="relationAdditionalProperties")
-    def relation_additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Additional set of properties
-        """
-        return pulumi.get(self, "relation_additional_properties")
-
-    @relation_additional_properties.setter
-    def relation_additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "relation_additional_properties", value)
-
-    @property
-    @pulumi.getter(name="relationNodeId")
-    def relation_node_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Relation Node Id
-        """
-        return pulumi.get(self, "relation_node_id")
-
-    @relation_node_id.setter
-    def relation_node_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "relation_node_id", value)
 
 
 @pulumi.input_type

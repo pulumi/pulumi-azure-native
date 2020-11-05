@@ -39,6 +39,10 @@ export class ContentItem extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Properties of the content item.
+     */
+    public /*out*/ readonly properties!: pulumi.Output<any>;
+    /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -70,9 +74,11 @@ export class ContentItem extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -82,7 +88,7 @@ export class ContentItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20191201:ContentItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20191201:ContentItem" }, { type: "azure-nextgen:apimanagement/v20200601preview:ContentItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContentItem.__pulumiType, name, inputs, opts);
     }

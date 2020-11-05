@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview.Inputs
 {
 
+    /// <summary>
+    /// AAD profile of the connected cluster
+    /// </summary>
     public sealed class ConnectedClusterAADProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>

@@ -14,6 +14,8 @@ import (
 type Backup struct {
 	pulumi.CustomResourceState
 
+	// UUID v4 used to identify the Backup
+	BackupId pulumi.StringOutput `pulumi:"backupId"`
 	// Type of backup adhoc or scheduled
 	BackupType pulumi.StringOutput `pulumi:"backupType"`
 	// The creation date of the backup
@@ -58,7 +60,13 @@ func NewBackup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200501:Backup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200601:Backup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200701:Backup"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -84,6 +92,8 @@ func GetBackup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Backup resources.
 type backupState struct {
+	// UUID v4 used to identify the Backup
+	BackupId *string `pulumi:"backupId"`
 	// Type of backup adhoc or scheduled
 	BackupType *string `pulumi:"backupType"`
 	// The creation date of the backup
@@ -103,6 +113,8 @@ type backupState struct {
 }
 
 type BackupState struct {
+	// UUID v4 used to identify the Backup
+	BackupId pulumi.StringPtrInput
 	// Type of backup adhoc or scheduled
 	BackupType pulumi.StringPtrInput
 	// The creation date of the backup

@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, connectivity_endpoints=None, default_data_lake_storage=None, extra_properties=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, name=None, private_endpoint_connections=None, provisioning_state=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None):
+    def __init__(__self__, connectivity_endpoints=None, default_data_lake_storage=None, extra_properties=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None):
         if connectivity_endpoints and not isinstance(connectivity_endpoints, dict):
             raise TypeError("Expected argument 'connectivity_endpoints' to be a dict")
         pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
@@ -42,6 +42,9 @@ class GetWorkspaceResult:
         if managed_virtual_network and not isinstance(managed_virtual_network, str):
             raise TypeError("Expected argument 'managed_virtual_network' to be a str")
         pulumi.set(__self__, "managed_virtual_network", managed_virtual_network)
+        if managed_virtual_network_settings and not isinstance(managed_virtual_network_settings, dict):
+            raise TypeError("Expected argument 'managed_virtual_network_settings' to be a dict")
+        pulumi.set(__self__, "managed_virtual_network_settings", managed_virtual_network_settings)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -124,6 +127,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "managed_virtual_network")
 
     @property
+    @pulumi.getter(name="managedVirtualNetworkSettings")
+    def managed_virtual_network_settings(self) -> Optional['outputs.ManagedVirtualNetworkSettingsResponse']:
+        """
+        Managed Virtual Network Settings
+        """
+        return pulumi.get(self, "managed_virtual_network_settings")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -201,6 +212,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             location=self.location,
             managed_resource_group_name=self.managed_resource_group_name,
             managed_virtual_network=self.managed_virtual_network,
+            managed_virtual_network_settings=self.managed_virtual_network_settings,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
@@ -237,6 +249,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         managed_resource_group_name=__ret__.managed_resource_group_name,
         managed_virtual_network=__ret__.managed_virtual_network,
+        managed_virtual_network_settings=__ret__.managed_virtual_network_settings,
         name=__ret__.name,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,

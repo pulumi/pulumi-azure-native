@@ -32,7 +32,7 @@ __all__ = [
     'HardwareProfileResponse',
     'KafkaRestPropertiesResponse',
     'LinuxOperatingSystemProfileResponse',
-    'NetworkSettingsResponse',
+    'NetworkPropertiesResponse',
     'OsProfileResponse',
     'QuotaInfoResponse',
     'RoleResponse',
@@ -631,6 +631,7 @@ class ClusterGetPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  cluster_definition: 'outputs.ClusterDefinitionResponse',
+                 cluster_id: Optional[str] = None,
                  cluster_state: Optional[str] = None,
                  cluster_version: Optional[str] = None,
                  compute_profile: Optional['outputs.ComputeProfileResponse'] = None,
@@ -641,7 +642,7 @@ class ClusterGetPropertiesResponse(dict):
                  errors: Optional[Sequence['outputs.ErrorsResponse']] = None,
                  kafka_rest_properties: Optional['outputs.KafkaRestPropertiesResponse'] = None,
                  min_supported_tls_version: Optional[str] = None,
-                 network_settings: Optional['outputs.NetworkSettingsResponse'] = None,
+                 network_properties: Optional['outputs.NetworkPropertiesResponse'] = None,
                  os_type: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
                  quota_info: Optional['outputs.QuotaInfoResponse'] = None,
@@ -650,6 +651,7 @@ class ClusterGetPropertiesResponse(dict):
         """
         The properties of cluster.
         :param 'ClusterDefinitionResponseArgs' cluster_definition: The cluster definition.
+        :param str cluster_id: The cluster id.
         :param str cluster_state: The state of the cluster.
         :param str cluster_version: The version of the cluster.
         :param 'ComputeProfileResponseArgs' compute_profile: The compute profile.
@@ -660,7 +662,7 @@ class ClusterGetPropertiesResponse(dict):
         :param Sequence['ErrorsResponseArgs'] errors: The list of errors.
         :param 'KafkaRestPropertiesResponseArgs' kafka_rest_properties: The cluster kafka rest proxy configuration.
         :param str min_supported_tls_version: The minimal supported tls version.
-        :param 'NetworkSettingsResponseArgs' network_settings: The network settings.
+        :param 'NetworkPropertiesResponseArgs' network_properties: The network properties.
         :param str os_type: The type of operating system.
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param 'QuotaInfoResponseArgs' quota_info: The quota information.
@@ -668,6 +670,8 @@ class ClusterGetPropertiesResponse(dict):
         :param str tier: The cluster tier.
         """
         pulumi.set(__self__, "cluster_definition", cluster_definition)
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
         if cluster_state is not None:
             pulumi.set(__self__, "cluster_state", cluster_state)
         if cluster_version is not None:
@@ -688,8 +692,8 @@ class ClusterGetPropertiesResponse(dict):
             pulumi.set(__self__, "kafka_rest_properties", kafka_rest_properties)
         if min_supported_tls_version is not None:
             pulumi.set(__self__, "min_supported_tls_version", min_supported_tls_version)
-        if network_settings is not None:
-            pulumi.set(__self__, "network_settings", network_settings)
+        if network_properties is not None:
+            pulumi.set(__self__, "network_properties", network_properties)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if provisioning_state is not None:
@@ -708,6 +712,14 @@ class ClusterGetPropertiesResponse(dict):
         The cluster definition.
         """
         return pulumi.get(self, "cluster_definition")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[str]:
+        """
+        The cluster id.
+        """
+        return pulumi.get(self, "cluster_id")
 
     @property
     @pulumi.getter(name="clusterState")
@@ -790,12 +802,12 @@ class ClusterGetPropertiesResponse(dict):
         return pulumi.get(self, "min_supported_tls_version")
 
     @property
-    @pulumi.getter(name="networkSettings")
-    def network_settings(self) -> Optional['outputs.NetworkSettingsResponse']:
+    @pulumi.getter(name="networkProperties")
+    def network_properties(self) -> Optional['outputs.NetworkPropertiesResponse']:
         """
-        The network settings.
+        The network properties.
         """
-        return pulumi.get(self, "network_settings")
+        return pulumi.get(self, "network_properties")
 
     @property
     @pulumi.getter(name="osType")
@@ -1322,38 +1334,38 @@ class LinuxOperatingSystemProfileResponse(dict):
 
 
 @pulumi.output_type
-class NetworkSettingsResponse(dict):
+class NetworkPropertiesResponse(dict):
     """
-    The network settings.
+    The network properties.
     """
     def __init__(__self__, *,
-                 outbound_only_public_network_access_type: Optional[str] = None,
-                 public_network_access: Optional[str] = None):
+                 private_link: Optional[str] = None,
+                 resource_provider_connection: Optional[str] = None):
         """
-        The network settings.
-        :param str outbound_only_public_network_access_type: The mechanism through which the cluster will have outbound access to the public network.
-        :param str public_network_access: Specifies whether public network access is enabled for inbound and outbound, or outbound only.
+        The network properties.
+        :param str private_link: Indicates whether or not private link is enabled.
+        :param str resource_provider_connection: The direction for the resource provider connection.
         """
-        if outbound_only_public_network_access_type is not None:
-            pulumi.set(__self__, "outbound_only_public_network_access_type", outbound_only_public_network_access_type)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+        if private_link is not None:
+            pulumi.set(__self__, "private_link", private_link)
+        if resource_provider_connection is not None:
+            pulumi.set(__self__, "resource_provider_connection", resource_provider_connection)
 
     @property
-    @pulumi.getter(name="outboundOnlyPublicNetworkAccessType")
-    def outbound_only_public_network_access_type(self) -> Optional[str]:
+    @pulumi.getter(name="privateLink")
+    def private_link(self) -> Optional[str]:
         """
-        The mechanism through which the cluster will have outbound access to the public network.
+        Indicates whether or not private link is enabled.
         """
-        return pulumi.get(self, "outbound_only_public_network_access_type")
+        return pulumi.get(self, "private_link")
 
     @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
+    @pulumi.getter(name="resourceProviderConnection")
+    def resource_provider_connection(self) -> Optional[str]:
         """
-        Specifies whether public network access is enabled for inbound and outbound, or outbound only.
+        The direction for the resource provider connection.
         """
-        return pulumi.get(self, "public_network_access")
+        return pulumi.get(self, "resource_provider_connection")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         /// <summary>
         /// A system generated property that denotes the last updated timestamp of the resource.
         /// </summary>
-        public readonly object Ts;
+        public readonly double Ts;
 
         [OutputConstructor]
         private SqlTriggerGetPropertiesResponseResource(
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
 
             string? triggerType,
 
-            object ts)
+            double ts)
         {
             Body = body;
             Etag = etag;

@@ -20,6 +20,7 @@ func TestAccSimpleGo(t *testing.T) {
 }
 
 func TestAccAksGo(t *testing.T) {
+	t.Skip("Disabled due to https://github.com/pulumi/pulumi-azure-nextgen-provider/issues/304")
 	test := getGoBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "go-aks"),

@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.Cache.V20180301
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:LinkedServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:LinkedServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

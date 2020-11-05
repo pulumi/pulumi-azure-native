@@ -11334,7 +11334,7 @@ type RestoreParameters struct {
 	DatabasesToRestore []DatabaseRestoreResource `pulumi:"databasesToRestore"`
 	// Describes the mode of the restore.
 	RestoreMode *string `pulumi:"restoreMode"`
-	// Path of the source account from which the restore has to be initiated
+	// The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
 	RestoreSource *string `pulumi:"restoreSource"`
 	// Time to which the account has to be restored (ISO-8601 format).
 	RestoreTimestampInUtc *string `pulumi:"restoreTimestampInUtc"`
@@ -11357,7 +11357,7 @@ type RestoreParametersArgs struct {
 	DatabasesToRestore DatabaseRestoreResourceArrayInput `pulumi:"databasesToRestore"`
 	// Describes the mode of the restore.
 	RestoreMode pulumi.StringPtrInput `pulumi:"restoreMode"`
-	// Path of the source account from which the restore has to be initiated
+	// The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
 	RestoreSource pulumi.StringPtrInput `pulumi:"restoreSource"`
 	// Time to which the account has to be restored (ISO-8601 format).
 	RestoreTimestampInUtc pulumi.StringPtrInput `pulumi:"restoreTimestampInUtc"`
@@ -11451,7 +11451,7 @@ func (o RestoreParametersOutput) RestoreMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestoreParameters) *string { return v.RestoreMode }).(pulumi.StringPtrOutput)
 }
 
-// Path of the source account from which the restore has to be initiated
+// The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
 func (o RestoreParametersOutput) RestoreSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestoreParameters) *string { return v.RestoreSource }).(pulumi.StringPtrOutput)
 }
@@ -11499,7 +11499,7 @@ func (o RestoreParametersPtrOutput) RestoreMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Path of the source account from which the restore has to be initiated
+// The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
 func (o RestoreParametersPtrOutput) RestoreSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestoreParameters) *string {
 		if v == nil {
@@ -11525,7 +11525,7 @@ type RestoreParametersResponse struct {
 	DatabasesToRestore []DatabaseRestoreResourceResponse `pulumi:"databasesToRestore"`
 	// Describes the mode of the restore.
 	RestoreMode *string `pulumi:"restoreMode"`
-	// Path of the source account from which the restore has to be initiated
+	// The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
 	RestoreSource *string `pulumi:"restoreSource"`
 	// Time to which the account has to be restored (ISO-8601 format).
 	RestoreTimestampInUtc *string `pulumi:"restoreTimestampInUtc"`
@@ -11548,7 +11548,7 @@ type RestoreParametersResponseArgs struct {
 	DatabasesToRestore DatabaseRestoreResourceResponseArrayInput `pulumi:"databasesToRestore"`
 	// Describes the mode of the restore.
 	RestoreMode pulumi.StringPtrInput `pulumi:"restoreMode"`
-	// Path of the source account from which the restore has to be initiated
+	// The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
 	RestoreSource pulumi.StringPtrInput `pulumi:"restoreSource"`
 	// Time to which the account has to be restored (ISO-8601 format).
 	RestoreTimestampInUtc pulumi.StringPtrInput `pulumi:"restoreTimestampInUtc"`
@@ -11642,7 +11642,7 @@ func (o RestoreParametersResponseOutput) RestoreMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestoreParametersResponse) *string { return v.RestoreMode }).(pulumi.StringPtrOutput)
 }
 
-// Path of the source account from which the restore has to be initiated
+// The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
 func (o RestoreParametersResponseOutput) RestoreSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestoreParametersResponse) *string { return v.RestoreSource }).(pulumi.StringPtrOutput)
 }
@@ -11690,7 +11690,7 @@ func (o RestoreParametersResponsePtrOutput) RestoreMode() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Path of the source account from which the restore has to be initiated
+// The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
 func (o RestoreParametersResponsePtrOutput) RestoreSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestoreParametersResponse) *string {
 		if v == nil {

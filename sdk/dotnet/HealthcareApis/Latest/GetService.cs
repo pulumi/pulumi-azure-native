@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
-        public readonly Outputs.ResourceResponseIdentity? Identity;
+        public readonly Outputs.ServicesResourceResponseIdentity? Identity;
         /// <summary>
         /// The kind of the service.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
         private GetServiceResult(
             string? etag,
 
-            Outputs.ResourceResponseIdentity? identity,
+            Outputs.ServicesResourceResponseIdentity? identity,
 
             string kind,
 

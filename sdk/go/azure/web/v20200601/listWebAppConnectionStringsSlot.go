@@ -31,6 +31,8 @@ type ListWebAppConnectionStringsSlotResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
+	// Connection strings.
+	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

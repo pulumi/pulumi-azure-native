@@ -17,11 +17,13 @@ __all__ = [
     'AutoHealCustomActionResponse',
     'AutoHealRulesResponse',
     'AutoHealTriggersResponse',
+    'AzureStorageInfoValueResponseResult',
     'BackupItemResponseResult',
     'BackupScheduleResponseResult',
     'CapabilityResponse',
     'CloningInfoResponse',
     'ConnStringInfoResponse',
+    'ConnStringValueTypePairResponseResult',
     'CorsSettingsResponse',
     'DatabaseBackupSettingResponseResult',
     'ExperimentsResponse',
@@ -320,6 +322,88 @@ class AutoHealTriggersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureStorageInfoValueResponseResult(dict):
+    """
+    Azure Files or Blob Storage access information value for dictionary storage.
+    """
+    def __init__(__self__, *,
+                 state: str,
+                 access_key: Optional[str] = None,
+                 account_name: Optional[str] = None,
+                 mount_path: Optional[str] = None,
+                 share_name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Azure Files or Blob Storage access information value for dictionary storage.
+        :param str state: State of the storage account.
+        :param str access_key: Access key for the storage account.
+        :param str account_name: Name of the storage account.
+        :param str mount_path: Path to mount the storage within the site's runtime environment.
+        :param str share_name: Name of the file share (container name, for Blob storage).
+        :param str type: Type of storage.
+        """
+        pulumi.set(__self__, "state", state)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of the storage account.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[str]:
+        """
+        Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        """
+        Name of the storage account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[str]:
+        """
+        Path to mount the storage within the site's runtime environment.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> Optional[str]:
+        """
+        Name of the file share (container name, for Blob storage).
+        """
+        return pulumi.get(self, "share_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of storage.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -852,6 +936,39 @@ class ConnStringInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnStringValueTypePairResponseResult(dict):
+    """
+    Database connection string value to type pair.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 value: str):
+        """
+        Database connection string value to type pair.
+        :param str type: Type of database.
+        :param str value: Value of pair.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of database.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of pair.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1983,6 +2100,8 @@ class SiteConfigResponse(dict):
                  use32_bit_worker_process: Optional[bool] = None,
                  virtual_applications: Optional[Sequence['outputs.VirtualApplicationResponse']] = None,
                  vnet_name: Optional[str] = None,
+                 vnet_private_ports_count: Optional[int] = None,
+                 vnet_route_all_enabled: Optional[bool] = None,
                  web_sockets_enabled: Optional[bool] = None,
                  windows_fx_version: Optional[str] = None,
                  x_managed_service_identity_id: Optional[int] = None):
@@ -2042,6 +2161,8 @@ class SiteConfigResponse(dict):
         :param bool use32_bit_worker_process: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
         :param Sequence['VirtualApplicationResponseArgs'] virtual_applications: Virtual applications.
         :param str vnet_name: Virtual Network name.
+        :param int vnet_private_ports_count: The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        :param bool vnet_route_all_enabled: Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         :param bool web_sockets_enabled: <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
         :param str windows_fx_version: Xenon App Framework and version
         :param int x_managed_service_identity_id: Explicit Managed Service Identity Id
@@ -2151,6 +2272,10 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "virtual_applications", virtual_applications)
         if vnet_name is not None:
             pulumi.set(__self__, "vnet_name", vnet_name)
+        if vnet_private_ports_count is not None:
+            pulumi.set(__self__, "vnet_private_ports_count", vnet_private_ports_count)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if web_sockets_enabled is not None:
             pulumi.set(__self__, "web_sockets_enabled", web_sockets_enabled)
         if windows_fx_version is not None:
@@ -2582,6 +2707,22 @@ class SiteConfigResponse(dict):
         Virtual Network name.
         """
         return pulumi.get(self, "vnet_name")
+
+    @property
+    @pulumi.getter(name="vnetPrivatePortsCount")
+    def vnet_private_ports_count(self) -> Optional[int]:
+        """
+        The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        """
+        return pulumi.get(self, "vnet_private_ports_count")
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[bool]:
+        """
+        Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
 
     @property
     @pulumi.getter(name="webSocketsEnabled")

@@ -9,7 +9,6 @@ from . import (
     v20150401,
     v20150501,
     v20160301,
-    v20170301preview,
     v20170401,
     v20170501preview,
     v20171001,
@@ -28,4 +27,5 @@ from . import (
     v20200210preview,
     v20200301preview,
     v20200501preview,
+    v20201005preview,
 )

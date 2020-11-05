@@ -90,6 +90,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20190916
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/latest:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20180820preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200315:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200330:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

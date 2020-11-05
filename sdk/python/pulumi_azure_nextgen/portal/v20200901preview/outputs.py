@@ -16,6 +16,7 @@ __all__ = [
     'MarkdownPartMetadataResponse',
     'MarkdownPartMetadataResponseContent',
     'MarkdownPartMetadataResponseSettings',
+    'ViolationResponseResult',
 ]
 
 @pulumi.output_type
@@ -272,5 +273,49 @@ class MarkdownPartMetadataResponseSettings(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ViolationResponseResult(dict):
+    """
+    Violation information.
+    """
+    def __init__(__self__, *,
+                 error_message: str,
+                 id: str,
+                 user_id: str):
+        """
+        Violation information.
+        :param str error_message: Error message.
+        :param str id: Id of the item that violates tenant configuration.
+        :param str user_id: Id of the user who owns violated item.
+        """
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        Error message.
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the item that violates tenant configuration.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
+        """
+        Id of the user who owns violated item.
+        """
+        return pulumi.get(self, "user_id")
 
 

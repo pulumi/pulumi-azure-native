@@ -28,6 +28,14 @@ func TestAccSimpleDotnet(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccSql(t *testing.T) {
+	test := getCsharpBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "cs-sql"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
 
 func getCsharpBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)

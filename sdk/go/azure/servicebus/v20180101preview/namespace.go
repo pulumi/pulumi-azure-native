@@ -26,6 +26,8 @@ type Namespace struct {
 	MetricId pulumi.StringOutput `pulumi:"metricId"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// ObjectId from the KeyVault
+	PrincipalId pulumi.StringPtrOutput `pulumi:"principalId"`
 	// Provisioning state of the namespace.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
@@ -34,6 +36,8 @@ type Namespace struct {
 	Sku SBSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// TenantId from the KeyVault
+	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The time the namespace was updated.
@@ -106,6 +110,8 @@ type namespaceState struct {
 	MetricId *string `pulumi:"metricId"`
 	// Resource name
 	Name *string `pulumi:"name"`
+	// ObjectId from the KeyVault
+	PrincipalId *string `pulumi:"principalId"`
 	// Provisioning state of the namespace.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
@@ -114,6 +120,8 @@ type namespaceState struct {
 	Sku *SBSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// TenantId from the KeyVault
+	TenantId *string `pulumi:"tenantId"`
 	// Resource type
 	Type *string `pulumi:"type"`
 	// The time the namespace was updated.
@@ -135,6 +143,8 @@ type NamespaceState struct {
 	MetricId pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
+	// ObjectId from the KeyVault
+	PrincipalId pulumi.StringPtrInput
 	// Provisioning state of the namespace.
 	ProvisioningState pulumi.StringPtrInput
 	// Endpoint you can use to perform Service Bus operations.
@@ -143,6 +153,8 @@ type NamespaceState struct {
 	Sku SBSkuResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// TenantId from the KeyVault
+	TenantId pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 	// The time the namespace was updated.
@@ -164,12 +176,18 @@ type namespaceArgs struct {
 	Location string `pulumi:"location"`
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
+	// ObjectId from the KeyVault
+	PrincipalId *string `pulumi:"principalId"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Properties of SKU
 	Sku *SBSku `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// TenantId from the KeyVault
+	TenantId *string `pulumi:"tenantId"`
+	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+	Type *string `pulumi:"type"`
 	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -184,12 +202,18 @@ type NamespaceArgs struct {
 	Location pulumi.StringInput
 	// The namespace name.
 	NamespaceName pulumi.StringInput
+	// ObjectId from the KeyVault
+	PrincipalId pulumi.StringPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Properties of SKU
 	Sku SBSkuPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// TenantId from the KeyVault
+	TenantId pulumi.StringPtrInput
+	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+	Type pulumi.StringPtrInput
 	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
 	ZoneRedundant pulumi.BoolPtrInput
 }

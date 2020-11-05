@@ -630,6 +630,8 @@ type CodeRepository struct {
 	DefaultBranch string `pulumi:"defaultBranch"`
 	// Unique immutable identifier of the code repository.
 	Id string `pulumi:"id"`
+	// Repository-specific properties.
+	Properties map[string]string `pulumi:"properties"`
 	// Type of code repository.
 	RepositoryType string `pulumi:"repositoryType"`
 }
@@ -653,6 +655,8 @@ type CodeRepositoryArgs struct {
 	DefaultBranch pulumi.StringInput `pulumi:"defaultBranch"`
 	// Unique immutable identifier of the code repository.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Repository-specific properties.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Type of code repository.
 	RepositoryType pulumi.StringInput `pulumi:"repositoryType"`
 }
@@ -750,6 +754,11 @@ func (o CodeRepositoryOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepository) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Repository-specific properties.
+func (o CodeRepositoryOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CodeRepository) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
 // Type of code repository.
 func (o CodeRepositoryOutput) RepositoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepository) string { return v.RepositoryType }).(pulumi.StringOutput)
@@ -803,6 +812,16 @@ func (o CodeRepositoryPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Repository-specific properties.
+func (o CodeRepositoryPtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CodeRepository) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
 // Type of code repository.
 func (o CodeRepositoryPtrOutput) RepositoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepository) *string {
@@ -821,6 +840,8 @@ type CodeRepositoryResponse struct {
 	DefaultBranch string `pulumi:"defaultBranch"`
 	// Unique immutable identifier of the code repository.
 	Id string `pulumi:"id"`
+	// Repository-specific properties.
+	Properties map[string]string `pulumi:"properties"`
 	// Type of code repository.
 	RepositoryType string `pulumi:"repositoryType"`
 }
@@ -844,6 +865,8 @@ type CodeRepositoryResponseArgs struct {
 	DefaultBranch pulumi.StringInput `pulumi:"defaultBranch"`
 	// Unique immutable identifier of the code repository.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Repository-specific properties.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Type of code repository.
 	RepositoryType pulumi.StringInput `pulumi:"repositoryType"`
 }
@@ -941,6 +964,11 @@ func (o CodeRepositoryResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepositoryResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Repository-specific properties.
+func (o CodeRepositoryResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CodeRepositoryResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
 // Type of code repository.
 func (o CodeRepositoryResponseOutput) RepositoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepositoryResponse) string { return v.RepositoryType }).(pulumi.StringOutput)
@@ -992,6 +1020,16 @@ func (o CodeRepositoryResponsePtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// Repository-specific properties.
+func (o CodeRepositoryResponsePtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CodeRepositoryResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
 }
 
 // Type of code repository.

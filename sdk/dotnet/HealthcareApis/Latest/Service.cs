@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceResponseIdentity?> Identity { get; private set; } = null!;
+        public Output<Outputs.ServicesResourceResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the service.
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20180820preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20190916:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200315:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200330:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +124,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ServicesResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The kind of the service.

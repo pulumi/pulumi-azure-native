@@ -2910,8 +2910,8 @@ type ClusterCreateProperties struct {
 	KafkaRestProperties *KafkaRestProperties `pulumi:"kafkaRestProperties"`
 	// The minimal supported tls version.
 	MinSupportedTlsVersion *string `pulumi:"minSupportedTlsVersion"`
-	// The network settings.
-	NetworkSettings *NetworkSettings `pulumi:"networkSettings"`
+	// The network properties.
+	NetworkProperties *NetworkProperties `pulumi:"networkProperties"`
 	// The type of operating system.
 	OsType *string `pulumi:"osType"`
 	// The security profile.
@@ -2949,8 +2949,8 @@ type ClusterCreatePropertiesArgs struct {
 	KafkaRestProperties KafkaRestPropertiesPtrInput `pulumi:"kafkaRestProperties"`
 	// The minimal supported tls version.
 	MinSupportedTlsVersion pulumi.StringPtrInput `pulumi:"minSupportedTlsVersion"`
-	// The network settings.
-	NetworkSettings NetworkSettingsPtrInput `pulumi:"networkSettings"`
+	// The network properties.
+	NetworkProperties NetworkPropertiesPtrInput `pulumi:"networkProperties"`
 	// The type of operating system.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// The security profile.
@@ -3074,9 +3074,9 @@ func (o ClusterCreatePropertiesOutput) MinSupportedTlsVersion() pulumi.StringPtr
 	return o.ApplyT(func(v ClusterCreateProperties) *string { return v.MinSupportedTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The network settings.
-func (o ClusterCreatePropertiesOutput) NetworkSettings() NetworkSettingsPtrOutput {
-	return o.ApplyT(func(v ClusterCreateProperties) *NetworkSettings { return v.NetworkSettings }).(NetworkSettingsPtrOutput)
+// The network properties.
+func (o ClusterCreatePropertiesOutput) NetworkProperties() NetworkPropertiesPtrOutput {
+	return o.ApplyT(func(v ClusterCreateProperties) *NetworkProperties { return v.NetworkProperties }).(NetworkPropertiesPtrOutput)
 }
 
 // The type of operating system.
@@ -3187,14 +3187,14 @@ func (o ClusterCreatePropertiesPtrOutput) MinSupportedTlsVersion() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network settings.
-func (o ClusterCreatePropertiesPtrOutput) NetworkSettings() NetworkSettingsPtrOutput {
-	return o.ApplyT(func(v *ClusterCreateProperties) *NetworkSettings {
+// The network properties.
+func (o ClusterCreatePropertiesPtrOutput) NetworkProperties() NetworkPropertiesPtrOutput {
+	return o.ApplyT(func(v *ClusterCreateProperties) *NetworkProperties {
 		if v == nil {
 			return nil
 		}
-		return v.NetworkSettings
-	}).(NetworkSettingsPtrOutput)
+		return v.NetworkProperties
+	}).(NetworkPropertiesPtrOutput)
 }
 
 // The type of operating system.
@@ -3623,6 +3623,8 @@ func (o ClusterDefinitionResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 type ClusterGetPropertiesResponse struct {
 	// The cluster definition.
 	ClusterDefinition ClusterDefinitionResponse `pulumi:"clusterDefinition"`
+	// The cluster id.
+	ClusterId *string `pulumi:"clusterId"`
 	// The state of the cluster.
 	ClusterState *string `pulumi:"clusterState"`
 	// The version of the cluster.
@@ -3643,8 +3645,8 @@ type ClusterGetPropertiesResponse struct {
 	KafkaRestProperties *KafkaRestPropertiesResponse `pulumi:"kafkaRestProperties"`
 	// The minimal supported tls version.
 	MinSupportedTlsVersion *string `pulumi:"minSupportedTlsVersion"`
-	// The network settings.
-	NetworkSettings *NetworkSettingsResponse `pulumi:"networkSettings"`
+	// The network properties.
+	NetworkProperties *NetworkPropertiesResponse `pulumi:"networkProperties"`
 	// The type of operating system.
 	OsType *string `pulumi:"osType"`
 	// The provisioning state, which only appears in the response.
@@ -3672,6 +3674,8 @@ type ClusterGetPropertiesResponseInput interface {
 type ClusterGetPropertiesResponseArgs struct {
 	// The cluster definition.
 	ClusterDefinition ClusterDefinitionResponseInput `pulumi:"clusterDefinition"`
+	// The cluster id.
+	ClusterId pulumi.StringPtrInput `pulumi:"clusterId"`
 	// The state of the cluster.
 	ClusterState pulumi.StringPtrInput `pulumi:"clusterState"`
 	// The version of the cluster.
@@ -3692,8 +3696,8 @@ type ClusterGetPropertiesResponseArgs struct {
 	KafkaRestProperties KafkaRestPropertiesResponsePtrInput `pulumi:"kafkaRestProperties"`
 	// The minimal supported tls version.
 	MinSupportedTlsVersion pulumi.StringPtrInput `pulumi:"minSupportedTlsVersion"`
-	// The network settings.
-	NetworkSettings NetworkSettingsResponsePtrInput `pulumi:"networkSettings"`
+	// The network properties.
+	NetworkProperties NetworkPropertiesResponsePtrInput `pulumi:"networkProperties"`
 	// The type of operating system.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// The provisioning state, which only appears in the response.
@@ -3789,6 +3793,11 @@ func (o ClusterGetPropertiesResponseOutput) ClusterDefinition() ClusterDefinitio
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) ClusterDefinitionResponse { return v.ClusterDefinition }).(ClusterDefinitionResponseOutput)
 }
 
+// The cluster id.
+func (o ClusterGetPropertiesResponseOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterGetPropertiesResponse) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
+}
+
 // The state of the cluster.
 func (o ClusterGetPropertiesResponseOutput) ClusterState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) *string { return v.ClusterState }).(pulumi.StringPtrOutput)
@@ -3843,9 +3852,9 @@ func (o ClusterGetPropertiesResponseOutput) MinSupportedTlsVersion() pulumi.Stri
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) *string { return v.MinSupportedTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The network settings.
-func (o ClusterGetPropertiesResponseOutput) NetworkSettings() NetworkSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ClusterGetPropertiesResponse) *NetworkSettingsResponse { return v.NetworkSettings }).(NetworkSettingsResponsePtrOutput)
+// The network properties.
+func (o ClusterGetPropertiesResponseOutput) NetworkProperties() NetworkPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ClusterGetPropertiesResponse) *NetworkPropertiesResponse { return v.NetworkProperties }).(NetworkPropertiesResponsePtrOutput)
 }
 
 // The type of operating system.
@@ -3899,6 +3908,16 @@ func (o ClusterGetPropertiesResponsePtrOutput) ClusterDefinition() ClusterDefini
 		}
 		return &v.ClusterDefinition
 	}).(ClusterDefinitionResponsePtrOutput)
+}
+
+// The cluster id.
+func (o ClusterGetPropertiesResponsePtrOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The state of the cluster.
@@ -4001,14 +4020,14 @@ func (o ClusterGetPropertiesResponsePtrOutput) MinSupportedTlsVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network settings.
-func (o ClusterGetPropertiesResponsePtrOutput) NetworkSettings() NetworkSettingsResponsePtrOutput {
-	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *NetworkSettingsResponse {
+// The network properties.
+func (o ClusterGetPropertiesResponsePtrOutput) NetworkProperties() NetworkPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *NetworkPropertiesResponse {
 		if v == nil {
 			return nil
 		}
-		return v.NetworkSettings
-	}).(NetworkSettingsResponsePtrOutput)
+		return v.NetworkProperties
+	}).(NetworkPropertiesResponsePtrOutput)
 }
 
 // The type of operating system.
@@ -6931,309 +6950,309 @@ func (o LinuxOperatingSystemProfileResponsePtrOutput) Username() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network settings.
-type NetworkSettings struct {
-	// The mechanism through which the cluster will have outbound access to the public network.
-	OutboundOnlyPublicNetworkAccessType *string `pulumi:"outboundOnlyPublicNetworkAccessType"`
-	// Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+// The network properties.
+type NetworkProperties struct {
+	// Indicates whether or not private link is enabled.
+	PrivateLink *string `pulumi:"privateLink"`
+	// The direction for the resource provider connection.
+	ResourceProviderConnection *string `pulumi:"resourceProviderConnection"`
 }
 
-// NetworkSettingsInput is an input type that accepts NetworkSettingsArgs and NetworkSettingsOutput values.
-// You can construct a concrete instance of `NetworkSettingsInput` via:
+// NetworkPropertiesInput is an input type that accepts NetworkPropertiesArgs and NetworkPropertiesOutput values.
+// You can construct a concrete instance of `NetworkPropertiesInput` via:
 //
-//          NetworkSettingsArgs{...}
-type NetworkSettingsInput interface {
+//          NetworkPropertiesArgs{...}
+type NetworkPropertiesInput interface {
 	pulumi.Input
 
-	ToNetworkSettingsOutput() NetworkSettingsOutput
-	ToNetworkSettingsOutputWithContext(context.Context) NetworkSettingsOutput
+	ToNetworkPropertiesOutput() NetworkPropertiesOutput
+	ToNetworkPropertiesOutputWithContext(context.Context) NetworkPropertiesOutput
 }
 
-// The network settings.
-type NetworkSettingsArgs struct {
-	// The mechanism through which the cluster will have outbound access to the public network.
-	OutboundOnlyPublicNetworkAccessType pulumi.StringPtrInput `pulumi:"outboundOnlyPublicNetworkAccessType"`
-	// Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+// The network properties.
+type NetworkPropertiesArgs struct {
+	// Indicates whether or not private link is enabled.
+	PrivateLink pulumi.StringPtrInput `pulumi:"privateLink"`
+	// The direction for the resource provider connection.
+	ResourceProviderConnection pulumi.StringPtrInput `pulumi:"resourceProviderConnection"`
 }
 
-func (NetworkSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSettings)(nil)).Elem()
+func (NetworkPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProperties)(nil)).Elem()
 }
 
-func (i NetworkSettingsArgs) ToNetworkSettingsOutput() NetworkSettingsOutput {
-	return i.ToNetworkSettingsOutputWithContext(context.Background())
+func (i NetworkPropertiesArgs) ToNetworkPropertiesOutput() NetworkPropertiesOutput {
+	return i.ToNetworkPropertiesOutputWithContext(context.Background())
 }
 
-func (i NetworkSettingsArgs) ToNetworkSettingsOutputWithContext(ctx context.Context) NetworkSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsOutput)
+func (i NetworkPropertiesArgs) ToNetworkPropertiesOutputWithContext(ctx context.Context) NetworkPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPropertiesOutput)
 }
 
-func (i NetworkSettingsArgs) ToNetworkSettingsPtrOutput() NetworkSettingsPtrOutput {
-	return i.ToNetworkSettingsPtrOutputWithContext(context.Background())
+func (i NetworkPropertiesArgs) ToNetworkPropertiesPtrOutput() NetworkPropertiesPtrOutput {
+	return i.ToNetworkPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i NetworkSettingsArgs) ToNetworkSettingsPtrOutputWithContext(ctx context.Context) NetworkSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsOutput).ToNetworkSettingsPtrOutputWithContext(ctx)
+func (i NetworkPropertiesArgs) ToNetworkPropertiesPtrOutputWithContext(ctx context.Context) NetworkPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPropertiesOutput).ToNetworkPropertiesPtrOutputWithContext(ctx)
 }
 
-// NetworkSettingsPtrInput is an input type that accepts NetworkSettingsArgs, NetworkSettingsPtr and NetworkSettingsPtrOutput values.
-// You can construct a concrete instance of `NetworkSettingsPtrInput` via:
+// NetworkPropertiesPtrInput is an input type that accepts NetworkPropertiesArgs, NetworkPropertiesPtr and NetworkPropertiesPtrOutput values.
+// You can construct a concrete instance of `NetworkPropertiesPtrInput` via:
 //
-//          NetworkSettingsArgs{...}
+//          NetworkPropertiesArgs{...}
 //
 //  or:
 //
 //          nil
-type NetworkSettingsPtrInput interface {
+type NetworkPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToNetworkSettingsPtrOutput() NetworkSettingsPtrOutput
-	ToNetworkSettingsPtrOutputWithContext(context.Context) NetworkSettingsPtrOutput
+	ToNetworkPropertiesPtrOutput() NetworkPropertiesPtrOutput
+	ToNetworkPropertiesPtrOutputWithContext(context.Context) NetworkPropertiesPtrOutput
 }
 
-type networkSettingsPtrType NetworkSettingsArgs
+type networkPropertiesPtrType NetworkPropertiesArgs
 
-func NetworkSettingsPtr(v *NetworkSettingsArgs) NetworkSettingsPtrInput {
-	return (*networkSettingsPtrType)(v)
+func NetworkPropertiesPtr(v *NetworkPropertiesArgs) NetworkPropertiesPtrInput {
+	return (*networkPropertiesPtrType)(v)
 }
 
-func (*networkSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkSettings)(nil)).Elem()
+func (*networkPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProperties)(nil)).Elem()
 }
 
-func (i *networkSettingsPtrType) ToNetworkSettingsPtrOutput() NetworkSettingsPtrOutput {
-	return i.ToNetworkSettingsPtrOutputWithContext(context.Background())
+func (i *networkPropertiesPtrType) ToNetworkPropertiesPtrOutput() NetworkPropertiesPtrOutput {
+	return i.ToNetworkPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *networkSettingsPtrType) ToNetworkSettingsPtrOutputWithContext(ctx context.Context) NetworkSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsPtrOutput)
+func (i *networkPropertiesPtrType) ToNetworkPropertiesPtrOutputWithContext(ctx context.Context) NetworkPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPropertiesPtrOutput)
 }
 
-// The network settings.
-type NetworkSettingsOutput struct{ *pulumi.OutputState }
+// The network properties.
+type NetworkPropertiesOutput struct{ *pulumi.OutputState }
 
-func (NetworkSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSettings)(nil)).Elem()
+func (NetworkPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProperties)(nil)).Elem()
 }
 
-func (o NetworkSettingsOutput) ToNetworkSettingsOutput() NetworkSettingsOutput {
+func (o NetworkPropertiesOutput) ToNetworkPropertiesOutput() NetworkPropertiesOutput {
 	return o
 }
 
-func (o NetworkSettingsOutput) ToNetworkSettingsOutputWithContext(ctx context.Context) NetworkSettingsOutput {
+func (o NetworkPropertiesOutput) ToNetworkPropertiesOutputWithContext(ctx context.Context) NetworkPropertiesOutput {
 	return o
 }
 
-func (o NetworkSettingsOutput) ToNetworkSettingsPtrOutput() NetworkSettingsPtrOutput {
-	return o.ToNetworkSettingsPtrOutputWithContext(context.Background())
+func (o NetworkPropertiesOutput) ToNetworkPropertiesPtrOutput() NetworkPropertiesPtrOutput {
+	return o.ToNetworkPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o NetworkSettingsOutput) ToNetworkSettingsPtrOutputWithContext(ctx context.Context) NetworkSettingsPtrOutput {
-	return o.ApplyT(func(v NetworkSettings) *NetworkSettings {
+func (o NetworkPropertiesOutput) ToNetworkPropertiesPtrOutputWithContext(ctx context.Context) NetworkPropertiesPtrOutput {
+	return o.ApplyT(func(v NetworkProperties) *NetworkProperties {
 		return &v
-	}).(NetworkSettingsPtrOutput)
+	}).(NetworkPropertiesPtrOutput)
 }
 
-// The mechanism through which the cluster will have outbound access to the public network.
-func (o NetworkSettingsOutput) OutboundOnlyPublicNetworkAccessType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkSettings) *string { return v.OutboundOnlyPublicNetworkAccessType }).(pulumi.StringPtrOutput)
+// Indicates whether or not private link is enabled.
+func (o NetworkPropertiesOutput) PrivateLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProperties) *string { return v.PrivateLink }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-func (o NetworkSettingsOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkSettings) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+// The direction for the resource provider connection.
+func (o NetworkPropertiesOutput) ResourceProviderConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProperties) *string { return v.ResourceProviderConnection }).(pulumi.StringPtrOutput)
 }
 
-type NetworkSettingsPtrOutput struct{ *pulumi.OutputState }
+type NetworkPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (NetworkSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkSettings)(nil)).Elem()
+func (NetworkPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProperties)(nil)).Elem()
 }
 
-func (o NetworkSettingsPtrOutput) ToNetworkSettingsPtrOutput() NetworkSettingsPtrOutput {
+func (o NetworkPropertiesPtrOutput) ToNetworkPropertiesPtrOutput() NetworkPropertiesPtrOutput {
 	return o
 }
 
-func (o NetworkSettingsPtrOutput) ToNetworkSettingsPtrOutputWithContext(ctx context.Context) NetworkSettingsPtrOutput {
+func (o NetworkPropertiesPtrOutput) ToNetworkPropertiesPtrOutputWithContext(ctx context.Context) NetworkPropertiesPtrOutput {
 	return o
 }
 
-func (o NetworkSettingsPtrOutput) Elem() NetworkSettingsOutput {
-	return o.ApplyT(func(v *NetworkSettings) NetworkSettings { return *v }).(NetworkSettingsOutput)
+func (o NetworkPropertiesPtrOutput) Elem() NetworkPropertiesOutput {
+	return o.ApplyT(func(v *NetworkProperties) NetworkProperties { return *v }).(NetworkPropertiesOutput)
 }
 
-// The mechanism through which the cluster will have outbound access to the public network.
-func (o NetworkSettingsPtrOutput) OutboundOnlyPublicNetworkAccessType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkSettings) *string {
+// Indicates whether or not private link is enabled.
+func (o NetworkPropertiesPtrOutput) PrivateLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.OutboundOnlyPublicNetworkAccessType
+		return v.PrivateLink
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-func (o NetworkSettingsPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkSettings) *string {
+// The direction for the resource provider connection.
+func (o NetworkPropertiesPtrOutput) ResourceProviderConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PublicNetworkAccess
+		return v.ResourceProviderConnection
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network settings.
-type NetworkSettingsResponse struct {
-	// The mechanism through which the cluster will have outbound access to the public network.
-	OutboundOnlyPublicNetworkAccessType *string `pulumi:"outboundOnlyPublicNetworkAccessType"`
-	// Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+// The network properties.
+type NetworkPropertiesResponse struct {
+	// Indicates whether or not private link is enabled.
+	PrivateLink *string `pulumi:"privateLink"`
+	// The direction for the resource provider connection.
+	ResourceProviderConnection *string `pulumi:"resourceProviderConnection"`
 }
 
-// NetworkSettingsResponseInput is an input type that accepts NetworkSettingsResponseArgs and NetworkSettingsResponseOutput values.
-// You can construct a concrete instance of `NetworkSettingsResponseInput` via:
+// NetworkPropertiesResponseInput is an input type that accepts NetworkPropertiesResponseArgs and NetworkPropertiesResponseOutput values.
+// You can construct a concrete instance of `NetworkPropertiesResponseInput` via:
 //
-//          NetworkSettingsResponseArgs{...}
-type NetworkSettingsResponseInput interface {
+//          NetworkPropertiesResponseArgs{...}
+type NetworkPropertiesResponseInput interface {
 	pulumi.Input
 
-	ToNetworkSettingsResponseOutput() NetworkSettingsResponseOutput
-	ToNetworkSettingsResponseOutputWithContext(context.Context) NetworkSettingsResponseOutput
+	ToNetworkPropertiesResponseOutput() NetworkPropertiesResponseOutput
+	ToNetworkPropertiesResponseOutputWithContext(context.Context) NetworkPropertiesResponseOutput
 }
 
-// The network settings.
-type NetworkSettingsResponseArgs struct {
-	// The mechanism through which the cluster will have outbound access to the public network.
-	OutboundOnlyPublicNetworkAccessType pulumi.StringPtrInput `pulumi:"outboundOnlyPublicNetworkAccessType"`
-	// Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+// The network properties.
+type NetworkPropertiesResponseArgs struct {
+	// Indicates whether or not private link is enabled.
+	PrivateLink pulumi.StringPtrInput `pulumi:"privateLink"`
+	// The direction for the resource provider connection.
+	ResourceProviderConnection pulumi.StringPtrInput `pulumi:"resourceProviderConnection"`
 }
 
-func (NetworkSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSettingsResponse)(nil)).Elem()
+func (NetworkPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPropertiesResponse)(nil)).Elem()
 }
 
-func (i NetworkSettingsResponseArgs) ToNetworkSettingsResponseOutput() NetworkSettingsResponseOutput {
-	return i.ToNetworkSettingsResponseOutputWithContext(context.Background())
+func (i NetworkPropertiesResponseArgs) ToNetworkPropertiesResponseOutput() NetworkPropertiesResponseOutput {
+	return i.ToNetworkPropertiesResponseOutputWithContext(context.Background())
 }
 
-func (i NetworkSettingsResponseArgs) ToNetworkSettingsResponseOutputWithContext(ctx context.Context) NetworkSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsResponseOutput)
+func (i NetworkPropertiesResponseArgs) ToNetworkPropertiesResponseOutputWithContext(ctx context.Context) NetworkPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPropertiesResponseOutput)
 }
 
-func (i NetworkSettingsResponseArgs) ToNetworkSettingsResponsePtrOutput() NetworkSettingsResponsePtrOutput {
-	return i.ToNetworkSettingsResponsePtrOutputWithContext(context.Background())
+func (i NetworkPropertiesResponseArgs) ToNetworkPropertiesResponsePtrOutput() NetworkPropertiesResponsePtrOutput {
+	return i.ToNetworkPropertiesResponsePtrOutputWithContext(context.Background())
 }
 
-func (i NetworkSettingsResponseArgs) ToNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsResponseOutput).ToNetworkSettingsResponsePtrOutputWithContext(ctx)
+func (i NetworkPropertiesResponseArgs) ToNetworkPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPropertiesResponseOutput).ToNetworkPropertiesResponsePtrOutputWithContext(ctx)
 }
 
-// NetworkSettingsResponsePtrInput is an input type that accepts NetworkSettingsResponseArgs, NetworkSettingsResponsePtr and NetworkSettingsResponsePtrOutput values.
-// You can construct a concrete instance of `NetworkSettingsResponsePtrInput` via:
+// NetworkPropertiesResponsePtrInput is an input type that accepts NetworkPropertiesResponseArgs, NetworkPropertiesResponsePtr and NetworkPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `NetworkPropertiesResponsePtrInput` via:
 //
-//          NetworkSettingsResponseArgs{...}
+//          NetworkPropertiesResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type NetworkSettingsResponsePtrInput interface {
+type NetworkPropertiesResponsePtrInput interface {
 	pulumi.Input
 
-	ToNetworkSettingsResponsePtrOutput() NetworkSettingsResponsePtrOutput
-	ToNetworkSettingsResponsePtrOutputWithContext(context.Context) NetworkSettingsResponsePtrOutput
+	ToNetworkPropertiesResponsePtrOutput() NetworkPropertiesResponsePtrOutput
+	ToNetworkPropertiesResponsePtrOutputWithContext(context.Context) NetworkPropertiesResponsePtrOutput
 }
 
-type networkSettingsResponsePtrType NetworkSettingsResponseArgs
+type networkPropertiesResponsePtrType NetworkPropertiesResponseArgs
 
-func NetworkSettingsResponsePtr(v *NetworkSettingsResponseArgs) NetworkSettingsResponsePtrInput {
-	return (*networkSettingsResponsePtrType)(v)
+func NetworkPropertiesResponsePtr(v *NetworkPropertiesResponseArgs) NetworkPropertiesResponsePtrInput {
+	return (*networkPropertiesResponsePtrType)(v)
 }
 
-func (*networkSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkSettingsResponse)(nil)).Elem()
+func (*networkPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPropertiesResponse)(nil)).Elem()
 }
 
-func (i *networkSettingsResponsePtrType) ToNetworkSettingsResponsePtrOutput() NetworkSettingsResponsePtrOutput {
-	return i.ToNetworkSettingsResponsePtrOutputWithContext(context.Background())
+func (i *networkPropertiesResponsePtrType) ToNetworkPropertiesResponsePtrOutput() NetworkPropertiesResponsePtrOutput {
+	return i.ToNetworkPropertiesResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *networkSettingsResponsePtrType) ToNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsResponsePtrOutput)
+func (i *networkPropertiesResponsePtrType) ToNetworkPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPropertiesResponsePtrOutput)
 }
 
-// The network settings.
-type NetworkSettingsResponseOutput struct{ *pulumi.OutputState }
+// The network properties.
+type NetworkPropertiesResponseOutput struct{ *pulumi.OutputState }
 
-func (NetworkSettingsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSettingsResponse)(nil)).Elem()
+func (NetworkPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPropertiesResponse)(nil)).Elem()
 }
 
-func (o NetworkSettingsResponseOutput) ToNetworkSettingsResponseOutput() NetworkSettingsResponseOutput {
+func (o NetworkPropertiesResponseOutput) ToNetworkPropertiesResponseOutput() NetworkPropertiesResponseOutput {
 	return o
 }
 
-func (o NetworkSettingsResponseOutput) ToNetworkSettingsResponseOutputWithContext(ctx context.Context) NetworkSettingsResponseOutput {
+func (o NetworkPropertiesResponseOutput) ToNetworkPropertiesResponseOutputWithContext(ctx context.Context) NetworkPropertiesResponseOutput {
 	return o
 }
 
-func (o NetworkSettingsResponseOutput) ToNetworkSettingsResponsePtrOutput() NetworkSettingsResponsePtrOutput {
-	return o.ToNetworkSettingsResponsePtrOutputWithContext(context.Background())
+func (o NetworkPropertiesResponseOutput) ToNetworkPropertiesResponsePtrOutput() NetworkPropertiesResponsePtrOutput {
+	return o.ToNetworkPropertiesResponsePtrOutputWithContext(context.Background())
 }
 
-func (o NetworkSettingsResponseOutput) ToNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkSettingsResponsePtrOutput {
-	return o.ApplyT(func(v NetworkSettingsResponse) *NetworkSettingsResponse {
+func (o NetworkPropertiesResponseOutput) ToNetworkPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v NetworkPropertiesResponse) *NetworkPropertiesResponse {
 		return &v
-	}).(NetworkSettingsResponsePtrOutput)
+	}).(NetworkPropertiesResponsePtrOutput)
 }
 
-// The mechanism through which the cluster will have outbound access to the public network.
-func (o NetworkSettingsResponseOutput) OutboundOnlyPublicNetworkAccessType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkSettingsResponse) *string { return v.OutboundOnlyPublicNetworkAccessType }).(pulumi.StringPtrOutput)
+// Indicates whether or not private link is enabled.
+func (o NetworkPropertiesResponseOutput) PrivateLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkPropertiesResponse) *string { return v.PrivateLink }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-func (o NetworkSettingsResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkSettingsResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+// The direction for the resource provider connection.
+func (o NetworkPropertiesResponseOutput) ResourceProviderConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkPropertiesResponse) *string { return v.ResourceProviderConnection }).(pulumi.StringPtrOutput)
 }
 
-type NetworkSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+type NetworkPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (NetworkSettingsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkSettingsResponse)(nil)).Elem()
+func (NetworkPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPropertiesResponse)(nil)).Elem()
 }
 
-func (o NetworkSettingsResponsePtrOutput) ToNetworkSettingsResponsePtrOutput() NetworkSettingsResponsePtrOutput {
+func (o NetworkPropertiesResponsePtrOutput) ToNetworkPropertiesResponsePtrOutput() NetworkPropertiesResponsePtrOutput {
 	return o
 }
 
-func (o NetworkSettingsResponsePtrOutput) ToNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkSettingsResponsePtrOutput {
+func (o NetworkPropertiesResponsePtrOutput) ToNetworkPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkPropertiesResponsePtrOutput {
 	return o
 }
 
-func (o NetworkSettingsResponsePtrOutput) Elem() NetworkSettingsResponseOutput {
-	return o.ApplyT(func(v *NetworkSettingsResponse) NetworkSettingsResponse { return *v }).(NetworkSettingsResponseOutput)
+func (o NetworkPropertiesResponsePtrOutput) Elem() NetworkPropertiesResponseOutput {
+	return o.ApplyT(func(v *NetworkPropertiesResponse) NetworkPropertiesResponse { return *v }).(NetworkPropertiesResponseOutput)
 }
 
-// The mechanism through which the cluster will have outbound access to the public network.
-func (o NetworkSettingsResponsePtrOutput) OutboundOnlyPublicNetworkAccessType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkSettingsResponse) *string {
+// Indicates whether or not private link is enabled.
+func (o NetworkPropertiesResponsePtrOutput) PrivateLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.OutboundOnlyPublicNetworkAccessType
+		return v.PrivateLink
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-func (o NetworkSettingsResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkSettingsResponse) *string {
+// The direction for the resource provider connection.
+func (o NetworkPropertiesResponsePtrOutput) ResourceProviderConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PublicNetworkAccess
+		return v.ResourceProviderConnection
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10201,10 +10220,10 @@ func init() {
 	pulumi.RegisterOutputType(LinuxOperatingSystemProfilePtrOutput{})
 	pulumi.RegisterOutputType(LinuxOperatingSystemProfileResponseOutput{})
 	pulumi.RegisterOutputType(LinuxOperatingSystemProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(NetworkSettingsOutput{})
-	pulumi.RegisterOutputType(NetworkSettingsPtrOutput{})
-	pulumi.RegisterOutputType(NetworkSettingsResponseOutput{})
-	pulumi.RegisterOutputType(NetworkSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(NetworkPropertiesOutput{})
+	pulumi.RegisterOutputType(NetworkPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(NetworkPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(NetworkPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(OsProfileOutput{})
 	pulumi.RegisterOutputType(OsProfilePtrOutput{})
 	pulumi.RegisterOutputType(OsProfileResponseOutput{})

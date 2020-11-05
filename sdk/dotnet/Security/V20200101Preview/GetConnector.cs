@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         /// </summary>
         public readonly Union<Outputs.AwAssumeRoleAuthenticationDetailsPropertiesResponse, Union<Outputs.AwsCredsAuthenticationDetailsPropertiesResponse, Outputs.GcpCredentialsDetailsPropertiesResponse>>? AuthenticationDetails;
         /// <summary>
-        /// Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+        /// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         /// </summary>
         public readonly Outputs.HybridComputeSettingsPropertiesResponse? HybridComputeSettings;
         /// <summary>

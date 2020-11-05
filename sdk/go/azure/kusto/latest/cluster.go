@@ -24,6 +24,8 @@ type Cluster struct {
 	EnablePurge pulumi.BoolPtrOutput `pulumi:"enablePurge"`
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrOutput `pulumi:"enableStreamingIngest"`
+	// The engine type
+	EngineType pulumi.StringPtrOutput `pulumi:"engineType"`
 	// The identity of the cluster, if configured.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// KeyVault properties for the cluster encryption.
@@ -101,6 +103,9 @@ func NewCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200614:Cluster"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:kusto/v20200918:Cluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Cluster
@@ -135,6 +140,8 @@ type clusterState struct {
 	EnablePurge *bool `pulumi:"enablePurge"`
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
+	// The engine type
+	EngineType *string `pulumi:"engineType"`
 	// The identity of the cluster, if configured.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// KeyVault properties for the cluster encryption.
@@ -180,6 +187,8 @@ type ClusterState struct {
 	EnablePurge pulumi.BoolPtrInput
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrInput
+	// The engine type
+	EngineType pulumi.StringPtrInput
 	// The identity of the cluster, if configured.
 	Identity IdentityResponsePtrInput
 	// KeyVault properties for the cluster encryption.
@@ -229,6 +238,8 @@ type clusterArgs struct {
 	EnablePurge *bool `pulumi:"enablePurge"`
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
+	// The engine type
+	EngineType *string `pulumi:"engineType"`
 	// The identity of the cluster, if configured.
 	Identity *Identity `pulumi:"identity"`
 	// KeyVault properties for the cluster encryption.
@@ -263,6 +274,8 @@ type ClusterArgs struct {
 	EnablePurge pulumi.BoolPtrInput
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrInput
+	// The engine type
+	EngineType pulumi.StringPtrInput
 	// The identity of the cluster, if configured.
 	Identity IdentityPtrInput
 	// KeyVault properties for the cluster encryption.

@@ -23,6 +23,7 @@ class Workspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network: Optional[pulumi.Input[str]] = None,
+                 managed_virtual_network_settings: Optional[pulumi.Input[pulumi.InputType['ManagedVirtualNetworkSettingsArgs']]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
         :param pulumi.Input[str] managed_virtual_network: Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
+        :param pulumi.Input[pulumi.InputType['ManagedVirtualNetworkSettingsArgs']] managed_virtual_network_settings: Managed Virtual Network Settings
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: Private endpoint connections to the workspace
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sql_administrator_login: Login for workspace SQL active directory administrator
@@ -77,6 +79,7 @@ class Workspace(pulumi.CustomResource):
             __props__['location'] = location
             __props__['managed_resource_group_name'] = managed_resource_group_name
             __props__['managed_virtual_network'] = managed_virtual_network
+            __props__['managed_virtual_network_settings'] = managed_virtual_network_settings
             __props__['private_endpoint_connections'] = private_endpoint_connections
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -171,6 +174,14 @@ class Workspace(pulumi.CustomResource):
         Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
         """
         return pulumi.get(self, "managed_virtual_network")
+
+    @property
+    @pulumi.getter(name="managedVirtualNetworkSettings")
+    def managed_virtual_network_settings(self) -> pulumi.Output[Optional['outputs.ManagedVirtualNetworkSettingsResponse']]:
+        """
+        Managed Virtual Network Settings
+        """
+        return pulumi.get(self, "managed_virtual_network_settings")
 
     @property
     @pulumi.getter

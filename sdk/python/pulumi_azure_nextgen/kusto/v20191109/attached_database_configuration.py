@@ -78,7 +78,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/latest:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/latest:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttachedDatabaseConfiguration, __self__).__init__(
             'azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration',

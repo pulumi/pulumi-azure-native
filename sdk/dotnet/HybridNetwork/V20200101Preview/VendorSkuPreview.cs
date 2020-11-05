@@ -15,13 +15,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public partial class VendorSkuPreview : Pulumi.CustomResource
     {
         /// <summary>
-        /// Preview subscription id
+        /// The preview subscription ID.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource
+        /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class VendorSkuPreviewArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Preview subscription id.
+        /// Preview subscription ID.
         /// </summary>
         [Input("previewSubscription", required: true)]
         public Input<string> PreviewSubscription { get; set; } = null!;

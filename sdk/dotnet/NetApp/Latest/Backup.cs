@@ -15,6 +15,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     public partial class Backup : Pulumi.CustomResource
     {
         /// <summary>
+        /// UUID v4 used to identify the Backup
+        /// </summary>
+        [Output("backupId")]
+        public Output<string> BackupId { get; private set; } = null!;
+
+        /// <summary>
         /// Type of backup adhoc or scheduled
         /// </summary>
         [Output("backupType")]
@@ -87,7 +93,9 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Backup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Backup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

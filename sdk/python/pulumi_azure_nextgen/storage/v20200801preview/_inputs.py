@@ -241,23 +241,40 @@ class DateAfterCreationArgs:
 @pulumi.input_type
 class DateAfterModificationArgs:
     def __init__(__self__, *,
-                 days_after_modification_greater_than: pulumi.Input[float]):
+                 days_after_last_access_time_greater_than: Optional[pulumi.Input[float]] = None,
+                 days_after_modification_greater_than: Optional[pulumi.Input[float]] = None):
         """
         Object to define the number of days after last modification.
+        :param pulumi.Input[float] days_after_last_access_time_greater_than: Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
         :param pulumi.Input[float] days_after_modification_greater_than: Value indicating the age in days after last modification
         """
-        pulumi.set(__self__, "days_after_modification_greater_than", days_after_modification_greater_than)
+        if days_after_last_access_time_greater_than is not None:
+            pulumi.set(__self__, "days_after_last_access_time_greater_than", days_after_last_access_time_greater_than)
+        if days_after_modification_greater_than is not None:
+            pulumi.set(__self__, "days_after_modification_greater_than", days_after_modification_greater_than)
+
+    @property
+    @pulumi.getter(name="daysAfterLastAccessTimeGreaterThan")
+    def days_after_last_access_time_greater_than(self) -> Optional[pulumi.Input[float]]:
+        """
+        Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+        """
+        return pulumi.get(self, "days_after_last_access_time_greater_than")
+
+    @days_after_last_access_time_greater_than.setter
+    def days_after_last_access_time_greater_than(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "days_after_last_access_time_greater_than", value)
 
     @property
     @pulumi.getter(name="daysAfterModificationGreaterThan")
-    def days_after_modification_greater_than(self) -> pulumi.Input[float]:
+    def days_after_modification_greater_than(self) -> Optional[pulumi.Input[float]]:
         """
         Value indicating the age in days after last modification
         """
         return pulumi.get(self, "days_after_modification_greater_than")
 
     @days_after_modification_greater_than.setter
-    def days_after_modification_greater_than(self, value: pulumi.Input[float]):
+    def days_after_modification_greater_than(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "days_after_modification_greater_than", value)
 
 
@@ -646,16 +663,20 @@ class ManagementPolicyActionArgs:
 class ManagementPolicyBaseBlobArgs:
     def __init__(__self__, *,
                  delete: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
+                 enable_auto_tier_to_hot_from_cool: Optional[pulumi.Input[bool]] = None,
                  tier_to_archive: Optional[pulumi.Input['DateAfterModificationArgs']] = None,
                  tier_to_cool: Optional[pulumi.Input['DateAfterModificationArgs']] = None):
         """
         Management policy action for base blob.
         :param pulumi.Input['DateAfterModificationArgs'] delete: The function to delete the blob
+        :param pulumi.Input[bool] enable_auto_tier_to_hot_from_cool: This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
         :param pulumi.Input['DateAfterModificationArgs'] tier_to_archive: The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
         :param pulumi.Input['DateAfterModificationArgs'] tier_to_cool: The function to tier blobs to cool storage. Support blobs currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
+        if enable_auto_tier_to_hot_from_cool is not None:
+            pulumi.set(__self__, "enable_auto_tier_to_hot_from_cool", enable_auto_tier_to_hot_from_cool)
         if tier_to_archive is not None:
             pulumi.set(__self__, "tier_to_archive", tier_to_archive)
         if tier_to_cool is not None:
@@ -672,6 +693,18 @@ class ManagementPolicyBaseBlobArgs:
     @delete.setter
     def delete(self, value: Optional[pulumi.Input['DateAfterModificationArgs']]):
         pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter(name="enableAutoTierToHotFromCool")
+    def enable_auto_tier_to_hot_from_cool(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+        """
+        return pulumi.get(self, "enable_auto_tier_to_hot_from_cool")
+
+    @enable_auto_tier_to_hot_from_cool.setter
+    def enable_auto_tier_to_hot_from_cool(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_auto_tier_to_hot_from_cool", value)
 
     @property
     @pulumi.getter(name="tierToArchive")

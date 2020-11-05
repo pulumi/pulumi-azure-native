@@ -49,6 +49,10 @@ export class BigDataPool extends pulumi.CustomResource {
      */
     public readonly creationDate!: pulumi.Output<string | undefined>;
     /**
+     * List of custom libraries/packages associated with the spark pool.
+     */
+    public readonly customLibraries!: pulumi.Output<outputs.synapse.v20190601preview.LibraryInfoResponse[] | undefined>;
+    /**
      * The default folder where Spark logs will be written.
      */
     public readonly defaultSparkLogFolder!: pulumi.Output<string | undefined>;
@@ -84,6 +88,14 @@ export class BigDataPool extends pulumi.CustomResource {
      * The state of the Big Data pool.
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Whether session level library/package management is enabled or not.
+     */
+    public readonly sessionLevelPackagesEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Spark configuration file to specify additional properties
+     */
+    public readonly sparkConfigProperties!: pulumi.Output<outputs.synapse.v20190601preview.LibraryRequirementsResponse | undefined>;
     /**
      * The Spark events folder
      */
@@ -127,6 +139,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["autoScale"] = args ? args.autoScale : undefined;
             inputs["bigDataPoolName"] = args ? args.bigDataPoolName : undefined;
             inputs["creationDate"] = args ? args.creationDate : undefined;
+            inputs["customLibraries"] = args ? args.customLibraries : undefined;
             inputs["defaultSparkLogFolder"] = args ? args.defaultSparkLogFolder : undefined;
             inputs["force"] = args ? args.force : undefined;
             inputs["isComputeIsolationEnabled"] = args ? args.isComputeIsolationEnabled : undefined;
@@ -137,6 +150,8 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["nodeSizeFamily"] = args ? args.nodeSizeFamily : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sessionLevelPackagesEnabled"] = args ? args.sessionLevelPackagesEnabled : undefined;
+            inputs["sparkConfigProperties"] = args ? args.sparkConfigProperties : undefined;
             inputs["sparkEventsFolder"] = args ? args.sparkEventsFolder : undefined;
             inputs["sparkVersion"] = args ? args.sparkVersion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -147,6 +162,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["autoPause"] = undefined /*out*/;
             inputs["autoScale"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["customLibraries"] = undefined /*out*/;
             inputs["defaultSparkLogFolder"] = undefined /*out*/;
             inputs["isComputeIsolationEnabled"] = undefined /*out*/;
             inputs["libraryRequirements"] = undefined /*out*/;
@@ -156,6 +172,8 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["nodeSize"] = undefined /*out*/;
             inputs["nodeSizeFamily"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["sessionLevelPackagesEnabled"] = undefined /*out*/;
+            inputs["sparkConfigProperties"] = undefined /*out*/;
             inputs["sparkEventsFolder"] = undefined /*out*/;
             inputs["sparkVersion"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -192,6 +210,10 @@ export interface BigDataPoolArgs {
      * The time when the Big Data pool was created.
      */
     readonly creationDate?: pulumi.Input<string>;
+    /**
+     * List of custom libraries/packages associated with the spark pool.
+     */
+    readonly customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.v20190601preview.LibraryInfo>[]>;
     /**
      * The default folder where Spark logs will be written.
      */
@@ -232,6 +254,14 @@ export interface BigDataPoolArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Whether session level library/package management is enabled or not.
+     */
+    readonly sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
+    /**
+     * Spark configuration file to specify additional properties
+     */
+    readonly sparkConfigProperties?: pulumi.Input<inputs.synapse.v20190601preview.LibraryRequirements>;
     /**
      * The Spark events folder
      */

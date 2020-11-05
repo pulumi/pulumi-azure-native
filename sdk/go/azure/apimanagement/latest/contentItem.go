@@ -16,6 +16,8 @@ type ContentItem struct {
 
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Properties of the content item.
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -41,6 +43,9 @@ func NewContentItem(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ContentItem"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ContentItem"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -68,6 +73,8 @@ func GetContentItem(ctx *pulumi.Context,
 type contentItemState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// Properties of the content item.
+	Properties interface{} `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
@@ -75,6 +82,8 @@ type contentItemState struct {
 type ContentItemState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// Properties of the content item.
+	Properties pulumi.Input
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

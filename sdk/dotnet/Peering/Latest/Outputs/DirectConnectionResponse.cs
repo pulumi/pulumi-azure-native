@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Peering.Latest.Outputs
         /// </summary>
         public readonly string ErrorMessage;
         /// <summary>
+        /// The ID used within Microsoft's peering provisioning system to track the connection
+        /// </summary>
+        public readonly string MicrosoftTrackingId;
+        /// <summary>
         /// The PeeringDB.com ID of the facility at which the connection has to be set up.
         /// </summary>
         public readonly int? PeeringDBFacilityId;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.Peering.Latest.Outputs
 
             string errorMessage,
 
+            string microsoftTrackingId,
+
             int? peeringDBFacilityId,
 
             int provisionedBandwidthInMbps,
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest.Outputs
             ConnectionIdentifier = connectionIdentifier;
             ConnectionState = connectionState;
             ErrorMessage = errorMessage;
+            MicrosoftTrackingId = microsoftTrackingId;
             PeeringDBFacilityId = peeringDBFacilityId;
             ProvisionedBandwidthInMbps = provisionedBandwidthInMbps;
             SessionAddressProvider = sessionAddressProvider;

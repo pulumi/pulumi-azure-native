@@ -23,16 +23,19 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoArgs',
     'IntegrationRuntimeSsisPropertiesArgs',
     'IntegrationRuntimeVNetPropertiesArgs',
+    'LibraryInfoArgs',
     'LibraryRequirementsArgs',
     'LinkedIntegrationRuntimeKeyAuthorizationArgs',
     'LinkedIntegrationRuntimeRbacAuthorizationArgs',
     'ManagedIdentityArgs',
     'ManagedIntegrationRuntimeArgs',
+    'ManagedVirtualNetworkSettingsArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SecureStringArgs',
     'SelfHostedIntegrationRuntimeArgs',
     'SkuArgs',
+    'SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs',
     'VirtualNetworkProfileArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
 ]
@@ -877,6 +880,94 @@ class IntegrationRuntimeVNetPropertiesArgs:
 
 
 @pulumi.input_type
+class LibraryInfoArgs:
+    def __init__(__self__, *,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 uploaded_timestamp: Optional[pulumi.Input[str]] = None):
+        """
+        Library/package information of a Big Data pool powered by Apache Spark
+        :param pulumi.Input[str] container_name: Storage blob container name.
+        :param pulumi.Input[str] name: Name of the library.
+        :param pulumi.Input[str] path: Storage blob path of library.
+        :param pulumi.Input[str] type: Type of the library.
+        :param pulumi.Input[str] uploaded_timestamp: The last update time of the library.
+        """
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uploaded_timestamp is not None:
+            pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Storage blob container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the library.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Storage blob path of library.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the library.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="uploadedTimestamp")
+    def uploaded_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last update time of the library.
+        """
+        return pulumi.get(self, "uploaded_timestamp")
+
+    @uploaded_timestamp.setter
+    def uploaded_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uploaded_timestamp", value)
+
+
+@pulumi.input_type
 class LibraryRequirementsArgs:
     def __init__(__self__, *,
                  content: Optional[pulumi.Input[str]] = None,
@@ -1085,6 +1176,62 @@ class ManagedIntegrationRuntimeArgs:
     @ssis_properties.setter
     def ssis_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]):
         pulumi.set(self, "ssis_properties", value)
+
+
+@pulumi.input_type
+class ManagedVirtualNetworkSettingsArgs:
+    def __init__(__self__, *,
+                 allowed_aad_tenant_ids_for_linking: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 linked_access_check_on_target_resource: Optional[pulumi.Input[bool]] = None,
+                 prevent_data_exfiltration: Optional[pulumi.Input[bool]] = None):
+        """
+        Managed Virtual Network Settings
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_aad_tenant_ids_for_linking: Allowed Aad Tenant Ids For Linking
+        :param pulumi.Input[bool] linked_access_check_on_target_resource: Linked Access Check On Target Resource
+        :param pulumi.Input[bool] prevent_data_exfiltration: Prevent Data Exfiltration
+        """
+        if allowed_aad_tenant_ids_for_linking is not None:
+            pulumi.set(__self__, "allowed_aad_tenant_ids_for_linking", allowed_aad_tenant_ids_for_linking)
+        if linked_access_check_on_target_resource is not None:
+            pulumi.set(__self__, "linked_access_check_on_target_resource", linked_access_check_on_target_resource)
+        if prevent_data_exfiltration is not None:
+            pulumi.set(__self__, "prevent_data_exfiltration", prevent_data_exfiltration)
+
+    @property
+    @pulumi.getter(name="allowedAadTenantIdsForLinking")
+    def allowed_aad_tenant_ids_for_linking(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowed Aad Tenant Ids For Linking
+        """
+        return pulumi.get(self, "allowed_aad_tenant_ids_for_linking")
+
+    @allowed_aad_tenant_ids_for_linking.setter
+    def allowed_aad_tenant_ids_for_linking(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_aad_tenant_ids_for_linking", value)
+
+    @property
+    @pulumi.getter(name="linkedAccessCheckOnTargetResource")
+    def linked_access_check_on_target_resource(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Linked Access Check On Target Resource
+        """
+        return pulumi.get(self, "linked_access_check_on_target_resource")
+
+    @linked_access_check_on_target_resource.setter
+    def linked_access_check_on_target_resource(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "linked_access_check_on_target_resource", value)
+
+    @property
+    @pulumi.getter(name="preventDataExfiltration")
+    def prevent_data_exfiltration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Prevent Data Exfiltration
+        """
+        return pulumi.get(self, "prevent_data_exfiltration")
+
+    @prevent_data_exfiltration.setter
+    def prevent_data_exfiltration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "prevent_data_exfiltration", value)
 
 
 @pulumi.input_type
@@ -1298,6 +1445,29 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs:
+    def __init__(__self__, *,
+                 result: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Properties for an Sql pool vulnerability assessment rule baseline's result.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] result: The rule baseline result
+        """
+        pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The rule baseline result
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "result", value)
 
 
 @pulumi.input_type

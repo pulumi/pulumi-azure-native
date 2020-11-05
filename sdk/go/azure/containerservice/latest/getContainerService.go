@@ -27,28 +27,28 @@ type LookupContainerServiceArgs struct {
 type LookupContainerServiceResult struct {
 	// Properties of the agent pool.
 	AgentPoolProfiles []ContainerServiceAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
-	// Properties to configure a custom container service cluster.
+	// Properties for custom clusters.
 	CustomProfile *ContainerServiceCustomProfileResponse `pulumi:"customProfile"`
-	// Profile for diagnostics in the container service cluster.
+	// Properties of the diagnostic agent.
 	DiagnosticsProfile *ContainerServiceDiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
-	// Profile for Linux VMs in the container service cluster.
+	// Properties of Linux VMs.
 	LinuxProfile ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// Profile for the container service master.
+	// Properties of master agents.
 	MasterProfile ContainerServiceMasterProfileResponse `pulumi:"masterProfile"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Profile for the container service orchestrator.
-	OrchestratorProfile ContainerServiceOrchestratorProfileResponse `pulumi:"orchestratorProfile"`
-	// The current deployment or provisioning state, which only appears in the response.
+	// Properties of the orchestrator.
+	OrchestratorProfile *ContainerServiceOrchestratorProfileResponse `pulumi:"orchestratorProfile"`
+	// the current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+	// Properties for cluster service principals.
 	ServicePrincipalProfile *ContainerServiceServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
-	// Profile for Windows VMs in the container service cluster.
+	// Properties of Windows VMs.
 	WindowsProfile *ContainerServiceWindowsProfileResponse `pulumi:"windowsProfile"`
 }

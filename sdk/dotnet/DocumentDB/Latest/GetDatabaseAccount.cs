@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// </summary>
         public readonly Outputs.ApiPropertiesResponse? ApiProperties;
         /// <summary>
+        /// The object representing the policy for taking backups on an account.
+        /// </summary>
+        public readonly Union<Outputs.ContinuousModeBackupPolicyResponse, Outputs.PeriodicModeBackupPolicyResponse>? BackupPolicy;
+        /// <summary>
         /// List of Cosmos DB capabilities for the account
         /// </summary>
         public readonly ImmutableArray<Outputs.CapabilityResponse> Capabilities;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         private GetDatabaseAccountResult(
             Outputs.ApiPropertiesResponse? apiProperties,
 
+            Union<Outputs.ContinuousModeBackupPolicyResponse, Outputs.PeriodicModeBackupPolicyResponse>? backupPolicy,
+
             ImmutableArray<Outputs.CapabilityResponse> capabilities,
 
             string? connectorOffer,
@@ -217,6 +223,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
             ImmutableArray<Outputs.LocationResponse> writeLocations)
         {
             ApiProperties = apiProperties;
+            BackupPolicy = backupPolicy;
             Capabilities = capabilities;
             ConnectorOffer = connectorOffer;
             ConsistencyPolicy = consistencyPolicy;

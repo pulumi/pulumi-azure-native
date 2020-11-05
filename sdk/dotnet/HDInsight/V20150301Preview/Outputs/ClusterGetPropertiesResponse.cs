@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
         /// </summary>
         public readonly Outputs.ClusterDefinitionResponse ClusterDefinition;
         /// <summary>
+        /// The cluster id.
+        /// </summary>
+        public readonly string? ClusterId;
+        /// <summary>
         /// The state of the cluster.
         /// </summary>
         public readonly string? ClusterState;
@@ -58,9 +62,9 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
         /// </summary>
         public readonly string? MinSupportedTlsVersion;
         /// <summary>
-        /// The network settings.
+        /// The network properties.
         /// </summary>
-        public readonly Outputs.NetworkSettingsResponse? NetworkSettings;
+        public readonly Outputs.NetworkPropertiesResponse? NetworkProperties;
         /// <summary>
         /// The type of operating system.
         /// </summary>
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
         private ClusterGetPropertiesResponse(
             Outputs.ClusterDefinitionResponse clusterDefinition,
 
+            string? clusterId,
+
             string? clusterState,
 
             string? clusterVersion,
@@ -106,7 +112,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
 
             string? minSupportedTlsVersion,
 
-            Outputs.NetworkSettingsResponse? networkSettings,
+            Outputs.NetworkPropertiesResponse? networkProperties,
 
             string? osType,
 
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
             string? tier)
         {
             ClusterDefinition = clusterDefinition;
+            ClusterId = clusterId;
             ClusterState = clusterState;
             ClusterVersion = clusterVersion;
             ComputeProfile = computeProfile;
@@ -129,7 +136,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Outputs
             Errors = errors;
             KafkaRestProperties = kafkaRestProperties;
             MinSupportedTlsVersion = minSupportedTlsVersion;
-            NetworkSettings = networkSettings;
+            NetworkProperties = networkProperties;
             OsType = osType;
             ProvisioningState = provisioningState;
             QuotaInfo = quotaInfo;

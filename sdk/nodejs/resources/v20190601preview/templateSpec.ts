@@ -64,6 +64,10 @@ export class TemplateSpec extends pulumi.CustomResource {
      * Type of this resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+     */
+    public /*out*/ readonly versions!: pulumi.Output<{[key: string]: outputs.resources.v20190601preview.TemplateSpecVersionInfoResponse}>;
 
     /**
      * Create a TemplateSpec resource with the given unique name, arguments, and options.
@@ -93,6 +97,7 @@ export class TemplateSpec extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["versions"] = undefined /*out*/;
         } else {
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
@@ -101,6 +106,7 @@ export class TemplateSpec extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["versions"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -109,6 +115,8 @@ export class TemplateSpec extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20201001preview:TemplateSpec" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TemplateSpec.__pulumiType, name, inputs, opts);
     }
 }

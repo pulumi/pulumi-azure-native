@@ -69,10 +69,22 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connection associated with the specified redis cache
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// Redis instance provisioning status.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
@@ -177,6 +189,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:Redis"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:Redis"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -223,6 +236,12 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         [Input("redisConfiguration")]
         private InputMap<string>? _redisConfiguration;

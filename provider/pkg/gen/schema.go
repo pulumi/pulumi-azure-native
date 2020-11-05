@@ -772,7 +772,10 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		sdkName = ToLowerCamel(sdkName)
 
 		// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
-		if flatten, ok := resolvedProperty.Extensions.GetBool(extensionClientFlatten); ok && flatten {
+		// If the type is marked as a dictionary, ignore the extension and proceed with modeling this property explicitly.
+		// We can't flatten dictionaries in a type-safe manner.
+		isDict := resolvedProperty.AdditionalProperties != nil
+		if flatten, ok := resolvedProperty.Extensions.GetBool(extensionClientFlatten); ok && flatten && !isDict {
 			bag, err := m.genProperties(resolvedProperty, isOutput, isType)
 			if err != nil {
 				return nil, err
@@ -957,9 +960,19 @@ func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *provider.Azu
 		return nil
 	}
 
+	var oneOf []string
+	for _, subType := range typ.OneOf {
+		if subType.Ref != "" {
+			oneOf = append(oneOf, subType.Ref)
+		} else {
+			oneOf = append(oneOf, subType.Type)
+		}
+	}
+
 	return &provider.AzureAPIProperty{
 		Type:  typ.Type,
 		Ref:   typ.Ref,
+		OneOf: oneOf,
 		Items: m.itemTypeToProperty(typ.Items),
 	}
 }

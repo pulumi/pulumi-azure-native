@@ -32,8 +32,12 @@ type Redis struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Redis non-SSL port.
 	Port pulumi.IntOutput `pulumi:"port"`
+	// List of private endpoint connection associated with the specified redis cache
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Redis instance provisioning status.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration pulumi.StringMapOutput `pulumi:"redisConfiguration"`
 	// Redis version.
@@ -97,6 +101,9 @@ func NewRedis(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20190701:Redis"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:cache/v20200601:Redis"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Redis
@@ -139,8 +146,12 @@ type redisState struct {
 	Name *string `pulumi:"name"`
 	// Redis non-SSL port.
 	Port *int `pulumi:"port"`
+	// List of private endpoint connection associated with the specified redis cache
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Redis instance provisioning status.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
 	// Redis version.
@@ -186,8 +197,12 @@ type RedisState struct {
 	Name pulumi.StringPtrInput
 	// Redis non-SSL port.
 	Port pulumi.IntPtrInput
+	// List of private endpoint connection associated with the specified redis cache
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Redis instance provisioning status.
 	ProvisioningState pulumi.StringPtrInput
+	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+	PublicNetworkAccess pulumi.StringPtrInput
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration pulumi.StringMapInput
 	// Redis version.
@@ -227,6 +242,8 @@ type redisArgs struct {
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis cache.
 	Name string `pulumi:"name"`
+	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
 	// The number of replicas to be created per master.
@@ -259,6 +276,8 @@ type RedisArgs struct {
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis cache.
 	Name pulumi.StringInput
+	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+	PublicNetworkAccess pulumi.StringPtrInput
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration pulumi.StringMapInput
 	// The number of replicas to be created per master.

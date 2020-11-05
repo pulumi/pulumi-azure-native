@@ -19,7 +19,10 @@ class GetBackupResult:
     """
     Backup of a Volume
     """
-    def __init__(__self__, backup_type=None, creation_date=None, label=None, location=None, name=None, provisioning_state=None, size=None, type=None):
+    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, label=None, location=None, name=None, provisioning_state=None, size=None, type=None):
+        if backup_id and not isinstance(backup_id, str):
+            raise TypeError("Expected argument 'backup_id' to be a str")
+        pulumi.set(__self__, "backup_id", backup_id)
         if backup_type and not isinstance(backup_type, str):
             raise TypeError("Expected argument 'backup_type' to be a str")
         pulumi.set(__self__, "backup_type", backup_type)
@@ -44,6 +47,14 @@ class GetBackupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> str:
+        """
+        UUID v4 used to identify the Backup
+        """
+        return pulumi.get(self, "backup_id")
 
     @property
     @pulumi.getter(name="backupType")
@@ -116,6 +127,7 @@ class AwaitableGetBackupResult(GetBackupResult):
         if False:
             yield self
         return GetBackupResult(
+            backup_id=self.backup_id,
             backup_type=self.backup_type,
             creation_date=self.creation_date,
             label=self.label,
@@ -154,6 +166,7 @@ def get_backup(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:netapp/latest:getBackup', __args__, opts=opts, typ=GetBackupResult).value
 
     return AwaitableGetBackupResult(
+        backup_id=__ret__.backup_id,
         backup_type=__ret__.backup_type,
         creation_date=__ret__.creation_date,
         label=__ret__.label,

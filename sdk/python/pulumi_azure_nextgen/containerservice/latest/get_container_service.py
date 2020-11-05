@@ -63,7 +63,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[Sequence['outputs.ContainerServiceAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> Sequence['outputs.ContainerServiceAgentPoolProfileResponse']:
         """
         Properties of the agent pool.
         """
@@ -73,7 +73,7 @@ class GetContainerServiceResult:
     @pulumi.getter(name="customProfile")
     def custom_profile(self) -> Optional['outputs.ContainerServiceCustomProfileResponse']:
         """
-        Properties to configure a custom container service cluster.
+        Properties for custom clusters.
         """
         return pulumi.get(self, "custom_profile")
 
@@ -81,7 +81,7 @@ class GetContainerServiceResult:
     @pulumi.getter(name="diagnosticsProfile")
     def diagnostics_profile(self) -> Optional['outputs.ContainerServiceDiagnosticsProfileResponse']:
         """
-        Profile for diagnostics in the container service cluster.
+        Properties of the diagnostic agent.
         """
         return pulumi.get(self, "diagnostics_profile")
 
@@ -89,7 +89,7 @@ class GetContainerServiceResult:
     @pulumi.getter(name="linuxProfile")
     def linux_profile(self) -> 'outputs.ContainerServiceLinuxProfileResponse':
         """
-        Profile for Linux VMs in the container service cluster.
+        Properties of Linux VMs.
         """
         return pulumi.get(self, "linux_profile")
 
@@ -105,7 +105,7 @@ class GetContainerServiceResult:
     @pulumi.getter(name="masterProfile")
     def master_profile(self) -> 'outputs.ContainerServiceMasterProfileResponse':
         """
-        Profile for the container service master.
+        Properties of master agents.
         """
         return pulumi.get(self, "master_profile")
 
@@ -119,9 +119,9 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="orchestratorProfile")
-    def orchestrator_profile(self) -> 'outputs.ContainerServiceOrchestratorProfileResponse':
+    def orchestrator_profile(self) -> Optional['outputs.ContainerServiceOrchestratorProfileResponse']:
         """
-        Profile for the container service orchestrator.
+        Properties of the orchestrator.
         """
         return pulumi.get(self, "orchestrator_profile")
 
@@ -129,7 +129,7 @@ class GetContainerServiceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The current deployment or provisioning state, which only appears in the response.
+        the current deployment or provisioning state, which only appears in the response.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -137,7 +137,7 @@ class GetContainerServiceResult:
     @pulumi.getter(name="servicePrincipalProfile")
     def service_principal_profile(self) -> Optional['outputs.ContainerServiceServicePrincipalProfileResponse']:
         """
-        Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+        Properties for cluster service principals.
         """
         return pulumi.get(self, "service_principal_profile")
 
@@ -161,7 +161,7 @@ class GetContainerServiceResult:
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> Optional['outputs.ContainerServiceWindowsProfileResponse']:
         """
-        Profile for Windows VMs in the container service cluster.
+        Properties of Windows VMs.
         """
         return pulumi.get(self, "windows_profile")
 

@@ -22,6 +22,7 @@ __all__ = [
     'ConflictResolutionPolicyArgs',
     'ConsistencyPolicyArgs',
     'ContainerPartitionKeyArgs',
+    'ContinuousModeBackupPolicyArgs',
     'CorsPolicyArgs',
     'CreateUpdateOptionsArgs',
     'ExcludedPathArgs',
@@ -37,6 +38,8 @@ __all__ = [
     'MongoIndexArgs',
     'MongoIndexKeysArgs',
     'MongoIndexOptionsArgs',
+    'PeriodicModeBackupPolicyArgs',
+    'PeriodicModePropertiesArgs',
     'SpatialSpecArgs',
     'SqlContainerResourceArgs',
     'SqlDatabaseResourceArgs',
@@ -561,6 +564,29 @@ class ContainerPartitionKeyArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class ContinuousModeBackupPolicyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        The object representing continuous mode backup policy.
+        :param pulumi.Input[str] type: Describes the mode of backups.
+        """
+        pulumi.set(__self__, "type", 'Continuous')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Describes the mode of backups.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -1315,6 +1341,85 @@ class MongoIndexOptionsArgs:
     @unique.setter
     def unique(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "unique", value)
+
+
+@pulumi.input_type
+class PeriodicModeBackupPolicyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 periodic_mode_properties: Optional[pulumi.Input['PeriodicModePropertiesArgs']] = None):
+        """
+        The object representing periodic mode backup policy.
+        :param pulumi.Input[str] type: Describes the mode of backups.
+        :param pulumi.Input['PeriodicModePropertiesArgs'] periodic_mode_properties: Configuration values for periodic mode backup
+        """
+        pulumi.set(__self__, "type", 'Periodic')
+        if periodic_mode_properties is not None:
+            pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Describes the mode of backups.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="periodicModeProperties")
+    def periodic_mode_properties(self) -> Optional[pulumi.Input['PeriodicModePropertiesArgs']]:
+        """
+        Configuration values for periodic mode backup
+        """
+        return pulumi.get(self, "periodic_mode_properties")
+
+    @periodic_mode_properties.setter
+    def periodic_mode_properties(self, value: Optional[pulumi.Input['PeriodicModePropertiesArgs']]):
+        pulumi.set(self, "periodic_mode_properties", value)
+
+
+@pulumi.input_type
+class PeriodicModePropertiesArgs:
+    def __init__(__self__, *,
+                 backup_interval_in_minutes: Optional[pulumi.Input[int]] = None,
+                 backup_retention_interval_in_hours: Optional[pulumi.Input[int]] = None):
+        """
+        Configuration values for periodic mode backup
+        :param pulumi.Input[int] backup_interval_in_minutes: An integer representing the interval in minutes between two backups
+        :param pulumi.Input[int] backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        """
+        if backup_interval_in_minutes is not None:
+            pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
+        if backup_retention_interval_in_hours is not None:
+            pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+
+    @property
+    @pulumi.getter(name="backupIntervalInMinutes")
+    def backup_interval_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer representing the interval in minutes between two backups
+        """
+        return pulumi.get(self, "backup_interval_in_minutes")
+
+    @backup_interval_in_minutes.setter
+    def backup_interval_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backup_interval_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="backupRetentionIntervalInHours")
+    def backup_retention_interval_in_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer representing the time (in hours) that each backup is retained
+        """
+        return pulumi.get(self, "backup_retention_interval_in_hours")
+
+    @backup_retention_interval_in_hours.setter
+    def backup_retention_interval_in_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backup_retention_interval_in_hours", value)
 
 
 @pulumi.input_type

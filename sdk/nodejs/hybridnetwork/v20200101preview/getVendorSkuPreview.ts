@@ -23,7 +23,7 @@ export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi
 
 export interface GetVendorSkuPreviewArgs {
     /**
-     * Preview subscription id.
+     * Preview subscription ID.
      */
     readonly previewSubscription: string;
     /**
@@ -41,11 +41,11 @@ export interface GetVendorSkuPreviewArgs {
  */
 export interface GetVendorSkuPreviewResult {
     /**
-     * Preview subscription id
+     * The preview subscription ID.
      */
     readonly name: string;
     /**
-     * Type of the resource
+     * The type of the resource.
      */
     readonly type: string;
 }

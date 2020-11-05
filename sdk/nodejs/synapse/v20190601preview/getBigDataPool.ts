@@ -53,6 +53,10 @@ export interface GetBigDataPoolResult {
      */
     readonly creationDate?: string;
     /**
+     * List of custom libraries/packages associated with the spark pool.
+     */
+    readonly customLibraries?: outputs.synapse.v20190601preview.LibraryInfoResponse[];
+    /**
      * The default folder where Spark logs will be written.
      */
     readonly defaultSparkLogFolder?: string;
@@ -88,6 +92,14 @@ export interface GetBigDataPoolResult {
      * The state of the Big Data pool.
      */
     readonly provisioningState?: string;
+    /**
+     * Whether session level library/package management is enabled or not.
+     */
+    readonly sessionLevelPackagesEnabled?: boolean;
+    /**
+     * Spark configuration file to specify additional properties
+     */
+    readonly sparkConfigProperties?: outputs.synapse.v20190601preview.LibraryRequirementsResponse;
     /**
      * The Spark events folder
      */

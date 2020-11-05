@@ -43,7 +43,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    public readonly identity!: pulumi.Output<outputs.healthcareapis.latest.ResourceResponseIdentity | undefined>;
+    public readonly identity!: pulumi.Output<outputs.healthcareapis.latest.ServicesResourceResponseIdentity | undefined>;
     /**
      * The kind of the service.
      */
@@ -118,7 +118,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthcareapis/v20180820preview:Service" }, { type: "azure-nextgen:healthcareapis/v20190916:Service" }, { type: "azure-nextgen:healthcareapis/v20200315:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthcareapis/v20180820preview:Service" }, { type: "azure-nextgen:healthcareapis/v20190916:Service" }, { type: "azure-nextgen:healthcareapis/v20200315:Service" }, { type: "azure-nextgen:healthcareapis/v20200330:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }
@@ -135,7 +135,7 @@ export interface ServiceArgs {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    readonly identity?: pulumi.Input<inputs.healthcareapis.latest.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.healthcareapis.latest.ServicesResourceIdentity>;
     /**
      * The kind of the service.
      */

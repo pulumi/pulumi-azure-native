@@ -43,6 +43,8 @@ type LookupSnapshotResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// UUID v4 used to identify the Snapshot
 	SnapshotId string `pulumi:"snapshotId"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

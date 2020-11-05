@@ -18,9 +18,9 @@ __all__ = [
 @pulumi.output_type
 class GetDeviceResult:
     """
-    Hybrid network device resource.
+    Device resource.
     """
-    def __init__(__self__, azure_stack_edge=None, device_type=None, location=None, name=None, provisioning_state=None, status=None, tags=None, type=None, virtual_network_functions=None):
+    def __init__(__self__, azure_stack_edge=None, device_type=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, tags=None, type=None):
         if azure_stack_edge and not isinstance(azure_stack_edge, dict):
             raise TypeError("Expected argument 'azure_stack_edge' to be a dict")
         pulumi.set(__self__, "azure_stack_edge", azure_stack_edge)
@@ -33,6 +33,9 @@ class GetDeviceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_functions and not isinstance(network_functions, list):
+            raise TypeError("Expected argument 'network_functions' to be a list")
+        pulumi.set(__self__, "network_functions", network_functions)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -45,15 +48,12 @@ class GetDeviceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_network_functions and not isinstance(virtual_network_functions, list):
-            raise TypeError("Expected argument 'virtual_network_functions' to be a list")
-        pulumi.set(__self__, "virtual_network_functions", virtual_network_functions)
 
     @property
     @pulumi.getter(name="azureStackEdge")
     def azure_stack_edge(self) -> Optional['outputs.SubResourceResponse']:
         """
-        The reference to the azure stack edge device.
+        The reference to the Azure stack edge device.
         """
         return pulumi.get(self, "azure_stack_edge")
 
@@ -61,15 +61,15 @@ class GetDeviceResult:
     @pulumi.getter(name="deviceType")
     def device_type(self) -> str:
         """
-        The type of the hybrid network device.
+        The type of the device.
         """
         return pulumi.get(self, "device_type")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -77,15 +77,23 @@ class GetDeviceResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkFunctions")
+    def network_functions(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        The list of network functions deployed on the device.
+        """
+        return pulumi.get(self, "network_functions")
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state of the hybrid network device resource.
+        The provisioning state of the device resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -109,17 +117,9 @@ class GetDeviceResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualNetworkFunctions")
-    def virtual_network_functions(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        The list of virtual network functions deployed on the hybrid network device.
-        """
-        return pulumi.get(self, "virtual_network_functions")
 
 
 class AwaitableGetDeviceResult(GetDeviceResult):
@@ -132,11 +132,11 @@ class AwaitableGetDeviceResult(GetDeviceResult):
             device_type=self.device_type,
             location=self.location,
             name=self.name,
+            network_functions=self.network_functions,
             provisioning_state=self.provisioning_state,
             status=self.status,
             tags=self.tags,
-            type=self.type,
-            virtual_network_functions=self.virtual_network_functions)
+            type=self.type)
 
 
 def get_device(device_name: Optional[str] = None,
@@ -145,8 +145,8 @@ def get_device(device_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str device_name: The name of hybrid network device.
-    :param str resource_group_name: The name of the resource group.
+    :param str device_name: The name of the device resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['deviceName'] = device_name
@@ -162,8 +162,8 @@ def get_device(device_name: Optional[str] = None,
         device_type=__ret__.device_type,
         location=__ret__.location,
         name=__ret__.name,
+        network_functions=__ret__.network_functions,
         provisioning_state=__ret__.provisioning_state,
         status=__ret__.status,
         tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_network_functions=__ret__.virtual_network_functions)
+        type=__ret__.type)

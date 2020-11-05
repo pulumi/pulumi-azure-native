@@ -16,6 +16,8 @@ type ActiveDirectory struct {
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
 	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
 	AdName *string `pulumi:"adName"`
+	// If enabled, AES encryption will be enabled for SMB communication.
+	AesEncryption *bool `pulumi:"aesEncryption"`
 	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 	BackupOperators []string `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
@@ -24,6 +26,8 @@ type ActiveDirectory struct {
 	Domain *string `pulumi:"domain"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP *string `pulumi:"kdcIP"`
+	// Specifies whether or not the LDAP traffic needs to be signed.
+	LdapSigning *bool `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
 	// Plain text password of Active Directory domain administrator, value is masked in the response
@@ -55,6 +59,8 @@ type ActiveDirectoryArgs struct {
 	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
 	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
 	AdName pulumi.StringPtrInput `pulumi:"adName"`
+	// If enabled, AES encryption will be enabled for SMB communication.
+	AesEncryption pulumi.BoolPtrInput `pulumi:"aesEncryption"`
 	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 	BackupOperators pulumi.StringArrayInput `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
@@ -63,6 +69,8 @@ type ActiveDirectoryArgs struct {
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP pulumi.StringPtrInput `pulumi:"kdcIP"`
+	// Specifies whether or not the LDAP traffic needs to be signed.
+	LdapSigning pulumi.BoolPtrInput `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
 	// Plain text password of Active Directory domain administrator, value is masked in the response
@@ -139,6 +147,11 @@ func (o ActiveDirectoryOutput) AdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.AdName }).(pulumi.StringPtrOutput)
 }
 
+// If enabled, AES encryption will be enabled for SMB communication.
+func (o ActiveDirectoryOutput) AesEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectory) *bool { return v.AesEncryption }).(pulumi.BoolPtrOutput)
+}
+
 // Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 func (o ActiveDirectoryOutput) BackupOperators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActiveDirectory) []string { return v.BackupOperators }).(pulumi.StringArrayOutput)
@@ -157,6 +170,11 @@ func (o ActiveDirectoryOutput) Domain() pulumi.StringPtrOutput {
 // kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 func (o ActiveDirectoryOutput) KdcIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.KdcIP }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether or not the LDAP traffic needs to be signed.
+func (o ActiveDirectoryOutput) LdapSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectory) *bool { return v.LdapSigning }).(pulumi.BoolPtrOutput)
 }
 
 // The Organizational Unit (OU) within the Windows Active Directory
@@ -215,6 +233,8 @@ type ActiveDirectoryResponse struct {
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
 	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
 	AdName *string `pulumi:"adName"`
+	// If enabled, AES encryption will be enabled for SMB communication.
+	AesEncryption *bool `pulumi:"aesEncryption"`
 	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 	BackupOperators []string `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
@@ -223,6 +243,8 @@ type ActiveDirectoryResponse struct {
 	Domain *string `pulumi:"domain"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP *string `pulumi:"kdcIP"`
+	// Specifies whether or not the LDAP traffic needs to be signed.
+	LdapSigning *bool `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
 	// Plain text password of Active Directory domain administrator, value is masked in the response
@@ -258,6 +280,8 @@ type ActiveDirectoryResponseArgs struct {
 	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
 	// Name of the active directory machine. This optional parameter is used only while creating kerberos volume
 	AdName pulumi.StringPtrInput `pulumi:"adName"`
+	// If enabled, AES encryption will be enabled for SMB communication.
+	AesEncryption pulumi.BoolPtrInput `pulumi:"aesEncryption"`
 	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 	BackupOperators pulumi.StringArrayInput `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
@@ -266,6 +290,8 @@ type ActiveDirectoryResponseArgs struct {
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP pulumi.StringPtrInput `pulumi:"kdcIP"`
+	// Specifies whether or not the LDAP traffic needs to be signed.
+	LdapSigning pulumi.BoolPtrInput `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
 	// Plain text password of Active Directory domain administrator, value is masked in the response
@@ -346,6 +372,11 @@ func (o ActiveDirectoryResponseOutput) AdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.AdName }).(pulumi.StringPtrOutput)
 }
 
+// If enabled, AES encryption will be enabled for SMB communication.
+func (o ActiveDirectoryResponseOutput) AesEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryResponse) *bool { return v.AesEncryption }).(pulumi.BoolPtrOutput)
+}
+
 // Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 func (o ActiveDirectoryResponseOutput) BackupOperators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) []string { return v.BackupOperators }).(pulumi.StringArrayOutput)
@@ -364,6 +395,11 @@ func (o ActiveDirectoryResponseOutput) Domain() pulumi.StringPtrOutput {
 // kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 func (o ActiveDirectoryResponseOutput) KdcIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.KdcIP }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether or not the LDAP traffic needs to be signed.
+func (o ActiveDirectoryResponseOutput) LdapSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryResponse) *bool { return v.LdapSigning }).(pulumi.BoolPtrOutput)
 }
 
 // The Organizational Unit (OU) within the Windows Active Directory

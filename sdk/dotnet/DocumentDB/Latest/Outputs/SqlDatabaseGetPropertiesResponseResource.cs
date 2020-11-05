@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         /// <summary>
         /// A system generated property that denotes the last updated timestamp of the resource.
         /// </summary>
-        public readonly object Ts;
+        public readonly double Ts;
         /// <summary>
         /// A system generated property that specifies the addressable path of the users resource.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
 
             string rid,
 
-            object ts,
+            double ts,
 
             string? users)
         {

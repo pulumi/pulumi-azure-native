@@ -103,7 +103,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatedConnections")
-    def associated_connections(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
+    def associated_connections(self) -> pulumi.Output[Sequence[str]]:
         """
         List of all connections associated with this route table.
         """
@@ -135,7 +135,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propagatingConnections")
-    def propagating_connections(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
+    def propagating_connections(self) -> pulumi.Output[Sequence[str]]:
         """
         List of all connections that advertise to this route table.
         """

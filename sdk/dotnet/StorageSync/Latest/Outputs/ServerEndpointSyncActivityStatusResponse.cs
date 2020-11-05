@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
         /// </summary>
         public readonly int PerItemErrorCount;
         /// <summary>
+        /// Sync mode
+        /// </summary>
+        public readonly string SyncMode;
+        /// <summary>
         /// Timestamp when properties were updated
         /// </summary>
         public readonly string Timestamp;
@@ -46,6 +50,8 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
 
             int perItemErrorCount,
 
+            string syncMode,
+
             string timestamp,
 
             int totalBytes,
@@ -55,6 +61,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
             AppliedBytes = appliedBytes;
             AppliedItemCount = appliedItemCount;
             PerItemErrorCount = perItemErrorCount;
+            SyncMode = syncMode;
             Timestamp = timestamp;
             TotalBytes = totalBytes;
             TotalItemCount = totalItemCount;

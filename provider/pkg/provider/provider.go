@@ -134,7 +134,9 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 	k.client.Authorizer = authorizer
 	k.client.UserAgent = k.getUserAgent()
 
-	return &rpc.ConfigureResponse{}, nil
+	return &rpc.ConfigureResponse{
+		SupportsPreview: true,
+	}, nil
 }
 
 // Invoke dynamically executes a built-in function in the provider.
@@ -202,8 +204,7 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
 // back as a series of messages.
-func (k *azureNextGenProvider) StreamInvoke(req *rpc.InvokeRequest,
-	server rpc.ResourceProvider_StreamInvokeServer) error {
+func (k *azureNextGenProvider) StreamInvoke(_ *rpc.InvokeRequest, _ rpc.ResourceProvider_StreamInvokeServer) error {
 	panic("StreamInvoke not implemented")
 }
 
@@ -213,7 +214,7 @@ func (k *azureNextGenProvider) StreamInvoke(req *rpc.InvokeRequest,
 // representation of the properties as present in the program inputs. Though this rule is not
 // required for correctness, violations thereof can negatively impact the end-user experience, as
 // the provider inputs are using for detecting and rendering diffs.
-func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
+func (k *azureNextGenProvider) Check(_ context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Check(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
@@ -426,8 +427,7 @@ func (k *azureNextGenProvider) validateProperty(ctx string, prop *AzureAPIProper
 	return failures
 }
 
-func (k *azureNextGenProvider) GetSchema(ctx context.Context,
-	req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
+func (k *azureNextGenProvider) GetSchema(_ context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
@@ -436,12 +436,12 @@ func (k *azureNextGenProvider) GetSchema(ctx context.Context,
 }
 
 // CheckConfig validates the configuration for this provider.
-func (k *azureNextGenProvider) CheckConfig(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
+func (k *azureNextGenProvider) CheckConfig(_ context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
 	return &rpc.CheckResponse{Inputs: req.GetNews()}, nil
 }
 
 // DiffConfig diffs the configuration for this provider.
-func (k *azureNextGenProvider) DiffConfig(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNextGenProvider) DiffConfig(context.Context, *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	return &rpc.DiffResponse{
 		Changes:             0,
 		Replaces:            []string{},
@@ -451,7 +451,7 @@ func (k *azureNextGenProvider) DiffConfig(ctx context.Context, req *rpc.DiffRequ
 }
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
-func (k *azureNextGenProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", k.name, urn)
 
@@ -552,6 +552,22 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 		return nil, err
 	}
 
+	if req.GetPreview() {
+		// Currently, the preview outputs are conservative: the provider returns the inputs back, removing the unknowns.
+		// The effect is the same as if Create did not support provider-side preview at all.
+		previewState, err := plugin.MarshalProperties(
+			inputs,
+			plugin.MarshalOptions{Label: fmt.Sprintf("%s.previewState", label), KeepUnknowns: false, SkipNulls: true},
+		)
+		if err != nil {
+			return nil, err
+		}
+
+		return &rpc.CreateResponse{
+			Properties: previewState,
+		}, nil
+	}
+
 	resourceKey := string(urn.Type())
 	res, ok := k.resourceMap.Resources[resourceKey]
 	if !ok {
@@ -574,13 +590,9 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 	// (though it's technically impossible since the only operation supported is an upsert).
-	_, err = k.azureGet(ctx, id, res.APIVersion)
-	if err == nil {
-		return nil, fmt.Errorf("cannot create already existing resource %v", id)
-	}
-
-	if resErr, ok := err.(*azure.RequestError); !ok || resErr.StatusCode != 404 {
-		return nil, errors.Wrapf(err, "cannot check existence of resource %v: %s", id, err.Error())
+	err = k.azureCanCreate(ctx, id, res.APIVersion)
+	if err != nil {
+		return nil, err
 	}
 
 	// Submit the `PUT` against the ARM endpoint
@@ -649,6 +661,21 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 		}
 		inputMap := k.converter.ResponseToSdkInputs(res.PutParameters, pathItems, response)
 		inputs = resource.NewPropertyMapFromMap(inputMap)
+	} else {
+		// It's hard to infer the changes in the inputs shape based on the outputs without false positives.
+		// The current approach is complicated but it's aimed to minimize the noise while refreshing:
+		// 0. We have "old" inputs and outputs before refresh and "new" outputs read from Azure.
+		// 1. Project old outputs to their corresponding input shape (exclude read-only properties).
+		oldInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, oldState.Mappable())
+		// 2. Project new outputs to their corresponding input shape (exclude read-only properties).
+		newInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, outputs)
+		// 3. Calculate the difference between two projections. This should give us actual significant changes
+		// that happened in Azure between the last resource update and its current state.
+		oldInputPropertyMap := resource.NewPropertyMapFromMap(oldInputProjection)
+		newInputPropertyMap := resource.NewPropertyMapFromMap(newInputProjection)
+		diff := oldInputPropertyMap.Diff(newInputPropertyMap)
+		// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
+		inputs = applyDiff(inputs, diff)
 	}
 
 	// Store both outputs and inputs into the state.
@@ -684,6 +711,40 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 	})
 	if err != nil {
 		return nil, err
+	}
+
+	if req.GetPreview() {
+		// The preview outputs are inputs + a limited list of outputs that are universally immutable.
+		// We know that their values won't change, so it's safe to propagate the values to dependent
+		// resources during the preview.
+		outputs := inputs
+
+		oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+		})
+		if err != nil {
+			return nil, err
+		}
+
+		stableOutputs := []string{"name", "location"}
+		for _, name := range stableOutputs {
+			key := resource.PropertyKey(name)
+			if value, ok := oldState[key]; ok {
+				outputs[key] = value
+			}
+		}
+
+		previewOutputs, err := plugin.MarshalProperties(
+			outputs,
+			plugin.MarshalOptions{Label: fmt.Sprintf("%s.previewOutputs", label), KeepUnknowns: false, SkipNulls: true},
+		)
+		if err != nil {
+			return nil, err
+		}
+
+		return &rpc.UpdateResponse{
+			Properties: previewOutputs,
+		}, nil
 	}
 
 	resourceKey := string(urn.Type())
@@ -861,7 +922,7 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 	err = autorest.Respond(
 		res,
 		k.client.ByInspecting(),
-		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent),
+		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing(),
 	)
@@ -869,6 +930,40 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 		return err
 	}
 	return nil
+}
+
+// azureCanCreate asserts that a resource with a given ID and API version can be created
+// or returns an error otherwise.
+func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, apiVersion string) error {
+	queryParameters := map[string]interface{}{
+		"api-version": apiVersion,
+	}
+	preparer := autorest.CreatePreparer(
+		autorest.AsGet(),
+		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithPath(id),
+		autorest.WithQueryParameters(queryParameters))
+	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
+	if err != nil {
+		return err
+	}
+	resp, err := autorest.SendWithSender(
+		k.client,
+		prepReq,
+		azure.DoRetryWithRegistration(k.client),
+	)
+	if err != nil {
+		return err
+	}
+
+	switch resp.StatusCode {
+	case 200:
+		return fmt.Errorf("cannot create already existing resource %v", id)
+	case 404:
+		return nil
+	default:
+		return fmt.Errorf("cannot check existence of resource %v: status code %d", id, resp.StatusCode)
+	}
 }
 
 func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
@@ -1052,8 +1147,8 @@ func (k *azureNextGenProvider) getAuthorizationToken(authConfig *authentication.
 		return nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
 	}
 
-	sender := sender.BuildSender("AzureNextGen")
-	return authConfig.GetAuthorizationToken(sender, oauthConfig, AuthTokenAudience)
+	buildSender := sender.BuildSender("AzureNextGen")
+	return authConfig.GetAuthorizationToken(buildSender, oauthConfig, AuthTokenAudience)
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.

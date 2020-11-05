@@ -81,7 +81,13 @@ func NewSnapshot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:netapp/v20200201:Snapshot"),
 		},
 		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200501:Snapshot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200601:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20200701:Snapshot"),
 		},
 	})
 	opts = append(opts, aliases)

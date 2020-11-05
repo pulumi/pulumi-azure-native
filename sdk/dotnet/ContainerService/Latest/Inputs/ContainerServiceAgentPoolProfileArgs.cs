@@ -18,14 +18,14 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// <summary>
         /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         /// </summary>
-        [Input("count")]
-        public Input<int>? Count { get; set; }
+        [Input("count", required: true)]
+        public Input<int> Count { get; set; } = null!;
 
         /// <summary>
         /// DNS prefix to be used to create the FQDN for the agent pool.
         /// </summary>
-        [Input("dnsPrefix")]
-        public Input<string>? DnsPrefix { get; set; }
+        [Input("dnsPrefix", required: true)]
+        public Input<string> DnsPrefix { get; set; } = null!;
 
         /// <summary>
         /// Unique name of the agent pool profile in the context of the subscription and resource group.
@@ -34,46 +34,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        /// </summary>
-        [Input("osDiskSizeGB")]
-        public Input<int>? OsDiskSizeGB { get; set; }
-
-        /// <summary>
-        /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        /// </summary>
-        [Input("osType")]
-        public Input<string>? OsType { get; set; }
-
-        [Input("ports")]
-        private InputList<int>? _ports;
-
-        /// <summary>
-        /// Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-        /// </summary>
-        public InputList<int> Ports
-        {
-            get => _ports ?? (_ports = new InputList<int>());
-            set => _ports = value;
-        }
-
-        /// <summary>
-        /// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-        /// </summary>
-        [Input("storageProfile")]
-        public Input<string>? StorageProfile { get; set; }
-
-        /// <summary>
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
-
-        /// <summary>
-        /// VNet SubnetID specifies the VNet's subnet identifier.
-        /// </summary>
-        [Input("vnetSubnetID")]
-        public Input<string>? VnetSubnetID { get; set; }
 
         public ContainerServiceAgentPoolProfileArgs()
         {

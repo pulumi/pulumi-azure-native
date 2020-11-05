@@ -41,7 +41,7 @@ class DataExport(pulumi.CustomResource):
         :param pulumi.Input[bool] enable: Active when enabled.
         :param pulumi.Input[str] event_hub_name: Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
         :param pulumi.Input[str] last_modified_date: Date and time when the export was last modified.
-        :param pulumi.Input[str] resource_group_name: The workspace's resource group name.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group to get. The name is case insensitive.
         :param pulumi.Input[str] resource_id: The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         :param pulumi.Input[str] workspace_name: The Log Analytics workspace name.

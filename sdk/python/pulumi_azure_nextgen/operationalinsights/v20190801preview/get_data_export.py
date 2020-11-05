@@ -158,7 +158,7 @@ def get_data_export(data_export_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str data_export_name: The data export rule name.
-    :param str resource_group_name: The workspace's resource group name.
+    :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     :param str workspace_name: The Log Analytics workspace name.
     """
     __args__ = dict()

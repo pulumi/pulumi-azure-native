@@ -59,6 +59,9 @@ func NewTagByProduct(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:TagByProduct"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:TagByProduct"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TagByProduct

@@ -2027,6 +2027,151 @@ func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTrigger
 	}).(StatusCodesBasedTriggerResponseArrayOutput)
 }
 
+// Azure Files or Blob Storage access information value for dictionary storage.
+type AzureStorageInfoValueResponse struct {
+	// Access key for the storage account.
+	AccessKey *string `pulumi:"accessKey"`
+	// Name of the storage account.
+	AccountName *string `pulumi:"accountName"`
+	// Path to mount the storage within the site's runtime environment.
+	MountPath *string `pulumi:"mountPath"`
+	// Name of the file share (container name, for Blob storage).
+	ShareName *string `pulumi:"shareName"`
+	// State of the storage account.
+	State string `pulumi:"state"`
+	// Type of storage.
+	Type *string `pulumi:"type"`
+}
+
+// AzureStorageInfoValueResponseInput is an input type that accepts AzureStorageInfoValueResponseArgs and AzureStorageInfoValueResponseOutput values.
+// You can construct a concrete instance of `AzureStorageInfoValueResponseInput` via:
+//
+//          AzureStorageInfoValueResponseArgs{...}
+type AzureStorageInfoValueResponseInput interface {
+	pulumi.Input
+
+	ToAzureStorageInfoValueResponseOutput() AzureStorageInfoValueResponseOutput
+	ToAzureStorageInfoValueResponseOutputWithContext(context.Context) AzureStorageInfoValueResponseOutput
+}
+
+// Azure Files or Blob Storage access information value for dictionary storage.
+type AzureStorageInfoValueResponseArgs struct {
+	// Access key for the storage account.
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// Name of the storage account.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Path to mount the storage within the site's runtime environment.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+	// Name of the file share (container name, for Blob storage).
+	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
+	// State of the storage account.
+	State pulumi.StringInput `pulumi:"state"`
+	// Type of storage.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (AzureStorageInfoValueResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (i AzureStorageInfoValueResponseArgs) ToAzureStorageInfoValueResponseOutput() AzureStorageInfoValueResponseOutput {
+	return i.ToAzureStorageInfoValueResponseOutputWithContext(context.Background())
+}
+
+func (i AzureStorageInfoValueResponseArgs) ToAzureStorageInfoValueResponseOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageInfoValueResponseOutput)
+}
+
+// AzureStorageInfoValueResponseMapInput is an input type that accepts AzureStorageInfoValueResponseMap and AzureStorageInfoValueResponseMapOutput values.
+// You can construct a concrete instance of `AzureStorageInfoValueResponseMapInput` via:
+//
+//          AzureStorageInfoValueResponseMap{ "key": AzureStorageInfoValueResponseArgs{...} }
+type AzureStorageInfoValueResponseMapInput interface {
+	pulumi.Input
+
+	ToAzureStorageInfoValueResponseMapOutput() AzureStorageInfoValueResponseMapOutput
+	ToAzureStorageInfoValueResponseMapOutputWithContext(context.Context) AzureStorageInfoValueResponseMapOutput
+}
+
+type AzureStorageInfoValueResponseMap map[string]AzureStorageInfoValueResponseInput
+
+func (AzureStorageInfoValueResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (i AzureStorageInfoValueResponseMap) ToAzureStorageInfoValueResponseMapOutput() AzureStorageInfoValueResponseMapOutput {
+	return i.ToAzureStorageInfoValueResponseMapOutputWithContext(context.Background())
+}
+
+func (i AzureStorageInfoValueResponseMap) ToAzureStorageInfoValueResponseMapOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageInfoValueResponseMapOutput)
+}
+
+// Azure Files or Blob Storage access information value for dictionary storage.
+type AzureStorageInfoValueResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureStorageInfoValueResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (o AzureStorageInfoValueResponseOutput) ToAzureStorageInfoValueResponseOutput() AzureStorageInfoValueResponseOutput {
+	return o
+}
+
+func (o AzureStorageInfoValueResponseOutput) ToAzureStorageInfoValueResponseOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseOutput {
+	return o
+}
+
+// Access key for the storage account.
+func (o AzureStorageInfoValueResponseOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Name of the storage account.
+func (o AzureStorageInfoValueResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Path to mount the storage within the site's runtime environment.
+func (o AzureStorageInfoValueResponseOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// Name of the file share (container name, for Blob storage).
+func (o AzureStorageInfoValueResponseOutput) ShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.ShareName }).(pulumi.StringPtrOutput)
+}
+
+// State of the storage account.
+func (o AzureStorageInfoValueResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Type of storage.
+func (o AzureStorageInfoValueResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type AzureStorageInfoValueResponseMapOutput struct{ *pulumi.OutputState }
+
+func (AzureStorageInfoValueResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (o AzureStorageInfoValueResponseMapOutput) ToAzureStorageInfoValueResponseMapOutput() AzureStorageInfoValueResponseMapOutput {
+	return o
+}
+
+func (o AzureStorageInfoValueResponseMapOutput) ToAzureStorageInfoValueResponseMapOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseMapOutput {
+	return o
+}
+
+func (o AzureStorageInfoValueResponseMapOutput) MapIndex(k pulumi.StringInput) AzureStorageInfoValueResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AzureStorageInfoValueResponse {
+		return vs[0].(map[string]AzureStorageInfoValueResponse)[vs[1].(string)]
+	}).(AzureStorageInfoValueResponseOutput)
+}
+
 // Backup description.
 type BackupItemResponse struct {
 	// Id of the backup.
@@ -3620,6 +3765,115 @@ func (o ConnStringInfoResponseArrayOutput) Index(i pulumi.IntInput) ConnStringIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnStringInfoResponse {
 		return vs[0].([]ConnStringInfoResponse)[vs[1].(int)]
 	}).(ConnStringInfoResponseOutput)
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponse struct {
+	// Type of database.
+	Type string `pulumi:"type"`
+	// Value of pair.
+	Value string `pulumi:"value"`
+}
+
+// ConnStringValueTypePairResponseInput is an input type that accepts ConnStringValueTypePairResponseArgs and ConnStringValueTypePairResponseOutput values.
+// You can construct a concrete instance of `ConnStringValueTypePairResponseInput` via:
+//
+//          ConnStringValueTypePairResponseArgs{...}
+type ConnStringValueTypePairResponseInput interface {
+	pulumi.Input
+
+	ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput
+	ToConnStringValueTypePairResponseOutputWithContext(context.Context) ConnStringValueTypePairResponseOutput
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponseArgs struct {
+	// Type of database.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of pair.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConnStringValueTypePairResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (i ConnStringValueTypePairResponseArgs) ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput {
+	return i.ToConnStringValueTypePairResponseOutputWithContext(context.Background())
+}
+
+func (i ConnStringValueTypePairResponseArgs) ToConnStringValueTypePairResponseOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairResponseOutput)
+}
+
+// ConnStringValueTypePairResponseMapInput is an input type that accepts ConnStringValueTypePairResponseMap and ConnStringValueTypePairResponseMapOutput values.
+// You can construct a concrete instance of `ConnStringValueTypePairResponseMapInput` via:
+//
+//          ConnStringValueTypePairResponseMap{ "key": ConnStringValueTypePairResponseArgs{...} }
+type ConnStringValueTypePairResponseMapInput interface {
+	pulumi.Input
+
+	ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput
+	ToConnStringValueTypePairResponseMapOutputWithContext(context.Context) ConnStringValueTypePairResponseMapOutput
+}
+
+type ConnStringValueTypePairResponseMap map[string]ConnStringValueTypePairResponseInput
+
+func (ConnStringValueTypePairResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (i ConnStringValueTypePairResponseMap) ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput {
+	return i.ToConnStringValueTypePairResponseMapOutputWithContext(context.Background())
+}
+
+func (i ConnStringValueTypePairResponseMap) ToConnStringValueTypePairResponseMapOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairResponseMapOutput)
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnStringValueTypePairResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (o ConnStringValueTypePairResponseOutput) ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseOutput) ToConnStringValueTypePairResponseOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseOutput {
+	return o
+}
+
+// Type of database.
+func (o ConnStringValueTypePairResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePairResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of pair.
+func (o ConnStringValueTypePairResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePairResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConnStringValueTypePairResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ConnStringValueTypePairResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) ToConnStringValueTypePairResponseMapOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseMapOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) MapIndex(k pulumi.StringInput) ConnStringValueTypePairResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnStringValueTypePairResponse {
+		return vs[0].(map[string]ConnStringValueTypePairResponse)[vs[1].(string)]
+	}).(ConnStringValueTypePairResponseOutput)
 }
 
 // Cross-Origin Resource Sharing (CORS) settings for the app.
@@ -14972,6 +15226,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoHealTriggersPtrOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponseOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureStorageInfoValueResponseOutput{})
+	pulumi.RegisterOutputType(AzureStorageInfoValueResponseMapOutput{})
 	pulumi.RegisterOutputType(BackupItemResponseOutput{})
 	pulumi.RegisterOutputType(BackupItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(BackupScheduleOutput{})
@@ -14988,6 +15244,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnStringInfoArrayOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConnStringValueTypePairResponseOutput{})
+	pulumi.RegisterOutputType(ConnStringValueTypePairResponseMapOutput{})
 	pulumi.RegisterOutputType(CorsSettingsOutput{})
 	pulumi.RegisterOutputType(CorsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CorsSettingsResponseOutput{})

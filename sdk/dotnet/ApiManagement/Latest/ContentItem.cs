@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Properties of the content item.
+        /// </summary>
+        [Output("properties")]
+        public Output<object> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
@@ -52,6 +58,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ContentItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

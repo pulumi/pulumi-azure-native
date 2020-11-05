@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         public Output<Union<Outputs.AwAssumeRoleAuthenticationDetailsPropertiesResponse, Union<Outputs.AwsCredsAuthenticationDetailsPropertiesResponse, Outputs.GcpCredentialsDetailsPropertiesResponse>>?> AuthenticationDetails { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+        /// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         /// </summary>
         [Output("hybridComputeSettings")]
         public Output<Outputs.HybridComputeSettingsPropertiesResponse?> HybridComputeSettings { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         public Input<string> ConnectorName { get; set; } = null!;
 
         /// <summary>
-        /// Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+        /// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         /// </summary>
         [Input("hybridComputeSettings")]
         public Input<Inputs.HybridComputeSettingsPropertiesArgs>? HybridComputeSettings { get; set; }

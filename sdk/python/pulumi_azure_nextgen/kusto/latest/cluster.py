@@ -22,6 +22,7 @@ class Cluster(pulumi.CustomResource):
                  enable_double_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_purge: Optional[pulumi.Input[bool]] = None,
                  enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
+                 engine_type: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  key_vault_properties: Optional[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_double_encryption: A boolean value that indicates if double encryption is enabled.
         :param pulumi.Input[bool] enable_purge: A boolean value that indicates if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: A boolean value that indicates if the streaming ingest is enabled.
+        :param pulumi.Input[str] engine_type: The engine type
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the cluster, if configured.
         :param pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']] key_vault_properties: KeyVault properties for the cluster encryption.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -80,6 +82,7 @@ class Cluster(pulumi.CustomResource):
             __props__['enable_double_encryption'] = enable_double_encryption
             __props__['enable_purge'] = enable_purge
             __props__['enable_streaming_ingest'] = enable_streaming_ingest
+            __props__['engine_type'] = engine_type
             __props__['identity'] = identity
             __props__['key_vault_properties'] = key_vault_properties
             if location is None:
@@ -104,7 +107,7 @@ class Cluster(pulumi.CustomResource):
             __props__['state_reason'] = None
             __props__['type'] = None
             __props__['uri'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-nextgen:kusto/latest:Cluster',
@@ -169,6 +172,14 @@ class Cluster(pulumi.CustomResource):
         A boolean value that indicates if the streaming ingest is enabled.
         """
         return pulumi.get(self, "enable_streaming_ingest")
+
+    @property
+    @pulumi.getter(name="engineType")
+    def engine_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The engine type
+        """
+        return pulumi.get(self, "engine_type")
 
     @property
     @pulumi.getter

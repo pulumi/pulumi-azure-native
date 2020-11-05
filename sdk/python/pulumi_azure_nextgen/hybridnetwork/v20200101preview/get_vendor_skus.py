@@ -20,13 +20,10 @@ class GetVendorSkusResult:
     """
     Sku sub resource.
     """
-    def __init__(__self__, deployment_mode=None, location=None, managed_application_parameters=None, managed_application_template=None, name=None, preview=None, provisioning_state=None, sku_type=None, tags=None, type=None, virtual_network_function_template=None):
+    def __init__(__self__, deployment_mode=None, managed_application_parameters=None, managed_application_template=None, name=None, network_function_template=None, preview=None, provisioning_state=None, sku_type=None, type=None):
         if deployment_mode and not isinstance(deployment_mode, str):
             raise TypeError("Expected argument 'deployment_mode' to be a str")
         pulumi.set(__self__, "deployment_mode", deployment_mode)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if managed_application_parameters and not isinstance(managed_application_parameters, dict):
             raise TypeError("Expected argument 'managed_application_parameters' to be a dict")
         pulumi.set(__self__, "managed_application_parameters", managed_application_parameters)
@@ -36,6 +33,9 @@ class GetVendorSkusResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_function_template and not isinstance(network_function_template, dict):
+            raise TypeError("Expected argument 'network_function_template' to be a dict")
+        pulumi.set(__self__, "network_function_template", network_function_template)
         if preview and not isinstance(preview, bool):
             raise TypeError("Expected argument 'preview' to be a bool")
         pulumi.set(__self__, "preview", preview)
@@ -45,37 +45,23 @@ class GetVendorSkusResult:
         if sku_type and not isinstance(sku_type, str):
             raise TypeError("Expected argument 'sku_type' to be a str")
         pulumi.set(__self__, "sku_type", sku_type)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_network_function_template and not isinstance(virtual_network_function_template, dict):
-            raise TypeError("Expected argument 'virtual_network_function_template' to be a dict")
-        pulumi.set(__self__, "virtual_network_function_template", virtual_network_function_template)
 
     @property
     @pulumi.getter(name="deploymentMode")
     def deployment_mode(self) -> Optional[str]:
         """
-        Sku deployment mode.
+        The sku deployment mode.
         """
         return pulumi.get(self, "deployment_mode")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="managedApplicationParameters")
     def managed_application_parameters(self) -> Optional[Any]:
         """
-        The parameters for the managed application to be supplied by vendor.
+        The parameters for the managed application to be supplied by the vendor.
         """
         return pulumi.get(self, "managed_application_parameters")
 
@@ -91,9 +77,17 @@ class GetVendorSkusResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkFunctionTemplate")
+    def network_function_template(self) -> Optional['outputs.NetworkFunctionTemplateResponse']:
+        """
+        The template definition of the network function.
+        """
+        return pulumi.get(self, "network_function_template")
 
     @property
     @pulumi.getter
@@ -115,33 +109,17 @@ class GetVendorSkusResult:
     @pulumi.getter(name="skuType")
     def sku_type(self) -> Optional[str]:
         """
-        Sku type.
+        The sku type.
         """
         return pulumi.get(self, "sku_type")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="virtualNetworkFunctionTemplate")
-    def virtual_network_function_template(self) -> Optional['outputs.VirtualNetworkFunctionTemplateResponse']:
-        """
-        The template definition of the virtual network function.
-        """
-        return pulumi.get(self, "virtual_network_function_template")
 
 
 class AwaitableGetVendorSkusResult(GetVendorSkusResult):
@@ -151,16 +129,14 @@ class AwaitableGetVendorSkusResult(GetVendorSkusResult):
             yield self
         return GetVendorSkusResult(
             deployment_mode=self.deployment_mode,
-            location=self.location,
             managed_application_parameters=self.managed_application_parameters,
             managed_application_template=self.managed_application_template,
             name=self.name,
+            network_function_template=self.network_function_template,
             preview=self.preview,
             provisioning_state=self.provisioning_state,
             sku_type=self.sku_type,
-            tags=self.tags,
-            type=self.type,
-            virtual_network_function_template=self.virtual_network_function_template)
+            type=self.type)
 
 
 def get_vendor_skus(sku_name: Optional[str] = None,
@@ -170,7 +146,7 @@ def get_vendor_skus(sku_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str sku_name: The name of the sku.
-    :param str vendor_name: The name of vendor.
+    :param str vendor_name: The name of the vendor.
     """
     __args__ = dict()
     __args__['skuName'] = sku_name
@@ -183,13 +159,11 @@ def get_vendor_skus(sku_name: Optional[str] = None,
 
     return AwaitableGetVendorSkusResult(
         deployment_mode=__ret__.deployment_mode,
-        location=__ret__.location,
         managed_application_parameters=__ret__.managed_application_parameters,
         managed_application_template=__ret__.managed_application_template,
         name=__ret__.name,
+        network_function_template=__ret__.network_function_template,
         preview=__ret__.preview,
         provisioning_state=__ret__.provisioning_state,
         sku_type=__ret__.sku_type,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_network_function_template=__ret__.virtual_network_function_template)
+        type=__ret__.type)

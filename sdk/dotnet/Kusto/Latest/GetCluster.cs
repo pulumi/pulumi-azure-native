@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         /// </summary>
         public readonly bool? EnableStreamingIngest;
         /// <summary>
+        /// The engine type
+        /// </summary>
+        public readonly string? EngineType;
+        /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
 
             bool? enableStreamingIngest,
 
+            string? engineType,
+
             Outputs.IdentityResponse? identity,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
             EnableDoubleEncryption = enableDoubleEncryption;
             EnablePurge = enablePurge;
             EnableStreamingIngest = enableStreamingIngest;
+            EngineType = engineType;
             Identity = identity;
             KeyVaultProperties = keyVaultProperties;
             LanguageExtensions = languageExtensions;

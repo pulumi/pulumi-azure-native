@@ -76,9 +76,17 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// </summary>
         public readonly int Port;
         /// <summary>
+        /// List of private endpoint connection associated with the specified redis cache
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// Redis instance provisioning status.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         /// </summary>
@@ -148,7 +156,11 @@ namespace Pulumi.AzureNextGen.Cache.Latest
 
             int port,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             ImmutableDictionary<string, string>? redisConfiguration,
 
@@ -183,7 +195,9 @@ namespace Pulumi.AzureNextGen.Cache.Latest
             MinimumTlsVersion = minimumTlsVersion;
             Name = name;
             Port = port;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             RedisConfiguration = redisConfiguration;
             RedisVersion = redisVersion;
             ReplicasPerMaster = replicasPerMaster;

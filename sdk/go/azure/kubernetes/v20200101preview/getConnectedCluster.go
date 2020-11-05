@@ -25,6 +25,7 @@ type LookupConnectedClusterArgs struct {
 
 // Represents a connected cluster.
 type LookupConnectedClusterResult struct {
+	// AAD profile of the connected cluster.
 	AadProfile ConnectedClusterAADProfileResponse `pulumi:"aadProfile"`
 	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
 	AgentPublicKeyCertificate string `pulumi:"agentPublicKeyCertificate"`
@@ -38,7 +39,7 @@ type LookupConnectedClusterResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The current deployment state of connectedClusters.
+	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`

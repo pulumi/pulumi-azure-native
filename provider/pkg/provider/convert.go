@@ -16,27 +16,32 @@ type SdkShapeConverter struct {
 	Types map[string]AzureAPIType
 }
 
-func (k *SdkShapeConverter) sdkPropertyToRequest(prop *AzureAPIProperty, value interface{}) interface{} {
+type convertPropValues func(props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{}
+
+func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value interface{}, convertMap convertPropValues) interface{} {
 	switch reflect.TypeOf(value).Kind() {
 	case reflect.Map:
 		// For union types, iterate through types and find the first one that matches the shape.
 		for _, t := range prop.OneOf {
 			typeName := strings.TrimPrefix(t, "#/types/")
-			typ := k.Types[typeName]
-			request := k.SdkPropertiesToRequestBody(typ.Properties, value.(map[string]interface{}))
+			typ, ok := k.Types[typeName]
+			if !ok {
+				continue
+			}
+
+			request := convertMap(typ.Properties, value.(map[string]interface{}))
 			if request != nil {
 				return request
 			}
 		}
 
-		if prop.Ref == "" {
-			// Return untyped dictionaries as-is.
+		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
+		typ, ok := k.Types[typeName]
+		if !ok {
 			return value
 		}
 
-		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-		typ := k.Types[typeName]
-		return k.SdkPropertiesToRequestBody(typ.Properties, value.(map[string]interface{}))
+		return convertMap(typ.Properties, value.(map[string]interface{}))
 	case reflect.Slice, reflect.Array:
 		if prop.Items == nil {
 			return value
@@ -45,7 +50,7 @@ func (k *SdkShapeConverter) sdkPropertyToRequest(prop *AzureAPIProperty, value i
 		var result []interface{}
 		s := reflect.ValueOf(value)
 		for i := 0; i < s.Len(); i++ {
-			result = append(result, k.sdkPropertyToRequest(prop.Items, s.Index(i).Interface()))
+			result = append(result, k.convertPropValue(prop.Items, s.Index(i).Interface(), convertMap))
 		}
 		return result
 	}
@@ -68,7 +73,7 @@ func (k *SdkShapeConverter) SdkPropertiesToRequestBody(props map[string]AzureAPI
 			}
 
 			container := k.buildContainer(result, prop.Containers)
-			container[name] = k.sdkPropertyToRequest(&p, value)
+			container[name] = k.convertPropValue(&p, value, k.SdkPropertiesToRequestBody)
 		}
 	}
 	return result
@@ -89,53 +94,6 @@ func (k *SdkShapeConverter) buildContainer(parent map[string]interface{}, path [
 		parent = container
 	}
 	return parent
-}
-
-func (k *SdkShapeConverter) bodyPropertyToSdk(prop *AzureAPIProperty, value interface{}) interface{} {
-	if prop == nil {
-		return value
-	}
-
-	if value == nil {
-		return value
-	}
-	switch reflect.TypeOf(value).Kind() {
-	case reflect.Map:
-		// For union types, iterate through types and find the first one that matches the shape.
-		for _, t := range prop.OneOf {
-			typeName := strings.TrimPrefix(t, "#/types/")
-			typ := k.Types[typeName]
-			response := k.BodyPropertiesToSDK(typ.Properties, value.(map[string]interface{}))
-			if response != nil {
-				return response
-			}
-		}
-
-		if prop.Ref == "" {
-			// Return untyped dictionaries as-is.
-			return value
-		}
-
-		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-		typ, ok := k.Types[typeName]
-		if !ok {
-			return value.(map[string]interface{})
-		}
-
-		return k.BodyPropertiesToSDK(typ.Properties, value.(map[string]interface{}))
-	case reflect.Slice, reflect.Array:
-		if prop.Items == nil {
-			return value
-		}
-
-		var result []interface{}
-		s := reflect.ValueOf(value)
-		for i := 0; i < s.Len(); i++ {
-			result = append(result, k.bodyPropertyToSdk(prop.Items, s.Index(i).Interface()))
-		}
-		return result
-	}
-	return value
 }
 
 // BodyPropertiesToSDK converts a JSON request- or response body to the SDK shape.
@@ -166,7 +124,7 @@ func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]AzureAPIPropert
 			}
 
 			if value != nil {
-				result[sdkName] = k.bodyPropertyToSdk(&p, value)
+				result[sdkName] = k.convertPropValue(&p, value, k.BodyPropertiesToSDK)
 			}
 		}
 	}
@@ -205,6 +163,36 @@ func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []AzureAPIParameter,
 		}
 	}
 	return result
+}
+
+func (k *SdkShapeConverter) sdkOutputsToSDKInputs(props map[string]AzureAPIProperty, outputs map[string]interface{}) map[string]interface{} {
+	result := map[string]interface{}{}
+	for name, prop := range props {
+		sdkName := name
+		if prop.SdkName != "" {
+			sdkName = prop.SdkName
+		}
+		if value, ok := outputs[sdkName]; ok {
+			if prop.Const != nil && value != prop.Const {
+				return nil
+			}
+
+			p := prop // https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
+			result[sdkName] = k.convertPropValue(&p, value, k.sdkOutputsToSDKInputs)
+		}
+	}
+	return result
+}
+
+// SDKOutputsToSDKInputs converts resource outputs (not a response body, but already valid outputs) to corresponding
+// resource inputs, excluding the read-only properties from the map.
+func (k *SdkShapeConverter) SDKOutputsToSDKInputs(parameters []AzureAPIParameter, outputs map[string]interface{}) map[string]interface{} {
+	for _, param := range parameters {
+		if param.Location == body {
+			return k.sdkOutputsToSDKInputs(param.Body.Properties, outputs)
+		}
+	}
+	return nil
 }
 
 // parseResourceID extracts templated values from the given resource ID based on the names of those templated

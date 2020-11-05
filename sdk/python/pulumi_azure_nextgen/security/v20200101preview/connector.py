@@ -30,7 +30,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AwAssumeRoleAuthenticationDetailsPropertiesArgs'], pulumi.InputType['AwsCredsAuthenticationDetailsPropertiesArgs'], pulumi.InputType['GcpCredentialsDetailsPropertiesArgs']]] authentication_details: Settings for authentication management, these settings are relevant only for the cloud connector.
         :param pulumi.Input[str] connector_name: Name of the cloud account connector
-        :param pulumi.Input[pulumi.InputType['HybridComputeSettingsPropertiesArgs']] hybrid_compute_settings: Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+        :param pulumi.Input[pulumi.InputType['HybridComputeSettingsPropertiesArgs']] hybrid_compute_settings: Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -92,7 +92,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="hybridComputeSettings")
     def hybrid_compute_settings(self) -> pulumi.Output[Optional['outputs.HybridComputeSettingsPropertiesResponse']]:
         """
-        Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+        Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         """
         return pulumi.get(self, "hybrid_compute_settings")
 

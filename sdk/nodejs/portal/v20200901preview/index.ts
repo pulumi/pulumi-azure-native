@@ -5,4 +5,5 @@
 export * from "./dashboard";
 export * from "./getDashboard";
 export * from "./getTenantConfiguration";
+export * from "./listListTenantConfigurationViolation";
 export * from "./tenantConfiguration";

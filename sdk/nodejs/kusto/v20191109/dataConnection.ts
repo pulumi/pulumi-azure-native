@@ -97,7 +97,7 @@ export class DataConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/latest:DataConnection" }, { type: "azure-nextgen:kusto/v20190121:DataConnection" }, { type: "azure-nextgen:kusto/v20190515:DataConnection" }, { type: "azure-nextgen:kusto/v20190907:DataConnection" }, { type: "azure-nextgen:kusto/v20200215:DataConnection" }, { type: "azure-nextgen:kusto/v20200614:DataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/latest:DataConnection" }, { type: "azure-nextgen:kusto/v20190121:DataConnection" }, { type: "azure-nextgen:kusto/v20190515:DataConnection" }, { type: "azure-nextgen:kusto/v20190907:DataConnection" }, { type: "azure-nextgen:kusto/v20200215:DataConnection" }, { type: "azure-nextgen:kusto/v20200614:DataConnection" }, { type: "azure-nextgen:kusto/v20200918:DataConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataConnection.__pulumiType, name, inputs, opts);
     }

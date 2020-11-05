@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         public Output<bool?> EnableStreamingIngest { get; private set; } = null!;
 
         /// <summary>
+        /// The engine type
+        /// </summary>
+        [Output("engineType")]
+        public Output<string?> EngineType { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
         [Output("identity")]
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -225,6 +232,12 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         /// </summary>
         [Input("enableStreamingIngest")]
         public Input<bool>? EnableStreamingIngest { get; set; }
+
+        /// <summary>
+        /// The engine type
+        /// </summary>
+        [Input("engineType")]
+        public Input<string>? EngineType { get; set; }
 
         /// <summary>
         /// The identity of the cluster, if configured.

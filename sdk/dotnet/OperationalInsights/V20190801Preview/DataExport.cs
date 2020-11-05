@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
         public Input<string>? LastModifiedDate { get; set; }
 
         /// <summary>
-        /// The workspace's resource group name.
+        /// The name of the resource group to get. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

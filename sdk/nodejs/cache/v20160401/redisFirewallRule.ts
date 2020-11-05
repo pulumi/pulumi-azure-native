@@ -96,7 +96,7 @@ export class RedisFirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20170201:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20171001:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20180301:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20190701:RedisFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20170201:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20171001:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20180301:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20190701:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20200601:RedisFirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RedisFirewallRule.__pulumiType, name, inputs, opts);
     }

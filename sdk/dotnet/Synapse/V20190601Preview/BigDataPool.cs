@@ -33,6 +33,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
+        /// List of custom libraries/packages associated with the spark pool.
+        /// </summary>
+        [Output("customLibraries")]
+        public Output<ImmutableArray<Outputs.LibraryInfoResponse>> CustomLibraries { get; private set; } = null!;
+
+        /// <summary>
         /// The default folder where Spark logs will be written.
         /// </summary>
         [Output("defaultSparkLogFolder")]
@@ -85,6 +91,18 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Output("provisioningState")]
         public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether session level library/package management is enabled or not.
+        /// </summary>
+        [Output("sessionLevelPackagesEnabled")]
+        public Output<bool?> SessionLevelPackagesEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Spark configuration file to specify additional properties
+        /// </summary>
+        [Output("sparkConfigProperties")]
+        public Output<Outputs.LibraryRequirementsResponse?> SparkConfigProperties { get; private set; } = null!;
 
         /// <summary>
         /// The Spark events folder
@@ -179,6 +197,18 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
 
+        [Input("customLibraries")]
+        private InputList<Inputs.LibraryInfoArgs>? _customLibraries;
+
+        /// <summary>
+        /// List of custom libraries/packages associated with the spark pool.
+        /// </summary>
+        public InputList<Inputs.LibraryInfoArgs> CustomLibraries
+        {
+            get => _customLibraries ?? (_customLibraries = new InputList<Inputs.LibraryInfoArgs>());
+            set => _customLibraries = value;
+        }
+
         /// <summary>
         /// The default folder where Spark logs will be written.
         /// </summary>
@@ -238,6 +268,18 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Whether session level library/package management is enabled or not.
+        /// </summary>
+        [Input("sessionLevelPackagesEnabled")]
+        public Input<bool>? SessionLevelPackagesEnabled { get; set; }
+
+        /// <summary>
+        /// Spark configuration file to specify additional properties
+        /// </summary>
+        [Input("sparkConfigProperties")]
+        public Input<Inputs.LibraryRequirementsArgs>? SparkConfigProperties { get; set; }
 
         /// <summary>
         /// The Spark events folder

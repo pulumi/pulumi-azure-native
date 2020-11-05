@@ -50,6 +50,14 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
         /// </summary>
         public readonly string? AgentVersion;
         /// <summary>
+        /// Registered Server Agent Version Expiration Date
+        /// </summary>
+        public readonly string AgentVersionExpirationDate;
+        /// <summary>
+        /// Registered Server Agent Version Status
+        /// </summary>
+        public readonly string AgentVersionStatus;
+        /// <summary>
         /// Registered Server clusterId
         /// </summary>
         public readonly string? ClusterId;
@@ -60,7 +68,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
         /// <summary>
         /// Resource discoveryEndpointUri
         /// </summary>
-        public readonly string? DiscoveryEndpointUri;
+        public readonly string DiscoveryEndpointUri;
         /// <summary>
         /// Friendly Name
         /// </summary>
@@ -68,27 +76,27 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
         /// <summary>
         /// Registered Server last heart beat
         /// </summary>
-        public readonly string? LastHeartBeat;
+        public readonly string LastHeartBeat;
         /// <summary>
         /// Resource Last Operation Name
         /// </summary>
-        public readonly string? LastOperationName;
+        public readonly string LastOperationName;
         /// <summary>
         /// Registered Server lastWorkflowId
         /// </summary>
-        public readonly string? LastWorkflowId;
+        public readonly string LastWorkflowId;
         /// <summary>
         /// Management Endpoint Uri
         /// </summary>
-        public readonly string? ManagementEndpointUri;
+        public readonly string ManagementEndpointUri;
         /// <summary>
         /// Monitoring Configuration
         /// </summary>
-        public readonly string? MonitoringConfiguration;
+        public readonly string MonitoringConfiguration;
         /// <summary>
         /// Telemetry Endpoint Uri
         /// </summary>
-        public readonly string? MonitoringEndpointUri;
+        public readonly string MonitoringEndpointUri;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -96,11 +104,11 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
         /// <summary>
         /// Registered Server Provisioning State
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource Location
         /// </summary>
-        public readonly string? ResourceLocation;
+        public readonly string ResourceLocation;
         /// <summary>
         /// Registered Server Certificate
         /// </summary>
@@ -112,7 +120,11 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
         /// <summary>
         /// Registered Server Management Error Code
         /// </summary>
-        public readonly int? ServerManagementErrorCode;
+        public readonly int ServerManagementErrorCode;
+        /// <summary>
+        /// Server name
+        /// </summary>
+        public readonly string ServerName;
         /// <summary>
         /// Registered Server OS Version
         /// </summary>
@@ -124,11 +136,11 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
         /// <summary>
         /// Service Location
         /// </summary>
-        public readonly string? ServiceLocation;
+        public readonly string ServiceLocation;
         /// <summary>
         /// Registered Server storageSyncServiceUid
         /// </summary>
-        public readonly string? StorageSyncServiceUid;
+        public readonly string StorageSyncServiceUid;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -138,49 +150,57 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
         private GetRegisteredServerResult(
             string? agentVersion,
 
+            string agentVersionExpirationDate,
+
+            string agentVersionStatus,
+
             string? clusterId,
 
             string? clusterName,
 
-            string? discoveryEndpointUri,
+            string discoveryEndpointUri,
 
             string? friendlyName,
 
-            string? lastHeartBeat,
+            string lastHeartBeat,
 
-            string? lastOperationName,
+            string lastOperationName,
 
-            string? lastWorkflowId,
+            string lastWorkflowId,
 
-            string? managementEndpointUri,
+            string managementEndpointUri,
 
-            string? monitoringConfiguration,
+            string monitoringConfiguration,
 
-            string? monitoringEndpointUri,
+            string monitoringEndpointUri,
 
             string name,
 
-            string? provisioningState,
+            string provisioningState,
 
-            string? resourceLocation,
+            string resourceLocation,
 
             string? serverCertificate,
 
             string? serverId,
 
-            int? serverManagementErrorCode,
+            int serverManagementErrorCode,
+
+            string serverName,
 
             string? serverOSVersion,
 
             string? serverRole,
 
-            string? serviceLocation,
+            string serviceLocation,
 
-            string? storageSyncServiceUid,
+            string storageSyncServiceUid,
 
             string type)
         {
             AgentVersion = agentVersion;
+            AgentVersionExpirationDate = agentVersionExpirationDate;
+            AgentVersionStatus = agentVersionStatus;
             ClusterId = clusterId;
             ClusterName = clusterName;
             DiscoveryEndpointUri = discoveryEndpointUri;
@@ -197,6 +217,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
             ServerCertificate = serverCertificate;
             ServerId = serverId;
             ServerManagementErrorCode = serverManagementErrorCode;
+            ServerName = serverName;
             ServerOSVersion = serverOSVersion;
             ServerRole = serverRole;
             ServiceLocation = serviceLocation;

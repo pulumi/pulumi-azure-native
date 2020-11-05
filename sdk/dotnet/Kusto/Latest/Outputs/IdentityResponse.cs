@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type.
+        /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
         /// </summary>
         public readonly string Type;
         /// <summary>

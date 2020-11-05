@@ -14,6 +14,9 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
     /// </summary>
     public partial class ConnectedCluster : Pulumi.CustomResource
     {
+        /// <summary>
+        /// AAD profile of the connected cluster.
+        /// </summary>
         [Output("aadProfile")]
         public Output<Outputs.ConnectedClusterAADProfileResponse> AadProfile { get; private set; } = null!;
 
@@ -54,7 +57,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The current deployment state of connectedClusters.
+        /// Provisioning state of the connected cluster resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string?> ProvisioningState { get; private set; } = null!;
@@ -122,6 +125,9 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
 
     public sealed class ConnectedClusterArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AAD profile of the connected cluster.
+        /// </summary>
         [Input("aadProfile", required: true)]
         public Input<Inputs.ConnectedClusterAADProfileArgs> AadProfile { get; set; } = null!;
 
@@ -150,7 +156,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The current deployment state of connectedClusters.
+        /// Provisioning state of the connected cluster resource.
         /// </summary>
         [Input("provisioningState")]
         public Input<string>? ProvisioningState { get; set; }

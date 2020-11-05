@@ -62,8 +62,9 @@ class ContentItem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['name'] = None
+            __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ContentItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ContentItem"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ContentItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContentItem, __self__).__init__(
             'azure-nextgen:apimanagement/latest:ContentItem',
@@ -96,6 +97,14 @@ class ContentItem(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output[Any]:
+        """
+        Properties of the content item.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Connection strings.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.ConnStringValueTypePairResponseResult> Properties;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -64,10 +68,13 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 
             string name,
 
+            ImmutableDictionary<string, Outputs.ConnStringValueTypePairResponseResult> properties,
+
             string type)
         {
             Kind = kind;
             Name = name;
+            Properties = properties;
             Type = type;
         }
     }

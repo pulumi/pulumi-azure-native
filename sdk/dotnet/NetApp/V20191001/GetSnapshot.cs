@@ -82,6 +82,10 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
         /// </summary>
         public readonly string SnapshotId;
         /// <summary>
+        /// Resource tags
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
 
             string snapshotId,
 
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
             Created = created;
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
             Name = name;
             ProvisioningState = provisioningState;
             SnapshotId = snapshotId;
+            Tags = tags;
             Type = type;
         }
     }

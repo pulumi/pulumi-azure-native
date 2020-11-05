@@ -1371,28 +1371,29 @@ class KeyVaultCertificateSourceParametersResponse(dict):
                  odata_type: str,
                  resource_group_name: str,
                  secret_name: str,
-                 secret_version: str,
                  subscription_id: str,
                  update_rule: str,
-                 vault_name: str):
+                 vault_name: str,
+                 secret_version: Optional[str] = None):
         """
         Describes the parameters for using a user's KeyVault certificate for securing custom domain.
         :param str delete_rule: Describes the action that shall be taken when the certificate is removed from Key Vault.
         :param str resource_group_name: Resource group of the user's Key Vault containing the SSL certificate
         :param str secret_name: The name of Key Vault Secret (representing the full certificate PFX) in Key Vault.
-        :param str secret_version: The version(GUID) of Key Vault Secret in Key Vault.
         :param str subscription_id: Subscription Id of the user's Key Vault containing the SSL certificate
         :param str update_rule: Describes the action that shall be taken when the certificate is updated in Key Vault.
         :param str vault_name: The name of the user's Key Vault containing the SSL certificate
+        :param str secret_version: The version(GUID) of Key Vault Secret in Key Vault.
         """
         pulumi.set(__self__, "delete_rule", delete_rule)
         pulumi.set(__self__, "odata_type", odata_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "secret_version", secret_version)
         pulumi.set(__self__, "subscription_id", subscription_id)
         pulumi.set(__self__, "update_rule", update_rule)
         pulumi.set(__self__, "vault_name", vault_name)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
 
     @property
     @pulumi.getter(name="deleteRule")
@@ -1424,14 +1425,6 @@ class KeyVaultCertificateSourceParametersResponse(dict):
         return pulumi.get(self, "secret_name")
 
     @property
-    @pulumi.getter(name="secretVersion")
-    def secret_version(self) -> str:
-        """
-        The version(GUID) of Key Vault Secret in Key Vault.
-        """
-        return pulumi.get(self, "secret_version")
-
-    @property
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> str:
         """
@@ -1454,6 +1447,14 @@ class KeyVaultCertificateSourceParametersResponse(dict):
         The name of the user's Key Vault containing the SSL certificate
         """
         return pulumi.get(self, "vault_name")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[str]:
+        """
+        The version(GUID) of Key Vault Secret in Key Vault.
+        """
+        return pulumi.get(self, "secret_version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

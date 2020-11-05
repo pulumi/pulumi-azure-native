@@ -2027,6 +2027,151 @@ func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTrigger
 	}).(StatusCodesBasedTriggerResponseArrayOutput)
 }
 
+// Azure Files or Blob Storage access information value for dictionary storage.
+type AzureStorageInfoValueResponse struct {
+	// Access key for the storage account.
+	AccessKey *string `pulumi:"accessKey"`
+	// Name of the storage account.
+	AccountName *string `pulumi:"accountName"`
+	// Path to mount the storage within the site's runtime environment.
+	MountPath *string `pulumi:"mountPath"`
+	// Name of the file share (container name, for Blob storage).
+	ShareName *string `pulumi:"shareName"`
+	// State of the storage account.
+	State string `pulumi:"state"`
+	// Type of storage.
+	Type *string `pulumi:"type"`
+}
+
+// AzureStorageInfoValueResponseInput is an input type that accepts AzureStorageInfoValueResponseArgs and AzureStorageInfoValueResponseOutput values.
+// You can construct a concrete instance of `AzureStorageInfoValueResponseInput` via:
+//
+//          AzureStorageInfoValueResponseArgs{...}
+type AzureStorageInfoValueResponseInput interface {
+	pulumi.Input
+
+	ToAzureStorageInfoValueResponseOutput() AzureStorageInfoValueResponseOutput
+	ToAzureStorageInfoValueResponseOutputWithContext(context.Context) AzureStorageInfoValueResponseOutput
+}
+
+// Azure Files or Blob Storage access information value for dictionary storage.
+type AzureStorageInfoValueResponseArgs struct {
+	// Access key for the storage account.
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// Name of the storage account.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Path to mount the storage within the site's runtime environment.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+	// Name of the file share (container name, for Blob storage).
+	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
+	// State of the storage account.
+	State pulumi.StringInput `pulumi:"state"`
+	// Type of storage.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (AzureStorageInfoValueResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (i AzureStorageInfoValueResponseArgs) ToAzureStorageInfoValueResponseOutput() AzureStorageInfoValueResponseOutput {
+	return i.ToAzureStorageInfoValueResponseOutputWithContext(context.Background())
+}
+
+func (i AzureStorageInfoValueResponseArgs) ToAzureStorageInfoValueResponseOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageInfoValueResponseOutput)
+}
+
+// AzureStorageInfoValueResponseMapInput is an input type that accepts AzureStorageInfoValueResponseMap and AzureStorageInfoValueResponseMapOutput values.
+// You can construct a concrete instance of `AzureStorageInfoValueResponseMapInput` via:
+//
+//          AzureStorageInfoValueResponseMap{ "key": AzureStorageInfoValueResponseArgs{...} }
+type AzureStorageInfoValueResponseMapInput interface {
+	pulumi.Input
+
+	ToAzureStorageInfoValueResponseMapOutput() AzureStorageInfoValueResponseMapOutput
+	ToAzureStorageInfoValueResponseMapOutputWithContext(context.Context) AzureStorageInfoValueResponseMapOutput
+}
+
+type AzureStorageInfoValueResponseMap map[string]AzureStorageInfoValueResponseInput
+
+func (AzureStorageInfoValueResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (i AzureStorageInfoValueResponseMap) ToAzureStorageInfoValueResponseMapOutput() AzureStorageInfoValueResponseMapOutput {
+	return i.ToAzureStorageInfoValueResponseMapOutputWithContext(context.Background())
+}
+
+func (i AzureStorageInfoValueResponseMap) ToAzureStorageInfoValueResponseMapOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageInfoValueResponseMapOutput)
+}
+
+// Azure Files or Blob Storage access information value for dictionary storage.
+type AzureStorageInfoValueResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureStorageInfoValueResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (o AzureStorageInfoValueResponseOutput) ToAzureStorageInfoValueResponseOutput() AzureStorageInfoValueResponseOutput {
+	return o
+}
+
+func (o AzureStorageInfoValueResponseOutput) ToAzureStorageInfoValueResponseOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseOutput {
+	return o
+}
+
+// Access key for the storage account.
+func (o AzureStorageInfoValueResponseOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Name of the storage account.
+func (o AzureStorageInfoValueResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Path to mount the storage within the site's runtime environment.
+func (o AzureStorageInfoValueResponseOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// Name of the file share (container name, for Blob storage).
+func (o AzureStorageInfoValueResponseOutput) ShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.ShareName }).(pulumi.StringPtrOutput)
+}
+
+// State of the storage account.
+func (o AzureStorageInfoValueResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Type of storage.
+func (o AzureStorageInfoValueResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type AzureStorageInfoValueResponseMapOutput struct{ *pulumi.OutputState }
+
+func (AzureStorageInfoValueResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (o AzureStorageInfoValueResponseMapOutput) ToAzureStorageInfoValueResponseMapOutput() AzureStorageInfoValueResponseMapOutput {
+	return o
+}
+
+func (o AzureStorageInfoValueResponseMapOutput) ToAzureStorageInfoValueResponseMapOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseMapOutput {
+	return o
+}
+
+func (o AzureStorageInfoValueResponseMapOutput) MapIndex(k pulumi.StringInput) AzureStorageInfoValueResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AzureStorageInfoValueResponse {
+		return vs[0].(map[string]AzureStorageInfoValueResponse)[vs[1].(string)]
+	}).(AzureStorageInfoValueResponseOutput)
+}
+
 // Backup description.
 type BackupItemResponse struct {
 	// Id of the backup.
@@ -3620,6 +3765,115 @@ func (o ConnStringInfoResponseArrayOutput) Index(i pulumi.IntInput) ConnStringIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnStringInfoResponse {
 		return vs[0].([]ConnStringInfoResponse)[vs[1].(int)]
 	}).(ConnStringInfoResponseOutput)
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponse struct {
+	// Type of database.
+	Type string `pulumi:"type"`
+	// Value of pair.
+	Value string `pulumi:"value"`
+}
+
+// ConnStringValueTypePairResponseInput is an input type that accepts ConnStringValueTypePairResponseArgs and ConnStringValueTypePairResponseOutput values.
+// You can construct a concrete instance of `ConnStringValueTypePairResponseInput` via:
+//
+//          ConnStringValueTypePairResponseArgs{...}
+type ConnStringValueTypePairResponseInput interface {
+	pulumi.Input
+
+	ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput
+	ToConnStringValueTypePairResponseOutputWithContext(context.Context) ConnStringValueTypePairResponseOutput
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponseArgs struct {
+	// Type of database.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of pair.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConnStringValueTypePairResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (i ConnStringValueTypePairResponseArgs) ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput {
+	return i.ToConnStringValueTypePairResponseOutputWithContext(context.Background())
+}
+
+func (i ConnStringValueTypePairResponseArgs) ToConnStringValueTypePairResponseOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairResponseOutput)
+}
+
+// ConnStringValueTypePairResponseMapInput is an input type that accepts ConnStringValueTypePairResponseMap and ConnStringValueTypePairResponseMapOutput values.
+// You can construct a concrete instance of `ConnStringValueTypePairResponseMapInput` via:
+//
+//          ConnStringValueTypePairResponseMap{ "key": ConnStringValueTypePairResponseArgs{...} }
+type ConnStringValueTypePairResponseMapInput interface {
+	pulumi.Input
+
+	ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput
+	ToConnStringValueTypePairResponseMapOutputWithContext(context.Context) ConnStringValueTypePairResponseMapOutput
+}
+
+type ConnStringValueTypePairResponseMap map[string]ConnStringValueTypePairResponseInput
+
+func (ConnStringValueTypePairResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (i ConnStringValueTypePairResponseMap) ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput {
+	return i.ToConnStringValueTypePairResponseMapOutputWithContext(context.Background())
+}
+
+func (i ConnStringValueTypePairResponseMap) ToConnStringValueTypePairResponseMapOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairResponseMapOutput)
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnStringValueTypePairResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (o ConnStringValueTypePairResponseOutput) ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseOutput) ToConnStringValueTypePairResponseOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseOutput {
+	return o
+}
+
+// Type of database.
+func (o ConnStringValueTypePairResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePairResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of pair.
+func (o ConnStringValueTypePairResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePairResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConnStringValueTypePairResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ConnStringValueTypePairResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) ToConnStringValueTypePairResponseMapOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseMapOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) MapIndex(k pulumi.StringInput) ConnStringValueTypePairResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnStringValueTypePairResponse {
+		return vs[0].(map[string]ConnStringValueTypePairResponse)[vs[1].(string)]
+	}).(ConnStringValueTypePairResponseOutput)
 }
 
 // Cross-Origin Resource Sharing (CORS) settings for the app.
@@ -8443,6 +8697,10 @@ type SiteConfig struct {
 	VirtualApplications []VirtualApplication `pulumi:"virtualApplications"`
 	// Virtual Network name.
 	VnetName *string `pulumi:"vnetName"`
+	// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+	VnetPrivatePortsCount *int `pulumi:"vnetPrivatePortsCount"`
+	// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
 	// Xenon App Framework and version
@@ -8569,6 +8827,10 @@ type SiteConfigArgs struct {
 	VirtualApplications VirtualApplicationArrayInput `pulumi:"virtualApplications"`
 	// Virtual Network name.
 	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
+	// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+	VnetPrivatePortsCount pulumi.IntPtrInput `pulumi:"vnetPrivatePortsCount"`
+	// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
 	// Xenon App Framework and version
@@ -8914,6 +9176,16 @@ func (o SiteConfigOutput) VirtualApplications() VirtualApplicationArrayOutput {
 // Virtual Network name.
 func (o SiteConfigOutput) VnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+}
+
+// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+func (o SiteConfigOutput) VnetPrivatePortsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *int { return v.VnetPrivatePortsCount }).(pulumi.IntPtrOutput)
+}
+
+// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+func (o SiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.VnetRouteAllEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
@@ -9470,6 +9742,26 @@ func (o SiteConfigPtrOutput) VnetName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+func (o SiteConfigPtrOutput) VnetPrivatePortsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VnetPrivatePortsCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+func (o SiteConfigPtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VnetRouteAllEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
@@ -9609,6 +9901,10 @@ type SiteConfigResponse struct {
 	VirtualApplications []VirtualApplicationResponse `pulumi:"virtualApplications"`
 	// Virtual Network name.
 	VnetName *string `pulumi:"vnetName"`
+	// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+	VnetPrivatePortsCount *int `pulumi:"vnetPrivatePortsCount"`
+	// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
 	// Xenon App Framework and version
@@ -9737,6 +10033,10 @@ type SiteConfigResponseArgs struct {
 	VirtualApplications VirtualApplicationResponseArrayInput `pulumi:"virtualApplications"`
 	// Virtual Network name.
 	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
+	// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+	VnetPrivatePortsCount pulumi.IntPtrInput `pulumi:"vnetPrivatePortsCount"`
+	// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
 	// Xenon App Framework and version
@@ -10087,6 +10387,16 @@ func (o SiteConfigResponseOutput) VirtualApplications() VirtualApplicationRespon
 // Virtual Network name.
 func (o SiteConfigResponseOutput) VnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+}
+
+// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+func (o SiteConfigResponseOutput) VnetPrivatePortsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *int { return v.VnetPrivatePortsCount }).(pulumi.IntPtrOutput)
+}
+
+// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+func (o SiteConfigResponseOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.VnetRouteAllEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
@@ -10651,6 +10961,26 @@ func (o SiteConfigResponsePtrOutput) VnetName() pulumi.StringPtrOutput {
 		}
 		return v.VnetName
 	}).(pulumi.StringPtrOutput)
+}
+
+// The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+func (o SiteConfigResponsePtrOutput) VnetPrivatePortsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VnetPrivatePortsCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+func (o SiteConfigResponsePtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VnetRouteAllEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
@@ -15042,6 +15372,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoHealTriggersPtrOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponseOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureStorageInfoValueResponseOutput{})
+	pulumi.RegisterOutputType(AzureStorageInfoValueResponseMapOutput{})
 	pulumi.RegisterOutputType(BackupItemResponseOutput{})
 	pulumi.RegisterOutputType(BackupItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(BackupScheduleOutput{})
@@ -15058,6 +15390,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnStringInfoArrayOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConnStringValueTypePairResponseOutput{})
+	pulumi.RegisterOutputType(ConnStringValueTypePairResponseMapOutput{})
 	pulumi.RegisterOutputType(CorsSettingsOutput{})
 	pulumi.RegisterOutputType(CorsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CorsSettingsResponseOutput{})

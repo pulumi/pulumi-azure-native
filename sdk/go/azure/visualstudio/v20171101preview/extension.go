@@ -113,6 +113,8 @@ type extensionArgs struct {
 	Location *string `pulumi:"location"`
 	// Extended information about the plan being purchased for this extension resource.
 	Plan *ExtensionResourcePlan `pulumi:"plan"`
+	// A dictionary of extended properties. This property is currently unused.
+	Properties map[string]string `pulumi:"properties"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A dictionary of user-defined tags to be stored with the extension resource.
@@ -129,6 +131,8 @@ type ExtensionArgs struct {
 	Location pulumi.StringPtrInput
 	// Extended information about the plan being purchased for this extension resource.
 	Plan ExtensionResourcePlanPtrInput
+	// A dictionary of extended properties. This property is currently unused.
+	Properties pulumi.StringMapInput
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// A dictionary of user-defined tags to be stored with the extension resource.

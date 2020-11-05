@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Inputs
         [Input("adName")]
         public Input<string>? AdName { get; set; }
 
+        /// <summary>
+        /// If enabled, AES encryption will be enabled for SMB communication.
+        /// </summary>
+        [Input("aesEncryption")]
+        public Input<bool>? AesEncryption { get; set; }
+
         [Input("backupOperators")]
         private InputList<string>? _backupOperators;
 
@@ -56,6 +62,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Inputs
         /// </summary>
         [Input("kdcIP")]
         public Input<string>? KdcIP { get; set; }
+
+        /// <summary>
+        /// Specifies whether or not the LDAP traffic needs to be signed.
+        /// </summary>
+        [Input("ldapSigning")]
+        public Input<bool>? LdapSigning { get; set; }
 
         /// <summary>
         /// The Organizational Unit (OU) within the Windows Active Directory

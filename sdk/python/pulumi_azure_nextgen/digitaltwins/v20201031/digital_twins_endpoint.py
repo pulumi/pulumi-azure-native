@@ -54,6 +54,8 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
             if endpoint_name is None:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
+            if properties is None:
+                raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

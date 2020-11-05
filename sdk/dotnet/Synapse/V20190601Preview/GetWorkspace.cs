@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string? ManagedVirtualNetwork;
         /// <summary>
+        /// Managed Virtual Network Settings
+        /// </summary>
+        public readonly Outputs.ManagedVirtualNetworkSettingsResponse? ManagedVirtualNetworkSettings;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string? managedVirtualNetwork,
 
+            Outputs.ManagedVirtualNetworkSettingsResponse? managedVirtualNetworkSettings,
+
             string name,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             Location = location;
             ManagedResourceGroupName = managedResourceGroupName;
             ManagedVirtualNetwork = managedVirtualNetwork;
+            ManagedVirtualNetworkSettings = managedVirtualNetworkSettings;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;

@@ -51,6 +51,10 @@ export interface GetBackupArgs {
  */
 export interface GetBackupResult {
     /**
+     * UUID v4 used to identify the Backup
+     */
+    readonly backupId: string;
+    /**
      * Type of backup adhoc or scheduled
      */
     readonly backupType: string;

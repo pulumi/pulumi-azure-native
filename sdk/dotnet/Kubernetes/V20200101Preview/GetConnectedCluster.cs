@@ -39,6 +39,9 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
     [OutputType]
     public sealed class GetConnectedClusterResult
     {
+        /// <summary>
+        /// AAD profile of the connected cluster.
+        /// </summary>
         public readonly Outputs.ConnectedClusterAADProfileResponse AadProfile;
         /// <summary>
         /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
@@ -65,7 +68,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The current deployment state of connectedClusters.
+        /// Provisioning state of the connected cluster resource.
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>

@@ -68,6 +68,7 @@ namespace Pulumi.AzureNextGen.Cache.V20171001
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

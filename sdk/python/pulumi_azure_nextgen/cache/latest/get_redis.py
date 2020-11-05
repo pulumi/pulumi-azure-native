@@ -20,7 +20,7 @@ class GetRedisResult:
     """
     A single Redis item in List or Get Operation.
     """
-    def __init__(__self__, access_keys=None, enable_non_ssl_port=None, host_name=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, provisioning_state=None, redis_configuration=None, redis_version=None, replicas_per_master=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, zones=None):
+    def __init__(__self__, access_keys=None, enable_non_ssl_port=None, host_name=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, redis_configuration=None, redis_version=None, replicas_per_master=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, zones=None):
         if access_keys and not isinstance(access_keys, dict):
             raise TypeError("Expected argument 'access_keys' to be a dict")
         pulumi.set(__self__, "access_keys", access_keys)
@@ -48,9 +48,15 @@ class GetRedisResult:
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if redis_configuration and not isinstance(redis_configuration, dict):
             raise TypeError("Expected argument 'redis_configuration' to be a dict")
         pulumi.set(__self__, "redis_configuration", redis_configuration)
@@ -161,12 +167,28 @@ class GetRedisResult:
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connection associated with the specified redis cache
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         Redis instance provisioning status.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="redisConfiguration")
@@ -280,7 +302,9 @@ class AwaitableGetRedisResult(GetRedisResult):
             minimum_tls_version=self.minimum_tls_version,
             name=self.name,
             port=self.port,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             redis_configuration=self.redis_configuration,
             redis_version=self.redis_version,
             replicas_per_master=self.replicas_per_master,
@@ -323,7 +347,9 @@ def get_redis(name: Optional[str] = None,
         minimum_tls_version=__ret__.minimum_tls_version,
         name=__ret__.name,
         port=__ret__.port,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         redis_configuration=__ret__.redis_configuration,
         redis_version=__ret__.redis_version,
         replicas_per_master=__ret__.replicas_per_master,

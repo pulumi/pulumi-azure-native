@@ -33,6 +33,8 @@ type ListSiteMetadataSlotResult struct {
 	Location string `pulumi:"location"`
 	// Resource Name
 	Name *string `pulumi:"name"`
+	// Settings
+	Properties map[string]string `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

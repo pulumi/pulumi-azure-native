@@ -41,6 +41,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      */
     public readonly apiProperties!: pulumi.Output<outputs.documentdb.latest.ApiPropertiesResponse | undefined>;
     /**
+     * The object representing the policy for taking backups on an account.
+     */
+    public readonly backupPolicy!: pulumi.Output<outputs.documentdb.latest.ContinuousModeBackupPolicyResponse | outputs.documentdb.latest.PeriodicModeBackupPolicyResponse | undefined>;
+    /**
      * List of Cosmos DB capabilities for the account
      */
     public readonly capabilities!: pulumi.Output<outputs.documentdb.latest.CapabilityResponse[] | undefined>;
@@ -177,6 +181,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["apiProperties"] = args ? args.apiProperties : undefined;
+            inputs["backupPolicy"] = args ? args.backupPolicy : undefined;
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["connectorOffer"] = args ? args.connectorOffer : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
@@ -208,6 +213,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["writeLocations"] = undefined /*out*/;
         } else {
             inputs["apiProperties"] = undefined /*out*/;
+            inputs["backupPolicy"] = undefined /*out*/;
             inputs["capabilities"] = undefined /*out*/;
             inputs["connectorOffer"] = undefined /*out*/;
             inputs["consistencyPolicy"] = undefined /*out*/;
@@ -244,7 +250,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20150401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20190801:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20191212:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200301:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20150401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20190801:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20191212:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200301:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200901:DatabaseAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccount.__pulumiType, name, inputs, opts);
     }
@@ -262,6 +268,10 @@ export interface DatabaseAccountArgs {
      * API specific properties. Currently, supported only for MongoDB API.
      */
     readonly apiProperties?: pulumi.Input<inputs.documentdb.latest.ApiProperties>;
+    /**
+     * The object representing the policy for taking backups on an account.
+     */
+    readonly backupPolicy?: pulumi.Input<inputs.documentdb.latest.ContinuousModeBackupPolicy | inputs.documentdb.latest.PeriodicModeBackupPolicy>;
     /**
      * List of Cosmos DB capabilities for the account
      */

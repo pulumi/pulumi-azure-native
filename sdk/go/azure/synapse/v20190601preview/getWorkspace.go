@@ -39,6 +39,8 @@ type LookupWorkspaceResult struct {
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
 	ManagedVirtualNetwork *string `pulumi:"managedVirtualNetwork"`
+	// Managed Virtual Network Settings
+	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettingsResponse `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Private endpoint connections to the workspace

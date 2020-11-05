@@ -1138,6 +1138,8 @@ func (o DependencyResponseArrayOutput) Index(i pulumi.IntInput) DependencyRespon
 type DeploymentProperties struct {
 	// The debug setting of the deployment.
 	DebugSetting *DebugSetting `pulumi:"debugSetting"`
+	// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
+	ExpressionEvaluationOptions *ExpressionEvaluationOptions `pulumi:"expressionEvaluationOptions"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
 	Mode string `pulumi:"mode"`
 	// The deployment on error behavior.
@@ -1167,6 +1169,8 @@ type DeploymentPropertiesInput interface {
 type DeploymentPropertiesArgs struct {
 	// The debug setting of the deployment.
 	DebugSetting DebugSettingPtrInput `pulumi:"debugSetting"`
+	// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
+	ExpressionEvaluationOptions ExpressionEvaluationOptionsPtrInput `pulumi:"expressionEvaluationOptions"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
 	Mode pulumi.StringInput `pulumi:"mode"`
 	// The deployment on error behavior.
@@ -1264,6 +1268,11 @@ func (o DeploymentPropertiesOutput) DebugSetting() DebugSettingPtrOutput {
 	return o.ApplyT(func(v DeploymentProperties) *DebugSetting { return v.DebugSetting }).(DebugSettingPtrOutput)
 }
 
+// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
+func (o DeploymentPropertiesOutput) ExpressionEvaluationOptions() ExpressionEvaluationOptionsPtrOutput {
+	return o.ApplyT(func(v DeploymentProperties) *ExpressionEvaluationOptions { return v.ExpressionEvaluationOptions }).(ExpressionEvaluationOptionsPtrOutput)
+}
+
 // The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
 func (o DeploymentPropertiesOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentProperties) string { return v.Mode }).(pulumi.StringOutput)
@@ -1320,6 +1329,16 @@ func (o DeploymentPropertiesPtrOutput) DebugSetting() DebugSettingPtrOutput {
 		}
 		return v.DebugSetting
 	}).(DebugSettingPtrOutput)
+}
+
+// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
+func (o DeploymentPropertiesPtrOutput) ExpressionEvaluationOptions() ExpressionEvaluationOptionsPtrOutput {
+	return o.ApplyT(func(v *DeploymentProperties) *ExpressionEvaluationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ExpressionEvaluationOptions
+	}).(ExpressionEvaluationOptionsPtrOutput)
 }
 
 // The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
@@ -2184,6 +2203,140 @@ func (o ErrorResponseResponseArrayOutput) Index(i pulumi.IntInput) ErrorResponse
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorResponseResponse {
 		return vs[0].([]ErrorResponseResponse)[vs[1].(int)]
 	}).(ErrorResponseResponseOutput)
+}
+
+// Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
+type ExpressionEvaluationOptions struct {
+	// The scope to be used for evaluation of parameters, variables and functions in a nested template.
+	Scope *string `pulumi:"scope"`
+}
+
+// ExpressionEvaluationOptionsInput is an input type that accepts ExpressionEvaluationOptionsArgs and ExpressionEvaluationOptionsOutput values.
+// You can construct a concrete instance of `ExpressionEvaluationOptionsInput` via:
+//
+//          ExpressionEvaluationOptionsArgs{...}
+type ExpressionEvaluationOptionsInput interface {
+	pulumi.Input
+
+	ToExpressionEvaluationOptionsOutput() ExpressionEvaluationOptionsOutput
+	ToExpressionEvaluationOptionsOutputWithContext(context.Context) ExpressionEvaluationOptionsOutput
+}
+
+// Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
+type ExpressionEvaluationOptionsArgs struct {
+	// The scope to be used for evaluation of parameters, variables and functions in a nested template.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+}
+
+func (ExpressionEvaluationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressionEvaluationOptions)(nil)).Elem()
+}
+
+func (i ExpressionEvaluationOptionsArgs) ToExpressionEvaluationOptionsOutput() ExpressionEvaluationOptionsOutput {
+	return i.ToExpressionEvaluationOptionsOutputWithContext(context.Background())
+}
+
+func (i ExpressionEvaluationOptionsArgs) ToExpressionEvaluationOptionsOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressionEvaluationOptionsOutput)
+}
+
+func (i ExpressionEvaluationOptionsArgs) ToExpressionEvaluationOptionsPtrOutput() ExpressionEvaluationOptionsPtrOutput {
+	return i.ToExpressionEvaluationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressionEvaluationOptionsArgs) ToExpressionEvaluationOptionsPtrOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressionEvaluationOptionsOutput).ToExpressionEvaluationOptionsPtrOutputWithContext(ctx)
+}
+
+// ExpressionEvaluationOptionsPtrInput is an input type that accepts ExpressionEvaluationOptionsArgs, ExpressionEvaluationOptionsPtr and ExpressionEvaluationOptionsPtrOutput values.
+// You can construct a concrete instance of `ExpressionEvaluationOptionsPtrInput` via:
+//
+//          ExpressionEvaluationOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ExpressionEvaluationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToExpressionEvaluationOptionsPtrOutput() ExpressionEvaluationOptionsPtrOutput
+	ToExpressionEvaluationOptionsPtrOutputWithContext(context.Context) ExpressionEvaluationOptionsPtrOutput
+}
+
+type expressionEvaluationOptionsPtrType ExpressionEvaluationOptionsArgs
+
+func ExpressionEvaluationOptionsPtr(v *ExpressionEvaluationOptionsArgs) ExpressionEvaluationOptionsPtrInput {
+	return (*expressionEvaluationOptionsPtrType)(v)
+}
+
+func (*expressionEvaluationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressionEvaluationOptions)(nil)).Elem()
+}
+
+func (i *expressionEvaluationOptionsPtrType) ToExpressionEvaluationOptionsPtrOutput() ExpressionEvaluationOptionsPtrOutput {
+	return i.ToExpressionEvaluationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *expressionEvaluationOptionsPtrType) ToExpressionEvaluationOptionsPtrOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressionEvaluationOptionsPtrOutput)
+}
+
+// Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
+type ExpressionEvaluationOptionsOutput struct{ *pulumi.OutputState }
+
+func (ExpressionEvaluationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressionEvaluationOptions)(nil)).Elem()
+}
+
+func (o ExpressionEvaluationOptionsOutput) ToExpressionEvaluationOptionsOutput() ExpressionEvaluationOptionsOutput {
+	return o
+}
+
+func (o ExpressionEvaluationOptionsOutput) ToExpressionEvaluationOptionsOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsOutput {
+	return o
+}
+
+func (o ExpressionEvaluationOptionsOutput) ToExpressionEvaluationOptionsPtrOutput() ExpressionEvaluationOptionsPtrOutput {
+	return o.ToExpressionEvaluationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressionEvaluationOptionsOutput) ToExpressionEvaluationOptionsPtrOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsPtrOutput {
+	return o.ApplyT(func(v ExpressionEvaluationOptions) *ExpressionEvaluationOptions {
+		return &v
+	}).(ExpressionEvaluationOptionsPtrOutput)
+}
+
+// The scope to be used for evaluation of parameters, variables and functions in a nested template.
+func (o ExpressionEvaluationOptionsOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressionEvaluationOptions) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+type ExpressionEvaluationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressionEvaluationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressionEvaluationOptions)(nil)).Elem()
+}
+
+func (o ExpressionEvaluationOptionsPtrOutput) ToExpressionEvaluationOptionsPtrOutput() ExpressionEvaluationOptionsPtrOutput {
+	return o
+}
+
+func (o ExpressionEvaluationOptionsPtrOutput) ToExpressionEvaluationOptionsPtrOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsPtrOutput {
+	return o
+}
+
+func (o ExpressionEvaluationOptionsPtrOutput) Elem() ExpressionEvaluationOptionsOutput {
+	return o.ApplyT(func(v *ExpressionEvaluationOptions) ExpressionEvaluationOptions { return *v }).(ExpressionEvaluationOptionsOutput)
+}
+
+// The scope to be used for evaluation of parameters, variables and functions in a nested template.
+func (o ExpressionEvaluationOptionsPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressionEvaluationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.
@@ -6083,6 +6236,8 @@ func init() {
 	pulumi.RegisterOutputType(ErrorResponseResponseOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponsePtrOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExpressionEvaluationOptionsOutput{})
+	pulumi.RegisterOutputType(ExpressionEvaluationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})

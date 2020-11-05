@@ -49,6 +49,10 @@ export interface ListWebAppFunctionKeysResult {
      */
     readonly name: string;
     /**
+     * Settings.
+     */
+    readonly properties: {[key: string]: string};
+    /**
      * Resource type.
      */
     readonly type: string;

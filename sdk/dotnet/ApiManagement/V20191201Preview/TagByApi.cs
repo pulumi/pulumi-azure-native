@@ -63,6 +63,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:TagByApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:TagByApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:TagByApi"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:TagByApi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

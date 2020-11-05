@@ -42,7 +42,7 @@ export interface GetServiceResult {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    readonly identity?: outputs.healthcareapis.latest.ResourceResponseIdentity;
+    readonly identity?: outputs.healthcareapis.latest.ServicesResourceResponseIdentity;
     /**
      * The kind of the service.
      */

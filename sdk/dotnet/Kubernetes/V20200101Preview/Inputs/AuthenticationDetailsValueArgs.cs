@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview.Inputs
 {
 
+    /// <summary>
+    /// Authentication token value.
+    /// </summary>
     public sealed class AuthenticationDetailsValueArgs : Pulumi.InvokeArgs
     {
         /// <summary>

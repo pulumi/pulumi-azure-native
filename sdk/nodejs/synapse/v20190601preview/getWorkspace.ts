@@ -64,6 +64,10 @@ export interface GetWorkspaceResult {
      */
     readonly managedVirtualNetwork?: string;
     /**
+     * Managed Virtual Network Settings
+     */
+    readonly managedVirtualNetworkSettings?: outputs.synapse.v20190601preview.ManagedVirtualNetworkSettingsResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;

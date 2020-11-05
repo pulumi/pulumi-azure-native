@@ -31,6 +31,8 @@ type ListWebAppFunctionKeysResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
+	// Settings.
+	Properties map[string]string `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

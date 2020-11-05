@@ -46,7 +46,7 @@ class GetConnectorResult:
     @pulumi.getter(name="hybridComputeSettings")
     def hybrid_compute_settings(self) -> Optional['outputs.HybridComputeSettingsPropertiesResponse']:
         """
-        Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
+        Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         """
         return pulumi.get(self, "hybrid_compute_settings")
 
