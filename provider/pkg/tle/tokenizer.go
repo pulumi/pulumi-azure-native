@@ -3,7 +3,7 @@ package tle
 import (
 	"strings"
 
-	"github.com/pulumi/pulumi/sdk/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 )
 
 func NewTokenizer(basicTokenizer *basicTokenizer, text string) *Tokenizer {
