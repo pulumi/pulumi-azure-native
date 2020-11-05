@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'ArmIdentityArgs',
     'CertificatePropertiesArgs',
     'CloudToDevicePropertiesArgs',
     'EncryptionPropertiesDescriptionArgs',
@@ -21,6 +22,7 @@ __all__ = [
     'IotHubPropertiesDeviceStreamsArgs',
     'IotHubSkuInfoArgs',
     'IpFilterRuleArgs',
+    'KEKIdentityArgs',
     'KeyVaultKeyPropertiesArgs',
     'MessagingEndpointPropertiesArgs',
     'PrivateEndpointConnectionArgs',
@@ -36,6 +38,29 @@ __all__ = [
     'SharedAccessSignatureAuthorizationRuleArgs',
     'StorageEndpointPropertiesArgs',
 ]
+
+@pulumi.input_type
+class ArmIdentityArgs:
+    def __init__(__self__, *,
+                 identity_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] identity_type: Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+        """
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_type", value)
+
 
 @pulumi.input_type
 class CertificatePropertiesArgs:
@@ -780,15 +805,55 @@ class IpFilterRuleArgs:
 
 
 @pulumi.input_type
+class KEKIdentityArgs:
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the KeyVault identity.
+        :param pulumi.Input[str] user_assigned_identity: The user assigned identity.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
+
+
+@pulumi.input_type
 class KeyVaultKeyPropertiesArgs:
     def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['KEKIdentityArgs']] = None,
                  key_identifier: Optional[pulumi.Input[str]] = None):
         """
         The properties of the KeyVault key.
+        :param pulumi.Input['KEKIdentityArgs'] identity: The identity.
         :param pulumi.Input[str] key_identifier: The identifier of the key.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if key_identifier is not None:
             pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['KEKIdentityArgs']]:
+        """
+        The identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['KEKIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="keyIdentifier")

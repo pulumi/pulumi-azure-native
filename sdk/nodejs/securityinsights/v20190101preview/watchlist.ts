@@ -37,13 +37,17 @@ export class Watchlist extends pulumi.CustomResource {
     }
 
     /**
-     * Describes a user that created the watchlist
+     * The content type of the raw content. Example : text/csv or text/tsv 
      */
-    public readonly createdBy!: pulumi.Output<outputs.securityinsights.v20190101preview.UserInfoResponse | undefined>;
+    public readonly contentType!: pulumi.Output<string | undefined>;
     /**
      * The time the watchlist was created
      */
-    public readonly createdTimeUtc!: pulumi.Output<string | undefined>;
+    public readonly created!: pulumi.Output<string | undefined>;
+    /**
+     * Describes a user that created the watchlist
+     */
+    public readonly createdBy!: pulumi.Output<outputs.securityinsights.v20190101preview.UserInfoResponse | undefined>;
     /**
      * The default duration of a watchlist (in ISO 8601 duration format)
      */
@@ -61,31 +65,35 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * A flag that indicates if the watchlist is deleted or not
+     */
+    public readonly isDeleted!: pulumi.Output<boolean | undefined>;
+    /**
      * List of labels relevant to this watchlist
      */
     public readonly labels!: pulumi.Output<string[] | undefined>;
-    /**
-     * The last time the watchlist was updated
-     */
-    public readonly lastUpdatedTimeUtc!: pulumi.Output<string | undefined>;
     /**
      * Azure resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The notes of the watchlist
+     * The number of lines in a csv/tsv content to skip before the header
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    public readonly numberOfLinesToSkip!: pulumi.Output<number | undefined>;
     /**
      * The provider of the watchlist
      */
     public readonly provider!: pulumi.Output<string>;
     /**
+     * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+     */
+    public readonly rawContent!: pulumi.Output<string | undefined>;
+    /**
      * The source of the watchlist
      */
     public readonly source!: pulumi.Output<string>;
     /**
-     * The tenantId where the watchlist belongs to.
+     * The tenantId where the watchlist belongs to
      */
     public readonly tenantId!: pulumi.Output<string | undefined>;
     /**
@@ -93,21 +101,25 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
+     * The last time the watchlist was updated
+     */
+    public readonly updated!: pulumi.Output<string | undefined>;
+    /**
      * Describes a user that updated the watchlist
      */
     public readonly updatedBy!: pulumi.Output<outputs.securityinsights.v20190101preview.UserInfoResponse | undefined>;
     /**
-     * List of watchlist items.
+     * The alias of the watchlist
      */
-    public readonly watchlistItems!: pulumi.Output<outputs.securityinsights.v20190101preview.WatchlistItemResponse[] | undefined>;
+    public readonly watchlistAlias!: pulumi.Output<string | undefined>;
+    /**
+     * The id (a Guid) of the watchlist
+     */
+    public readonly watchlistId!: pulumi.Output<string | undefined>;
     /**
      * The type of the watchlist
      */
     public readonly watchlistType!: pulumi.Output<string | undefined>;
-    /**
-     * The workspaceId where the watchlist belongs to.
-     */
-    public readonly workspaceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Watchlist resource with the given unique name, arguments, and options.
@@ -140,47 +152,52 @@ export class Watchlist extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["contentType"] = args ? args.contentType : undefined;
+            inputs["created"] = args ? args.created : undefined;
             inputs["createdBy"] = args ? args.createdBy : undefined;
-            inputs["createdTimeUtc"] = args ? args.createdTimeUtc : undefined;
             inputs["defaultDuration"] = args ? args.defaultDuration : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["isDeleted"] = args ? args.isDeleted : undefined;
             inputs["labels"] = args ? args.labels : undefined;
-            inputs["lastUpdatedTimeUtc"] = args ? args.lastUpdatedTimeUtc : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
+            inputs["numberOfLinesToSkip"] = args ? args.numberOfLinesToSkip : undefined;
             inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             inputs["provider"] = args ? args.provider : undefined;
+            inputs["rawContent"] = args ? args.rawContent : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["updated"] = args ? args.updated : undefined;
             inputs["updatedBy"] = args ? args.updatedBy : undefined;
             inputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
-            inputs["watchlistItems"] = args ? args.watchlistItems : undefined;
+            inputs["watchlistId"] = args ? args.watchlistId : undefined;
             inputs["watchlistType"] = args ? args.watchlistType : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["contentType"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
             inputs["createdBy"] = undefined /*out*/;
-            inputs["createdTimeUtc"] = undefined /*out*/;
             inputs["defaultDuration"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["isDeleted"] = undefined /*out*/;
             inputs["labels"] = undefined /*out*/;
-            inputs["lastUpdatedTimeUtc"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["notes"] = undefined /*out*/;
+            inputs["numberOfLinesToSkip"] = undefined /*out*/;
             inputs["provider"] = undefined /*out*/;
+            inputs["rawContent"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updated"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
-            inputs["watchlistItems"] = undefined /*out*/;
+            inputs["watchlistAlias"] = undefined /*out*/;
+            inputs["watchlistId"] = undefined /*out*/;
             inputs["watchlistType"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -198,13 +215,17 @@ export class Watchlist extends pulumi.CustomResource {
  */
 export interface WatchlistArgs {
     /**
-     * Describes a user that created the watchlist
+     * The content type of the raw content. Example : text/csv or text/tsv 
      */
-    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfo>;
+    readonly contentType?: pulumi.Input<string>;
     /**
      * The time the watchlist was created
      */
-    readonly createdTimeUtc?: pulumi.Input<string>;
+    readonly created?: pulumi.Input<string>;
+    /**
+     * Describes a user that created the watchlist
+     */
+    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfo>;
     /**
      * The default duration of a watchlist (in ISO 8601 duration format)
      */
@@ -222,17 +243,17 @@ export interface WatchlistArgs {
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * A flag that indicates if the watchlist is deleted or not
+     */
+    readonly isDeleted?: pulumi.Input<boolean>;
+    /**
      * List of labels relevant to this watchlist
      */
     readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The last time the watchlist was updated
+     * The number of lines in a csv/tsv content to skip before the header
      */
-    readonly lastUpdatedTimeUtc?: pulumi.Input<string>;
-    /**
-     * The notes of the watchlist
-     */
-    readonly notes?: pulumi.Input<string>;
+    readonly numberOfLinesToSkip?: pulumi.Input<number>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
@@ -242,6 +263,10 @@ export interface WatchlistArgs {
      */
     readonly provider: pulumi.Input<string>;
     /**
+     * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+     */
+    readonly rawContent?: pulumi.Input<string>;
+    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -250,29 +275,29 @@ export interface WatchlistArgs {
      */
     readonly source: pulumi.Input<string>;
     /**
-     * The tenantId where the watchlist belongs to.
+     * The tenantId where the watchlist belongs to
      */
     readonly tenantId?: pulumi.Input<string>;
+    /**
+     * The last time the watchlist was updated
+     */
+    readonly updated?: pulumi.Input<string>;
     /**
      * Describes a user that updated the watchlist
      */
     readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfo>;
     /**
-     * Watchlist Alias
+     * The alias of the watchlist
      */
     readonly watchlistAlias: pulumi.Input<string>;
     /**
-     * List of watchlist items.
+     * The id (a Guid) of the watchlist
      */
-    readonly watchlistItems?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistItem>[]>;
+    readonly watchlistId?: pulumi.Input<string>;
     /**
      * The type of the watchlist
      */
     readonly watchlistType?: pulumi.Input<string>;
-    /**
-     * The workspaceId where the watchlist belongs to.
-     */
-    readonly workspaceId?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

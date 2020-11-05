@@ -5376,10 +5376,14 @@ func (o LibraryInfoArrayOutput) Index(i pulumi.IntInput) LibraryInfoOutput {
 type LibraryInfoResponse struct {
 	// Storage blob container name.
 	ContainerName *string `pulumi:"containerName"`
+	// Creator Id of the library/package.
+	CreatorId string `pulumi:"creatorId"`
 	// Name of the library.
 	Name *string `pulumi:"name"`
 	// Storage blob path of library.
 	Path *string `pulumi:"path"`
+	// Provisioning status of the library/package.
+	ProvisioningStatus string `pulumi:"provisioningStatus"`
 	// Type of the library.
 	Type *string `pulumi:"type"`
 	// The last update time of the library.
@@ -5401,10 +5405,14 @@ type LibraryInfoResponseInput interface {
 type LibraryInfoResponseArgs struct {
 	// Storage blob container name.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Creator Id of the library/package.
+	CreatorId pulumi.StringInput `pulumi:"creatorId"`
 	// Name of the library.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Storage blob path of library.
 	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Provisioning status of the library/package.
+	ProvisioningStatus pulumi.StringInput `pulumi:"provisioningStatus"`
 	// Type of the library.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The last update time of the library.
@@ -5468,6 +5476,11 @@ func (o LibraryInfoResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
+// Creator Id of the library/package.
+func (o LibraryInfoResponseOutput) CreatorId() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) string { return v.CreatorId }).(pulumi.StringOutput)
+}
+
 // Name of the library.
 func (o LibraryInfoResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -5476,6 +5489,11 @@ func (o LibraryInfoResponseOutput) Name() pulumi.StringPtrOutput {
 // Storage blob path of library.
 func (o LibraryInfoResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning status of the library/package.
+func (o LibraryInfoResponseOutput) ProvisioningStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) string { return v.ProvisioningStatus }).(pulumi.StringOutput)
 }
 
 // Type of the library.

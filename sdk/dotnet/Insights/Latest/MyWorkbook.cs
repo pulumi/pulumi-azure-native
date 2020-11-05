@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// Identity used for BYOS
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Output("kind")]
@@ -55,6 +61,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         [Output("sourceId")]
         public Output<string?> SourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// BYOS Storage Account URI
+        /// </summary>
+        [Output("storageUri")]
+        public Output<string?> StorageUri { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -112,6 +124,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:MyWorkbook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20201020:MyWorkbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,6 +167,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// Identity used for BYOS
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind")]
@@ -194,6 +213,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }
+
+        /// <summary>
+        /// BYOS Storage Account URI
+        /// </summary>
+        [Input("storageUri")]
+        public Input<string>? StorageUri { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

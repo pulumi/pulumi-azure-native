@@ -3138,7 +3138,7 @@ type MoveResourcePropertiesResponse struct {
 	// Gets or sets the Source ARM Id of the resource.
 	SourceId string `pulumi:"sourceId"`
 	// Gets or sets the source resource settings.
-	SourceResourceSettings MoveResourcePropertiesResponseSourceResourceSettings `pulumi:"sourceResourceSettings"`
+	SourceResourceSettings interface{} `pulumi:"sourceResourceSettings"`
 	// Gets or sets the Target ARM Id of the resource.
 	TargetId string `pulumi:"targetId"`
 }
@@ -3173,7 +3173,7 @@ type MoveResourcePropertiesResponseArgs struct {
 	// Gets or sets the Source ARM Id of the resource.
 	SourceId pulumi.StringInput `pulumi:"sourceId"`
 	// Gets or sets the source resource settings.
-	SourceResourceSettings MoveResourcePropertiesResponseSourceResourceSettingsInput `pulumi:"sourceResourceSettings"`
+	SourceResourceSettings pulumi.Input `pulumi:"sourceResourceSettings"`
 	// Gets or sets the Target ARM Id of the resource.
 	TargetId pulumi.StringInput `pulumi:"targetId"`
 }
@@ -3299,10 +3299,8 @@ func (o MoveResourcePropertiesResponseOutput) SourceId() pulumi.StringOutput {
 }
 
 // Gets or sets the source resource settings.
-func (o MoveResourcePropertiesResponseOutput) SourceResourceSettings() MoveResourcePropertiesResponseSourceResourceSettingsOutput {
-	return o.ApplyT(func(v MoveResourcePropertiesResponse) MoveResourcePropertiesResponseSourceResourceSettings {
-		return v.SourceResourceSettings
-	}).(MoveResourcePropertiesResponseSourceResourceSettingsOutput)
+func (o MoveResourcePropertiesResponseOutput) SourceResourceSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v MoveResourcePropertiesResponse) interface{} { return v.SourceResourceSettings }).(pulumi.AnyOutput)
 }
 
 // Gets or sets the Target ARM Id of the resource.
@@ -3409,13 +3407,13 @@ func (o MoveResourcePropertiesResponsePtrOutput) SourceId() pulumi.StringPtrOutp
 }
 
 // Gets or sets the source resource settings.
-func (o MoveResourcePropertiesResponsePtrOutput) SourceResourceSettings() MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput {
-	return o.ApplyT(func(v *MoveResourcePropertiesResponse) *MoveResourcePropertiesResponseSourceResourceSettings {
+func (o MoveResourcePropertiesResponsePtrOutput) SourceResourceSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MoveResourcePropertiesResponse) interface{} {
 		if v == nil {
 			return nil
 		}
-		return &v.SourceResourceSettings
-	}).(MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput)
+		return v.SourceResourceSettings
+	}).(pulumi.AnyOutput)
 }
 
 // Gets or sets the Target ARM Id of the resource.
@@ -3750,161 +3748,6 @@ func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) TargetId() pulumi.Str
 			return nil
 		}
 		return &v.TargetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the source resource settings.
-type MoveResourcePropertiesResponseSourceResourceSettings struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	ResourceType string `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName string `pulumi:"targetResourceName"`
-}
-
-// MoveResourcePropertiesResponseSourceResourceSettingsInput is an input type that accepts MoveResourcePropertiesResponseSourceResourceSettingsArgs and MoveResourcePropertiesResponseSourceResourceSettingsOutput values.
-// You can construct a concrete instance of `MoveResourcePropertiesResponseSourceResourceSettingsInput` via:
-//
-//          MoveResourcePropertiesResponseSourceResourceSettingsArgs{...}
-type MoveResourcePropertiesResponseSourceResourceSettingsInput interface {
-	pulumi.Input
-
-	ToMoveResourcePropertiesResponseSourceResourceSettingsOutput() MoveResourcePropertiesResponseSourceResourceSettingsOutput
-	ToMoveResourcePropertiesResponseSourceResourceSettingsOutputWithContext(context.Context) MoveResourcePropertiesResponseSourceResourceSettingsOutput
-}
-
-// Gets or sets the source resource settings.
-type MoveResourcePropertiesResponseSourceResourceSettingsArgs struct {
-	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Gets or sets the target Resource name.
-	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
-}
-
-func (MoveResourcePropertiesResponseSourceResourceSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MoveResourcePropertiesResponseSourceResourceSettings)(nil)).Elem()
-}
-
-func (i MoveResourcePropertiesResponseSourceResourceSettingsArgs) ToMoveResourcePropertiesResponseSourceResourceSettingsOutput() MoveResourcePropertiesResponseSourceResourceSettingsOutput {
-	return i.ToMoveResourcePropertiesResponseSourceResourceSettingsOutputWithContext(context.Background())
-}
-
-func (i MoveResourcePropertiesResponseSourceResourceSettingsArgs) ToMoveResourcePropertiesResponseSourceResourceSettingsOutputWithContext(ctx context.Context) MoveResourcePropertiesResponseSourceResourceSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MoveResourcePropertiesResponseSourceResourceSettingsOutput)
-}
-
-func (i MoveResourcePropertiesResponseSourceResourceSettingsArgs) ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutput() MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput {
-	return i.ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i MoveResourcePropertiesResponseSourceResourceSettingsArgs) ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutputWithContext(ctx context.Context) MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MoveResourcePropertiesResponseSourceResourceSettingsOutput).ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutputWithContext(ctx)
-}
-
-// MoveResourcePropertiesResponseSourceResourceSettingsPtrInput is an input type that accepts MoveResourcePropertiesResponseSourceResourceSettingsArgs, MoveResourcePropertiesResponseSourceResourceSettingsPtr and MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput values.
-// You can construct a concrete instance of `MoveResourcePropertiesResponseSourceResourceSettingsPtrInput` via:
-//
-//          MoveResourcePropertiesResponseSourceResourceSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type MoveResourcePropertiesResponseSourceResourceSettingsPtrInput interface {
-	pulumi.Input
-
-	ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutput() MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput
-	ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutputWithContext(context.Context) MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput
-}
-
-type moveResourcePropertiesResponseSourceResourceSettingsPtrType MoveResourcePropertiesResponseSourceResourceSettingsArgs
-
-func MoveResourcePropertiesResponseSourceResourceSettingsPtr(v *MoveResourcePropertiesResponseSourceResourceSettingsArgs) MoveResourcePropertiesResponseSourceResourceSettingsPtrInput {
-	return (*moveResourcePropertiesResponseSourceResourceSettingsPtrType)(v)
-}
-
-func (*moveResourcePropertiesResponseSourceResourceSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MoveResourcePropertiesResponseSourceResourceSettings)(nil)).Elem()
-}
-
-func (i *moveResourcePropertiesResponseSourceResourceSettingsPtrType) ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutput() MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput {
-	return i.ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *moveResourcePropertiesResponseSourceResourceSettingsPtrType) ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutputWithContext(ctx context.Context) MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput)
-}
-
-// Gets or sets the source resource settings.
-type MoveResourcePropertiesResponseSourceResourceSettingsOutput struct{ *pulumi.OutputState }
-
-func (MoveResourcePropertiesResponseSourceResourceSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MoveResourcePropertiesResponseSourceResourceSettings)(nil)).Elem()
-}
-
-func (o MoveResourcePropertiesResponseSourceResourceSettingsOutput) ToMoveResourcePropertiesResponseSourceResourceSettingsOutput() MoveResourcePropertiesResponseSourceResourceSettingsOutput {
-	return o
-}
-
-func (o MoveResourcePropertiesResponseSourceResourceSettingsOutput) ToMoveResourcePropertiesResponseSourceResourceSettingsOutputWithContext(ctx context.Context) MoveResourcePropertiesResponseSourceResourceSettingsOutput {
-	return o
-}
-
-func (o MoveResourcePropertiesResponseSourceResourceSettingsOutput) ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutput() MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput {
-	return o.ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o MoveResourcePropertiesResponseSourceResourceSettingsOutput) ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutputWithContext(ctx context.Context) MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput {
-	return o.ApplyT(func(v MoveResourcePropertiesResponseSourceResourceSettings) *MoveResourcePropertiesResponseSourceResourceSettings {
-		return &v
-	}).(MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput)
-}
-
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-func (o MoveResourcePropertiesResponseSourceResourceSettingsOutput) ResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v MoveResourcePropertiesResponseSourceResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
-}
-
-// Gets or sets the target Resource name.
-func (o MoveResourcePropertiesResponseSourceResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
-	return o.ApplyT(func(v MoveResourcePropertiesResponseSourceResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
-}
-
-type MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MoveResourcePropertiesResponseSourceResourceSettings)(nil)).Elem()
-}
-
-func (o MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput) ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutput() MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput {
-	return o
-}
-
-func (o MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput) ToMoveResourcePropertiesResponseSourceResourceSettingsPtrOutputWithContext(ctx context.Context) MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput {
-	return o
-}
-
-func (o MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput) Elem() MoveResourcePropertiesResponseSourceResourceSettingsOutput {
-	return o.ApplyT(func(v *MoveResourcePropertiesResponseSourceResourceSettings) MoveResourcePropertiesResponseSourceResourceSettings {
-		return *v
-	}).(MoveResourcePropertiesResponseSourceResourceSettingsOutput)
-}
-
-// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-func (o MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MoveResourcePropertiesResponseSourceResourceSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the target Resource name.
-func (o MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput) TargetResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MoveResourcePropertiesResponseSourceResourceSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetResourceName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6678,8 +6521,6 @@ func init() {
 	pulumi.RegisterOutputType(MoveResourcePropertiesResponseErrorsPtrOutput{})
 	pulumi.RegisterOutputType(MoveResourcePropertiesResponseMoveStatusOutput{})
 	pulumi.RegisterOutputType(MoveResourcePropertiesResponseMoveStatusPtrOutput{})
-	pulumi.RegisterOutputType(MoveResourcePropertiesResponseSourceResourceSettingsOutput{})
-	pulumi.RegisterOutputType(MoveResourcePropertiesResponseSourceResourceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResourceSettingsOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResourceSettingsResponseOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupResourceSettingsOutput{})

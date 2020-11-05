@@ -10,6 +10,8 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'ArmIdentityResponse',
+    'ArmUserIdentityResponse',
     'CertificatePropertiesResponse',
     'CloudToDevicePropertiesResponse',
     'EncryptionPropertiesDescriptionResponse',
@@ -22,6 +24,7 @@ __all__ = [
     'IotHubPropertiesResponseDeviceStreams',
     'IotHubSkuInfoResponse',
     'IpFilterRuleResponse',
+    'KEKIdentityResponse',
     'KeyVaultKeyPropertiesResponse',
     'MessagingEndpointPropertiesResponse',
     'PrivateEndpointConnectionPropertiesResponse',
@@ -38,6 +41,80 @@ __all__ = [
     'SharedAccessSignatureAuthorizationRuleResponse',
     'StorageEndpointPropertiesResponse',
 ]
+
+@pulumi.output_type
+class ArmIdentityResponse(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 identity_type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.ArmUserIdentityResponse']] = None):
+        """
+        :param str principal_id: Principal Id
+        :param str tenant_id: Tenant Id
+        :param str identity_type: Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Tenant Id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[str]:
+        """
+        Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+        """
+        return pulumi.get(self, "identity_type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ArmUserIdentityResponse']]:
+        return pulumi.get(self, "user_assigned_identities")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ArmUserIdentityResponse(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class CertificatePropertiesResponse(dict):
@@ -856,18 +933,56 @@ class IpFilterRuleResponse(dict):
 
 
 @pulumi.output_type
+class KEKIdentityResponse(dict):
+    """
+    The properties of the KeyVault identity.
+    """
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        The properties of the KeyVault identity.
+        :param str user_assigned_identity: The user assigned identity.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class KeyVaultKeyPropertiesResponse(dict):
     """
     The properties of the KeyVault key.
     """
     def __init__(__self__, *,
+                 identity: Optional['outputs.KEKIdentityResponse'] = None,
                  key_identifier: Optional[str] = None):
         """
         The properties of the KeyVault key.
+        :param 'KEKIdentityResponseArgs' identity: The identity.
         :param str key_identifier: The identifier of the key.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if key_identifier is not None:
             pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.KEKIdentityResponse']:
+        """
+        The identity.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="keyIdentifier")

@@ -18,6 +18,7 @@ class IotHubResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ArmIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['IotHubPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,6 +34,7 @@ class IotHubResource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+        :param pulumi.Input[pulumi.InputType['ArmIdentityArgs']] identity: The managed identities for the IotHub.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[pulumi.InputType['IotHubPropertiesArgs']] properties: IotHub properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
@@ -58,6 +60,7 @@ class IotHubResource(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
+            __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -107,6 +110,14 @@ class IotHubResource(pulumi.CustomResource):
         The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ArmIdentityResponse']]:
+        """
+        The managed identities for the IotHub.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

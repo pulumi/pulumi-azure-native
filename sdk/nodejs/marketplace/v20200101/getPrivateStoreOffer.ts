@@ -79,5 +79,5 @@ export interface GetPrivateStoreOfferResult {
     /**
      * Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
      */
-    readonly updateSuppressedDueIdempotence?: string;
+    readonly updateSuppressedDueIdempotence?: boolean;
 }

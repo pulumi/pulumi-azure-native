@@ -44,6 +44,10 @@ export interface GetMyWorkbookResult {
      */
     readonly displayName: string;
     /**
+     * Identity used for BYOS
+     */
+    readonly identity?: outputs.insights.latest.ManagedIdentityResponse;
+    /**
      * The kind of workbook. Choices are user and shared.
      */
     readonly kind?: string;
@@ -63,6 +67,10 @@ export interface GetMyWorkbookResult {
      * Optional resourceId for a source resource.
      */
     readonly sourceId?: string;
+    /**
+     * BYOS Storage Account URI
+     */
+    readonly storageUri?: string;
     /**
      * Resource tags
      */

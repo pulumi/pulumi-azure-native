@@ -36,7 +36,7 @@ type PrivateStoreOffer struct {
 	// Offers unique id
 	UniqueOfferId pulumi.StringOutput `pulumi:"uniqueOfferId"`
 	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
-	UpdateSuppressedDueIdempotence pulumi.StringPtrOutput `pulumi:"updateSuppressedDueIdempotence"`
+	UpdateSuppressedDueIdempotence pulumi.BoolPtrOutput `pulumi:"updateSuppressedDueIdempotence"`
 }
 
 // NewPrivateStoreOffer registers a new resource with the given unique name, arguments, and options.
@@ -101,7 +101,7 @@ type privateStoreOfferState struct {
 	// Offers unique id
 	UniqueOfferId *string `pulumi:"uniqueOfferId"`
 	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
-	UpdateSuppressedDueIdempotence *string `pulumi:"updateSuppressedDueIdempotence"`
+	UpdateSuppressedDueIdempotence *bool `pulumi:"updateSuppressedDueIdempotence"`
 }
 
 type PrivateStoreOfferState struct {
@@ -127,7 +127,7 @@ type PrivateStoreOfferState struct {
 	// Offers unique id
 	UniqueOfferId pulumi.StringPtrInput
 	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
-	UpdateSuppressedDueIdempotence pulumi.StringPtrInput
+	UpdateSuppressedDueIdempotence pulumi.BoolPtrInput
 }
 
 func (PrivateStoreOfferState) ElementType() reflect.Type {
@@ -145,7 +145,7 @@ type privateStoreOfferArgs struct {
 	// Plan ids limitation for this offer
 	SpecificPlanIdsLimitation []string `pulumi:"specificPlanIdsLimitation"`
 	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
-	UpdateSuppressedDueIdempotence *string `pulumi:"updateSuppressedDueIdempotence"`
+	UpdateSuppressedDueIdempotence *bool `pulumi:"updateSuppressedDueIdempotence"`
 }
 
 // The set of arguments for constructing a PrivateStoreOffer resource.
@@ -160,7 +160,7 @@ type PrivateStoreOfferArgs struct {
 	// Plan ids limitation for this offer
 	SpecificPlanIdsLimitation pulumi.StringArrayInput
 	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
-	UpdateSuppressedDueIdempotence pulumi.StringPtrInput
+	UpdateSuppressedDueIdempotence pulumi.BoolPtrInput
 }
 
 func (PrivateStoreOfferArgs) ElementType() reflect.Type {

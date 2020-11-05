@@ -14,13 +14,21 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview.Outputs
     public sealed class KeyVaultKeyPropertiesResponse
     {
         /// <summary>
+        /// The identity.
+        /// </summary>
+        public readonly Outputs.KEKIdentityResponse? Identity;
+        /// <summary>
         /// The identifier of the key.
         /// </summary>
         public readonly string? KeyIdentifier;
 
         [OutputConstructor]
-        private KeyVaultKeyPropertiesResponse(string? keyIdentifier)
+        private KeyVaultKeyPropertiesResponse(
+            Outputs.KEKIdentityResponse? identity,
+
+            string? keyIdentifier)
         {
+            Identity = identity;
             KeyIdentifier = keyIdentifier;
         }
     }

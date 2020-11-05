@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,6 +45,10 @@ export class MyWorkbook extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
+     * Identity used for BYOS
+     */
+    public readonly identity!: pulumi.Output<outputs.insights.latest.ManagedIdentityResponse | undefined>;
+    /**
      * The kind of workbook. Choices are user and shared.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -62,6 +68,10 @@ export class MyWorkbook extends pulumi.CustomResource {
      * Optional resourceId for a source resource.
      */
     public readonly sourceId!: pulumi.Output<string | undefined>;
+    /**
+     * BYOS Storage Account URI
+     */
+    public readonly storageUri!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -111,6 +121,7 @@ export class MyWorkbook extends pulumi.CustomResource {
             inputs["category"] = args ? args.category : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -118,6 +129,7 @@ export class MyWorkbook extends pulumi.CustomResource {
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["serializedData"] = args ? args.serializedData : undefined;
             inputs["sourceId"] = args ? args.sourceId : undefined;
+            inputs["storageUri"] = args ? args.storageUri : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["version"] = args ? args.version : undefined;
@@ -126,11 +138,13 @@ export class MyWorkbook extends pulumi.CustomResource {
         } else {
             inputs["category"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["serializedData"] = undefined /*out*/;
             inputs["sourceId"] = undefined /*out*/;
+            inputs["storageUri"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -144,7 +158,7 @@ export class MyWorkbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20150501:MyWorkbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20150501:MyWorkbook" }, { type: "azure-nextgen:insights/v20201020:MyWorkbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MyWorkbook.__pulumiType, name, inputs, opts);
     }
@@ -166,6 +180,10 @@ export interface MyWorkbookArgs {
      * Azure resource Id
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * Identity used for BYOS
+     */
+    readonly identity?: pulumi.Input<inputs.insights.latest.ManagedIdentity>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
@@ -194,6 +212,10 @@ export interface MyWorkbookArgs {
      * Optional resourceId for a source resource.
      */
     readonly sourceId?: pulumi.Input<string>;
+    /**
+     * BYOS Storage Account URI
+     */
+    readonly storageUri?: pulumi.Input<string>;
     /**
      * Resource tags
      */

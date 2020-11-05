@@ -15,16 +15,22 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
     public partial class Watchlist : Pulumi.CustomResource
     {
         /// <summary>
-        /// Describes a user that created the watchlist
+        /// The content type of the raw content. Example : text/csv or text/tsv 
         /// </summary>
-        [Output("createdBy")]
-        public Output<Outputs.UserInfoResponse?> CreatedBy { get; private set; } = null!;
+        [Output("contentType")]
+        public Output<string?> ContentType { get; private set; } = null!;
 
         /// <summary>
         /// The time the watchlist was created
         /// </summary>
-        [Output("createdTimeUtc")]
-        public Output<string?> CreatedTimeUtc { get; private set; } = null!;
+        [Output("created")]
+        public Output<string?> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes a user that created the watchlist
+        /// </summary>
+        [Output("createdBy")]
+        public Output<Outputs.UserInfoResponse?> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// The default duration of a watchlist (in ISO 8601 duration format)
@@ -51,16 +57,16 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// A flag that indicates if the watchlist is deleted or not
+        /// </summary>
+        [Output("isDeleted")]
+        public Output<bool?> IsDeleted { get; private set; } = null!;
+
+        /// <summary>
         /// List of labels relevant to this watchlist
         /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<string>> Labels { get; private set; } = null!;
-
-        /// <summary>
-        /// The last time the watchlist was updated
-        /// </summary>
-        [Output("lastUpdatedTimeUtc")]
-        public Output<string?> LastUpdatedTimeUtc { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name
@@ -69,10 +75,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The notes of the watchlist
+        /// The number of lines in a csv/tsv content to skip before the header
         /// </summary>
-        [Output("notes")]
-        public Output<string?> Notes { get; private set; } = null!;
+        [Output("numberOfLinesToSkip")]
+        public Output<int?> NumberOfLinesToSkip { get; private set; } = null!;
 
         /// <summary>
         /// The provider of the watchlist
@@ -81,13 +87,19 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Output<string> Provider { get; private set; } = null!;
 
         /// <summary>
+        /// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        /// </summary>
+        [Output("rawContent")]
+        public Output<string?> RawContent { get; private set; } = null!;
+
+        /// <summary>
         /// The source of the watchlist
         /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
 
         /// <summary>
-        /// The tenantId where the watchlist belongs to.
+        /// The tenantId where the watchlist belongs to
         /// </summary>
         [Output("tenantId")]
         public Output<string?> TenantId { get; private set; } = null!;
@@ -99,28 +111,34 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
+        /// The last time the watchlist was updated
+        /// </summary>
+        [Output("updated")]
+        public Output<string?> Updated { get; private set; } = null!;
+
+        /// <summary>
         /// Describes a user that updated the watchlist
         /// </summary>
         [Output("updatedBy")]
         public Output<Outputs.UserInfoResponse?> UpdatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// List of watchlist items.
+        /// The alias of the watchlist
         /// </summary>
-        [Output("watchlistItems")]
-        public Output<ImmutableArray<Outputs.WatchlistItemResponse>> WatchlistItems { get; private set; } = null!;
+        [Output("watchlistAlias")]
+        public Output<string?> WatchlistAlias { get; private set; } = null!;
+
+        /// <summary>
+        /// The id (a Guid) of the watchlist
+        /// </summary>
+        [Output("watchlistId")]
+        public Output<string?> WatchlistId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the watchlist
         /// </summary>
         [Output("watchlistType")]
         public Output<string?> WatchlistType { get; private set; } = null!;
-
-        /// <summary>
-        /// The workspaceId where the watchlist belongs to.
-        /// </summary>
-        [Output("workspaceId")]
-        public Output<string?> WorkspaceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -168,16 +186,22 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
     public sealed class WatchlistArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes a user that created the watchlist
+        /// The content type of the raw content. Example : text/csv or text/tsv 
         /// </summary>
-        [Input("createdBy")]
-        public Input<Inputs.UserInfoArgs>? CreatedBy { get; set; }
+        [Input("contentType")]
+        public Input<string>? ContentType { get; set; }
 
         /// <summary>
         /// The time the watchlist was created
         /// </summary>
-        [Input("createdTimeUtc")]
-        public Input<string>? CreatedTimeUtc { get; set; }
+        [Input("created")]
+        public Input<string>? Created { get; set; }
+
+        /// <summary>
+        /// Describes a user that created the watchlist
+        /// </summary>
+        [Input("createdBy")]
+        public Input<Inputs.UserInfoArgs>? CreatedBy { get; set; }
 
         /// <summary>
         /// The default duration of a watchlist (in ISO 8601 duration format)
@@ -203,6 +227,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        /// <summary>
+        /// A flag that indicates if the watchlist is deleted or not
+        /// </summary>
+        [Input("isDeleted")]
+        public Input<bool>? IsDeleted { get; set; }
+
         [Input("labels")]
         private InputList<string>? _labels;
 
@@ -216,16 +246,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         }
 
         /// <summary>
-        /// The last time the watchlist was updated
+        /// The number of lines in a csv/tsv content to skip before the header
         /// </summary>
-        [Input("lastUpdatedTimeUtc")]
-        public Input<string>? LastUpdatedTimeUtc { get; set; }
-
-        /// <summary>
-        /// The notes of the watchlist
-        /// </summary>
-        [Input("notes")]
-        public Input<string>? Notes { get; set; }
+        [Input("numberOfLinesToSkip")]
+        public Input<int>? NumberOfLinesToSkip { get; set; }
 
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -240,6 +264,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Input<string> Provider { get; set; } = null!;
 
         /// <summary>
+        /// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        /// </summary>
+        [Input("rawContent")]
+        public Input<string>? RawContent { get; set; }
+
+        /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -252,10 +282,16 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Input<string> Source { get; set; } = null!;
 
         /// <summary>
-        /// The tenantId where the watchlist belongs to.
+        /// The tenantId where the watchlist belongs to
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// The last time the watchlist was updated
+        /// </summary>
+        [Input("updated")]
+        public Input<string>? Updated { get; set; }
 
         /// <summary>
         /// Describes a user that updated the watchlist
@@ -264,34 +300,22 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Input<Inputs.UserInfoArgs>? UpdatedBy { get; set; }
 
         /// <summary>
-        /// Watchlist Alias
+        /// The alias of the watchlist
         /// </summary>
         [Input("watchlistAlias", required: true)]
         public Input<string> WatchlistAlias { get; set; } = null!;
 
-        [Input("watchlistItems")]
-        private InputList<Inputs.WatchlistItemArgs>? _watchlistItems;
-
         /// <summary>
-        /// List of watchlist items.
+        /// The id (a Guid) of the watchlist
         /// </summary>
-        public InputList<Inputs.WatchlistItemArgs> WatchlistItems
-        {
-            get => _watchlistItems ?? (_watchlistItems = new InputList<Inputs.WatchlistItemArgs>());
-            set => _watchlistItems = value;
-        }
+        [Input("watchlistId")]
+        public Input<string>? WatchlistId { get; set; }
 
         /// <summary>
         /// The type of the watchlist
         /// </summary>
         [Input("watchlistType")]
         public Input<string>? WatchlistType { get; set; }
-
-        /// <summary>
-        /// The workspaceId where the watchlist belongs to.
-        /// </summary>
-        [Input("workspaceId")]
-        public Input<string>? WorkspaceId { get; set; }
 
         /// <summary>
         /// The name of the workspace.

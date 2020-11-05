@@ -20,13 +20,16 @@ class GetWatchlistResult:
     """
     Represents a Watchlist in Azure Security Insights.
     """
-    def __init__(__self__, created_by=None, created_time_utc=None, default_duration=None, description=None, display_name=None, etag=None, labels=None, last_updated_time_utc=None, name=None, notes=None, provider=None, source=None, tenant_id=None, type=None, updated_by=None, watchlist_items=None, watchlist_type=None, workspace_id=None):
+    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, is_deleted=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, raw_content=None, source=None, tenant_id=None, type=None, updated=None, updated_by=None, watchlist_alias=None, watchlist_id=None, watchlist_type=None):
+        if content_type and not isinstance(content_type, str):
+            raise TypeError("Expected argument 'content_type' to be a str")
+        pulumi.set(__self__, "content_type", content_type)
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        pulumi.set(__self__, "created", created)
         if created_by and not isinstance(created_by, dict):
             raise TypeError("Expected argument 'created_by' to be a dict")
         pulumi.set(__self__, "created_by", created_by)
-        if created_time_utc and not isinstance(created_time_utc, str):
-            raise TypeError("Expected argument 'created_time_utc' to be a str")
-        pulumi.set(__self__, "created_time_utc", created_time_utc)
         if default_duration and not isinstance(default_duration, str):
             raise TypeError("Expected argument 'default_duration' to be a str")
         pulumi.set(__self__, "default_duration", default_duration)
@@ -39,21 +42,24 @@ class GetWatchlistResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if is_deleted and not isinstance(is_deleted, bool):
+            raise TypeError("Expected argument 'is_deleted' to be a bool")
+        pulumi.set(__self__, "is_deleted", is_deleted)
         if labels and not isinstance(labels, list):
             raise TypeError("Expected argument 'labels' to be a list")
         pulumi.set(__self__, "labels", labels)
-        if last_updated_time_utc and not isinstance(last_updated_time_utc, str):
-            raise TypeError("Expected argument 'last_updated_time_utc' to be a str")
-        pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if notes and not isinstance(notes, str):
-            raise TypeError("Expected argument 'notes' to be a str")
-        pulumi.set(__self__, "notes", notes)
+        if number_of_lines_to_skip and not isinstance(number_of_lines_to_skip, int):
+            raise TypeError("Expected argument 'number_of_lines_to_skip' to be a int")
+        pulumi.set(__self__, "number_of_lines_to_skip", number_of_lines_to_skip)
         if provider and not isinstance(provider, str):
             raise TypeError("Expected argument 'provider' to be a str")
         pulumi.set(__self__, "provider", provider)
+        if raw_content and not isinstance(raw_content, str):
+            raise TypeError("Expected argument 'raw_content' to be a str")
+        pulumi.set(__self__, "raw_content", raw_content)
         if source and not isinstance(source, str):
             raise TypeError("Expected argument 'source' to be a str")
         pulumi.set(__self__, "source", source)
@@ -63,18 +69,37 @@ class GetWatchlistResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if updated and not isinstance(updated, str):
+            raise TypeError("Expected argument 'updated' to be a str")
+        pulumi.set(__self__, "updated", updated)
         if updated_by and not isinstance(updated_by, dict):
             raise TypeError("Expected argument 'updated_by' to be a dict")
         pulumi.set(__self__, "updated_by", updated_by)
-        if watchlist_items and not isinstance(watchlist_items, list):
-            raise TypeError("Expected argument 'watchlist_items' to be a list")
-        pulumi.set(__self__, "watchlist_items", watchlist_items)
+        if watchlist_alias and not isinstance(watchlist_alias, str):
+            raise TypeError("Expected argument 'watchlist_alias' to be a str")
+        pulumi.set(__self__, "watchlist_alias", watchlist_alias)
+        if watchlist_id and not isinstance(watchlist_id, str):
+            raise TypeError("Expected argument 'watchlist_id' to be a str")
+        pulumi.set(__self__, "watchlist_id", watchlist_id)
         if watchlist_type and not isinstance(watchlist_type, str):
             raise TypeError("Expected argument 'watchlist_type' to be a str")
         pulumi.set(__self__, "watchlist_type", watchlist_type)
-        if workspace_id and not isinstance(workspace_id, str):
-            raise TypeError("Expected argument 'workspace_id' to be a str")
-        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        The content type of the raw content. Example : text/csv or text/tsv 
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def created(self) -> Optional[str]:
+        """
+        The time the watchlist was created
+        """
+        return pulumi.get(self, "created")
 
     @property
     @pulumi.getter(name="createdBy")
@@ -83,14 +108,6 @@ class GetWatchlistResult:
         Describes a user that created the watchlist
         """
         return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdTimeUtc")
-    def created_time_utc(self) -> Optional[str]:
-        """
-        The time the watchlist was created
-        """
-        return pulumi.get(self, "created_time_utc")
 
     @property
     @pulumi.getter(name="defaultDuration")
@@ -125,20 +142,20 @@ class GetWatchlistResult:
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="isDeleted")
+    def is_deleted(self) -> Optional[bool]:
+        """
+        A flag that indicates if the watchlist is deleted or not
+        """
+        return pulumi.get(self, "is_deleted")
+
+    @property
     @pulumi.getter
     def labels(self) -> Optional[Sequence[str]]:
         """
         List of labels relevant to this watchlist
         """
         return pulumi.get(self, "labels")
-
-    @property
-    @pulumi.getter(name="lastUpdatedTimeUtc")
-    def last_updated_time_utc(self) -> Optional[str]:
-        """
-        The last time the watchlist was updated
-        """
-        return pulumi.get(self, "last_updated_time_utc")
 
     @property
     @pulumi.getter
@@ -149,12 +166,12 @@ class GetWatchlistResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def notes(self) -> Optional[str]:
+    @pulumi.getter(name="numberOfLinesToSkip")
+    def number_of_lines_to_skip(self) -> Optional[int]:
         """
-        The notes of the watchlist
+        The number of lines in a csv/tsv content to skip before the header
         """
-        return pulumi.get(self, "notes")
+        return pulumi.get(self, "number_of_lines_to_skip")
 
     @property
     @pulumi.getter
@@ -163,6 +180,14 @@ class GetWatchlistResult:
         The provider of the watchlist
         """
         return pulumi.get(self, "provider")
+
+    @property
+    @pulumi.getter(name="rawContent")
+    def raw_content(self) -> Optional[str]:
+        """
+        The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        """
+        return pulumi.get(self, "raw_content")
 
     @property
     @pulumi.getter
@@ -176,7 +201,7 @@ class GetWatchlistResult:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The tenantId where the watchlist belongs to.
+        The tenantId where the watchlist belongs to
         """
         return pulumi.get(self, "tenant_id")
 
@@ -189,6 +214,14 @@ class GetWatchlistResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter
+    def updated(self) -> Optional[str]:
+        """
+        The last time the watchlist was updated
+        """
+        return pulumi.get(self, "updated")
+
+    @property
     @pulumi.getter(name="updatedBy")
     def updated_by(self) -> Optional['outputs.UserInfoResponse']:
         """
@@ -197,12 +230,20 @@ class GetWatchlistResult:
         return pulumi.get(self, "updated_by")
 
     @property
-    @pulumi.getter(name="watchlistItems")
-    def watchlist_items(self) -> Optional[Sequence['outputs.WatchlistItemResponse']]:
+    @pulumi.getter(name="watchlistAlias")
+    def watchlist_alias(self) -> Optional[str]:
         """
-        List of watchlist items.
+        The alias of the watchlist
         """
-        return pulumi.get(self, "watchlist_items")
+        return pulumi.get(self, "watchlist_alias")
+
+    @property
+    @pulumi.getter(name="watchlistId")
+    def watchlist_id(self) -> Optional[str]:
+        """
+        The id (a Guid) of the watchlist
+        """
+        return pulumi.get(self, "watchlist_id")
 
     @property
     @pulumi.getter(name="watchlistType")
@@ -212,14 +253,6 @@ class GetWatchlistResult:
         """
         return pulumi.get(self, "watchlist_type")
 
-    @property
-    @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[str]:
-        """
-        The workspaceId where the watchlist belongs to.
-        """
-        return pulumi.get(self, "workspace_id")
-
 
 class AwaitableGetWatchlistResult(GetWatchlistResult):
     # pylint: disable=using-constant-test
@@ -227,24 +260,27 @@ class AwaitableGetWatchlistResult(GetWatchlistResult):
         if False:
             yield self
         return GetWatchlistResult(
+            content_type=self.content_type,
+            created=self.created,
             created_by=self.created_by,
-            created_time_utc=self.created_time_utc,
             default_duration=self.default_duration,
             description=self.description,
             display_name=self.display_name,
             etag=self.etag,
+            is_deleted=self.is_deleted,
             labels=self.labels,
-            last_updated_time_utc=self.last_updated_time_utc,
             name=self.name,
-            notes=self.notes,
+            number_of_lines_to_skip=self.number_of_lines_to_skip,
             provider=self.provider,
+            raw_content=self.raw_content,
             source=self.source,
             tenant_id=self.tenant_id,
             type=self.type,
+            updated=self.updated,
             updated_by=self.updated_by,
-            watchlist_items=self.watchlist_items,
-            watchlist_type=self.watchlist_type,
-            workspace_id=self.workspace_id)
+            watchlist_alias=self.watchlist_alias,
+            watchlist_id=self.watchlist_id,
+            watchlist_type=self.watchlist_type)
 
 
 def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
@@ -272,21 +308,24 @@ def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:securityinsights/v20190101preview:getWatchlist', __args__, opts=opts, typ=GetWatchlistResult).value
 
     return AwaitableGetWatchlistResult(
+        content_type=__ret__.content_type,
+        created=__ret__.created,
         created_by=__ret__.created_by,
-        created_time_utc=__ret__.created_time_utc,
         default_duration=__ret__.default_duration,
         description=__ret__.description,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
+        is_deleted=__ret__.is_deleted,
         labels=__ret__.labels,
-        last_updated_time_utc=__ret__.last_updated_time_utc,
         name=__ret__.name,
-        notes=__ret__.notes,
+        number_of_lines_to_skip=__ret__.number_of_lines_to_skip,
         provider=__ret__.provider,
+        raw_content=__ret__.raw_content,
         source=__ret__.source,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type,
+        updated=__ret__.updated,
         updated_by=__ret__.updated_by,
-        watchlist_items=__ret__.watchlist_items,
-        watchlist_type=__ret__.watchlist_type,
-        workspace_id=__ret__.workspace_id)
+        watchlist_alias=__ret__.watchlist_alias,
+        watchlist_id=__ret__.watchlist_id,
+        watchlist_type=__ret__.watchlist_type)

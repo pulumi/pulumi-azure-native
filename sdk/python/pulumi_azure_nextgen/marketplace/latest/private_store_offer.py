@@ -22,7 +22,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
                  offer_id: Optional[pulumi.Input[str]] = None,
                  private_store_id: Optional[pulumi.Input[str]] = None,
                  specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 update_suppressed_due_idempotence: Optional[pulumi.Input[str]] = None,
+                 update_suppressed_due_idempotence: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,7 +35,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
         :param pulumi.Input[str] offer_id: The offer ID to update or delete
         :param pulumi.Input[str] private_store_id: The store ID - must use the tenant ID
         :param pulumi.Input[Sequence[pulumi.Input[str]]] specific_plan_ids_limitation: Plan ids limitation for this offer
-        :param pulumi.Input[str] update_suppressed_due_idempotence: Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+        :param pulumi.Input[bool] update_suppressed_due_idempotence: Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -184,7 +184,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateSuppressedDueIdempotence")
-    def update_suppressed_due_idempotence(self) -> pulumi.Output[Optional[str]]:
+    def update_suppressed_due_idempotence(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         """

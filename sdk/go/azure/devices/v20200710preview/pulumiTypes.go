@@ -10,6 +10,421 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ArmIdentity struct {
+	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+	IdentityType *string `pulumi:"identityType"`
+}
+
+// ArmIdentityInput is an input type that accepts ArmIdentityArgs and ArmIdentityOutput values.
+// You can construct a concrete instance of `ArmIdentityInput` via:
+//
+//          ArmIdentityArgs{...}
+type ArmIdentityInput interface {
+	pulumi.Input
+
+	ToArmIdentityOutput() ArmIdentityOutput
+	ToArmIdentityOutputWithContext(context.Context) ArmIdentityOutput
+}
+
+type ArmIdentityArgs struct {
+	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+	IdentityType pulumi.StringPtrInput `pulumi:"identityType"`
+}
+
+func (ArmIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentity)(nil)).Elem()
+}
+
+func (i ArmIdentityArgs) ToArmIdentityOutput() ArmIdentityOutput {
+	return i.ToArmIdentityOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityArgs) ToArmIdentityOutputWithContext(ctx context.Context) ArmIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityOutput)
+}
+
+func (i ArmIdentityArgs) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return i.ToArmIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityArgs) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityOutput).ToArmIdentityPtrOutputWithContext(ctx)
+}
+
+// ArmIdentityPtrInput is an input type that accepts ArmIdentityArgs, ArmIdentityPtr and ArmIdentityPtrOutput values.
+// You can construct a concrete instance of `ArmIdentityPtrInput` via:
+//
+//          ArmIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ArmIdentityPtrInput interface {
+	pulumi.Input
+
+	ToArmIdentityPtrOutput() ArmIdentityPtrOutput
+	ToArmIdentityPtrOutputWithContext(context.Context) ArmIdentityPtrOutput
+}
+
+type armIdentityPtrType ArmIdentityArgs
+
+func ArmIdentityPtr(v *ArmIdentityArgs) ArmIdentityPtrInput {
+	return (*armIdentityPtrType)(v)
+}
+
+func (*armIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentity)(nil)).Elem()
+}
+
+func (i *armIdentityPtrType) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return i.ToArmIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *armIdentityPtrType) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityPtrOutput)
+}
+
+type ArmIdentityOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentity)(nil)).Elem()
+}
+
+func (o ArmIdentityOutput) ToArmIdentityOutput() ArmIdentityOutput {
+	return o
+}
+
+func (o ArmIdentityOutput) ToArmIdentityOutputWithContext(ctx context.Context) ArmIdentityOutput {
+	return o
+}
+
+func (o ArmIdentityOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return o.ToArmIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ArmIdentityOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return o.ApplyT(func(v ArmIdentity) *ArmIdentity {
+		return &v
+	}).(ArmIdentityPtrOutput)
+}
+
+// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+func (o ArmIdentityOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmIdentity) *string { return v.IdentityType }).(pulumi.StringPtrOutput)
+}
+
+type ArmIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentity)(nil)).Elem()
+}
+
+func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return o
+}
+
+func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return o
+}
+
+func (o ArmIdentityPtrOutput) Elem() ArmIdentityOutput {
+	return o.ApplyT(func(v *ArmIdentity) ArmIdentity { return *v }).(ArmIdentityOutput)
+}
+
+// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+func (o ArmIdentityPtrOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ArmIdentityResponse struct {
+	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+	IdentityType *string `pulumi:"identityType"`
+	// Principal Id
+	PrincipalId string `pulumi:"principalId"`
+	// Tenant Id
+	TenantId               string                             `pulumi:"tenantId"`
+	UserAssignedIdentities map[string]ArmUserIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+// ArmIdentityResponseInput is an input type that accepts ArmIdentityResponseArgs and ArmIdentityResponseOutput values.
+// You can construct a concrete instance of `ArmIdentityResponseInput` via:
+//
+//          ArmIdentityResponseArgs{...}
+type ArmIdentityResponseInput interface {
+	pulumi.Input
+
+	ToArmIdentityResponseOutput() ArmIdentityResponseOutput
+	ToArmIdentityResponseOutputWithContext(context.Context) ArmIdentityResponseOutput
+}
+
+type ArmIdentityResponseArgs struct {
+	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+	IdentityType pulumi.StringPtrInput `pulumi:"identityType"`
+	// Principal Id
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Tenant Id
+	TenantId               pulumi.StringInput              `pulumi:"tenantId"`
+	UserAssignedIdentities ArmUserIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ArmIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentityResponse)(nil)).Elem()
+}
+
+func (i ArmIdentityResponseArgs) ToArmIdentityResponseOutput() ArmIdentityResponseOutput {
+	return i.ToArmIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityResponseArgs) ToArmIdentityResponseOutputWithContext(ctx context.Context) ArmIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityResponseOutput)
+}
+
+func (i ArmIdentityResponseArgs) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
+	return i.ToArmIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityResponseArgs) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityResponseOutput).ToArmIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// ArmIdentityResponsePtrInput is an input type that accepts ArmIdentityResponseArgs, ArmIdentityResponsePtr and ArmIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `ArmIdentityResponsePtrInput` via:
+//
+//          ArmIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ArmIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput
+	ToArmIdentityResponsePtrOutputWithContext(context.Context) ArmIdentityResponsePtrOutput
+}
+
+type armIdentityResponsePtrType ArmIdentityResponseArgs
+
+func ArmIdentityResponsePtr(v *ArmIdentityResponseArgs) ArmIdentityResponsePtrInput {
+	return (*armIdentityResponsePtrType)(v)
+}
+
+func (*armIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentityResponse)(nil)).Elem()
+}
+
+func (i *armIdentityResponsePtrType) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
+	return i.ToArmIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *armIdentityResponsePtrType) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityResponsePtrOutput)
+}
+
+type ArmIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmIdentityResponseOutput) ToArmIdentityResponseOutput() ArmIdentityResponseOutput {
+	return o
+}
+
+func (o ArmIdentityResponseOutput) ToArmIdentityResponseOutputWithContext(ctx context.Context) ArmIdentityResponseOutput {
+	return o
+}
+
+func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
+	return o.ToArmIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) *ArmIdentityResponse {
+		return &v
+	}).(ArmIdentityResponsePtrOutput)
+}
+
+// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+func (o ArmIdentityResponseOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) *string { return v.IdentityType }).(pulumi.StringPtrOutput)
+}
+
+// Principal Id
+func (o ArmIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Tenant Id
+func (o ArmIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o ArmIdentityResponseOutput) UserAssignedIdentities() ArmUserIdentityResponseMapOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) map[string]ArmUserIdentityResponse { return v.UserAssignedIdentities }).(ArmUserIdentityResponseMapOutput)
+}
+
+type ArmIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ArmIdentityResponsePtrOutput) Elem() ArmIdentityResponseOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) ArmIdentityResponse { return *v }).(ArmIdentityResponseOutput)
+}
+
+// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
+func (o ArmIdentityResponsePtrOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Principal Id
+func (o ArmIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id
+func (o ArmIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArmIdentityResponsePtrOutput) UserAssignedIdentities() ArmUserIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) map[string]ArmUserIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(ArmUserIdentityResponseMapOutput)
+}
+
+type ArmUserIdentityResponse struct {
+	ClientId    string `pulumi:"clientId"`
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// ArmUserIdentityResponseInput is an input type that accepts ArmUserIdentityResponseArgs and ArmUserIdentityResponseOutput values.
+// You can construct a concrete instance of `ArmUserIdentityResponseInput` via:
+//
+//          ArmUserIdentityResponseArgs{...}
+type ArmUserIdentityResponseInput interface {
+	pulumi.Input
+
+	ToArmUserIdentityResponseOutput() ArmUserIdentityResponseOutput
+	ToArmUserIdentityResponseOutputWithContext(context.Context) ArmUserIdentityResponseOutput
+}
+
+type ArmUserIdentityResponseArgs struct {
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (ArmUserIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmUserIdentityResponse)(nil)).Elem()
+}
+
+func (i ArmUserIdentityResponseArgs) ToArmUserIdentityResponseOutput() ArmUserIdentityResponseOutput {
+	return i.ToArmUserIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i ArmUserIdentityResponseArgs) ToArmUserIdentityResponseOutputWithContext(ctx context.Context) ArmUserIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmUserIdentityResponseOutput)
+}
+
+// ArmUserIdentityResponseMapInput is an input type that accepts ArmUserIdentityResponseMap and ArmUserIdentityResponseMapOutput values.
+// You can construct a concrete instance of `ArmUserIdentityResponseMapInput` via:
+//
+//          ArmUserIdentityResponseMap{ "key": ArmUserIdentityResponseArgs{...} }
+type ArmUserIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToArmUserIdentityResponseMapOutput() ArmUserIdentityResponseMapOutput
+	ToArmUserIdentityResponseMapOutputWithContext(context.Context) ArmUserIdentityResponseMapOutput
+}
+
+type ArmUserIdentityResponseMap map[string]ArmUserIdentityResponseInput
+
+func (ArmUserIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ArmUserIdentityResponse)(nil)).Elem()
+}
+
+func (i ArmUserIdentityResponseMap) ToArmUserIdentityResponseMapOutput() ArmUserIdentityResponseMapOutput {
+	return i.ToArmUserIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i ArmUserIdentityResponseMap) ToArmUserIdentityResponseMapOutputWithContext(ctx context.Context) ArmUserIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmUserIdentityResponseMapOutput)
+}
+
+type ArmUserIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmUserIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmUserIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmUserIdentityResponseOutput) ToArmUserIdentityResponseOutput() ArmUserIdentityResponseOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseOutput) ToArmUserIdentityResponseOutputWithContext(ctx context.Context) ArmUserIdentityResponseOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmUserIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o ArmUserIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmUserIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type ArmUserIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ArmUserIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ArmUserIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmUserIdentityResponseMapOutput) ToArmUserIdentityResponseMapOutput() ArmUserIdentityResponseMapOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseMapOutput) ToArmUserIdentityResponseMapOutputWithContext(ctx context.Context) ArmUserIdentityResponseMapOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) ArmUserIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ArmUserIdentityResponse {
+		return vs[0].(map[string]ArmUserIdentityResponse)[vs[1].(string)]
+	}).(ArmUserIdentityResponseOutput)
+}
+
 // The description of an X509 CA Certificate.
 type CertificateProperties struct {
 	// The certificate content
@@ -4245,8 +4660,278 @@ func (o IpFilterRuleResponseArrayOutput) Index(i pulumi.IntInput) IpFilterRuleRe
 	}).(IpFilterRuleResponseOutput)
 }
 
+// The properties of the KeyVault identity.
+type KEKIdentity struct {
+	// The user assigned identity.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// KEKIdentityInput is an input type that accepts KEKIdentityArgs and KEKIdentityOutput values.
+// You can construct a concrete instance of `KEKIdentityInput` via:
+//
+//          KEKIdentityArgs{...}
+type KEKIdentityInput interface {
+	pulumi.Input
+
+	ToKEKIdentityOutput() KEKIdentityOutput
+	ToKEKIdentityOutputWithContext(context.Context) KEKIdentityOutput
+}
+
+// The properties of the KeyVault identity.
+type KEKIdentityArgs struct {
+	// The user assigned identity.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (KEKIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KEKIdentity)(nil)).Elem()
+}
+
+func (i KEKIdentityArgs) ToKEKIdentityOutput() KEKIdentityOutput {
+	return i.ToKEKIdentityOutputWithContext(context.Background())
+}
+
+func (i KEKIdentityArgs) ToKEKIdentityOutputWithContext(ctx context.Context) KEKIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KEKIdentityOutput)
+}
+
+func (i KEKIdentityArgs) ToKEKIdentityPtrOutput() KEKIdentityPtrOutput {
+	return i.ToKEKIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i KEKIdentityArgs) ToKEKIdentityPtrOutputWithContext(ctx context.Context) KEKIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KEKIdentityOutput).ToKEKIdentityPtrOutputWithContext(ctx)
+}
+
+// KEKIdentityPtrInput is an input type that accepts KEKIdentityArgs, KEKIdentityPtr and KEKIdentityPtrOutput values.
+// You can construct a concrete instance of `KEKIdentityPtrInput` via:
+//
+//          KEKIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type KEKIdentityPtrInput interface {
+	pulumi.Input
+
+	ToKEKIdentityPtrOutput() KEKIdentityPtrOutput
+	ToKEKIdentityPtrOutputWithContext(context.Context) KEKIdentityPtrOutput
+}
+
+type kekidentityPtrType KEKIdentityArgs
+
+func KEKIdentityPtr(v *KEKIdentityArgs) KEKIdentityPtrInput {
+	return (*kekidentityPtrType)(v)
+}
+
+func (*kekidentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KEKIdentity)(nil)).Elem()
+}
+
+func (i *kekidentityPtrType) ToKEKIdentityPtrOutput() KEKIdentityPtrOutput {
+	return i.ToKEKIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *kekidentityPtrType) ToKEKIdentityPtrOutputWithContext(ctx context.Context) KEKIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KEKIdentityPtrOutput)
+}
+
+// The properties of the KeyVault identity.
+type KEKIdentityOutput struct{ *pulumi.OutputState }
+
+func (KEKIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KEKIdentity)(nil)).Elem()
+}
+
+func (o KEKIdentityOutput) ToKEKIdentityOutput() KEKIdentityOutput {
+	return o
+}
+
+func (o KEKIdentityOutput) ToKEKIdentityOutputWithContext(ctx context.Context) KEKIdentityOutput {
+	return o
+}
+
+func (o KEKIdentityOutput) ToKEKIdentityPtrOutput() KEKIdentityPtrOutput {
+	return o.ToKEKIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o KEKIdentityOutput) ToKEKIdentityPtrOutputWithContext(ctx context.Context) KEKIdentityPtrOutput {
+	return o.ApplyT(func(v KEKIdentity) *KEKIdentity {
+		return &v
+	}).(KEKIdentityPtrOutput)
+}
+
+// The user assigned identity.
+func (o KEKIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KEKIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type KEKIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (KEKIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KEKIdentity)(nil)).Elem()
+}
+
+func (o KEKIdentityPtrOutput) ToKEKIdentityPtrOutput() KEKIdentityPtrOutput {
+	return o
+}
+
+func (o KEKIdentityPtrOutput) ToKEKIdentityPtrOutputWithContext(ctx context.Context) KEKIdentityPtrOutput {
+	return o
+}
+
+func (o KEKIdentityPtrOutput) Elem() KEKIdentityOutput {
+	return o.ApplyT(func(v *KEKIdentity) KEKIdentity { return *v }).(KEKIdentityOutput)
+}
+
+// The user assigned identity.
+func (o KEKIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KEKIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the KeyVault identity.
+type KEKIdentityResponse struct {
+	// The user assigned identity.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// KEKIdentityResponseInput is an input type that accepts KEKIdentityResponseArgs and KEKIdentityResponseOutput values.
+// You can construct a concrete instance of `KEKIdentityResponseInput` via:
+//
+//          KEKIdentityResponseArgs{...}
+type KEKIdentityResponseInput interface {
+	pulumi.Input
+
+	ToKEKIdentityResponseOutput() KEKIdentityResponseOutput
+	ToKEKIdentityResponseOutputWithContext(context.Context) KEKIdentityResponseOutput
+}
+
+// The properties of the KeyVault identity.
+type KEKIdentityResponseArgs struct {
+	// The user assigned identity.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (KEKIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KEKIdentityResponse)(nil)).Elem()
+}
+
+func (i KEKIdentityResponseArgs) ToKEKIdentityResponseOutput() KEKIdentityResponseOutput {
+	return i.ToKEKIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i KEKIdentityResponseArgs) ToKEKIdentityResponseOutputWithContext(ctx context.Context) KEKIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KEKIdentityResponseOutput)
+}
+
+func (i KEKIdentityResponseArgs) ToKEKIdentityResponsePtrOutput() KEKIdentityResponsePtrOutput {
+	return i.ToKEKIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KEKIdentityResponseArgs) ToKEKIdentityResponsePtrOutputWithContext(ctx context.Context) KEKIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KEKIdentityResponseOutput).ToKEKIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// KEKIdentityResponsePtrInput is an input type that accepts KEKIdentityResponseArgs, KEKIdentityResponsePtr and KEKIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `KEKIdentityResponsePtrInput` via:
+//
+//          KEKIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KEKIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToKEKIdentityResponsePtrOutput() KEKIdentityResponsePtrOutput
+	ToKEKIdentityResponsePtrOutputWithContext(context.Context) KEKIdentityResponsePtrOutput
+}
+
+type kekidentityResponsePtrType KEKIdentityResponseArgs
+
+func KEKIdentityResponsePtr(v *KEKIdentityResponseArgs) KEKIdentityResponsePtrInput {
+	return (*kekidentityResponsePtrType)(v)
+}
+
+func (*kekidentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KEKIdentityResponse)(nil)).Elem()
+}
+
+func (i *kekidentityResponsePtrType) ToKEKIdentityResponsePtrOutput() KEKIdentityResponsePtrOutput {
+	return i.ToKEKIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *kekidentityResponsePtrType) ToKEKIdentityResponsePtrOutputWithContext(ctx context.Context) KEKIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KEKIdentityResponsePtrOutput)
+}
+
+// The properties of the KeyVault identity.
+type KEKIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (KEKIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KEKIdentityResponse)(nil)).Elem()
+}
+
+func (o KEKIdentityResponseOutput) ToKEKIdentityResponseOutput() KEKIdentityResponseOutput {
+	return o
+}
+
+func (o KEKIdentityResponseOutput) ToKEKIdentityResponseOutputWithContext(ctx context.Context) KEKIdentityResponseOutput {
+	return o
+}
+
+func (o KEKIdentityResponseOutput) ToKEKIdentityResponsePtrOutput() KEKIdentityResponsePtrOutput {
+	return o.ToKEKIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KEKIdentityResponseOutput) ToKEKIdentityResponsePtrOutputWithContext(ctx context.Context) KEKIdentityResponsePtrOutput {
+	return o.ApplyT(func(v KEKIdentityResponse) *KEKIdentityResponse {
+		return &v
+	}).(KEKIdentityResponsePtrOutput)
+}
+
+// The user assigned identity.
+func (o KEKIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KEKIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type KEKIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KEKIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KEKIdentityResponse)(nil)).Elem()
+}
+
+func (o KEKIdentityResponsePtrOutput) ToKEKIdentityResponsePtrOutput() KEKIdentityResponsePtrOutput {
+	return o
+}
+
+func (o KEKIdentityResponsePtrOutput) ToKEKIdentityResponsePtrOutputWithContext(ctx context.Context) KEKIdentityResponsePtrOutput {
+	return o
+}
+
+func (o KEKIdentityResponsePtrOutput) Elem() KEKIdentityResponseOutput {
+	return o.ApplyT(func(v *KEKIdentityResponse) KEKIdentityResponse { return *v }).(KEKIdentityResponseOutput)
+}
+
+// The user assigned identity.
+func (o KEKIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KEKIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
 // The properties of the KeyVault key.
 type KeyVaultKeyProperties struct {
+	// The identity.
+	Identity *KEKIdentity `pulumi:"identity"`
 	// The identifier of the key.
 	KeyIdentifier *string `pulumi:"keyIdentifier"`
 }
@@ -4264,6 +4949,8 @@ type KeyVaultKeyPropertiesInput interface {
 
 // The properties of the KeyVault key.
 type KeyVaultKeyPropertiesArgs struct {
+	// The identity.
+	Identity KEKIdentityPtrInput `pulumi:"identity"`
 	// The identifier of the key.
 	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
 }
@@ -4320,6 +5007,11 @@ func (o KeyVaultKeyPropertiesOutput) ToKeyVaultKeyPropertiesOutputWithContext(ct
 	return o
 }
 
+// The identity.
+func (o KeyVaultKeyPropertiesOutput) Identity() KEKIdentityPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyProperties) *KEKIdentity { return v.Identity }).(KEKIdentityPtrOutput)
+}
+
 // The identifier of the key.
 func (o KeyVaultKeyPropertiesOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyProperties) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
@@ -4347,6 +5039,8 @@ func (o KeyVaultKeyPropertiesArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyPr
 
 // The properties of the KeyVault key.
 type KeyVaultKeyPropertiesResponse struct {
+	// The identity.
+	Identity *KEKIdentityResponse `pulumi:"identity"`
 	// The identifier of the key.
 	KeyIdentifier *string `pulumi:"keyIdentifier"`
 }
@@ -4364,6 +5058,8 @@ type KeyVaultKeyPropertiesResponseInput interface {
 
 // The properties of the KeyVault key.
 type KeyVaultKeyPropertiesResponseArgs struct {
+	// The identity.
+	Identity KEKIdentityResponsePtrInput `pulumi:"identity"`
 	// The identifier of the key.
 	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
 }
@@ -4418,6 +5114,11 @@ func (o KeyVaultKeyPropertiesResponseOutput) ToKeyVaultKeyPropertiesResponseOutp
 
 func (o KeyVaultKeyPropertiesResponseOutput) ToKeyVaultKeyPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesResponseOutput {
 	return o
+}
+
+// The identity.
+func (o KeyVaultKeyPropertiesResponseOutput) Identity() KEKIdentityResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyPropertiesResponse) *KEKIdentityResponse { return v.Identity }).(KEKIdentityResponsePtrOutput)
 }
 
 // The identifier of the key.
@@ -8610,6 +9311,12 @@ func (o StorageEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
+	pulumi.RegisterOutputType(ArmIdentityOutput{})
+	pulumi.RegisterOutputType(ArmIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ArmIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ArmIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ArmUserIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ArmUserIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
@@ -8658,6 +9365,10 @@ func init() {
 	pulumi.RegisterOutputType(IpFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(KEKIdentityOutput{})
+	pulumi.RegisterOutputType(KEKIdentityPtrOutput{})
+	pulumi.RegisterOutputType(KEKIdentityResponseOutput{})
+	pulumi.RegisterOutputType(KEKIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyPropertiesResponseOutput{})

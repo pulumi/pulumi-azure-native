@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The managed identities for the IotHub.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ArmIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -124,6 +130,12 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// The managed identities for the IotHub.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ArmIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The resource location.

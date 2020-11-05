@@ -44,15 +44,23 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly string Category;
         /// <summary>
+        /// The user-defined name (display name) of the workbook.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
+        /// Identity used for BYOS
+        /// </summary>
+        public readonly Outputs.ManagedIdentityResponse? Identity;
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
         /// Resource location
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
-        /// Azure resource name
+        /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -60,13 +68,13 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly string SerializedData;
         /// <summary>
-        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// ResourceId for a source resource.
         /// </summary>
-        public readonly string SharedTypeKind;
+        public readonly string? SourceId;
         /// <summary>
-        /// Optional resourceId for a source resource.
+        /// BYOS Storage Account URI
         /// </summary>
-        public readonly string? SourceResourceId;
+        public readonly string? StorageUri;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -84,29 +92,29 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly string UserId;
         /// <summary>
-        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        /// Workbook version
         /// </summary>
         public readonly string? Version;
-        /// <summary>
-        /// Internally assigned unique id of the workbook definition.
-        /// </summary>
-        public readonly string WorkbookId;
 
         [OutputConstructor]
         private GetWorkbookResult(
             string category,
 
+            string displayName,
+
+            Outputs.ManagedIdentityResponse? identity,
+
             string? kind,
 
-            string? location,
+            string location,
 
             string name,
 
             string serializedData,
 
-            string sharedTypeKind,
+            string? sourceId,
 
-            string? sourceResourceId,
+            string? storageUri,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -116,23 +124,22 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 
             string userId,
 
-            string? version,
-
-            string workbookId)
+            string? version)
         {
             Category = category;
+            DisplayName = displayName;
+            Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;
             SerializedData = serializedData;
-            SharedTypeKind = sharedTypeKind;
-            SourceResourceId = sourceResourceId;
+            SourceId = sourceId;
+            StorageUri = storageUri;
             Tags = tags;
             TimeModified = timeModified;
             Type = type;
             UserId = userId;
             Version = version;
-            WorkbookId = workbookId;
         }
     }
 }
