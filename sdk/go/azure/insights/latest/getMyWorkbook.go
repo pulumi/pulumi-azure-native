@@ -29,6 +29,8 @@ type LookupMyWorkbookResult struct {
 	Category string `pulumi:"category"`
 	// The user-defined name of the private workbook.
 	DisplayName string `pulumi:"displayName"`
+	// Identity used for BYOS
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -39,6 +41,8 @@ type LookupMyWorkbookResult struct {
 	SerializedData string `pulumi:"serializedData"`
 	// Optional resourceId for a source resource.
 	SourceId *string `pulumi:"sourceId"`
+	// BYOS Storage Account URI
+	StorageUri *string `pulumi:"storageUri"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this private workbook definition.

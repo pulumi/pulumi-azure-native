@@ -119,6 +119,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:Workbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180617preview:Workbook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20201020:Workbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

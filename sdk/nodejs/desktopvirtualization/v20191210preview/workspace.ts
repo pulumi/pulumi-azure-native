@@ -107,7 +107,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization/v20190123preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization/v20190123preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }

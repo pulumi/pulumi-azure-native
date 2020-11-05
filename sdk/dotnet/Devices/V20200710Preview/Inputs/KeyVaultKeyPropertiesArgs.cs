@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview.Inputs
     public sealed class KeyVaultKeyPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The identity.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.KEKIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The identifier of the key.
         /// </summary>
         [Input("keyIdentifier")]

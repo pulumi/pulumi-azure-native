@@ -18,6 +18,8 @@ type MyWorkbook struct {
 	Category pulumi.StringOutput `pulumi:"category"`
 	// The user-defined name of the private workbook.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// Identity used for BYOS
+	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource location
@@ -28,6 +30,8 @@ type MyWorkbook struct {
 	SerializedData pulumi.StringOutput `pulumi:"serializedData"`
 	// Optional resourceId for a source resource.
 	SourceId pulumi.StringPtrOutput `pulumi:"sourceId"`
+	// BYOS Storage Account URI
+	StorageUri pulumi.StringPtrOutput `pulumi:"storageUri"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this private workbook definition.
@@ -65,6 +69,9 @@ func NewMyWorkbook(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:MyWorkbook"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:insights/v20201020:MyWorkbook"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MyWorkbook
@@ -93,6 +100,8 @@ type myWorkbookState struct {
 	Category *string `pulumi:"category"`
 	// The user-defined name of the private workbook.
 	DisplayName *string `pulumi:"displayName"`
+	// Identity used for BYOS
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -103,6 +112,8 @@ type myWorkbookState struct {
 	SerializedData *string `pulumi:"serializedData"`
 	// Optional resourceId for a source resource.
 	SourceId *string `pulumi:"sourceId"`
+	// BYOS Storage Account URI
+	StorageUri *string `pulumi:"storageUri"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this private workbook definition.
@@ -120,6 +131,8 @@ type MyWorkbookState struct {
 	Category pulumi.StringPtrInput
 	// The user-defined name of the private workbook.
 	DisplayName pulumi.StringPtrInput
+	// Identity used for BYOS
+	Identity ManagedIdentityResponsePtrInput
 	// The kind of workbook. Choices are user and shared.
 	Kind pulumi.StringPtrInput
 	// Resource location
@@ -130,6 +143,8 @@ type MyWorkbookState struct {
 	SerializedData pulumi.StringPtrInput
 	// Optional resourceId for a source resource.
 	SourceId pulumi.StringPtrInput
+	// BYOS Storage Account URI
+	StorageUri pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Date and time in UTC of the last modification that was made to this private workbook definition.
@@ -153,6 +168,8 @@ type myWorkbookArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Azure resource Id
 	Id *string `pulumi:"id"`
+	// Identity used for BYOS
+	Identity *ManagedIdentity `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -167,6 +184,8 @@ type myWorkbookArgs struct {
 	SerializedData string `pulumi:"serializedData"`
 	// Optional resourceId for a source resource.
 	SourceId *string `pulumi:"sourceId"`
+	// BYOS Storage Account URI
+	StorageUri *string `pulumi:"storageUri"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type
@@ -183,6 +202,8 @@ type MyWorkbookArgs struct {
 	DisplayName pulumi.StringInput
 	// Azure resource Id
 	Id pulumi.StringPtrInput
+	// Identity used for BYOS
+	Identity ManagedIdentityPtrInput
 	// The kind of workbook. Choices are user and shared.
 	Kind pulumi.StringPtrInput
 	// Resource location
@@ -197,6 +218,8 @@ type MyWorkbookArgs struct {
 	SerializedData pulumi.StringInput
 	// Optional resourceId for a source resource.
 	SourceId pulumi.StringPtrInput
+	// BYOS Storage Account URI
+	StorageUri pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Azure resource type

@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         /// <summary>
         /// Gets or sets the source resource settings.
         /// </summary>
-        public readonly Outputs.MoveResourcePropertiesResponseSourceResourceSettings SourceResourceSettings;
+        public readonly Union<Outputs.AvailabilitySetResourceSettingsResponse, Union<Outputs.LoadBalancerResourceSettingsResponse, Union<Outputs.NetworkInterfaceResourceSettingsResponse, Union<Outputs.NetworkSecurityGroupResourceSettingsResponse, Union<Outputs.PublicIPAddressResourceSettingsResponse, Union<Outputs.ResourceGroupResourceSettingsResponse, Union<Outputs.SqlDatabaseResourceSettingsResponse, Union<Outputs.SqlElasticPoolResourceSettingsResponse, Union<Outputs.SqlServerResourceSettingsResponse, Union<Outputs.VirtualMachineResourceSettingsResponse, Outputs.VirtualNetworkResourceSettingsResponse>>>>>>>>>> SourceResourceSettings;
         /// <summary>
         /// Gets or sets the Target ARM Id of the resource.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
 
             string sourceId,
 
-            Outputs.MoveResourcePropertiesResponseSourceResourceSettings sourceResourceSettings,
+            Union<Outputs.AvailabilitySetResourceSettingsResponse, Union<Outputs.LoadBalancerResourceSettingsResponse, Union<Outputs.NetworkInterfaceResourceSettingsResponse, Union<Outputs.NetworkSecurityGroupResourceSettingsResponse, Union<Outputs.PublicIPAddressResourceSettingsResponse, Union<Outputs.ResourceGroupResourceSettingsResponse, Union<Outputs.SqlDatabaseResourceSettingsResponse, Union<Outputs.SqlElasticPoolResourceSettingsResponse, Union<Outputs.SqlServerResourceSettingsResponse, Union<Outputs.VirtualMachineResourceSettingsResponse, Outputs.VirtualNetworkResourceSettingsResponse>>>>>>>>>> sourceResourceSettings,
 
             string targetId)
         {

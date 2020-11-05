@@ -41,6 +41,10 @@ export class IotHubResource extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * The managed identities for the IotHub.
+     */
+    public readonly identity!: pulumi.Output<outputs.devices.v20200710preview.ArmIdentityResponse | undefined>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class IotHubResource extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -98,6 +103,7 @@ export class IotHubResource extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
@@ -126,6 +132,10 @@ export interface IotHubResourceArgs {
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * The managed identities for the IotHub.
+     */
+    readonly identity?: pulumi.Input<inputs.devices.v20200710preview.ArmIdentity>;
     /**
      * The resource location.
      */

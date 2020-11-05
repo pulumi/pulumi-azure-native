@@ -81,7 +81,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         /// </summary>
         [Output("updateSuppressedDueIdempotence")]
-        public Output<string?> UpdateSuppressedDueIdempotence { get; private set; } = null!;
+        public Output<bool?> UpdateSuppressedDueIdempotence { get; private set; } = null!;
 
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         /// </summary>
         [Input("updateSuppressedDueIdempotence")]
-        public Input<string>? UpdateSuppressedDueIdempotence { get; set; }
+        public Input<bool>? UpdateSuppressedDueIdempotence { get; set; }
 
         public PrivateStoreOfferArgs()
         {

@@ -97,6 +97,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20191210Preview
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190924preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201019preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

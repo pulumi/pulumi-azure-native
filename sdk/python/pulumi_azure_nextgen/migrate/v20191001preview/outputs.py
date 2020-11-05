@@ -27,7 +27,6 @@ __all__ = [
     'MoveResourcePropertiesResponse',
     'MoveResourcePropertiesResponseErrors',
     'MoveResourcePropertiesResponseMoveStatus',
-    'MoveResourcePropertiesResponseSourceResourceSettings',
     'NetworkInterfaceResourceSettingsResponse',
     'NetworkSecurityGroupResourceSettingsResponse',
     'NicIpConfigurationResourceSettingsResponse',
@@ -748,7 +747,7 @@ class MoveResourcePropertiesResponse(dict):
                  move_status: 'outputs.MoveResourcePropertiesResponseMoveStatus',
                  provisioning_state: str,
                  source_id: str,
-                 source_resource_settings: 'outputs.MoveResourcePropertiesResponseSourceResourceSettings',
+                 source_resource_settings: Any,
                  target_id: str,
                  depends_on_overrides: Optional[Sequence['outputs.MoveResourceDependencyOverrideResponse']] = None,
                  existing_target_id: Optional[str] = None,
@@ -760,7 +759,7 @@ class MoveResourcePropertiesResponse(dict):
         :param 'MoveResourcePropertiesResponseMoveStatusArgs' move_status: Defines the move resource status.
         :param str provisioning_state: Defines the provisioning states.
         :param str source_id: Gets or sets the Source ARM Id of the resource.
-        :param 'MoveResourcePropertiesResponseSourceResourceSettingsArgs' source_resource_settings: Gets or sets the source resource settings.
+        :param Union['AvailabilitySetResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] source_resource_settings: Gets or sets the source resource settings.
         :param str target_id: Gets or sets the Target ARM Id of the resource.
         :param Sequence['MoveResourceDependencyOverrideResponseArgs'] depends_on_overrides: Gets or sets the move resource dependencies overrides.
         :param str existing_target_id: Gets or sets the existing target ARM Id of the resource.
@@ -822,7 +821,7 @@ class MoveResourcePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="sourceResourceSettings")
-    def source_resource_settings(self) -> 'outputs.MoveResourcePropertiesResponseSourceResourceSettings':
+    def source_resource_settings(self) -> Any:
         """
         Gets or sets the source resource settings.
         """
@@ -945,42 +944,6 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
         Defines the job status.
         """
         return pulumi.get(self, "job_status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class MoveResourcePropertiesResponseSourceResourceSettings(dict):
-    """
-    Gets or sets the source resource settings.
-    """
-    def __init__(__self__, *,
-                 resource_type: str,
-                 target_resource_name: str):
-        """
-        Gets or sets the source resource settings.
-        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-        :param str target_resource_name: Gets or sets the target Resource name.
-        """
-        pulumi.set(__self__, "resource_type", 'MoveResourceProperties')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
-
-    @property
-    @pulumi.getter(name="resourceType")
-    def resource_type(self) -> str:
-        """
-        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
-        """
-        return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

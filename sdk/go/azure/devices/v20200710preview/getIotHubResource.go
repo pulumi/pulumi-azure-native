@@ -27,6 +27,8 @@ type LookupIotHubResourceArgs struct {
 type LookupIotHubResourceResult struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
+	// The managed identities for the IotHub.
+	Identity *ArmIdentityResponse `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The resource name.

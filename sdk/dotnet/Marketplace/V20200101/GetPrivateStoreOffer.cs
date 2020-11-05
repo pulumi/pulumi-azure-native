@@ -83,7 +83,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// <summary>
         /// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         /// </summary>
-        public readonly string? UpdateSuppressedDueIdempotence;
+        public readonly bool? UpdateSuppressedDueIdempotence;
 
         [OutputConstructor]
         private GetPrivateStoreOfferResult(
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
 
             string uniqueOfferId,
 
-            string? updateSuppressedDueIdempotence)
+            bool? updateSuppressedDueIdempotence)
         {
             CreatedAt = createdAt;
             ETag = eTag;

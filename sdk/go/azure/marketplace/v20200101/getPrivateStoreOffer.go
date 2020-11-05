@@ -47,5 +47,5 @@ type LookupPrivateStoreOfferResult struct {
 	// Offers unique id
 	UniqueOfferId string `pulumi:"uniqueOfferId"`
 	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
-	UpdateSuppressedDueIdempotence *string `pulumi:"updateSuppressedDueIdempotence"`
+	UpdateSuppressedDueIdempotence *bool `pulumi:"updateSuppressedDueIdempotence"`
 }

@@ -34,6 +34,7 @@ __all__ = [
     'LogMetricTriggerResponse',
     'LogToMetricActionResponse',
     'LogicAppReceiverResponse',
+    'ManagedIdentityResponse',
     'ManagementEventAggregationConditionResponse',
     'ManagementEventRuleConditionResponse',
     'MetricAlertActionResponse',
@@ -61,6 +62,7 @@ __all__ = [
     'ThresholdRuleConditionResponse',
     'TimeWindowResponse',
     'TriggerConditionResponse',
+    'UserAssignedIdentitiesResponse',
     'VoiceReceiverResponse',
     'WebTestGeolocationResponse',
     'WebTestPropertiesResponseConfiguration',
@@ -1352,6 +1354,44 @@ class LogicAppReceiverResponse(dict):
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedIdentityResponse(dict):
+    """
+    Customer Managed Identity
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional['outputs.UserAssignedIdentitiesResponse'] = None):
+        """
+        Customer Managed Identity
+        :param str type: The identity type.
+        :param 'UserAssignedIdentitiesResponseArgs' user_assigned_identities: Customer Managed Identity
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional['outputs.UserAssignedIdentitiesResponse']:
+        """
+        Customer Managed Identity
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2861,6 +2901,42 @@ class TriggerConditionResponse(dict):
         Trigger condition for metric query rule
         """
         return pulumi.get(self, "metric_trigger")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserAssignedIdentitiesResponse(dict):
+    """
+    Customer Managed Identity
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str):
+        """
+        Customer Managed Identity
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

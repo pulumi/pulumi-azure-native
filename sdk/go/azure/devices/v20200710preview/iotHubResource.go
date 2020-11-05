@@ -16,6 +16,8 @@ type IotHubResource struct {
 
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// The managed identities for the IotHub.
+	Identity ArmIdentityResponsePtrOutput `pulumi:"identity"`
 	// The resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The resource name.
@@ -120,6 +122,8 @@ func GetIotHubResource(ctx *pulumi.Context,
 type iotHubResourceState struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
+	// The managed identities for the IotHub.
+	Identity *ArmIdentityResponse `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
@@ -137,6 +141,8 @@ type iotHubResourceState struct {
 type IotHubResourceState struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrInput
+	// The managed identities for the IotHub.
+	Identity ArmIdentityResponsePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The resource name.
@@ -158,6 +164,8 @@ func (IotHubResourceState) ElementType() reflect.Type {
 type iotHubResourceArgs struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
+	// The managed identities for the IotHub.
+	Identity *ArmIdentity `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// IotHub properties
@@ -176,6 +184,8 @@ type iotHubResourceArgs struct {
 type IotHubResourceArgs struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrInput
+	// The managed identities for the IotHub.
+	Identity ArmIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringInput
 	// IotHub properties

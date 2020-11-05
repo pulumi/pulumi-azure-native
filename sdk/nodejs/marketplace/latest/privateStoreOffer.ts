@@ -80,7 +80,7 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
     /**
      * Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
      */
-    public readonly updateSuppressedDueIdempotence!: pulumi.Output<string | undefined>;
+    public readonly updateSuppressedDueIdempotence!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a PrivateStoreOffer resource with the given unique name, arguments, and options.
@@ -162,5 +162,5 @@ export interface PrivateStoreOfferArgs {
     /**
      * Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
      */
-    readonly updateSuppressedDueIdempotence?: pulumi.Input<string>;
+    readonly updateSuppressedDueIdempotence?: pulumi.Input<boolean>;
 }

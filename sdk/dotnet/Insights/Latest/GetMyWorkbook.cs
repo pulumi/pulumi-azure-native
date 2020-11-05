@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Identity used for BYOS
+        /// </summary>
+        public readonly Outputs.ManagedIdentityResponse? Identity;
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         public readonly string? Kind;
@@ -67,6 +71,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Optional resourceId for a source resource.
         /// </summary>
         public readonly string? SourceId;
+        /// <summary>
+        /// BYOS Storage Account URI
+        /// </summary>
+        public readonly string? StorageUri;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -94,6 +102,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 
             string displayName,
 
+            Outputs.ManagedIdentityResponse? identity,
+
             string? kind,
 
             string? location,
@@ -103,6 +113,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
             string serializedData,
 
             string? sourceId,
+
+            string? storageUri,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -116,11 +128,13 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         {
             Category = category;
             DisplayName = displayName;
+            Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;
             SerializedData = serializedData;
             SourceId = sourceId;
+            StorageUri = storageUri;
             Tags = tags;
             TimeModified = timeModified;
             Type = type;

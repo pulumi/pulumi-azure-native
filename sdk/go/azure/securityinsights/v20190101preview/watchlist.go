@@ -14,10 +14,12 @@ import (
 type Watchlist struct {
 	pulumi.CustomResourceState
 
+	// The content type of the raw content. Example : text/csv or text/tsv
+	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
+	// The time the watchlist was created
+	Created pulumi.StringPtrOutput `pulumi:"created"`
 	// Describes a user that created the watchlist
 	CreatedBy UserInfoResponsePtrOutput `pulumi:"createdBy"`
-	// The time the watchlist was created
-	CreatedTimeUtc pulumi.StringPtrOutput `pulumi:"createdTimeUtc"`
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration pulumi.StringPtrOutput `pulumi:"defaultDuration"`
 	// A description of the watchlist
@@ -26,30 +28,34 @@ type Watchlist struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// A flag that indicates if the watchlist is deleted or not
+	IsDeleted pulumi.BoolPtrOutput `pulumi:"isDeleted"`
 	// List of labels relevant to this watchlist
 	Labels pulumi.StringArrayOutput `pulumi:"labels"`
-	// The last time the watchlist was updated
-	LastUpdatedTimeUtc pulumi.StringPtrOutput `pulumi:"lastUpdatedTimeUtc"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The notes of the watchlist
-	Notes pulumi.StringPtrOutput `pulumi:"notes"`
+	// The number of lines in a csv/tsv content to skip before the header
+	NumberOfLinesToSkip pulumi.IntPtrOutput `pulumi:"numberOfLinesToSkip"`
 	// The provider of the watchlist
 	Provider pulumi.StringOutput `pulumi:"provider"`
+	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+	RawContent pulumi.StringPtrOutput `pulumi:"rawContent"`
 	// The source of the watchlist
 	Source pulumi.StringOutput `pulumi:"source"`
-	// The tenantId where the watchlist belongs to.
+	// The tenantId where the watchlist belongs to
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The last time the watchlist was updated
+	Updated pulumi.StringPtrOutput `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy UserInfoResponsePtrOutput `pulumi:"updatedBy"`
-	// List of watchlist items.
-	WatchlistItems WatchlistItemResponseArrayOutput `pulumi:"watchlistItems"`
+	// The alias of the watchlist
+	WatchlistAlias pulumi.StringPtrOutput `pulumi:"watchlistAlias"`
+	// The id (a Guid) of the watchlist
+	WatchlistId pulumi.StringPtrOutput `pulumi:"watchlistId"`
 	// The type of the watchlist
 	WatchlistType pulumi.StringPtrOutput `pulumi:"watchlistType"`
-	// The workspaceId where the watchlist belongs to.
-	WorkspaceId pulumi.StringPtrOutput `pulumi:"workspaceId"`
 }
 
 // NewWatchlist registers a new resource with the given unique name, arguments, and options.
@@ -101,10 +107,12 @@ func GetWatchlist(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Watchlist resources.
 type watchlistState struct {
+	// The content type of the raw content. Example : text/csv or text/tsv
+	ContentType *string `pulumi:"contentType"`
+	// The time the watchlist was created
+	Created *string `pulumi:"created"`
 	// Describes a user that created the watchlist
 	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
-	// The time the watchlist was created
-	CreatedTimeUtc *string `pulumi:"createdTimeUtc"`
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration *string `pulumi:"defaultDuration"`
 	// A description of the watchlist
@@ -113,37 +121,43 @@ type watchlistState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// A flag that indicates if the watchlist is deleted or not
+	IsDeleted *bool `pulumi:"isDeleted"`
 	// List of labels relevant to this watchlist
 	Labels []string `pulumi:"labels"`
-	// The last time the watchlist was updated
-	LastUpdatedTimeUtc *string `pulumi:"lastUpdatedTimeUtc"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// The notes of the watchlist
-	Notes *string `pulumi:"notes"`
+	// The number of lines in a csv/tsv content to skip before the header
+	NumberOfLinesToSkip *int `pulumi:"numberOfLinesToSkip"`
 	// The provider of the watchlist
 	Provider *string `pulumi:"provider"`
+	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+	RawContent *string `pulumi:"rawContent"`
 	// The source of the watchlist
 	Source *string `pulumi:"source"`
-	// The tenantId where the watchlist belongs to.
+	// The tenantId where the watchlist belongs to
 	TenantId *string `pulumi:"tenantId"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
+	// The last time the watchlist was updated
+	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
-	// List of watchlist items.
-	WatchlistItems []WatchlistItemResponse `pulumi:"watchlistItems"`
+	// The alias of the watchlist
+	WatchlistAlias *string `pulumi:"watchlistAlias"`
+	// The id (a Guid) of the watchlist
+	WatchlistId *string `pulumi:"watchlistId"`
 	// The type of the watchlist
 	WatchlistType *string `pulumi:"watchlistType"`
-	// The workspaceId where the watchlist belongs to.
-	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WatchlistState struct {
+	// The content type of the raw content. Example : text/csv or text/tsv
+	ContentType pulumi.StringPtrInput
+	// The time the watchlist was created
+	Created pulumi.StringPtrInput
 	// Describes a user that created the watchlist
 	CreatedBy UserInfoResponsePtrInput
-	// The time the watchlist was created
-	CreatedTimeUtc pulumi.StringPtrInput
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration pulumi.StringPtrInput
 	// A description of the watchlist
@@ -152,30 +166,34 @@ type WatchlistState struct {
 	DisplayName pulumi.StringPtrInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
+	// A flag that indicates if the watchlist is deleted or not
+	IsDeleted pulumi.BoolPtrInput
 	// List of labels relevant to this watchlist
 	Labels pulumi.StringArrayInput
-	// The last time the watchlist was updated
-	LastUpdatedTimeUtc pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// The notes of the watchlist
-	Notes pulumi.StringPtrInput
+	// The number of lines in a csv/tsv content to skip before the header
+	NumberOfLinesToSkip pulumi.IntPtrInput
 	// The provider of the watchlist
 	Provider pulumi.StringPtrInput
+	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+	RawContent pulumi.StringPtrInput
 	// The source of the watchlist
 	Source pulumi.StringPtrInput
-	// The tenantId where the watchlist belongs to.
+	// The tenantId where the watchlist belongs to
 	TenantId pulumi.StringPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
+	// The last time the watchlist was updated
+	Updated pulumi.StringPtrInput
 	// Describes a user that updated the watchlist
 	UpdatedBy UserInfoResponsePtrInput
-	// List of watchlist items.
-	WatchlistItems WatchlistItemResponseArrayInput
+	// The alias of the watchlist
+	WatchlistAlias pulumi.StringPtrInput
+	// The id (a Guid) of the watchlist
+	WatchlistId pulumi.StringPtrInput
 	// The type of the watchlist
 	WatchlistType pulumi.StringPtrInput
-	// The workspaceId where the watchlist belongs to.
-	WorkspaceId pulumi.StringPtrInput
 }
 
 func (WatchlistState) ElementType() reflect.Type {
@@ -183,10 +201,12 @@ func (WatchlistState) ElementType() reflect.Type {
 }
 
 type watchlistArgs struct {
+	// The content type of the raw content. Example : text/csv or text/tsv
+	ContentType *string `pulumi:"contentType"`
+	// The time the watchlist was created
+	Created *string `pulumi:"created"`
 	// Describes a user that created the watchlist
 	CreatedBy *UserInfo `pulumi:"createdBy"`
-	// The time the watchlist was created
-	CreatedTimeUtc *string `pulumi:"createdTimeUtc"`
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration *string `pulumi:"defaultDuration"`
 	// A description of the watchlist
@@ -195,42 +215,46 @@ type watchlistArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// A flag that indicates if the watchlist is deleted or not
+	IsDeleted *bool `pulumi:"isDeleted"`
 	// List of labels relevant to this watchlist
 	Labels []string `pulumi:"labels"`
-	// The last time the watchlist was updated
-	LastUpdatedTimeUtc *string `pulumi:"lastUpdatedTimeUtc"`
-	// The notes of the watchlist
-	Notes *string `pulumi:"notes"`
+	// The number of lines in a csv/tsv content to skip before the header
+	NumberOfLinesToSkip *int `pulumi:"numberOfLinesToSkip"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The provider of the watchlist
 	Provider string `pulumi:"provider"`
+	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+	RawContent *string `pulumi:"rawContent"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The source of the watchlist
 	Source string `pulumi:"source"`
-	// The tenantId where the watchlist belongs to.
+	// The tenantId where the watchlist belongs to
 	TenantId *string `pulumi:"tenantId"`
+	// The last time the watchlist was updated
+	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy *UserInfo `pulumi:"updatedBy"`
-	// Watchlist Alias
+	// The alias of the watchlist
 	WatchlistAlias string `pulumi:"watchlistAlias"`
-	// List of watchlist items.
-	WatchlistItems []WatchlistItem `pulumi:"watchlistItems"`
+	// The id (a Guid) of the watchlist
+	WatchlistId *string `pulumi:"watchlistId"`
 	// The type of the watchlist
 	WatchlistType *string `pulumi:"watchlistType"`
-	// The workspaceId where the watchlist belongs to.
-	WorkspaceId *string `pulumi:"workspaceId"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Watchlist resource.
 type WatchlistArgs struct {
+	// The content type of the raw content. Example : text/csv or text/tsv
+	ContentType pulumi.StringPtrInput
+	// The time the watchlist was created
+	Created pulumi.StringPtrInput
 	// Describes a user that created the watchlist
 	CreatedBy UserInfoPtrInput
-	// The time the watchlist was created
-	CreatedTimeUtc pulumi.StringPtrInput
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration pulumi.StringPtrInput
 	// A description of the watchlist
@@ -239,32 +263,34 @@ type WatchlistArgs struct {
 	DisplayName pulumi.StringInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
+	// A flag that indicates if the watchlist is deleted or not
+	IsDeleted pulumi.BoolPtrInput
 	// List of labels relevant to this watchlist
 	Labels pulumi.StringArrayInput
-	// The last time the watchlist was updated
-	LastUpdatedTimeUtc pulumi.StringPtrInput
-	// The notes of the watchlist
-	Notes pulumi.StringPtrInput
+	// The number of lines in a csv/tsv content to skip before the header
+	NumberOfLinesToSkip pulumi.IntPtrInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// The provider of the watchlist
 	Provider pulumi.StringInput
+	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+	RawContent pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The source of the watchlist
 	Source pulumi.StringInput
-	// The tenantId where the watchlist belongs to.
+	// The tenantId where the watchlist belongs to
 	TenantId pulumi.StringPtrInput
+	// The last time the watchlist was updated
+	Updated pulumi.StringPtrInput
 	// Describes a user that updated the watchlist
 	UpdatedBy UserInfoPtrInput
-	// Watchlist Alias
+	// The alias of the watchlist
 	WatchlistAlias pulumi.StringInput
-	// List of watchlist items.
-	WatchlistItems WatchlistItemArrayInput
+	// The id (a Guid) of the watchlist
+	WatchlistId pulumi.StringPtrInput
 	// The type of the watchlist
 	WatchlistType pulumi.StringPtrInput
-	// The workspaceId where the watchlist belongs to.
-	WorkspaceId pulumi.StringPtrInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }

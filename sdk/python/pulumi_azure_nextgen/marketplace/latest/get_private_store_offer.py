@@ -54,8 +54,8 @@ class GetPrivateStoreOfferResult:
         if unique_offer_id and not isinstance(unique_offer_id, str):
             raise TypeError("Expected argument 'unique_offer_id' to be a str")
         pulumi.set(__self__, "unique_offer_id", unique_offer_id)
-        if update_suppressed_due_idempotence and not isinstance(update_suppressed_due_idempotence, str):
-            raise TypeError("Expected argument 'update_suppressed_due_idempotence' to be a str")
+        if update_suppressed_due_idempotence and not isinstance(update_suppressed_due_idempotence, bool):
+            raise TypeError("Expected argument 'update_suppressed_due_idempotence' to be a bool")
         pulumi.set(__self__, "update_suppressed_due_idempotence", update_suppressed_due_idempotence)
 
     @property
@@ -145,7 +145,7 @@ class GetPrivateStoreOfferResult:
 
     @property
     @pulumi.getter(name="updateSuppressedDueIdempotence")
-    def update_suppressed_due_idempotence(self) -> Optional[str]:
+    def update_suppressed_due_idempotence(self) -> Optional[bool]:
         """
         Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         """

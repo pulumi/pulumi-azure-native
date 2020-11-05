@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -39,29 +41,37 @@ export class Workbook extends pulumi.CustomResource {
      */
     public readonly category!: pulumi.Output<string>;
     /**
+     * The user-defined name (display name) of the workbook.
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
+     * Identity used for BYOS
+     */
+    public readonly identity!: pulumi.Output<outputs.insights.latest.ManagedIdentityResponse | undefined>;
+    /**
      * The kind of workbook. Choices are user and shared.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * Azure resource name. This is GUID value. The display name should be assigned within properties field.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
     public readonly serializedData!: pulumi.Output<string>;
     /**
-     * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+     * ResourceId for a source resource.
      */
-    public readonly sharedTypeKind!: pulumi.Output<string>;
+    public readonly sourceId!: pulumi.Output<string | undefined>;
     /**
-     * Optional resourceId for a source resource.
+     * BYOS Storage Account URI
      */
-    public readonly sourceResourceId!: pulumi.Output<string | undefined>;
+    public readonly storageUri!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -77,15 +87,11 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * Unique user id of the specific user that owns this workbook.
      */
-    public readonly userId!: pulumi.Output<string>;
+    public /*out*/ readonly userId!: pulumi.Output<string>;
     /**
-     * This instance's version of the data model. This can change as new features are added that can be marked workbook.
+     * Workbook version
      */
     public readonly version!: pulumi.Output<string | undefined>;
-    /**
-     * Internally assigned unique id of the workbook definition.
-     */
-    public readonly workbookId!: pulumi.Output<string>;
 
     /**
      * Create a Workbook resource with the given unique name, arguments, and options.
@@ -100,8 +106,11 @@ export class Workbook extends pulumi.CustomResource {
             if (!args || args.category === undefined) {
                 throw new Error("Missing required property 'category'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.displayName === undefined) {
+                throw new Error("Missing required property 'displayName'");
+            }
+            if (!args || args.location === undefined) {
+                throw new Error("Missing required property 'location'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -112,44 +121,40 @@ export class Workbook extends pulumi.CustomResource {
             if (!args || args.serializedData === undefined) {
                 throw new Error("Missing required property 'serializedData'");
             }
-            if (!args || args.sharedTypeKind === undefined) {
-                throw new Error("Missing required property 'sharedTypeKind'");
-            }
-            if (!args || args.userId === undefined) {
-                throw new Error("Missing required property 'userId'");
-            }
-            if (!args || args.workbookId === undefined) {
-                throw new Error("Missing required property 'workbookId'");
+            if (!args || args.sourceId === undefined) {
+                throw new Error("Missing required property 'sourceId'");
             }
             inputs["category"] = args ? args.category : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["serializedData"] = args ? args.serializedData : undefined;
-            inputs["sharedTypeKind"] = args ? args.sharedTypeKind : undefined;
-            inputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
+            inputs["sourceId"] = args ? args.sourceId : undefined;
+            inputs["storageUri"] = args ? args.storageUri : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
             inputs["version"] = args ? args.version : undefined;
-            inputs["workbookId"] = args ? args.workbookId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userId"] = undefined /*out*/;
         } else {
             inputs["category"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["serializedData"] = undefined /*out*/;
-            inputs["sharedTypeKind"] = undefined /*out*/;
-            inputs["sourceResourceId"] = undefined /*out*/;
+            inputs["sourceId"] = undefined /*out*/;
+            inputs["storageUri"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userId"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
-            inputs["workbookId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -158,7 +163,7 @@ export class Workbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20150501:Workbook" }, { type: "azure-nextgen:insights/v20180617preview:Workbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20150501:Workbook" }, { type: "azure-nextgen:insights/v20180617preview:Workbook" }, { type: "azure-nextgen:insights/v20201020:Workbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workbook.__pulumiType, name, inputs, opts);
     }
@@ -173,17 +178,21 @@ export interface WorkbookArgs {
      */
     readonly category: pulumi.Input<string>;
     /**
+     * The user-defined name (display name) of the workbook.
+     */
+    readonly displayName: pulumi.Input<string>;
+    /**
+     * Identity used for BYOS
+     */
+    readonly identity?: pulumi.Input<inputs.insights.latest.ManagedIdentity>;
+    /**
      * The kind of workbook. Choices are user and shared.
      */
     readonly kind?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The user-defined name of the workbook.
-     */
-    readonly name: pulumi.Input<string>;
+    readonly location: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -197,27 +206,19 @@ export interface WorkbookArgs {
      */
     readonly serializedData: pulumi.Input<string>;
     /**
-     * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+     * ResourceId for a source resource.
      */
-    readonly sharedTypeKind: pulumi.Input<string>;
+    readonly sourceId: pulumi.Input<string>;
     /**
-     * Optional resourceId for a source resource.
+     * BYOS Storage Account URI
      */
-    readonly sourceResourceId?: pulumi.Input<string>;
+    readonly storageUri?: pulumi.Input<string>;
     /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Unique user id of the specific user that owns this workbook.
-     */
-    readonly userId: pulumi.Input<string>;
-    /**
-     * This instance's version of the data model. This can change as new features are added that can be marked workbook.
+     * Workbook version
      */
     readonly version?: pulumi.Input<string>;
-    /**
-     * Internally assigned unique id of the workbook definition.
-     */
-    readonly workbookId: pulumi.Input<string>;
 }

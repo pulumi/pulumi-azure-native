@@ -27,18 +27,22 @@ type LookupWorkbookArgs struct {
 type LookupWorkbookResult struct {
 	// Workbook category, as defined by the user at creation time.
 	Category string `pulumi:"category"`
+	// The user-defined name (display name) of the workbook.
+	DisplayName string `pulumi:"displayName"`
+	// Identity used for BYOS
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location
-	Location *string `pulumi:"location"`
-	// Azure resource name
+	Location string `pulumi:"location"`
+	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
 	Name string `pulumi:"name"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
-	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	SharedTypeKind string `pulumi:"sharedTypeKind"`
-	// Optional resourceId for a source resource.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// ResourceId for a source resource.
+	SourceId *string `pulumi:"sourceId"`
+	// BYOS Storage Account URI
+	StorageUri *string `pulumi:"storageUri"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this workbook definition.
@@ -47,8 +51,6 @@ type LookupWorkbookResult struct {
 	Type string `pulumi:"type"`
 	// Unique user id of the specific user that owns this workbook.
 	UserId string `pulumi:"userId"`
-	// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+	// Workbook version
 	Version *string `pulumi:"version"`
-	// Internally assigned unique id of the workbook definition.
-	WorkbookId string `pulumi:"workbookId"`
 }

@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// </summary>
         public readonly string? ContainerName;
         /// <summary>
+        /// Creator Id of the library/package.
+        /// </summary>
+        public readonly string CreatorId;
+        /// <summary>
         /// Name of the library.
         /// </summary>
         public readonly string? Name;
@@ -25,6 +29,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// Storage blob path of library.
         /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// Provisioning status of the library/package.
+        /// </summary>
+        public readonly string ProvisioningStatus;
         /// <summary>
         /// Type of the library.
         /// </summary>
@@ -38,17 +46,23 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         private LibraryInfoResponse(
             string? containerName,
 
+            string creatorId,
+
             string? name,
 
             string? path,
+
+            string provisioningStatus,
 
             string? type,
 
             string? uploadedTimestamp)
         {
             ContainerName = containerName;
+            CreatorId = creatorId;
             Name = name;
             Path = path;
+            ProvisioningStatus = provisioningStatus;
             Type = type;
             UploadedTimestamp = uploadedTimestamp;
         }
