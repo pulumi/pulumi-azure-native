@@ -57,13 +57,13 @@ type AzureAPIResource struct {
 	GetParameters []AzureAPIParameter         `json:"GET"`
 	PutParameters []AzureAPIParameter         `json:"PUT"`
 	Response      map[string]AzureAPIProperty `json:"response"`
-	// An ambient resource is created by Azure with its parent.
+	// A singleton resource is created by Azure with its parent.
 	// It can't be created or deleted explicitly on its own.
-	Ambient bool `json:"ambient,omitempty"`
+	Singleton bool `json:"singleton,omitempty"`
 	// DefaultBody is the default state of a resource for resources that are
 	// created automatically by Azure. Note:
 	// - omitempty is not set to distinct between nil (no default) and empty maps (empty default)
-	// - DefaultBody applies to all ambient but also some non-ambient resources that can be
+	// - DefaultBody applies to all singletons but also some non-singleton resources that can be
 	//   deleted despite being created automatically.
 	DefaultBody map[string]interface{} `json:"defaultBody"`
 }

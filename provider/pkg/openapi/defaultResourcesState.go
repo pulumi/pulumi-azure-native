@@ -1,5 +1,10 @@
 package openapi
 
+import (
+	"fmt"
+	"reflect"
+)
+
 // defaultResourcesStateRaw is a map non-normalized paths. It's handy to have paths as they are in the Open API spec's
 // latest version for easy search. This map shouldn't be used for lookups: use 'defaultResourcesStateMap' instead.
 var defaultResourcesStateRaw = map[string]map[string]interface{}{
@@ -47,6 +52,21 @@ var defaultResourcesStateNormalized map[string]map[string]interface{}
 func init() {
 	defaultResourcesStateNormalized = map[string]map[string]interface{}{}
 	for key, value := range defaultResourcesStateRaw {
+		for _, propValue := range value {
+			if propValue == nil {
+				continue
+			}
+			typ := reflect.TypeOf(propValue)
+			switch typ.Kind() {
+			case reflect.Map, reflect.Slice, reflect.Array:
+				val := reflect.ValueOf(propValue)
+				if val.Len() > 0 {
+					// See the limitation in `SdkShapeConverter.isDefaultResponse()`
+					panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported", key))
+				}
+			}
+		}
+
 		defaultResourcesStateNormalized[normalizePath(key)] = value
 	}
 }

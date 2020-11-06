@@ -445,7 +445,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		PutParameters: resourceRequest.parameters,
 		Response:      resourceResponse.properties,
 		DefaultBody:   resource.DefaultBody,
-		Ambient:       resource.PathItem.Delete == nil,
+		Singleton:     resource.PathItem.Delete == nil,
 	}
 	g.metadata.Resources[resourceTok] = r
 

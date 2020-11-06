@@ -808,8 +808,8 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 	}
 
 	switch {
-	case res.Ambient:
-		// Ambient resources can't be deleted (or created), set them to the default state.
+	case res.Singleton:
+		// Singleton resources can't be deleted (or created), set them to the default state.
 		for _, param := range res.PutParameters {
 			if param.Location == "body" {
 				requestBody := k.converter.SdkPropertiesToRequestBody(param.Body.Properties, res.DefaultBody)
@@ -978,17 +978,17 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 	}
 
 	switch {
-	case http.StatusOK == resp.StatusCode && res.Ambient:
-		// Ambient resources always exist, so OK is expected.
+	case http.StatusOK == resp.StatusCode && res.Singleton:
+		// Singleton resources always exist, so OK is expected.
 		return nil
-	case http.StatusNotFound == resp.StatusCode && res.Ambient:
+	case http.StatusNotFound == resp.StatusCode && res.Singleton:
 		return fmt.Errorf("parent resource does not exist for resource '%s'", id)
 	case http.StatusOK == resp.StatusCode && res.DefaultBody != nil:
 		// This resource is automatically created with a parent and set to its default state. It can be deleted though.
 		// Validate that its current shape is in the default state to avoid unintended adoption and destructive
 		// actions.
 		// NOTE: We may reconsider and relax this restriction when we get more examples of such resources.
-		// The difference between "take any ambient resource as-is" and "require default body for deletable resources"
+		// The difference between "take any singleton resource as-is" and "require default body for deletable resources"
 		// isn't very principled but is based on what subjectively feels best for the current examples.
 		var outputs map[string]interface{}
 		err = autorest.Respond(
