@@ -13,6 +13,8 @@ export * from "./getFirewallRule";
 export * from "./getServer";
 export * from "./getServerAzureADAdministrator";
 export * from "./getServerCommunicationLink";
+export * from "./getTransparentDataEncryption";
 export * from "./server";
 export * from "./serverAzureADAdministrator";
 export * from "./serverCommunicationLink";
+export * from "./transparentDataEncryption";

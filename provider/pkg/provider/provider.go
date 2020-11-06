@@ -590,7 +590,7 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 	// (though it's technically impossible since the only operation supported is an upsert).
-	err = k.azureCanCreate(ctx, id, res.APIVersion)
+	err = k.azureCanCreate(ctx, id, &res)
 	if err != nil {
 		return nil, err
 	}
@@ -806,9 +806,26 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 	if !ok {
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
-	err := k.azureDelete(ctx, id, res.APIVersion)
-	if err != nil {
-		return nil, err
+
+	switch {
+	case res.Singleton:
+		// Singleton resources can't be deleted (or created), set them to the default state.
+		for _, param := range res.PutParameters {
+			if param.Location == "body" {
+				requestBody := k.converter.SdkPropertiesToRequestBody(param.Body.Properties, res.DefaultBody)
+
+				queryParams := map[string]interface{}{"api-version": res.APIVersion}
+				_, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams)
+				if err != nil {
+					return nil, err
+				}
+			}
+		}
+	default:
+		err := k.azureDelete(ctx, id, res.APIVersion)
+		if err != nil {
+			return nil, errors.Wrapf(err, "deleting %s", label)
+		}
 	}
 	return &pbempty.Empty{}, nil
 }
@@ -938,9 +955,9 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 
 // azureCanCreate asserts that a resource with a given ID and API version can be created
 // or returns an error otherwise.
-func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, apiVersion string) error {
+func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, res *AzureAPIResource) error {
 	queryParameters := map[string]interface{}{
-		"api-version": apiVersion,
+		"api-version": res.APIVersion,
 	}
 	preparer := autorest.CreatePreparer(
 		autorest.AsGet(),
@@ -960,13 +977,38 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, ap
 		return err
 	}
 
-	switch resp.StatusCode {
-	case http.StatusOK:
-		return fmt.Errorf("cannot create already existing resource %v", id)
-	case http.StatusNotFound:
+	switch {
+	case http.StatusOK == resp.StatusCode && res.Singleton:
+		// Singleton resources always exist, so OK is expected.
+		return nil
+	case http.StatusNotFound == resp.StatusCode && res.Singleton:
+		return fmt.Errorf("parent resource does not exist for resource '%s'", id)
+	case http.StatusOK == resp.StatusCode && res.DefaultBody != nil:
+		// This resource is automatically created with a parent and set to its default state. It can be deleted though.
+		// Validate that its current shape is in the default state to avoid unintended adoption and destructive
+		// actions.
+		// NOTE: We may reconsider and relax this restriction when we get more examples of such resources.
+		// The difference between "take any singleton resource as-is" and "require default body for deletable resources"
+		// isn't very principled but is based on what subjectively feels best for the current examples.
+		var outputs map[string]interface{}
+		err = autorest.Respond(
+			resp,
+			k.client.ByInspecting(),
+			autorest.ByUnmarshallingJSON(&outputs),
+			autorest.ByClosing())
+		if err != nil {
+			return err
+		}
+		if !k.converter.isDefaultResponse(res.PutParameters, outputs, res.DefaultBody) {
+			return fmt.Errorf("cannot create already existing subresource '%s'", id)
+		}
+		return nil
+	case http.StatusOK == resp.StatusCode:
+		return fmt.Errorf("cannot create already existing resource '%s'", id)
+	case http.StatusNotFound == resp.StatusCode:
 		return nil
 	default:
-		return fmt.Errorf("cannot check existence of resource %v: status code %d", id, resp.StatusCode)
+		return fmt.Errorf("cannot check existence of resource '%s': status code %d", id, resp.StatusCode)
 	}
 }
 

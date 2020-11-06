@@ -2125,6 +2125,814 @@ func (o BlobRestoreStatusResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The blob service properties for change feed events.
+type ChangeFeed struct {
+	// Indicates whether change feed event logging is enabled for the Blob service.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ChangeFeedInput is an input type that accepts ChangeFeedArgs and ChangeFeedOutput values.
+// You can construct a concrete instance of `ChangeFeedInput` via:
+//
+//          ChangeFeedArgs{...}
+type ChangeFeedInput interface {
+	pulumi.Input
+
+	ToChangeFeedOutput() ChangeFeedOutput
+	ToChangeFeedOutputWithContext(context.Context) ChangeFeedOutput
+}
+
+// The blob service properties for change feed events.
+type ChangeFeedArgs struct {
+	// Indicates whether change feed event logging is enabled for the Blob service.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ChangeFeedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeFeed)(nil)).Elem()
+}
+
+func (i ChangeFeedArgs) ToChangeFeedOutput() ChangeFeedOutput {
+	return i.ToChangeFeedOutputWithContext(context.Background())
+}
+
+func (i ChangeFeedArgs) ToChangeFeedOutputWithContext(ctx context.Context) ChangeFeedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChangeFeedOutput)
+}
+
+func (i ChangeFeedArgs) ToChangeFeedPtrOutput() ChangeFeedPtrOutput {
+	return i.ToChangeFeedPtrOutputWithContext(context.Background())
+}
+
+func (i ChangeFeedArgs) ToChangeFeedPtrOutputWithContext(ctx context.Context) ChangeFeedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChangeFeedOutput).ToChangeFeedPtrOutputWithContext(ctx)
+}
+
+// ChangeFeedPtrInput is an input type that accepts ChangeFeedArgs, ChangeFeedPtr and ChangeFeedPtrOutput values.
+// You can construct a concrete instance of `ChangeFeedPtrInput` via:
+//
+//          ChangeFeedArgs{...}
+//
+//  or:
+//
+//          nil
+type ChangeFeedPtrInput interface {
+	pulumi.Input
+
+	ToChangeFeedPtrOutput() ChangeFeedPtrOutput
+	ToChangeFeedPtrOutputWithContext(context.Context) ChangeFeedPtrOutput
+}
+
+type changeFeedPtrType ChangeFeedArgs
+
+func ChangeFeedPtr(v *ChangeFeedArgs) ChangeFeedPtrInput {
+	return (*changeFeedPtrType)(v)
+}
+
+func (*changeFeedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChangeFeed)(nil)).Elem()
+}
+
+func (i *changeFeedPtrType) ToChangeFeedPtrOutput() ChangeFeedPtrOutput {
+	return i.ToChangeFeedPtrOutputWithContext(context.Background())
+}
+
+func (i *changeFeedPtrType) ToChangeFeedPtrOutputWithContext(ctx context.Context) ChangeFeedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChangeFeedPtrOutput)
+}
+
+// The blob service properties for change feed events.
+type ChangeFeedOutput struct{ *pulumi.OutputState }
+
+func (ChangeFeedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeFeed)(nil)).Elem()
+}
+
+func (o ChangeFeedOutput) ToChangeFeedOutput() ChangeFeedOutput {
+	return o
+}
+
+func (o ChangeFeedOutput) ToChangeFeedOutputWithContext(ctx context.Context) ChangeFeedOutput {
+	return o
+}
+
+func (o ChangeFeedOutput) ToChangeFeedPtrOutput() ChangeFeedPtrOutput {
+	return o.ToChangeFeedPtrOutputWithContext(context.Background())
+}
+
+func (o ChangeFeedOutput) ToChangeFeedPtrOutputWithContext(ctx context.Context) ChangeFeedPtrOutput {
+	return o.ApplyT(func(v ChangeFeed) *ChangeFeed {
+		return &v
+	}).(ChangeFeedPtrOutput)
+}
+
+// Indicates whether change feed event logging is enabled for the Blob service.
+func (o ChangeFeedOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChangeFeed) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ChangeFeedPtrOutput struct{ *pulumi.OutputState }
+
+func (ChangeFeedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChangeFeed)(nil)).Elem()
+}
+
+func (o ChangeFeedPtrOutput) ToChangeFeedPtrOutput() ChangeFeedPtrOutput {
+	return o
+}
+
+func (o ChangeFeedPtrOutput) ToChangeFeedPtrOutputWithContext(ctx context.Context) ChangeFeedPtrOutput {
+	return o
+}
+
+func (o ChangeFeedPtrOutput) Elem() ChangeFeedOutput {
+	return o.ApplyT(func(v *ChangeFeed) ChangeFeed { return *v }).(ChangeFeedOutput)
+}
+
+// Indicates whether change feed event logging is enabled for the Blob service.
+func (o ChangeFeedPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChangeFeed) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The blob service properties for change feed events.
+type ChangeFeedResponse struct {
+	// Indicates whether change feed event logging is enabled for the Blob service.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ChangeFeedResponseInput is an input type that accepts ChangeFeedResponseArgs and ChangeFeedResponseOutput values.
+// You can construct a concrete instance of `ChangeFeedResponseInput` via:
+//
+//          ChangeFeedResponseArgs{...}
+type ChangeFeedResponseInput interface {
+	pulumi.Input
+
+	ToChangeFeedResponseOutput() ChangeFeedResponseOutput
+	ToChangeFeedResponseOutputWithContext(context.Context) ChangeFeedResponseOutput
+}
+
+// The blob service properties for change feed events.
+type ChangeFeedResponseArgs struct {
+	// Indicates whether change feed event logging is enabled for the Blob service.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ChangeFeedResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeFeedResponse)(nil)).Elem()
+}
+
+func (i ChangeFeedResponseArgs) ToChangeFeedResponseOutput() ChangeFeedResponseOutput {
+	return i.ToChangeFeedResponseOutputWithContext(context.Background())
+}
+
+func (i ChangeFeedResponseArgs) ToChangeFeedResponseOutputWithContext(ctx context.Context) ChangeFeedResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChangeFeedResponseOutput)
+}
+
+func (i ChangeFeedResponseArgs) ToChangeFeedResponsePtrOutput() ChangeFeedResponsePtrOutput {
+	return i.ToChangeFeedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ChangeFeedResponseArgs) ToChangeFeedResponsePtrOutputWithContext(ctx context.Context) ChangeFeedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChangeFeedResponseOutput).ToChangeFeedResponsePtrOutputWithContext(ctx)
+}
+
+// ChangeFeedResponsePtrInput is an input type that accepts ChangeFeedResponseArgs, ChangeFeedResponsePtr and ChangeFeedResponsePtrOutput values.
+// You can construct a concrete instance of `ChangeFeedResponsePtrInput` via:
+//
+//          ChangeFeedResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ChangeFeedResponsePtrInput interface {
+	pulumi.Input
+
+	ToChangeFeedResponsePtrOutput() ChangeFeedResponsePtrOutput
+	ToChangeFeedResponsePtrOutputWithContext(context.Context) ChangeFeedResponsePtrOutput
+}
+
+type changeFeedResponsePtrType ChangeFeedResponseArgs
+
+func ChangeFeedResponsePtr(v *ChangeFeedResponseArgs) ChangeFeedResponsePtrInput {
+	return (*changeFeedResponsePtrType)(v)
+}
+
+func (*changeFeedResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChangeFeedResponse)(nil)).Elem()
+}
+
+func (i *changeFeedResponsePtrType) ToChangeFeedResponsePtrOutput() ChangeFeedResponsePtrOutput {
+	return i.ToChangeFeedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *changeFeedResponsePtrType) ToChangeFeedResponsePtrOutputWithContext(ctx context.Context) ChangeFeedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChangeFeedResponsePtrOutput)
+}
+
+// The blob service properties for change feed events.
+type ChangeFeedResponseOutput struct{ *pulumi.OutputState }
+
+func (ChangeFeedResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeFeedResponse)(nil)).Elem()
+}
+
+func (o ChangeFeedResponseOutput) ToChangeFeedResponseOutput() ChangeFeedResponseOutput {
+	return o
+}
+
+func (o ChangeFeedResponseOutput) ToChangeFeedResponseOutputWithContext(ctx context.Context) ChangeFeedResponseOutput {
+	return o
+}
+
+func (o ChangeFeedResponseOutput) ToChangeFeedResponsePtrOutput() ChangeFeedResponsePtrOutput {
+	return o.ToChangeFeedResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ChangeFeedResponseOutput) ToChangeFeedResponsePtrOutputWithContext(ctx context.Context) ChangeFeedResponsePtrOutput {
+	return o.ApplyT(func(v ChangeFeedResponse) *ChangeFeedResponse {
+		return &v
+	}).(ChangeFeedResponsePtrOutput)
+}
+
+// Indicates whether change feed event logging is enabled for the Blob service.
+func (o ChangeFeedResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChangeFeedResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ChangeFeedResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ChangeFeedResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChangeFeedResponse)(nil)).Elem()
+}
+
+func (o ChangeFeedResponsePtrOutput) ToChangeFeedResponsePtrOutput() ChangeFeedResponsePtrOutput {
+	return o
+}
+
+func (o ChangeFeedResponsePtrOutput) ToChangeFeedResponsePtrOutputWithContext(ctx context.Context) ChangeFeedResponsePtrOutput {
+	return o
+}
+
+func (o ChangeFeedResponsePtrOutput) Elem() ChangeFeedResponseOutput {
+	return o.ApplyT(func(v *ChangeFeedResponse) ChangeFeedResponse { return *v }).(ChangeFeedResponseOutput)
+}
+
+// Indicates whether change feed event logging is enabled for the Blob service.
+func (o ChangeFeedResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChangeFeedResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRule struct {
+	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+
+// CorsRuleInput is an input type that accepts CorsRuleArgs and CorsRuleOutput values.
+// You can construct a concrete instance of `CorsRuleInput` via:
+//
+//          CorsRuleArgs{...}
+type CorsRuleInput interface {
+	pulumi.Input
+
+	ToCorsRuleOutput() CorsRuleOutput
+	ToCorsRuleOutputWithContext(context.Context) CorsRuleOutput
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRuleArgs struct {
+	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (CorsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRule)(nil)).Elem()
+}
+
+func (i CorsRuleArgs) ToCorsRuleOutput() CorsRuleOutput {
+	return i.ToCorsRuleOutputWithContext(context.Background())
+}
+
+func (i CorsRuleArgs) ToCorsRuleOutputWithContext(ctx context.Context) CorsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRuleOutput)
+}
+
+// CorsRuleArrayInput is an input type that accepts CorsRuleArray and CorsRuleArrayOutput values.
+// You can construct a concrete instance of `CorsRuleArrayInput` via:
+//
+//          CorsRuleArray{ CorsRuleArgs{...} }
+type CorsRuleArrayInput interface {
+	pulumi.Input
+
+	ToCorsRuleArrayOutput() CorsRuleArrayOutput
+	ToCorsRuleArrayOutputWithContext(context.Context) CorsRuleArrayOutput
+}
+
+type CorsRuleArray []CorsRuleInput
+
+func (CorsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsRule)(nil)).Elem()
+}
+
+func (i CorsRuleArray) ToCorsRuleArrayOutput() CorsRuleArrayOutput {
+	return i.ToCorsRuleArrayOutputWithContext(context.Background())
+}
+
+func (i CorsRuleArray) ToCorsRuleArrayOutputWithContext(ctx context.Context) CorsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRuleArrayOutput)
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRuleOutput struct{ *pulumi.OutputState }
+
+func (CorsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRule)(nil)).Elem()
+}
+
+func (o CorsRuleOutput) ToCorsRuleOutput() CorsRuleOutput {
+	return o
+}
+
+func (o CorsRuleOutput) ToCorsRuleOutputWithContext(ctx context.Context) CorsRuleOutput {
+	return o
+}
+
+// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+func (o CorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+func (o CorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+func (o CorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+func (o CorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+func (o CorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v CorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type CorsRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (CorsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsRule)(nil)).Elem()
+}
+
+func (o CorsRuleArrayOutput) ToCorsRuleArrayOutput() CorsRuleArrayOutput {
+	return o
+}
+
+func (o CorsRuleArrayOutput) ToCorsRuleArrayOutputWithContext(ctx context.Context) CorsRuleArrayOutput {
+	return o
+}
+
+func (o CorsRuleArrayOutput) Index(i pulumi.IntInput) CorsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CorsRule {
+		return vs[0].([]CorsRule)[vs[1].(int)]
+	}).(CorsRuleOutput)
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRuleResponse struct {
+	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+
+// CorsRuleResponseInput is an input type that accepts CorsRuleResponseArgs and CorsRuleResponseOutput values.
+// You can construct a concrete instance of `CorsRuleResponseInput` via:
+//
+//          CorsRuleResponseArgs{...}
+type CorsRuleResponseInput interface {
+	pulumi.Input
+
+	ToCorsRuleResponseOutput() CorsRuleResponseOutput
+	ToCorsRuleResponseOutputWithContext(context.Context) CorsRuleResponseOutput
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRuleResponseArgs struct {
+	// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (CorsRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRuleResponse)(nil)).Elem()
+}
+
+func (i CorsRuleResponseArgs) ToCorsRuleResponseOutput() CorsRuleResponseOutput {
+	return i.ToCorsRuleResponseOutputWithContext(context.Background())
+}
+
+func (i CorsRuleResponseArgs) ToCorsRuleResponseOutputWithContext(ctx context.Context) CorsRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRuleResponseOutput)
+}
+
+// CorsRuleResponseArrayInput is an input type that accepts CorsRuleResponseArray and CorsRuleResponseArrayOutput values.
+// You can construct a concrete instance of `CorsRuleResponseArrayInput` via:
+//
+//          CorsRuleResponseArray{ CorsRuleResponseArgs{...} }
+type CorsRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToCorsRuleResponseArrayOutput() CorsRuleResponseArrayOutput
+	ToCorsRuleResponseArrayOutputWithContext(context.Context) CorsRuleResponseArrayOutput
+}
+
+type CorsRuleResponseArray []CorsRuleResponseInput
+
+func (CorsRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsRuleResponse)(nil)).Elem()
+}
+
+func (i CorsRuleResponseArray) ToCorsRuleResponseArrayOutput() CorsRuleResponseArrayOutput {
+	return i.ToCorsRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CorsRuleResponseArray) ToCorsRuleResponseArrayOutputWithContext(ctx context.Context) CorsRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRuleResponseArrayOutput)
+}
+
+// Specifies a CORS rule for the Blob service.
+type CorsRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (CorsRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRuleResponse)(nil)).Elem()
+}
+
+func (o CorsRuleResponseOutput) ToCorsRuleResponseOutput() CorsRuleResponseOutput {
+	return o
+}
+
+func (o CorsRuleResponseOutput) ToCorsRuleResponseOutputWithContext(ctx context.Context) CorsRuleResponseOutput {
+	return o
+}
+
+// Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+func (o CorsRuleResponseOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRuleResponse) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+func (o CorsRuleResponseOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRuleResponse) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+func (o CorsRuleResponseOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRuleResponse) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+func (o CorsRuleResponseOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsRuleResponse) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+func (o CorsRuleResponseOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v CorsRuleResponse) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type CorsRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CorsRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsRuleResponse)(nil)).Elem()
+}
+
+func (o CorsRuleResponseArrayOutput) ToCorsRuleResponseArrayOutput() CorsRuleResponseArrayOutput {
+	return o
+}
+
+func (o CorsRuleResponseArrayOutput) ToCorsRuleResponseArrayOutputWithContext(ctx context.Context) CorsRuleResponseArrayOutput {
+	return o
+}
+
+func (o CorsRuleResponseArrayOutput) Index(i pulumi.IntInput) CorsRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CorsRuleResponse {
+		return vs[0].([]CorsRuleResponse)[vs[1].(int)]
+	}).(CorsRuleResponseOutput)
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRules struct {
+	// The List of CORS rules. You can include up to five CorsRule elements in the request.
+	CorsRules []CorsRule `pulumi:"corsRules"`
+}
+
+// CorsRulesInput is an input type that accepts CorsRulesArgs and CorsRulesOutput values.
+// You can construct a concrete instance of `CorsRulesInput` via:
+//
+//          CorsRulesArgs{...}
+type CorsRulesInput interface {
+	pulumi.Input
+
+	ToCorsRulesOutput() CorsRulesOutput
+	ToCorsRulesOutputWithContext(context.Context) CorsRulesOutput
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRulesArgs struct {
+	// The List of CORS rules. You can include up to five CorsRule elements in the request.
+	CorsRules CorsRuleArrayInput `pulumi:"corsRules"`
+}
+
+func (CorsRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRules)(nil)).Elem()
+}
+
+func (i CorsRulesArgs) ToCorsRulesOutput() CorsRulesOutput {
+	return i.ToCorsRulesOutputWithContext(context.Background())
+}
+
+func (i CorsRulesArgs) ToCorsRulesOutputWithContext(ctx context.Context) CorsRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesOutput)
+}
+
+func (i CorsRulesArgs) ToCorsRulesPtrOutput() CorsRulesPtrOutput {
+	return i.ToCorsRulesPtrOutputWithContext(context.Background())
+}
+
+func (i CorsRulesArgs) ToCorsRulesPtrOutputWithContext(ctx context.Context) CorsRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesOutput).ToCorsRulesPtrOutputWithContext(ctx)
+}
+
+// CorsRulesPtrInput is an input type that accepts CorsRulesArgs, CorsRulesPtr and CorsRulesPtrOutput values.
+// You can construct a concrete instance of `CorsRulesPtrInput` via:
+//
+//          CorsRulesArgs{...}
+//
+//  or:
+//
+//          nil
+type CorsRulesPtrInput interface {
+	pulumi.Input
+
+	ToCorsRulesPtrOutput() CorsRulesPtrOutput
+	ToCorsRulesPtrOutputWithContext(context.Context) CorsRulesPtrOutput
+}
+
+type corsRulesPtrType CorsRulesArgs
+
+func CorsRulesPtr(v *CorsRulesArgs) CorsRulesPtrInput {
+	return (*corsRulesPtrType)(v)
+}
+
+func (*corsRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsRules)(nil)).Elem()
+}
+
+func (i *corsRulesPtrType) ToCorsRulesPtrOutput() CorsRulesPtrOutput {
+	return i.ToCorsRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *corsRulesPtrType) ToCorsRulesPtrOutputWithContext(ctx context.Context) CorsRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesPtrOutput)
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRulesOutput struct{ *pulumi.OutputState }
+
+func (CorsRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRules)(nil)).Elem()
+}
+
+func (o CorsRulesOutput) ToCorsRulesOutput() CorsRulesOutput {
+	return o
+}
+
+func (o CorsRulesOutput) ToCorsRulesOutputWithContext(ctx context.Context) CorsRulesOutput {
+	return o
+}
+
+func (o CorsRulesOutput) ToCorsRulesPtrOutput() CorsRulesPtrOutput {
+	return o.ToCorsRulesPtrOutputWithContext(context.Background())
+}
+
+func (o CorsRulesOutput) ToCorsRulesPtrOutputWithContext(ctx context.Context) CorsRulesPtrOutput {
+	return o.ApplyT(func(v CorsRules) *CorsRules {
+		return &v
+	}).(CorsRulesPtrOutput)
+}
+
+// The List of CORS rules. You can include up to five CorsRule elements in the request.
+func (o CorsRulesOutput) CorsRules() CorsRuleArrayOutput {
+	return o.ApplyT(func(v CorsRules) []CorsRule { return v.CorsRules }).(CorsRuleArrayOutput)
+}
+
+type CorsRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (CorsRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsRules)(nil)).Elem()
+}
+
+func (o CorsRulesPtrOutput) ToCorsRulesPtrOutput() CorsRulesPtrOutput {
+	return o
+}
+
+func (o CorsRulesPtrOutput) ToCorsRulesPtrOutputWithContext(ctx context.Context) CorsRulesPtrOutput {
+	return o
+}
+
+func (o CorsRulesPtrOutput) Elem() CorsRulesOutput {
+	return o.ApplyT(func(v *CorsRules) CorsRules { return *v }).(CorsRulesOutput)
+}
+
+// The List of CORS rules. You can include up to five CorsRule elements in the request.
+func (o CorsRulesPtrOutput) CorsRules() CorsRuleArrayOutput {
+	return o.ApplyT(func(v *CorsRules) []CorsRule {
+		if v == nil {
+			return nil
+		}
+		return v.CorsRules
+	}).(CorsRuleArrayOutput)
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRulesResponse struct {
+	// The List of CORS rules. You can include up to five CorsRule elements in the request.
+	CorsRules []CorsRuleResponse `pulumi:"corsRules"`
+}
+
+// CorsRulesResponseInput is an input type that accepts CorsRulesResponseArgs and CorsRulesResponseOutput values.
+// You can construct a concrete instance of `CorsRulesResponseInput` via:
+//
+//          CorsRulesResponseArgs{...}
+type CorsRulesResponseInput interface {
+	pulumi.Input
+
+	ToCorsRulesResponseOutput() CorsRulesResponseOutput
+	ToCorsRulesResponseOutputWithContext(context.Context) CorsRulesResponseOutput
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRulesResponseArgs struct {
+	// The List of CORS rules. You can include up to five CorsRule elements in the request.
+	CorsRules CorsRuleResponseArrayInput `pulumi:"corsRules"`
+}
+
+func (CorsRulesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRulesResponse)(nil)).Elem()
+}
+
+func (i CorsRulesResponseArgs) ToCorsRulesResponseOutput() CorsRulesResponseOutput {
+	return i.ToCorsRulesResponseOutputWithContext(context.Background())
+}
+
+func (i CorsRulesResponseArgs) ToCorsRulesResponseOutputWithContext(ctx context.Context) CorsRulesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesResponseOutput)
+}
+
+func (i CorsRulesResponseArgs) ToCorsRulesResponsePtrOutput() CorsRulesResponsePtrOutput {
+	return i.ToCorsRulesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CorsRulesResponseArgs) ToCorsRulesResponsePtrOutputWithContext(ctx context.Context) CorsRulesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesResponseOutput).ToCorsRulesResponsePtrOutputWithContext(ctx)
+}
+
+// CorsRulesResponsePtrInput is an input type that accepts CorsRulesResponseArgs, CorsRulesResponsePtr and CorsRulesResponsePtrOutput values.
+// You can construct a concrete instance of `CorsRulesResponsePtrInput` via:
+//
+//          CorsRulesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CorsRulesResponsePtrInput interface {
+	pulumi.Input
+
+	ToCorsRulesResponsePtrOutput() CorsRulesResponsePtrOutput
+	ToCorsRulesResponsePtrOutputWithContext(context.Context) CorsRulesResponsePtrOutput
+}
+
+type corsRulesResponsePtrType CorsRulesResponseArgs
+
+func CorsRulesResponsePtr(v *CorsRulesResponseArgs) CorsRulesResponsePtrInput {
+	return (*corsRulesResponsePtrType)(v)
+}
+
+func (*corsRulesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsRulesResponse)(nil)).Elem()
+}
+
+func (i *corsRulesResponsePtrType) ToCorsRulesResponsePtrOutput() CorsRulesResponsePtrOutput {
+	return i.ToCorsRulesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *corsRulesResponsePtrType) ToCorsRulesResponsePtrOutputWithContext(ctx context.Context) CorsRulesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsRulesResponsePtrOutput)
+}
+
+// Sets the CORS rules. You can include up to five CorsRule elements in the request.
+type CorsRulesResponseOutput struct{ *pulumi.OutputState }
+
+func (CorsRulesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsRulesResponse)(nil)).Elem()
+}
+
+func (o CorsRulesResponseOutput) ToCorsRulesResponseOutput() CorsRulesResponseOutput {
+	return o
+}
+
+func (o CorsRulesResponseOutput) ToCorsRulesResponseOutputWithContext(ctx context.Context) CorsRulesResponseOutput {
+	return o
+}
+
+func (o CorsRulesResponseOutput) ToCorsRulesResponsePtrOutput() CorsRulesResponsePtrOutput {
+	return o.ToCorsRulesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CorsRulesResponseOutput) ToCorsRulesResponsePtrOutputWithContext(ctx context.Context) CorsRulesResponsePtrOutput {
+	return o.ApplyT(func(v CorsRulesResponse) *CorsRulesResponse {
+		return &v
+	}).(CorsRulesResponsePtrOutput)
+}
+
+// The List of CORS rules. You can include up to five CorsRule elements in the request.
+func (o CorsRulesResponseOutput) CorsRules() CorsRuleResponseArrayOutput {
+	return o.ApplyT(func(v CorsRulesResponse) []CorsRuleResponse { return v.CorsRules }).(CorsRuleResponseArrayOutput)
+}
+
+type CorsRulesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CorsRulesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsRulesResponse)(nil)).Elem()
+}
+
+func (o CorsRulesResponsePtrOutput) ToCorsRulesResponsePtrOutput() CorsRulesResponsePtrOutput {
+	return o
+}
+
+func (o CorsRulesResponsePtrOutput) ToCorsRulesResponsePtrOutputWithContext(ctx context.Context) CorsRulesResponsePtrOutput {
+	return o
+}
+
+func (o CorsRulesResponsePtrOutput) Elem() CorsRulesResponseOutput {
+	return o.ApplyT(func(v *CorsRulesResponse) CorsRulesResponse { return *v }).(CorsRulesResponseOutput)
+}
+
+// The List of CORS rules. You can include up to five CorsRule elements in the request.
+func (o CorsRulesResponsePtrOutput) CorsRules() CorsRuleResponseArrayOutput {
+	return o.ApplyT(func(v *CorsRulesResponse) []CorsRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CorsRules
+	}).(CorsRuleResponseArrayOutput)
+}
+
 // The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomain struct {
 	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
@@ -3003,6 +3811,312 @@ func (o DateAfterModificationResponsePtrOutput) DaysAfterModificationGreaterThan
 		}
 		return v.DaysAfterModificationGreaterThan
 	}).(pulumi.Float64PtrOutput)
+}
+
+// The service properties for soft delete.
+type DeleteRetentionPolicy struct {
+	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+	Days *int `pulumi:"days"`
+	// Indicates whether DeleteRetentionPolicy is enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DeleteRetentionPolicyInput is an input type that accepts DeleteRetentionPolicyArgs and DeleteRetentionPolicyOutput values.
+// You can construct a concrete instance of `DeleteRetentionPolicyInput` via:
+//
+//          DeleteRetentionPolicyArgs{...}
+type DeleteRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToDeleteRetentionPolicyOutput() DeleteRetentionPolicyOutput
+	ToDeleteRetentionPolicyOutputWithContext(context.Context) DeleteRetentionPolicyOutput
+}
+
+// The service properties for soft delete.
+type DeleteRetentionPolicyArgs struct {
+	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Indicates whether DeleteRetentionPolicy is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DeleteRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (i DeleteRetentionPolicyArgs) ToDeleteRetentionPolicyOutput() DeleteRetentionPolicyOutput {
+	return i.ToDeleteRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i DeleteRetentionPolicyArgs) ToDeleteRetentionPolicyOutputWithContext(ctx context.Context) DeleteRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyOutput)
+}
+
+func (i DeleteRetentionPolicyArgs) ToDeleteRetentionPolicyPtrOutput() DeleteRetentionPolicyPtrOutput {
+	return i.ToDeleteRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DeleteRetentionPolicyArgs) ToDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyOutput).ToDeleteRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// DeleteRetentionPolicyPtrInput is an input type that accepts DeleteRetentionPolicyArgs, DeleteRetentionPolicyPtr and DeleteRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `DeleteRetentionPolicyPtrInput` via:
+//
+//          DeleteRetentionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type DeleteRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDeleteRetentionPolicyPtrOutput() DeleteRetentionPolicyPtrOutput
+	ToDeleteRetentionPolicyPtrOutputWithContext(context.Context) DeleteRetentionPolicyPtrOutput
+}
+
+type deleteRetentionPolicyPtrType DeleteRetentionPolicyArgs
+
+func DeleteRetentionPolicyPtr(v *DeleteRetentionPolicyArgs) DeleteRetentionPolicyPtrInput {
+	return (*deleteRetentionPolicyPtrType)(v)
+}
+
+func (*deleteRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (i *deleteRetentionPolicyPtrType) ToDeleteRetentionPolicyPtrOutput() DeleteRetentionPolicyPtrOutput {
+	return i.ToDeleteRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *deleteRetentionPolicyPtrType) ToDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyPtrOutput)
+}
+
+// The service properties for soft delete.
+type DeleteRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (DeleteRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyOutput() DeleteRetentionPolicyOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyOutputWithContext(ctx context.Context) DeleteRetentionPolicyOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyPtrOutput() DeleteRetentionPolicyPtrOutput {
+	return o.ToDeleteRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicy) *DeleteRetentionPolicy {
+		return &v
+	}).(DeleteRetentionPolicyPtrOutput)
+}
+
+// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+func (o DeleteRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether DeleteRetentionPolicy is enabled.
+func (o DeleteRetentionPolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DeleteRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DeleteRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (o DeleteRetentionPolicyPtrOutput) ToDeleteRetentionPolicyPtrOutput() DeleteRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyPtrOutput) ToDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyPtrOutput) Elem() DeleteRetentionPolicyOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicy) DeleteRetentionPolicy { return *v }).(DeleteRetentionPolicyOutput)
+}
+
+// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+func (o DeleteRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether DeleteRetentionPolicy is enabled.
+func (o DeleteRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The service properties for soft delete.
+type DeleteRetentionPolicyResponse struct {
+	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+	Days *int `pulumi:"days"`
+	// Indicates whether DeleteRetentionPolicy is enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DeleteRetentionPolicyResponseInput is an input type that accepts DeleteRetentionPolicyResponseArgs and DeleteRetentionPolicyResponseOutput values.
+// You can construct a concrete instance of `DeleteRetentionPolicyResponseInput` via:
+//
+//          DeleteRetentionPolicyResponseArgs{...}
+type DeleteRetentionPolicyResponseInput interface {
+	pulumi.Input
+
+	ToDeleteRetentionPolicyResponseOutput() DeleteRetentionPolicyResponseOutput
+	ToDeleteRetentionPolicyResponseOutputWithContext(context.Context) DeleteRetentionPolicyResponseOutput
+}
+
+// The service properties for soft delete.
+type DeleteRetentionPolicyResponseArgs struct {
+	// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Indicates whether DeleteRetentionPolicy is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DeleteRetentionPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeleteRetentionPolicyResponse)(nil)).Elem()
+}
+
+func (i DeleteRetentionPolicyResponseArgs) ToDeleteRetentionPolicyResponseOutput() DeleteRetentionPolicyResponseOutput {
+	return i.ToDeleteRetentionPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i DeleteRetentionPolicyResponseArgs) ToDeleteRetentionPolicyResponseOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyResponseOutput)
+}
+
+func (i DeleteRetentionPolicyResponseArgs) ToDeleteRetentionPolicyResponsePtrOutput() DeleteRetentionPolicyResponsePtrOutput {
+	return i.ToDeleteRetentionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeleteRetentionPolicyResponseArgs) ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyResponseOutput).ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// DeleteRetentionPolicyResponsePtrInput is an input type that accepts DeleteRetentionPolicyResponseArgs, DeleteRetentionPolicyResponsePtr and DeleteRetentionPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `DeleteRetentionPolicyResponsePtrInput` via:
+//
+//          DeleteRetentionPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DeleteRetentionPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeleteRetentionPolicyResponsePtrOutput() DeleteRetentionPolicyResponsePtrOutput
+	ToDeleteRetentionPolicyResponsePtrOutputWithContext(context.Context) DeleteRetentionPolicyResponsePtrOutput
+}
+
+type deleteRetentionPolicyResponsePtrType DeleteRetentionPolicyResponseArgs
+
+func DeleteRetentionPolicyResponsePtr(v *DeleteRetentionPolicyResponseArgs) DeleteRetentionPolicyResponsePtrInput {
+	return (*deleteRetentionPolicyResponsePtrType)(v)
+}
+
+func (*deleteRetentionPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeleteRetentionPolicyResponse)(nil)).Elem()
+}
+
+func (i *deleteRetentionPolicyResponsePtrType) ToDeleteRetentionPolicyResponsePtrOutput() DeleteRetentionPolicyResponsePtrOutput {
+	return i.ToDeleteRetentionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deleteRetentionPolicyResponsePtrType) ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeleteRetentionPolicyResponsePtrOutput)
+}
+
+// The service properties for soft delete.
+type DeleteRetentionPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (DeleteRetentionPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeleteRetentionPolicyResponse)(nil)).Elem()
+}
+
+func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponseOutput() DeleteRetentionPolicyResponseOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponseOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponseOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponsePtrOutput() DeleteRetentionPolicyResponsePtrOutput {
+	return o.ToDeleteRetentionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicyResponse) *DeleteRetentionPolicyResponse {
+		return &v
+	}).(DeleteRetentionPolicyResponsePtrOutput)
+}
+
+// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+func (o DeleteRetentionPolicyResponseOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicyResponse) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether DeleteRetentionPolicy is enabled.
+func (o DeleteRetentionPolicyResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeleteRetentionPolicyResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DeleteRetentionPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeleteRetentionPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeleteRetentionPolicyResponse)(nil)).Elem()
+}
+
+func (o DeleteRetentionPolicyResponsePtrOutput) ToDeleteRetentionPolicyResponsePtrOutput() DeleteRetentionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyResponsePtrOutput) ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o DeleteRetentionPolicyResponsePtrOutput) Elem() DeleteRetentionPolicyResponseOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) DeleteRetentionPolicyResponse { return *v }).(DeleteRetentionPolicyResponseOutput)
+}
+
+// Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+func (o DeleteRetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether DeleteRetentionPolicy is enabled.
+func (o DeleteRetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The encryption settings on the storage account.
@@ -5955,6 +7069,388 @@ func (o KeyVaultPropertiesResponsePtrOutput) LastKeyRotationTimestamp() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicy struct {
+	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+	BlobType []string `pulumi:"blobType"`
+	// When set to true last access time based tracking is enabled.
+	Enable bool `pulumi:"enable"`
+	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+	Name *string `pulumi:"name"`
+	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+	TrackingGranularityInDays *int `pulumi:"trackingGranularityInDays"`
+}
+
+// LastAccessTimeTrackingPolicyInput is an input type that accepts LastAccessTimeTrackingPolicyArgs and LastAccessTimeTrackingPolicyOutput values.
+// You can construct a concrete instance of `LastAccessTimeTrackingPolicyInput` via:
+//
+//          LastAccessTimeTrackingPolicyArgs{...}
+type LastAccessTimeTrackingPolicyInput interface {
+	pulumi.Input
+
+	ToLastAccessTimeTrackingPolicyOutput() LastAccessTimeTrackingPolicyOutput
+	ToLastAccessTimeTrackingPolicyOutputWithContext(context.Context) LastAccessTimeTrackingPolicyOutput
+}
+
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicyArgs struct {
+	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+	BlobType pulumi.StringArrayInput `pulumi:"blobType"`
+	// When set to true last access time based tracking is enabled.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+	TrackingGranularityInDays pulumi.IntPtrInput `pulumi:"trackingGranularityInDays"`
+}
+
+func (LastAccessTimeTrackingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastAccessTimeTrackingPolicy)(nil)).Elem()
+}
+
+func (i LastAccessTimeTrackingPolicyArgs) ToLastAccessTimeTrackingPolicyOutput() LastAccessTimeTrackingPolicyOutput {
+	return i.ToLastAccessTimeTrackingPolicyOutputWithContext(context.Background())
+}
+
+func (i LastAccessTimeTrackingPolicyArgs) ToLastAccessTimeTrackingPolicyOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyOutput)
+}
+
+func (i LastAccessTimeTrackingPolicyArgs) ToLastAccessTimeTrackingPolicyPtrOutput() LastAccessTimeTrackingPolicyPtrOutput {
+	return i.ToLastAccessTimeTrackingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i LastAccessTimeTrackingPolicyArgs) ToLastAccessTimeTrackingPolicyPtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyOutput).ToLastAccessTimeTrackingPolicyPtrOutputWithContext(ctx)
+}
+
+// LastAccessTimeTrackingPolicyPtrInput is an input type that accepts LastAccessTimeTrackingPolicyArgs, LastAccessTimeTrackingPolicyPtr and LastAccessTimeTrackingPolicyPtrOutput values.
+// You can construct a concrete instance of `LastAccessTimeTrackingPolicyPtrInput` via:
+//
+//          LastAccessTimeTrackingPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type LastAccessTimeTrackingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToLastAccessTimeTrackingPolicyPtrOutput() LastAccessTimeTrackingPolicyPtrOutput
+	ToLastAccessTimeTrackingPolicyPtrOutputWithContext(context.Context) LastAccessTimeTrackingPolicyPtrOutput
+}
+
+type lastAccessTimeTrackingPolicyPtrType LastAccessTimeTrackingPolicyArgs
+
+func LastAccessTimeTrackingPolicyPtr(v *LastAccessTimeTrackingPolicyArgs) LastAccessTimeTrackingPolicyPtrInput {
+	return (*lastAccessTimeTrackingPolicyPtrType)(v)
+}
+
+func (*lastAccessTimeTrackingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastAccessTimeTrackingPolicy)(nil)).Elem()
+}
+
+func (i *lastAccessTimeTrackingPolicyPtrType) ToLastAccessTimeTrackingPolicyPtrOutput() LastAccessTimeTrackingPolicyPtrOutput {
+	return i.ToLastAccessTimeTrackingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *lastAccessTimeTrackingPolicyPtrType) ToLastAccessTimeTrackingPolicyPtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyPtrOutput)
+}
+
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicyOutput struct{ *pulumi.OutputState }
+
+func (LastAccessTimeTrackingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastAccessTimeTrackingPolicy)(nil)).Elem()
+}
+
+func (o LastAccessTimeTrackingPolicyOutput) ToLastAccessTimeTrackingPolicyOutput() LastAccessTimeTrackingPolicyOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyOutput) ToLastAccessTimeTrackingPolicyOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyOutput) ToLastAccessTimeTrackingPolicyPtrOutput() LastAccessTimeTrackingPolicyPtrOutput {
+	return o.ToLastAccessTimeTrackingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o LastAccessTimeTrackingPolicyOutput) ToLastAccessTimeTrackingPolicyPtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyPtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) *LastAccessTimeTrackingPolicy {
+		return &v
+	}).(LastAccessTimeTrackingPolicyPtrOutput)
+}
+
+// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+func (o LastAccessTimeTrackingPolicyOutput) BlobType() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) []string { return v.BlobType }).(pulumi.StringArrayOutput)
+}
+
+// When set to true last access time based tracking is enabled.
+func (o LastAccessTimeTrackingPolicyOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+func (o LastAccessTimeTrackingPolicyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+func (o LastAccessTimeTrackingPolicyOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) *int { return v.TrackingGranularityInDays }).(pulumi.IntPtrOutput)
+}
+
+type LastAccessTimeTrackingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (LastAccessTimeTrackingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastAccessTimeTrackingPolicy)(nil)).Elem()
+}
+
+func (o LastAccessTimeTrackingPolicyPtrOutput) ToLastAccessTimeTrackingPolicyPtrOutput() LastAccessTimeTrackingPolicyPtrOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyPtrOutput) ToLastAccessTimeTrackingPolicyPtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyPtrOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyPtrOutput) Elem() LastAccessTimeTrackingPolicyOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) LastAccessTimeTrackingPolicy { return *v }).(LastAccessTimeTrackingPolicyOutput)
+}
+
+// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+func (o LastAccessTimeTrackingPolicyPtrOutput) BlobType() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobType
+	}).(pulumi.StringArrayOutput)
+}
+
+// When set to true last access time based tracking is enabled.
+func (o LastAccessTimeTrackingPolicyPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+func (o LastAccessTimeTrackingPolicyPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+func (o LastAccessTimeTrackingPolicyPtrOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TrackingGranularityInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicyResponse struct {
+	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+	BlobType []string `pulumi:"blobType"`
+	// When set to true last access time based tracking is enabled.
+	Enable bool `pulumi:"enable"`
+	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+	Name *string `pulumi:"name"`
+	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+	TrackingGranularityInDays *int `pulumi:"trackingGranularityInDays"`
+}
+
+// LastAccessTimeTrackingPolicyResponseInput is an input type that accepts LastAccessTimeTrackingPolicyResponseArgs and LastAccessTimeTrackingPolicyResponseOutput values.
+// You can construct a concrete instance of `LastAccessTimeTrackingPolicyResponseInput` via:
+//
+//          LastAccessTimeTrackingPolicyResponseArgs{...}
+type LastAccessTimeTrackingPolicyResponseInput interface {
+	pulumi.Input
+
+	ToLastAccessTimeTrackingPolicyResponseOutput() LastAccessTimeTrackingPolicyResponseOutput
+	ToLastAccessTimeTrackingPolicyResponseOutputWithContext(context.Context) LastAccessTimeTrackingPolicyResponseOutput
+}
+
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicyResponseArgs struct {
+	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+	BlobType pulumi.StringArrayInput `pulumi:"blobType"`
+	// When set to true last access time based tracking is enabled.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+	TrackingGranularityInDays pulumi.IntPtrInput `pulumi:"trackingGranularityInDays"`
+}
+
+func (LastAccessTimeTrackingPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastAccessTimeTrackingPolicyResponse)(nil)).Elem()
+}
+
+func (i LastAccessTimeTrackingPolicyResponseArgs) ToLastAccessTimeTrackingPolicyResponseOutput() LastAccessTimeTrackingPolicyResponseOutput {
+	return i.ToLastAccessTimeTrackingPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i LastAccessTimeTrackingPolicyResponseArgs) ToLastAccessTimeTrackingPolicyResponseOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyResponseOutput)
+}
+
+func (i LastAccessTimeTrackingPolicyResponseArgs) ToLastAccessTimeTrackingPolicyResponsePtrOutput() LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return i.ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LastAccessTimeTrackingPolicyResponseArgs) ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyResponseOutput).ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// LastAccessTimeTrackingPolicyResponsePtrInput is an input type that accepts LastAccessTimeTrackingPolicyResponseArgs, LastAccessTimeTrackingPolicyResponsePtr and LastAccessTimeTrackingPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `LastAccessTimeTrackingPolicyResponsePtrInput` via:
+//
+//          LastAccessTimeTrackingPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LastAccessTimeTrackingPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToLastAccessTimeTrackingPolicyResponsePtrOutput() LastAccessTimeTrackingPolicyResponsePtrOutput
+	ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(context.Context) LastAccessTimeTrackingPolicyResponsePtrOutput
+}
+
+type lastAccessTimeTrackingPolicyResponsePtrType LastAccessTimeTrackingPolicyResponseArgs
+
+func LastAccessTimeTrackingPolicyResponsePtr(v *LastAccessTimeTrackingPolicyResponseArgs) LastAccessTimeTrackingPolicyResponsePtrInput {
+	return (*lastAccessTimeTrackingPolicyResponsePtrType)(v)
+}
+
+func (*lastAccessTimeTrackingPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastAccessTimeTrackingPolicyResponse)(nil)).Elem()
+}
+
+func (i *lastAccessTimeTrackingPolicyResponsePtrType) ToLastAccessTimeTrackingPolicyResponsePtrOutput() LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return i.ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *lastAccessTimeTrackingPolicyResponsePtrType) ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyResponsePtrOutput)
+}
+
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (LastAccessTimeTrackingPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastAccessTimeTrackingPolicyResponse)(nil)).Elem()
+}
+
+func (o LastAccessTimeTrackingPolicyResponseOutput) ToLastAccessTimeTrackingPolicyResponseOutput() LastAccessTimeTrackingPolicyResponseOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyResponseOutput) ToLastAccessTimeTrackingPolicyResponseOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponseOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyResponseOutput) ToLastAccessTimeTrackingPolicyResponsePtrOutput() LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return o.ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LastAccessTimeTrackingPolicyResponseOutput) ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) *LastAccessTimeTrackingPolicyResponse {
+		return &v
+	}).(LastAccessTimeTrackingPolicyResponsePtrOutput)
+}
+
+// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+func (o LastAccessTimeTrackingPolicyResponseOutput) BlobType() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) []string { return v.BlobType }).(pulumi.StringArrayOutput)
+}
+
+// When set to true last access time based tracking is enabled.
+func (o LastAccessTimeTrackingPolicyResponseOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+func (o LastAccessTimeTrackingPolicyResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+func (o LastAccessTimeTrackingPolicyResponseOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) *int { return v.TrackingGranularityInDays }).(pulumi.IntPtrOutput)
+}
+
+type LastAccessTimeTrackingPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LastAccessTimeTrackingPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastAccessTimeTrackingPolicyResponse)(nil)).Elem()
+}
+
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) ToLastAccessTimeTrackingPolicyResponsePtrOutput() LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Elem() LastAccessTimeTrackingPolicyResponseOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) LastAccessTimeTrackingPolicyResponse { return *v }).(LastAccessTimeTrackingPolicyResponseOutput)
+}
+
+// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) BlobType() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobType
+	}).(pulumi.StringArrayOutput)
+}
+
+// When set to true last access time based tracking is enabled.
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TrackingGranularityInDays
+	}).(pulumi.IntPtrOutput)
+}
+
 // The LegalHold property of a blob container.
 type LegalHoldPropertiesResponse struct {
 	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
@@ -7880,6 +9376,274 @@ func (o ManagementPolicySnapShotResponsePtrOutput) Delete() DateAfterCreationRes
 	}).(DateAfterCreationResponsePtrOutput)
 }
 
+// Multichannel setting. Applies to Premium FileStorage only.
+type Multichannel struct {
+	// Indicates whether multichannel is enabled
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// MultichannelInput is an input type that accepts MultichannelArgs and MultichannelOutput values.
+// You can construct a concrete instance of `MultichannelInput` via:
+//
+//          MultichannelArgs{...}
+type MultichannelInput interface {
+	pulumi.Input
+
+	ToMultichannelOutput() MultichannelOutput
+	ToMultichannelOutputWithContext(context.Context) MultichannelOutput
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+type MultichannelArgs struct {
+	// Indicates whether multichannel is enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (MultichannelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Multichannel)(nil)).Elem()
+}
+
+func (i MultichannelArgs) ToMultichannelOutput() MultichannelOutput {
+	return i.ToMultichannelOutputWithContext(context.Background())
+}
+
+func (i MultichannelArgs) ToMultichannelOutputWithContext(ctx context.Context) MultichannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelOutput)
+}
+
+func (i MultichannelArgs) ToMultichannelPtrOutput() MultichannelPtrOutput {
+	return i.ToMultichannelPtrOutputWithContext(context.Background())
+}
+
+func (i MultichannelArgs) ToMultichannelPtrOutputWithContext(ctx context.Context) MultichannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelOutput).ToMultichannelPtrOutputWithContext(ctx)
+}
+
+// MultichannelPtrInput is an input type that accepts MultichannelArgs, MultichannelPtr and MultichannelPtrOutput values.
+// You can construct a concrete instance of `MultichannelPtrInput` via:
+//
+//          MultichannelArgs{...}
+//
+//  or:
+//
+//          nil
+type MultichannelPtrInput interface {
+	pulumi.Input
+
+	ToMultichannelPtrOutput() MultichannelPtrOutput
+	ToMultichannelPtrOutputWithContext(context.Context) MultichannelPtrOutput
+}
+
+type multichannelPtrType MultichannelArgs
+
+func MultichannelPtr(v *MultichannelArgs) MultichannelPtrInput {
+	return (*multichannelPtrType)(v)
+}
+
+func (*multichannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Multichannel)(nil)).Elem()
+}
+
+func (i *multichannelPtrType) ToMultichannelPtrOutput() MultichannelPtrOutput {
+	return i.ToMultichannelPtrOutputWithContext(context.Background())
+}
+
+func (i *multichannelPtrType) ToMultichannelPtrOutputWithContext(ctx context.Context) MultichannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelPtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+type MultichannelOutput struct{ *pulumi.OutputState }
+
+func (MultichannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Multichannel)(nil)).Elem()
+}
+
+func (o MultichannelOutput) ToMultichannelOutput() MultichannelOutput {
+	return o
+}
+
+func (o MultichannelOutput) ToMultichannelOutputWithContext(ctx context.Context) MultichannelOutput {
+	return o
+}
+
+func (o MultichannelOutput) ToMultichannelPtrOutput() MultichannelPtrOutput {
+	return o.ToMultichannelPtrOutputWithContext(context.Background())
+}
+
+func (o MultichannelOutput) ToMultichannelPtrOutputWithContext(ctx context.Context) MultichannelPtrOutput {
+	return o.ApplyT(func(v Multichannel) *Multichannel {
+		return &v
+	}).(MultichannelPtrOutput)
+}
+
+// Indicates whether multichannel is enabled
+func (o MultichannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Multichannel) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type MultichannelPtrOutput struct{ *pulumi.OutputState }
+
+func (MultichannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Multichannel)(nil)).Elem()
+}
+
+func (o MultichannelPtrOutput) ToMultichannelPtrOutput() MultichannelPtrOutput {
+	return o
+}
+
+func (o MultichannelPtrOutput) ToMultichannelPtrOutputWithContext(ctx context.Context) MultichannelPtrOutput {
+	return o
+}
+
+func (o MultichannelPtrOutput) Elem() MultichannelOutput {
+	return o.ApplyT(func(v *Multichannel) Multichannel { return *v }).(MultichannelOutput)
+}
+
+// Indicates whether multichannel is enabled
+func (o MultichannelPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Multichannel) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+type MultichannelResponse struct {
+	// Indicates whether multichannel is enabled
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// MultichannelResponseInput is an input type that accepts MultichannelResponseArgs and MultichannelResponseOutput values.
+// You can construct a concrete instance of `MultichannelResponseInput` via:
+//
+//          MultichannelResponseArgs{...}
+type MultichannelResponseInput interface {
+	pulumi.Input
+
+	ToMultichannelResponseOutput() MultichannelResponseOutput
+	ToMultichannelResponseOutputWithContext(context.Context) MultichannelResponseOutput
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+type MultichannelResponseArgs struct {
+	// Indicates whether multichannel is enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (MultichannelResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultichannelResponse)(nil)).Elem()
+}
+
+func (i MultichannelResponseArgs) ToMultichannelResponseOutput() MultichannelResponseOutput {
+	return i.ToMultichannelResponseOutputWithContext(context.Background())
+}
+
+func (i MultichannelResponseArgs) ToMultichannelResponseOutputWithContext(ctx context.Context) MultichannelResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelResponseOutput)
+}
+
+func (i MultichannelResponseArgs) ToMultichannelResponsePtrOutput() MultichannelResponsePtrOutput {
+	return i.ToMultichannelResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MultichannelResponseArgs) ToMultichannelResponsePtrOutputWithContext(ctx context.Context) MultichannelResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelResponseOutput).ToMultichannelResponsePtrOutputWithContext(ctx)
+}
+
+// MultichannelResponsePtrInput is an input type that accepts MultichannelResponseArgs, MultichannelResponsePtr and MultichannelResponsePtrOutput values.
+// You can construct a concrete instance of `MultichannelResponsePtrInput` via:
+//
+//          MultichannelResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MultichannelResponsePtrInput interface {
+	pulumi.Input
+
+	ToMultichannelResponsePtrOutput() MultichannelResponsePtrOutput
+	ToMultichannelResponsePtrOutputWithContext(context.Context) MultichannelResponsePtrOutput
+}
+
+type multichannelResponsePtrType MultichannelResponseArgs
+
+func MultichannelResponsePtr(v *MultichannelResponseArgs) MultichannelResponsePtrInput {
+	return (*multichannelResponsePtrType)(v)
+}
+
+func (*multichannelResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultichannelResponse)(nil)).Elem()
+}
+
+func (i *multichannelResponsePtrType) ToMultichannelResponsePtrOutput() MultichannelResponsePtrOutput {
+	return i.ToMultichannelResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *multichannelResponsePtrType) ToMultichannelResponsePtrOutputWithContext(ctx context.Context) MultichannelResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelResponsePtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+type MultichannelResponseOutput struct{ *pulumi.OutputState }
+
+func (MultichannelResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultichannelResponse)(nil)).Elem()
+}
+
+func (o MultichannelResponseOutput) ToMultichannelResponseOutput() MultichannelResponseOutput {
+	return o
+}
+
+func (o MultichannelResponseOutput) ToMultichannelResponseOutputWithContext(ctx context.Context) MultichannelResponseOutput {
+	return o
+}
+
+func (o MultichannelResponseOutput) ToMultichannelResponsePtrOutput() MultichannelResponsePtrOutput {
+	return o.ToMultichannelResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MultichannelResponseOutput) ToMultichannelResponsePtrOutputWithContext(ctx context.Context) MultichannelResponsePtrOutput {
+	return o.ApplyT(func(v MultichannelResponse) *MultichannelResponse {
+		return &v
+	}).(MultichannelResponsePtrOutput)
+}
+
+// Indicates whether multichannel is enabled
+func (o MultichannelResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultichannelResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type MultichannelResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MultichannelResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultichannelResponse)(nil)).Elem()
+}
+
+func (o MultichannelResponsePtrOutput) ToMultichannelResponsePtrOutput() MultichannelResponsePtrOutput {
+	return o
+}
+
+func (o MultichannelResponsePtrOutput) ToMultichannelResponsePtrOutputWithContext(ctx context.Context) MultichannelResponsePtrOutput {
+	return o
+}
+
+func (o MultichannelResponsePtrOutput) Elem() MultichannelResponseOutput {
+	return o.ApplyT(func(v *MultichannelResponse) MultichannelResponse { return *v }).(MultichannelResponseOutput)
+}
+
+// Indicates whether multichannel is enabled
+func (o MultichannelResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultichannelResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Network rule set
 type NetworkRuleSet struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
@@ -9479,6 +11243,274 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Protocol settings for file service
+type ProtocolSettings struct {
+	// Setting for SMB protocol
+	Smb *SmbSetting `pulumi:"smb"`
+}
+
+// ProtocolSettingsInput is an input type that accepts ProtocolSettingsArgs and ProtocolSettingsOutput values.
+// You can construct a concrete instance of `ProtocolSettingsInput` via:
+//
+//          ProtocolSettingsArgs{...}
+type ProtocolSettingsInput interface {
+	pulumi.Input
+
+	ToProtocolSettingsOutput() ProtocolSettingsOutput
+	ToProtocolSettingsOutputWithContext(context.Context) ProtocolSettingsOutput
+}
+
+// Protocol settings for file service
+type ProtocolSettingsArgs struct {
+	// Setting for SMB protocol
+	Smb SmbSettingPtrInput `pulumi:"smb"`
+}
+
+func (ProtocolSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtocolSettings)(nil)).Elem()
+}
+
+func (i ProtocolSettingsArgs) ToProtocolSettingsOutput() ProtocolSettingsOutput {
+	return i.ToProtocolSettingsOutputWithContext(context.Background())
+}
+
+func (i ProtocolSettingsArgs) ToProtocolSettingsOutputWithContext(ctx context.Context) ProtocolSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsOutput)
+}
+
+func (i ProtocolSettingsArgs) ToProtocolSettingsPtrOutput() ProtocolSettingsPtrOutput {
+	return i.ToProtocolSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ProtocolSettingsArgs) ToProtocolSettingsPtrOutputWithContext(ctx context.Context) ProtocolSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsOutput).ToProtocolSettingsPtrOutputWithContext(ctx)
+}
+
+// ProtocolSettingsPtrInput is an input type that accepts ProtocolSettingsArgs, ProtocolSettingsPtr and ProtocolSettingsPtrOutput values.
+// You can construct a concrete instance of `ProtocolSettingsPtrInput` via:
+//
+//          ProtocolSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ProtocolSettingsPtrInput interface {
+	pulumi.Input
+
+	ToProtocolSettingsPtrOutput() ProtocolSettingsPtrOutput
+	ToProtocolSettingsPtrOutputWithContext(context.Context) ProtocolSettingsPtrOutput
+}
+
+type protocolSettingsPtrType ProtocolSettingsArgs
+
+func ProtocolSettingsPtr(v *ProtocolSettingsArgs) ProtocolSettingsPtrInput {
+	return (*protocolSettingsPtrType)(v)
+}
+
+func (*protocolSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtocolSettings)(nil)).Elem()
+}
+
+func (i *protocolSettingsPtrType) ToProtocolSettingsPtrOutput() ProtocolSettingsPtrOutput {
+	return i.ToProtocolSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *protocolSettingsPtrType) ToProtocolSettingsPtrOutputWithContext(ctx context.Context) ProtocolSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsPtrOutput)
+}
+
+// Protocol settings for file service
+type ProtocolSettingsOutput struct{ *pulumi.OutputState }
+
+func (ProtocolSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtocolSettings)(nil)).Elem()
+}
+
+func (o ProtocolSettingsOutput) ToProtocolSettingsOutput() ProtocolSettingsOutput {
+	return o
+}
+
+func (o ProtocolSettingsOutput) ToProtocolSettingsOutputWithContext(ctx context.Context) ProtocolSettingsOutput {
+	return o
+}
+
+func (o ProtocolSettingsOutput) ToProtocolSettingsPtrOutput() ProtocolSettingsPtrOutput {
+	return o.ToProtocolSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolSettingsOutput) ToProtocolSettingsPtrOutputWithContext(ctx context.Context) ProtocolSettingsPtrOutput {
+	return o.ApplyT(func(v ProtocolSettings) *ProtocolSettings {
+		return &v
+	}).(ProtocolSettingsPtrOutput)
+}
+
+// Setting for SMB protocol
+func (o ProtocolSettingsOutput) Smb() SmbSettingPtrOutput {
+	return o.ApplyT(func(v ProtocolSettings) *SmbSetting { return v.Smb }).(SmbSettingPtrOutput)
+}
+
+type ProtocolSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProtocolSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtocolSettings)(nil)).Elem()
+}
+
+func (o ProtocolSettingsPtrOutput) ToProtocolSettingsPtrOutput() ProtocolSettingsPtrOutput {
+	return o
+}
+
+func (o ProtocolSettingsPtrOutput) ToProtocolSettingsPtrOutputWithContext(ctx context.Context) ProtocolSettingsPtrOutput {
+	return o
+}
+
+func (o ProtocolSettingsPtrOutput) Elem() ProtocolSettingsOutput {
+	return o.ApplyT(func(v *ProtocolSettings) ProtocolSettings { return *v }).(ProtocolSettingsOutput)
+}
+
+// Setting for SMB protocol
+func (o ProtocolSettingsPtrOutput) Smb() SmbSettingPtrOutput {
+	return o.ApplyT(func(v *ProtocolSettings) *SmbSetting {
+		if v == nil {
+			return nil
+		}
+		return v.Smb
+	}).(SmbSettingPtrOutput)
+}
+
+// Protocol settings for file service
+type ProtocolSettingsResponse struct {
+	// Setting for SMB protocol
+	Smb *SmbSettingResponse `pulumi:"smb"`
+}
+
+// ProtocolSettingsResponseInput is an input type that accepts ProtocolSettingsResponseArgs and ProtocolSettingsResponseOutput values.
+// You can construct a concrete instance of `ProtocolSettingsResponseInput` via:
+//
+//          ProtocolSettingsResponseArgs{...}
+type ProtocolSettingsResponseInput interface {
+	pulumi.Input
+
+	ToProtocolSettingsResponseOutput() ProtocolSettingsResponseOutput
+	ToProtocolSettingsResponseOutputWithContext(context.Context) ProtocolSettingsResponseOutput
+}
+
+// Protocol settings for file service
+type ProtocolSettingsResponseArgs struct {
+	// Setting for SMB protocol
+	Smb SmbSettingResponsePtrInput `pulumi:"smb"`
+}
+
+func (ProtocolSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtocolSettingsResponse)(nil)).Elem()
+}
+
+func (i ProtocolSettingsResponseArgs) ToProtocolSettingsResponseOutput() ProtocolSettingsResponseOutput {
+	return i.ToProtocolSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i ProtocolSettingsResponseArgs) ToProtocolSettingsResponseOutputWithContext(ctx context.Context) ProtocolSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsResponseOutput)
+}
+
+func (i ProtocolSettingsResponseArgs) ToProtocolSettingsResponsePtrOutput() ProtocolSettingsResponsePtrOutput {
+	return i.ToProtocolSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProtocolSettingsResponseArgs) ToProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) ProtocolSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsResponseOutput).ToProtocolSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ProtocolSettingsResponsePtrInput is an input type that accepts ProtocolSettingsResponseArgs, ProtocolSettingsResponsePtr and ProtocolSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ProtocolSettingsResponsePtrInput` via:
+//
+//          ProtocolSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ProtocolSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToProtocolSettingsResponsePtrOutput() ProtocolSettingsResponsePtrOutput
+	ToProtocolSettingsResponsePtrOutputWithContext(context.Context) ProtocolSettingsResponsePtrOutput
+}
+
+type protocolSettingsResponsePtrType ProtocolSettingsResponseArgs
+
+func ProtocolSettingsResponsePtr(v *ProtocolSettingsResponseArgs) ProtocolSettingsResponsePtrInput {
+	return (*protocolSettingsResponsePtrType)(v)
+}
+
+func (*protocolSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtocolSettingsResponse)(nil)).Elem()
+}
+
+func (i *protocolSettingsResponsePtrType) ToProtocolSettingsResponsePtrOutput() ProtocolSettingsResponsePtrOutput {
+	return i.ToProtocolSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *protocolSettingsResponsePtrType) ToProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) ProtocolSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsResponsePtrOutput)
+}
+
+// Protocol settings for file service
+type ProtocolSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ProtocolSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtocolSettingsResponse)(nil)).Elem()
+}
+
+func (o ProtocolSettingsResponseOutput) ToProtocolSettingsResponseOutput() ProtocolSettingsResponseOutput {
+	return o
+}
+
+func (o ProtocolSettingsResponseOutput) ToProtocolSettingsResponseOutputWithContext(ctx context.Context) ProtocolSettingsResponseOutput {
+	return o
+}
+
+func (o ProtocolSettingsResponseOutput) ToProtocolSettingsResponsePtrOutput() ProtocolSettingsResponsePtrOutput {
+	return o.ToProtocolSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolSettingsResponseOutput) ToProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) ProtocolSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ProtocolSettingsResponse) *ProtocolSettingsResponse {
+		return &v
+	}).(ProtocolSettingsResponsePtrOutput)
+}
+
+// Setting for SMB protocol
+func (o ProtocolSettingsResponseOutput) Smb() SmbSettingResponsePtrOutput {
+	return o.ApplyT(func(v ProtocolSettingsResponse) *SmbSettingResponse { return v.Smb }).(SmbSettingResponsePtrOutput)
+}
+
+type ProtocolSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProtocolSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtocolSettingsResponse)(nil)).Elem()
+}
+
+func (o ProtocolSettingsResponsePtrOutput) ToProtocolSettingsResponsePtrOutput() ProtocolSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ProtocolSettingsResponsePtrOutput) ToProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) ProtocolSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ProtocolSettingsResponsePtrOutput) Elem() ProtocolSettingsResponseOutput {
+	return o.ApplyT(func(v *ProtocolSettingsResponse) ProtocolSettingsResponse { return *v }).(ProtocolSettingsResponseOutput)
+}
+
+// Setting for SMB protocol
+func (o ProtocolSettingsResponsePtrOutput) Smb() SmbSettingResponsePtrOutput {
+	return o.ApplyT(func(v *ProtocolSettingsResponse) *SmbSettingResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Smb
+	}).(SmbSettingResponsePtrOutput)
+}
+
 // Resource Access Rule.
 type ResourceAccessRule struct {
 	// Resource Id
@@ -9695,6 +11727,350 @@ func (o ResourceAccessRuleResponseArrayOutput) Index(i pulumi.IntInput) Resource
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAccessRuleResponse {
 		return vs[0].([]ResourceAccessRuleResponse)[vs[1].(int)]
 	}).(ResourceAccessRuleResponseOutput)
+}
+
+// The blob service properties for blob restore policy
+type RestorePolicyProperties struct {
+	// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+	Days *int `pulumi:"days"`
+	// Blob restore is enabled if set to true.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// RestorePolicyPropertiesInput is an input type that accepts RestorePolicyPropertiesArgs and RestorePolicyPropertiesOutput values.
+// You can construct a concrete instance of `RestorePolicyPropertiesInput` via:
+//
+//          RestorePolicyPropertiesArgs{...}
+type RestorePolicyPropertiesInput interface {
+	pulumi.Input
+
+	ToRestorePolicyPropertiesOutput() RestorePolicyPropertiesOutput
+	ToRestorePolicyPropertiesOutputWithContext(context.Context) RestorePolicyPropertiesOutput
+}
+
+// The blob service properties for blob restore policy
+type RestorePolicyPropertiesArgs struct {
+	// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Blob restore is enabled if set to true.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (RestorePolicyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestorePolicyProperties)(nil)).Elem()
+}
+
+func (i RestorePolicyPropertiesArgs) ToRestorePolicyPropertiesOutput() RestorePolicyPropertiesOutput {
+	return i.ToRestorePolicyPropertiesOutputWithContext(context.Background())
+}
+
+func (i RestorePolicyPropertiesArgs) ToRestorePolicyPropertiesOutputWithContext(ctx context.Context) RestorePolicyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestorePolicyPropertiesOutput)
+}
+
+func (i RestorePolicyPropertiesArgs) ToRestorePolicyPropertiesPtrOutput() RestorePolicyPropertiesPtrOutput {
+	return i.ToRestorePolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RestorePolicyPropertiesArgs) ToRestorePolicyPropertiesPtrOutputWithContext(ctx context.Context) RestorePolicyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestorePolicyPropertiesOutput).ToRestorePolicyPropertiesPtrOutputWithContext(ctx)
+}
+
+// RestorePolicyPropertiesPtrInput is an input type that accepts RestorePolicyPropertiesArgs, RestorePolicyPropertiesPtr and RestorePolicyPropertiesPtrOutput values.
+// You can construct a concrete instance of `RestorePolicyPropertiesPtrInput` via:
+//
+//          RestorePolicyPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RestorePolicyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRestorePolicyPropertiesPtrOutput() RestorePolicyPropertiesPtrOutput
+	ToRestorePolicyPropertiesPtrOutputWithContext(context.Context) RestorePolicyPropertiesPtrOutput
+}
+
+type restorePolicyPropertiesPtrType RestorePolicyPropertiesArgs
+
+func RestorePolicyPropertiesPtr(v *RestorePolicyPropertiesArgs) RestorePolicyPropertiesPtrInput {
+	return (*restorePolicyPropertiesPtrType)(v)
+}
+
+func (*restorePolicyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestorePolicyProperties)(nil)).Elem()
+}
+
+func (i *restorePolicyPropertiesPtrType) ToRestorePolicyPropertiesPtrOutput() RestorePolicyPropertiesPtrOutput {
+	return i.ToRestorePolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *restorePolicyPropertiesPtrType) ToRestorePolicyPropertiesPtrOutputWithContext(ctx context.Context) RestorePolicyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestorePolicyPropertiesPtrOutput)
+}
+
+// The blob service properties for blob restore policy
+type RestorePolicyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RestorePolicyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestorePolicyProperties)(nil)).Elem()
+}
+
+func (o RestorePolicyPropertiesOutput) ToRestorePolicyPropertiesOutput() RestorePolicyPropertiesOutput {
+	return o
+}
+
+func (o RestorePolicyPropertiesOutput) ToRestorePolicyPropertiesOutputWithContext(ctx context.Context) RestorePolicyPropertiesOutput {
+	return o
+}
+
+func (o RestorePolicyPropertiesOutput) ToRestorePolicyPropertiesPtrOutput() RestorePolicyPropertiesPtrOutput {
+	return o.ToRestorePolicyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RestorePolicyPropertiesOutput) ToRestorePolicyPropertiesPtrOutputWithContext(ctx context.Context) RestorePolicyPropertiesPtrOutput {
+	return o.ApplyT(func(v RestorePolicyProperties) *RestorePolicyProperties {
+		return &v
+	}).(RestorePolicyPropertiesPtrOutput)
+}
+
+// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+func (o RestorePolicyPropertiesOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RestorePolicyProperties) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// Blob restore is enabled if set to true.
+func (o RestorePolicyPropertiesOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v RestorePolicyProperties) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type RestorePolicyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RestorePolicyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestorePolicyProperties)(nil)).Elem()
+}
+
+func (o RestorePolicyPropertiesPtrOutput) ToRestorePolicyPropertiesPtrOutput() RestorePolicyPropertiesPtrOutput {
+	return o
+}
+
+func (o RestorePolicyPropertiesPtrOutput) ToRestorePolicyPropertiesPtrOutputWithContext(ctx context.Context) RestorePolicyPropertiesPtrOutput {
+	return o
+}
+
+func (o RestorePolicyPropertiesPtrOutput) Elem() RestorePolicyPropertiesOutput {
+	return o.ApplyT(func(v *RestorePolicyProperties) RestorePolicyProperties { return *v }).(RestorePolicyPropertiesOutput)
+}
+
+// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+func (o RestorePolicyPropertiesPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RestorePolicyProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// Blob restore is enabled if set to true.
+func (o RestorePolicyPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RestorePolicyProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The blob service properties for blob restore policy
+type RestorePolicyPropertiesResponse struct {
+	// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+	Days *int `pulumi:"days"`
+	// Blob restore is enabled if set to true.
+	Enabled bool `pulumi:"enabled"`
+	// Deprecated in favor of minRestoreTime property.
+	LastEnabledTime string `pulumi:"lastEnabledTime"`
+	// Returns the minimum date and time that the restore can be started.
+	MinRestoreTime string `pulumi:"minRestoreTime"`
+}
+
+// RestorePolicyPropertiesResponseInput is an input type that accepts RestorePolicyPropertiesResponseArgs and RestorePolicyPropertiesResponseOutput values.
+// You can construct a concrete instance of `RestorePolicyPropertiesResponseInput` via:
+//
+//          RestorePolicyPropertiesResponseArgs{...}
+type RestorePolicyPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToRestorePolicyPropertiesResponseOutput() RestorePolicyPropertiesResponseOutput
+	ToRestorePolicyPropertiesResponseOutputWithContext(context.Context) RestorePolicyPropertiesResponseOutput
+}
+
+// The blob service properties for blob restore policy
+type RestorePolicyPropertiesResponseArgs struct {
+	// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Blob restore is enabled if set to true.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Deprecated in favor of minRestoreTime property.
+	LastEnabledTime pulumi.StringInput `pulumi:"lastEnabledTime"`
+	// Returns the minimum date and time that the restore can be started.
+	MinRestoreTime pulumi.StringInput `pulumi:"minRestoreTime"`
+}
+
+func (RestorePolicyPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestorePolicyPropertiesResponse)(nil)).Elem()
+}
+
+func (i RestorePolicyPropertiesResponseArgs) ToRestorePolicyPropertiesResponseOutput() RestorePolicyPropertiesResponseOutput {
+	return i.ToRestorePolicyPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i RestorePolicyPropertiesResponseArgs) ToRestorePolicyPropertiesResponseOutputWithContext(ctx context.Context) RestorePolicyPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestorePolicyPropertiesResponseOutput)
+}
+
+func (i RestorePolicyPropertiesResponseArgs) ToRestorePolicyPropertiesResponsePtrOutput() RestorePolicyPropertiesResponsePtrOutput {
+	return i.ToRestorePolicyPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RestorePolicyPropertiesResponseArgs) ToRestorePolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) RestorePolicyPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestorePolicyPropertiesResponseOutput).ToRestorePolicyPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// RestorePolicyPropertiesResponsePtrInput is an input type that accepts RestorePolicyPropertiesResponseArgs, RestorePolicyPropertiesResponsePtr and RestorePolicyPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `RestorePolicyPropertiesResponsePtrInput` via:
+//
+//          RestorePolicyPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RestorePolicyPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToRestorePolicyPropertiesResponsePtrOutput() RestorePolicyPropertiesResponsePtrOutput
+	ToRestorePolicyPropertiesResponsePtrOutputWithContext(context.Context) RestorePolicyPropertiesResponsePtrOutput
+}
+
+type restorePolicyPropertiesResponsePtrType RestorePolicyPropertiesResponseArgs
+
+func RestorePolicyPropertiesResponsePtr(v *RestorePolicyPropertiesResponseArgs) RestorePolicyPropertiesResponsePtrInput {
+	return (*restorePolicyPropertiesResponsePtrType)(v)
+}
+
+func (*restorePolicyPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestorePolicyPropertiesResponse)(nil)).Elem()
+}
+
+func (i *restorePolicyPropertiesResponsePtrType) ToRestorePolicyPropertiesResponsePtrOutput() RestorePolicyPropertiesResponsePtrOutput {
+	return i.ToRestorePolicyPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *restorePolicyPropertiesResponsePtrType) ToRestorePolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) RestorePolicyPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestorePolicyPropertiesResponsePtrOutput)
+}
+
+// The blob service properties for blob restore policy
+type RestorePolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (RestorePolicyPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestorePolicyPropertiesResponse)(nil)).Elem()
+}
+
+func (o RestorePolicyPropertiesResponseOutput) ToRestorePolicyPropertiesResponseOutput() RestorePolicyPropertiesResponseOutput {
+	return o
+}
+
+func (o RestorePolicyPropertiesResponseOutput) ToRestorePolicyPropertiesResponseOutputWithContext(ctx context.Context) RestorePolicyPropertiesResponseOutput {
+	return o
+}
+
+func (o RestorePolicyPropertiesResponseOutput) ToRestorePolicyPropertiesResponsePtrOutput() RestorePolicyPropertiesResponsePtrOutput {
+	return o.ToRestorePolicyPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RestorePolicyPropertiesResponseOutput) ToRestorePolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) RestorePolicyPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v RestorePolicyPropertiesResponse) *RestorePolicyPropertiesResponse {
+		return &v
+	}).(RestorePolicyPropertiesResponsePtrOutput)
+}
+
+// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+func (o RestorePolicyPropertiesResponseOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RestorePolicyPropertiesResponse) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// Blob restore is enabled if set to true.
+func (o RestorePolicyPropertiesResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v RestorePolicyPropertiesResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Deprecated in favor of minRestoreTime property.
+func (o RestorePolicyPropertiesResponseOutput) LastEnabledTime() pulumi.StringOutput {
+	return o.ApplyT(func(v RestorePolicyPropertiesResponse) string { return v.LastEnabledTime }).(pulumi.StringOutput)
+}
+
+// Returns the minimum date and time that the restore can be started.
+func (o RestorePolicyPropertiesResponseOutput) MinRestoreTime() pulumi.StringOutput {
+	return o.ApplyT(func(v RestorePolicyPropertiesResponse) string { return v.MinRestoreTime }).(pulumi.StringOutput)
+}
+
+type RestorePolicyPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RestorePolicyPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestorePolicyPropertiesResponse)(nil)).Elem()
+}
+
+func (o RestorePolicyPropertiesResponsePtrOutput) ToRestorePolicyPropertiesResponsePtrOutput() RestorePolicyPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o RestorePolicyPropertiesResponsePtrOutput) ToRestorePolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) RestorePolicyPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o RestorePolicyPropertiesResponsePtrOutput) Elem() RestorePolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v *RestorePolicyPropertiesResponse) RestorePolicyPropertiesResponse { return *v }).(RestorePolicyPropertiesResponseOutput)
+}
+
+// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+func (o RestorePolicyPropertiesResponsePtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RestorePolicyPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// Blob restore is enabled if set to true.
+func (o RestorePolicyPropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RestorePolicyPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Deprecated in favor of minRestoreTime property.
+func (o RestorePolicyPropertiesResponsePtrOutput) LastEnabledTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestorePolicyPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastEnabledTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Returns the minimum date and time that the restore can be started.
+func (o RestorePolicyPropertiesResponsePtrOutput) MinRestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestorePolicyPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MinRestoreTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
@@ -10326,6 +12702,274 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return &v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// Setting for SMB protocol
+type SmbSetting struct {
+	// Multichannel setting. Applies to Premium FileStorage only.
+	Multichannel *Multichannel `pulumi:"multichannel"`
+}
+
+// SmbSettingInput is an input type that accepts SmbSettingArgs and SmbSettingOutput values.
+// You can construct a concrete instance of `SmbSettingInput` via:
+//
+//          SmbSettingArgs{...}
+type SmbSettingInput interface {
+	pulumi.Input
+
+	ToSmbSettingOutput() SmbSettingOutput
+	ToSmbSettingOutputWithContext(context.Context) SmbSettingOutput
+}
+
+// Setting for SMB protocol
+type SmbSettingArgs struct {
+	// Multichannel setting. Applies to Premium FileStorage only.
+	Multichannel MultichannelPtrInput `pulumi:"multichannel"`
+}
+
+func (SmbSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbSetting)(nil)).Elem()
+}
+
+func (i SmbSettingArgs) ToSmbSettingOutput() SmbSettingOutput {
+	return i.ToSmbSettingOutputWithContext(context.Background())
+}
+
+func (i SmbSettingArgs) ToSmbSettingOutputWithContext(ctx context.Context) SmbSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingOutput)
+}
+
+func (i SmbSettingArgs) ToSmbSettingPtrOutput() SmbSettingPtrOutput {
+	return i.ToSmbSettingPtrOutputWithContext(context.Background())
+}
+
+func (i SmbSettingArgs) ToSmbSettingPtrOutputWithContext(ctx context.Context) SmbSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingOutput).ToSmbSettingPtrOutputWithContext(ctx)
+}
+
+// SmbSettingPtrInput is an input type that accepts SmbSettingArgs, SmbSettingPtr and SmbSettingPtrOutput values.
+// You can construct a concrete instance of `SmbSettingPtrInput` via:
+//
+//          SmbSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type SmbSettingPtrInput interface {
+	pulumi.Input
+
+	ToSmbSettingPtrOutput() SmbSettingPtrOutput
+	ToSmbSettingPtrOutputWithContext(context.Context) SmbSettingPtrOutput
+}
+
+type smbSettingPtrType SmbSettingArgs
+
+func SmbSettingPtr(v *SmbSettingArgs) SmbSettingPtrInput {
+	return (*smbSettingPtrType)(v)
+}
+
+func (*smbSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbSetting)(nil)).Elem()
+}
+
+func (i *smbSettingPtrType) ToSmbSettingPtrOutput() SmbSettingPtrOutput {
+	return i.ToSmbSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *smbSettingPtrType) ToSmbSettingPtrOutputWithContext(ctx context.Context) SmbSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingPtrOutput)
+}
+
+// Setting for SMB protocol
+type SmbSettingOutput struct{ *pulumi.OutputState }
+
+func (SmbSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbSetting)(nil)).Elem()
+}
+
+func (o SmbSettingOutput) ToSmbSettingOutput() SmbSettingOutput {
+	return o
+}
+
+func (o SmbSettingOutput) ToSmbSettingOutputWithContext(ctx context.Context) SmbSettingOutput {
+	return o
+}
+
+func (o SmbSettingOutput) ToSmbSettingPtrOutput() SmbSettingPtrOutput {
+	return o.ToSmbSettingPtrOutputWithContext(context.Background())
+}
+
+func (o SmbSettingOutput) ToSmbSettingPtrOutputWithContext(ctx context.Context) SmbSettingPtrOutput {
+	return o.ApplyT(func(v SmbSetting) *SmbSetting {
+		return &v
+	}).(SmbSettingPtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+func (o SmbSettingOutput) Multichannel() MultichannelPtrOutput {
+	return o.ApplyT(func(v SmbSetting) *Multichannel { return v.Multichannel }).(MultichannelPtrOutput)
+}
+
+type SmbSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (SmbSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbSetting)(nil)).Elem()
+}
+
+func (o SmbSettingPtrOutput) ToSmbSettingPtrOutput() SmbSettingPtrOutput {
+	return o
+}
+
+func (o SmbSettingPtrOutput) ToSmbSettingPtrOutputWithContext(ctx context.Context) SmbSettingPtrOutput {
+	return o
+}
+
+func (o SmbSettingPtrOutput) Elem() SmbSettingOutput {
+	return o.ApplyT(func(v *SmbSetting) SmbSetting { return *v }).(SmbSettingOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+func (o SmbSettingPtrOutput) Multichannel() MultichannelPtrOutput {
+	return o.ApplyT(func(v *SmbSetting) *Multichannel {
+		if v == nil {
+			return nil
+		}
+		return v.Multichannel
+	}).(MultichannelPtrOutput)
+}
+
+// Setting for SMB protocol
+type SmbSettingResponse struct {
+	// Multichannel setting. Applies to Premium FileStorage only.
+	Multichannel *MultichannelResponse `pulumi:"multichannel"`
+}
+
+// SmbSettingResponseInput is an input type that accepts SmbSettingResponseArgs and SmbSettingResponseOutput values.
+// You can construct a concrete instance of `SmbSettingResponseInput` via:
+//
+//          SmbSettingResponseArgs{...}
+type SmbSettingResponseInput interface {
+	pulumi.Input
+
+	ToSmbSettingResponseOutput() SmbSettingResponseOutput
+	ToSmbSettingResponseOutputWithContext(context.Context) SmbSettingResponseOutput
+}
+
+// Setting for SMB protocol
+type SmbSettingResponseArgs struct {
+	// Multichannel setting. Applies to Premium FileStorage only.
+	Multichannel MultichannelResponsePtrInput `pulumi:"multichannel"`
+}
+
+func (SmbSettingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbSettingResponse)(nil)).Elem()
+}
+
+func (i SmbSettingResponseArgs) ToSmbSettingResponseOutput() SmbSettingResponseOutput {
+	return i.ToSmbSettingResponseOutputWithContext(context.Background())
+}
+
+func (i SmbSettingResponseArgs) ToSmbSettingResponseOutputWithContext(ctx context.Context) SmbSettingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingResponseOutput)
+}
+
+func (i SmbSettingResponseArgs) ToSmbSettingResponsePtrOutput() SmbSettingResponsePtrOutput {
+	return i.ToSmbSettingResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SmbSettingResponseArgs) ToSmbSettingResponsePtrOutputWithContext(ctx context.Context) SmbSettingResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingResponseOutput).ToSmbSettingResponsePtrOutputWithContext(ctx)
+}
+
+// SmbSettingResponsePtrInput is an input type that accepts SmbSettingResponseArgs, SmbSettingResponsePtr and SmbSettingResponsePtrOutput values.
+// You can construct a concrete instance of `SmbSettingResponsePtrInput` via:
+//
+//          SmbSettingResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SmbSettingResponsePtrInput interface {
+	pulumi.Input
+
+	ToSmbSettingResponsePtrOutput() SmbSettingResponsePtrOutput
+	ToSmbSettingResponsePtrOutputWithContext(context.Context) SmbSettingResponsePtrOutput
+}
+
+type smbSettingResponsePtrType SmbSettingResponseArgs
+
+func SmbSettingResponsePtr(v *SmbSettingResponseArgs) SmbSettingResponsePtrInput {
+	return (*smbSettingResponsePtrType)(v)
+}
+
+func (*smbSettingResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbSettingResponse)(nil)).Elem()
+}
+
+func (i *smbSettingResponsePtrType) ToSmbSettingResponsePtrOutput() SmbSettingResponsePtrOutput {
+	return i.ToSmbSettingResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *smbSettingResponsePtrType) ToSmbSettingResponsePtrOutputWithContext(ctx context.Context) SmbSettingResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingResponsePtrOutput)
+}
+
+// Setting for SMB protocol
+type SmbSettingResponseOutput struct{ *pulumi.OutputState }
+
+func (SmbSettingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbSettingResponse)(nil)).Elem()
+}
+
+func (o SmbSettingResponseOutput) ToSmbSettingResponseOutput() SmbSettingResponseOutput {
+	return o
+}
+
+func (o SmbSettingResponseOutput) ToSmbSettingResponseOutputWithContext(ctx context.Context) SmbSettingResponseOutput {
+	return o
+}
+
+func (o SmbSettingResponseOutput) ToSmbSettingResponsePtrOutput() SmbSettingResponsePtrOutput {
+	return o.ToSmbSettingResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SmbSettingResponseOutput) ToSmbSettingResponsePtrOutputWithContext(ctx context.Context) SmbSettingResponsePtrOutput {
+	return o.ApplyT(func(v SmbSettingResponse) *SmbSettingResponse {
+		return &v
+	}).(SmbSettingResponsePtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+func (o SmbSettingResponseOutput) Multichannel() MultichannelResponsePtrOutput {
+	return o.ApplyT(func(v SmbSettingResponse) *MultichannelResponse { return v.Multichannel }).(MultichannelResponsePtrOutput)
+}
+
+type SmbSettingResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SmbSettingResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbSettingResponse)(nil)).Elem()
+}
+
+func (o SmbSettingResponsePtrOutput) ToSmbSettingResponsePtrOutput() SmbSettingResponsePtrOutput {
+	return o
+}
+
+func (o SmbSettingResponsePtrOutput) ToSmbSettingResponsePtrOutputWithContext(ctx context.Context) SmbSettingResponsePtrOutput {
+	return o
+}
+
+func (o SmbSettingResponsePtrOutput) Elem() SmbSettingResponseOutput {
+	return o.ApplyT(func(v *SmbSettingResponse) SmbSettingResponse { return *v }).(SmbSettingResponseOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+func (o SmbSettingResponsePtrOutput) Multichannel() MultichannelResponsePtrOutput {
+	return o.ApplyT(func(v *SmbSettingResponse) *MultichannelResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Multichannel
+	}).(MultichannelResponsePtrOutput)
 }
 
 // The URIs that are used to perform a retrieval of a public blob, file, web or dfs object via a internet routing endpoint.
@@ -11875,6 +14519,18 @@ func init() {
 	pulumi.RegisterOutputType(BlobRestoreRangeResponseArrayOutput{})
 	pulumi.RegisterOutputType(BlobRestoreStatusResponseOutput{})
 	pulumi.RegisterOutputType(BlobRestoreStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(ChangeFeedOutput{})
+	pulumi.RegisterOutputType(ChangeFeedPtrOutput{})
+	pulumi.RegisterOutputType(ChangeFeedResponseOutput{})
+	pulumi.RegisterOutputType(ChangeFeedResponsePtrOutput{})
+	pulumi.RegisterOutputType(CorsRuleOutput{})
+	pulumi.RegisterOutputType(CorsRuleArrayOutput{})
+	pulumi.RegisterOutputType(CorsRuleResponseOutput{})
+	pulumi.RegisterOutputType(CorsRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(CorsRulesOutput{})
+	pulumi.RegisterOutputType(CorsRulesPtrOutput{})
+	pulumi.RegisterOutputType(CorsRulesResponseOutput{})
+	pulumi.RegisterOutputType(CorsRulesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainOutput{})
 	pulumi.RegisterOutputType(CustomDomainPtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponseOutput{})
@@ -11887,6 +14543,10 @@ func init() {
 	pulumi.RegisterOutputType(DateAfterModificationPtrOutput{})
 	pulumi.RegisterOutputType(DateAfterModificationResponseOutput{})
 	pulumi.RegisterOutputType(DateAfterModificationResponsePtrOutput{})
+	pulumi.RegisterOutputType(DeleteRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(DeleteRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DeleteRetentionPolicyResponseOutput{})
+	pulumi.RegisterOutputType(DeleteRetentionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})
@@ -11921,6 +14581,10 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LastAccessTimeTrackingPolicyOutput{})
+	pulumi.RegisterOutputType(LastAccessTimeTrackingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(LastAccessTimeTrackingPolicyResponseOutput{})
+	pulumi.RegisterOutputType(LastAccessTimeTrackingPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(LegalHoldPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LegalHoldPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyActionOutput{})
@@ -11947,6 +14611,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagementPolicySnapShotPtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicySnapShotResponseOutput{})
 	pulumi.RegisterOutputType(ManagementPolicySnapShotResponsePtrOutput{})
+	pulumi.RegisterOutputType(MultichannelOutput{})
+	pulumi.RegisterOutputType(MultichannelPtrOutput{})
+	pulumi.RegisterOutputType(MultichannelResponseOutput{})
+	pulumi.RegisterOutputType(MultichannelResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
@@ -11967,10 +14635,18 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProtocolSettingsOutput{})
+	pulumi.RegisterOutputType(ProtocolSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ProtocolSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ProtocolSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceAccessRuleOutput{})
 	pulumi.RegisterOutputType(ResourceAccessRuleArrayOutput{})
 	pulumi.RegisterOutputType(ResourceAccessRuleResponseOutput{})
 	pulumi.RegisterOutputType(ResourceAccessRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(RestorePolicyPropertiesOutput{})
+	pulumi.RegisterOutputType(RestorePolicyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RestorePolicyPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(RestorePolicyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RoutingPreferenceOutput{})
 	pulumi.RegisterOutputType(RoutingPreferencePtrOutput{})
 	pulumi.RegisterOutputType(RoutingPreferenceResponseOutput{})
@@ -11979,6 +14655,10 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SmbSettingOutput{})
+	pulumi.RegisterOutputType(SmbSettingPtrOutput{})
+	pulumi.RegisterOutputType(SmbSettingResponseOutput{})
+	pulumi.RegisterOutputType(SmbSettingResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountInternetEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInternetEndpointsResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountKeyResponseOutput{})

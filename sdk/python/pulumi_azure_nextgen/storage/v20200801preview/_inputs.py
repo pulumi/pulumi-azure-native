@@ -15,9 +15,13 @@ __all__ = [
     'BlobInventoryPolicyFilterArgs',
     'BlobInventoryPolicyRuleArgs',
     'BlobInventoryPolicySchemaArgs',
+    'ChangeFeedArgs',
+    'CorsRuleArgs',
+    'CorsRulesArgs',
     'CustomDomainArgs',
     'DateAfterCreationArgs',
     'DateAfterModificationArgs',
+    'DeleteRetentionPolicyArgs',
     'EncryptionArgs',
     'EncryptionServiceArgs',
     'EncryptionServicesArgs',
@@ -25,6 +29,7 @@ __all__ = [
     'IPRuleArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
+    'LastAccessTimeTrackingPolicyArgs',
     'ManagementPolicyActionArgs',
     'ManagementPolicyBaseBlobArgs',
     'ManagementPolicyDefinitionArgs',
@@ -32,13 +37,17 @@ __all__ = [
     'ManagementPolicyRuleArgs',
     'ManagementPolicySchemaArgs',
     'ManagementPolicySnapShotArgs',
+    'MultichannelArgs',
     'NetworkRuleSetArgs',
     'ObjectReplicationPolicyFilterArgs',
     'ObjectReplicationPolicyRuleArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'ProtocolSettingsArgs',
     'ResourceAccessRuleArgs',
+    'RestorePolicyPropertiesArgs',
     'RoutingPreferenceArgs',
     'SkuArgs',
+    'SmbSettingArgs',
     'TagFilterArgs',
     'VirtualNetworkRuleArgs',
 ]
@@ -396,6 +405,137 @@ class BlobInventoryPolicySchemaArgs:
 
 
 @pulumi.input_type
+class ChangeFeedArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The blob service properties for change feed events.
+        :param pulumi.Input[bool] enabled: Indicates whether change feed event logging is enabled for the Blob service.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether change feed event logging is enabled for the Blob service.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class CorsRuleArgs:
+    def __init__(__self__, *,
+                 allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 max_age_in_seconds: pulumi.Input[int]):
+        """
+        Specifies a CORS rule for the Blob service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+        :param pulumi.Input[int] max_age_in_seconds: Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+        """
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "exposed_headers", exposed_headers)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @allowed_headers.setter
+    def allowed_headers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_headers", value)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @exposed_headers.setter
+    def exposed_headers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "exposed_headers", value)
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> pulumi.Input[int]:
+        """
+        Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+    @max_age_in_seconds.setter
+    def max_age_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_age_in_seconds", value)
+
+
+@pulumi.input_type
+class CorsRulesArgs:
+    def __init__(__self__, *,
+                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None):
+        """
+        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+        :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        if cors_rules is not None:
+            pulumi.set(__self__, "cors_rules", cors_rules)
+
+    @property
+    @pulumi.getter(name="corsRules")
+    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]:
+        """
+        The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        return pulumi.get(self, "cors_rules")
+
+    @cors_rules.setter
+    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]):
+        pulumi.set(self, "cors_rules", value)
+
+
+@pulumi.input_type
 class CustomDomainArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -495,6 +635,46 @@ class DateAfterModificationArgs:
     @days_after_modification_greater_than.setter
     def days_after_modification_greater_than(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "days_after_modification_greater_than", value)
+
+
+@pulumi.input_type
+class DeleteRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 days: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The service properties for soft delete.
+        :param pulumi.Input[int] days: Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+        :param pulumi.Input[bool] enabled: Indicates whether DeleteRetentionPolicy is enabled.
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether DeleteRetentionPolicy is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
@@ -839,6 +1019,77 @@ class KeyVaultPropertiesArgs:
 
 
 @pulumi.input_type
+class LastAccessTimeTrackingPolicyArgs:
+    def __init__(__self__, *,
+                 enable: pulumi.Input[bool],
+                 blob_type: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tracking_granularity_in_days: Optional[pulumi.Input[int]] = None):
+        """
+        The blob service properties for Last access time based tracking policy.
+        :param pulumi.Input[bool] enable: When set to true last access time based tracking is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_type: An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+        :param pulumi.Input[str] name: Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+        :param pulumi.Input[int] tracking_granularity_in_days: The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+        """
+        pulumi.set(__self__, "enable", enable)
+        if blob_type is not None:
+            pulumi.set(__self__, "blob_type", blob_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tracking_granularity_in_days is not None:
+            pulumi.set(__self__, "tracking_granularity_in_days", tracking_granularity_in_days)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> pulumi.Input[bool]:
+        """
+        When set to true last access time based tracking is enabled.
+        """
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable", value)
+
+    @property
+    @pulumi.getter(name="blobType")
+    def blob_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+        """
+        return pulumi.get(self, "blob_type")
+
+    @blob_type.setter
+    def blob_type(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "blob_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="trackingGranularityInDays")
+    def tracking_granularity_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+        """
+        return pulumi.get(self, "tracking_granularity_in_days")
+
+    @tracking_granularity_in_days.setter
+    def tracking_granularity_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tracking_granularity_in_days", value)
+
+
+@pulumi.input_type
 class ManagementPolicyActionArgs:
     def __init__(__self__, *,
                  base_blob: Optional[pulumi.Input['ManagementPolicyBaseBlobArgs']] = None,
@@ -1161,6 +1412,30 @@ class ManagementPolicySnapShotArgs:
 
 
 @pulumi.input_type
+class MultichannelArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Multichannel setting. Applies to Premium FileStorage only.
+        :param pulumi.Input[bool] enabled: Indicates whether multichannel is enabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether multichannel is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
@@ -1410,6 +1685,30 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class ProtocolSettingsArgs:
+    def __init__(__self__, *,
+                 smb: Optional[pulumi.Input['SmbSettingArgs']] = None):
+        """
+        Protocol settings for file service
+        :param pulumi.Input['SmbSettingArgs'] smb: Setting for SMB protocol
+        """
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
+
+    @property
+    @pulumi.getter
+    def smb(self) -> Optional[pulumi.Input['SmbSettingArgs']]:
+        """
+        Setting for SMB protocol
+        """
+        return pulumi.get(self, "smb")
+
+    @smb.setter
+    def smb(self, value: Optional[pulumi.Input['SmbSettingArgs']]):
+        pulumi.set(self, "smb", value)
+
+
+@pulumi.input_type
 class ResourceAccessRuleArgs:
     def __init__(__self__, *,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -1447,6 +1746,45 @@ class ResourceAccessRuleArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class RestorePolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 days: Optional[pulumi.Input[int]] = None):
+        """
+        The blob service properties for blob restore policy
+        :param pulumi.Input[bool] enabled: Blob restore is enabled if set to true.
+        :param pulumi.Input[int] days: how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Blob restore is enabled if set to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[pulumi.Input[int]]:
+        """
+        how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "days", value)
 
 
 @pulumi.input_type
@@ -1526,6 +1864,30 @@ class SkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class SmbSettingArgs:
+    def __init__(__self__, *,
+                 multichannel: Optional[pulumi.Input['MultichannelArgs']] = None):
+        """
+        Setting for SMB protocol
+        :param pulumi.Input['MultichannelArgs'] multichannel: Multichannel setting. Applies to Premium FileStorage only.
+        """
+        if multichannel is not None:
+            pulumi.set(__self__, "multichannel", multichannel)
+
+    @property
+    @pulumi.getter
+    def multichannel(self) -> Optional[pulumi.Input['MultichannelArgs']]:
+        """
+        Multichannel setting. Applies to Premium FileStorage only.
+        """
+        return pulumi.get(self, "multichannel")
+
+    @multichannel.setter
+    def multichannel(self, value: Optional[pulumi.Input['MultichannelArgs']]):
+        pulumi.set(self, "multichannel", value)
 
 
 @pulumi.input_type

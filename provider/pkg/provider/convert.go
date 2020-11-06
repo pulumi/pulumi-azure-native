@@ -195,6 +195,39 @@ func (k *SdkShapeConverter) SDKOutputsToSDKInputs(parameters []AzureAPIParameter
 	return nil
 }
 
+// isDefaultResponse returns true if the shape of the HTTP response matches the expected shape.
+// The following comparison rules apply:
+// - response is converted to the SDK shape of inputs (so, the structure is flattened and read-only props are removed)
+// - A boolean 'false' in the response is equivalent to a no-value in the expected map
+// - Any non-empty map or slice leads to the 'false' result (may need to revise if any API endpoints have default
+//   non-empty collections, but none are found yet)
+func (k *SdkShapeConverter) isDefaultResponse(putParameters []AzureAPIParameter, response map[string]interface{},
+	defaultBody map[string]interface{}) bool {
+	for _, param := range putParameters {
+		if param.Location == "body" {
+			for key, value := range k.BodyPropertiesToSDK(param.Body.Properties, response) {
+				switch reflect.TypeOf(value).Kind() {
+				case reflect.Map, reflect.Slice, reflect.Array:
+					collection := reflect.ValueOf(value)
+					if collection.Len() > 0 {
+						return false
+					}
+				case reflect.Bool:
+					b := value.(bool)
+					if b && defaultBody[key] != value {
+						return false
+					}
+				default:
+					if defaultBody[key] != value {
+						return false
+					}
+				}
+			}
+		}
+	}
+	return true
+}
+
 // parseResourceID extracts templated values from the given resource ID based on the names of those templated
 // values in an HTTP path. The structure of id and path must match: we validate it by building a regular
 // expression based on the path parameters and matching the id.

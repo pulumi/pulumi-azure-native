@@ -86,6 +86,14 @@ const database = new sql.Database("db", {
     requestedServiceObjectiveName: "S0",
 });
 
+new sql.TransparentDataEncryption("tde", {
+    resourceGroupName: resourceGroup.name,
+    transparentDataEncryptionName: "current",
+    serverName: sqlServer.name,
+    databaseName: database.name,
+    status: "Enabled",
+});
+
 const app = new web.WebApp("as", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
@@ -108,6 +116,13 @@ const app = new web.WebApp("as", {
             type: "SQLAzure",
         }],    
     },
+});
+
+new web.WebAppSourceControl("sc", {
+    resourceGroupName: resourceGroup.name,
+    name: app.name,
+    repoUrl: "https://github.com/octocat/Hello-World",
+    isManualIntegration: true,
 });
 
 export const endpoint = pulumi.interpolate `https://${app.defaultHostName}`;

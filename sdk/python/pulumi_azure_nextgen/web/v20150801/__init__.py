@@ -20,6 +20,7 @@ from .get_site_instance_deployment_slot import *
 from .get_site_relay_service_connection import *
 from .get_site_relay_service_connection_slot import *
 from .get_site_slot import *
+from .get_site_slot_config_names import *
 from .get_site_source_control import *
 from .get_site_source_control_slot import *
 from .get_site_vnet_connection import *
@@ -52,6 +53,7 @@ from .site_instance_deployment_slot import *
 from .site_relay_service_connection import *
 from .site_relay_service_connection_slot import *
 from .site_slot import *
+from .site_slot_config_names import *
 from .site_source_control import *
 from .site_source_control_slot import *
 from .site_vnet_connection import *
