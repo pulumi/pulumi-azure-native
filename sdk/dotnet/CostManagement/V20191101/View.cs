@@ -33,10 +33,22 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
+        /// Selected currency.
+        /// </summary>
+        [Output("currency")]
+        public Output<string> Currency { get; private set; } = null!;
+
+        /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
         [Output("dataset")]
         public Output<Outputs.ReportConfigDatasetResponse?> Dataset { get; private set; } = null!;
+
+        /// <summary>
+        /// Selected date range for viewing cost in.
+        /// </summary>
+        [Output("dateRange")]
+        public Output<string> DateRange { get; private set; } = null!;
 
         /// <summary>
         /// User input name of the view. Required.

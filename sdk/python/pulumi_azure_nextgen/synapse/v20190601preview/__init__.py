@@ -18,8 +18,11 @@ from .get_sql_pool_sensitivity_label import *
 from .get_sql_pool_transparent_data_encryption import *
 from .get_sql_pool_vulnerability_assessment import *
 from .get_sql_pool_vulnerability_assessment_rule_baseline import *
+from .get_sql_pool_workload_classifier import *
+from .get_sql_pool_workload_group import *
 from .get_workspace import *
 from .get_workspace_aad_admin import *
+from .get_workspace_managed_sql_server_vulnerability_assessment import *
 from .get_workspace_sql_aad_admin import *
 from .integration_runtime import *
 from .ip_firewall_rule import *
@@ -32,8 +35,11 @@ from .sql_pool_sensitivity_label import *
 from .sql_pool_transparent_data_encryption import *
 from .sql_pool_vulnerability_assessment import *
 from .sql_pool_vulnerability_assessment_rule_baseline import *
+from .sql_pool_workload_classifier import *
+from .sql_pool_workload_group import *
 from .workspace import *
 from .workspace_aad_admin import *
+from .workspace_managed_sql_server_vulnerability_assessment import *
 from .workspace_sql_aad_admin import *
 from ._inputs import *
 from . import outputs

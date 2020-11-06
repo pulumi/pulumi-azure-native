@@ -49,9 +49,17 @@ export class ViewByScope extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
+     * Selected currency.
+     */
+    public /*out*/ readonly currency!: pulumi.Output<string>;
+    /**
      * Has definition for data in this report config.
      */
     public readonly dataset!: pulumi.Output<outputs.costmanagement.v20191101.ReportConfigDatasetResponse | undefined>;
+    /**
+     * Selected date range for viewing cost in.
+     */
+    public /*out*/ readonly dateRange!: pulumi.Output<string>;
     /**
      * User input name of the view. Required.
      */
@@ -133,13 +141,17 @@ export class ViewByScope extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["viewName"] = args ? args.viewName : undefined;
             inputs["createdOn"] = undefined /*out*/;
+            inputs["currency"] = undefined /*out*/;
+            inputs["dateRange"] = undefined /*out*/;
             inputs["modifiedOn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
         } else {
             inputs["accumulated"] = undefined /*out*/;
             inputs["chart"] = undefined /*out*/;
             inputs["createdOn"] = undefined /*out*/;
+            inputs["currency"] = undefined /*out*/;
             inputs["dataset"] = undefined /*out*/;
+            inputs["dateRange"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
             inputs["kpis"] = undefined /*out*/;
