@@ -13,10 +13,12 @@ from .get_event_hub import *
 from .get_event_hub_authorization_rule import *
 from .get_namespace import *
 from .get_namespace_authorization_rule import *
+from .get_namespace_network_rule_set import *
 from .list_disaster_recovery_config_keys import *
 from .list_event_hub_keys import *
 from .list_namespace_keys import *
 from .namespace import *
 from .namespace_authorization_rule import *
+from .namespace_network_rule_set import *
 from ._inputs import *
 from . import outputs

@@ -19,9 +19,13 @@ __all__ = [
     'BlobRestoreParametersResponse',
     'BlobRestoreRangeResponse',
     'BlobRestoreStatusResponse',
+    'ChangeFeedResponse',
+    'CorsRuleResponse',
+    'CorsRulesResponse',
     'CustomDomainResponse',
     'DateAfterCreationResponse',
     'DateAfterModificationResponse',
+    'DeleteRetentionPolicyResponse',
     'EncryptionResponse',
     'EncryptionServiceResponse',
     'EncryptionServicesResponse',
@@ -32,6 +36,7 @@ __all__ = [
     'IdentityResponse',
     'ImmutabilityPolicyPropertiesResponse',
     'KeyVaultPropertiesResponse',
+    'LastAccessTimeTrackingPolicyResponse',
     'LegalHoldPropertiesResponse',
     'ManagementPolicyActionResponse',
     'ManagementPolicyBaseBlobResponse',
@@ -40,15 +45,19 @@ __all__ = [
     'ManagementPolicyRuleResponse',
     'ManagementPolicySchemaResponse',
     'ManagementPolicySnapShotResponse',
+    'MultichannelResponse',
     'NetworkRuleSetResponse',
     'ObjectReplicationPolicyFilterResponse',
     'ObjectReplicationPolicyRuleResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ProtocolSettingsResponse',
     'ResourceAccessRuleResponse',
+    'RestorePolicyPropertiesResponse',
     'RoutingPreferenceResponse',
     'SkuResponse',
+    'SmbSettingResponse',
     'StorageAccountInternetEndpointsResponse',
     'StorageAccountKeyResponseResult',
     'StorageAccountMicrosoftEndpointsResponse',
@@ -498,6 +507,127 @@ class BlobRestoreStatusResponse(dict):
 
 
 @pulumi.output_type
+class ChangeFeedResponse(dict):
+    """
+    The blob service properties for change feed events.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        The blob service properties for change feed events.
+        :param bool enabled: Indicates whether change feed event logging is enabled for the Blob service.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether change feed event logging is enabled for the Blob service.
+        """
+        return pulumi.get(self, "enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CorsRuleResponse(dict):
+    """
+    Specifies a CORS rule for the Blob service.
+    """
+    def __init__(__self__, *,
+                 allowed_headers: Sequence[str],
+                 allowed_methods: Sequence[str],
+                 allowed_origins: Sequence[str],
+                 exposed_headers: Sequence[str],
+                 max_age_in_seconds: int):
+        """
+        Specifies a CORS rule for the Blob service.
+        :param Sequence[str] allowed_headers: Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+        :param Sequence[str] allowed_methods: Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+        :param Sequence[str] allowed_origins: Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+        :param Sequence[str] exposed_headers: Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+        :param int max_age_in_seconds: Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+        """
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "exposed_headers", exposed_headers)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Sequence[str]:
+        """
+        Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[str]:
+        """
+        Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[str]:
+        """
+        Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Sequence[str]:
+        """
+        Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> int:
+        """
+        Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CorsRulesResponse(dict):
+    """
+    Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+    """
+    def __init__(__self__, *,
+                 cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
+        """
+        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+        :param Sequence['CorsRuleResponseArgs'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        if cors_rules is not None:
+            pulumi.set(__self__, "cors_rules", cors_rules)
+
+    @property
+    @pulumi.getter(name="corsRules")
+    def cors_rules(self) -> Optional[Sequence['outputs.CorsRuleResponse']]:
+        """
+        The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        return pulumi.get(self, "cors_rules")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class CustomDomainResponse(dict):
     """
     The custom domain assigned to this storage account. This can be set via Update.
@@ -592,6 +722,44 @@ class DateAfterModificationResponse(dict):
         Value indicating the age in days after last modification
         """
         return pulumi.get(self, "days_after_modification_greater_than")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeleteRetentionPolicyResponse(dict):
+    """
+    The service properties for soft delete.
+    """
+    def __init__(__self__, *,
+                 days: Optional[int] = None,
+                 enabled: Optional[bool] = None):
+        """
+        The service properties for soft delete.
+        :param int days: Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+        :param bool enabled: Indicates whether DeleteRetentionPolicy is enabled.
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether DeleteRetentionPolicy is enabled.
+        """
+        return pulumi.get(self, "enabled")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1186,6 +1354,67 @@ class KeyVaultPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class LastAccessTimeTrackingPolicyResponse(dict):
+    """
+    The blob service properties for Last access time based tracking policy.
+    """
+    def __init__(__self__, *,
+                 enable: bool,
+                 blob_type: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 tracking_granularity_in_days: Optional[int] = None):
+        """
+        The blob service properties for Last access time based tracking policy.
+        :param bool enable: When set to true last access time based tracking is enabled.
+        :param Sequence[str] blob_type: An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+        :param str name: Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+        :param int tracking_granularity_in_days: The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+        """
+        pulumi.set(__self__, "enable", enable)
+        if blob_type is not None:
+            pulumi.set(__self__, "blob_type", blob_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tracking_granularity_in_days is not None:
+            pulumi.set(__self__, "tracking_granularity_in_days", tracking_granularity_in_days)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> bool:
+        """
+        When set to true last access time based tracking is enabled.
+        """
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter(name="blobType")
+    def blob_type(self) -> Optional[Sequence[str]]:
+        """
+        An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+        """
+        return pulumi.get(self, "blob_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="trackingGranularityInDays")
+    def tracking_granularity_in_days(self) -> Optional[int]:
+        """
+        The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+        """
+        return pulumi.get(self, "tracking_granularity_in_days")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class LegalHoldPropertiesResponse(dict):
     """
     The LegalHold property of a blob container.
@@ -1519,6 +1748,32 @@ class ManagementPolicySnapShotResponse(dict):
 
 
 @pulumi.output_type
+class MultichannelResponse(dict):
+    """
+    Multichannel setting. Applies to Premium FileStorage only.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Multichannel setting. Applies to Premium FileStorage only.
+        :param bool enabled: Indicates whether multichannel is enabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether multichannel is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class NetworkRuleSetResponse(dict):
     """
     Network rule set
@@ -1842,6 +2097,32 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class ProtocolSettingsResponse(dict):
+    """
+    Protocol settings for file service
+    """
+    def __init__(__self__, *,
+                 smb: Optional['outputs.SmbSettingResponse'] = None):
+        """
+        Protocol settings for file service
+        :param 'SmbSettingResponseArgs' smb: Setting for SMB protocol
+        """
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
+
+    @property
+    @pulumi.getter
+    def smb(self) -> Optional['outputs.SmbSettingResponse']:
+        """
+        Setting for SMB protocol
+        """
+        return pulumi.get(self, "smb")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ResourceAccessRuleResponse(dict):
     """
     Resource Access Rule.
@@ -1874,6 +2155,65 @@ class ResourceAccessRuleResponse(dict):
         Tenant Id
         """
         return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RestorePolicyPropertiesResponse(dict):
+    """
+    The blob service properties for blob restore policy
+    """
+    def __init__(__self__, *,
+                 enabled: bool,
+                 last_enabled_time: str,
+                 min_restore_time: str,
+                 days: Optional[int] = None):
+        """
+        The blob service properties for blob restore policy
+        :param bool enabled: Blob restore is enabled if set to true.
+        :param str last_enabled_time: Deprecated in favor of minRestoreTime property.
+        :param str min_restore_time: Returns the minimum date and time that the restore can be started.
+        :param int days: how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "last_enabled_time", last_enabled_time)
+        pulumi.set(__self__, "min_restore_time", min_restore_time)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Blob restore is enabled if set to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="lastEnabledTime")
+    def last_enabled_time(self) -> str:
+        """
+        Deprecated in favor of minRestoreTime property.
+        """
+        return pulumi.get(self, "last_enabled_time")
+
+    @property
+    @pulumi.getter(name="minRestoreTime")
+    def min_restore_time(self) -> str:
+        """
+        Returns the minimum date and time that the restore can be started.
+        """
+        return pulumi.get(self, "min_restore_time")
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+        """
+        return pulumi.get(self, "days")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1960,6 +2300,32 @@ class SkuResponse(dict):
         The SKU tier. This is based on the SKU name.
         """
         return pulumi.get(self, "tier")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SmbSettingResponse(dict):
+    """
+    Setting for SMB protocol
+    """
+    def __init__(__self__, *,
+                 multichannel: Optional['outputs.MultichannelResponse'] = None):
+        """
+        Setting for SMB protocol
+        :param 'MultichannelResponseArgs' multichannel: Multichannel setting. Applies to Premium FileStorage only.
+        """
+        if multichannel is not None:
+            pulumi.set(__self__, "multichannel", multichannel)
+
+    @property
+    @pulumi.getter
+    def multichannel(self) -> Optional['outputs.MultichannelResponse']:
+        """
+        Multichannel setting. Applies to Premium FileStorage only.
+        """
+        return pulumi.get(self, "multichannel")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

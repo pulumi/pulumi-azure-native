@@ -12,6 +12,7 @@ __all__ = [
     'ClusterSkuResponse',
     'ConnectionStateResponse',
     'KeyVaultPropertiesResponse',
+    'NWRuleSetIpRulesResponse',
     'PrivateEndpointResponse',
     'SkuResponse',
 ]
@@ -136,6 +137,44 @@ class KeyVaultPropertiesResponse(dict):
         Key Version
         """
         return pulumi.get(self, "key_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NWRuleSetIpRulesResponse(dict):
+    """
+    The response from the List namespace operation.
+    """
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 ip_mask: Optional[str] = None):
+        """
+        The response from the List namespace operation.
+        :param str action: The IP Filter Action
+        :param str ip_mask: IP Mask
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if ip_mask is not None:
+            pulumi.set(__self__, "ip_mask", ip_mask)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The IP Filter Action
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> Optional[str]:
+        """
+        IP Mask
+        """
+        return pulumi.get(self, "ip_mask")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
