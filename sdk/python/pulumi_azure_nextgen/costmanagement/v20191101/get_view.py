@@ -20,7 +20,7 @@ class GetViewResult:
     """
     States and configurations of Cost Analysis.
     """
-    def __init__(__self__, accumulated=None, chart=None, created_on=None, dataset=None, display_name=None, e_tag=None, kpis=None, metric=None, modified_on=None, name=None, pivots=None, scope=None, time_period=None, timeframe=None, type=None):
+    def __init__(__self__, accumulated=None, chart=None, created_on=None, currency=None, dataset=None, date_range=None, display_name=None, e_tag=None, kpis=None, metric=None, modified_on=None, name=None, pivots=None, scope=None, time_period=None, timeframe=None, type=None):
         if accumulated and not isinstance(accumulated, str):
             raise TypeError("Expected argument 'accumulated' to be a str")
         pulumi.set(__self__, "accumulated", accumulated)
@@ -30,9 +30,15 @@ class GetViewResult:
         if created_on and not isinstance(created_on, str):
             raise TypeError("Expected argument 'created_on' to be a str")
         pulumi.set(__self__, "created_on", created_on)
+        if currency and not isinstance(currency, str):
+            raise TypeError("Expected argument 'currency' to be a str")
+        pulumi.set(__self__, "currency", currency)
         if dataset and not isinstance(dataset, dict):
             raise TypeError("Expected argument 'dataset' to be a dict")
         pulumi.set(__self__, "dataset", dataset)
+        if date_range and not isinstance(date_range, str):
+            raise TypeError("Expected argument 'date_range' to be a str")
+        pulumi.set(__self__, "date_range", date_range)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -93,11 +99,27 @@ class GetViewResult:
 
     @property
     @pulumi.getter
+    def currency(self) -> str:
+        """
+        Selected currency.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter
     def dataset(self) -> Optional['outputs.ReportConfigDatasetResponse']:
         """
         Has definition for data in this report config.
         """
         return pulumi.get(self, "dataset")
+
+    @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> str:
+        """
+        Selected date range for viewing cost in.
+        """
+        return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter(name="displayName")
@@ -197,7 +219,9 @@ class AwaitableGetViewResult(GetViewResult):
             accumulated=self.accumulated,
             chart=self.chart,
             created_on=self.created_on,
+            currency=self.currency,
             dataset=self.dataset,
+            date_range=self.date_range,
             display_name=self.display_name,
             e_tag=self.e_tag,
             kpis=self.kpis,
@@ -230,7 +254,9 @@ def get_view(view_name: Optional[str] = None,
         accumulated=__ret__.accumulated,
         chart=__ret__.chart,
         created_on=__ret__.created_on,
+        currency=__ret__.currency,
         dataset=__ret__.dataset,
+        date_range=__ret__.date_range,
         display_name=__ret__.display_name,
         e_tag=__ret__.e_tag,
         kpis=__ret__.kpis,

@@ -91,6 +91,8 @@ class ViewByScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'view_name'")
             __props__['view_name'] = view_name
             __props__['created_on'] = None
+            __props__['currency'] = None
+            __props__['date_range'] = None
             __props__['modified_on'] = None
             __props__['name'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/latest:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190401preview:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:ViewByScope")])
@@ -145,11 +147,27 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def currency(self) -> pulumi.Output[str]:
+        """
+        Selected currency.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter
     def dataset(self) -> pulumi.Output[Optional['outputs.ReportConfigDatasetResponse']]:
         """
         Has definition for data in this report config.
         """
         return pulumi.get(self, "dataset")
+
+    @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> pulumi.Output[str]:
+        """
+        Selected date range for viewing cost in.
+        """
+        return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter(name="displayName")
