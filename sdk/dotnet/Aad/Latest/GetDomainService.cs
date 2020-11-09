@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// </summary>
         public readonly string DeploymentId;
         /// <summary>
+        /// Domain Configuration Type
+        /// </summary>
+        public readonly string? DomainConfigurationType;
+        /// <summary>
         /// The name of the Azure domain that the user would like to deploy Domain Services to.
         /// </summary>
         public readonly string? DomainName;
@@ -84,6 +88,14 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicaSetResponse> ReplicaSets;
         /// <summary>
+        /// Resource Forest Settings
+        /// </summary>
+        public readonly Outputs.ResourceForestSettingsResponse? ResourceForestSettings;
+        /// <summary>
+        /// Sku Type
+        /// </summary>
+        public readonly string? Sku;
+        /// <summary>
         /// SyncOwner ReplicaSet Id
         /// </summary>
         public readonly string SyncOwner;
@@ -108,6 +120,8 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         private GetDomainServiceResult(
             string deploymentId,
 
+            string? domainConfigurationType,
+
             string? domainName,
 
             Outputs.DomainSecuritySettingsResponse? domainSecuritySettings,
@@ -128,6 +142,10 @@ namespace Pulumi.AzureNextGen.Aad.Latest
 
             ImmutableArray<Outputs.ReplicaSetResponse> replicaSets,
 
+            Outputs.ResourceForestSettingsResponse? resourceForestSettings,
+
+            string? sku,
+
             string syncOwner,
 
             ImmutableDictionary<string, string>? tags,
@@ -139,6 +157,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
             int version)
         {
             DeploymentId = deploymentId;
+            DomainConfigurationType = domainConfigurationType;
             DomainName = domainName;
             DomainSecuritySettings = domainSecuritySettings;
             Etag = etag;
@@ -149,6 +168,8 @@ namespace Pulumi.AzureNextGen.Aad.Latest
             NotificationSettings = notificationSettings;
             ProvisioningState = provisioningState;
             ReplicaSets = replicaSets;
+            ResourceForestSettings = resourceForestSettings;
+            Sku = sku;
             SyncOwner = syncOwner;
             Tags = tags;
             TenantId = tenantId;

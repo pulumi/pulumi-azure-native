@@ -36,6 +36,10 @@ export interface GetDomainServiceArgs {
  */
 export interface GetDomainServiceResult {
     /**
+     * Deployment Id
+     */
+    readonly deploymentId: string;
+    /**
      * List of Domain Controller IP Address
      */
     readonly domainControllerIpAddress: string[];

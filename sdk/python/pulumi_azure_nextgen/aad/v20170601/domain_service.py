@@ -17,6 +17,7 @@ class DomainService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_security_settings: Optional[pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']]] = None,
                  domain_service_name: Optional[pulumi.Input[str]] = None,
@@ -25,7 +26,9 @@ class DomainService(pulumi.CustomResource):
                  ldaps_settings: Optional[pulumi.Input[pulumi.InputType['LdapsSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
+                 resource_forest_settings: Optional[pulumi.Input[pulumi.InputType['ResourceForestSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -36,6 +39,7 @@ class DomainService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_configuration_type: Domain Configuration Type
         :param pulumi.Input[str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.
         :param pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']] domain_security_settings: DomainSecurity Settings
         :param pulumi.Input[str] domain_service_name: The name of the domain service.
@@ -44,7 +48,9 @@ class DomainService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LdapsSettingsArgs']] ldaps_settings: Secure LDAP Settings
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['NotificationSettingsArgs']] notification_settings: Notification Settings
+        :param pulumi.Input[pulumi.InputType['ResourceForestSettingsArgs']] resource_forest_settings: Resource Forest Settings
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] sku: Sku Type
         :param pulumi.Input[str] subnet_id: The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -65,6 +71,7 @@ class DomainService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['domain_configuration_type'] = domain_configuration_type
             __props__['domain_name'] = domain_name
             __props__['domain_security_settings'] = domain_security_settings
             if domain_service_name is None:
@@ -75,11 +82,14 @@ class DomainService(pulumi.CustomResource):
             __props__['ldaps_settings'] = ldaps_settings
             __props__['location'] = location
             __props__['notification_settings'] = notification_settings
+            __props__['resource_forest_settings'] = resource_forest_settings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
+            __props__['deployment_id'] = None
             __props__['domain_controller_ip_address'] = None
             __props__['health_alerts'] = None
             __props__['health_last_evaluated'] = None
@@ -89,6 +99,7 @@ class DomainService(pulumi.CustomResource):
             __props__['service_status'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
+            __props__['version'] = None
             __props__['vnet_site_id'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aad/latest:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20170101:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20200101:DomainService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -115,6 +126,22 @@ class DomainService(pulumi.CustomResource):
         __props__ = dict()
 
         return DomainService(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> pulumi.Output[str]:
+        """
+        Deployment Id
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="domainConfigurationType")
+    def domain_configuration_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Domain Configuration Type
+        """
+        return pulumi.get(self, "domain_configuration_type")
 
     @property
     @pulumi.getter(name="domainControllerIpAddress")
@@ -221,12 +248,28 @@ class DomainService(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceForestSettings")
+    def resource_forest_settings(self) -> pulumi.Output[Optional['outputs.ResourceForestSettingsResponse']]:
+        """
+        Resource Forest Settings
+        """
+        return pulumi.get(self, "resource_forest_settings")
+
+    @property
     @pulumi.getter(name="serviceStatus")
     def service_status(self) -> pulumi.Output[str]:
         """
         Status of Domain Service instance
         """
         return pulumi.get(self, "service_status")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sku Type
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -248,7 +291,7 @@ class DomainService(pulumi.CustomResource):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[str]:
         """
-        Azure Active Directory tenant id
+        Azure Active Directory Tenant Id
         """
         return pulumi.get(self, "tenant_id")
 
@@ -259,6 +302,14 @@ class DomainService(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output[int]:
+        """
+        Data Model Version
+        """
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="vnetSiteId")

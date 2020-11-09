@@ -11,7 +11,7 @@ import (
 )
 
 // Content type contract details.
-type ContentTypeContentItem struct {
+type ContentItem struct {
 	pulumi.CustomResourceState
 
 	// Resource name.
@@ -22,9 +22,9 @@ type ContentTypeContentItem struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
-// NewContentTypeContentItem registers a new resource with the given unique name, arguments, and options.
-func NewContentTypeContentItem(ctx *pulumi.Context,
-	name string, args *ContentTypeContentItemArgs, opts ...pulumi.ResourceOption) (*ContentTypeContentItem, error) {
+// NewContentItem registers a new resource with the given unique name, arguments, and options.
+func NewContentItem(ctx *pulumi.Context,
+	name string, args *ContentItemArgs, opts ...pulumi.ResourceOption) (*ContentItem, error) {
 	if args == nil || args.ContentItemId == nil {
 		return nil, errors.New("missing required argument 'ContentItemId'")
 	}
@@ -38,39 +38,39 @@ func NewContentTypeContentItem(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'ServiceName'")
 	}
 	if args == nil {
-		args = &ContentTypeContentItemArgs{}
+		args = &ContentItemArgs{}
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ContentTypeContentItem"),
+			Type: pulumi.String("azure-nextgen:apimanagement/latest:ContentItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ContentTypeContentItem"),
+			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ContentItem"),
 		},
 	})
 	opts = append(opts, aliases)
-	var resource ContentTypeContentItem
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20200601preview:ContentTypeContentItem", name, args, &resource, opts...)
+	var resource ContentItem
+	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20200601preview:ContentItem", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetContentTypeContentItem gets an existing ContentTypeContentItem resource's state with the given name, ID, and optional
+// GetContentItem gets an existing ContentItem resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetContentTypeContentItem(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *ContentTypeContentItemState, opts ...pulumi.ResourceOption) (*ContentTypeContentItem, error) {
-	var resource ContentTypeContentItem
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20200601preview:ContentTypeContentItem", name, id, state, &resource, opts...)
+func GetContentItem(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *ContentItemState, opts ...pulumi.ResourceOption) (*ContentItem, error) {
+	var resource ContentItem
+	err := ctx.ReadResource("azure-nextgen:apimanagement/v20200601preview:ContentItem", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering ContentTypeContentItem resources.
-type contentTypeContentItemState struct {
+// Input properties used for looking up and filtering ContentItem resources.
+type contentItemState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Properties of the content item.
@@ -79,7 +79,7 @@ type contentTypeContentItemState struct {
 	Type *string `pulumi:"type"`
 }
 
-type ContentTypeContentItemState struct {
+type ContentItemState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Properties of the content item.
@@ -88,11 +88,11 @@ type ContentTypeContentItemState struct {
 	Type pulumi.StringPtrInput
 }
 
-func (ContentTypeContentItemState) ElementType() reflect.Type {
-	return reflect.TypeOf((*contentTypeContentItemState)(nil)).Elem()
+func (ContentItemState) ElementType() reflect.Type {
+	return reflect.TypeOf((*contentItemState)(nil)).Elem()
 }
 
-type contentTypeContentItemArgs struct {
+type contentItemArgs struct {
 	// Content item identifier.
 	ContentItemId string `pulumi:"contentItemId"`
 	// Content type identifier.
@@ -103,8 +103,8 @@ type contentTypeContentItemArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-// The set of arguments for constructing a ContentTypeContentItem resource.
-type ContentTypeContentItemArgs struct {
+// The set of arguments for constructing a ContentItem resource.
+type ContentItemArgs struct {
 	// Content item identifier.
 	ContentItemId pulumi.StringInput
 	// Content type identifier.
@@ -115,6 +115,6 @@ type ContentTypeContentItemArgs struct {
 	ServiceName pulumi.StringInput
 }
 
-func (ContentTypeContentItemArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*contentTypeContentItemArgs)(nil)).Elem()
+func (ContentItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*contentItemArgs)(nil)).Elem()
 }

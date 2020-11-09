@@ -40,6 +40,14 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
     public sealed class GetDomainServiceResult
     {
         /// <summary>
+        /// Deployment Id
+        /// </summary>
+        public readonly string DeploymentId;
+        /// <summary>
+        /// Domain Configuration Type
+        /// </summary>
+        public readonly string? DomainConfigurationType;
+        /// <summary>
         /// List of Domain Controller IP Address
         /// </summary>
         public readonly ImmutableArray<string> DomainControllerIpAddress;
@@ -92,9 +100,17 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Resource Forest Settings
+        /// </summary>
+        public readonly Outputs.ResourceForestSettingsResponse? ResourceForestSettings;
+        /// <summary>
         /// Status of Domain Service instance
         /// </summary>
         public readonly string ServiceStatus;
+        /// <summary>
+        /// Sku Type
+        /// </summary>
+        public readonly string? Sku;
         /// <summary>
         /// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
         /// </summary>
@@ -104,7 +120,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Azure Active Directory tenant id
+        /// Azure Active Directory Tenant Id
         /// </summary>
         public readonly string TenantId;
         /// <summary>
@@ -112,12 +128,20 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Data Model Version
+        /// </summary>
+        public readonly int Version;
+        /// <summary>
         /// Virtual network site id
         /// </summary>
         public readonly string VnetSiteId;
 
         [OutputConstructor]
         private GetDomainServiceResult(
+            string deploymentId,
+
+            string? domainConfigurationType,
+
             ImmutableArray<string> domainControllerIpAddress,
 
             string? domainName,
@@ -144,7 +168,11 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
 
             string provisioningState,
 
+            Outputs.ResourceForestSettingsResponse? resourceForestSettings,
+
             string serviceStatus,
+
+            string? sku,
 
             string? subnetId,
 
@@ -154,8 +182,12 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
 
             string type,
 
+            int version,
+
             string vnetSiteId)
         {
+            DeploymentId = deploymentId;
+            DomainConfigurationType = domainConfigurationType;
             DomainControllerIpAddress = domainControllerIpAddress;
             DomainName = domainName;
             DomainSecuritySettings = domainSecuritySettings;
@@ -169,11 +201,14 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
             Name = name;
             NotificationSettings = notificationSettings;
             ProvisioningState = provisioningState;
+            ResourceForestSettings = resourceForestSettings;
             ServiceStatus = serviceStatus;
+            Sku = sku;
             SubnetId = subnetId;
             Tags = tags;
             TenantId = tenantId;
             Type = type;
+            Version = version;
             VnetSiteId = vnetSiteId;
         }
     }

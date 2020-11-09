@@ -33,12 +33,6 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         public Output<Outputs.ExpressRouteCircuitPeeringIdResponse> ExpressRouteCircuitPeering { get; private set; } = null!;
 
         /// <summary>
-        /// Enable FastPath to vWan Firewall hub.
-        /// </summary>
-        [Output("expressRouteGatewayBypass")]
-        public Output<bool?> ExpressRouteGatewayBypass { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
@@ -150,12 +144,6 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// </summary>
         [Input("expressRouteCircuitPeering", required: true)]
         public Input<Inputs.ExpressRouteCircuitPeeringIdArgs> ExpressRouteCircuitPeering { get; set; } = null!;
-
-        /// <summary>
-        /// Enable FastPath to vWan Firewall hub.
-        /// </summary>
-        [Input("expressRouteGatewayBypass")]
-        public Input<bool>? ExpressRouteGatewayBypass { get; set; }
 
         /// <summary>
         /// The name of the ExpressRoute gateway.

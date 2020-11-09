@@ -20,7 +20,13 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, domain_controller_ip_address=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, health_alerts=None, health_last_evaluated=None, health_monitors=None, ldaps_settings=None, location=None, name=None, notification_settings=None, provisioning_state=None, service_status=None, subnet_id=None, tags=None, tenant_id=None, type=None, vnet_site_id=None):
+    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_controller_ip_address=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, health_alerts=None, health_last_evaluated=None, health_monitors=None, ldaps_settings=None, location=None, name=None, notification_settings=None, provisioning_state=None, resource_forest_settings=None, service_status=None, sku=None, subnet_id=None, tags=None, tenant_id=None, type=None, version=None, vnet_site_id=None):
+        if deployment_id and not isinstance(deployment_id, str):
+            raise TypeError("Expected argument 'deployment_id' to be a str")
+        pulumi.set(__self__, "deployment_id", deployment_id)
+        if domain_configuration_type and not isinstance(domain_configuration_type, str):
+            raise TypeError("Expected argument 'domain_configuration_type' to be a str")
+        pulumi.set(__self__, "domain_configuration_type", domain_configuration_type)
         if domain_controller_ip_address and not isinstance(domain_controller_ip_address, list):
             raise TypeError("Expected argument 'domain_controller_ip_address' to be a list")
         pulumi.set(__self__, "domain_controller_ip_address", domain_controller_ip_address)
@@ -60,9 +66,15 @@ class GetDomainServiceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_forest_settings and not isinstance(resource_forest_settings, dict):
+            raise TypeError("Expected argument 'resource_forest_settings' to be a dict")
+        pulumi.set(__self__, "resource_forest_settings", resource_forest_settings)
         if service_status and not isinstance(service_status, str):
             raise TypeError("Expected argument 'service_status' to be a str")
         pulumi.set(__self__, "service_status", service_status)
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        pulumi.set(__self__, "sku", sku)
         if subnet_id and not isinstance(subnet_id, str):
             raise TypeError("Expected argument 'subnet_id' to be a str")
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -75,9 +87,28 @@ class GetDomainServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if version and not isinstance(version, int):
+            raise TypeError("Expected argument 'version' to be a int")
+        pulumi.set(__self__, "version", version)
         if vnet_site_id and not isinstance(vnet_site_id, str):
             raise TypeError("Expected argument 'vnet_site_id' to be a str")
         pulumi.set(__self__, "vnet_site_id", vnet_site_id)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> str:
+        """
+        Deployment Id
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="domainConfigurationType")
+    def domain_configuration_type(self) -> Optional[str]:
+        """
+        Domain Configuration Type
+        """
+        return pulumi.get(self, "domain_configuration_type")
 
     @property
     @pulumi.getter(name="domainControllerIpAddress")
@@ -184,12 +215,28 @@ class GetDomainServiceResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceForestSettings")
+    def resource_forest_settings(self) -> Optional['outputs.ResourceForestSettingsResponse']:
+        """
+        Resource Forest Settings
+        """
+        return pulumi.get(self, "resource_forest_settings")
+
+    @property
     @pulumi.getter(name="serviceStatus")
     def service_status(self) -> str:
         """
         Status of Domain Service instance
         """
         return pulumi.get(self, "service_status")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        Sku Type
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -211,7 +258,7 @@ class GetDomainServiceResult:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        Azure Active Directory tenant id
+        Azure Active Directory Tenant Id
         """
         return pulumi.get(self, "tenant_id")
 
@@ -222,6 +269,14 @@ class GetDomainServiceResult:
         Resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> int:
+        """
+        Data Model Version
+        """
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="vnetSiteId")
@@ -238,6 +293,8 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
         if False:
             yield self
         return GetDomainServiceResult(
+            deployment_id=self.deployment_id,
+            domain_configuration_type=self.domain_configuration_type,
             domain_controller_ip_address=self.domain_controller_ip_address,
             domain_name=self.domain_name,
             domain_security_settings=self.domain_security_settings,
@@ -251,11 +308,14 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
             name=self.name,
             notification_settings=self.notification_settings,
             provisioning_state=self.provisioning_state,
+            resource_forest_settings=self.resource_forest_settings,
             service_status=self.service_status,
+            sku=self.sku,
             subnet_id=self.subnet_id,
             tags=self.tags,
             tenant_id=self.tenant_id,
             type=self.type,
+            version=self.version,
             vnet_site_id=self.vnet_site_id)
 
 
@@ -278,6 +338,8 @@ def get_domain_service(domain_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:aad/v20170601:getDomainService', __args__, opts=opts, typ=GetDomainServiceResult).value
 
     return AwaitableGetDomainServiceResult(
+        deployment_id=__ret__.deployment_id,
+        domain_configuration_type=__ret__.domain_configuration_type,
         domain_controller_ip_address=__ret__.domain_controller_ip_address,
         domain_name=__ret__.domain_name,
         domain_security_settings=__ret__.domain_security_settings,
@@ -291,9 +353,12 @@ def get_domain_service(domain_service_name: Optional[str] = None,
         name=__ret__.name,
         notification_settings=__ret__.notification_settings,
         provisioning_state=__ret__.provisioning_state,
+        resource_forest_settings=__ret__.resource_forest_settings,
         service_status=__ret__.service_status,
+        sku=__ret__.sku,
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type,
+        version=__ret__.version,
         vnet_site_id=__ret__.vnet_site_id)

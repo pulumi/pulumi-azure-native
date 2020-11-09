@@ -53,10 +53,6 @@ export interface GetExpressRouteConnectionResult {
      */
     readonly expressRouteCircuitPeering: outputs.network.latest.ExpressRouteCircuitPeeringIdResponse;
     /**
-     * Enable FastPath to vWan Firewall hub.
-     */
-    readonly expressRouteGatewayBypass?: boolean;
-    /**
      * The name of the resource.
      */
     readonly name: string;

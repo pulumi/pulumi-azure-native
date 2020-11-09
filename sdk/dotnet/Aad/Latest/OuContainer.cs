@@ -33,6 +33,12 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         public Output<string> DeploymentId { get; private set; } = null!;
 
         /// <summary>
+        /// Distinguished Name of OuContainer instance
+        /// </summary>
+        [Output("distinguishedName")]
+        public Output<string> DistinguishedName { get; private set; } = null!;
+
+        /// <summary>
         /// The domain name of Domain Services.
         /// </summary>
         [Output("domainName")]

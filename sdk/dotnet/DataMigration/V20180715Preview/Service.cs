@@ -69,6 +69,12 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        /// </summary>
+        [Output("virtualNicId")]
+        public Output<string?> VirtualNicId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         /// </summary>
         [Output("virtualSubnetId")]
@@ -180,6 +186,12 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        /// </summary>
+        [Input("virtualNicId")]
+        public Input<string>? VirtualNicId { get; set; }
 
         /// <summary>
         /// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined

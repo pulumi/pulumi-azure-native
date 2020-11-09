@@ -69,6 +69,7 @@ class OuContainer(pulumi.CustomResource):
             __props__['accounts'] = None
             __props__['container_id'] = None
             __props__['deployment_id'] = None
+            __props__['distinguished_name'] = None
             __props__['domain_name'] = None
             __props__['etag'] = None
             __props__['location'] = None
@@ -127,6 +128,14 @@ class OuContainer(pulumi.CustomResource):
         The Deployment id
         """
         return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="distinguishedName")
+    def distinguished_name(self) -> pulumi.Output[str]:
+        """
+        Distinguished Name of OuContainer instance
+        """
+        return pulumi.get(self, "distinguished_name")
 
     @property
     @pulumi.getter(name="domainName")

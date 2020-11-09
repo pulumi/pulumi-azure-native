@@ -80,6 +80,7 @@ class DomainService(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
+            __props__['deployment_id'] = None
             __props__['domain_controller_ip_address'] = None
             __props__['health_alerts'] = None
             __props__['health_last_evaluated'] = None
@@ -115,6 +116,14 @@ class DomainService(pulumi.CustomResource):
         __props__ = dict()
 
         return DomainService(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> pulumi.Output[str]:
+        """
+        Deployment Id
+        """
+        return pulumi.get(self, "deployment_id")
 
     @property
     @pulumi.getter(name="domainControllerIpAddress")

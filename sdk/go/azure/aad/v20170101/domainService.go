@@ -14,6 +14,8 @@ import (
 type DomainService struct {
 	pulumi.CustomResourceState
 
+	// Deployment Id
+	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
 	// List of Domain Controller IP Address
 	DomainControllerIpAddress pulumi.StringArrayOutput `pulumi:"domainControllerIpAddress"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
@@ -100,6 +102,8 @@ func GetDomainService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainService resources.
 type domainServiceState struct {
+	// Deployment Id
+	DeploymentId *string `pulumi:"deploymentId"`
 	// List of Domain Controller IP Address
 	DomainControllerIpAddress []string `pulumi:"domainControllerIpAddress"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
@@ -141,6 +145,8 @@ type domainServiceState struct {
 }
 
 type DomainServiceState struct {
+	// Deployment Id
+	DeploymentId pulumi.StringPtrInput
 	// List of Domain Controller IP Address
 	DomainControllerIpAddress pulumi.StringArrayInput
 	// The name of the Azure domain that the user would like to deploy Domain Services to.

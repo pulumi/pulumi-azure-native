@@ -9,13 +9,13 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'GetContentTypeContentItemResult',
-    'AwaitableGetContentTypeContentItemResult',
-    'get_content_type_content_item',
+    'GetContentItemResult',
+    'AwaitableGetContentItemResult',
+    'get_content_item',
 ]
 
 @pulumi.output_type
-class GetContentTypeContentItemResult:
+class GetContentItemResult:
     """
     Content type contract details.
     """
@@ -55,22 +55,22 @@ class GetContentTypeContentItemResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetContentTypeContentItemResult(GetContentTypeContentItemResult):
+class AwaitableGetContentItemResult(GetContentItemResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetContentTypeContentItemResult(
+        return GetContentItemResult(
             name=self.name,
             properties=self.properties,
             type=self.type)
 
 
-def get_content_type_content_item(content_item_id: Optional[str] = None,
-                                  content_type_id: Optional[str] = None,
-                                  resource_group_name: Optional[str] = None,
-                                  service_name: Optional[str] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentTypeContentItemResult:
+def get_content_item(content_item_id: Optional[str] = None,
+                     content_type_id: Optional[str] = None,
+                     resource_group_name: Optional[str] = None,
+                     service_name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentItemResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -88,9 +88,9 @@ def get_content_type_content_item(content_item_id: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-nextgen:apimanagement/v20200601preview:getContentTypeContentItem', __args__, opts=opts, typ=GetContentTypeContentItemResult).value
+    __ret__ = pulumi.runtime.invoke('azure-nextgen:apimanagement/v20200601preview:getContentItem', __args__, opts=opts, typ=GetContentItemResult).value
 
-    return AwaitableGetContentTypeContentItemResult(
+    return AwaitableGetContentItemResult(
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

@@ -29235,8 +29235,6 @@ type ExpressRouteConnectionResponse struct {
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponse `pulumi:"expressRouteCircuitPeering"`
-	// Enable FastPath to vWan Firewall hub.
-	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the resource.
@@ -29268,8 +29266,6 @@ type ExpressRouteConnectionResponseArgs struct {
 	EnableInternetSecurity pulumi.BoolPtrInput `pulumi:"enableInternetSecurity"`
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponseInput `pulumi:"expressRouteCircuitPeering"`
-	// Enable FastPath to vWan Firewall hub.
-	ExpressRouteGatewayBypass pulumi.BoolPtrInput `pulumi:"expressRouteGatewayBypass"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the resource.
@@ -29349,11 +29345,6 @@ func (o ExpressRouteConnectionResponseOutput) ExpressRouteCircuitPeering() Expre
 	return o.ApplyT(func(v ExpressRouteConnectionResponse) ExpressRouteCircuitPeeringIdResponse {
 		return v.ExpressRouteCircuitPeering
 	}).(ExpressRouteCircuitPeeringIdResponseOutput)
-}
-
-// Enable FastPath to vWan Firewall hub.
-func (o ExpressRouteConnectionResponseOutput) ExpressRouteGatewayBypass() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ExpressRouteConnectionResponse) *bool { return v.ExpressRouteGatewayBypass }).(pulumi.BoolPtrOutput)
 }
 
 // Resource ID.

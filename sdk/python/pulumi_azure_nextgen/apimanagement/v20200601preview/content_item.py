@@ -8,10 +8,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
-__all__ = ['ContentTypeContentItem']
+__all__ = ['ContentItem']
 
 
-class ContentTypeContentItem(pulumi.CustomResource):
+class ContentItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,10 +64,10 @@ class ContentTypeContentItem(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ContentTypeContentItem"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ContentTypeContentItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ContentItem"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ContentItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(ContentTypeContentItem, __self__).__init__(
-            'azure-nextgen:apimanagement/v20200601preview:ContentTypeContentItem',
+        super(ContentItem, __self__).__init__(
+            'azure-nextgen:apimanagement/v20200601preview:ContentItem',
             resource_name,
             __props__,
             opts)
@@ -75,9 +75,9 @@ class ContentTypeContentItem(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'ContentTypeContentItem':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ContentItem':
         """
-        Get an existing ContentTypeContentItem resource's state with the given name, id, and optional extra
+        Get an existing ContentItem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -88,7 +88,7 @@ class ContentTypeContentItem(pulumi.CustomResource):
 
         __props__ = dict()
 
-        return ContentTypeContentItem(resource_name, opts=opts, __props__=__props__)
+        return ContentItem(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter

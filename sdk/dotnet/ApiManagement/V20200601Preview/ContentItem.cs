@@ -12,7 +12,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
     /// <summary>
     /// Content type contract details.
     /// </summary>
-    public partial class ContentTypeContentItem : Pulumi.CustomResource
+    public partial class ContentItem : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource name.
@@ -34,19 +34,19 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
 
         /// <summary>
-        /// Create a ContentTypeContentItem resource with the given unique name, arguments, and options.
+        /// Create a ContentItem resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ContentTypeContentItem(string name, ContentTypeContentItemArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20200601preview:ContentTypeContentItem", name, args ?? new ContentTypeContentItemArgs(), MakeResourceOptions(options, ""))
+        public ContentItem(string name, ContentItemArgs args, CustomResourceOptions? options = null)
+            : base("azure-nextgen:apimanagement/v20200601preview:ContentItem", name, args ?? new ContentItemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private ContentTypeContentItem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20200601preview:ContentTypeContentItem", name, null, MakeResourceOptions(options, id))
+        private ContentItem(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-nextgen:apimanagement/v20200601preview:ContentItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ContentTypeContentItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ContentTypeContentItem"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ContentItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -67,20 +67,20 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
             return merged;
         }
         /// <summary>
-        /// Get an existing ContentTypeContentItem resource's state with the given name, ID, and optional extra
+        /// Get an existing ContentItem resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ContentTypeContentItem Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static ContentItem Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ContentTypeContentItem(name, id, options);
+            return new ContentItem(name, id, options);
         }
     }
 
-    public sealed class ContentTypeContentItemArgs : Pulumi.ResourceArgs
+    public sealed class ContentItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content item identifier.
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
-        public ContentTypeContentItemArgs()
+        public ContentItemArgs()
         {
         }
     }

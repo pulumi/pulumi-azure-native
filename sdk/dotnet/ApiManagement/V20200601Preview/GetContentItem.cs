@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 {
-    public static class GetContentTypeContentItem
+    public static class GetContentItem
     {
-        public static Task<GetContentTypeContentItemResult> InvokeAsync(GetContentTypeContentItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContentTypeContentItemResult>("azure-nextgen:apimanagement/v20200601preview:getContentTypeContentItem", args ?? new GetContentTypeContentItemArgs(), options.WithVersion());
+        public static Task<GetContentItemResult> InvokeAsync(GetContentItemArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-nextgen:apimanagement/v20200601preview:getContentItem", args ?? new GetContentItemArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetContentTypeContentItemArgs : Pulumi.InvokeArgs
+    public sealed class GetContentItemArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Content item identifier.
@@ -42,14 +42,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
 
-        public GetContentTypeContentItemArgs()
+        public GetContentItemArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetContentTypeContentItemResult
+    public sealed class GetContentItemResult
     {
         /// <summary>
         /// Resource name.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetContentTypeContentItemResult(
+        private GetContentItemResult(
             string name,
 
             object properties,

@@ -17,6 +17,7 @@ class DomainService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_security_settings: Optional[pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']]] = None,
                  domain_service_name: Optional[pulumi.Input[str]] = None,
@@ -26,7 +27,9 @@ class DomainService(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
                  replica_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]]] = None,
+                 resource_forest_settings: Optional[pulumi.Input[pulumi.InputType['ResourceForestSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -36,6 +39,7 @@ class DomainService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_configuration_type: Domain Configuration Type
         :param pulumi.Input[str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.
         :param pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']] domain_security_settings: DomainSecurity Settings
         :param pulumi.Input[str] domain_service_name: The name of the domain service.
@@ -45,7 +49,9 @@ class DomainService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['NotificationSettingsArgs']] notification_settings: Notification Settings
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicaSetArgs']]]] replica_sets: List of ReplicaSets
+        :param pulumi.Input[pulumi.InputType['ResourceForestSettingsArgs']] resource_forest_settings: Resource Forest Settings
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] sku: Sku Type
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
@@ -65,6 +71,7 @@ class DomainService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['domain_configuration_type'] = domain_configuration_type
             __props__['domain_name'] = domain_name
             __props__['domain_security_settings'] = domain_security_settings
             if domain_service_name is None:
@@ -76,9 +83,11 @@ class DomainService(pulumi.CustomResource):
             __props__['location'] = location
             __props__['notification_settings'] = notification_settings
             __props__['replica_sets'] = replica_sets
+            __props__['resource_forest_settings'] = resource_forest_settings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['deployment_id'] = None
             __props__['name'] = None
@@ -120,6 +129,14 @@ class DomainService(pulumi.CustomResource):
         Deployment Id
         """
         return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="domainConfigurationType")
+    def domain_configuration_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Domain Configuration Type
+        """
+        return pulumi.get(self, "domain_configuration_type")
 
     @property
     @pulumi.getter(name="domainName")
@@ -200,6 +217,22 @@ class DomainService(pulumi.CustomResource):
         List of ReplicaSets
         """
         return pulumi.get(self, "replica_sets")
+
+    @property
+    @pulumi.getter(name="resourceForestSettings")
+    def resource_forest_settings(self) -> pulumi.Output[Optional['outputs.ResourceForestSettingsResponse']]:
+        """
+        Resource Forest Settings
+        """
+        return pulumi.get(self, "resource_forest_settings")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sku Type
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="syncOwner")

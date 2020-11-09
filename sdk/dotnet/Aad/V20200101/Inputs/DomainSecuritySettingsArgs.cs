@@ -22,10 +22,22 @@ namespace Pulumi.AzureNextGen.Aad.V20200101.Inputs
         public Input<string>? NtlmV1 { get; set; }
 
         /// <summary>
+        /// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+        /// </summary>
+        [Input("syncKerberosPasswords")]
+        public Input<string>? SyncKerberosPasswords { get; set; }
+
+        /// <summary>
         /// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
         /// </summary>
         [Input("syncNtlmPasswords")]
         public Input<string>? SyncNtlmPasswords { get; set; }
+
+        /// <summary>
+        /// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+        /// </summary>
+        [Input("syncOnPremPasswords")]
+        public Input<string>? SyncOnPremPasswords { get; set; }
 
         /// <summary>
         /// A flag to determine whether or not TlsV1 is enabled or disabled.

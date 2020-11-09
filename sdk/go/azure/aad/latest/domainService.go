@@ -16,6 +16,8 @@ type DomainService struct {
 
 	// Deployment Id
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
+	// Domain Configuration Type
+	DomainConfigurationType pulumi.StringPtrOutput `pulumi:"domainConfigurationType"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// DomainSecurity Settings
@@ -36,6 +38,10 @@ type DomainService struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// List of ReplicaSets
 	ReplicaSets ReplicaSetResponseArrayOutput `pulumi:"replicaSets"`
+	// Resource Forest Settings
+	ResourceForestSettings ResourceForestSettingsResponsePtrOutput `pulumi:"resourceForestSettings"`
+	// Sku Type
+	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// SyncOwner ReplicaSet Id
 	SyncOwner pulumi.StringOutput `pulumi:"syncOwner"`
 	// Resource tags
@@ -96,6 +102,8 @@ func GetDomainService(ctx *pulumi.Context,
 type domainServiceState struct {
 	// Deployment Id
 	DeploymentId *string `pulumi:"deploymentId"`
+	// Domain Configuration Type
+	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
 	DomainName *string `pulumi:"domainName"`
 	// DomainSecurity Settings
@@ -116,6 +124,10 @@ type domainServiceState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// List of ReplicaSets
 	ReplicaSets []ReplicaSetResponse `pulumi:"replicaSets"`
+	// Resource Forest Settings
+	ResourceForestSettings *ResourceForestSettingsResponse `pulumi:"resourceForestSettings"`
+	// Sku Type
+	Sku *string `pulumi:"sku"`
 	// SyncOwner ReplicaSet Id
 	SyncOwner *string `pulumi:"syncOwner"`
 	// Resource tags
@@ -131,6 +143,8 @@ type domainServiceState struct {
 type DomainServiceState struct {
 	// Deployment Id
 	DeploymentId pulumi.StringPtrInput
+	// Domain Configuration Type
+	DomainConfigurationType pulumi.StringPtrInput
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
 	DomainName pulumi.StringPtrInput
 	// DomainSecurity Settings
@@ -151,6 +165,10 @@ type DomainServiceState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// List of ReplicaSets
 	ReplicaSets ReplicaSetResponseArrayInput
+	// Resource Forest Settings
+	ResourceForestSettings ResourceForestSettingsResponsePtrInput
+	// Sku Type
+	Sku pulumi.StringPtrInput
 	// SyncOwner ReplicaSet Id
 	SyncOwner pulumi.StringPtrInput
 	// Resource tags
@@ -168,6 +186,8 @@ func (DomainServiceState) ElementType() reflect.Type {
 }
 
 type domainServiceArgs struct {
+	// Domain Configuration Type
+	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
 	DomainName *string `pulumi:"domainName"`
 	// DomainSecurity Settings
@@ -186,14 +206,20 @@ type domainServiceArgs struct {
 	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
 	// List of ReplicaSets
 	ReplicaSets []ReplicaSet `pulumi:"replicaSets"`
+	// Resource Forest Settings
+	ResourceForestSettings *ResourceForestSettings `pulumi:"resourceForestSettings"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Sku Type
+	Sku *string `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainService resource.
 type DomainServiceArgs struct {
+	// Domain Configuration Type
+	DomainConfigurationType pulumi.StringPtrInput
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
 	DomainName pulumi.StringPtrInput
 	// DomainSecurity Settings
@@ -212,8 +238,12 @@ type DomainServiceArgs struct {
 	NotificationSettings NotificationSettingsPtrInput
 	// List of ReplicaSets
 	ReplicaSets ReplicaSetArrayInput
+	// Resource Forest Settings
+	ResourceForestSettings ResourceForestSettingsPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Sku Type
+	Sku pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

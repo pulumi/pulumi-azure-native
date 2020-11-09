@@ -72,6 +72,10 @@ export interface GetServiceResult {
      */
     readonly type: string;
     /**
+     * The ID of the Microsoft.Network/networkInterfaces resource which the service have
+     */
+    readonly virtualNicId?: string;
+    /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */
     readonly virtualSubnetId: string;

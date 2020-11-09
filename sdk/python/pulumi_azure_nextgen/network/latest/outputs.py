@@ -9387,7 +9387,6 @@ class ExpressRouteConnectionResponse(dict):
                  provisioning_state: str,
                  authorization_key: Optional[str] = None,
                  enable_internet_security: Optional[bool] = None,
-                 express_route_gateway_bypass: Optional[bool] = None,
                  id: Optional[str] = None,
                  routing_configuration: Optional['outputs.RoutingConfigurationResponse'] = None,
                  routing_weight: Optional[int] = None):
@@ -9398,7 +9397,6 @@ class ExpressRouteConnectionResponse(dict):
         :param str provisioning_state: The provisioning state of the express route connection resource.
         :param str authorization_key: Authorization key to establish the connection.
         :param bool enable_internet_security: Enable internet security.
-        :param bool express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
         :param str id: Resource ID.
         :param 'RoutingConfigurationResponseArgs' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param int routing_weight: The routing weight associated to the connection.
@@ -9410,8 +9408,6 @@ class ExpressRouteConnectionResponse(dict):
             pulumi.set(__self__, "authorization_key", authorization_key)
         if enable_internet_security is not None:
             pulumi.set(__self__, "enable_internet_security", enable_internet_security)
-        if express_route_gateway_bypass is not None:
-            pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if routing_configuration is not None:
@@ -9458,14 +9454,6 @@ class ExpressRouteConnectionResponse(dict):
         Enable internet security.
         """
         return pulumi.get(self, "enable_internet_security")
-
-    @property
-    @pulumi.getter(name="expressRouteGatewayBypass")
-    def express_route_gateway_bypass(self) -> Optional[bool]:
-        """
-        Enable FastPath to vWan Firewall hub.
-        """
-        return pulumi.get(self, "express_route_gateway_bypass")
 
     @property
     @pulumi.getter

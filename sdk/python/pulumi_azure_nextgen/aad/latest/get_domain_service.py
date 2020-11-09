@@ -20,10 +20,13 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, deployment_id=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, ldaps_settings=None, location=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, sync_owner=None, tags=None, tenant_id=None, type=None, version=None):
+    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, ldaps_settings=None, location=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_owner=None, tags=None, tenant_id=None, type=None, version=None):
         if deployment_id and not isinstance(deployment_id, str):
             raise TypeError("Expected argument 'deployment_id' to be a str")
         pulumi.set(__self__, "deployment_id", deployment_id)
+        if domain_configuration_type and not isinstance(domain_configuration_type, str):
+            raise TypeError("Expected argument 'domain_configuration_type' to be a str")
+        pulumi.set(__self__, "domain_configuration_type", domain_configuration_type)
         if domain_name and not isinstance(domain_name, str):
             raise TypeError("Expected argument 'domain_name' to be a str")
         pulumi.set(__self__, "domain_name", domain_name)
@@ -54,6 +57,12 @@ class GetDomainServiceResult:
         if replica_sets and not isinstance(replica_sets, list):
             raise TypeError("Expected argument 'replica_sets' to be a list")
         pulumi.set(__self__, "replica_sets", replica_sets)
+        if resource_forest_settings and not isinstance(resource_forest_settings, dict):
+            raise TypeError("Expected argument 'resource_forest_settings' to be a dict")
+        pulumi.set(__self__, "resource_forest_settings", resource_forest_settings)
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        pulumi.set(__self__, "sku", sku)
         if sync_owner and not isinstance(sync_owner, str):
             raise TypeError("Expected argument 'sync_owner' to be a str")
         pulumi.set(__self__, "sync_owner", sync_owner)
@@ -77,6 +86,14 @@ class GetDomainServiceResult:
         Deployment Id
         """
         return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="domainConfigurationType")
+    def domain_configuration_type(self) -> Optional[str]:
+        """
+        Domain Configuration Type
+        """
+        return pulumi.get(self, "domain_configuration_type")
 
     @property
     @pulumi.getter(name="domainName")
@@ -159,6 +176,22 @@ class GetDomainServiceResult:
         return pulumi.get(self, "replica_sets")
 
     @property
+    @pulumi.getter(name="resourceForestSettings")
+    def resource_forest_settings(self) -> Optional['outputs.ResourceForestSettingsResponse']:
+        """
+        Resource Forest Settings
+        """
+        return pulumi.get(self, "resource_forest_settings")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        Sku Type
+        """
+        return pulumi.get(self, "sku")
+
+    @property
     @pulumi.getter(name="syncOwner")
     def sync_owner(self) -> str:
         """
@@ -206,6 +239,7 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
             yield self
         return GetDomainServiceResult(
             deployment_id=self.deployment_id,
+            domain_configuration_type=self.domain_configuration_type,
             domain_name=self.domain_name,
             domain_security_settings=self.domain_security_settings,
             etag=self.etag,
@@ -216,6 +250,8 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
             notification_settings=self.notification_settings,
             provisioning_state=self.provisioning_state,
             replica_sets=self.replica_sets,
+            resource_forest_settings=self.resource_forest_settings,
+            sku=self.sku,
             sync_owner=self.sync_owner,
             tags=self.tags,
             tenant_id=self.tenant_id,
@@ -243,6 +279,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
 
     return AwaitableGetDomainServiceResult(
         deployment_id=__ret__.deployment_id,
+        domain_configuration_type=__ret__.domain_configuration_type,
         domain_name=__ret__.domain_name,
         domain_security_settings=__ret__.domain_security_settings,
         etag=__ret__.etag,
@@ -253,6 +290,8 @@ def get_domain_service(domain_service_name: Optional[str] = None,
         notification_settings=__ret__.notification_settings,
         provisioning_state=__ret__.provisioning_state,
         replica_sets=__ret__.replica_sets,
+        resource_forest_settings=__ret__.resource_forest_settings,
+        sku=__ret__.sku,
         sync_owner=__ret__.sync_owner,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,

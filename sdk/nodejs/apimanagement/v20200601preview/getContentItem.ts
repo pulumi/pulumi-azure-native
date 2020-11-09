@@ -6,7 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export function getContentTypeContentItem(args: GetContentTypeContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTypeContentItemResult> {
+export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,7 +14,7 @@ export function getContentTypeContentItem(args: GetContentTypeContentItemArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20200601preview:getContentTypeContentItem", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20200601preview:getContentItem", {
         "contentItemId": args.contentItemId,
         "contentTypeId": args.contentTypeId,
         "resourceGroupName": args.resourceGroupName,
@@ -22,7 +22,7 @@ export function getContentTypeContentItem(args: GetContentTypeContentItemArgs, o
     }, opts);
 }
 
-export interface GetContentTypeContentItemArgs {
+export interface GetContentItemArgs {
     /**
      * Content item identifier.
      */
@@ -44,7 +44,7 @@ export interface GetContentTypeContentItemArgs {
 /**
  * Content type contract details.
  */
-export interface GetContentTypeContentItemResult {
+export interface GetContentItemResult {
     /**
      * Resource name.
      */
