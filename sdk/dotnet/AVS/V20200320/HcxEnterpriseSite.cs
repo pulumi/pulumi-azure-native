@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs/latest:HcxEnterpriseSite"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

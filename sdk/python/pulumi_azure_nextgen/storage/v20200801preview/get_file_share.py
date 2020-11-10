@@ -19,7 +19,7 @@ class GetFileShareResult:
     """
     Properties of the file share, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, access_tier=None, access_tier_change_time=None, access_tier_status=None, deleted=None, deleted_time=None, enabled_protocols=None, etag=None, last_modified_time=None, metadata=None, name=None, remaining_retention_days=None, root_squash=None, share_quota=None, share_usage_bytes=None, type=None, version=None):
+    def __init__(__self__, access_tier=None, access_tier_change_time=None, access_tier_status=None, deleted=None, deleted_time=None, enabled_protocols=None, etag=None, last_modified_time=None, metadata=None, name=None, remaining_retention_days=None, root_squash=None, share_quota=None, share_usage_bytes=None, snapshot_time=None, type=None, version=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -62,6 +62,9 @@ class GetFileShareResult:
         if share_usage_bytes and not isinstance(share_usage_bytes, int):
             raise TypeError("Expected argument 'share_usage_bytes' to be a int")
         pulumi.set(__self__, "share_usage_bytes", share_usage_bytes)
+        if snapshot_time and not isinstance(snapshot_time, str):
+            raise TypeError("Expected argument 'snapshot_time' to be a str")
+        pulumi.set(__self__, "snapshot_time", snapshot_time)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -182,6 +185,14 @@ class GetFileShareResult:
         return pulumi.get(self, "share_usage_bytes")
 
     @property
+    @pulumi.getter(name="snapshotTime")
+    def snapshot_time(self) -> str:
+        """
+        Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+        """
+        return pulumi.get(self, "snapshot_time")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -218,6 +229,7 @@ class AwaitableGetFileShareResult(GetFileShareResult):
             root_squash=self.root_squash,
             share_quota=self.share_quota,
             share_usage_bytes=self.share_usage_bytes,
+            snapshot_time=self.snapshot_time,
             type=self.type,
             version=self.version)
 
@@ -261,5 +273,6 @@ def get_file_share(account_name: Optional[str] = None,
         root_squash=__ret__.root_squash,
         share_quota=__ret__.share_quota,
         share_usage_bytes=__ret__.share_usage_bytes,
+        snapshot_time=__ret__.snapshot_time,
         type=__ret__.type,
         version=__ret__.version)

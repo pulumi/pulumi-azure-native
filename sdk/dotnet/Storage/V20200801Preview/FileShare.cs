@@ -99,6 +99,12 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         public Output<int> ShareUsageBytes { get; private set; } = null!;
 
         /// <summary>
+        /// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+        /// </summary>
+        [Output("snapshotTime")]
+        public Output<string> SnapshotTime { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
@@ -178,6 +184,12 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// </summary>
         [Input("enabledProtocols")]
         public Input<string>? EnabledProtocols { get; set; }
+
+        /// <summary>
+        /// Optional, used to create a snapshot.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;

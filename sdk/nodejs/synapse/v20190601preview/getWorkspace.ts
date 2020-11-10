@@ -108,6 +108,10 @@ export interface GetWorkspaceResult {
      */
     readonly virtualNetworkProfile?: outputs.synapse.v20190601preview.VirtualNetworkProfileResponse;
     /**
+     * Git integration settings
+     */
+    readonly workspaceRepositoryConfiguration?: outputs.synapse.v20190601preview.WorkspaceRepositoryConfigurationResponse;
+    /**
      * The workspace unique identifier
      */
     readonly workspaceUID: string;

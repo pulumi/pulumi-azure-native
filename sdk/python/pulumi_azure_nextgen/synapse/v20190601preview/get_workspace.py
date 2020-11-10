@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, babylon_configuration=None, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_uid=None):
+    def __init__(__self__, babylon_configuration=None, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
         if babylon_configuration and not isinstance(babylon_configuration, dict):
             raise TypeError("Expected argument 'babylon_configuration' to be a dict")
         pulumi.set(__self__, "babylon_configuration", babylon_configuration)
@@ -75,6 +75,9 @@ class GetWorkspaceResult:
         if virtual_network_profile and not isinstance(virtual_network_profile, dict):
             raise TypeError("Expected argument 'virtual_network_profile' to be a dict")
         pulumi.set(__self__, "virtual_network_profile", virtual_network_profile)
+        if workspace_repository_configuration and not isinstance(workspace_repository_configuration, dict):
+            raise TypeError("Expected argument 'workspace_repository_configuration' to be a dict")
+        pulumi.set(__self__, "workspace_repository_configuration", workspace_repository_configuration)
         if workspace_uid and not isinstance(workspace_uid, str):
             raise TypeError("Expected argument 'workspace_uid' to be a str")
         pulumi.set(__self__, "workspace_uid", workspace_uid)
@@ -224,6 +227,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "virtual_network_profile")
 
     @property
+    @pulumi.getter(name="workspaceRepositoryConfiguration")
+    def workspace_repository_configuration(self) -> Optional['outputs.WorkspaceRepositoryConfigurationResponse']:
+        """
+        Git integration settings
+        """
+        return pulumi.get(self, "workspace_repository_configuration")
+
+    @property
     @pulumi.getter(name="workspaceUID")
     def workspace_uid(self) -> str:
         """
@@ -256,6 +267,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             tags=self.tags,
             type=self.type,
             virtual_network_profile=self.virtual_network_profile,
+            workspace_repository_configuration=self.workspace_repository_configuration,
             workspace_uid=self.workspace_uid)
 
 
@@ -296,4 +308,5 @@ def get_workspace(resource_group_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_network_profile=__ret__.virtual_network_profile,
+        workspace_repository_configuration=__ret__.workspace_repository_configuration,
         workspace_uid=__ret__.workspace_uid)

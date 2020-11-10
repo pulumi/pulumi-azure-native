@@ -15,6 +15,9 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Inputs
     /// </summary>
     public sealed class MonitorPropertiesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Datadog organization properties
+        /// </summary>
         [Input("datadogOrganizationProperties")]
         public Input<Inputs.DatadogOrganizationPropertiesArgs>? DatadogOrganizationProperties { get; set; }
 
@@ -33,6 +36,9 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Inputs
         [Input("provisioningState")]
         public Input<string>? ProvisioningState { get; set; }
 
+        /// <summary>
+        /// User info
+        /// </summary>
         [Input("userInfo")]
         public Input<Inputs.UserInfoArgs>? UserInfo { get; set; }
 

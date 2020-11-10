@@ -42,6 +42,7 @@ __all__ = [
     'VirtualNetworkProfileArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
     'WorkspaceKeyDetailsArgs',
+    'WorkspaceRepositoryConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -1664,5 +1665,125 @@ class WorkspaceKeyDetailsArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class WorkspaceRepositoryConfigurationArgs:
+    def __init__(__self__, *,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 collaboration_branch: Optional[pulumi.Input[str]] = None,
+                 host_name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 root_folder: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Git integration settings
+        :param pulumi.Input[str] account_name: Account name
+        :param pulumi.Input[str] collaboration_branch: Collaboration branch
+        :param pulumi.Input[str] host_name: GitHub Enterprise host name. For example: https://github.mydomain.com
+        :param pulumi.Input[str] project_name: VSTS project name
+        :param pulumi.Input[str] repository_name: Repository name
+        :param pulumi.Input[str] root_folder: Root folder to use in the repository
+        :param pulumi.Input[str] type: Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if collaboration_branch is not None:
+            pulumi.set(__self__, "collaboration_branch", collaboration_branch)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if root_folder is not None:
+            pulumi.set(__self__, "root_folder", root_folder)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Account name
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="collaborationBranch")
+    def collaboration_branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Collaboration branch
+        """
+        return pulumi.get(self, "collaboration_branch")
+
+    @collaboration_branch.setter
+    def collaboration_branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "collaboration_branch", value)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        GitHub Enterprise host name. For example: https://github.mydomain.com
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        VSTS project name
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository name
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter(name="rootFolder")
+    def root_folder(self) -> Optional[pulumi.Input[str]]:
+        """
+        Root folder to use in the repository
+        """
+        return pulumi.get(self, "root_folder")
+
+    @root_folder.setter
+    def root_folder(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_folder", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 

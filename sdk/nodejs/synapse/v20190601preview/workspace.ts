@@ -109,6 +109,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly virtualNetworkProfile!: pulumi.Output<outputs.synapse.v20190601preview.VirtualNetworkProfileResponse | undefined>;
     /**
+     * Git integration settings
+     */
+    public readonly workspaceRepositoryConfiguration!: pulumi.Output<outputs.synapse.v20190601preview.WorkspaceRepositoryConfigurationResponse | undefined>;
+    /**
      * The workspace unique identifier
      */
     public /*out*/ readonly workspaceUID!: pulumi.Output<string>;
@@ -148,6 +152,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkProfile"] = args ? args.virtualNetworkProfile : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["workspaceRepositoryConfiguration"] = args ? args.workspaceRepositoryConfiguration : undefined;
             inputs["extraProperties"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -172,6 +177,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetworkProfile"] = undefined /*out*/;
+            inputs["workspaceRepositoryConfiguration"] = undefined /*out*/;
             inputs["workspaceUID"] = undefined /*out*/;
         }
         if (!opts) {
@@ -253,4 +259,8 @@ export interface WorkspaceArgs {
      * The name of the workspace
      */
     readonly workspaceName: pulumi.Input<string>;
+    /**
+     * Git integration settings
+     */
+    readonly workspaceRepositoryConfiguration?: pulumi.Input<inputs.synapse.v20190601preview.WorkspaceRepositoryConfiguration>;
 }
