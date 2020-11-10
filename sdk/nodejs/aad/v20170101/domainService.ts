@@ -37,6 +37,10 @@ export class DomainService extends pulumi.CustomResource {
     }
 
     /**
+     * Deployment Id
+     */
+    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    /**
      * List of Domain Controller IP Address
      */
     public /*out*/ readonly domainControllerIpAddress!: pulumi.Output<string[]>;
@@ -140,6 +144,7 @@ export class DomainService extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["deploymentId"] = undefined /*out*/;
             inputs["domainControllerIpAddress"] = undefined /*out*/;
             inputs["healthAlerts"] = undefined /*out*/;
             inputs["healthLastEvaluated"] = undefined /*out*/;
@@ -151,6 +156,7 @@ export class DomainService extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vnetSiteId"] = undefined /*out*/;
         } else {
+            inputs["deploymentId"] = undefined /*out*/;
             inputs["domainControllerIpAddress"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["domainSecuritySettings"] = undefined /*out*/;

@@ -40,6 +40,10 @@ export interface GetDomainServiceResult {
      */
     readonly deploymentId: string;
     /**
+     * Domain Configuration Type
+     */
+    readonly domainConfigurationType?: string;
+    /**
      * The name of the Azure domain that the user would like to deploy Domain Services to.
      */
     readonly domainName?: string;
@@ -79,6 +83,14 @@ export interface GetDomainServiceResult {
      * List of ReplicaSets
      */
     readonly replicaSets?: outputs.aad.latest.ReplicaSetResponse[];
+    /**
+     * Resource Forest Settings
+     */
+    readonly resourceForestSettings?: outputs.aad.latest.ResourceForestSettingsResponse;
+    /**
+     * Sku Type
+     */
+    readonly sku?: string;
     /**
      * SyncOwner ReplicaSet Id
      */

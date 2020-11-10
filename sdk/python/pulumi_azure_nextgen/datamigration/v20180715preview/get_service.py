@@ -20,7 +20,7 @@ class GetServiceResult:
     """
     A Database Migration Service resource
     """
-    def __init__(__self__, etag=None, kind=None, location=None, name=None, provisioning_state=None, public_key=None, sku=None, tags=None, type=None, virtual_subnet_id=None):
+    def __init__(__self__, etag=None, kind=None, location=None, name=None, provisioning_state=None, public_key=None, sku=None, tags=None, type=None, virtual_nic_id=None, virtual_subnet_id=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -48,6 +48,9 @@ class GetServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if virtual_nic_id and not isinstance(virtual_nic_id, str):
+            raise TypeError("Expected argument 'virtual_nic_id' to be a str")
+        pulumi.set(__self__, "virtual_nic_id", virtual_nic_id)
         if virtual_subnet_id and not isinstance(virtual_subnet_id, str):
             raise TypeError("Expected argument 'virtual_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_subnet_id", virtual_subnet_id)
@@ -125,6 +128,14 @@ class GetServiceResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="virtualNicId")
+    def virtual_nic_id(self) -> Optional[str]:
+        """
+        The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        """
+        return pulumi.get(self, "virtual_nic_id")
+
+    @property
     @pulumi.getter(name="virtualSubnetId")
     def virtual_subnet_id(self) -> str:
         """
@@ -148,6 +159,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             sku=self.sku,
             tags=self.tags,
             type=self.type,
+            virtual_nic_id=self.virtual_nic_id,
             virtual_subnet_id=self.virtual_subnet_id)
 
 
@@ -179,4 +191,5 @@ def get_service(group_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type,
+        virtual_nic_id=__ret__.virtual_nic_id,
         virtual_subnet_id=__ret__.virtual_subnet_id)

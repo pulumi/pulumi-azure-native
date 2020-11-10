@@ -132,8 +132,12 @@ func (o ContainerAccountResponseArrayOutput) Index(i pulumi.IntInput) ContainerA
 type DomainSecuritySettings struct {
 	// A flag to determine whether or not NtlmV1 is enabled or disabled.
 	NtlmV1 *string `pulumi:"ntlmV1"`
+	// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+	SyncKerberosPasswords *string `pulumi:"syncKerberosPasswords"`
 	// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 	SyncNtlmPasswords *string `pulumi:"syncNtlmPasswords"`
+	// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+	SyncOnPremPasswords *string `pulumi:"syncOnPremPasswords"`
 	// A flag to determine whether or not TlsV1 is enabled or disabled.
 	TlsV1 *string `pulumi:"tlsV1"`
 }
@@ -153,8 +157,12 @@ type DomainSecuritySettingsInput interface {
 type DomainSecuritySettingsArgs struct {
 	// A flag to determine whether or not NtlmV1 is enabled or disabled.
 	NtlmV1 pulumi.StringPtrInput `pulumi:"ntlmV1"`
+	// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+	SyncKerberosPasswords pulumi.StringPtrInput `pulumi:"syncKerberosPasswords"`
 	// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 	SyncNtlmPasswords pulumi.StringPtrInput `pulumi:"syncNtlmPasswords"`
+	// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+	SyncOnPremPasswords pulumi.StringPtrInput `pulumi:"syncOnPremPasswords"`
 	// A flag to determine whether or not TlsV1 is enabled or disabled.
 	TlsV1 pulumi.StringPtrInput `pulumi:"tlsV1"`
 }
@@ -242,9 +250,19 @@ func (o DomainSecuritySettingsOutput) NtlmV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettings) *string { return v.NtlmV1 }).(pulumi.StringPtrOutput)
 }
 
+// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+func (o DomainSecuritySettingsOutput) SyncKerberosPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettings) *string { return v.SyncKerberosPasswords }).(pulumi.StringPtrOutput)
+}
+
 // A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 func (o DomainSecuritySettingsOutput) SyncNtlmPasswords() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettings) *string { return v.SyncNtlmPasswords }).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+func (o DomainSecuritySettingsOutput) SyncOnPremPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettings) *string { return v.SyncOnPremPasswords }).(pulumi.StringPtrOutput)
 }
 
 // A flag to determine whether or not TlsV1 is enabled or disabled.
@@ -280,6 +298,16 @@ func (o DomainSecuritySettingsPtrOutput) NtlmV1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+func (o DomainSecuritySettingsPtrOutput) SyncKerberosPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSecuritySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SyncKerberosPasswords
+	}).(pulumi.StringPtrOutput)
+}
+
 // A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 func (o DomainSecuritySettingsPtrOutput) SyncNtlmPasswords() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSecuritySettings) *string {
@@ -287,6 +315,16 @@ func (o DomainSecuritySettingsPtrOutput) SyncNtlmPasswords() pulumi.StringPtrOut
 			return nil
 		}
 		return v.SyncNtlmPasswords
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+func (o DomainSecuritySettingsPtrOutput) SyncOnPremPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSecuritySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SyncOnPremPasswords
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -304,8 +342,12 @@ func (o DomainSecuritySettingsPtrOutput) TlsV1() pulumi.StringPtrOutput {
 type DomainSecuritySettingsResponse struct {
 	// A flag to determine whether or not NtlmV1 is enabled or disabled.
 	NtlmV1 *string `pulumi:"ntlmV1"`
+	// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+	SyncKerberosPasswords *string `pulumi:"syncKerberosPasswords"`
 	// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 	SyncNtlmPasswords *string `pulumi:"syncNtlmPasswords"`
+	// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+	SyncOnPremPasswords *string `pulumi:"syncOnPremPasswords"`
 	// A flag to determine whether or not TlsV1 is enabled or disabled.
 	TlsV1 *string `pulumi:"tlsV1"`
 }
@@ -325,8 +367,12 @@ type DomainSecuritySettingsResponseInput interface {
 type DomainSecuritySettingsResponseArgs struct {
 	// A flag to determine whether or not NtlmV1 is enabled or disabled.
 	NtlmV1 pulumi.StringPtrInput `pulumi:"ntlmV1"`
+	// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+	SyncKerberosPasswords pulumi.StringPtrInput `pulumi:"syncKerberosPasswords"`
 	// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 	SyncNtlmPasswords pulumi.StringPtrInput `pulumi:"syncNtlmPasswords"`
+	// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+	SyncOnPremPasswords pulumi.StringPtrInput `pulumi:"syncOnPremPasswords"`
 	// A flag to determine whether or not TlsV1 is enabled or disabled.
 	TlsV1 pulumi.StringPtrInput `pulumi:"tlsV1"`
 }
@@ -414,9 +460,19 @@ func (o DomainSecuritySettingsResponseOutput) NtlmV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettingsResponse) *string { return v.NtlmV1 }).(pulumi.StringPtrOutput)
 }
 
+// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+func (o DomainSecuritySettingsResponseOutput) SyncKerberosPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettingsResponse) *string { return v.SyncKerberosPasswords }).(pulumi.StringPtrOutput)
+}
+
 // A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 func (o DomainSecuritySettingsResponseOutput) SyncNtlmPasswords() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettingsResponse) *string { return v.SyncNtlmPasswords }).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+func (o DomainSecuritySettingsResponseOutput) SyncOnPremPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettingsResponse) *string { return v.SyncOnPremPasswords }).(pulumi.StringPtrOutput)
 }
 
 // A flag to determine whether or not TlsV1 is enabled or disabled.
@@ -452,6 +508,16 @@ func (o DomainSecuritySettingsResponsePtrOutput) NtlmV1() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+func (o DomainSecuritySettingsResponsePtrOutput) SyncKerberosPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSecuritySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SyncKerberosPasswords
+	}).(pulumi.StringPtrOutput)
+}
+
 // A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
 func (o DomainSecuritySettingsResponsePtrOutput) SyncNtlmPasswords() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSecuritySettingsResponse) *string {
@@ -459,6 +525,16 @@ func (o DomainSecuritySettingsResponsePtrOutput) SyncNtlmPasswords() pulumi.Stri
 			return nil
 		}
 		return v.SyncNtlmPasswords
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+func (o DomainSecuritySettingsResponsePtrOutput) SyncOnPremPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSecuritySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SyncOnPremPasswords
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -470,6 +546,278 @@ func (o DomainSecuritySettingsResponsePtrOutput) TlsV1() pulumi.StringPtrOutput 
 		}
 		return v.TlsV1
 	}).(pulumi.StringPtrOutput)
+}
+
+// Forest Trust Setting
+type ForestTrust struct {
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Remote Dns ips
+	RemoteDnsIps *string `pulumi:"remoteDnsIps"`
+	// Trust Direction
+	TrustDirection *string `pulumi:"trustDirection"`
+	// Trust Password
+	TrustPassword *string `pulumi:"trustPassword"`
+	// Trusted Domain FQDN
+	TrustedDomainFqdn *string `pulumi:"trustedDomainFqdn"`
+}
+
+// ForestTrustInput is an input type that accepts ForestTrustArgs and ForestTrustOutput values.
+// You can construct a concrete instance of `ForestTrustInput` via:
+//
+//          ForestTrustArgs{...}
+type ForestTrustInput interface {
+	pulumi.Input
+
+	ToForestTrustOutput() ForestTrustOutput
+	ToForestTrustOutputWithContext(context.Context) ForestTrustOutput
+}
+
+// Forest Trust Setting
+type ForestTrustArgs struct {
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Remote Dns ips
+	RemoteDnsIps pulumi.StringPtrInput `pulumi:"remoteDnsIps"`
+	// Trust Direction
+	TrustDirection pulumi.StringPtrInput `pulumi:"trustDirection"`
+	// Trust Password
+	TrustPassword pulumi.StringPtrInput `pulumi:"trustPassword"`
+	// Trusted Domain FQDN
+	TrustedDomainFqdn pulumi.StringPtrInput `pulumi:"trustedDomainFqdn"`
+}
+
+func (ForestTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ForestTrust)(nil)).Elem()
+}
+
+func (i ForestTrustArgs) ToForestTrustOutput() ForestTrustOutput {
+	return i.ToForestTrustOutputWithContext(context.Background())
+}
+
+func (i ForestTrustArgs) ToForestTrustOutputWithContext(ctx context.Context) ForestTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ForestTrustOutput)
+}
+
+// ForestTrustArrayInput is an input type that accepts ForestTrustArray and ForestTrustArrayOutput values.
+// You can construct a concrete instance of `ForestTrustArrayInput` via:
+//
+//          ForestTrustArray{ ForestTrustArgs{...} }
+type ForestTrustArrayInput interface {
+	pulumi.Input
+
+	ToForestTrustArrayOutput() ForestTrustArrayOutput
+	ToForestTrustArrayOutputWithContext(context.Context) ForestTrustArrayOutput
+}
+
+type ForestTrustArray []ForestTrustInput
+
+func (ForestTrustArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ForestTrust)(nil)).Elem()
+}
+
+func (i ForestTrustArray) ToForestTrustArrayOutput() ForestTrustArrayOutput {
+	return i.ToForestTrustArrayOutputWithContext(context.Background())
+}
+
+func (i ForestTrustArray) ToForestTrustArrayOutputWithContext(ctx context.Context) ForestTrustArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ForestTrustArrayOutput)
+}
+
+// Forest Trust Setting
+type ForestTrustOutput struct{ *pulumi.OutputState }
+
+func (ForestTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ForestTrust)(nil)).Elem()
+}
+
+func (o ForestTrustOutput) ToForestTrustOutput() ForestTrustOutput {
+	return o
+}
+
+func (o ForestTrustOutput) ToForestTrustOutputWithContext(ctx context.Context) ForestTrustOutput {
+	return o
+}
+
+// Friendly Name
+func (o ForestTrustOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrust) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Remote Dns ips
+func (o ForestTrustOutput) RemoteDnsIps() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrust) *string { return v.RemoteDnsIps }).(pulumi.StringPtrOutput)
+}
+
+// Trust Direction
+func (o ForestTrustOutput) TrustDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrust) *string { return v.TrustDirection }).(pulumi.StringPtrOutput)
+}
+
+// Trust Password
+func (o ForestTrustOutput) TrustPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrust) *string { return v.TrustPassword }).(pulumi.StringPtrOutput)
+}
+
+// Trusted Domain FQDN
+func (o ForestTrustOutput) TrustedDomainFqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrust) *string { return v.TrustedDomainFqdn }).(pulumi.StringPtrOutput)
+}
+
+type ForestTrustArrayOutput struct{ *pulumi.OutputState }
+
+func (ForestTrustArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ForestTrust)(nil)).Elem()
+}
+
+func (o ForestTrustArrayOutput) ToForestTrustArrayOutput() ForestTrustArrayOutput {
+	return o
+}
+
+func (o ForestTrustArrayOutput) ToForestTrustArrayOutputWithContext(ctx context.Context) ForestTrustArrayOutput {
+	return o
+}
+
+func (o ForestTrustArrayOutput) Index(i pulumi.IntInput) ForestTrustOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ForestTrust {
+		return vs[0].([]ForestTrust)[vs[1].(int)]
+	}).(ForestTrustOutput)
+}
+
+// Forest Trust Setting
+type ForestTrustResponse struct {
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Remote Dns ips
+	RemoteDnsIps *string `pulumi:"remoteDnsIps"`
+	// Trust Direction
+	TrustDirection *string `pulumi:"trustDirection"`
+	// Trust Password
+	TrustPassword *string `pulumi:"trustPassword"`
+	// Trusted Domain FQDN
+	TrustedDomainFqdn *string `pulumi:"trustedDomainFqdn"`
+}
+
+// ForestTrustResponseInput is an input type that accepts ForestTrustResponseArgs and ForestTrustResponseOutput values.
+// You can construct a concrete instance of `ForestTrustResponseInput` via:
+//
+//          ForestTrustResponseArgs{...}
+type ForestTrustResponseInput interface {
+	pulumi.Input
+
+	ToForestTrustResponseOutput() ForestTrustResponseOutput
+	ToForestTrustResponseOutputWithContext(context.Context) ForestTrustResponseOutput
+}
+
+// Forest Trust Setting
+type ForestTrustResponseArgs struct {
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Remote Dns ips
+	RemoteDnsIps pulumi.StringPtrInput `pulumi:"remoteDnsIps"`
+	// Trust Direction
+	TrustDirection pulumi.StringPtrInput `pulumi:"trustDirection"`
+	// Trust Password
+	TrustPassword pulumi.StringPtrInput `pulumi:"trustPassword"`
+	// Trusted Domain FQDN
+	TrustedDomainFqdn pulumi.StringPtrInput `pulumi:"trustedDomainFqdn"`
+}
+
+func (ForestTrustResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ForestTrustResponse)(nil)).Elem()
+}
+
+func (i ForestTrustResponseArgs) ToForestTrustResponseOutput() ForestTrustResponseOutput {
+	return i.ToForestTrustResponseOutputWithContext(context.Background())
+}
+
+func (i ForestTrustResponseArgs) ToForestTrustResponseOutputWithContext(ctx context.Context) ForestTrustResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ForestTrustResponseOutput)
+}
+
+// ForestTrustResponseArrayInput is an input type that accepts ForestTrustResponseArray and ForestTrustResponseArrayOutput values.
+// You can construct a concrete instance of `ForestTrustResponseArrayInput` via:
+//
+//          ForestTrustResponseArray{ ForestTrustResponseArgs{...} }
+type ForestTrustResponseArrayInput interface {
+	pulumi.Input
+
+	ToForestTrustResponseArrayOutput() ForestTrustResponseArrayOutput
+	ToForestTrustResponseArrayOutputWithContext(context.Context) ForestTrustResponseArrayOutput
+}
+
+type ForestTrustResponseArray []ForestTrustResponseInput
+
+func (ForestTrustResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ForestTrustResponse)(nil)).Elem()
+}
+
+func (i ForestTrustResponseArray) ToForestTrustResponseArrayOutput() ForestTrustResponseArrayOutput {
+	return i.ToForestTrustResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ForestTrustResponseArray) ToForestTrustResponseArrayOutputWithContext(ctx context.Context) ForestTrustResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ForestTrustResponseArrayOutput)
+}
+
+// Forest Trust Setting
+type ForestTrustResponseOutput struct{ *pulumi.OutputState }
+
+func (ForestTrustResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ForestTrustResponse)(nil)).Elem()
+}
+
+func (o ForestTrustResponseOutput) ToForestTrustResponseOutput() ForestTrustResponseOutput {
+	return o
+}
+
+func (o ForestTrustResponseOutput) ToForestTrustResponseOutputWithContext(ctx context.Context) ForestTrustResponseOutput {
+	return o
+}
+
+// Friendly Name
+func (o ForestTrustResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrustResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Remote Dns ips
+func (o ForestTrustResponseOutput) RemoteDnsIps() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrustResponse) *string { return v.RemoteDnsIps }).(pulumi.StringPtrOutput)
+}
+
+// Trust Direction
+func (o ForestTrustResponseOutput) TrustDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrustResponse) *string { return v.TrustDirection }).(pulumi.StringPtrOutput)
+}
+
+// Trust Password
+func (o ForestTrustResponseOutput) TrustPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrustResponse) *string { return v.TrustPassword }).(pulumi.StringPtrOutput)
+}
+
+// Trusted Domain FQDN
+func (o ForestTrustResponseOutput) TrustedDomainFqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrustResponse) *string { return v.TrustedDomainFqdn }).(pulumi.StringPtrOutput)
+}
+
+type ForestTrustResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ForestTrustResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ForestTrustResponse)(nil)).Elem()
+}
+
+func (o ForestTrustResponseArrayOutput) ToForestTrustResponseArrayOutput() ForestTrustResponseArrayOutput {
+	return o
+}
+
+func (o ForestTrustResponseArrayOutput) ToForestTrustResponseArrayOutputWithContext(ctx context.Context) ForestTrustResponseArrayOutput {
+	return o
+}
+
+func (o ForestTrustResponseArrayOutput) Index(i pulumi.IntInput) ForestTrustResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ForestTrustResponse {
+		return vs[0].([]ForestTrustResponse)[vs[1].(int)]
+	}).(ForestTrustResponseOutput)
 }
 
 // Health Alert Description
@@ -1817,6 +2165,312 @@ func (o ReplicaSetResponseArrayOutput) Index(i pulumi.IntInput) ReplicaSetRespon
 	}).(ReplicaSetResponseOutput)
 }
 
+// Settings for Resource Forest
+type ResourceForestSettings struct {
+	// Resource Forest
+	ResourceForest *string `pulumi:"resourceForest"`
+	// List of settings for Resource Forest
+	Settings []ForestTrust `pulumi:"settings"`
+}
+
+// ResourceForestSettingsInput is an input type that accepts ResourceForestSettingsArgs and ResourceForestSettingsOutput values.
+// You can construct a concrete instance of `ResourceForestSettingsInput` via:
+//
+//          ResourceForestSettingsArgs{...}
+type ResourceForestSettingsInput interface {
+	pulumi.Input
+
+	ToResourceForestSettingsOutput() ResourceForestSettingsOutput
+	ToResourceForestSettingsOutputWithContext(context.Context) ResourceForestSettingsOutput
+}
+
+// Settings for Resource Forest
+type ResourceForestSettingsArgs struct {
+	// Resource Forest
+	ResourceForest pulumi.StringPtrInput `pulumi:"resourceForest"`
+	// List of settings for Resource Forest
+	Settings ForestTrustArrayInput `pulumi:"settings"`
+}
+
+func (ResourceForestSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceForestSettings)(nil)).Elem()
+}
+
+func (i ResourceForestSettingsArgs) ToResourceForestSettingsOutput() ResourceForestSettingsOutput {
+	return i.ToResourceForestSettingsOutputWithContext(context.Background())
+}
+
+func (i ResourceForestSettingsArgs) ToResourceForestSettingsOutputWithContext(ctx context.Context) ResourceForestSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceForestSettingsOutput)
+}
+
+func (i ResourceForestSettingsArgs) ToResourceForestSettingsPtrOutput() ResourceForestSettingsPtrOutput {
+	return i.ToResourceForestSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceForestSettingsArgs) ToResourceForestSettingsPtrOutputWithContext(ctx context.Context) ResourceForestSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceForestSettingsOutput).ToResourceForestSettingsPtrOutputWithContext(ctx)
+}
+
+// ResourceForestSettingsPtrInput is an input type that accepts ResourceForestSettingsArgs, ResourceForestSettingsPtr and ResourceForestSettingsPtrOutput values.
+// You can construct a concrete instance of `ResourceForestSettingsPtrInput` via:
+//
+//          ResourceForestSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceForestSettingsPtrInput interface {
+	pulumi.Input
+
+	ToResourceForestSettingsPtrOutput() ResourceForestSettingsPtrOutput
+	ToResourceForestSettingsPtrOutputWithContext(context.Context) ResourceForestSettingsPtrOutput
+}
+
+type resourceForestSettingsPtrType ResourceForestSettingsArgs
+
+func ResourceForestSettingsPtr(v *ResourceForestSettingsArgs) ResourceForestSettingsPtrInput {
+	return (*resourceForestSettingsPtrType)(v)
+}
+
+func (*resourceForestSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceForestSettings)(nil)).Elem()
+}
+
+func (i *resourceForestSettingsPtrType) ToResourceForestSettingsPtrOutput() ResourceForestSettingsPtrOutput {
+	return i.ToResourceForestSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceForestSettingsPtrType) ToResourceForestSettingsPtrOutputWithContext(ctx context.Context) ResourceForestSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceForestSettingsPtrOutput)
+}
+
+// Settings for Resource Forest
+type ResourceForestSettingsOutput struct{ *pulumi.OutputState }
+
+func (ResourceForestSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceForestSettings)(nil)).Elem()
+}
+
+func (o ResourceForestSettingsOutput) ToResourceForestSettingsOutput() ResourceForestSettingsOutput {
+	return o
+}
+
+func (o ResourceForestSettingsOutput) ToResourceForestSettingsOutputWithContext(ctx context.Context) ResourceForestSettingsOutput {
+	return o
+}
+
+func (o ResourceForestSettingsOutput) ToResourceForestSettingsPtrOutput() ResourceForestSettingsPtrOutput {
+	return o.ToResourceForestSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceForestSettingsOutput) ToResourceForestSettingsPtrOutputWithContext(ctx context.Context) ResourceForestSettingsPtrOutput {
+	return o.ApplyT(func(v ResourceForestSettings) *ResourceForestSettings {
+		return &v
+	}).(ResourceForestSettingsPtrOutput)
+}
+
+// Resource Forest
+func (o ResourceForestSettingsOutput) ResourceForest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceForestSettings) *string { return v.ResourceForest }).(pulumi.StringPtrOutput)
+}
+
+// List of settings for Resource Forest
+func (o ResourceForestSettingsOutput) Settings() ForestTrustArrayOutput {
+	return o.ApplyT(func(v ResourceForestSettings) []ForestTrust { return v.Settings }).(ForestTrustArrayOutput)
+}
+
+type ResourceForestSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceForestSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceForestSettings)(nil)).Elem()
+}
+
+func (o ResourceForestSettingsPtrOutput) ToResourceForestSettingsPtrOutput() ResourceForestSettingsPtrOutput {
+	return o
+}
+
+func (o ResourceForestSettingsPtrOutput) ToResourceForestSettingsPtrOutputWithContext(ctx context.Context) ResourceForestSettingsPtrOutput {
+	return o
+}
+
+func (o ResourceForestSettingsPtrOutput) Elem() ResourceForestSettingsOutput {
+	return o.ApplyT(func(v *ResourceForestSettings) ResourceForestSettings { return *v }).(ResourceForestSettingsOutput)
+}
+
+// Resource Forest
+func (o ResourceForestSettingsPtrOutput) ResourceForest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceForestSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceForest
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of settings for Resource Forest
+func (o ResourceForestSettingsPtrOutput) Settings() ForestTrustArrayOutput {
+	return o.ApplyT(func(v *ResourceForestSettings) []ForestTrust {
+		if v == nil {
+			return nil
+		}
+		return v.Settings
+	}).(ForestTrustArrayOutput)
+}
+
+// Settings for Resource Forest
+type ResourceForestSettingsResponse struct {
+	// Resource Forest
+	ResourceForest *string `pulumi:"resourceForest"`
+	// List of settings for Resource Forest
+	Settings []ForestTrustResponse `pulumi:"settings"`
+}
+
+// ResourceForestSettingsResponseInput is an input type that accepts ResourceForestSettingsResponseArgs and ResourceForestSettingsResponseOutput values.
+// You can construct a concrete instance of `ResourceForestSettingsResponseInput` via:
+//
+//          ResourceForestSettingsResponseArgs{...}
+type ResourceForestSettingsResponseInput interface {
+	pulumi.Input
+
+	ToResourceForestSettingsResponseOutput() ResourceForestSettingsResponseOutput
+	ToResourceForestSettingsResponseOutputWithContext(context.Context) ResourceForestSettingsResponseOutput
+}
+
+// Settings for Resource Forest
+type ResourceForestSettingsResponseArgs struct {
+	// Resource Forest
+	ResourceForest pulumi.StringPtrInput `pulumi:"resourceForest"`
+	// List of settings for Resource Forest
+	Settings ForestTrustResponseArrayInput `pulumi:"settings"`
+}
+
+func (ResourceForestSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceForestSettingsResponse)(nil)).Elem()
+}
+
+func (i ResourceForestSettingsResponseArgs) ToResourceForestSettingsResponseOutput() ResourceForestSettingsResponseOutput {
+	return i.ToResourceForestSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceForestSettingsResponseArgs) ToResourceForestSettingsResponseOutputWithContext(ctx context.Context) ResourceForestSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceForestSettingsResponseOutput)
+}
+
+func (i ResourceForestSettingsResponseArgs) ToResourceForestSettingsResponsePtrOutput() ResourceForestSettingsResponsePtrOutput {
+	return i.ToResourceForestSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceForestSettingsResponseArgs) ToResourceForestSettingsResponsePtrOutputWithContext(ctx context.Context) ResourceForestSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceForestSettingsResponseOutput).ToResourceForestSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceForestSettingsResponsePtrInput is an input type that accepts ResourceForestSettingsResponseArgs, ResourceForestSettingsResponsePtr and ResourceForestSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceForestSettingsResponsePtrInput` via:
+//
+//          ResourceForestSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceForestSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceForestSettingsResponsePtrOutput() ResourceForestSettingsResponsePtrOutput
+	ToResourceForestSettingsResponsePtrOutputWithContext(context.Context) ResourceForestSettingsResponsePtrOutput
+}
+
+type resourceForestSettingsResponsePtrType ResourceForestSettingsResponseArgs
+
+func ResourceForestSettingsResponsePtr(v *ResourceForestSettingsResponseArgs) ResourceForestSettingsResponsePtrInput {
+	return (*resourceForestSettingsResponsePtrType)(v)
+}
+
+func (*resourceForestSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceForestSettingsResponse)(nil)).Elem()
+}
+
+func (i *resourceForestSettingsResponsePtrType) ToResourceForestSettingsResponsePtrOutput() ResourceForestSettingsResponsePtrOutput {
+	return i.ToResourceForestSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceForestSettingsResponsePtrType) ToResourceForestSettingsResponsePtrOutputWithContext(ctx context.Context) ResourceForestSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceForestSettingsResponsePtrOutput)
+}
+
+// Settings for Resource Forest
+type ResourceForestSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceForestSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceForestSettingsResponse)(nil)).Elem()
+}
+
+func (o ResourceForestSettingsResponseOutput) ToResourceForestSettingsResponseOutput() ResourceForestSettingsResponseOutput {
+	return o
+}
+
+func (o ResourceForestSettingsResponseOutput) ToResourceForestSettingsResponseOutputWithContext(ctx context.Context) ResourceForestSettingsResponseOutput {
+	return o
+}
+
+func (o ResourceForestSettingsResponseOutput) ToResourceForestSettingsResponsePtrOutput() ResourceForestSettingsResponsePtrOutput {
+	return o.ToResourceForestSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceForestSettingsResponseOutput) ToResourceForestSettingsResponsePtrOutputWithContext(ctx context.Context) ResourceForestSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ResourceForestSettingsResponse) *ResourceForestSettingsResponse {
+		return &v
+	}).(ResourceForestSettingsResponsePtrOutput)
+}
+
+// Resource Forest
+func (o ResourceForestSettingsResponseOutput) ResourceForest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceForestSettingsResponse) *string { return v.ResourceForest }).(pulumi.StringPtrOutput)
+}
+
+// List of settings for Resource Forest
+func (o ResourceForestSettingsResponseOutput) Settings() ForestTrustResponseArrayOutput {
+	return o.ApplyT(func(v ResourceForestSettingsResponse) []ForestTrustResponse { return v.Settings }).(ForestTrustResponseArrayOutput)
+}
+
+type ResourceForestSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceForestSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceForestSettingsResponse)(nil)).Elem()
+}
+
+func (o ResourceForestSettingsResponsePtrOutput) ToResourceForestSettingsResponsePtrOutput() ResourceForestSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ResourceForestSettingsResponsePtrOutput) ToResourceForestSettingsResponsePtrOutputWithContext(ctx context.Context) ResourceForestSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ResourceForestSettingsResponsePtrOutput) Elem() ResourceForestSettingsResponseOutput {
+	return o.ApplyT(func(v *ResourceForestSettingsResponse) ResourceForestSettingsResponse { return *v }).(ResourceForestSettingsResponseOutput)
+}
+
+// Resource Forest
+func (o ResourceForestSettingsResponsePtrOutput) ResourceForest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceForestSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceForest
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of settings for Resource Forest
+func (o ResourceForestSettingsResponsePtrOutput) Settings() ForestTrustResponseArrayOutput {
+	return o.ApplyT(func(v *ResourceForestSettingsResponse) []ForestTrustResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Settings
+	}).(ForestTrustResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerAccountResponseOutput{})
 	pulumi.RegisterOutputType(ContainerAccountResponseArrayOutput{})
@@ -1824,6 +2478,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainSecuritySettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsResponseOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ForestTrustOutput{})
+	pulumi.RegisterOutputType(ForestTrustArrayOutput{})
+	pulumi.RegisterOutputType(ForestTrustResponseOutput{})
+	pulumi.RegisterOutputType(ForestTrustResponseArrayOutput{})
 	pulumi.RegisterOutputType(HealthAlertResponseOutput{})
 	pulumi.RegisterOutputType(HealthAlertResponseArrayOutput{})
 	pulumi.RegisterOutputType(HealthMonitorResponseOutput{})
@@ -1840,4 +2498,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicaSetArrayOutput{})
 	pulumi.RegisterOutputType(ReplicaSetResponseOutput{})
 	pulumi.RegisterOutputType(ReplicaSetResponseArrayOutput{})
+	pulumi.RegisterOutputType(ResourceForestSettingsOutput{})
+	pulumi.RegisterOutputType(ResourceForestSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceForestSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ResourceForestSettingsResponsePtrOutput{})
 }

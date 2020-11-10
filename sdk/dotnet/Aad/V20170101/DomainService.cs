@@ -15,6 +15,12 @@ namespace Pulumi.AzureNextGen.Aad.V20170101
     public partial class DomainService : Pulumi.CustomResource
     {
         /// <summary>
+        /// Deployment Id
+        /// </summary>
+        [Output("deploymentId")]
+        public Output<string> DeploymentId { get; private set; } = null!;
+
+        /// <summary>
         /// List of Domain Controller IP Address
         /// </summary>
         [Output("domainControllerIpAddress")]

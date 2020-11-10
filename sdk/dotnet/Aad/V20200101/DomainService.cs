@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
         public Output<string> DeploymentId { get; private set; } = null!;
 
         /// <summary>
+        /// Domain Configuration Type
+        /// </summary>
+        [Output("domainConfigurationType")]
+        public Output<string?> DomainConfigurationType { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Azure domain that the user would like to deploy Domain Services to.
         /// </summary>
         [Output("domainName")]
@@ -79,6 +85,18 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
         /// </summary>
         [Output("replicaSets")]
         public Output<ImmutableArray<Outputs.ReplicaSetResponse>> ReplicaSets { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Forest Settings
+        /// </summary>
+        [Output("resourceForestSettings")]
+        public Output<Outputs.ResourceForestSettingsResponse?> ResourceForestSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Sku Type
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// SyncOwner ReplicaSet Id
@@ -162,6 +180,12 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
     public sealed class DomainServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Domain Configuration Type
+        /// </summary>
+        [Input("domainConfigurationType")]
+        public Input<string>? DomainConfigurationType { get; set; }
+
+        /// <summary>
         /// The name of the Azure domain that the user would like to deploy Domain Services to.
         /// </summary>
         [Input("domainName")]
@@ -222,10 +246,22 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
         }
 
         /// <summary>
+        /// Resource Forest Settings
+        /// </summary>
+        [Input("resourceForestSettings")]
+        public Input<Inputs.ResourceForestSettingsArgs>? ResourceForestSettings { get; set; }
+
+        /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Sku Type
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

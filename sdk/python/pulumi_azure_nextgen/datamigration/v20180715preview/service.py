@@ -25,6 +25,7 @@ class Service(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_nic_id: Optional[pulumi.Input[str]] = None,
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -42,6 +43,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: Service SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_nic_id: The ID of the Microsoft.Network/networkInterfaces resource which the service have
         :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
         if __name__ is not None:
@@ -75,6 +77,7 @@ class Service(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['virtual_nic_id'] = virtual_nic_id
             if virtual_subnet_id is None:
                 raise TypeError("Missing required property 'virtual_subnet_id'")
             __props__['virtual_subnet_id'] = virtual_subnet_id
@@ -178,6 +181,14 @@ class Service(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNicId")
+    def virtual_nic_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        """
+        return pulumi.get(self, "virtual_nic_id")
 
     @property
     @pulumi.getter(name="virtualSubnetId")

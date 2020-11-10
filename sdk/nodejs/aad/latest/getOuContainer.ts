@@ -53,6 +53,10 @@ export interface GetOuContainerResult {
      */
     readonly deploymentId: string;
     /**
+     * Distinguished Name of OuContainer instance
+     */
+    readonly distinguishedName: string;
+    /**
      * The domain name of Domain Services.
      */
     readonly domainName: string;

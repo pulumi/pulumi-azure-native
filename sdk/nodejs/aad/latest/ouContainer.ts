@@ -49,6 +49,10 @@ export class OuContainer extends pulumi.CustomResource {
      */
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
     /**
+     * Distinguished Name of OuContainer instance
+     */
+    public /*out*/ readonly distinguishedName!: pulumi.Output<string>;
+    /**
      * The domain name of Domain Services.
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["accounts"] = undefined /*out*/;
             inputs["containerId"] = undefined /*out*/;
             inputs["deploymentId"] = undefined /*out*/;
+            inputs["distinguishedName"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -126,6 +131,7 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["accounts"] = undefined /*out*/;
             inputs["containerId"] = undefined /*out*/;
             inputs["deploymentId"] = undefined /*out*/;
+            inputs["distinguishedName"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;

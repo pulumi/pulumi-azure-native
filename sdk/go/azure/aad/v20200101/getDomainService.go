@@ -27,6 +27,8 @@ type LookupDomainServiceArgs struct {
 type LookupDomainServiceResult struct {
 	// Deployment Id
 	DeploymentId string `pulumi:"deploymentId"`
+	// Domain Configuration Type
+	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
 	DomainName *string `pulumi:"domainName"`
 	// DomainSecurity Settings
@@ -47,6 +49,10 @@ type LookupDomainServiceResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// List of ReplicaSets
 	ReplicaSets []ReplicaSetResponse `pulumi:"replicaSets"`
+	// Resource Forest Settings
+	ResourceForestSettings *ResourceForestSettingsResponse `pulumi:"resourceForestSettings"`
+	// Sku Type
+	Sku *string `pulumi:"sku"`
 	// SyncOwner ReplicaSet Id
 	SyncOwner string `pulumi:"syncOwner"`
 	// Resource tags

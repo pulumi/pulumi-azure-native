@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Aad.V20170101
     public sealed class GetDomainServiceResult
     {
         /// <summary>
+        /// Deployment Id
+        /// </summary>
+        public readonly string DeploymentId;
+        /// <summary>
         /// List of Domain Controller IP Address
         /// </summary>
         public readonly ImmutableArray<string> DomainControllerIpAddress;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNextGen.Aad.V20170101
 
         [OutputConstructor]
         private GetDomainServiceResult(
+            string deploymentId,
+
             ImmutableArray<string> domainControllerIpAddress,
 
             string? domainName,
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170101
 
             string vnetSiteId)
         {
+            DeploymentId = deploymentId;
             DomainControllerIpAddress = domainControllerIpAddress;
             DomainName = domainName;
             DomainSecuritySettings = domainSecuritySettings;

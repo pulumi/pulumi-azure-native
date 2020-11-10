@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func LookupContentTypeContentItem(ctx *pulumi.Context, args *LookupContentTypeContentItemArgs, opts ...pulumi.InvokeOption) (*LookupContentTypeContentItemResult, error) {
-	var rv LookupContentTypeContentItemResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20200601preview:getContentTypeContentItem", args, &rv, opts...)
+func LookupContentItem(ctx *pulumi.Context, args *LookupContentItemArgs, opts ...pulumi.InvokeOption) (*LookupContentItemResult, error) {
+	var rv LookupContentItemResult
+	err := ctx.Invoke("azure-nextgen:apimanagement/v20200601preview:getContentItem", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type LookupContentTypeContentItemArgs struct {
+type LookupContentItemArgs struct {
 	// Content item identifier.
 	ContentItemId string `pulumi:"contentItemId"`
 	// Content type identifier.
@@ -28,7 +28,7 @@ type LookupContentTypeContentItemArgs struct {
 }
 
 // Content type contract details.
-type LookupContentTypeContentItemResult struct {
+type LookupContentItemResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Properties of the content item.
