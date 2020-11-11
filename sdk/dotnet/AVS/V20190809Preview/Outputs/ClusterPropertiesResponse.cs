@@ -14,10 +14,6 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview.Outputs
     public sealed class ClusterPropertiesResponse
     {
         /// <summary>
-        /// The deprecated identity
-        /// </summary>
-        public readonly int ClusterID;
-        /// <summary>
         /// The identity
         /// </summary>
         public readonly int ClusterId;
@@ -36,8 +32,6 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview.Outputs
 
         [OutputConstructor]
         private ClusterPropertiesResponse(
-            int clusterID,
-
             int clusterId,
 
             int? clusterSize,
@@ -46,7 +40,6 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview.Outputs
 
             string provisioningState)
         {
-            ClusterID = clusterID;
             ClusterId = clusterId;
             ClusterSize = clusterSize;
             Hosts = hosts;

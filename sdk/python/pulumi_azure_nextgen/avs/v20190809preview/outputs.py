@@ -97,32 +97,21 @@ class ClusterPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  cluster_id: int,
-                 cluster_id: int,
                  hosts: Sequence[str],
                  provisioning_state: str,
                  cluster_size: Optional[int] = None):
         """
         The properties of a cluster
-        :param int cluster_id: The deprecated identity
         :param int cluster_id: The identity
         :param Sequence[str] hosts: The hosts
         :param str provisioning_state: The state of the cluster provisioning
         :param int cluster_size: The cluster size
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "hosts", hosts)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if cluster_size is not None:
             pulumi.set(__self__, "cluster_size", cluster_size)
-
-    @property
-    @pulumi.getter(name="clusterID")
-    def cluster_id(self) -> int:
-        """
-        The deprecated identity
-        """
-        return pulumi.get(self, "cluster_id")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -167,29 +156,18 @@ class DefaultClusterPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  cluster_id: int,
-                 cluster_id: int,
                  hosts: Sequence[str],
                  cluster_size: Optional[int] = None):
         """
         The properties of a default cluster
-        :param int cluster_id: The deprecated identity
         :param int cluster_id: The identity
         :param Sequence[str] hosts: The hosts
         :param int cluster_size: The cluster size
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "hosts", hosts)
         if cluster_size is not None:
             pulumi.set(__self__, "cluster_size", cluster_size)
-
-    @property
-    @pulumi.getter(name="clusterID")
-    def cluster_id(self) -> int:
-        """
-        The deprecated identity
-        """
-        return pulumi.get(self, "cluster_id")
 
     @property
     @pulumi.getter(name="clusterId")
