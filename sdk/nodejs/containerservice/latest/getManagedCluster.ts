@@ -56,6 +56,10 @@ export interface GetManagedClusterResult {
      */
     readonly autoScalerProfile?: outputs.containerservice.latest.ManagedClusterPropertiesResponseAutoScalerProfile;
     /**
+     * Profile of auto upgrade configuration.
+     */
+    readonly autoUpgradeProfile?: outputs.containerservice.latest.ManagedClusterAutoUpgradeProfileResponse;
+    /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
     readonly diskEncryptionSetID?: string;
@@ -111,6 +115,10 @@ export interface GetManagedClusterResult {
      * Name of the resource group containing agent pool nodes.
      */
     readonly nodeResourceGroup?: string;
+    /**
+     * Profile of managed cluster pod identity.
+     */
+    readonly podIdentityProfile?: outputs.containerservice.latest.ManagedClusterPodIdentityProfileResponse;
     /**
      * Represents the Power State of the cluster
      */

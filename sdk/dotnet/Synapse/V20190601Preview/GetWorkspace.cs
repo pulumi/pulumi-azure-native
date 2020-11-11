@@ -112,6 +112,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly Outputs.VirtualNetworkProfileResponse? VirtualNetworkProfile;
         /// <summary>
+        /// Git integration settings
+        /// </summary>
+        public readonly Outputs.WorkspaceRepositoryConfigurationResponse? WorkspaceRepositoryConfiguration;
+        /// <summary>
         /// The workspace unique identifier
         /// </summary>
         public readonly string WorkspaceUID;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             Outputs.VirtualNetworkProfileResponse? virtualNetworkProfile,
 
+            Outputs.WorkspaceRepositoryConfigurationResponse? workspaceRepositoryConfiguration,
+
             string workspaceUID)
         {
             BabylonConfiguration = babylonConfiguration;
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             Tags = tags;
             Type = type;
             VirtualNetworkProfile = virtualNetworkProfile;
+            WorkspaceRepositoryConfiguration = workspaceRepositoryConfiguration;
             WorkspaceUID = workspaceUID;
         }
     }

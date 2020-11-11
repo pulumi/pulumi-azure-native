@@ -123,6 +123,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<Outputs.VirtualNetworkProfileResponse?> VirtualNetworkProfile { get; private set; } = null!;
 
         /// <summary>
+        /// Git integration settings
+        /// </summary>
+        [Output("workspaceRepositoryConfiguration")]
+        public Output<Outputs.WorkspaceRepositoryConfigurationResponse?> WorkspaceRepositoryConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The workspace unique identifier
         /// </summary>
         [Output("workspaceUID")]
@@ -286,6 +292,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Git integration settings
+        /// </summary>
+        [Input("workspaceRepositoryConfiguration")]
+        public Input<Inputs.WorkspaceRepositoryConfigurationArgs>? WorkspaceRepositoryConfiguration { get; set; }
 
         public WorkspaceArgs()
         {

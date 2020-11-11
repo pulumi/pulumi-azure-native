@@ -6101,6 +6101,8 @@ type LogAnalytics struct {
 	WorkspaceId string `pulumi:"workspaceId"`
 	// The workspace key for log analytics
 	WorkspaceKey string `pulumi:"workspaceKey"`
+	// The workspace resource id for log analytics
+	WorkspaceResourceId map[string]string `pulumi:"workspaceResourceId"`
 }
 
 // LogAnalyticsInput is an input type that accepts LogAnalyticsArgs and LogAnalyticsOutput values.
@@ -6124,6 +6126,8 @@ type LogAnalyticsArgs struct {
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 	// The workspace key for log analytics
 	WorkspaceKey pulumi.StringInput `pulumi:"workspaceKey"`
+	// The workspace resource id for log analytics
+	WorkspaceResourceId pulumi.StringMapInput `pulumi:"workspaceResourceId"`
 }
 
 func (LogAnalyticsArgs) ElementType() reflect.Type {
@@ -6224,6 +6228,11 @@ func (o LogAnalyticsOutput) WorkspaceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LogAnalytics) string { return v.WorkspaceKey }).(pulumi.StringOutput)
 }
 
+// The workspace resource id for log analytics
+func (o LogAnalyticsOutput) WorkspaceResourceId() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LogAnalytics) map[string]string { return v.WorkspaceResourceId }).(pulumi.StringMapOutput)
+}
+
 type LogAnalyticsPtrOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsPtrOutput) ElementType() reflect.Type {
@@ -6282,6 +6291,16 @@ func (o LogAnalyticsPtrOutput) WorkspaceKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The workspace resource id for log analytics
+func (o LogAnalyticsPtrOutput) WorkspaceResourceId() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LogAnalytics) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkspaceResourceId
+	}).(pulumi.StringMapOutput)
+}
+
 // Container group log analytics information.
 type LogAnalyticsResponse struct {
 	// The log type to be used.
@@ -6292,6 +6311,8 @@ type LogAnalyticsResponse struct {
 	WorkspaceId string `pulumi:"workspaceId"`
 	// The workspace key for log analytics
 	WorkspaceKey string `pulumi:"workspaceKey"`
+	// The workspace resource id for log analytics
+	WorkspaceResourceId map[string]string `pulumi:"workspaceResourceId"`
 }
 
 // LogAnalyticsResponseInput is an input type that accepts LogAnalyticsResponseArgs and LogAnalyticsResponseOutput values.
@@ -6315,6 +6336,8 @@ type LogAnalyticsResponseArgs struct {
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 	// The workspace key for log analytics
 	WorkspaceKey pulumi.StringInput `pulumi:"workspaceKey"`
+	// The workspace resource id for log analytics
+	WorkspaceResourceId pulumi.StringMapInput `pulumi:"workspaceResourceId"`
 }
 
 func (LogAnalyticsResponseArgs) ElementType() reflect.Type {
@@ -6415,6 +6438,11 @@ func (o LogAnalyticsResponseOutput) WorkspaceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LogAnalyticsResponse) string { return v.WorkspaceKey }).(pulumi.StringOutput)
 }
 
+// The workspace resource id for log analytics
+func (o LogAnalyticsResponseOutput) WorkspaceResourceId() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LogAnalyticsResponse) map[string]string { return v.WorkspaceResourceId }).(pulumi.StringMapOutput)
+}
+
 type LogAnalyticsResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsResponsePtrOutput) ElementType() reflect.Type {
@@ -6471,6 +6499,16 @@ func (o LogAnalyticsResponsePtrOutput) WorkspaceKey() pulumi.StringPtrOutput {
 		}
 		return &v.WorkspaceKey
 	}).(pulumi.StringPtrOutput)
+}
+
+// The workspace resource id for log analytics
+func (o LogAnalyticsResponsePtrOutput) WorkspaceResourceId() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LogAnalyticsResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkspaceResourceId
+	}).(pulumi.StringMapOutput)
 }
 
 // The port exposed on the container group.

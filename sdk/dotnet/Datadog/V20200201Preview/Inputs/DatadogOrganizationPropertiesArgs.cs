@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Inputs
 {
 
+    /// <summary>
+    /// Datadog organization properties
+    /// </summary>
     public sealed class DatadogOrganizationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>

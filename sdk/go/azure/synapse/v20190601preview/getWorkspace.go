@@ -61,6 +61,8 @@ type LookupWorkspaceResult struct {
 	Type string `pulumi:"type"`
 	// Virtual Network profile
 	VirtualNetworkProfile *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
+	// Git integration settings
+	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfigurationResponse `pulumi:"workspaceRepositoryConfiguration"`
 	// The workspace unique identifier
 	WorkspaceUID string `pulumi:"workspaceUID"`
 }

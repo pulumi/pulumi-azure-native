@@ -53,6 +53,14 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly enableNodePublicIP!: pulumi.Output<boolean | undefined>;
     /**
+     * KubeletConfig specifies the configuration of kubelet on agent nodes.
+     */
+    public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.latest.KubeletConfigResponse | undefined>;
+    /**
+     * LinuxOSConfig specifies the OS configuration of linux agent nodes.
+     */
+    public readonly linuxOSConfig!: pulumi.Output<outputs.containerservice.latest.LinuxOSConfigResponse | undefined>;
+    /**
      * Maximum number of nodes for auto-scaling
      */
     public readonly maxCount!: pulumi.Output<number | undefined>;
@@ -101,6 +109,10 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
+     * Pod SubnetID specifies the VNet's subnet identifier for pods.
+     */
+    public readonly podSubnetID!: pulumi.Output<string | undefined>;
+    /**
      * Describes whether the Agent Pool is Running or Stopped
      */
     public /*out*/ readonly powerState!: pulumi.Output<outputs.containerservice.latest.PowerStateResponse>;
@@ -141,7 +153,7 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly vmSize!: pulumi.Output<string | undefined>;
     /**
-     * VNet SubnetID specifies the VNet's subnet identifier.
+     * VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
      */
     public readonly vnetSubnetID!: pulumi.Output<string | undefined>;
 
@@ -169,6 +181,8 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["count"] = args ? args.count : undefined;
             inputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
             inputs["enableNodePublicIP"] = args ? args.enableNodePublicIP : undefined;
+            inputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
+            inputs["linuxOSConfig"] = args ? args.linuxOSConfig : undefined;
             inputs["maxCount"] = args ? args.maxCount : undefined;
             inputs["maxPods"] = args ? args.maxPods : undefined;
             inputs["minCount"] = args ? args.minCount : undefined;
@@ -179,6 +193,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["osDiskSizeGB"] = args ? args.osDiskSizeGB : undefined;
             inputs["osDiskType"] = args ? args.osDiskType : undefined;
             inputs["osType"] = args ? args.osType : undefined;
+            inputs["podSubnetID"] = args ? args.podSubnetID : undefined;
             inputs["proximityPlacementGroupID"] = args ? args.proximityPlacementGroupID : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
@@ -199,6 +214,8 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["count"] = undefined /*out*/;
             inputs["enableAutoScaling"] = undefined /*out*/;
             inputs["enableNodePublicIP"] = undefined /*out*/;
+            inputs["kubeletConfig"] = undefined /*out*/;
+            inputs["linuxOSConfig"] = undefined /*out*/;
             inputs["maxCount"] = undefined /*out*/;
             inputs["maxPods"] = undefined /*out*/;
             inputs["minCount"] = undefined /*out*/;
@@ -211,6 +228,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["osDiskSizeGB"] = undefined /*out*/;
             inputs["osDiskType"] = undefined /*out*/;
             inputs["osType"] = undefined /*out*/;
+            inputs["podSubnetID"] = undefined /*out*/;
             inputs["powerState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["proximityPlacementGroupID"] = undefined /*out*/;
@@ -230,7 +248,7 @@ export class AgentPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }, { type: "azure-nextgen:containerservice/v20200901:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }, { type: "azure-nextgen:containerservice/v20200901:AgentPool" }, { type: "azure-nextgen:containerservice/v20201101:AgentPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AgentPool.__pulumiType, name, inputs, opts);
     }
@@ -260,6 +278,14 @@ export interface AgentPoolArgs {
      * Enable public IP for nodes
      */
     readonly enableNodePublicIP?: pulumi.Input<boolean>;
+    /**
+     * KubeletConfig specifies the configuration of kubelet on agent nodes.
+     */
+    readonly kubeletConfig?: pulumi.Input<inputs.containerservice.latest.KubeletConfig>;
+    /**
+     * LinuxOSConfig specifies the OS configuration of linux agent nodes.
+     */
+    readonly linuxOSConfig?: pulumi.Input<inputs.containerservice.latest.LinuxOSConfig>;
     /**
      * Maximum number of nodes for auto-scaling
      */
@@ -301,6 +327,10 @@ export interface AgentPoolArgs {
      */
     readonly osType?: pulumi.Input<string>;
     /**
+     * Pod SubnetID specifies the VNet's subnet identifier for pods.
+     */
+    readonly podSubnetID?: pulumi.Input<string>;
+    /**
      * The ID for Proximity Placement Group.
      */
     readonly proximityPlacementGroupID?: pulumi.Input<string>;
@@ -341,7 +371,7 @@ export interface AgentPoolArgs {
      */
     readonly vmSize?: pulumi.Input<string>;
     /**
-     * VNet SubnetID specifies the VNet's subnet identifier.
+     * VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
      */
     readonly vnetSubnetID?: pulumi.Input<string>;
 }

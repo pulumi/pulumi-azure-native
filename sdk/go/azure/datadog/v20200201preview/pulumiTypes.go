@@ -716,6 +716,7 @@ func (o DatadogLogsAgentResponsePtrOutput) Transport() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Datadog organization properties
 type DatadogOrganizationProperties struct {
 	// The Id of the Enterprise App used for Single sign on.
 	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
@@ -736,6 +737,7 @@ type DatadogOrganizationPropertiesInput interface {
 	ToDatadogOrganizationPropertiesOutputWithContext(context.Context) DatadogOrganizationPropertiesOutput
 }
 
+// Datadog organization properties
 type DatadogOrganizationPropertiesArgs struct {
 	// The Id of the Enterprise App used for Single sign on.
 	EnterpriseAppId pulumi.StringPtrInput `pulumi:"enterpriseAppId"`
@@ -798,6 +800,7 @@ func (i *datadogOrganizationPropertiesPtrType) ToDatadogOrganizationPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(DatadogOrganizationPropertiesPtrOutput)
 }
 
+// Datadog organization properties
 type DatadogOrganizationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DatadogOrganizationPropertiesOutput) ElementType() reflect.Type {
@@ -885,6 +888,7 @@ func (o DatadogOrganizationPropertiesPtrOutput) LinkingClientId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Datadog organization properties
 type DatadogOrganizationPropertiesResponse struct {
 	// The Id of the Enterprise App used for Single sign on.
 	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
@@ -909,6 +913,7 @@ type DatadogOrganizationPropertiesResponseInput interface {
 	ToDatadogOrganizationPropertiesResponseOutputWithContext(context.Context) DatadogOrganizationPropertiesResponseOutput
 }
 
+// Datadog organization properties
 type DatadogOrganizationPropertiesResponseArgs struct {
 	// The Id of the Enterprise App used for Single sign on.
 	EnterpriseAppId pulumi.StringPtrInput `pulumi:"enterpriseAppId"`
@@ -975,6 +980,7 @@ func (i *datadogOrganizationPropertiesResponsePtrType) ToDatadogOrganizationProp
 	return pulumi.ToOutputWithContext(ctx, i).(DatadogOrganizationPropertiesResponsePtrOutput)
 }
 
+// Datadog organization properties
 type DatadogOrganizationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (DatadogOrganizationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1093,6 +1099,7 @@ func (o DatadogOrganizationPropertiesResponsePtrOutput) Name() pulumi.StringPtrO
 }
 
 type IdentityProperties struct {
+	// Identity type
 	Type *string `pulumi:"type"`
 }
 
@@ -1108,6 +1115,7 @@ type IdentityPropertiesInput interface {
 }
 
 type IdentityPropertiesArgs struct {
+	// Identity type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1187,6 +1195,8 @@ func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutputWithContext(ctx c
 		return &v
 	}).(IdentityPropertiesPtrOutput)
 }
+
+// Identity type
 func (o IdentityPropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1209,6 +1219,7 @@ func (o IdentityPropertiesPtrOutput) Elem() IdentityPropertiesOutput {
 	return o.ApplyT(func(v *IdentityProperties) IdentityProperties { return *v }).(IdentityPropertiesOutput)
 }
 
+// Identity type
 func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProperties) *string {
 		if v == nil {
@@ -1222,8 +1233,9 @@ type IdentityPropertiesResponse struct {
 	// The identity ID.
 	PrincipalId string `pulumi:"principalId"`
 	// The tenant ID of resource.
-	TenantId string  `pulumi:"tenantId"`
-	Type     *string `pulumi:"type"`
+	TenantId string `pulumi:"tenantId"`
+	// Identity type
+	Type *string `pulumi:"type"`
 }
 
 // IdentityPropertiesResponseInput is an input type that accepts IdentityPropertiesResponseArgs and IdentityPropertiesResponseOutput values.
@@ -1241,8 +1253,9 @@ type IdentityPropertiesResponseArgs struct {
 	// The identity ID.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The tenant ID of resource.
-	TenantId pulumi.StringInput    `pulumi:"tenantId"`
-	Type     pulumi.StringPtrInput `pulumi:"type"`
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Identity type
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1332,6 +1345,7 @@ func (o IdentityPropertiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
+// Identity type
 func (o IdentityPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1374,6 +1388,7 @@ func (o IdentityPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identity type
 func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -1485,13 +1500,15 @@ func (o LinkedResourceResponseArrayOutput) Index(i pulumi.IntInput) LinkedResour
 
 // Properties specific to the monitor resource.
 type MonitorProperties struct {
+	// Datadog organization properties
 	DatadogOrganizationProperties *DatadogOrganizationProperties `pulumi:"datadogOrganizationProperties"`
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 	MarketplaceSubscriptionStatus *string `pulumi:"marketplaceSubscriptionStatus"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  *string   `pulumi:"monitoringStatus"`
-	ProvisioningState *string   `pulumi:"provisioningState"`
-	UserInfo          *UserInfo `pulumi:"userInfo"`
+	MonitoringStatus  *string `pulumi:"monitoringStatus"`
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// User info
+	UserInfo *UserInfo `pulumi:"userInfo"`
 }
 
 // MonitorPropertiesInput is an input type that accepts MonitorPropertiesArgs and MonitorPropertiesOutput values.
@@ -1507,13 +1524,15 @@ type MonitorPropertiesInput interface {
 
 // Properties specific to the monitor resource.
 type MonitorPropertiesArgs struct {
+	// Datadog organization properties
 	DatadogOrganizationProperties DatadogOrganizationPropertiesPtrInput `pulumi:"datadogOrganizationProperties"`
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 	MarketplaceSubscriptionStatus pulumi.StringPtrInput `pulumi:"marketplaceSubscriptionStatus"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
 	MonitoringStatus  pulumi.StringPtrInput `pulumi:"monitoringStatus"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	UserInfo          UserInfoPtrInput      `pulumi:"userInfo"`
+	// User info
+	UserInfo UserInfoPtrInput `pulumi:"userInfo"`
 }
 
 func (MonitorPropertiesArgs) ElementType() reflect.Type {
@@ -1593,6 +1612,8 @@ func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutputWithContext(ctx con
 		return &v
 	}).(MonitorPropertiesPtrOutput)
 }
+
+// Datadog organization properties
 func (o MonitorPropertiesOutput) DatadogOrganizationProperties() DatadogOrganizationPropertiesPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *DatadogOrganizationProperties { return v.DatadogOrganizationProperties }).(DatadogOrganizationPropertiesPtrOutput)
 }
@@ -1611,6 +1632,7 @@ func (o MonitorPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
+// User info
 func (o MonitorPropertiesOutput) UserInfo() UserInfoPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *UserInfo { return v.UserInfo }).(UserInfoPtrOutput)
 }
@@ -1633,6 +1655,7 @@ func (o MonitorPropertiesPtrOutput) Elem() MonitorPropertiesOutput {
 	return o.ApplyT(func(v *MonitorProperties) MonitorProperties { return *v }).(MonitorPropertiesOutput)
 }
 
+// Datadog organization properties
 func (o MonitorPropertiesPtrOutput) DatadogOrganizationProperties() DatadogOrganizationPropertiesPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *DatadogOrganizationProperties {
 		if v == nil {
@@ -1671,6 +1694,7 @@ func (o MonitorPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// User info
 func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *UserInfo {
 		if v == nil {
@@ -1682,6 +1706,7 @@ func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 
 // Properties specific to the monitor resource.
 type MonitorPropertiesResponse struct {
+	// Datadog organization properties
 	DatadogOrganizationProperties *DatadogOrganizationPropertiesResponse `pulumi:"datadogOrganizationProperties"`
 	LiftrResourceCategory         string                                 `pulumi:"liftrResourceCategory"`
 	// The priority of the resource.
@@ -1689,9 +1714,10 @@ type MonitorPropertiesResponse struct {
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 	MarketplaceSubscriptionStatus *string `pulumi:"marketplaceSubscriptionStatus"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  *string           `pulumi:"monitoringStatus"`
-	ProvisioningState *string           `pulumi:"provisioningState"`
-	UserInfo          *UserInfoResponse `pulumi:"userInfo"`
+	MonitoringStatus  *string `pulumi:"monitoringStatus"`
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// User info
+	UserInfo *UserInfoResponse `pulumi:"userInfo"`
 }
 
 // MonitorPropertiesResponseInput is an input type that accepts MonitorPropertiesResponseArgs and MonitorPropertiesResponseOutput values.
@@ -1707,6 +1733,7 @@ type MonitorPropertiesResponseInput interface {
 
 // Properties specific to the monitor resource.
 type MonitorPropertiesResponseArgs struct {
+	// Datadog organization properties
 	DatadogOrganizationProperties DatadogOrganizationPropertiesResponsePtrInput `pulumi:"datadogOrganizationProperties"`
 	LiftrResourceCategory         pulumi.StringInput                            `pulumi:"liftrResourceCategory"`
 	// The priority of the resource.
@@ -1714,9 +1741,10 @@ type MonitorPropertiesResponseArgs struct {
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 	MarketplaceSubscriptionStatus pulumi.StringPtrInput `pulumi:"marketplaceSubscriptionStatus"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  pulumi.StringPtrInput    `pulumi:"monitoringStatus"`
-	ProvisioningState pulumi.StringPtrInput    `pulumi:"provisioningState"`
-	UserInfo          UserInfoResponsePtrInput `pulumi:"userInfo"`
+	MonitoringStatus  pulumi.StringPtrInput `pulumi:"monitoringStatus"`
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// User info
+	UserInfo UserInfoResponsePtrInput `pulumi:"userInfo"`
 }
 
 func (MonitorPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1796,6 +1824,8 @@ func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutputWit
 		return &v
 	}).(MonitorPropertiesResponsePtrOutput)
 }
+
+// Datadog organization properties
 func (o MonitorPropertiesResponseOutput) DatadogOrganizationProperties() DatadogOrganizationPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) *DatadogOrganizationPropertiesResponse {
 		return v.DatadogOrganizationProperties
@@ -1825,6 +1855,7 @@ func (o MonitorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOut
 	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
+// User info
 func (o MonitorPropertiesResponseOutput) UserInfo() UserInfoResponsePtrOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) *UserInfoResponse { return v.UserInfo }).(UserInfoResponsePtrOutput)
 }
@@ -1847,6 +1878,7 @@ func (o MonitorPropertiesResponsePtrOutput) Elem() MonitorPropertiesResponseOutp
 	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse { return *v }).(MonitorPropertiesResponseOutput)
 }
 
+// Datadog organization properties
 func (o MonitorPropertiesResponsePtrOutput) DatadogOrganizationProperties() DatadogOrganizationPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *DatadogOrganizationPropertiesResponse {
 		if v == nil {
@@ -1904,6 +1936,7 @@ func (o MonitorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// User info
 func (o MonitorPropertiesResponsePtrOutput) UserInfo() UserInfoResponsePtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *UserInfoResponse {
 		if v == nil {
@@ -2311,6 +2344,7 @@ func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// User info
 type UserInfo struct {
 	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -2331,6 +2365,7 @@ type UserInfoInput interface {
 	ToUserInfoOutputWithContext(context.Context) UserInfoOutput
 }
 
+// User info
 type UserInfoArgs struct {
 	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -2393,6 +2428,7 @@ func (i *userInfoPtrType) ToUserInfoPtrOutputWithContext(ctx context.Context) Us
 	return pulumi.ToOutputWithContext(ctx, i).(UserInfoPtrOutput)
 }
 
+// User info
 type UserInfoOutput struct{ *pulumi.OutputState }
 
 func (UserInfoOutput) ElementType() reflect.Type {
@@ -2480,6 +2516,7 @@ func (o UserInfoPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// User info
 type UserInfoResponse struct {
 	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -2500,6 +2537,7 @@ type UserInfoResponseInput interface {
 	ToUserInfoResponseOutputWithContext(context.Context) UserInfoResponseOutput
 }
 
+// User info
 type UserInfoResponseArgs struct {
 	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -2562,6 +2600,7 @@ func (i *userInfoResponsePtrType) ToUserInfoResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponsePtrOutput)
 }
 
+// User info
 type UserInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (UserInfoResponseOutput) ElementType() reflect.Type {

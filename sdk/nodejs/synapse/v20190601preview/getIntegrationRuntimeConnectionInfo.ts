@@ -31,7 +31,7 @@ export interface GetIntegrationRuntimeConnectionInfoArgs {
      */
     readonly resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     readonly workspaceName: string;
 }

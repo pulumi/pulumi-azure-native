@@ -50,6 +50,8 @@ type Workspace struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Virtual Network profile
 	VirtualNetworkProfile VirtualNetworkProfileResponsePtrOutput `pulumi:"virtualNetworkProfile"`
+	// Git integration settings
+	WorkspaceRepositoryConfiguration WorkspaceRepositoryConfigurationResponsePtrOutput `pulumi:"workspaceRepositoryConfiguration"`
 	// The workspace unique identifier
 	WorkspaceUID pulumi.StringOutput `pulumi:"workspaceUID"`
 }
@@ -127,6 +129,8 @@ type workspaceState struct {
 	Type *string `pulumi:"type"`
 	// Virtual Network profile
 	VirtualNetworkProfile *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
+	// Git integration settings
+	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfigurationResponse `pulumi:"workspaceRepositoryConfiguration"`
 	// The workspace unique identifier
 	WorkspaceUID *string `pulumi:"workspaceUID"`
 }
@@ -168,6 +172,8 @@ type WorkspaceState struct {
 	Type pulumi.StringPtrInput
 	// Virtual Network profile
 	VirtualNetworkProfile VirtualNetworkProfileResponsePtrInput
+	// Git integration settings
+	WorkspaceRepositoryConfiguration WorkspaceRepositoryConfigurationResponsePtrInput
 	// The workspace unique identifier
 	WorkspaceUID pulumi.StringPtrInput
 }
@@ -209,6 +215,8 @@ type workspaceArgs struct {
 	VirtualNetworkProfile *VirtualNetworkProfile `pulumi:"virtualNetworkProfile"`
 	// The name of the workspace
 	WorkspaceName string `pulumi:"workspaceName"`
+	// Git integration settings
+	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfiguration `pulumi:"workspaceRepositoryConfiguration"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -245,6 +253,8 @@ type WorkspaceArgs struct {
 	VirtualNetworkProfile VirtualNetworkProfilePtrInput
 	// The name of the workspace
 	WorkspaceName pulumi.StringInput
+	// Git integration settings
+	WorkspaceRepositoryConfiguration WorkspaceRepositoryConfigurationPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

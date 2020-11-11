@@ -88,7 +88,7 @@ def get_integration_runtime(integration_runtime_name: Optional[str] = None,
 
     :param str integration_runtime_name: Integration runtime name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['integrationRuntimeName'] = integration_runtime_name

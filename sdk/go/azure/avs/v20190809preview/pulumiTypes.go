@@ -490,6 +490,8 @@ func (o ClusterPropertiesPtrOutput) ClusterSize() pulumi.IntPtrOutput {
 
 // The properties of a cluster
 type ClusterPropertiesResponse struct {
+	// The deprecated identity
+	ClusterID int `pulumi:"clusterID"`
 	// The identity
 	ClusterId int `pulumi:"clusterId"`
 	// The cluster size
@@ -513,6 +515,8 @@ type ClusterPropertiesResponseInput interface {
 
 // The properties of a cluster
 type ClusterPropertiesResponseArgs struct {
+	// The deprecated identity
+	ClusterID pulumi.IntInput `pulumi:"clusterID"`
 	// The identity
 	ClusterId pulumi.IntInput `pulumi:"clusterId"`
 	// The cluster size
@@ -601,6 +605,11 @@ func (o ClusterPropertiesResponseOutput) ToClusterPropertiesResponsePtrOutputWit
 	}).(ClusterPropertiesResponsePtrOutput)
 }
 
+// The deprecated identity
+func (o ClusterPropertiesResponseOutput) ClusterID() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterPropertiesResponse) int { return v.ClusterID }).(pulumi.IntOutput)
+}
+
 // The identity
 func (o ClusterPropertiesResponseOutput) ClusterId() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterPropertiesResponse) int { return v.ClusterId }).(pulumi.IntOutput)
@@ -637,6 +646,16 @@ func (o ClusterPropertiesResponsePtrOutput) ToClusterPropertiesResponsePtrOutput
 
 func (o ClusterPropertiesResponsePtrOutput) Elem() ClusterPropertiesResponseOutput {
 	return o.ApplyT(func(v *ClusterPropertiesResponse) ClusterPropertiesResponse { return *v }).(ClusterPropertiesResponseOutput)
+}
+
+// The deprecated identity
+func (o ClusterPropertiesResponsePtrOutput) ClusterID() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterID
+	}).(pulumi.IntPtrOutput)
 }
 
 // The identity
@@ -815,6 +834,8 @@ func (o DefaultClusterPropertiesPtrOutput) ClusterSize() pulumi.IntPtrOutput {
 
 // The properties of a default cluster
 type DefaultClusterPropertiesResponse struct {
+	// The deprecated identity
+	ClusterID int `pulumi:"clusterID"`
 	// The identity
 	ClusterId int `pulumi:"clusterId"`
 	// The cluster size
@@ -836,6 +857,8 @@ type DefaultClusterPropertiesResponseInput interface {
 
 // The properties of a default cluster
 type DefaultClusterPropertiesResponseArgs struct {
+	// The deprecated identity
+	ClusterID pulumi.IntInput `pulumi:"clusterID"`
 	// The identity
 	ClusterId pulumi.IntInput `pulumi:"clusterId"`
 	// The cluster size
@@ -922,6 +945,11 @@ func (o DefaultClusterPropertiesResponseOutput) ToDefaultClusterPropertiesRespon
 	}).(DefaultClusterPropertiesResponsePtrOutput)
 }
 
+// The deprecated identity
+func (o DefaultClusterPropertiesResponseOutput) ClusterID() pulumi.IntOutput {
+	return o.ApplyT(func(v DefaultClusterPropertiesResponse) int { return v.ClusterID }).(pulumi.IntOutput)
+}
+
 // The identity
 func (o DefaultClusterPropertiesResponseOutput) ClusterId() pulumi.IntOutput {
 	return o.ApplyT(func(v DefaultClusterPropertiesResponse) int { return v.ClusterId }).(pulumi.IntOutput)
@@ -953,6 +981,16 @@ func (o DefaultClusterPropertiesResponsePtrOutput) ToDefaultClusterPropertiesRes
 
 func (o DefaultClusterPropertiesResponsePtrOutput) Elem() DefaultClusterPropertiesResponseOutput {
 	return o.ApplyT(func(v *DefaultClusterPropertiesResponse) DefaultClusterPropertiesResponse { return *v }).(DefaultClusterPropertiesResponseOutput)
+}
+
+// The deprecated identity
+func (o DefaultClusterPropertiesResponsePtrOutput) ClusterID() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DefaultClusterPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterID
+	}).(pulumi.IntPtrOutput)
 }
 
 // The identity

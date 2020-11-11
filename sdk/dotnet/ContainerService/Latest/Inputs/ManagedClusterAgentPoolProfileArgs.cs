@@ -46,6 +46,18 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         public Input<bool>? EnableNodePublicIP { get; set; }
 
         /// <summary>
+        /// KubeletConfig specifies the configuration of kubelet on agent nodes.
+        /// </summary>
+        [Input("kubeletConfig")]
+        public Input<Inputs.KubeletConfigArgs>? KubeletConfig { get; set; }
+
+        /// <summary>
+        /// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+        /// </summary>
+        [Input("linuxOSConfig")]
+        public Input<Inputs.LinuxOSConfigArgs>? LinuxOSConfig { get; set; }
+
+        /// <summary>
         /// Maximum number of nodes for auto-scaling
         /// </summary>
         [Input("maxCount")]
@@ -124,6 +136,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         public Input<string>? OsType { get; set; }
 
         /// <summary>
+        /// Pod SubnetID specifies the VNet's subnet identifier for pods.
+        /// </summary>
+        [Input("podSubnetID")]
+        public Input<string>? PodSubnetID { get; set; }
+
+        /// <summary>
         /// The ID for Proximity Placement Group.
         /// </summary>
         [Input("proximityPlacementGroupID")]
@@ -178,7 +196,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         public Input<string>? VmSize { get; set; }
 
         /// <summary>
-        /// VNet SubnetID specifies the VNet's subnet identifier.
+        /// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         /// </summary>
         [Input("vnetSubnetID")]
         public Input<string>? VnetSubnetID { get; set; }
