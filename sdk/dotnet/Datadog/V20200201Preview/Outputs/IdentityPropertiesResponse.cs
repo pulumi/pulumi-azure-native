@@ -21,6 +21,9 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Outputs
         /// The tenant ID of resource.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// Identity type
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

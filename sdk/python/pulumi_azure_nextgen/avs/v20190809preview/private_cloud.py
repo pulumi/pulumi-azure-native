@@ -67,7 +67,7 @@ class PrivateCloud(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/latest:PrivateCloud"), pulumi.Alias(type_="azure-nextgen:avs/v20200320:PrivateCloud")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/latest:PrivateCloud"), pulumi.Alias(type_="azure-nextgen:avs/v20200320:PrivateCloud"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:PrivateCloud")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateCloud, __self__).__init__(
             'azure-nextgen:avs/v20190809preview:PrivateCloud',

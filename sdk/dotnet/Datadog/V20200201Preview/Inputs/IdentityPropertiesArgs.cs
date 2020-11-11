@@ -12,6 +12,9 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Inputs
 
     public sealed class IdentityPropertiesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identity type
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

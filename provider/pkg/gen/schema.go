@@ -765,6 +765,11 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			return nil, err
 		}
 
+		if name == "clusterID" && property.Description == "The deprecated identity" {
+			// TODO: Get rid of this in https://github.com/pulumi/pulumi-azure-nextgen-provider/issues/331
+			continue
+		}
+
 		sdkName := name
 		if clientName, ok := resolvedProperty.Extensions.GetString(extensionClientName); ok {
 			sdkName = firstToLower(clientName)

@@ -228,6 +228,9 @@ class DatadogLogsAgentResponseResult(dict):
 
 @pulumi.output_type
 class DatadogOrganizationPropertiesResponse(dict):
+    """
+    Datadog organization properties
+    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -235,6 +238,7 @@ class DatadogOrganizationPropertiesResponse(dict):
                  linking_auth_code: Optional[str] = None,
                  linking_client_id: Optional[str] = None):
         """
+        Datadog organization properties
         :param str id: Id of the Datadog organization.
         :param str name: Name of the Datadog organization.
         :param str enterprise_app_id: The Id of the Enterprise App used for Single sign on.
@@ -303,6 +307,7 @@ class IdentityPropertiesResponse(dict):
         """
         :param str principal_id: The identity ID.
         :param str tenant_id: The tenant ID of resource.
+        :param str type: Identity type
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -328,6 +333,9 @@ class IdentityPropertiesResponse(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        Identity type
+        """
         return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
@@ -373,8 +381,10 @@ class MonitorPropertiesResponse(dict):
         """
         Properties specific to the monitor resource.
         :param int liftr_resource_preference: The priority of the resource.
+        :param 'DatadogOrganizationPropertiesResponseArgs' datadog_organization_properties: Datadog organization properties
         :param str marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
+        :param 'UserInfoResponseArgs' user_info: User info
         """
         pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
         pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
@@ -405,6 +415,9 @@ class MonitorPropertiesResponse(dict):
     @property
     @pulumi.getter(name="datadogOrganizationProperties")
     def datadog_organization_properties(self) -> Optional['outputs.DatadogOrganizationPropertiesResponse']:
+        """
+        Datadog organization properties
+        """
         return pulumi.get(self, "datadog_organization_properties")
 
     @property
@@ -431,6 +444,9 @@ class MonitorPropertiesResponse(dict):
     @property
     @pulumi.getter(name="userInfo")
     def user_info(self) -> Optional['outputs.UserInfoResponse']:
+        """
+        User info
+        """
         return pulumi.get(self, "user_info")
 
     def _translate_property(self, prop):
@@ -531,11 +547,15 @@ class ResourceSkuResponse(dict):
 
 @pulumi.output_type
 class UserInfoResponse(dict):
+    """
+    User info
+    """
     def __init__(__self__, *,
                  email_address: Optional[str] = None,
                  name: Optional[str] = None,
                  phone_number: Optional[str] = None):
         """
+        User info
         :param str email_address: Email of the user used by Datadog for contacting them if needed
         :param str name: Name of the user
         :param str phone_number: Phone number of the user used by Datadog for contacting them if needed

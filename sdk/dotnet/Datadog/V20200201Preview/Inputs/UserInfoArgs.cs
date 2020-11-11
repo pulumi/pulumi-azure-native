@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Inputs
 {
 
+    /// <summary>
+    /// User info
+    /// </summary>
     public sealed class UserInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>

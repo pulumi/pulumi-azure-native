@@ -36,7 +36,7 @@ export interface GetIntegrationRuntimeObjectMetadatumArgs {
      */
     readonly resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     readonly workspaceName: string;
 }

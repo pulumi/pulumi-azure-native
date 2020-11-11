@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs/latest:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:PrivateCloud"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

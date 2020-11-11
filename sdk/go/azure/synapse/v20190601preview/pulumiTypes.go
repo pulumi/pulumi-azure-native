@@ -11674,6 +11674,502 @@ func (o WorkspaceKeyDetailsResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Git integration settings
+type WorkspaceRepositoryConfiguration struct {
+	// Account name
+	AccountName *string `pulumi:"accountName"`
+	// Collaboration branch
+	CollaborationBranch *string `pulumi:"collaborationBranch"`
+	// GitHub Enterprise host name. For example: https://github.mydomain.com
+	HostName *string `pulumi:"hostName"`
+	// VSTS project name
+	ProjectName *string `pulumi:"projectName"`
+	// Repository name
+	RepositoryName *string `pulumi:"repositoryName"`
+	// Root folder to use in the repository
+	RootFolder *string `pulumi:"rootFolder"`
+	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+	Type *string `pulumi:"type"`
+}
+
+// WorkspaceRepositoryConfigurationInput is an input type that accepts WorkspaceRepositoryConfigurationArgs and WorkspaceRepositoryConfigurationOutput values.
+// You can construct a concrete instance of `WorkspaceRepositoryConfigurationInput` via:
+//
+//          WorkspaceRepositoryConfigurationArgs{...}
+type WorkspaceRepositoryConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkspaceRepositoryConfigurationOutput() WorkspaceRepositoryConfigurationOutput
+	ToWorkspaceRepositoryConfigurationOutputWithContext(context.Context) WorkspaceRepositoryConfigurationOutput
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfigurationArgs struct {
+	// Account name
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Collaboration branch
+	CollaborationBranch pulumi.StringPtrInput `pulumi:"collaborationBranch"`
+	// GitHub Enterprise host name. For example: https://github.mydomain.com
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// VSTS project name
+	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
+	// Repository name
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+	// Root folder to use in the repository
+	RootFolder pulumi.StringPtrInput `pulumi:"rootFolder"`
+	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkspaceRepositoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceRepositoryConfiguration)(nil)).Elem()
+}
+
+func (i WorkspaceRepositoryConfigurationArgs) ToWorkspaceRepositoryConfigurationOutput() WorkspaceRepositoryConfigurationOutput {
+	return i.ToWorkspaceRepositoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkspaceRepositoryConfigurationArgs) ToWorkspaceRepositoryConfigurationOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationOutput)
+}
+
+func (i WorkspaceRepositoryConfigurationArgs) ToWorkspaceRepositoryConfigurationPtrOutput() WorkspaceRepositoryConfigurationPtrOutput {
+	return i.ToWorkspaceRepositoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceRepositoryConfigurationArgs) ToWorkspaceRepositoryConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationOutput).ToWorkspaceRepositoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkspaceRepositoryConfigurationPtrInput is an input type that accepts WorkspaceRepositoryConfigurationArgs, WorkspaceRepositoryConfigurationPtr and WorkspaceRepositoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkspaceRepositoryConfigurationPtrInput` via:
+//
+//          WorkspaceRepositoryConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceRepositoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceRepositoryConfigurationPtrOutput() WorkspaceRepositoryConfigurationPtrOutput
+	ToWorkspaceRepositoryConfigurationPtrOutputWithContext(context.Context) WorkspaceRepositoryConfigurationPtrOutput
+}
+
+type workspaceRepositoryConfigurationPtrType WorkspaceRepositoryConfigurationArgs
+
+func WorkspaceRepositoryConfigurationPtr(v *WorkspaceRepositoryConfigurationArgs) WorkspaceRepositoryConfigurationPtrInput {
+	return (*workspaceRepositoryConfigurationPtrType)(v)
+}
+
+func (*workspaceRepositoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceRepositoryConfiguration)(nil)).Elem()
+}
+
+func (i *workspaceRepositoryConfigurationPtrType) ToWorkspaceRepositoryConfigurationPtrOutput() WorkspaceRepositoryConfigurationPtrOutput {
+	return i.ToWorkspaceRepositoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceRepositoryConfigurationPtrType) ToWorkspaceRepositoryConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationPtrOutput)
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceRepositoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceRepositoryConfiguration)(nil)).Elem()
+}
+
+func (o WorkspaceRepositoryConfigurationOutput) ToWorkspaceRepositoryConfigurationOutput() WorkspaceRepositoryConfigurationOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationOutput) ToWorkspaceRepositoryConfigurationOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationOutput) ToWorkspaceRepositoryConfigurationPtrOutput() WorkspaceRepositoryConfigurationPtrOutput {
+	return o.ToWorkspaceRepositoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceRepositoryConfigurationOutput) ToWorkspaceRepositoryConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *WorkspaceRepositoryConfiguration {
+		return &v
+	}).(WorkspaceRepositoryConfigurationPtrOutput)
+}
+
+// Account name
+func (o WorkspaceRepositoryConfigurationOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Collaboration branch
+func (o WorkspaceRepositoryConfigurationOutput) CollaborationBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.CollaborationBranch }).(pulumi.StringPtrOutput)
+}
+
+// GitHub Enterprise host name. For example: https://github.mydomain.com
+func (o WorkspaceRepositoryConfigurationOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// VSTS project name
+func (o WorkspaceRepositoryConfigurationOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
+}
+
+// Repository name
+func (o WorkspaceRepositoryConfigurationOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+// Root folder to use in the repository
+func (o WorkspaceRepositoryConfigurationOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.RootFolder }).(pulumi.StringPtrOutput)
+}
+
+// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+func (o WorkspaceRepositoryConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceRepositoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceRepositoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceRepositoryConfiguration)(nil)).Elem()
+}
+
+func (o WorkspaceRepositoryConfigurationPtrOutput) ToWorkspaceRepositoryConfigurationPtrOutput() WorkspaceRepositoryConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationPtrOutput) ToWorkspaceRepositoryConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationPtrOutput) Elem() WorkspaceRepositoryConfigurationOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) WorkspaceRepositoryConfiguration { return *v }).(WorkspaceRepositoryConfigurationOutput)
+}
+
+// Account name
+func (o WorkspaceRepositoryConfigurationPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Collaboration branch
+func (o WorkspaceRepositoryConfigurationPtrOutput) CollaborationBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CollaborationBranch
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub Enterprise host name. For example: https://github.mydomain.com
+func (o WorkspaceRepositoryConfigurationPtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostName
+	}).(pulumi.StringPtrOutput)
+}
+
+// VSTS project name
+func (o WorkspaceRepositoryConfigurationPtrOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Repository name
+func (o WorkspaceRepositoryConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Root folder to use in the repository
+func (o WorkspaceRepositoryConfigurationPtrOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootFolder
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+func (o WorkspaceRepositoryConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfigurationResponse struct {
+	// Account name
+	AccountName *string `pulumi:"accountName"`
+	// Collaboration branch
+	CollaborationBranch *string `pulumi:"collaborationBranch"`
+	// GitHub Enterprise host name. For example: https://github.mydomain.com
+	HostName *string `pulumi:"hostName"`
+	// VSTS project name
+	ProjectName *string `pulumi:"projectName"`
+	// Repository name
+	RepositoryName *string `pulumi:"repositoryName"`
+	// Root folder to use in the repository
+	RootFolder *string `pulumi:"rootFolder"`
+	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+	Type *string `pulumi:"type"`
+}
+
+// WorkspaceRepositoryConfigurationResponseInput is an input type that accepts WorkspaceRepositoryConfigurationResponseArgs and WorkspaceRepositoryConfigurationResponseOutput values.
+// You can construct a concrete instance of `WorkspaceRepositoryConfigurationResponseInput` via:
+//
+//          WorkspaceRepositoryConfigurationResponseArgs{...}
+type WorkspaceRepositoryConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceRepositoryConfigurationResponseOutput() WorkspaceRepositoryConfigurationResponseOutput
+	ToWorkspaceRepositoryConfigurationResponseOutputWithContext(context.Context) WorkspaceRepositoryConfigurationResponseOutput
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfigurationResponseArgs struct {
+	// Account name
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Collaboration branch
+	CollaborationBranch pulumi.StringPtrInput `pulumi:"collaborationBranch"`
+	// GitHub Enterprise host name. For example: https://github.mydomain.com
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// VSTS project name
+	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
+	// Repository name
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+	// Root folder to use in the repository
+	RootFolder pulumi.StringPtrInput `pulumi:"rootFolder"`
+	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkspaceRepositoryConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceRepositoryConfigurationResponse)(nil)).Elem()
+}
+
+func (i WorkspaceRepositoryConfigurationResponseArgs) ToWorkspaceRepositoryConfigurationResponseOutput() WorkspaceRepositoryConfigurationResponseOutput {
+	return i.ToWorkspaceRepositoryConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceRepositoryConfigurationResponseArgs) ToWorkspaceRepositoryConfigurationResponseOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationResponseOutput)
+}
+
+func (i WorkspaceRepositoryConfigurationResponseArgs) ToWorkspaceRepositoryConfigurationResponsePtrOutput() WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return i.ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceRepositoryConfigurationResponseArgs) ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationResponseOutput).ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceRepositoryConfigurationResponsePtrInput is an input type that accepts WorkspaceRepositoryConfigurationResponseArgs, WorkspaceRepositoryConfigurationResponsePtr and WorkspaceRepositoryConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceRepositoryConfigurationResponsePtrInput` via:
+//
+//          WorkspaceRepositoryConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceRepositoryConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceRepositoryConfigurationResponsePtrOutput() WorkspaceRepositoryConfigurationResponsePtrOutput
+	ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(context.Context) WorkspaceRepositoryConfigurationResponsePtrOutput
+}
+
+type workspaceRepositoryConfigurationResponsePtrType WorkspaceRepositoryConfigurationResponseArgs
+
+func WorkspaceRepositoryConfigurationResponsePtr(v *WorkspaceRepositoryConfigurationResponseArgs) WorkspaceRepositoryConfigurationResponsePtrInput {
+	return (*workspaceRepositoryConfigurationResponsePtrType)(v)
+}
+
+func (*workspaceRepositoryConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceRepositoryConfigurationResponse)(nil)).Elem()
+}
+
+func (i *workspaceRepositoryConfigurationResponsePtrType) ToWorkspaceRepositoryConfigurationResponsePtrOutput() WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return i.ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceRepositoryConfigurationResponsePtrType) ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationResponsePtrOutput)
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceRepositoryConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceRepositoryConfigurationResponse)(nil)).Elem()
+}
+
+func (o WorkspaceRepositoryConfigurationResponseOutput) ToWorkspaceRepositoryConfigurationResponseOutput() WorkspaceRepositoryConfigurationResponseOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationResponseOutput) ToWorkspaceRepositoryConfigurationResponseOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponseOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationResponseOutput) ToWorkspaceRepositoryConfigurationResponsePtrOutput() WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return o.ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceRepositoryConfigurationResponseOutput) ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *WorkspaceRepositoryConfigurationResponse {
+		return &v
+	}).(WorkspaceRepositoryConfigurationResponsePtrOutput)
+}
+
+// Account name
+func (o WorkspaceRepositoryConfigurationResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Collaboration branch
+func (o WorkspaceRepositoryConfigurationResponseOutput) CollaborationBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.CollaborationBranch }).(pulumi.StringPtrOutput)
+}
+
+// GitHub Enterprise host name. For example: https://github.mydomain.com
+func (o WorkspaceRepositoryConfigurationResponseOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// VSTS project name
+func (o WorkspaceRepositoryConfigurationResponseOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
+}
+
+// Repository name
+func (o WorkspaceRepositoryConfigurationResponseOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+// Root folder to use in the repository
+func (o WorkspaceRepositoryConfigurationResponseOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.RootFolder }).(pulumi.StringPtrOutput)
+}
+
+// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+func (o WorkspaceRepositoryConfigurationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceRepositoryConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceRepositoryConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceRepositoryConfigurationResponse)(nil)).Elem()
+}
+
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) ToWorkspaceRepositoryConfigurationResponsePtrOutput() WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) Elem() WorkspaceRepositoryConfigurationResponseOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) WorkspaceRepositoryConfigurationResponse { return *v }).(WorkspaceRepositoryConfigurationResponseOutput)
+}
+
+// Account name
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Collaboration branch
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) CollaborationBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CollaborationBranch
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub Enterprise host name. For example: https://github.mydomain.com
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostName
+	}).(pulumi.StringPtrOutput)
+}
+
+// VSTS project name
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Repository name
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Root folder to use in the repository
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootFolder
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutoPausePropertiesOutput{})
 	pulumi.RegisterOutputType(AutoPausePropertiesPtrOutput{})
@@ -11818,4 +12314,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceKeyDetailsPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceKeyDetailsResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceKeyDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceRepositoryConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkspaceRepositoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceRepositoryConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceRepositoryConfigurationResponsePtrOutput{})
 }

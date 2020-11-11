@@ -33,6 +33,7 @@ class Workspace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_profile: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
+                 workspace_repository_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceRepositoryConfigurationArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -57,6 +58,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network_profile: Virtual Network profile
         :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[pulumi.InputType['WorkspaceRepositoryConfigurationArgs']] workspace_repository_configuration: Git integration settings
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,6 +99,7 @@ class Workspace(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['workspace_repository_configuration'] = workspace_repository_configuration
             __props__['extra_properties'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
@@ -269,6 +272,14 @@ class Workspace(pulumi.CustomResource):
         Virtual Network profile
         """
         return pulumi.get(self, "virtual_network_profile")
+
+    @property
+    @pulumi.getter(name="workspaceRepositoryConfiguration")
+    def workspace_repository_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceRepositoryConfigurationResponse']]:
+        """
+        Git integration settings
+        """
+        return pulumi.get(self, "workspace_repository_configuration")
 
     @property
     @pulumi.getter(name="workspaceUID")

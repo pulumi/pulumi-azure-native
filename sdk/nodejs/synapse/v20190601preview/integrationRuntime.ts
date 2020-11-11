@@ -116,7 +116,7 @@ export interface IntegrationRuntimeArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     readonly workspaceName: pulumi.Input<string>;
 }

@@ -108,6 +108,10 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// </summary>
         public readonly int ShareUsageBytes;
         /// <summary>
+        /// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+        /// </summary>
+        public readonly string SnapshotTime;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 
             int shareUsageBytes,
 
+            string snapshotTime,
+
             string type,
 
             string version)
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
             RootSquash = rootSquash;
             ShareQuota = shareQuota;
             ShareUsageBytes = shareUsageBytes;
+            SnapshotTime = snapshotTime;
             Type = type;
             Version = version;
         }

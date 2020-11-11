@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20190809preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
