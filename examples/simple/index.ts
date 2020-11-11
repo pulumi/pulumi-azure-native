@@ -2,6 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
 
 import * as compute from "@pulumi/azure-nextgen/compute/latest";
+// TODO change to latest when https://github.com/Azure/azure-rest-api-specs/issues/11634 is fixed
 import * as containerinstance from "@pulumi/azure-nextgen/containerinstance/v20191201";
 import * as eventgrid from "@pulumi/azure-nextgen/eventgrid/latest";
 import * as network from "@pulumi/azure-nextgen/network/latest";
