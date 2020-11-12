@@ -7,7 +7,6 @@ jobs:
         with:
           age: 1 month
           skip-tags: true
-    timeout-minutes: "10"
 name: cleanup
 "on":
   schedule:
