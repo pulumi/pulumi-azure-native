@@ -33,7 +33,6 @@ import (
 )
 
 const (
-	ActiveDirectoryEndpoint = "https://login.microsoftonline.com/"
 	// Microsoft's Pulumi Partner ID.
 	PulumiPartnerID = "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
 )
@@ -1206,7 +1205,7 @@ func (k *azureNextGenProvider) getAuthConfig() (*authentication.Config, error) {
 }
 
 func (k *azureNextGenProvider) getAuthorizationToken(authConfig *authentication.Config) (autorest.Authorizer, error) {
-	oauthConfig, err := authConfig.BuildOAuthConfig(ActiveDirectoryEndpoint)
+	oauthConfig, err := authConfig.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
 	if err != nil {
 		return nil, err
 	}
