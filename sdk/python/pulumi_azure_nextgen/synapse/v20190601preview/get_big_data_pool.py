@@ -20,7 +20,7 @@ class GetBigDataPoolResult:
     """
     A Big Data pool
     """
-    def __init__(__self__, auto_pause=None, auto_scale=None, creation_date=None, custom_libraries=None, default_spark_log_folder=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
+    def __init__(__self__, auto_pause=None, auto_scale=None, creation_date=None, default_spark_log_folder=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
         if auto_pause and not isinstance(auto_pause, dict):
             raise TypeError("Expected argument 'auto_pause' to be a dict")
         pulumi.set(__self__, "auto_pause", auto_pause)
@@ -30,9 +30,6 @@ class GetBigDataPoolResult:
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
-        if custom_libraries and not isinstance(custom_libraries, list):
-            raise TypeError("Expected argument 'custom_libraries' to be a list")
-        pulumi.set(__self__, "custom_libraries", custom_libraries)
         if default_spark_log_folder and not isinstance(default_spark_log_folder, str):
             raise TypeError("Expected argument 'default_spark_log_folder' to be a str")
         pulumi.set(__self__, "default_spark_log_folder", default_spark_log_folder)
@@ -60,9 +57,6 @@ class GetBigDataPoolResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if session_level_packages_enabled and not isinstance(session_level_packages_enabled, bool):
-            raise TypeError("Expected argument 'session_level_packages_enabled' to be a bool")
-        pulumi.set(__self__, "session_level_packages_enabled", session_level_packages_enabled)
         if spark_config_properties and not isinstance(spark_config_properties, dict):
             raise TypeError("Expected argument 'spark_config_properties' to be a dict")
         pulumi.set(__self__, "spark_config_properties", spark_config_properties)
@@ -102,14 +96,6 @@ class GetBigDataPoolResult:
         The time when the Big Data pool was created.
         """
         return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter(name="customLibraries")
-    def custom_libraries(self) -> Optional[Sequence['outputs.LibraryInfoResponse']]:
-        """
-        List of custom libraries/packages associated with the spark pool.
-        """
-        return pulumi.get(self, "custom_libraries")
 
     @property
     @pulumi.getter(name="defaultSparkLogFolder")
@@ -184,14 +170,6 @@ class GetBigDataPoolResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="sessionLevelPackagesEnabled")
-    def session_level_packages_enabled(self) -> Optional[bool]:
-        """
-        Whether session level library/package management is enabled or not.
-        """
-        return pulumi.get(self, "session_level_packages_enabled")
-
-    @property
     @pulumi.getter(name="sparkConfigProperties")
     def spark_config_properties(self) -> Optional['outputs.LibraryRequirementsResponse']:
         """
@@ -241,7 +219,6 @@ class AwaitableGetBigDataPoolResult(GetBigDataPoolResult):
             auto_pause=self.auto_pause,
             auto_scale=self.auto_scale,
             creation_date=self.creation_date,
-            custom_libraries=self.custom_libraries,
             default_spark_log_folder=self.default_spark_log_folder,
             is_compute_isolation_enabled=self.is_compute_isolation_enabled,
             library_requirements=self.library_requirements,
@@ -251,7 +228,6 @@ class AwaitableGetBigDataPoolResult(GetBigDataPoolResult):
             node_size=self.node_size,
             node_size_family=self.node_size_family,
             provisioning_state=self.provisioning_state,
-            session_level_packages_enabled=self.session_level_packages_enabled,
             spark_config_properties=self.spark_config_properties,
             spark_events_folder=self.spark_events_folder,
             spark_version=self.spark_version,
@@ -284,7 +260,6 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
         auto_pause=__ret__.auto_pause,
         auto_scale=__ret__.auto_scale,
         creation_date=__ret__.creation_date,
-        custom_libraries=__ret__.custom_libraries,
         default_spark_log_folder=__ret__.default_spark_log_folder,
         is_compute_isolation_enabled=__ret__.is_compute_isolation_enabled,
         library_requirements=__ret__.library_requirements,
@@ -294,7 +269,6 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
         node_size=__ret__.node_size,
         node_size_family=__ret__.node_size_family,
         provisioning_state=__ret__.provisioning_state,
-        session_level_packages_enabled=__ret__.session_level_packages_enabled,
         spark_config_properties=__ret__.spark_config_properties,
         spark_events_folder=__ret__.spark_events_folder,
         spark_version=__ret__.spark_version,

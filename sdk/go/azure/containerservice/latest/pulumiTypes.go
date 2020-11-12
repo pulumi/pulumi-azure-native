@@ -278,6 +278,376 @@ func (o AgentPoolUpgradeSettingsResponsePtrOutput) MaxSurge() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// An error response from the Container service.
+type CloudErrorBodyResponse struct {
+	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+	Code *string `pulumi:"code"`
+	// A list of additional details about the error.
+	Details []CloudErrorBodyResponse `pulumi:"details"`
+	// A message describing the error, intended to be suitable for display in a user interface.
+	Message *string `pulumi:"message"`
+	// The target of the particular error. For example, the name of the property in error.
+	Target *string `pulumi:"target"`
+}
+
+// CloudErrorBodyResponseInput is an input type that accepts CloudErrorBodyResponseArgs and CloudErrorBodyResponseOutput values.
+// You can construct a concrete instance of `CloudErrorBodyResponseInput` via:
+//
+//          CloudErrorBodyResponseArgs{...}
+type CloudErrorBodyResponseInput interface {
+	pulumi.Input
+
+	ToCloudErrorBodyResponseOutput() CloudErrorBodyResponseOutput
+	ToCloudErrorBodyResponseOutputWithContext(context.Context) CloudErrorBodyResponseOutput
+}
+
+// An error response from the Container service.
+type CloudErrorBodyResponseArgs struct {
+	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// A list of additional details about the error.
+	Details CloudErrorBodyResponseArrayInput `pulumi:"details"`
+	// A message describing the error, intended to be suitable for display in a user interface.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The target of the particular error. For example, the name of the property in error.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (CloudErrorBodyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudErrorBodyResponse)(nil)).Elem()
+}
+
+func (i CloudErrorBodyResponseArgs) ToCloudErrorBodyResponseOutput() CloudErrorBodyResponseOutput {
+	return i.ToCloudErrorBodyResponseOutputWithContext(context.Background())
+}
+
+func (i CloudErrorBodyResponseArgs) ToCloudErrorBodyResponseOutputWithContext(ctx context.Context) CloudErrorBodyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorBodyResponseOutput)
+}
+
+func (i CloudErrorBodyResponseArgs) ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput {
+	return i.ToCloudErrorBodyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudErrorBodyResponseArgs) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorBodyResponseOutput).ToCloudErrorBodyResponsePtrOutputWithContext(ctx)
+}
+
+// CloudErrorBodyResponsePtrInput is an input type that accepts CloudErrorBodyResponseArgs, CloudErrorBodyResponsePtr and CloudErrorBodyResponsePtrOutput values.
+// You can construct a concrete instance of `CloudErrorBodyResponsePtrInput` via:
+//
+//          CloudErrorBodyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudErrorBodyResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput
+	ToCloudErrorBodyResponsePtrOutputWithContext(context.Context) CloudErrorBodyResponsePtrOutput
+}
+
+type cloudErrorBodyResponsePtrType CloudErrorBodyResponseArgs
+
+func CloudErrorBodyResponsePtr(v *CloudErrorBodyResponseArgs) CloudErrorBodyResponsePtrInput {
+	return (*cloudErrorBodyResponsePtrType)(v)
+}
+
+func (*cloudErrorBodyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudErrorBodyResponse)(nil)).Elem()
+}
+
+func (i *cloudErrorBodyResponsePtrType) ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput {
+	return i.ToCloudErrorBodyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudErrorBodyResponsePtrType) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorBodyResponsePtrOutput)
+}
+
+// CloudErrorBodyResponseArrayInput is an input type that accepts CloudErrorBodyResponseArray and CloudErrorBodyResponseArrayOutput values.
+// You can construct a concrete instance of `CloudErrorBodyResponseArrayInput` via:
+//
+//          CloudErrorBodyResponseArray{ CloudErrorBodyResponseArgs{...} }
+type CloudErrorBodyResponseArrayInput interface {
+	pulumi.Input
+
+	ToCloudErrorBodyResponseArrayOutput() CloudErrorBodyResponseArrayOutput
+	ToCloudErrorBodyResponseArrayOutputWithContext(context.Context) CloudErrorBodyResponseArrayOutput
+}
+
+type CloudErrorBodyResponseArray []CloudErrorBodyResponseInput
+
+func (CloudErrorBodyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudErrorBodyResponse)(nil)).Elem()
+}
+
+func (i CloudErrorBodyResponseArray) ToCloudErrorBodyResponseArrayOutput() CloudErrorBodyResponseArrayOutput {
+	return i.ToCloudErrorBodyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CloudErrorBodyResponseArray) ToCloudErrorBodyResponseArrayOutputWithContext(ctx context.Context) CloudErrorBodyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorBodyResponseArrayOutput)
+}
+
+// An error response from the Container service.
+type CloudErrorBodyResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudErrorBodyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudErrorBodyResponse)(nil)).Elem()
+}
+
+func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponseOutput() CloudErrorBodyResponseOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponseOutputWithContext(ctx context.Context) CloudErrorBodyResponseOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput {
+	return o.ToCloudErrorBodyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
+	return o.ApplyT(func(v CloudErrorBodyResponse) *CloudErrorBodyResponse {
+		return &v
+	}).(CloudErrorBodyResponsePtrOutput)
+}
+
+// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+func (o CloudErrorBodyResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// A list of additional details about the error.
+func (o CloudErrorBodyResponseOutput) Details() CloudErrorBodyResponseArrayOutput {
+	return o.ApplyT(func(v CloudErrorBodyResponse) []CloudErrorBodyResponse { return v.Details }).(CloudErrorBodyResponseArrayOutput)
+}
+
+// A message describing the error, intended to be suitable for display in a user interface.
+func (o CloudErrorBodyResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error. For example, the name of the property in error.
+func (o CloudErrorBodyResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type CloudErrorBodyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudErrorBodyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudErrorBodyResponse)(nil)).Elem()
+}
+
+func (o CloudErrorBodyResponsePtrOutput) ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponsePtrOutput) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponsePtrOutput) Elem() CloudErrorBodyResponseOutput {
+	return o.ApplyT(func(v *CloudErrorBodyResponse) CloudErrorBodyResponse { return *v }).(CloudErrorBodyResponseOutput)
+}
+
+// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+func (o CloudErrorBodyResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of additional details about the error.
+func (o CloudErrorBodyResponsePtrOutput) Details() CloudErrorBodyResponseArrayOutput {
+	return o.ApplyT(func(v *CloudErrorBodyResponse) []CloudErrorBodyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Details
+	}).(CloudErrorBodyResponseArrayOutput)
+}
+
+// A message describing the error, intended to be suitable for display in a user interface.
+func (o CloudErrorBodyResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error. For example, the name of the property in error.
+func (o CloudErrorBodyResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudErrorBodyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudErrorBodyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudErrorBodyResponse)(nil)).Elem()
+}
+
+func (o CloudErrorBodyResponseArrayOutput) ToCloudErrorBodyResponseArrayOutput() CloudErrorBodyResponseArrayOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponseArrayOutput) ToCloudErrorBodyResponseArrayOutputWithContext(ctx context.Context) CloudErrorBodyResponseArrayOutput {
+	return o
+}
+
+func (o CloudErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorBodyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudErrorBodyResponse {
+		return vs[0].([]CloudErrorBodyResponse)[vs[1].(int)]
+	}).(CloudErrorBodyResponseOutput)
+}
+
+// An error response from the Container service.
+type CloudErrorResponse struct {
+	// Details about the error.
+	Error *CloudErrorBodyResponse `pulumi:"error"`
+}
+
+// CloudErrorResponseInput is an input type that accepts CloudErrorResponseArgs and CloudErrorResponseOutput values.
+// You can construct a concrete instance of `CloudErrorResponseInput` via:
+//
+//          CloudErrorResponseArgs{...}
+type CloudErrorResponseInput interface {
+	pulumi.Input
+
+	ToCloudErrorResponseOutput() CloudErrorResponseOutput
+	ToCloudErrorResponseOutputWithContext(context.Context) CloudErrorResponseOutput
+}
+
+// An error response from the Container service.
+type CloudErrorResponseArgs struct {
+	// Details about the error.
+	Error CloudErrorBodyResponsePtrInput `pulumi:"error"`
+}
+
+func (CloudErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudErrorResponse)(nil)).Elem()
+}
+
+func (i CloudErrorResponseArgs) ToCloudErrorResponseOutput() CloudErrorResponseOutput {
+	return i.ToCloudErrorResponseOutputWithContext(context.Background())
+}
+
+func (i CloudErrorResponseArgs) ToCloudErrorResponseOutputWithContext(ctx context.Context) CloudErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponseOutput)
+}
+
+func (i CloudErrorResponseArgs) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
+	return i.ToCloudErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudErrorResponseArgs) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponseOutput).ToCloudErrorResponsePtrOutputWithContext(ctx)
+}
+
+// CloudErrorResponsePtrInput is an input type that accepts CloudErrorResponseArgs, CloudErrorResponsePtr and CloudErrorResponsePtrOutput values.
+// You can construct a concrete instance of `CloudErrorResponsePtrInput` via:
+//
+//          CloudErrorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudErrorResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput
+	ToCloudErrorResponsePtrOutputWithContext(context.Context) CloudErrorResponsePtrOutput
+}
+
+type cloudErrorResponsePtrType CloudErrorResponseArgs
+
+func CloudErrorResponsePtr(v *CloudErrorResponseArgs) CloudErrorResponsePtrInput {
+	return (*cloudErrorResponsePtrType)(v)
+}
+
+func (*cloudErrorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudErrorResponse)(nil)).Elem()
+}
+
+func (i *cloudErrorResponsePtrType) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
+	return i.ToCloudErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudErrorResponsePtrType) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponsePtrOutput)
+}
+
+// An error response from the Container service.
+type CloudErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudErrorResponse)(nil)).Elem()
+}
+
+func (o CloudErrorResponseOutput) ToCloudErrorResponseOutput() CloudErrorResponseOutput {
+	return o
+}
+
+func (o CloudErrorResponseOutput) ToCloudErrorResponseOutputWithContext(ctx context.Context) CloudErrorResponseOutput {
+	return o
+}
+
+func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
+	return o.ToCloudErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
+	return o.ApplyT(func(v CloudErrorResponse) *CloudErrorResponse {
+		return &v
+	}).(CloudErrorResponsePtrOutput)
+}
+
+// Details about the error.
+func (o CloudErrorResponseOutput) Error() CloudErrorBodyResponsePtrOutput {
+	return o.ApplyT(func(v CloudErrorResponse) *CloudErrorBodyResponse { return v.Error }).(CloudErrorBodyResponsePtrOutput)
+}
+
+type CloudErrorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudErrorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudErrorResponse)(nil)).Elem()
+}
+
+func (o CloudErrorResponsePtrOutput) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
+	return o
+}
+
+func (o CloudErrorResponsePtrOutput) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
+	return o
+}
+
+func (o CloudErrorResponsePtrOutput) Elem() CloudErrorResponseOutput {
+	return o.ApplyT(func(v *CloudErrorResponse) CloudErrorResponse { return *v }).(CloudErrorResponseOutput)
+}
+
+// Details about the error.
+func (o CloudErrorResponsePtrOutput) Error() CloudErrorBodyResponsePtrOutput {
+	return o.ApplyT(func(v *CloudErrorResponse) *CloudErrorBodyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Error
+	}).(CloudErrorBodyResponsePtrOutput)
+}
+
 // Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfile struct {
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
@@ -4070,6 +4440,922 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	}).(CredentialResultResponseOutput)
 }
 
+// Kubelet configurations of agent nodes.
+type KubeletConfig struct {
+	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
+	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
+	CpuCfsQuota *bool `pulumi:"cpuCfsQuota"`
+	// Sets CPU CFS quota period value.
+	CpuCfsQuotaPeriod *string `pulumi:"cpuCfsQuotaPeriod"`
+	// CPU Manager policy to use.
+	CpuManagerPolicy *string `pulumi:"cpuManagerPolicy"`
+	// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+	FailSwapOn *bool `pulumi:"failSwapOn"`
+	// The percent of disk usage after which image garbage collection is always run.
+	ImageGcHighThreshold *int `pulumi:"imageGcHighThreshold"`
+	// The percent of disk usage before which image garbage collection is never run.
+	ImageGcLowThreshold *int `pulumi:"imageGcLowThreshold"`
+	// Topology Manager policy to use.
+	TopologyManagerPolicy *string `pulumi:"topologyManagerPolicy"`
+}
+
+// KubeletConfigInput is an input type that accepts KubeletConfigArgs and KubeletConfigOutput values.
+// You can construct a concrete instance of `KubeletConfigInput` via:
+//
+//          KubeletConfigArgs{...}
+type KubeletConfigInput interface {
+	pulumi.Input
+
+	ToKubeletConfigOutput() KubeletConfigOutput
+	ToKubeletConfigOutputWithContext(context.Context) KubeletConfigOutput
+}
+
+// Kubelet configurations of agent nodes.
+type KubeletConfigArgs struct {
+	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
+	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
+	CpuCfsQuota pulumi.BoolPtrInput `pulumi:"cpuCfsQuota"`
+	// Sets CPU CFS quota period value.
+	CpuCfsQuotaPeriod pulumi.StringPtrInput `pulumi:"cpuCfsQuotaPeriod"`
+	// CPU Manager policy to use.
+	CpuManagerPolicy pulumi.StringPtrInput `pulumi:"cpuManagerPolicy"`
+	// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+	FailSwapOn pulumi.BoolPtrInput `pulumi:"failSwapOn"`
+	// The percent of disk usage after which image garbage collection is always run.
+	ImageGcHighThreshold pulumi.IntPtrInput `pulumi:"imageGcHighThreshold"`
+	// The percent of disk usage before which image garbage collection is never run.
+	ImageGcLowThreshold pulumi.IntPtrInput `pulumi:"imageGcLowThreshold"`
+	// Topology Manager policy to use.
+	TopologyManagerPolicy pulumi.StringPtrInput `pulumi:"topologyManagerPolicy"`
+}
+
+func (KubeletConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubeletConfig)(nil)).Elem()
+}
+
+func (i KubeletConfigArgs) ToKubeletConfigOutput() KubeletConfigOutput {
+	return i.ToKubeletConfigOutputWithContext(context.Background())
+}
+
+func (i KubeletConfigArgs) ToKubeletConfigOutputWithContext(ctx context.Context) KubeletConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeletConfigOutput)
+}
+
+func (i KubeletConfigArgs) ToKubeletConfigPtrOutput() KubeletConfigPtrOutput {
+	return i.ToKubeletConfigPtrOutputWithContext(context.Background())
+}
+
+func (i KubeletConfigArgs) ToKubeletConfigPtrOutputWithContext(ctx context.Context) KubeletConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeletConfigOutput).ToKubeletConfigPtrOutputWithContext(ctx)
+}
+
+// KubeletConfigPtrInput is an input type that accepts KubeletConfigArgs, KubeletConfigPtr and KubeletConfigPtrOutput values.
+// You can construct a concrete instance of `KubeletConfigPtrInput` via:
+//
+//          KubeletConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type KubeletConfigPtrInput interface {
+	pulumi.Input
+
+	ToKubeletConfigPtrOutput() KubeletConfigPtrOutput
+	ToKubeletConfigPtrOutputWithContext(context.Context) KubeletConfigPtrOutput
+}
+
+type kubeletConfigPtrType KubeletConfigArgs
+
+func KubeletConfigPtr(v *KubeletConfigArgs) KubeletConfigPtrInput {
+	return (*kubeletConfigPtrType)(v)
+}
+
+func (*kubeletConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubeletConfig)(nil)).Elem()
+}
+
+func (i *kubeletConfigPtrType) ToKubeletConfigPtrOutput() KubeletConfigPtrOutput {
+	return i.ToKubeletConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *kubeletConfigPtrType) ToKubeletConfigPtrOutputWithContext(ctx context.Context) KubeletConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeletConfigPtrOutput)
+}
+
+// Kubelet configurations of agent nodes.
+type KubeletConfigOutput struct{ *pulumi.OutputState }
+
+func (KubeletConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubeletConfig)(nil)).Elem()
+}
+
+func (o KubeletConfigOutput) ToKubeletConfigOutput() KubeletConfigOutput {
+	return o
+}
+
+func (o KubeletConfigOutput) ToKubeletConfigOutputWithContext(ctx context.Context) KubeletConfigOutput {
+	return o
+}
+
+func (o KubeletConfigOutput) ToKubeletConfigPtrOutput() KubeletConfigPtrOutput {
+	return o.ToKubeletConfigPtrOutputWithContext(context.Background())
+}
+
+func (o KubeletConfigOutput) ToKubeletConfigPtrOutputWithContext(ctx context.Context) KubeletConfigPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *KubeletConfig {
+		return &v
+	}).(KubeletConfigPtrOutput)
+}
+
+// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+func (o KubeletConfigOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubeletConfig) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
+}
+
+// Enable CPU CFS quota enforcement for containers that specify CPU limits.
+func (o KubeletConfigOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *bool { return v.CpuCfsQuota }).(pulumi.BoolPtrOutput)
+}
+
+// Sets CPU CFS quota period value.
+func (o KubeletConfigOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *string { return v.CpuCfsQuotaPeriod }).(pulumi.StringPtrOutput)
+}
+
+// CPU Manager policy to use.
+func (o KubeletConfigOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *string { return v.CpuManagerPolicy }).(pulumi.StringPtrOutput)
+}
+
+// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+func (o KubeletConfigOutput) FailSwapOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
+}
+
+// The percent of disk usage after which image garbage collection is always run.
+func (o KubeletConfigOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *int { return v.ImageGcHighThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The percent of disk usage before which image garbage collection is never run.
+func (o KubeletConfigOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *int { return v.ImageGcLowThreshold }).(pulumi.IntPtrOutput)
+}
+
+// Topology Manager policy to use.
+func (o KubeletConfigOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubeletConfig) *string { return v.TopologyManagerPolicy }).(pulumi.StringPtrOutput)
+}
+
+type KubeletConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KubeletConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubeletConfig)(nil)).Elem()
+}
+
+func (o KubeletConfigPtrOutput) ToKubeletConfigPtrOutput() KubeletConfigPtrOutput {
+	return o
+}
+
+func (o KubeletConfigPtrOutput) ToKubeletConfigPtrOutputWithContext(ctx context.Context) KubeletConfigPtrOutput {
+	return o
+}
+
+func (o KubeletConfigPtrOutput) Elem() KubeletConfigOutput {
+	return o.ApplyT(func(v *KubeletConfig) KubeletConfig { return *v }).(KubeletConfigOutput)
+}
+
+// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+func (o KubeletConfigPtrOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubeletConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedUnsafeSysctls
+	}).(pulumi.StringArrayOutput)
+}
+
+// Enable CPU CFS quota enforcement for containers that specify CPU limits.
+func (o KubeletConfigPtrOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubeletConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCfsQuota
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets CPU CFS quota period value.
+func (o KubeletConfigPtrOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeletConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCfsQuotaPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// CPU Manager policy to use.
+func (o KubeletConfigPtrOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeletConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManagerPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+func (o KubeletConfigPtrOutput) FailSwapOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubeletConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailSwapOn
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The percent of disk usage after which image garbage collection is always run.
+func (o KubeletConfigPtrOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ImageGcHighThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The percent of disk usage before which image garbage collection is never run.
+func (o KubeletConfigPtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ImageGcLowThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// Topology Manager policy to use.
+func (o KubeletConfigPtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeletConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopologyManagerPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kubelet configurations of agent nodes.
+type KubeletConfigResponse struct {
+	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
+	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
+	CpuCfsQuota *bool `pulumi:"cpuCfsQuota"`
+	// Sets CPU CFS quota period value.
+	CpuCfsQuotaPeriod *string `pulumi:"cpuCfsQuotaPeriod"`
+	// CPU Manager policy to use.
+	CpuManagerPolicy *string `pulumi:"cpuManagerPolicy"`
+	// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+	FailSwapOn *bool `pulumi:"failSwapOn"`
+	// The percent of disk usage after which image garbage collection is always run.
+	ImageGcHighThreshold *int `pulumi:"imageGcHighThreshold"`
+	// The percent of disk usage before which image garbage collection is never run.
+	ImageGcLowThreshold *int `pulumi:"imageGcLowThreshold"`
+	// Topology Manager policy to use.
+	TopologyManagerPolicy *string `pulumi:"topologyManagerPolicy"`
+}
+
+// KubeletConfigResponseInput is an input type that accepts KubeletConfigResponseArgs and KubeletConfigResponseOutput values.
+// You can construct a concrete instance of `KubeletConfigResponseInput` via:
+//
+//          KubeletConfigResponseArgs{...}
+type KubeletConfigResponseInput interface {
+	pulumi.Input
+
+	ToKubeletConfigResponseOutput() KubeletConfigResponseOutput
+	ToKubeletConfigResponseOutputWithContext(context.Context) KubeletConfigResponseOutput
+}
+
+// Kubelet configurations of agent nodes.
+type KubeletConfigResponseArgs struct {
+	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
+	// Enable CPU CFS quota enforcement for containers that specify CPU limits.
+	CpuCfsQuota pulumi.BoolPtrInput `pulumi:"cpuCfsQuota"`
+	// Sets CPU CFS quota period value.
+	CpuCfsQuotaPeriod pulumi.StringPtrInput `pulumi:"cpuCfsQuotaPeriod"`
+	// CPU Manager policy to use.
+	CpuManagerPolicy pulumi.StringPtrInput `pulumi:"cpuManagerPolicy"`
+	// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+	FailSwapOn pulumi.BoolPtrInput `pulumi:"failSwapOn"`
+	// The percent of disk usage after which image garbage collection is always run.
+	ImageGcHighThreshold pulumi.IntPtrInput `pulumi:"imageGcHighThreshold"`
+	// The percent of disk usage before which image garbage collection is never run.
+	ImageGcLowThreshold pulumi.IntPtrInput `pulumi:"imageGcLowThreshold"`
+	// Topology Manager policy to use.
+	TopologyManagerPolicy pulumi.StringPtrInput `pulumi:"topologyManagerPolicy"`
+}
+
+func (KubeletConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubeletConfigResponse)(nil)).Elem()
+}
+
+func (i KubeletConfigResponseArgs) ToKubeletConfigResponseOutput() KubeletConfigResponseOutput {
+	return i.ToKubeletConfigResponseOutputWithContext(context.Background())
+}
+
+func (i KubeletConfigResponseArgs) ToKubeletConfigResponseOutputWithContext(ctx context.Context) KubeletConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeletConfigResponseOutput)
+}
+
+func (i KubeletConfigResponseArgs) ToKubeletConfigResponsePtrOutput() KubeletConfigResponsePtrOutput {
+	return i.ToKubeletConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KubeletConfigResponseArgs) ToKubeletConfigResponsePtrOutputWithContext(ctx context.Context) KubeletConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeletConfigResponseOutput).ToKubeletConfigResponsePtrOutputWithContext(ctx)
+}
+
+// KubeletConfigResponsePtrInput is an input type that accepts KubeletConfigResponseArgs, KubeletConfigResponsePtr and KubeletConfigResponsePtrOutput values.
+// You can construct a concrete instance of `KubeletConfigResponsePtrInput` via:
+//
+//          KubeletConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KubeletConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToKubeletConfigResponsePtrOutput() KubeletConfigResponsePtrOutput
+	ToKubeletConfigResponsePtrOutputWithContext(context.Context) KubeletConfigResponsePtrOutput
+}
+
+type kubeletConfigResponsePtrType KubeletConfigResponseArgs
+
+func KubeletConfigResponsePtr(v *KubeletConfigResponseArgs) KubeletConfigResponsePtrInput {
+	return (*kubeletConfigResponsePtrType)(v)
+}
+
+func (*kubeletConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubeletConfigResponse)(nil)).Elem()
+}
+
+func (i *kubeletConfigResponsePtrType) ToKubeletConfigResponsePtrOutput() KubeletConfigResponsePtrOutput {
+	return i.ToKubeletConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *kubeletConfigResponsePtrType) ToKubeletConfigResponsePtrOutputWithContext(ctx context.Context) KubeletConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeletConfigResponsePtrOutput)
+}
+
+// Kubelet configurations of agent nodes.
+type KubeletConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (KubeletConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubeletConfigResponse)(nil)).Elem()
+}
+
+func (o KubeletConfigResponseOutput) ToKubeletConfigResponseOutput() KubeletConfigResponseOutput {
+	return o
+}
+
+func (o KubeletConfigResponseOutput) ToKubeletConfigResponseOutputWithContext(ctx context.Context) KubeletConfigResponseOutput {
+	return o
+}
+
+func (o KubeletConfigResponseOutput) ToKubeletConfigResponsePtrOutput() KubeletConfigResponsePtrOutput {
+	return o.ToKubeletConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KubeletConfigResponseOutput) ToKubeletConfigResponsePtrOutputWithContext(ctx context.Context) KubeletConfigResponsePtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *KubeletConfigResponse {
+		return &v
+	}).(KubeletConfigResponsePtrOutput)
+}
+
+// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+func (o KubeletConfigResponseOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
+}
+
+// Enable CPU CFS quota enforcement for containers that specify CPU limits.
+func (o KubeletConfigResponseOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *bool { return v.CpuCfsQuota }).(pulumi.BoolPtrOutput)
+}
+
+// Sets CPU CFS quota period value.
+func (o KubeletConfigResponseOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *string { return v.CpuCfsQuotaPeriod }).(pulumi.StringPtrOutput)
+}
+
+// CPU Manager policy to use.
+func (o KubeletConfigResponseOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *string { return v.CpuManagerPolicy }).(pulumi.StringPtrOutput)
+}
+
+// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+func (o KubeletConfigResponseOutput) FailSwapOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *bool { return v.FailSwapOn }).(pulumi.BoolPtrOutput)
+}
+
+// The percent of disk usage after which image garbage collection is always run.
+func (o KubeletConfigResponseOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.ImageGcHighThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The percent of disk usage before which image garbage collection is never run.
+func (o KubeletConfigResponseOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *int { return v.ImageGcLowThreshold }).(pulumi.IntPtrOutput)
+}
+
+// Topology Manager policy to use.
+func (o KubeletConfigResponseOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubeletConfigResponse) *string { return v.TopologyManagerPolicy }).(pulumi.StringPtrOutput)
+}
+
+type KubeletConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KubeletConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubeletConfigResponse)(nil)).Elem()
+}
+
+func (o KubeletConfigResponsePtrOutput) ToKubeletConfigResponsePtrOutput() KubeletConfigResponsePtrOutput {
+	return o
+}
+
+func (o KubeletConfigResponsePtrOutput) ToKubeletConfigResponsePtrOutputWithContext(ctx context.Context) KubeletConfigResponsePtrOutput {
+	return o
+}
+
+func (o KubeletConfigResponsePtrOutput) Elem() KubeletConfigResponseOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) KubeletConfigResponse { return *v }).(KubeletConfigResponseOutput)
+}
+
+// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+func (o KubeletConfigResponsePtrOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedUnsafeSysctls
+	}).(pulumi.StringArrayOutput)
+}
+
+// Enable CPU CFS quota enforcement for containers that specify CPU limits.
+func (o KubeletConfigResponsePtrOutput) CpuCfsQuota() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCfsQuota
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets CPU CFS quota period value.
+func (o KubeletConfigResponsePtrOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCfsQuotaPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// CPU Manager policy to use.
+func (o KubeletConfigResponsePtrOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManagerPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+func (o KubeletConfigResponsePtrOutput) FailSwapOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailSwapOn
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The percent of disk usage after which image garbage collection is always run.
+func (o KubeletConfigResponsePtrOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ImageGcHighThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The percent of disk usage before which image garbage collection is never run.
+func (o KubeletConfigResponsePtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ImageGcLowThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// Topology Manager policy to use.
+func (o KubeletConfigResponsePtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeletConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopologyManagerPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// OS configurations of Linux agent nodes.
+type LinuxOSConfig struct {
+	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+	SwapFileSizeMB *int `pulumi:"swapFileSizeMB"`
+	// Sysctl settings for Linux agent nodes.
+	Sysctls *SysctlConfig `pulumi:"sysctls"`
+	// Transparent Huge Page defrag configuration.
+	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
+	// Transparent Huge Page enabled configuration.
+	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
+}
+
+// LinuxOSConfigInput is an input type that accepts LinuxOSConfigArgs and LinuxOSConfigOutput values.
+// You can construct a concrete instance of `LinuxOSConfigInput` via:
+//
+//          LinuxOSConfigArgs{...}
+type LinuxOSConfigInput interface {
+	pulumi.Input
+
+	ToLinuxOSConfigOutput() LinuxOSConfigOutput
+	ToLinuxOSConfigOutputWithContext(context.Context) LinuxOSConfigOutput
+}
+
+// OS configurations of Linux agent nodes.
+type LinuxOSConfigArgs struct {
+	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+	SwapFileSizeMB pulumi.IntPtrInput `pulumi:"swapFileSizeMB"`
+	// Sysctl settings for Linux agent nodes.
+	Sysctls SysctlConfigPtrInput `pulumi:"sysctls"`
+	// Transparent Huge Page defrag configuration.
+	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
+	// Transparent Huge Page enabled configuration.
+	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
+}
+
+func (LinuxOSConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxOSConfig)(nil)).Elem()
+}
+
+func (i LinuxOSConfigArgs) ToLinuxOSConfigOutput() LinuxOSConfigOutput {
+	return i.ToLinuxOSConfigOutputWithContext(context.Background())
+}
+
+func (i LinuxOSConfigArgs) ToLinuxOSConfigOutputWithContext(ctx context.Context) LinuxOSConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxOSConfigOutput)
+}
+
+func (i LinuxOSConfigArgs) ToLinuxOSConfigPtrOutput() LinuxOSConfigPtrOutput {
+	return i.ToLinuxOSConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxOSConfigArgs) ToLinuxOSConfigPtrOutputWithContext(ctx context.Context) LinuxOSConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxOSConfigOutput).ToLinuxOSConfigPtrOutputWithContext(ctx)
+}
+
+// LinuxOSConfigPtrInput is an input type that accepts LinuxOSConfigArgs, LinuxOSConfigPtr and LinuxOSConfigPtrOutput values.
+// You can construct a concrete instance of `LinuxOSConfigPtrInput` via:
+//
+//          LinuxOSConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type LinuxOSConfigPtrInput interface {
+	pulumi.Input
+
+	ToLinuxOSConfigPtrOutput() LinuxOSConfigPtrOutput
+	ToLinuxOSConfigPtrOutputWithContext(context.Context) LinuxOSConfigPtrOutput
+}
+
+type linuxOSConfigPtrType LinuxOSConfigArgs
+
+func LinuxOSConfigPtr(v *LinuxOSConfigArgs) LinuxOSConfigPtrInput {
+	return (*linuxOSConfigPtrType)(v)
+}
+
+func (*linuxOSConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxOSConfig)(nil)).Elem()
+}
+
+func (i *linuxOSConfigPtrType) ToLinuxOSConfigPtrOutput() LinuxOSConfigPtrOutput {
+	return i.ToLinuxOSConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxOSConfigPtrType) ToLinuxOSConfigPtrOutputWithContext(ctx context.Context) LinuxOSConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxOSConfigPtrOutput)
+}
+
+// OS configurations of Linux agent nodes.
+type LinuxOSConfigOutput struct{ *pulumi.OutputState }
+
+func (LinuxOSConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxOSConfig)(nil)).Elem()
+}
+
+func (o LinuxOSConfigOutput) ToLinuxOSConfigOutput() LinuxOSConfigOutput {
+	return o
+}
+
+func (o LinuxOSConfigOutput) ToLinuxOSConfigOutputWithContext(ctx context.Context) LinuxOSConfigOutput {
+	return o
+}
+
+func (o LinuxOSConfigOutput) ToLinuxOSConfigPtrOutput() LinuxOSConfigPtrOutput {
+	return o.ToLinuxOSConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxOSConfigOutput) ToLinuxOSConfigPtrOutputWithContext(ctx context.Context) LinuxOSConfigPtrOutput {
+	return o.ApplyT(func(v LinuxOSConfig) *LinuxOSConfig {
+		return &v
+	}).(LinuxOSConfigPtrOutput)
+}
+
+// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+func (o LinuxOSConfigOutput) SwapFileSizeMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxOSConfig) *int { return v.SwapFileSizeMB }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl settings for Linux agent nodes.
+func (o LinuxOSConfigOutput) Sysctls() SysctlConfigPtrOutput {
+	return o.ApplyT(func(v LinuxOSConfig) *SysctlConfig { return v.Sysctls }).(SysctlConfigPtrOutput)
+}
+
+// Transparent Huge Page defrag configuration.
+func (o LinuxOSConfigOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxOSConfig) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
+}
+
+// Transparent Huge Page enabled configuration.
+func (o LinuxOSConfigOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxOSConfig) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
+}
+
+type LinuxOSConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxOSConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxOSConfig)(nil)).Elem()
+}
+
+func (o LinuxOSConfigPtrOutput) ToLinuxOSConfigPtrOutput() LinuxOSConfigPtrOutput {
+	return o
+}
+
+func (o LinuxOSConfigPtrOutput) ToLinuxOSConfigPtrOutputWithContext(ctx context.Context) LinuxOSConfigPtrOutput {
+	return o
+}
+
+func (o LinuxOSConfigPtrOutput) Elem() LinuxOSConfigOutput {
+	return o.ApplyT(func(v *LinuxOSConfig) LinuxOSConfig { return *v }).(LinuxOSConfigOutput)
+}
+
+// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+func (o LinuxOSConfigPtrOutput) SwapFileSizeMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinuxOSConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SwapFileSizeMB
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl settings for Linux agent nodes.
+func (o LinuxOSConfigPtrOutput) Sysctls() SysctlConfigPtrOutput {
+	return o.ApplyT(func(v *LinuxOSConfig) *SysctlConfig {
+		if v == nil {
+			return nil
+		}
+		return v.Sysctls
+	}).(SysctlConfigPtrOutput)
+}
+
+// Transparent Huge Page defrag configuration.
+func (o LinuxOSConfigPtrOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxOSConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransparentHugePageDefrag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Transparent Huge Page enabled configuration.
+func (o LinuxOSConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxOSConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransparentHugePageEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+// OS configurations of Linux agent nodes.
+type LinuxOSConfigResponse struct {
+	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+	SwapFileSizeMB *int `pulumi:"swapFileSizeMB"`
+	// Sysctl settings for Linux agent nodes.
+	Sysctls *SysctlConfigResponse `pulumi:"sysctls"`
+	// Transparent Huge Page defrag configuration.
+	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
+	// Transparent Huge Page enabled configuration.
+	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
+}
+
+// LinuxOSConfigResponseInput is an input type that accepts LinuxOSConfigResponseArgs and LinuxOSConfigResponseOutput values.
+// You can construct a concrete instance of `LinuxOSConfigResponseInput` via:
+//
+//          LinuxOSConfigResponseArgs{...}
+type LinuxOSConfigResponseInput interface {
+	pulumi.Input
+
+	ToLinuxOSConfigResponseOutput() LinuxOSConfigResponseOutput
+	ToLinuxOSConfigResponseOutputWithContext(context.Context) LinuxOSConfigResponseOutput
+}
+
+// OS configurations of Linux agent nodes.
+type LinuxOSConfigResponseArgs struct {
+	// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+	SwapFileSizeMB pulumi.IntPtrInput `pulumi:"swapFileSizeMB"`
+	// Sysctl settings for Linux agent nodes.
+	Sysctls SysctlConfigResponsePtrInput `pulumi:"sysctls"`
+	// Transparent Huge Page defrag configuration.
+	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
+	// Transparent Huge Page enabled configuration.
+	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
+}
+
+func (LinuxOSConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxOSConfigResponse)(nil)).Elem()
+}
+
+func (i LinuxOSConfigResponseArgs) ToLinuxOSConfigResponseOutput() LinuxOSConfigResponseOutput {
+	return i.ToLinuxOSConfigResponseOutputWithContext(context.Background())
+}
+
+func (i LinuxOSConfigResponseArgs) ToLinuxOSConfigResponseOutputWithContext(ctx context.Context) LinuxOSConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxOSConfigResponseOutput)
+}
+
+func (i LinuxOSConfigResponseArgs) ToLinuxOSConfigResponsePtrOutput() LinuxOSConfigResponsePtrOutput {
+	return i.ToLinuxOSConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LinuxOSConfigResponseArgs) ToLinuxOSConfigResponsePtrOutputWithContext(ctx context.Context) LinuxOSConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxOSConfigResponseOutput).ToLinuxOSConfigResponsePtrOutputWithContext(ctx)
+}
+
+// LinuxOSConfigResponsePtrInput is an input type that accepts LinuxOSConfigResponseArgs, LinuxOSConfigResponsePtr and LinuxOSConfigResponsePtrOutput values.
+// You can construct a concrete instance of `LinuxOSConfigResponsePtrInput` via:
+//
+//          LinuxOSConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LinuxOSConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToLinuxOSConfigResponsePtrOutput() LinuxOSConfigResponsePtrOutput
+	ToLinuxOSConfigResponsePtrOutputWithContext(context.Context) LinuxOSConfigResponsePtrOutput
+}
+
+type linuxOSConfigResponsePtrType LinuxOSConfigResponseArgs
+
+func LinuxOSConfigResponsePtr(v *LinuxOSConfigResponseArgs) LinuxOSConfigResponsePtrInput {
+	return (*linuxOSConfigResponsePtrType)(v)
+}
+
+func (*linuxOSConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxOSConfigResponse)(nil)).Elem()
+}
+
+func (i *linuxOSConfigResponsePtrType) ToLinuxOSConfigResponsePtrOutput() LinuxOSConfigResponsePtrOutput {
+	return i.ToLinuxOSConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *linuxOSConfigResponsePtrType) ToLinuxOSConfigResponsePtrOutputWithContext(ctx context.Context) LinuxOSConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxOSConfigResponsePtrOutput)
+}
+
+// OS configurations of Linux agent nodes.
+type LinuxOSConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (LinuxOSConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxOSConfigResponse)(nil)).Elem()
+}
+
+func (o LinuxOSConfigResponseOutput) ToLinuxOSConfigResponseOutput() LinuxOSConfigResponseOutput {
+	return o
+}
+
+func (o LinuxOSConfigResponseOutput) ToLinuxOSConfigResponseOutputWithContext(ctx context.Context) LinuxOSConfigResponseOutput {
+	return o
+}
+
+func (o LinuxOSConfigResponseOutput) ToLinuxOSConfigResponsePtrOutput() LinuxOSConfigResponsePtrOutput {
+	return o.ToLinuxOSConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LinuxOSConfigResponseOutput) ToLinuxOSConfigResponsePtrOutputWithContext(ctx context.Context) LinuxOSConfigResponsePtrOutput {
+	return o.ApplyT(func(v LinuxOSConfigResponse) *LinuxOSConfigResponse {
+		return &v
+	}).(LinuxOSConfigResponsePtrOutput)
+}
+
+// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+func (o LinuxOSConfigResponseOutput) SwapFileSizeMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxOSConfigResponse) *int { return v.SwapFileSizeMB }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl settings for Linux agent nodes.
+func (o LinuxOSConfigResponseOutput) Sysctls() SysctlConfigResponsePtrOutput {
+	return o.ApplyT(func(v LinuxOSConfigResponse) *SysctlConfigResponse { return v.Sysctls }).(SysctlConfigResponsePtrOutput)
+}
+
+// Transparent Huge Page defrag configuration.
+func (o LinuxOSConfigResponseOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxOSConfigResponse) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
+}
+
+// Transparent Huge Page enabled configuration.
+func (o LinuxOSConfigResponseOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxOSConfigResponse) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
+}
+
+type LinuxOSConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxOSConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxOSConfigResponse)(nil)).Elem()
+}
+
+func (o LinuxOSConfigResponsePtrOutput) ToLinuxOSConfigResponsePtrOutput() LinuxOSConfigResponsePtrOutput {
+	return o
+}
+
+func (o LinuxOSConfigResponsePtrOutput) ToLinuxOSConfigResponsePtrOutputWithContext(ctx context.Context) LinuxOSConfigResponsePtrOutput {
+	return o
+}
+
+func (o LinuxOSConfigResponsePtrOutput) Elem() LinuxOSConfigResponseOutput {
+	return o.ApplyT(func(v *LinuxOSConfigResponse) LinuxOSConfigResponse { return *v }).(LinuxOSConfigResponseOutput)
+}
+
+// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+func (o LinuxOSConfigResponsePtrOutput) SwapFileSizeMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinuxOSConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SwapFileSizeMB
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl settings for Linux agent nodes.
+func (o LinuxOSConfigResponsePtrOutput) Sysctls() SysctlConfigResponsePtrOutput {
+	return o.ApplyT(func(v *LinuxOSConfigResponse) *SysctlConfigResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Sysctls
+	}).(SysctlConfigResponsePtrOutput)
+}
+
+// Transparent Huge Page defrag configuration.
+func (o LinuxOSConfigResponsePtrOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxOSConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransparentHugePageDefrag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Transparent Huge Page enabled configuration.
+func (o LinuxOSConfigResponsePtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxOSConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransparentHugePageEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
 // AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfile struct {
 	// AAD group object IDs that will have admin role of the cluster.
@@ -4572,6 +5858,8 @@ type ManagedClusterAPIServerAccessProfile struct {
 	AuthorizedIPRanges []string `pulumi:"authorizedIPRanges"`
 	// Whether to create the cluster as a private cluster or not.
 	EnablePrivateCluster *bool `pulumi:"enablePrivateCluster"`
+	// Private dns zone mode for private cluster.
+	PrivateDNSZone *string `pulumi:"privateDNSZone"`
 }
 
 // ManagedClusterAPIServerAccessProfileInput is an input type that accepts ManagedClusterAPIServerAccessProfileArgs and ManagedClusterAPIServerAccessProfileOutput values.
@@ -4591,6 +5879,8 @@ type ManagedClusterAPIServerAccessProfileArgs struct {
 	AuthorizedIPRanges pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
 	// Whether to create the cluster as a private cluster or not.
 	EnablePrivateCluster pulumi.BoolPtrInput `pulumi:"enablePrivateCluster"`
+	// Private dns zone mode for private cluster.
+	PrivateDNSZone pulumi.StringPtrInput `pulumi:"privateDNSZone"`
 }
 
 func (ManagedClusterAPIServerAccessProfileArgs) ElementType() reflect.Type {
@@ -4681,6 +5971,11 @@ func (o ManagedClusterAPIServerAccessProfileOutput) EnablePrivateCluster() pulum
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfile) *bool { return v.EnablePrivateCluster }).(pulumi.BoolPtrOutput)
 }
 
+// Private dns zone mode for private cluster.
+func (o ManagedClusterAPIServerAccessProfileOutput) PrivateDNSZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfile) *string { return v.PrivateDNSZone }).(pulumi.StringPtrOutput)
+}
+
 type ManagedClusterAPIServerAccessProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAPIServerAccessProfilePtrOutput) ElementType() reflect.Type {
@@ -4719,12 +6014,24 @@ func (o ManagedClusterAPIServerAccessProfilePtrOutput) EnablePrivateCluster() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Private dns zone mode for private cluster.
+func (o ManagedClusterAPIServerAccessProfilePtrOutput) PrivateDNSZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDNSZone
+	}).(pulumi.StringPtrOutput)
+}
+
 // Access profile for managed cluster API server.
 type ManagedClusterAPIServerAccessProfileResponse struct {
 	// Authorized IP Ranges to kubernetes API server.
 	AuthorizedIPRanges []string `pulumi:"authorizedIPRanges"`
 	// Whether to create the cluster as a private cluster or not.
 	EnablePrivateCluster *bool `pulumi:"enablePrivateCluster"`
+	// Private dns zone mode for private cluster.
+	PrivateDNSZone *string `pulumi:"privateDNSZone"`
 }
 
 // ManagedClusterAPIServerAccessProfileResponseInput is an input type that accepts ManagedClusterAPIServerAccessProfileResponseArgs and ManagedClusterAPIServerAccessProfileResponseOutput values.
@@ -4744,6 +6051,8 @@ type ManagedClusterAPIServerAccessProfileResponseArgs struct {
 	AuthorizedIPRanges pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
 	// Whether to create the cluster as a private cluster or not.
 	EnablePrivateCluster pulumi.BoolPtrInput `pulumi:"enablePrivateCluster"`
+	// Private dns zone mode for private cluster.
+	PrivateDNSZone pulumi.StringPtrInput `pulumi:"privateDNSZone"`
 }
 
 func (ManagedClusterAPIServerAccessProfileResponseArgs) ElementType() reflect.Type {
@@ -4834,6 +6143,11 @@ func (o ManagedClusterAPIServerAccessProfileResponseOutput) EnablePrivateCluster
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileResponse) *bool { return v.EnablePrivateCluster }).(pulumi.BoolPtrOutput)
 }
 
+// Private dns zone mode for private cluster.
+func (o ManagedClusterAPIServerAccessProfileResponseOutput) PrivateDNSZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileResponse) *string { return v.PrivateDNSZone }).(pulumi.StringPtrOutput)
+}
+
 type ManagedClusterAPIServerAccessProfileResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAPIServerAccessProfileResponsePtrOutput) ElementType() reflect.Type {
@@ -4872,6 +6186,16 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) EnablePrivateClus
 		}
 		return v.EnablePrivateCluster
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Private dns zone mode for private cluster.
+func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) PrivateDNSZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDNSZone
+	}).(pulumi.StringPtrOutput)
 }
 
 // A Kubernetes add-on profile for a managed cluster.
@@ -5186,6 +6510,10 @@ type ManagedClusterAgentPoolProfile struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	KubeletConfig *KubeletConfig `pulumi:"kubeletConfig"`
+	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	LinuxOSConfig *LinuxOSConfig `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount *int `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.
@@ -5208,6 +6536,8 @@ type ManagedClusterAgentPoolProfile struct {
 	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
+	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	PodSubnetID *string `pulumi:"podSubnetID"`
 	// The ID for Proximity Placement Group.
 	ProximityPlacementGroupID *string `pulumi:"proximityPlacementGroupID"`
 	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
@@ -5224,7 +6554,7 @@ type ManagedClusterAgentPoolProfile struct {
 	UpgradeSettings *AgentPoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize *string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
+	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }
 
@@ -5249,6 +6579,10 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
+	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	KubeletConfig KubeletConfigPtrInput `pulumi:"kubeletConfig"`
+	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	LinuxOSConfig LinuxOSConfigPtrInput `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.
@@ -5271,6 +6605,8 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	PodSubnetID pulumi.StringPtrInput `pulumi:"podSubnetID"`
 	// The ID for Proximity Placement Group.
 	ProximityPlacementGroupID pulumi.StringPtrInput `pulumi:"proximityPlacementGroupID"`
 	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
@@ -5287,7 +6623,7 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	UpgradeSettings AgentPoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
+	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
 }
 
@@ -5363,6 +6699,16 @@ func (o ManagedClusterAgentPoolProfileOutput) EnableNodePublicIP() pulumi.BoolPt
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
 }
 
+// KubeletConfig specifies the configuration of kubelet on agent nodes.
+func (o ManagedClusterAgentPoolProfileOutput) KubeletConfig() KubeletConfigPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *KubeletConfig { return v.KubeletConfig }).(KubeletConfigPtrOutput)
+}
+
+// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+func (o ManagedClusterAgentPoolProfileOutput) LinuxOSConfig() LinuxOSConfigPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *LinuxOSConfig { return v.LinuxOSConfig }).(LinuxOSConfigPtrOutput)
+}
+
 // Maximum number of nodes for auto-scaling
 func (o ManagedClusterAgentPoolProfileOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
@@ -5418,6 +6764,11 @@ func (o ManagedClusterAgentPoolProfileOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
+// Pod SubnetID specifies the VNet's subnet identifier for pods.
+func (o ManagedClusterAgentPoolProfileOutput) PodSubnetID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.PodSubnetID }).(pulumi.StringPtrOutput)
+}
+
 // The ID for Proximity Placement Group.
 func (o ManagedClusterAgentPoolProfileOutput) ProximityPlacementGroupID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.ProximityPlacementGroupID }).(pulumi.StringPtrOutput)
@@ -5458,7 +6809,7 @@ func (o ManagedClusterAgentPoolProfileOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
 
-// VNet SubnetID specifies the VNet's subnet identifier.
+// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 func (o ManagedClusterAgentPoolProfileOutput) VnetSubnetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
 }
@@ -5493,6 +6844,10 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
+	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	LinuxOSConfig *LinuxOSConfigResponse `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount *int `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.
@@ -5517,6 +6872,8 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
+	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	PodSubnetID *string `pulumi:"podSubnetID"`
 	// Describes whether the Agent Pool is Running or Stopped
 	PowerState PowerStateResponse `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -5537,7 +6894,7 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	UpgradeSettings *AgentPoolUpgradeSettingsResponse `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize *string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
+	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }
 
@@ -5562,6 +6919,10 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
+	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	KubeletConfig KubeletConfigResponsePtrInput `pulumi:"kubeletConfig"`
+	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	LinuxOSConfig LinuxOSConfigResponsePtrInput `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.
@@ -5586,6 +6947,8 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	PodSubnetID pulumi.StringPtrInput `pulumi:"podSubnetID"`
 	// Describes whether the Agent Pool is Running or Stopped
 	PowerState PowerStateResponseInput `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -5606,7 +6969,7 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	UpgradeSettings AgentPoolUpgradeSettingsResponsePtrInput `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
+	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
 }
 
@@ -5682,6 +7045,16 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) EnableNodePublicIP() pulum
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
 }
 
+// KubeletConfig specifies the configuration of kubelet on agent nodes.
+func (o ManagedClusterAgentPoolProfileResponseOutput) KubeletConfig() KubeletConfigResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *KubeletConfigResponse { return v.KubeletConfig }).(KubeletConfigResponsePtrOutput)
+}
+
+// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+func (o ManagedClusterAgentPoolProfileResponseOutput) LinuxOSConfig() LinuxOSConfigResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *LinuxOSConfigResponse { return v.LinuxOSConfig }).(LinuxOSConfigResponsePtrOutput)
+}
+
 // Maximum number of nodes for auto-scaling
 func (o ManagedClusterAgentPoolProfileResponseOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
@@ -5742,6 +7115,11 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) OsType() pulumi.StringPtrO
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
+// Pod SubnetID specifies the VNet's subnet identifier for pods.
+func (o ManagedClusterAgentPoolProfileResponseOutput) PodSubnetID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.PodSubnetID }).(pulumi.StringPtrOutput)
+}
+
 // Describes whether the Agent Pool is Running or Stopped
 func (o ManagedClusterAgentPoolProfileResponseOutput) PowerState() PowerStateResponseOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) PowerStateResponse { return v.PowerState }).(PowerStateResponseOutput)
@@ -5794,7 +7172,7 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) VmSize() pulumi.StringPtrO
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
 
-// VNet SubnetID specifies the VNet's subnet identifier.
+// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 func (o ManagedClusterAgentPoolProfileResponseOutput) VnetSubnetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
 }
@@ -5817,6 +7195,274 @@ func (o ManagedClusterAgentPoolProfileResponseArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterAgentPoolProfileResponse {
 		return vs[0].([]ManagedClusterAgentPoolProfileResponse)[vs[1].(int)]
 	}).(ManagedClusterAgentPoolProfileResponseOutput)
+}
+
+// Auto upgrade profile for a managed cluster.
+type ManagedClusterAutoUpgradeProfile struct {
+	// upgrade channel for auto upgrade.
+	UpgradeChannel *string `pulumi:"upgradeChannel"`
+}
+
+// ManagedClusterAutoUpgradeProfileInput is an input type that accepts ManagedClusterAutoUpgradeProfileArgs and ManagedClusterAutoUpgradeProfileOutput values.
+// You can construct a concrete instance of `ManagedClusterAutoUpgradeProfileInput` via:
+//
+//          ManagedClusterAutoUpgradeProfileArgs{...}
+type ManagedClusterAutoUpgradeProfileInput interface {
+	pulumi.Input
+
+	ToManagedClusterAutoUpgradeProfileOutput() ManagedClusterAutoUpgradeProfileOutput
+	ToManagedClusterAutoUpgradeProfileOutputWithContext(context.Context) ManagedClusterAutoUpgradeProfileOutput
+}
+
+// Auto upgrade profile for a managed cluster.
+type ManagedClusterAutoUpgradeProfileArgs struct {
+	// upgrade channel for auto upgrade.
+	UpgradeChannel pulumi.StringPtrInput `pulumi:"upgradeChannel"`
+}
+
+func (ManagedClusterAutoUpgradeProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAutoUpgradeProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterAutoUpgradeProfileArgs) ToManagedClusterAutoUpgradeProfileOutput() ManagedClusterAutoUpgradeProfileOutput {
+	return i.ToManagedClusterAutoUpgradeProfileOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAutoUpgradeProfileArgs) ToManagedClusterAutoUpgradeProfileOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAutoUpgradeProfileOutput)
+}
+
+func (i ManagedClusterAutoUpgradeProfileArgs) ToManagedClusterAutoUpgradeProfilePtrOutput() ManagedClusterAutoUpgradeProfilePtrOutput {
+	return i.ToManagedClusterAutoUpgradeProfilePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAutoUpgradeProfileArgs) ToManagedClusterAutoUpgradeProfilePtrOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAutoUpgradeProfileOutput).ToManagedClusterAutoUpgradeProfilePtrOutputWithContext(ctx)
+}
+
+// ManagedClusterAutoUpgradeProfilePtrInput is an input type that accepts ManagedClusterAutoUpgradeProfileArgs, ManagedClusterAutoUpgradeProfilePtr and ManagedClusterAutoUpgradeProfilePtrOutput values.
+// You can construct a concrete instance of `ManagedClusterAutoUpgradeProfilePtrInput` via:
+//
+//          ManagedClusterAutoUpgradeProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterAutoUpgradeProfilePtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterAutoUpgradeProfilePtrOutput() ManagedClusterAutoUpgradeProfilePtrOutput
+	ToManagedClusterAutoUpgradeProfilePtrOutputWithContext(context.Context) ManagedClusterAutoUpgradeProfilePtrOutput
+}
+
+type managedClusterAutoUpgradeProfilePtrType ManagedClusterAutoUpgradeProfileArgs
+
+func ManagedClusterAutoUpgradeProfilePtr(v *ManagedClusterAutoUpgradeProfileArgs) ManagedClusterAutoUpgradeProfilePtrInput {
+	return (*managedClusterAutoUpgradeProfilePtrType)(v)
+}
+
+func (*managedClusterAutoUpgradeProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterAutoUpgradeProfile)(nil)).Elem()
+}
+
+func (i *managedClusterAutoUpgradeProfilePtrType) ToManagedClusterAutoUpgradeProfilePtrOutput() ManagedClusterAutoUpgradeProfilePtrOutput {
+	return i.ToManagedClusterAutoUpgradeProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterAutoUpgradeProfilePtrType) ToManagedClusterAutoUpgradeProfilePtrOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAutoUpgradeProfilePtrOutput)
+}
+
+// Auto upgrade profile for a managed cluster.
+type ManagedClusterAutoUpgradeProfileOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAutoUpgradeProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAutoUpgradeProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterAutoUpgradeProfileOutput) ToManagedClusterAutoUpgradeProfileOutput() ManagedClusterAutoUpgradeProfileOutput {
+	return o
+}
+
+func (o ManagedClusterAutoUpgradeProfileOutput) ToManagedClusterAutoUpgradeProfileOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfileOutput {
+	return o
+}
+
+func (o ManagedClusterAutoUpgradeProfileOutput) ToManagedClusterAutoUpgradeProfilePtrOutput() ManagedClusterAutoUpgradeProfilePtrOutput {
+	return o.ToManagedClusterAutoUpgradeProfilePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterAutoUpgradeProfileOutput) ToManagedClusterAutoUpgradeProfilePtrOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfilePtrOutput {
+	return o.ApplyT(func(v ManagedClusterAutoUpgradeProfile) *ManagedClusterAutoUpgradeProfile {
+		return &v
+	}).(ManagedClusterAutoUpgradeProfilePtrOutput)
+}
+
+// upgrade channel for auto upgrade.
+func (o ManagedClusterAutoUpgradeProfileOutput) UpgradeChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAutoUpgradeProfile) *string { return v.UpgradeChannel }).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterAutoUpgradeProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAutoUpgradeProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterAutoUpgradeProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterAutoUpgradeProfilePtrOutput) ToManagedClusterAutoUpgradeProfilePtrOutput() ManagedClusterAutoUpgradeProfilePtrOutput {
+	return o
+}
+
+func (o ManagedClusterAutoUpgradeProfilePtrOutput) ToManagedClusterAutoUpgradeProfilePtrOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfilePtrOutput {
+	return o
+}
+
+func (o ManagedClusterAutoUpgradeProfilePtrOutput) Elem() ManagedClusterAutoUpgradeProfileOutput {
+	return o.ApplyT(func(v *ManagedClusterAutoUpgradeProfile) ManagedClusterAutoUpgradeProfile { return *v }).(ManagedClusterAutoUpgradeProfileOutput)
+}
+
+// upgrade channel for auto upgrade.
+func (o ManagedClusterAutoUpgradeProfilePtrOutput) UpgradeChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAutoUpgradeProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpgradeChannel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Auto upgrade profile for a managed cluster.
+type ManagedClusterAutoUpgradeProfileResponse struct {
+	// upgrade channel for auto upgrade.
+	UpgradeChannel *string `pulumi:"upgradeChannel"`
+}
+
+// ManagedClusterAutoUpgradeProfileResponseInput is an input type that accepts ManagedClusterAutoUpgradeProfileResponseArgs and ManagedClusterAutoUpgradeProfileResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterAutoUpgradeProfileResponseInput` via:
+//
+//          ManagedClusterAutoUpgradeProfileResponseArgs{...}
+type ManagedClusterAutoUpgradeProfileResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterAutoUpgradeProfileResponseOutput() ManagedClusterAutoUpgradeProfileResponseOutput
+	ToManagedClusterAutoUpgradeProfileResponseOutputWithContext(context.Context) ManagedClusterAutoUpgradeProfileResponseOutput
+}
+
+// Auto upgrade profile for a managed cluster.
+type ManagedClusterAutoUpgradeProfileResponseArgs struct {
+	// upgrade channel for auto upgrade.
+	UpgradeChannel pulumi.StringPtrInput `pulumi:"upgradeChannel"`
+}
+
+func (ManagedClusterAutoUpgradeProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAutoUpgradeProfileResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAutoUpgradeProfileResponseArgs) ToManagedClusterAutoUpgradeProfileResponseOutput() ManagedClusterAutoUpgradeProfileResponseOutput {
+	return i.ToManagedClusterAutoUpgradeProfileResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAutoUpgradeProfileResponseArgs) ToManagedClusterAutoUpgradeProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAutoUpgradeProfileResponseOutput)
+}
+
+func (i ManagedClusterAutoUpgradeProfileResponseArgs) ToManagedClusterAutoUpgradeProfileResponsePtrOutput() ManagedClusterAutoUpgradeProfileResponsePtrOutput {
+	return i.ToManagedClusterAutoUpgradeProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAutoUpgradeProfileResponseArgs) ToManagedClusterAutoUpgradeProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAutoUpgradeProfileResponseOutput).ToManagedClusterAutoUpgradeProfileResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedClusterAutoUpgradeProfileResponsePtrInput is an input type that accepts ManagedClusterAutoUpgradeProfileResponseArgs, ManagedClusterAutoUpgradeProfileResponsePtr and ManagedClusterAutoUpgradeProfileResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedClusterAutoUpgradeProfileResponsePtrInput` via:
+//
+//          ManagedClusterAutoUpgradeProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterAutoUpgradeProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterAutoUpgradeProfileResponsePtrOutput() ManagedClusterAutoUpgradeProfileResponsePtrOutput
+	ToManagedClusterAutoUpgradeProfileResponsePtrOutputWithContext(context.Context) ManagedClusterAutoUpgradeProfileResponsePtrOutput
+}
+
+type managedClusterAutoUpgradeProfileResponsePtrType ManagedClusterAutoUpgradeProfileResponseArgs
+
+func ManagedClusterAutoUpgradeProfileResponsePtr(v *ManagedClusterAutoUpgradeProfileResponseArgs) ManagedClusterAutoUpgradeProfileResponsePtrInput {
+	return (*managedClusterAutoUpgradeProfileResponsePtrType)(v)
+}
+
+func (*managedClusterAutoUpgradeProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterAutoUpgradeProfileResponse)(nil)).Elem()
+}
+
+func (i *managedClusterAutoUpgradeProfileResponsePtrType) ToManagedClusterAutoUpgradeProfileResponsePtrOutput() ManagedClusterAutoUpgradeProfileResponsePtrOutput {
+	return i.ToManagedClusterAutoUpgradeProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterAutoUpgradeProfileResponsePtrType) ToManagedClusterAutoUpgradeProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAutoUpgradeProfileResponsePtrOutput)
+}
+
+// Auto upgrade profile for a managed cluster.
+type ManagedClusterAutoUpgradeProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAutoUpgradeProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAutoUpgradeProfileResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAutoUpgradeProfileResponseOutput) ToManagedClusterAutoUpgradeProfileResponseOutput() ManagedClusterAutoUpgradeProfileResponseOutput {
+	return o
+}
+
+func (o ManagedClusterAutoUpgradeProfileResponseOutput) ToManagedClusterAutoUpgradeProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfileResponseOutput {
+	return o
+}
+
+func (o ManagedClusterAutoUpgradeProfileResponseOutput) ToManagedClusterAutoUpgradeProfileResponsePtrOutput() ManagedClusterAutoUpgradeProfileResponsePtrOutput {
+	return o.ToManagedClusterAutoUpgradeProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterAutoUpgradeProfileResponseOutput) ToManagedClusterAutoUpgradeProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfileResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterAutoUpgradeProfileResponse) *ManagedClusterAutoUpgradeProfileResponse {
+		return &v
+	}).(ManagedClusterAutoUpgradeProfileResponsePtrOutput)
+}
+
+// upgrade channel for auto upgrade.
+func (o ManagedClusterAutoUpgradeProfileResponseOutput) UpgradeChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAutoUpgradeProfileResponse) *string { return v.UpgradeChannel }).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterAutoUpgradeProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAutoUpgradeProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterAutoUpgradeProfileResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) ToManagedClusterAutoUpgradeProfileResponsePtrOutput() ManagedClusterAutoUpgradeProfileResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) ToManagedClusterAutoUpgradeProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfileResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) Elem() ManagedClusterAutoUpgradeProfileResponseOutput {
+	return o.ApplyT(func(v *ManagedClusterAutoUpgradeProfileResponse) ManagedClusterAutoUpgradeProfileResponse { return *v }).(ManagedClusterAutoUpgradeProfileResponseOutput)
+}
+
+// upgrade channel for auto upgrade.
+func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) UpgradeChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAutoUpgradeProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpgradeChannel
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the managed cluster.
@@ -7546,6 +9192,879 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) PublicIPs
 		}
 		return v.PublicIPs
 	}).(ResourceReferenceResponseArrayOutput)
+}
+
+type ManagedClusterPodIdentity struct {
+	// Information of the user assigned identity.
+	Identity UserAssignedIdentity `pulumi:"identity"`
+	// Name of the pod identity.
+	Name string `pulumi:"name"`
+	// Namespace of the pod identity.
+	Namespace string `pulumi:"namespace"`
+}
+
+// ManagedClusterPodIdentityInput is an input type that accepts ManagedClusterPodIdentityArgs and ManagedClusterPodIdentityOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityInput` via:
+//
+//          ManagedClusterPodIdentityArgs{...}
+type ManagedClusterPodIdentityInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityOutput() ManagedClusterPodIdentityOutput
+	ToManagedClusterPodIdentityOutputWithContext(context.Context) ManagedClusterPodIdentityOutput
+}
+
+type ManagedClusterPodIdentityArgs struct {
+	// Information of the user assigned identity.
+	Identity UserAssignedIdentityInput `pulumi:"identity"`
+	// Name of the pod identity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Namespace of the pod identity.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (ManagedClusterPodIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentity)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityArgs) ToManagedClusterPodIdentityOutput() ManagedClusterPodIdentityOutput {
+	return i.ToManagedClusterPodIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityArgs) ToManagedClusterPodIdentityOutputWithContext(ctx context.Context) ManagedClusterPodIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityOutput)
+}
+
+// ManagedClusterPodIdentityArrayInput is an input type that accepts ManagedClusterPodIdentityArray and ManagedClusterPodIdentityArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityArrayInput` via:
+//
+//          ManagedClusterPodIdentityArray{ ManagedClusterPodIdentityArgs{...} }
+type ManagedClusterPodIdentityArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityArrayOutput() ManagedClusterPodIdentityArrayOutput
+	ToManagedClusterPodIdentityArrayOutputWithContext(context.Context) ManagedClusterPodIdentityArrayOutput
+}
+
+type ManagedClusterPodIdentityArray []ManagedClusterPodIdentityInput
+
+func (ManagedClusterPodIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterPodIdentity)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityArray) ToManagedClusterPodIdentityArrayOutput() ManagedClusterPodIdentityArrayOutput {
+	return i.ToManagedClusterPodIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityArray) ToManagedClusterPodIdentityArrayOutputWithContext(ctx context.Context) ManagedClusterPodIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityArrayOutput)
+}
+
+type ManagedClusterPodIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentity)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityOutput) ToManagedClusterPodIdentityOutput() ManagedClusterPodIdentityOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityOutput) ToManagedClusterPodIdentityOutputWithContext(ctx context.Context) ManagedClusterPodIdentityOutput {
+	return o
+}
+
+// Information of the user assigned identity.
+func (o ManagedClusterPodIdentityOutput) Identity() UserAssignedIdentityOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentity) UserAssignedIdentity { return v.Identity }).(UserAssignedIdentityOutput)
+}
+
+// Name of the pod identity.
+func (o ManagedClusterPodIdentityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentity) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Namespace of the pod identity.
+func (o ManagedClusterPodIdentityOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentity) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type ManagedClusterPodIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterPodIdentity)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityArrayOutput) ToManagedClusterPodIdentityArrayOutput() ManagedClusterPodIdentityArrayOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityArrayOutput) ToManagedClusterPodIdentityArrayOutputWithContext(ctx context.Context) ManagedClusterPodIdentityArrayOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityArrayOutput) Index(i pulumi.IntInput) ManagedClusterPodIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterPodIdentity {
+		return vs[0].([]ManagedClusterPodIdentity)[vs[1].(int)]
+	}).(ManagedClusterPodIdentityOutput)
+}
+
+type ManagedClusterPodIdentityException struct {
+	// Name of the pod identity exception.
+	Name string `pulumi:"name"`
+	// Namespace of the pod identity exception.
+	Namespace string `pulumi:"namespace"`
+	// Pod labels to match.
+	PodLabels map[string]string `pulumi:"podLabels"`
+}
+
+// ManagedClusterPodIdentityExceptionInput is an input type that accepts ManagedClusterPodIdentityExceptionArgs and ManagedClusterPodIdentityExceptionOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityExceptionInput` via:
+//
+//          ManagedClusterPodIdentityExceptionArgs{...}
+type ManagedClusterPodIdentityExceptionInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityExceptionOutput() ManagedClusterPodIdentityExceptionOutput
+	ToManagedClusterPodIdentityExceptionOutputWithContext(context.Context) ManagedClusterPodIdentityExceptionOutput
+}
+
+type ManagedClusterPodIdentityExceptionArgs struct {
+	// Name of the pod identity exception.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Namespace of the pod identity exception.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// Pod labels to match.
+	PodLabels pulumi.StringMapInput `pulumi:"podLabels"`
+}
+
+func (ManagedClusterPodIdentityExceptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityException)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityExceptionArgs) ToManagedClusterPodIdentityExceptionOutput() ManagedClusterPodIdentityExceptionOutput {
+	return i.ToManagedClusterPodIdentityExceptionOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityExceptionArgs) ToManagedClusterPodIdentityExceptionOutputWithContext(ctx context.Context) ManagedClusterPodIdentityExceptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityExceptionOutput)
+}
+
+// ManagedClusterPodIdentityExceptionArrayInput is an input type that accepts ManagedClusterPodIdentityExceptionArray and ManagedClusterPodIdentityExceptionArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityExceptionArrayInput` via:
+//
+//          ManagedClusterPodIdentityExceptionArray{ ManagedClusterPodIdentityExceptionArgs{...} }
+type ManagedClusterPodIdentityExceptionArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityExceptionArrayOutput() ManagedClusterPodIdentityExceptionArrayOutput
+	ToManagedClusterPodIdentityExceptionArrayOutputWithContext(context.Context) ManagedClusterPodIdentityExceptionArrayOutput
+}
+
+type ManagedClusterPodIdentityExceptionArray []ManagedClusterPodIdentityExceptionInput
+
+func (ManagedClusterPodIdentityExceptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterPodIdentityException)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityExceptionArray) ToManagedClusterPodIdentityExceptionArrayOutput() ManagedClusterPodIdentityExceptionArrayOutput {
+	return i.ToManagedClusterPodIdentityExceptionArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityExceptionArray) ToManagedClusterPodIdentityExceptionArrayOutputWithContext(ctx context.Context) ManagedClusterPodIdentityExceptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityExceptionArrayOutput)
+}
+
+type ManagedClusterPodIdentityExceptionOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityExceptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityException)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityExceptionOutput) ToManagedClusterPodIdentityExceptionOutput() ManagedClusterPodIdentityExceptionOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityExceptionOutput) ToManagedClusterPodIdentityExceptionOutputWithContext(ctx context.Context) ManagedClusterPodIdentityExceptionOutput {
+	return o
+}
+
+// Name of the pod identity exception.
+func (o ManagedClusterPodIdentityExceptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityException) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Namespace of the pod identity exception.
+func (o ManagedClusterPodIdentityExceptionOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityException) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// Pod labels to match.
+func (o ManagedClusterPodIdentityExceptionOutput) PodLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityException) map[string]string { return v.PodLabels }).(pulumi.StringMapOutput)
+}
+
+type ManagedClusterPodIdentityExceptionArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityExceptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterPodIdentityException)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityExceptionArrayOutput) ToManagedClusterPodIdentityExceptionArrayOutput() ManagedClusterPodIdentityExceptionArrayOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityExceptionArrayOutput) ToManagedClusterPodIdentityExceptionArrayOutputWithContext(ctx context.Context) ManagedClusterPodIdentityExceptionArrayOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityExceptionArrayOutput) Index(i pulumi.IntInput) ManagedClusterPodIdentityExceptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterPodIdentityException {
+		return vs[0].([]ManagedClusterPodIdentityException)[vs[1].(int)]
+	}).(ManagedClusterPodIdentityExceptionOutput)
+}
+
+type ManagedClusterPodIdentityExceptionResponse struct {
+	// Name of the pod identity exception.
+	Name string `pulumi:"name"`
+	// Namespace of the pod identity exception.
+	Namespace string `pulumi:"namespace"`
+	// Pod labels to match.
+	PodLabels map[string]string `pulumi:"podLabels"`
+}
+
+// ManagedClusterPodIdentityExceptionResponseInput is an input type that accepts ManagedClusterPodIdentityExceptionResponseArgs and ManagedClusterPodIdentityExceptionResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityExceptionResponseInput` via:
+//
+//          ManagedClusterPodIdentityExceptionResponseArgs{...}
+type ManagedClusterPodIdentityExceptionResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityExceptionResponseOutput() ManagedClusterPodIdentityExceptionResponseOutput
+	ToManagedClusterPodIdentityExceptionResponseOutputWithContext(context.Context) ManagedClusterPodIdentityExceptionResponseOutput
+}
+
+type ManagedClusterPodIdentityExceptionResponseArgs struct {
+	// Name of the pod identity exception.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Namespace of the pod identity exception.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// Pod labels to match.
+	PodLabels pulumi.StringMapInput `pulumi:"podLabels"`
+}
+
+func (ManagedClusterPodIdentityExceptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityExceptionResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityExceptionResponseArgs) ToManagedClusterPodIdentityExceptionResponseOutput() ManagedClusterPodIdentityExceptionResponseOutput {
+	return i.ToManagedClusterPodIdentityExceptionResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityExceptionResponseArgs) ToManagedClusterPodIdentityExceptionResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityExceptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityExceptionResponseOutput)
+}
+
+// ManagedClusterPodIdentityExceptionResponseArrayInput is an input type that accepts ManagedClusterPodIdentityExceptionResponseArray and ManagedClusterPodIdentityExceptionResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityExceptionResponseArrayInput` via:
+//
+//          ManagedClusterPodIdentityExceptionResponseArray{ ManagedClusterPodIdentityExceptionResponseArgs{...} }
+type ManagedClusterPodIdentityExceptionResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityExceptionResponseArrayOutput() ManagedClusterPodIdentityExceptionResponseArrayOutput
+	ToManagedClusterPodIdentityExceptionResponseArrayOutputWithContext(context.Context) ManagedClusterPodIdentityExceptionResponseArrayOutput
+}
+
+type ManagedClusterPodIdentityExceptionResponseArray []ManagedClusterPodIdentityExceptionResponseInput
+
+func (ManagedClusterPodIdentityExceptionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterPodIdentityExceptionResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityExceptionResponseArray) ToManagedClusterPodIdentityExceptionResponseArrayOutput() ManagedClusterPodIdentityExceptionResponseArrayOutput {
+	return i.ToManagedClusterPodIdentityExceptionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityExceptionResponseArray) ToManagedClusterPodIdentityExceptionResponseArrayOutputWithContext(ctx context.Context) ManagedClusterPodIdentityExceptionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityExceptionResponseArrayOutput)
+}
+
+type ManagedClusterPodIdentityExceptionResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityExceptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityExceptionResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityExceptionResponseOutput) ToManagedClusterPodIdentityExceptionResponseOutput() ManagedClusterPodIdentityExceptionResponseOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityExceptionResponseOutput) ToManagedClusterPodIdentityExceptionResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityExceptionResponseOutput {
+	return o
+}
+
+// Name of the pod identity exception.
+func (o ManagedClusterPodIdentityExceptionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityExceptionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Namespace of the pod identity exception.
+func (o ManagedClusterPodIdentityExceptionResponseOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityExceptionResponse) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// Pod labels to match.
+func (o ManagedClusterPodIdentityExceptionResponseOutput) PodLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityExceptionResponse) map[string]string { return v.PodLabels }).(pulumi.StringMapOutput)
+}
+
+type ManagedClusterPodIdentityExceptionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityExceptionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterPodIdentityExceptionResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityExceptionResponseArrayOutput) ToManagedClusterPodIdentityExceptionResponseArrayOutput() ManagedClusterPodIdentityExceptionResponseArrayOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityExceptionResponseArrayOutput) ToManagedClusterPodIdentityExceptionResponseArrayOutputWithContext(ctx context.Context) ManagedClusterPodIdentityExceptionResponseArrayOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityExceptionResponseArrayOutput) Index(i pulumi.IntInput) ManagedClusterPodIdentityExceptionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterPodIdentityExceptionResponse {
+		return vs[0].([]ManagedClusterPodIdentityExceptionResponse)[vs[1].(int)]
+	}).(ManagedClusterPodIdentityExceptionResponseOutput)
+}
+
+type ManagedClusterPodIdentityProfile struct {
+	// Whether the pod identity addon is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// User assigned pod identity settings.
+	UserAssignedIdentities []ManagedClusterPodIdentity `pulumi:"userAssignedIdentities"`
+	// User assigned pod identity exception settings.
+	UserAssignedIdentityExceptions []ManagedClusterPodIdentityException `pulumi:"userAssignedIdentityExceptions"`
+}
+
+// ManagedClusterPodIdentityProfileInput is an input type that accepts ManagedClusterPodIdentityProfileArgs and ManagedClusterPodIdentityProfileOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityProfileInput` via:
+//
+//          ManagedClusterPodIdentityProfileArgs{...}
+type ManagedClusterPodIdentityProfileInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityProfileOutput() ManagedClusterPodIdentityProfileOutput
+	ToManagedClusterPodIdentityProfileOutputWithContext(context.Context) ManagedClusterPodIdentityProfileOutput
+}
+
+type ManagedClusterPodIdentityProfileArgs struct {
+	// Whether the pod identity addon is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// User assigned pod identity settings.
+	UserAssignedIdentities ManagedClusterPodIdentityArrayInput `pulumi:"userAssignedIdentities"`
+	// User assigned pod identity exception settings.
+	UserAssignedIdentityExceptions ManagedClusterPodIdentityExceptionArrayInput `pulumi:"userAssignedIdentityExceptions"`
+}
+
+func (ManagedClusterPodIdentityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityProfileArgs) ToManagedClusterPodIdentityProfileOutput() ManagedClusterPodIdentityProfileOutput {
+	return i.ToManagedClusterPodIdentityProfileOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityProfileArgs) ToManagedClusterPodIdentityProfileOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProfileOutput)
+}
+
+func (i ManagedClusterPodIdentityProfileArgs) ToManagedClusterPodIdentityProfilePtrOutput() ManagedClusterPodIdentityProfilePtrOutput {
+	return i.ToManagedClusterPodIdentityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityProfileArgs) ToManagedClusterPodIdentityProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProfileOutput).ToManagedClusterPodIdentityProfilePtrOutputWithContext(ctx)
+}
+
+// ManagedClusterPodIdentityProfilePtrInput is an input type that accepts ManagedClusterPodIdentityProfileArgs, ManagedClusterPodIdentityProfilePtr and ManagedClusterPodIdentityProfilePtrOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityProfilePtrInput` via:
+//
+//          ManagedClusterPodIdentityProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterPodIdentityProfilePtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityProfilePtrOutput() ManagedClusterPodIdentityProfilePtrOutput
+	ToManagedClusterPodIdentityProfilePtrOutputWithContext(context.Context) ManagedClusterPodIdentityProfilePtrOutput
+}
+
+type managedClusterPodIdentityProfilePtrType ManagedClusterPodIdentityProfileArgs
+
+func ManagedClusterPodIdentityProfilePtr(v *ManagedClusterPodIdentityProfileArgs) ManagedClusterPodIdentityProfilePtrInput {
+	return (*managedClusterPodIdentityProfilePtrType)(v)
+}
+
+func (*managedClusterPodIdentityProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPodIdentityProfile)(nil)).Elem()
+}
+
+func (i *managedClusterPodIdentityProfilePtrType) ToManagedClusterPodIdentityProfilePtrOutput() ManagedClusterPodIdentityProfilePtrOutput {
+	return i.ToManagedClusterPodIdentityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterPodIdentityProfilePtrType) ToManagedClusterPodIdentityProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProfilePtrOutput)
+}
+
+type ManagedClusterPodIdentityProfileOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityProfileOutput) ToManagedClusterPodIdentityProfileOutput() ManagedClusterPodIdentityProfileOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProfileOutput) ToManagedClusterPodIdentityProfileOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfileOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProfileOutput) ToManagedClusterPodIdentityProfilePtrOutput() ManagedClusterPodIdentityProfilePtrOutput {
+	return o.ToManagedClusterPodIdentityProfilePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterPodIdentityProfileOutput) ToManagedClusterPodIdentityProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfilePtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) *ManagedClusterPodIdentityProfile {
+		return &v
+	}).(ManagedClusterPodIdentityProfilePtrOutput)
+}
+
+// Whether the pod identity addon is enabled.
+func (o ManagedClusterPodIdentityProfileOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// User assigned pod identity settings.
+func (o ManagedClusterPodIdentityProfileOutput) UserAssignedIdentities() ManagedClusterPodIdentityArrayOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) []ManagedClusterPodIdentity { return v.UserAssignedIdentities }).(ManagedClusterPodIdentityArrayOutput)
+}
+
+// User assigned pod identity exception settings.
+func (o ManagedClusterPodIdentityProfileOutput) UserAssignedIdentityExceptions() ManagedClusterPodIdentityExceptionArrayOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) []ManagedClusterPodIdentityException {
+		return v.UserAssignedIdentityExceptions
+	}).(ManagedClusterPodIdentityExceptionArrayOutput)
+}
+
+type ManagedClusterPodIdentityProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPodIdentityProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityProfilePtrOutput) ToManagedClusterPodIdentityProfilePtrOutput() ManagedClusterPodIdentityProfilePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProfilePtrOutput) ToManagedClusterPodIdentityProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfilePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProfilePtrOutput) Elem() ManagedClusterPodIdentityProfileOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) ManagedClusterPodIdentityProfile { return *v }).(ManagedClusterPodIdentityProfileOutput)
+}
+
+// Whether the pod identity addon is enabled.
+func (o ManagedClusterPodIdentityProfilePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// User assigned pod identity settings.
+func (o ManagedClusterPodIdentityProfilePtrOutput) UserAssignedIdentities() ManagedClusterPodIdentityArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) []ManagedClusterPodIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(ManagedClusterPodIdentityArrayOutput)
+}
+
+// User assigned pod identity exception settings.
+func (o ManagedClusterPodIdentityProfilePtrOutput) UserAssignedIdentityExceptions() ManagedClusterPodIdentityExceptionArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) []ManagedClusterPodIdentityException {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityExceptions
+	}).(ManagedClusterPodIdentityExceptionArrayOutput)
+}
+
+type ManagedClusterPodIdentityProfileResponse struct {
+	// Whether the pod identity addon is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// User assigned pod identity settings.
+	UserAssignedIdentities []ManagedClusterPodIdentityResponse `pulumi:"userAssignedIdentities"`
+	// User assigned pod identity exception settings.
+	UserAssignedIdentityExceptions []ManagedClusterPodIdentityExceptionResponse `pulumi:"userAssignedIdentityExceptions"`
+}
+
+// ManagedClusterPodIdentityProfileResponseInput is an input type that accepts ManagedClusterPodIdentityProfileResponseArgs and ManagedClusterPodIdentityProfileResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityProfileResponseInput` via:
+//
+//          ManagedClusterPodIdentityProfileResponseArgs{...}
+type ManagedClusterPodIdentityProfileResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityProfileResponseOutput() ManagedClusterPodIdentityProfileResponseOutput
+	ToManagedClusterPodIdentityProfileResponseOutputWithContext(context.Context) ManagedClusterPodIdentityProfileResponseOutput
+}
+
+type ManagedClusterPodIdentityProfileResponseArgs struct {
+	// Whether the pod identity addon is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// User assigned pod identity settings.
+	UserAssignedIdentities ManagedClusterPodIdentityResponseArrayInput `pulumi:"userAssignedIdentities"`
+	// User assigned pod identity exception settings.
+	UserAssignedIdentityExceptions ManagedClusterPodIdentityExceptionResponseArrayInput `pulumi:"userAssignedIdentityExceptions"`
+}
+
+func (ManagedClusterPodIdentityProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityProfileResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityProfileResponseArgs) ToManagedClusterPodIdentityProfileResponseOutput() ManagedClusterPodIdentityProfileResponseOutput {
+	return i.ToManagedClusterPodIdentityProfileResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityProfileResponseArgs) ToManagedClusterPodIdentityProfileResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProfileResponseOutput)
+}
+
+func (i ManagedClusterPodIdentityProfileResponseArgs) ToManagedClusterPodIdentityProfileResponsePtrOutput() ManagedClusterPodIdentityProfileResponsePtrOutput {
+	return i.ToManagedClusterPodIdentityProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityProfileResponseArgs) ToManagedClusterPodIdentityProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProfileResponseOutput).ToManagedClusterPodIdentityProfileResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedClusterPodIdentityProfileResponsePtrInput is an input type that accepts ManagedClusterPodIdentityProfileResponseArgs, ManagedClusterPodIdentityProfileResponsePtr and ManagedClusterPodIdentityProfileResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityProfileResponsePtrInput` via:
+//
+//          ManagedClusterPodIdentityProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterPodIdentityProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityProfileResponsePtrOutput() ManagedClusterPodIdentityProfileResponsePtrOutput
+	ToManagedClusterPodIdentityProfileResponsePtrOutputWithContext(context.Context) ManagedClusterPodIdentityProfileResponsePtrOutput
+}
+
+type managedClusterPodIdentityProfileResponsePtrType ManagedClusterPodIdentityProfileResponseArgs
+
+func ManagedClusterPodIdentityProfileResponsePtr(v *ManagedClusterPodIdentityProfileResponseArgs) ManagedClusterPodIdentityProfileResponsePtrInput {
+	return (*managedClusterPodIdentityProfileResponsePtrType)(v)
+}
+
+func (*managedClusterPodIdentityProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPodIdentityProfileResponse)(nil)).Elem()
+}
+
+func (i *managedClusterPodIdentityProfileResponsePtrType) ToManagedClusterPodIdentityProfileResponsePtrOutput() ManagedClusterPodIdentityProfileResponsePtrOutput {
+	return i.ToManagedClusterPodIdentityProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterPodIdentityProfileResponsePtrType) ToManagedClusterPodIdentityProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProfileResponsePtrOutput)
+}
+
+type ManagedClusterPodIdentityProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityProfileResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityProfileResponseOutput) ToManagedClusterPodIdentityProfileResponseOutput() ManagedClusterPodIdentityProfileResponseOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProfileResponseOutput) ToManagedClusterPodIdentityProfileResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfileResponseOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProfileResponseOutput) ToManagedClusterPodIdentityProfileResponsePtrOutput() ManagedClusterPodIdentityProfileResponsePtrOutput {
+	return o.ToManagedClusterPodIdentityProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterPodIdentityProfileResponseOutput) ToManagedClusterPodIdentityProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfileResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) *ManagedClusterPodIdentityProfileResponse {
+		return &v
+	}).(ManagedClusterPodIdentityProfileResponsePtrOutput)
+}
+
+// Whether the pod identity addon is enabled.
+func (o ManagedClusterPodIdentityProfileResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// User assigned pod identity settings.
+func (o ManagedClusterPodIdentityProfileResponseOutput) UserAssignedIdentities() ManagedClusterPodIdentityResponseArrayOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) []ManagedClusterPodIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(ManagedClusterPodIdentityResponseArrayOutput)
+}
+
+// User assigned pod identity exception settings.
+func (o ManagedClusterPodIdentityProfileResponseOutput) UserAssignedIdentityExceptions() ManagedClusterPodIdentityExceptionResponseArrayOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) []ManagedClusterPodIdentityExceptionResponse {
+		return v.UserAssignedIdentityExceptions
+	}).(ManagedClusterPodIdentityExceptionResponseArrayOutput)
+}
+
+type ManagedClusterPodIdentityProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPodIdentityProfileResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityProfileResponsePtrOutput) ToManagedClusterPodIdentityProfileResponsePtrOutput() ManagedClusterPodIdentityProfileResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProfileResponsePtrOutput) ToManagedClusterPodIdentityProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfileResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProfileResponsePtrOutput) Elem() ManagedClusterPodIdentityProfileResponseOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) ManagedClusterPodIdentityProfileResponse { return *v }).(ManagedClusterPodIdentityProfileResponseOutput)
+}
+
+// Whether the pod identity addon is enabled.
+func (o ManagedClusterPodIdentityProfileResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// User assigned pod identity settings.
+func (o ManagedClusterPodIdentityProfileResponsePtrOutput) UserAssignedIdentities() ManagedClusterPodIdentityResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) []ManagedClusterPodIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(ManagedClusterPodIdentityResponseArrayOutput)
+}
+
+// User assigned pod identity exception settings.
+func (o ManagedClusterPodIdentityProfileResponsePtrOutput) UserAssignedIdentityExceptions() ManagedClusterPodIdentityExceptionResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) []ManagedClusterPodIdentityExceptionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityExceptions
+	}).(ManagedClusterPodIdentityExceptionResponseArrayOutput)
+}
+
+type ManagedClusterPodIdentityResponse struct {
+	// Information of the user assigned identity.
+	Identity UserAssignedIdentityResponse `pulumi:"identity"`
+	// Name of the pod identity.
+	Name string `pulumi:"name"`
+	// Namespace of the pod identity.
+	Namespace        string                                            `pulumi:"namespace"`
+	ProvisioningInfo ManagedClusterPodIdentityResponseProvisioningInfo `pulumi:"provisioningInfo"`
+	// The current provisioning state of the pod identity.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// ManagedClusterPodIdentityResponseInput is an input type that accepts ManagedClusterPodIdentityResponseArgs and ManagedClusterPodIdentityResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityResponseInput` via:
+//
+//          ManagedClusterPodIdentityResponseArgs{...}
+type ManagedClusterPodIdentityResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityResponseOutput() ManagedClusterPodIdentityResponseOutput
+	ToManagedClusterPodIdentityResponseOutputWithContext(context.Context) ManagedClusterPodIdentityResponseOutput
+}
+
+type ManagedClusterPodIdentityResponseArgs struct {
+	// Information of the user assigned identity.
+	Identity UserAssignedIdentityResponseInput `pulumi:"identity"`
+	// Name of the pod identity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Namespace of the pod identity.
+	Namespace        pulumi.StringInput                                     `pulumi:"namespace"`
+	ProvisioningInfo ManagedClusterPodIdentityResponseProvisioningInfoInput `pulumi:"provisioningInfo"`
+	// The current provisioning state of the pod identity.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (ManagedClusterPodIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityResponseArgs) ToManagedClusterPodIdentityResponseOutput() ManagedClusterPodIdentityResponseOutput {
+	return i.ToManagedClusterPodIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityResponseArgs) ToManagedClusterPodIdentityResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityResponseOutput)
+}
+
+// ManagedClusterPodIdentityResponseArrayInput is an input type that accepts ManagedClusterPodIdentityResponseArray and ManagedClusterPodIdentityResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityResponseArrayInput` via:
+//
+//          ManagedClusterPodIdentityResponseArray{ ManagedClusterPodIdentityResponseArgs{...} }
+type ManagedClusterPodIdentityResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityResponseArrayOutput() ManagedClusterPodIdentityResponseArrayOutput
+	ToManagedClusterPodIdentityResponseArrayOutputWithContext(context.Context) ManagedClusterPodIdentityResponseArrayOutput
+}
+
+type ManagedClusterPodIdentityResponseArray []ManagedClusterPodIdentityResponseInput
+
+func (ManagedClusterPodIdentityResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterPodIdentityResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityResponseArray) ToManagedClusterPodIdentityResponseArrayOutput() ManagedClusterPodIdentityResponseArrayOutput {
+	return i.ToManagedClusterPodIdentityResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityResponseArray) ToManagedClusterPodIdentityResponseArrayOutputWithContext(ctx context.Context) ManagedClusterPodIdentityResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityResponseArrayOutput)
+}
+
+type ManagedClusterPodIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityResponseOutput) ToManagedClusterPodIdentityResponseOutput() ManagedClusterPodIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityResponseOutput) ToManagedClusterPodIdentityResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityResponseOutput {
+	return o
+}
+
+// Information of the user assigned identity.
+func (o ManagedClusterPodIdentityResponseOutput) Identity() UserAssignedIdentityResponseOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) UserAssignedIdentityResponse { return v.Identity }).(UserAssignedIdentityResponseOutput)
+}
+
+// Name of the pod identity.
+func (o ManagedClusterPodIdentityResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Namespace of the pod identity.
+func (o ManagedClusterPodIdentityResponseOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+func (o ManagedClusterPodIdentityResponseOutput) ProvisioningInfo() ManagedClusterPodIdentityResponseProvisioningInfoOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) ManagedClusterPodIdentityResponseProvisioningInfo {
+		return v.ProvisioningInfo
+	}).(ManagedClusterPodIdentityResponseProvisioningInfoOutput)
+}
+
+// The current provisioning state of the pod identity.
+func (o ManagedClusterPodIdentityResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type ManagedClusterPodIdentityResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterPodIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityResponseArrayOutput) ToManagedClusterPodIdentityResponseArrayOutput() ManagedClusterPodIdentityResponseArrayOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityResponseArrayOutput) ToManagedClusterPodIdentityResponseArrayOutputWithContext(ctx context.Context) ManagedClusterPodIdentityResponseArrayOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityResponseArrayOutput) Index(i pulumi.IntInput) ManagedClusterPodIdentityResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterPodIdentityResponse {
+		return vs[0].([]ManagedClusterPodIdentityResponse)[vs[1].(int)]
+	}).(ManagedClusterPodIdentityResponseOutput)
+}
+
+type ManagedClusterPodIdentityResponseProvisioningInfo struct {
+	// Pod identity assignment error (if any).
+	Error *CloudErrorResponse `pulumi:"error"`
+}
+
+// ManagedClusterPodIdentityResponseProvisioningInfoInput is an input type that accepts ManagedClusterPodIdentityResponseProvisioningInfoArgs and ManagedClusterPodIdentityResponseProvisioningInfoOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityResponseProvisioningInfoInput` via:
+//
+//          ManagedClusterPodIdentityResponseProvisioningInfoArgs{...}
+type ManagedClusterPodIdentityResponseProvisioningInfoInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityResponseProvisioningInfoOutput() ManagedClusterPodIdentityResponseProvisioningInfoOutput
+	ToManagedClusterPodIdentityResponseProvisioningInfoOutputWithContext(context.Context) ManagedClusterPodIdentityResponseProvisioningInfoOutput
+}
+
+type ManagedClusterPodIdentityResponseProvisioningInfoArgs struct {
+	// Pod identity assignment error (if any).
+	Error CloudErrorResponsePtrInput `pulumi:"error"`
+}
+
+func (ManagedClusterPodIdentityResponseProvisioningInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityResponseProvisioningInfo)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityResponseProvisioningInfoArgs) ToManagedClusterPodIdentityResponseProvisioningInfoOutput() ManagedClusterPodIdentityResponseProvisioningInfoOutput {
+	return i.ToManagedClusterPodIdentityResponseProvisioningInfoOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityResponseProvisioningInfoArgs) ToManagedClusterPodIdentityResponseProvisioningInfoOutputWithContext(ctx context.Context) ManagedClusterPodIdentityResponseProvisioningInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityResponseProvisioningInfoOutput)
+}
+
+type ManagedClusterPodIdentityResponseProvisioningInfoOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityResponseProvisioningInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityResponseProvisioningInfo)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityResponseProvisioningInfoOutput) ToManagedClusterPodIdentityResponseProvisioningInfoOutput() ManagedClusterPodIdentityResponseProvisioningInfoOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityResponseProvisioningInfoOutput) ToManagedClusterPodIdentityResponseProvisioningInfoOutputWithContext(ctx context.Context) ManagedClusterPodIdentityResponseProvisioningInfoOutput {
+	return o
+}
+
+// Pod identity assignment error (if any).
+func (o ManagedClusterPodIdentityResponseProvisioningInfoOutput) Error() CloudErrorResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityResponseProvisioningInfo) *CloudErrorResponse { return v.Error }).(CloudErrorResponsePtrOutput)
 }
 
 // Parameters to be applied to the cluster-autoscaler when enabled
@@ -12930,11 +15449,1450 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 	}).(ResourceReferenceResponseOutput)
 }
 
+// Sysctl settings for Linux agent nodes.
+type SysctlConfig struct {
+	// Sysctl setting fs.aio-max-nr.
+	FsAioMaxNr *int `pulumi:"fsAioMaxNr"`
+	// Sysctl setting fs.file-max.
+	FsFileMax *int `pulumi:"fsFileMax"`
+	// Sysctl setting fs.inotify.max_user_watches.
+	FsInotifyMaxUserWatches *int `pulumi:"fsInotifyMaxUserWatches"`
+	// Sysctl setting fs.nr_open.
+	FsNrOpen *int `pulumi:"fsNrOpen"`
+	// Sysctl setting kernel.threads-max.
+	KernelThreadsMax *int `pulumi:"kernelThreadsMax"`
+	// Sysctl setting net.core.netdev_max_backlog.
+	NetCoreNetdevMaxBacklog *int `pulumi:"netCoreNetdevMaxBacklog"`
+	// Sysctl setting net.core.optmem_max.
+	NetCoreOptmemMax *int `pulumi:"netCoreOptmemMax"`
+	// Sysctl setting net.core.rmem_max.
+	NetCoreRmemMax *int `pulumi:"netCoreRmemMax"`
+	// Sysctl setting net.core.somaxconn.
+	NetCoreSomaxconn *int `pulumi:"netCoreSomaxconn"`
+	// Sysctl setting net.core.wmem_max.
+	NetCoreWmemMax *int `pulumi:"netCoreWmemMax"`
+	// Sysctl setting net.ipv4.ip_local_port_range.
+	NetIpv4IpLocalPortRange *string `pulumi:"netIpv4IpLocalPortRange"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+	NetIpv4NeighDefaultGcThresh1 *int `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+	NetIpv4NeighDefaultGcThresh2 *int `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+	NetIpv4NeighDefaultGcThresh3 *int `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	// Sysctl setting net.ipv4.tcp_fin_timeout.
+	NetIpv4TcpFinTimeout *int `pulumi:"netIpv4TcpFinTimeout"`
+	// Sysctl setting net.ipv4.tcp_keepalive_probes.
+	NetIpv4TcpKeepaliveProbes *int `pulumi:"netIpv4TcpKeepaliveProbes"`
+	// Sysctl setting net.ipv4.tcp_keepalive_time.
+	NetIpv4TcpKeepaliveTime *int `pulumi:"netIpv4TcpKeepaliveTime"`
+	// Sysctl setting net.ipv4.tcp_max_syn_backlog.
+	NetIpv4TcpMaxSynBacklog *int `pulumi:"netIpv4TcpMaxSynBacklog"`
+	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
+	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
+	// Sysctl setting net.ipv4.tcp_rmem.
+	NetIpv4TcpRmem *int `pulumi:"netIpv4TcpRmem"`
+	// Sysctl setting net.ipv4.tcp_tw_reuse.
+	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
+	// Sysctl setting net.ipv4.tcp_wmem.
+	NetIpv4TcpWmem *int `pulumi:"netIpv4TcpWmem"`
+	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
+	NetIpv4TcpkeepaliveIntvl *int `pulumi:"netIpv4TcpkeepaliveIntvl"`
+	// Sysctl setting net.netfilter.nf_conntrack_buckets.
+	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
+	// Sysctl setting net.netfilter.nf_conntrack_max.
+	NetNetfilterNfConntrackMax *int `pulumi:"netNetfilterNfConntrackMax"`
+	// Sysctl setting vm.max_map_count.
+	VmMaxMapCount *int `pulumi:"vmMaxMapCount"`
+	// Sysctl setting vm.swappiness.
+	VmSwappiness *int `pulumi:"vmSwappiness"`
+	// Sysctl setting vm.vfs_cache_pressure.
+	VmVfsCachePressure *int `pulumi:"vmVfsCachePressure"`
+}
+
+// SysctlConfigInput is an input type that accepts SysctlConfigArgs and SysctlConfigOutput values.
+// You can construct a concrete instance of `SysctlConfigInput` via:
+//
+//          SysctlConfigArgs{...}
+type SysctlConfigInput interface {
+	pulumi.Input
+
+	ToSysctlConfigOutput() SysctlConfigOutput
+	ToSysctlConfigOutputWithContext(context.Context) SysctlConfigOutput
+}
+
+// Sysctl settings for Linux agent nodes.
+type SysctlConfigArgs struct {
+	// Sysctl setting fs.aio-max-nr.
+	FsAioMaxNr pulumi.IntPtrInput `pulumi:"fsAioMaxNr"`
+	// Sysctl setting fs.file-max.
+	FsFileMax pulumi.IntPtrInput `pulumi:"fsFileMax"`
+	// Sysctl setting fs.inotify.max_user_watches.
+	FsInotifyMaxUserWatches pulumi.IntPtrInput `pulumi:"fsInotifyMaxUserWatches"`
+	// Sysctl setting fs.nr_open.
+	FsNrOpen pulumi.IntPtrInput `pulumi:"fsNrOpen"`
+	// Sysctl setting kernel.threads-max.
+	KernelThreadsMax pulumi.IntPtrInput `pulumi:"kernelThreadsMax"`
+	// Sysctl setting net.core.netdev_max_backlog.
+	NetCoreNetdevMaxBacklog pulumi.IntPtrInput `pulumi:"netCoreNetdevMaxBacklog"`
+	// Sysctl setting net.core.optmem_max.
+	NetCoreOptmemMax pulumi.IntPtrInput `pulumi:"netCoreOptmemMax"`
+	// Sysctl setting net.core.rmem_max.
+	NetCoreRmemMax pulumi.IntPtrInput `pulumi:"netCoreRmemMax"`
+	// Sysctl setting net.core.somaxconn.
+	NetCoreSomaxconn pulumi.IntPtrInput `pulumi:"netCoreSomaxconn"`
+	// Sysctl setting net.core.wmem_max.
+	NetCoreWmemMax pulumi.IntPtrInput `pulumi:"netCoreWmemMax"`
+	// Sysctl setting net.ipv4.ip_local_port_range.
+	NetIpv4IpLocalPortRange pulumi.StringPtrInput `pulumi:"netIpv4IpLocalPortRange"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+	NetIpv4NeighDefaultGcThresh1 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+	NetIpv4NeighDefaultGcThresh2 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+	NetIpv4NeighDefaultGcThresh3 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	// Sysctl setting net.ipv4.tcp_fin_timeout.
+	NetIpv4TcpFinTimeout pulumi.IntPtrInput `pulumi:"netIpv4TcpFinTimeout"`
+	// Sysctl setting net.ipv4.tcp_keepalive_probes.
+	NetIpv4TcpKeepaliveProbes pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveProbes"`
+	// Sysctl setting net.ipv4.tcp_keepalive_time.
+	NetIpv4TcpKeepaliveTime pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveTime"`
+	// Sysctl setting net.ipv4.tcp_max_syn_backlog.
+	NetIpv4TcpMaxSynBacklog pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxSynBacklog"`
+	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
+	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
+	// Sysctl setting net.ipv4.tcp_rmem.
+	NetIpv4TcpRmem pulumi.IntPtrInput `pulumi:"netIpv4TcpRmem"`
+	// Sysctl setting net.ipv4.tcp_tw_reuse.
+	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
+	// Sysctl setting net.ipv4.tcp_wmem.
+	NetIpv4TcpWmem pulumi.IntPtrInput `pulumi:"netIpv4TcpWmem"`
+	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
+	NetIpv4TcpkeepaliveIntvl pulumi.IntPtrInput `pulumi:"netIpv4TcpkeepaliveIntvl"`
+	// Sysctl setting net.netfilter.nf_conntrack_buckets.
+	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
+	// Sysctl setting net.netfilter.nf_conntrack_max.
+	NetNetfilterNfConntrackMax pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackMax"`
+	// Sysctl setting vm.max_map_count.
+	VmMaxMapCount pulumi.IntPtrInput `pulumi:"vmMaxMapCount"`
+	// Sysctl setting vm.swappiness.
+	VmSwappiness pulumi.IntPtrInput `pulumi:"vmSwappiness"`
+	// Sysctl setting vm.vfs_cache_pressure.
+	VmVfsCachePressure pulumi.IntPtrInput `pulumi:"vmVfsCachePressure"`
+}
+
+func (SysctlConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SysctlConfig)(nil)).Elem()
+}
+
+func (i SysctlConfigArgs) ToSysctlConfigOutput() SysctlConfigOutput {
+	return i.ToSysctlConfigOutputWithContext(context.Background())
+}
+
+func (i SysctlConfigArgs) ToSysctlConfigOutputWithContext(ctx context.Context) SysctlConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SysctlConfigOutput)
+}
+
+func (i SysctlConfigArgs) ToSysctlConfigPtrOutput() SysctlConfigPtrOutput {
+	return i.ToSysctlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i SysctlConfigArgs) ToSysctlConfigPtrOutputWithContext(ctx context.Context) SysctlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SysctlConfigOutput).ToSysctlConfigPtrOutputWithContext(ctx)
+}
+
+// SysctlConfigPtrInput is an input type that accepts SysctlConfigArgs, SysctlConfigPtr and SysctlConfigPtrOutput values.
+// You can construct a concrete instance of `SysctlConfigPtrInput` via:
+//
+//          SysctlConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type SysctlConfigPtrInput interface {
+	pulumi.Input
+
+	ToSysctlConfigPtrOutput() SysctlConfigPtrOutput
+	ToSysctlConfigPtrOutputWithContext(context.Context) SysctlConfigPtrOutput
+}
+
+type sysctlConfigPtrType SysctlConfigArgs
+
+func SysctlConfigPtr(v *SysctlConfigArgs) SysctlConfigPtrInput {
+	return (*sysctlConfigPtrType)(v)
+}
+
+func (*sysctlConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SysctlConfig)(nil)).Elem()
+}
+
+func (i *sysctlConfigPtrType) ToSysctlConfigPtrOutput() SysctlConfigPtrOutput {
+	return i.ToSysctlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *sysctlConfigPtrType) ToSysctlConfigPtrOutputWithContext(ctx context.Context) SysctlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SysctlConfigPtrOutput)
+}
+
+// Sysctl settings for Linux agent nodes.
+type SysctlConfigOutput struct{ *pulumi.OutputState }
+
+func (SysctlConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SysctlConfig)(nil)).Elem()
+}
+
+func (o SysctlConfigOutput) ToSysctlConfigOutput() SysctlConfigOutput {
+	return o
+}
+
+func (o SysctlConfigOutput) ToSysctlConfigOutputWithContext(ctx context.Context) SysctlConfigOutput {
+	return o
+}
+
+func (o SysctlConfigOutput) ToSysctlConfigPtrOutput() SysctlConfigPtrOutput {
+	return o.ToSysctlConfigPtrOutputWithContext(context.Background())
+}
+
+func (o SysctlConfigOutput) ToSysctlConfigPtrOutputWithContext(ctx context.Context) SysctlConfigPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *SysctlConfig {
+		return &v
+	}).(SysctlConfigPtrOutput)
+}
+
+// Sysctl setting fs.aio-max-nr.
+func (o SysctlConfigOutput) FsAioMaxNr() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.FsAioMaxNr }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.file-max.
+func (o SysctlConfigOutput) FsFileMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.FsFileMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.inotify.max_user_watches.
+func (o SysctlConfigOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.FsInotifyMaxUserWatches }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.nr_open.
+func (o SysctlConfigOutput) FsNrOpen() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.FsNrOpen }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting kernel.threads-max.
+func (o SysctlConfigOutput) KernelThreadsMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.KernelThreadsMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.netdev_max_backlog.
+func (o SysctlConfigOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreNetdevMaxBacklog }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.optmem_max.
+func (o SysctlConfigOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreOptmemMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.rmem_max.
+func (o SysctlConfigOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreRmemMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.somaxconn.
+func (o SysctlConfigOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreSomaxconn }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.wmem_max.
+func (o SysctlConfigOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetCoreWmemMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.ip_local_port_range.
+func (o SysctlConfigOutput) NetIpv4IpLocalPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *string { return v.NetIpv4IpLocalPortRange }).(pulumi.StringPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+func (o SysctlConfigOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4NeighDefaultGcThresh1 }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+func (o SysctlConfigOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4NeighDefaultGcThresh2 }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+func (o SysctlConfigOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4NeighDefaultGcThresh3 }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_fin_timeout.
+func (o SysctlConfigOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpFinTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_probes.
+func (o SysctlConfigOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpKeepaliveProbes }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_time.
+func (o SysctlConfigOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpKeepaliveTime }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_max_syn_backlog.
+func (o SysctlConfigOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpMaxSynBacklog }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_max_tw_buckets.
+func (o SysctlConfigOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpMaxTwBuckets }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_rmem.
+func (o SysctlConfigOutput) NetIpv4TcpRmem() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpRmem }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_tw_reuse.
+func (o SysctlConfigOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_wmem.
+func (o SysctlConfigOutput) NetIpv4TcpWmem() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpWmem }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_intvl.
+func (o SysctlConfigOutput) NetIpv4TcpkeepaliveIntvl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetIpv4TcpkeepaliveIntvl }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.netfilter.nf_conntrack_buckets.
+func (o SysctlConfigOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetNetfilterNfConntrackBuckets }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.netfilter.nf_conntrack_max.
+func (o SysctlConfigOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.NetNetfilterNfConntrackMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.max_map_count.
+func (o SysctlConfigOutput) VmMaxMapCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.VmMaxMapCount }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.swappiness.
+func (o SysctlConfigOutput) VmSwappiness() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.VmSwappiness }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.vfs_cache_pressure.
+func (o SysctlConfigOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfig) *int { return v.VmVfsCachePressure }).(pulumi.IntPtrOutput)
+}
+
+type SysctlConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (SysctlConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SysctlConfig)(nil)).Elem()
+}
+
+func (o SysctlConfigPtrOutput) ToSysctlConfigPtrOutput() SysctlConfigPtrOutput {
+	return o
+}
+
+func (o SysctlConfigPtrOutput) ToSysctlConfigPtrOutputWithContext(ctx context.Context) SysctlConfigPtrOutput {
+	return o
+}
+
+func (o SysctlConfigPtrOutput) Elem() SysctlConfigOutput {
+	return o.ApplyT(func(v *SysctlConfig) SysctlConfig { return *v }).(SysctlConfigOutput)
+}
+
+// Sysctl setting fs.aio-max-nr.
+func (o SysctlConfigPtrOutput) FsAioMaxNr() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsAioMaxNr
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.file-max.
+func (o SysctlConfigPtrOutput) FsFileMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsFileMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.inotify.max_user_watches.
+func (o SysctlConfigPtrOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsInotifyMaxUserWatches
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.nr_open.
+func (o SysctlConfigPtrOutput) FsNrOpen() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsNrOpen
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting kernel.threads-max.
+func (o SysctlConfigPtrOutput) KernelThreadsMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KernelThreadsMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.netdev_max_backlog.
+func (o SysctlConfigPtrOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreNetdevMaxBacklog
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.optmem_max.
+func (o SysctlConfigPtrOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreOptmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.rmem_max.
+func (o SysctlConfigPtrOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreRmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.somaxconn.
+func (o SysctlConfigPtrOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreSomaxconn
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.wmem_max.
+func (o SysctlConfigPtrOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreWmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.ip_local_port_range.
+func (o SysctlConfigPtrOutput) NetIpv4IpLocalPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4IpLocalPortRange
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+func (o SysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh1
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+func (o SysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh2
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+func (o SysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh3
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_fin_timeout.
+func (o SysctlConfigPtrOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpFinTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_probes.
+func (o SysctlConfigPtrOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpKeepaliveProbes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_time.
+func (o SysctlConfigPtrOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpKeepaliveTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_max_syn_backlog.
+func (o SysctlConfigPtrOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpMaxSynBacklog
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_max_tw_buckets.
+func (o SysctlConfigPtrOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpMaxTwBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_rmem.
+func (o SysctlConfigPtrOutput) NetIpv4TcpRmem() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpRmem
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_tw_reuse.
+func (o SysctlConfigPtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpTwReuse
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_wmem.
+func (o SysctlConfigPtrOutput) NetIpv4TcpWmem() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpWmem
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_intvl.
+func (o SysctlConfigPtrOutput) NetIpv4TcpkeepaliveIntvl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpkeepaliveIntvl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.netfilter.nf_conntrack_buckets.
+func (o SysctlConfigPtrOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetNetfilterNfConntrackBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.netfilter.nf_conntrack_max.
+func (o SysctlConfigPtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetNetfilterNfConntrackMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.max_map_count.
+func (o SysctlConfigPtrOutput) VmMaxMapCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmMaxMapCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.swappiness.
+func (o SysctlConfigPtrOutput) VmSwappiness() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmSwappiness
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.vfs_cache_pressure.
+func (o SysctlConfigPtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmVfsCachePressure
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl settings for Linux agent nodes.
+type SysctlConfigResponse struct {
+	// Sysctl setting fs.aio-max-nr.
+	FsAioMaxNr *int `pulumi:"fsAioMaxNr"`
+	// Sysctl setting fs.file-max.
+	FsFileMax *int `pulumi:"fsFileMax"`
+	// Sysctl setting fs.inotify.max_user_watches.
+	FsInotifyMaxUserWatches *int `pulumi:"fsInotifyMaxUserWatches"`
+	// Sysctl setting fs.nr_open.
+	FsNrOpen *int `pulumi:"fsNrOpen"`
+	// Sysctl setting kernel.threads-max.
+	KernelThreadsMax *int `pulumi:"kernelThreadsMax"`
+	// Sysctl setting net.core.netdev_max_backlog.
+	NetCoreNetdevMaxBacklog *int `pulumi:"netCoreNetdevMaxBacklog"`
+	// Sysctl setting net.core.optmem_max.
+	NetCoreOptmemMax *int `pulumi:"netCoreOptmemMax"`
+	// Sysctl setting net.core.rmem_max.
+	NetCoreRmemMax *int `pulumi:"netCoreRmemMax"`
+	// Sysctl setting net.core.somaxconn.
+	NetCoreSomaxconn *int `pulumi:"netCoreSomaxconn"`
+	// Sysctl setting net.core.wmem_max.
+	NetCoreWmemMax *int `pulumi:"netCoreWmemMax"`
+	// Sysctl setting net.ipv4.ip_local_port_range.
+	NetIpv4IpLocalPortRange *string `pulumi:"netIpv4IpLocalPortRange"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+	NetIpv4NeighDefaultGcThresh1 *int `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+	NetIpv4NeighDefaultGcThresh2 *int `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+	NetIpv4NeighDefaultGcThresh3 *int `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	// Sysctl setting net.ipv4.tcp_fin_timeout.
+	NetIpv4TcpFinTimeout *int `pulumi:"netIpv4TcpFinTimeout"`
+	// Sysctl setting net.ipv4.tcp_keepalive_probes.
+	NetIpv4TcpKeepaliveProbes *int `pulumi:"netIpv4TcpKeepaliveProbes"`
+	// Sysctl setting net.ipv4.tcp_keepalive_time.
+	NetIpv4TcpKeepaliveTime *int `pulumi:"netIpv4TcpKeepaliveTime"`
+	// Sysctl setting net.ipv4.tcp_max_syn_backlog.
+	NetIpv4TcpMaxSynBacklog *int `pulumi:"netIpv4TcpMaxSynBacklog"`
+	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
+	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
+	// Sysctl setting net.ipv4.tcp_rmem.
+	NetIpv4TcpRmem *int `pulumi:"netIpv4TcpRmem"`
+	// Sysctl setting net.ipv4.tcp_tw_reuse.
+	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
+	// Sysctl setting net.ipv4.tcp_wmem.
+	NetIpv4TcpWmem *int `pulumi:"netIpv4TcpWmem"`
+	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
+	NetIpv4TcpkeepaliveIntvl *int `pulumi:"netIpv4TcpkeepaliveIntvl"`
+	// Sysctl setting net.netfilter.nf_conntrack_buckets.
+	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
+	// Sysctl setting net.netfilter.nf_conntrack_max.
+	NetNetfilterNfConntrackMax *int `pulumi:"netNetfilterNfConntrackMax"`
+	// Sysctl setting vm.max_map_count.
+	VmMaxMapCount *int `pulumi:"vmMaxMapCount"`
+	// Sysctl setting vm.swappiness.
+	VmSwappiness *int `pulumi:"vmSwappiness"`
+	// Sysctl setting vm.vfs_cache_pressure.
+	VmVfsCachePressure *int `pulumi:"vmVfsCachePressure"`
+}
+
+// SysctlConfigResponseInput is an input type that accepts SysctlConfigResponseArgs and SysctlConfigResponseOutput values.
+// You can construct a concrete instance of `SysctlConfigResponseInput` via:
+//
+//          SysctlConfigResponseArgs{...}
+type SysctlConfigResponseInput interface {
+	pulumi.Input
+
+	ToSysctlConfigResponseOutput() SysctlConfigResponseOutput
+	ToSysctlConfigResponseOutputWithContext(context.Context) SysctlConfigResponseOutput
+}
+
+// Sysctl settings for Linux agent nodes.
+type SysctlConfigResponseArgs struct {
+	// Sysctl setting fs.aio-max-nr.
+	FsAioMaxNr pulumi.IntPtrInput `pulumi:"fsAioMaxNr"`
+	// Sysctl setting fs.file-max.
+	FsFileMax pulumi.IntPtrInput `pulumi:"fsFileMax"`
+	// Sysctl setting fs.inotify.max_user_watches.
+	FsInotifyMaxUserWatches pulumi.IntPtrInput `pulumi:"fsInotifyMaxUserWatches"`
+	// Sysctl setting fs.nr_open.
+	FsNrOpen pulumi.IntPtrInput `pulumi:"fsNrOpen"`
+	// Sysctl setting kernel.threads-max.
+	KernelThreadsMax pulumi.IntPtrInput `pulumi:"kernelThreadsMax"`
+	// Sysctl setting net.core.netdev_max_backlog.
+	NetCoreNetdevMaxBacklog pulumi.IntPtrInput `pulumi:"netCoreNetdevMaxBacklog"`
+	// Sysctl setting net.core.optmem_max.
+	NetCoreOptmemMax pulumi.IntPtrInput `pulumi:"netCoreOptmemMax"`
+	// Sysctl setting net.core.rmem_max.
+	NetCoreRmemMax pulumi.IntPtrInput `pulumi:"netCoreRmemMax"`
+	// Sysctl setting net.core.somaxconn.
+	NetCoreSomaxconn pulumi.IntPtrInput `pulumi:"netCoreSomaxconn"`
+	// Sysctl setting net.core.wmem_max.
+	NetCoreWmemMax pulumi.IntPtrInput `pulumi:"netCoreWmemMax"`
+	// Sysctl setting net.ipv4.ip_local_port_range.
+	NetIpv4IpLocalPortRange pulumi.StringPtrInput `pulumi:"netIpv4IpLocalPortRange"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+	NetIpv4NeighDefaultGcThresh1 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+	NetIpv4NeighDefaultGcThresh2 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+	NetIpv4NeighDefaultGcThresh3 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	// Sysctl setting net.ipv4.tcp_fin_timeout.
+	NetIpv4TcpFinTimeout pulumi.IntPtrInput `pulumi:"netIpv4TcpFinTimeout"`
+	// Sysctl setting net.ipv4.tcp_keepalive_probes.
+	NetIpv4TcpKeepaliveProbes pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveProbes"`
+	// Sysctl setting net.ipv4.tcp_keepalive_time.
+	NetIpv4TcpKeepaliveTime pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveTime"`
+	// Sysctl setting net.ipv4.tcp_max_syn_backlog.
+	NetIpv4TcpMaxSynBacklog pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxSynBacklog"`
+	// Sysctl setting net.ipv4.tcp_max_tw_buckets.
+	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
+	// Sysctl setting net.ipv4.tcp_rmem.
+	NetIpv4TcpRmem pulumi.IntPtrInput `pulumi:"netIpv4TcpRmem"`
+	// Sysctl setting net.ipv4.tcp_tw_reuse.
+	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
+	// Sysctl setting net.ipv4.tcp_wmem.
+	NetIpv4TcpWmem pulumi.IntPtrInput `pulumi:"netIpv4TcpWmem"`
+	// Sysctl setting net.ipv4.tcp_keepalive_intvl.
+	NetIpv4TcpkeepaliveIntvl pulumi.IntPtrInput `pulumi:"netIpv4TcpkeepaliveIntvl"`
+	// Sysctl setting net.netfilter.nf_conntrack_buckets.
+	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
+	// Sysctl setting net.netfilter.nf_conntrack_max.
+	NetNetfilterNfConntrackMax pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackMax"`
+	// Sysctl setting vm.max_map_count.
+	VmMaxMapCount pulumi.IntPtrInput `pulumi:"vmMaxMapCount"`
+	// Sysctl setting vm.swappiness.
+	VmSwappiness pulumi.IntPtrInput `pulumi:"vmSwappiness"`
+	// Sysctl setting vm.vfs_cache_pressure.
+	VmVfsCachePressure pulumi.IntPtrInput `pulumi:"vmVfsCachePressure"`
+}
+
+func (SysctlConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SysctlConfigResponse)(nil)).Elem()
+}
+
+func (i SysctlConfigResponseArgs) ToSysctlConfigResponseOutput() SysctlConfigResponseOutput {
+	return i.ToSysctlConfigResponseOutputWithContext(context.Background())
+}
+
+func (i SysctlConfigResponseArgs) ToSysctlConfigResponseOutputWithContext(ctx context.Context) SysctlConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SysctlConfigResponseOutput)
+}
+
+func (i SysctlConfigResponseArgs) ToSysctlConfigResponsePtrOutput() SysctlConfigResponsePtrOutput {
+	return i.ToSysctlConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SysctlConfigResponseArgs) ToSysctlConfigResponsePtrOutputWithContext(ctx context.Context) SysctlConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SysctlConfigResponseOutput).ToSysctlConfigResponsePtrOutputWithContext(ctx)
+}
+
+// SysctlConfigResponsePtrInput is an input type that accepts SysctlConfigResponseArgs, SysctlConfigResponsePtr and SysctlConfigResponsePtrOutput values.
+// You can construct a concrete instance of `SysctlConfigResponsePtrInput` via:
+//
+//          SysctlConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SysctlConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToSysctlConfigResponsePtrOutput() SysctlConfigResponsePtrOutput
+	ToSysctlConfigResponsePtrOutputWithContext(context.Context) SysctlConfigResponsePtrOutput
+}
+
+type sysctlConfigResponsePtrType SysctlConfigResponseArgs
+
+func SysctlConfigResponsePtr(v *SysctlConfigResponseArgs) SysctlConfigResponsePtrInput {
+	return (*sysctlConfigResponsePtrType)(v)
+}
+
+func (*sysctlConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SysctlConfigResponse)(nil)).Elem()
+}
+
+func (i *sysctlConfigResponsePtrType) ToSysctlConfigResponsePtrOutput() SysctlConfigResponsePtrOutput {
+	return i.ToSysctlConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sysctlConfigResponsePtrType) ToSysctlConfigResponsePtrOutputWithContext(ctx context.Context) SysctlConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SysctlConfigResponsePtrOutput)
+}
+
+// Sysctl settings for Linux agent nodes.
+type SysctlConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (SysctlConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SysctlConfigResponse)(nil)).Elem()
+}
+
+func (o SysctlConfigResponseOutput) ToSysctlConfigResponseOutput() SysctlConfigResponseOutput {
+	return o
+}
+
+func (o SysctlConfigResponseOutput) ToSysctlConfigResponseOutputWithContext(ctx context.Context) SysctlConfigResponseOutput {
+	return o
+}
+
+func (o SysctlConfigResponseOutput) ToSysctlConfigResponsePtrOutput() SysctlConfigResponsePtrOutput {
+	return o.ToSysctlConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SysctlConfigResponseOutput) ToSysctlConfigResponsePtrOutputWithContext(ctx context.Context) SysctlConfigResponsePtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *SysctlConfigResponse {
+		return &v
+	}).(SysctlConfigResponsePtrOutput)
+}
+
+// Sysctl setting fs.aio-max-nr.
+func (o SysctlConfigResponseOutput) FsAioMaxNr() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.FsAioMaxNr }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.file-max.
+func (o SysctlConfigResponseOutput) FsFileMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.FsFileMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.inotify.max_user_watches.
+func (o SysctlConfigResponseOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.FsInotifyMaxUserWatches }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.nr_open.
+func (o SysctlConfigResponseOutput) FsNrOpen() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.FsNrOpen }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting kernel.threads-max.
+func (o SysctlConfigResponseOutput) KernelThreadsMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.KernelThreadsMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.netdev_max_backlog.
+func (o SysctlConfigResponseOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreNetdevMaxBacklog }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.optmem_max.
+func (o SysctlConfigResponseOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreOptmemMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.rmem_max.
+func (o SysctlConfigResponseOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreRmemMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.somaxconn.
+func (o SysctlConfigResponseOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreSomaxconn }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.wmem_max.
+func (o SysctlConfigResponseOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetCoreWmemMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.ip_local_port_range.
+func (o SysctlConfigResponseOutput) NetIpv4IpLocalPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *string { return v.NetIpv4IpLocalPortRange }).(pulumi.StringPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+func (o SysctlConfigResponseOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4NeighDefaultGcThresh1 }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+func (o SysctlConfigResponseOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4NeighDefaultGcThresh2 }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+func (o SysctlConfigResponseOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4NeighDefaultGcThresh3 }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_fin_timeout.
+func (o SysctlConfigResponseOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpFinTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_probes.
+func (o SysctlConfigResponseOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpKeepaliveProbes }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_time.
+func (o SysctlConfigResponseOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpKeepaliveTime }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_max_syn_backlog.
+func (o SysctlConfigResponseOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpMaxSynBacklog }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_max_tw_buckets.
+func (o SysctlConfigResponseOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpMaxTwBuckets }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_rmem.
+func (o SysctlConfigResponseOutput) NetIpv4TcpRmem() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpRmem }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_tw_reuse.
+func (o SysctlConfigResponseOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_wmem.
+func (o SysctlConfigResponseOutput) NetIpv4TcpWmem() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpWmem }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_intvl.
+func (o SysctlConfigResponseOutput) NetIpv4TcpkeepaliveIntvl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetIpv4TcpkeepaliveIntvl }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.netfilter.nf_conntrack_buckets.
+func (o SysctlConfigResponseOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetNetfilterNfConntrackBuckets }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.netfilter.nf_conntrack_max.
+func (o SysctlConfigResponseOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.NetNetfilterNfConntrackMax }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.max_map_count.
+func (o SysctlConfigResponseOutput) VmMaxMapCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.VmMaxMapCount }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.swappiness.
+func (o SysctlConfigResponseOutput) VmSwappiness() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.VmSwappiness }).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.vfs_cache_pressure.
+func (o SysctlConfigResponseOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SysctlConfigResponse) *int { return v.VmVfsCachePressure }).(pulumi.IntPtrOutput)
+}
+
+type SysctlConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SysctlConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SysctlConfigResponse)(nil)).Elem()
+}
+
+func (o SysctlConfigResponsePtrOutput) ToSysctlConfigResponsePtrOutput() SysctlConfigResponsePtrOutput {
+	return o
+}
+
+func (o SysctlConfigResponsePtrOutput) ToSysctlConfigResponsePtrOutputWithContext(ctx context.Context) SysctlConfigResponsePtrOutput {
+	return o
+}
+
+func (o SysctlConfigResponsePtrOutput) Elem() SysctlConfigResponseOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) SysctlConfigResponse { return *v }).(SysctlConfigResponseOutput)
+}
+
+// Sysctl setting fs.aio-max-nr.
+func (o SysctlConfigResponsePtrOutput) FsAioMaxNr() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsAioMaxNr
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.file-max.
+func (o SysctlConfigResponsePtrOutput) FsFileMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsFileMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.inotify.max_user_watches.
+func (o SysctlConfigResponsePtrOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsInotifyMaxUserWatches
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting fs.nr_open.
+func (o SysctlConfigResponsePtrOutput) FsNrOpen() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsNrOpen
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting kernel.threads-max.
+func (o SysctlConfigResponsePtrOutput) KernelThreadsMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KernelThreadsMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.netdev_max_backlog.
+func (o SysctlConfigResponsePtrOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreNetdevMaxBacklog
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.optmem_max.
+func (o SysctlConfigResponsePtrOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreOptmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.rmem_max.
+func (o SysctlConfigResponsePtrOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreRmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.somaxconn.
+func (o SysctlConfigResponsePtrOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreSomaxconn
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.core.wmem_max.
+func (o SysctlConfigResponsePtrOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreWmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.ip_local_port_range.
+func (o SysctlConfigResponsePtrOutput) NetIpv4IpLocalPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4IpLocalPortRange
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+func (o SysctlConfigResponsePtrOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh1
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+func (o SysctlConfigResponsePtrOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh2
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+func (o SysctlConfigResponsePtrOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh3
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_fin_timeout.
+func (o SysctlConfigResponsePtrOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpFinTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_probes.
+func (o SysctlConfigResponsePtrOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpKeepaliveProbes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_time.
+func (o SysctlConfigResponsePtrOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpKeepaliveTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_max_syn_backlog.
+func (o SysctlConfigResponsePtrOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpMaxSynBacklog
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_max_tw_buckets.
+func (o SysctlConfigResponsePtrOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpMaxTwBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_rmem.
+func (o SysctlConfigResponsePtrOutput) NetIpv4TcpRmem() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpRmem
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_tw_reuse.
+func (o SysctlConfigResponsePtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpTwReuse
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_wmem.
+func (o SysctlConfigResponsePtrOutput) NetIpv4TcpWmem() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpWmem
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.ipv4.tcp_keepalive_intvl.
+func (o SysctlConfigResponsePtrOutput) NetIpv4TcpkeepaliveIntvl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpkeepaliveIntvl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.netfilter.nf_conntrack_buckets.
+func (o SysctlConfigResponsePtrOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetNetfilterNfConntrackBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting net.netfilter.nf_conntrack_max.
+func (o SysctlConfigResponsePtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetNetfilterNfConntrackMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.max_map_count.
+func (o SysctlConfigResponsePtrOutput) VmMaxMapCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmMaxMapCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.swappiness.
+func (o SysctlConfigResponsePtrOutput) VmSwappiness() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmSwappiness
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sysctl setting vm.vfs_cache_pressure.
+func (o SysctlConfigResponsePtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SysctlConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmVfsCachePressure
+	}).(pulumi.IntPtrOutput)
+}
+
+type UserAssignedIdentity struct {
+	// The client id of the user assigned identity.
+	ClientId *string `pulumi:"clientId"`
+	// The object id of the user assigned identity.
+	ObjectId *string `pulumi:"objectId"`
+	// The resource id of the user assigned identity.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// UserAssignedIdentityInput is an input type that accepts UserAssignedIdentityArgs and UserAssignedIdentityOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityInput` via:
+//
+//          UserAssignedIdentityArgs{...}
+type UserAssignedIdentityInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityOutput() UserAssignedIdentityOutput
+	ToUserAssignedIdentityOutputWithContext(context.Context) UserAssignedIdentityOutput
+}
+
+type UserAssignedIdentityArgs struct {
+	// The client id of the user assigned identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The object id of the user assigned identity.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The resource id of the user assigned identity.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (UserAssignedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return i.ToUserAssignedIdentityOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
+}
+
+type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return o
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return o
+}
+
+// The client id of the user assigned identity.
+func (o UserAssignedIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user assigned identity.
+func (o UserAssignedIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the user assigned identity.
+func (o UserAssignedIdentityOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type UserAssignedIdentityResponse struct {
+	// The client id of the user assigned identity.
+	ClientId *string `pulumi:"clientId"`
+	// The object id of the user assigned identity.
+	ObjectId *string `pulumi:"objectId"`
+	// The resource id of the user assigned identity.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// UserAssignedIdentityResponseInput is an input type that accepts UserAssignedIdentityResponseArgs and UserAssignedIdentityResponseOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityResponseInput` via:
+//
+//          UserAssignedIdentityResponseArgs{...}
+type UserAssignedIdentityResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput
+	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
+}
+
+type UserAssignedIdentityResponseArgs struct {
+	// The client id of the user assigned identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The object id of the user assigned identity.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The resource id of the user assigned identity.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (UserAssignedIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return i.ToUserAssignedIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseOutput)
+}
+
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// The client id of the user assigned identity.
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user assigned identity.
+func (o UserAssignedIdentityResponseOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the user assigned identity.
+func (o UserAssignedIdentityResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CloudErrorBodyResponseOutput{})
+	pulumi.RegisterOutputType(CloudErrorBodyResponsePtrOutput{})
+	pulumi.RegisterOutputType(CloudErrorBodyResponseArrayOutput{})
+	pulumi.RegisterOutputType(CloudErrorResponseOutput{})
+	pulumi.RegisterOutputType(CloudErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileResponseOutput{})
@@ -12985,6 +16943,14 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceWindowsProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
+	pulumi.RegisterOutputType(KubeletConfigOutput{})
+	pulumi.RegisterOutputType(KubeletConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubeletConfigResponseOutput{})
+	pulumi.RegisterOutputType(KubeletConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(LinuxOSConfigOutput{})
+	pulumi.RegisterOutputType(LinuxOSConfigPtrOutput{})
+	pulumi.RegisterOutputType(LinuxOSConfigResponseOutput{})
+	pulumi.RegisterOutputType(LinuxOSConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponseOutput{})
@@ -13002,6 +16968,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAutoUpgradeProfileOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAutoUpgradeProfilePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAutoUpgradeProfileResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAutoUpgradeProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityResponseOutput{})
@@ -13024,6 +16994,19 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityExceptionOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityExceptionArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityExceptionResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityExceptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityProfileOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityProfilePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityProfileResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityResponseProvisioningInfoOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesAutoScalerProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesIdentityProfileOutput{})
@@ -13090,4 +17073,10 @@ func init() {
 	pulumi.RegisterOutputType(ResourceReferenceArrayOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(SysctlConfigOutput{})
+	pulumi.RegisterOutputType(SysctlConfigPtrOutput{})
+	pulumi.RegisterOutputType(SysctlConfigResponseOutput{})
+	pulumi.RegisterOutputType(SysctlConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 }

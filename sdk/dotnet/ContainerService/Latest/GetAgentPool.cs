@@ -62,6 +62,14 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly bool? EnableNodePublicIP;
         /// <summary>
+        /// KubeletConfig specifies the configuration of kubelet on agent nodes.
+        /// </summary>
+        public readonly Outputs.KubeletConfigResponse? KubeletConfig;
+        /// <summary>
+        /// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+        /// </summary>
+        public readonly Outputs.LinuxOSConfigResponse? LinuxOSConfig;
+        /// <summary>
         /// Maximum number of nodes for auto-scaling
         /// </summary>
         public readonly int? MaxCount;
@@ -110,6 +118,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly string? OsType;
         /// <summary>
+        /// Pod SubnetID specifies the VNet's subnet identifier for pods.
+        /// </summary>
+        public readonly string? PodSubnetID;
+        /// <summary>
         /// Describes whether the Agent Pool is Running or Stopped
         /// </summary>
         public readonly Outputs.PowerStateResponse PowerState;
@@ -150,7 +162,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly string? VmSize;
         /// <summary>
-        /// VNet SubnetID specifies the VNet's subnet identifier.
+        /// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         /// </summary>
         public readonly string? VnetSubnetID;
 
@@ -163,6 +175,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
             bool? enableAutoScaling,
 
             bool? enableNodePublicIP,
+
+            Outputs.KubeletConfigResponse? kubeletConfig,
+
+            Outputs.LinuxOSConfigResponse? linuxOSConfig,
 
             int? maxCount,
 
@@ -187,6 +203,8 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
             string? osDiskType,
 
             string? osType,
+
+            string? podSubnetID,
 
             Outputs.PowerStateResponse powerState,
 
@@ -214,6 +232,8 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
             Count = count;
             EnableAutoScaling = enableAutoScaling;
             EnableNodePublicIP = enableNodePublicIP;
+            KubeletConfig = kubeletConfig;
+            LinuxOSConfig = linuxOSConfig;
             MaxCount = maxCount;
             MaxPods = maxPods;
             MinCount = minCount;
@@ -226,6 +246,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
             OsDiskSizeGB = osDiskSizeGB;
             OsDiskType = osDiskType;
             OsType = osType;
+            PodSubnetID = podSubnetID;
             PowerState = powerState;
             ProvisioningState = provisioningState;
             ProximityPlacementGroupID = proximityPlacementGroupID;

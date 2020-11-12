@@ -35,6 +35,8 @@ type LookupManagedClusterResult struct {
 	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfileResponse `pulumi:"apiServerAccessProfile"`
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile *ManagedClusterPropertiesResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
+	// Profile of auto upgrade configuration.
+	AutoUpgradeProfile *ManagedClusterAutoUpgradeProfileResponse `pulumi:"autoUpgradeProfile"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -63,6 +65,8 @@ type LookupManagedClusterResult struct {
 	NetworkProfile *ContainerServiceNetworkProfileResponse `pulumi:"networkProfile"`
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// Profile of managed cluster pod identity.
+	PodIdentityProfile *ManagedClusterPodIdentityProfileResponse `pulumi:"podIdentityProfile"`
 	// Represents the Power State of the cluster
 	PowerState PowerStateResponse `pulumi:"powerState"`
 	// FQDN of private cluster.

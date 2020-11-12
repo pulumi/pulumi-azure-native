@@ -22,6 +22,8 @@ class AgentPool(pulumi.CustomResource):
                  count: Optional[pulumi.Input[int]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubeletConfigArgs']]] = None,
+                 linux_os_config: Optional[pulumi.Input[pulumi.InputType['LinuxOSConfigArgs']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
@@ -32,6 +34,7 @@ class AgentPool(pulumi.CustomResource):
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -56,6 +59,8 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
+        :param pulumi.Input[pulumi.InputType['KubeletConfigArgs']] kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
+        :param pulumi.Input[pulumi.InputType['LinuxOSConfigArgs']] linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
         :param pulumi.Input[int] max_count: Maximum number of nodes for auto-scaling
         :param pulumi.Input[int] max_pods: Maximum number of pods that can run on a node.
         :param pulumi.Input[int] min_count: Minimum number of nodes for auto-scaling
@@ -66,6 +71,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[str] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param pulumi.Input[str] pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
@@ -76,7 +82,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[str] type: AgentPoolType represents types of an agent pool
         :param pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']] upgrade_settings: Settings for upgrading the agentpool
         :param pulumi.Input[str] vm_size: Size of agent VMs.
-        :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
+        :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,6 +108,8 @@ class AgentPool(pulumi.CustomResource):
             __props__['count'] = count
             __props__['enable_auto_scaling'] = enable_auto_scaling
             __props__['enable_node_public_ip'] = enable_node_public_ip
+            __props__['kubelet_config'] = kubelet_config
+            __props__['linux_os_config'] = linux_os_config
             __props__['max_count'] = max_count
             __props__['max_pods'] = max_pods
             __props__['min_count'] = min_count
@@ -112,6 +120,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['os_disk_size_gb'] = os_disk_size_gb
             __props__['os_disk_type'] = os_disk_type
             __props__['os_type'] = os_type
+            __props__['pod_subnet_id'] = pod_subnet_id
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -131,7 +140,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['node_image_version'] = None
             __props__['power_state'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
             'azure-nextgen:containerservice/latest:AgentPool',
@@ -188,6 +197,22 @@ class AgentPool(pulumi.CustomResource):
         Enable public IP for nodes
         """
         return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="kubeletConfig")
+    def kubelet_config(self) -> pulumi.Output[Optional['outputs.KubeletConfigResponse']]:
+        """
+        KubeletConfig specifies the configuration of kubelet on agent nodes.
+        """
+        return pulumi.get(self, "kubelet_config")
+
+    @property
+    @pulumi.getter(name="linuxOSConfig")
+    def linux_os_config(self) -> pulumi.Output[Optional['outputs.LinuxOSConfigResponse']]:
+        """
+        LinuxOSConfig specifies the OS configuration of linux agent nodes.
+        """
+        return pulumi.get(self, "linux_os_config")
 
     @property
     @pulumi.getter(name="maxCount")
@@ -286,6 +311,14 @@ class AgentPool(pulumi.CustomResource):
         return pulumi.get(self, "os_type")
 
     @property
+    @pulumi.getter(name="podSubnetID")
+    def pod_subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Pod SubnetID specifies the VNet's subnet identifier for pods.
+        """
+        return pulumi.get(self, "pod_subnet_id")
+
+    @property
     @pulumi.getter(name="powerState")
     def power_state(self) -> pulumi.Output['outputs.PowerStateResponse']:
         """
@@ -369,7 +402,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="vnetSubnetID")
     def vnet_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
-        VNet SubnetID specifies the VNet's subnet identifier.
+        VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
         return pulumi.get(self, "vnet_subnet_id")
 

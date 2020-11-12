@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         public Output<Outputs.ManagedClusterPropertiesResponseAutoScalerProfile?> AutoScalerProfile { get; private set; } = null!;
 
         /// <summary>
+        /// Profile of auto upgrade configuration.
+        /// </summary>
+        [Output("autoUpgradeProfile")]
+        public Output<Outputs.ManagedClusterAutoUpgradeProfileResponse?> AutoUpgradeProfile { get; private set; } = null!;
+
+        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         [Output("diskEncryptionSetID")]
@@ -127,6 +133,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         [Output("nodeResourceGroup")]
         public Output<string?> NodeResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Profile of managed cluster pod identity.
+        /// </summary>
+        [Output("podIdentityProfile")]
+        public Output<Outputs.ManagedClusterPodIdentityProfileResponse?> PodIdentityProfile { get; private set; } = null!;
 
         /// <summary>
         /// Represents the Power State of the cluster
@@ -217,6 +229,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200601:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200701:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200901:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -281,6 +294,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         [Input("autoScalerProfile")]
         public Input<Inputs.ManagedClusterPropertiesAutoScalerProfileArgs>? AutoScalerProfile { get; set; }
+
+        /// <summary>
+        /// Profile of auto upgrade configuration.
+        /// </summary>
+        [Input("autoUpgradeProfile")]
+        public Input<Inputs.ManagedClusterAutoUpgradeProfileArgs>? AutoUpgradeProfile { get; set; }
 
         /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
@@ -353,6 +372,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         [Input("nodeResourceGroup")]
         public Input<string>? NodeResourceGroup { get; set; }
+
+        /// <summary>
+        /// Profile of managed cluster pod identity.
+        /// </summary>
+        [Input("podIdentityProfile")]
+        public Input<Inputs.ManagedClusterPodIdentityProfileArgs>? PodIdentityProfile { get; set; }
 
         /// <summary>
         /// The name of the resource group.

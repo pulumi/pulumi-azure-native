@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview.Outputs
         /// </summary>
         public readonly string? IdentityClientId;
         /// <summary>
-        /// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
+        /// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
         /// </summary>
         public readonly string? KeyVaultId;
         /// <summary>

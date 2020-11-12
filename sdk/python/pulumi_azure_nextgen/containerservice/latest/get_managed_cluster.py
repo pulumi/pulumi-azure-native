@@ -20,7 +20,7 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, power_state=None, private_fqdn=None, provisioning_state=None, service_principal_profile=None, sku=None, tags=None, type=None, windows_profile=None):
+    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, auto_upgrade_profile=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, pod_identity_profile=None, power_state=None, private_fqdn=None, provisioning_state=None, service_principal_profile=None, sku=None, tags=None, type=None, windows_profile=None):
         if aad_profile and not isinstance(aad_profile, dict):
             raise TypeError("Expected argument 'aad_profile' to be a dict")
         pulumi.set(__self__, "aad_profile", aad_profile)
@@ -36,6 +36,9 @@ class GetManagedClusterResult:
         if auto_scaler_profile and not isinstance(auto_scaler_profile, dict):
             raise TypeError("Expected argument 'auto_scaler_profile' to be a dict")
         pulumi.set(__self__, "auto_scaler_profile", auto_scaler_profile)
+        if auto_upgrade_profile and not isinstance(auto_upgrade_profile, dict):
+            raise TypeError("Expected argument 'auto_upgrade_profile' to be a dict")
+        pulumi.set(__self__, "auto_upgrade_profile", auto_upgrade_profile)
         if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
             raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
         pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
@@ -78,6 +81,9 @@ class GetManagedClusterResult:
         if node_resource_group and not isinstance(node_resource_group, str):
             raise TypeError("Expected argument 'node_resource_group' to be a str")
         pulumi.set(__self__, "node_resource_group", node_resource_group)
+        if pod_identity_profile and not isinstance(pod_identity_profile, dict):
+            raise TypeError("Expected argument 'pod_identity_profile' to be a dict")
+        pulumi.set(__self__, "pod_identity_profile", pod_identity_profile)
         if power_state and not isinstance(power_state, dict):
             raise TypeError("Expected argument 'power_state' to be a dict")
         pulumi.set(__self__, "power_state", power_state)
@@ -142,6 +148,14 @@ class GetManagedClusterResult:
         Parameters to be applied to the cluster-autoscaler when enabled
         """
         return pulumi.get(self, "auto_scaler_profile")
+
+    @property
+    @pulumi.getter(name="autoUpgradeProfile")
+    def auto_upgrade_profile(self) -> Optional['outputs.ManagedClusterAutoUpgradeProfileResponse']:
+        """
+        Profile of auto upgrade configuration.
+        """
+        return pulumi.get(self, "auto_upgrade_profile")
 
     @property
     @pulumi.getter(name="diskEncryptionSetID")
@@ -256,6 +270,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "node_resource_group")
 
     @property
+    @pulumi.getter(name="podIdentityProfile")
+    def pod_identity_profile(self) -> Optional['outputs.ManagedClusterPodIdentityProfileResponse']:
+        """
+        Profile of managed cluster pod identity.
+        """
+        return pulumi.get(self, "pod_identity_profile")
+
+    @property
     @pulumi.getter(name="powerState")
     def power_state(self) -> 'outputs.PowerStateResponse':
         """
@@ -331,6 +353,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             agent_pool_profiles=self.agent_pool_profiles,
             api_server_access_profile=self.api_server_access_profile,
             auto_scaler_profile=self.auto_scaler_profile,
+            auto_upgrade_profile=self.auto_upgrade_profile,
             disk_encryption_set_id=self.disk_encryption_set_id,
             dns_prefix=self.dns_prefix,
             enable_pod_security_policy=self.enable_pod_security_policy,
@@ -345,6 +368,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             name=self.name,
             network_profile=self.network_profile,
             node_resource_group=self.node_resource_group,
+            pod_identity_profile=self.pod_identity_profile,
             power_state=self.power_state,
             private_fqdn=self.private_fqdn,
             provisioning_state=self.provisioning_state,
@@ -379,6 +403,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         agent_pool_profiles=__ret__.agent_pool_profiles,
         api_server_access_profile=__ret__.api_server_access_profile,
         auto_scaler_profile=__ret__.auto_scaler_profile,
+        auto_upgrade_profile=__ret__.auto_upgrade_profile,
         disk_encryption_set_id=__ret__.disk_encryption_set_id,
         dns_prefix=__ret__.dns_prefix,
         enable_pod_security_policy=__ret__.enable_pod_security_policy,
@@ -393,6 +418,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         network_profile=__ret__.network_profile,
         node_resource_group=__ret__.node_resource_group,
+        pod_identity_profile=__ret__.pod_identity_profile,
         power_state=__ret__.power_state,
         private_fqdn=__ret__.private_fqdn,
         provisioning_state=__ret__.provisioning_state,

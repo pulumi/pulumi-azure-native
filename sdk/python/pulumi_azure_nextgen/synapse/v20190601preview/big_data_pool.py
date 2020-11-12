@@ -21,7 +21,6 @@ class BigDataPool(pulumi.CustomResource):
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['AutoScalePropertiesArgs']]] = None,
                  big_data_pool_name: Optional[pulumi.Input[str]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
-                 custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LibraryInfoArgs']]]]] = None,
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  force: Optional[pulumi.Input[bool]] = None,
                  is_compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -32,7 +31,6 @@ class BigDataPool(pulumi.CustomResource):
                  node_size_family: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
                  spark_config_properties: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
@@ -50,7 +48,6 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AutoScalePropertiesArgs']] auto_scale: Auto-scaling properties
         :param pulumi.Input[str] big_data_pool_name: Big Data pool name
         :param pulumi.Input[str] creation_date: The time when the Big Data pool was created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LibraryInfoArgs']]]] custom_libraries: List of custom libraries/packages associated with the spark pool.
         :param pulumi.Input[str] default_spark_log_folder: The default folder where Spark logs will be written.
         :param pulumi.Input[bool] force: Whether to stop any running jobs in the Big Data pool
         :param pulumi.Input[bool] is_compute_isolation_enabled: Whether compute isolation is required or not.
@@ -61,7 +58,6 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Big Data pool provides.
         :param pulumi.Input[str] provisioning_state: The state of the Big Data pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[bool] session_level_packages_enabled: Whether session level library/package management is enabled or not.
         :param pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']] spark_config_properties: Spark configuration file to specify additional properties
         :param pulumi.Input[str] spark_events_folder: The Spark events folder
         :param pulumi.Input[str] spark_version: The Apache Spark version.
@@ -91,7 +87,6 @@ class BigDataPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'big_data_pool_name'")
             __props__['big_data_pool_name'] = big_data_pool_name
             __props__['creation_date'] = creation_date
-            __props__['custom_libraries'] = custom_libraries
             __props__['default_spark_log_folder'] = default_spark_log_folder
             __props__['force'] = force
             __props__['is_compute_isolation_enabled'] = is_compute_isolation_enabled
@@ -106,7 +101,6 @@ class BigDataPool(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['session_level_packages_enabled'] = session_level_packages_enabled
             __props__['spark_config_properties'] = spark_config_properties
             __props__['spark_events_folder'] = spark_events_folder
             __props__['spark_version'] = spark_version
@@ -163,14 +157,6 @@ class BigDataPool(pulumi.CustomResource):
         The time when the Big Data pool was created.
         """
         return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter(name="customLibraries")
-    def custom_libraries(self) -> pulumi.Output[Optional[Sequence['outputs.LibraryInfoResponse']]]:
-        """
-        List of custom libraries/packages associated with the spark pool.
-        """
-        return pulumi.get(self, "custom_libraries")
 
     @property
     @pulumi.getter(name="defaultSparkLogFolder")
@@ -243,14 +229,6 @@ class BigDataPool(pulumi.CustomResource):
         The state of the Big Data pool.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="sessionLevelPackagesEnabled")
-    def session_level_packages_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether session level library/package management is enabled or not.
-        """
-        return pulumi.get(self, "session_level_packages_enabled")
 
     @property
     @pulumi.getter(name="sparkConfigProperties")
