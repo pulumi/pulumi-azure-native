@@ -34,9 +34,6 @@ import (
 
 const (
 	ActiveDirectoryEndpoint = "https://login.microsoftonline.com/"
-	AuthTokenAudience       = "https://management.azure.com/" //nolint:gosec
-	// DefaultBaseURI is the default URI used for the service.
-	DefaultBaseURI = "https://management.azure.com"
 	// Microsoft's Pulumi Partner ID.
 	PulumiPartnerID = "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
 )
@@ -46,6 +43,7 @@ type azureNextGenProvider struct {
 	name           string
 	version        string
 	subscriptionID string
+	environment    azure.Environment
 	client         autorest.Client
 	resourceMap    *AzureAPIMetadata
 	config         map[string]string
@@ -124,6 +122,15 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 	if err != nil {
 		return nil, errors.Wrap(err, "building auth config")
 	}
+
+	env, err := azure.EnvironmentFromName(authConfig.Environment)
+	if err != nil {
+		env, err = azure.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", authConfig.Environment))
+		if err != nil {
+			return nil, errors.Wrapf(err, "environment %q was not found", authConfig.Environment)
+		}
+	}
+	k.environment = env
 
 	authorizer, err := k.getAuthorizationToken(authConfig)
 	if err != nil {
@@ -861,7 +868,7 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	preparer := autorest.CreatePreparer(
 		autorest.AsContentType("application/json; charset=utf-8"),
 		autorest.AsPut(),
-		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithJSON(bodyProps),
 		autorest.WithQueryParameters(queryParameters))
@@ -912,7 +919,7 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 	}
 	preparer := autorest.CreatePreparer(
 		autorest.AsDelete(),
-		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithQueryParameters(queryParameters))
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
@@ -961,7 +968,7 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 	}
 	preparer := autorest.CreatePreparer(
 		autorest.AsGet(),
-		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithQueryParameters(queryParameters))
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
@@ -1019,7 +1026,7 @@ func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
 	}
 	preparer := autorest.CreatePreparer(
 		autorest.AsGet(),
-		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithQueryParameters(queryParameters))
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
@@ -1079,7 +1086,7 @@ func (k *azureNextGenProvider) azurePost(
 	preparer := autorest.CreatePreparer(
 		autorest.AsContentType("application/json; charset=utf-8"),
 		autorest.AsPost(),
-		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithJSON(bodyProps),
 		autorest.WithQueryParameters(queryParameters))
@@ -1209,7 +1216,7 @@ func (k *azureNextGenProvider) getAuthorizationToken(authConfig *authentication.
 	}
 
 	buildSender := sender.BuildSender("AzureNextGen")
-	return authConfig.GetAuthorizationToken(buildSender, oauthConfig, AuthTokenAudience)
+	return authConfig.GetAuthorizationToken(buildSender, oauthConfig, k.environment.ResourceManagerEndpoint)
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.
