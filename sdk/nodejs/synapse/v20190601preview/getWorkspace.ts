@@ -35,10 +35,6 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
-     * Babylon Configuration
-     */
-    readonly babylonConfiguration?: outputs.synapse.v20190601preview.BabylonConfigurationResponse;
-    /**
      * Connectivity endpoints
      */
     readonly connectivityEndpoints?: {[key: string]: string};
@@ -86,6 +82,10 @@ export interface GetWorkspaceResult {
      * Resource provisioning state
      */
     readonly provisioningState: string;
+    /**
+     * Purview Configuration
+     */
+    readonly purviewConfiguration?: outputs.synapse.v20190601preview.PurviewConfigurationResponse;
     /**
      * Login for workspace SQL active directory administrator
      */

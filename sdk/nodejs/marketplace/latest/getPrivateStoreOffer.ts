@@ -42,7 +42,10 @@ export interface GetPrivateStoreOfferResult {
      * Identifier for purposes of race condition
      */
     readonly eTag?: string;
-    readonly iconFileUris?: outputs.marketplace.latest.IconResponse[];
+    /**
+     * Icon File Uris
+     */
+    readonly iconFileUris?: outputs.marketplace.latest.OfferPropertiesResponseIconFileUris;
     /**
      * Private store offer modification date
      */
@@ -55,6 +58,10 @@ export interface GetPrivateStoreOfferResult {
      * It will be displayed prominently in the marketplace
      */
     readonly offerDisplayName: string;
+    /**
+     * Offer plans
+     */
+    readonly plans?: outputs.marketplace.latest.PlanResponse[];
     /**
      * Private store unique id
      */

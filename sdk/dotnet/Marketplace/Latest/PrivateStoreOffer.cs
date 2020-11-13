@@ -26,8 +26,11 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
 
+        /// <summary>
+        /// Icon File Uris
+        /// </summary>
         [Output("iconFileUris")]
-        public Output<ImmutableArray<Outputs.IconResponse>> IconFileUris { get; private set; } = null!;
+        public Output<Outputs.OfferPropertiesResponseIconFileUris?> IconFileUris { get; private set; } = null!;
 
         /// <summary>
         /// Private store offer modification date
@@ -46,6 +49,12 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
         /// </summary>
         [Output("offerDisplayName")]
         public Output<string> OfferDisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Offer plans
+        /// </summary>
+        [Output("plans")]
+        public Output<ImmutableArray<Outputs.PlanResponse>> Plans { get; private set; } = null!;
 
         /// <summary>
         /// Private store unique id
@@ -138,19 +147,29 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
 
+        /// <summary>
+        /// Icon File Uris
+        /// </summary>
         [Input("iconFileUris")]
-        private InputList<Inputs.IconArgs>? _iconFileUris;
-        public InputList<Inputs.IconArgs> IconFileUris
-        {
-            get => _iconFileUris ?? (_iconFileUris = new InputList<Inputs.IconArgs>());
-            set => _iconFileUris = value;
-        }
+        public Input<Inputs.OfferPropertiesIconFileUrisArgs>? IconFileUris { get; set; }
 
         /// <summary>
         /// The offer ID to update or delete
         /// </summary>
         [Input("offerId", required: true)]
         public Input<string> OfferId { get; set; } = null!;
+
+        [Input("plans")]
+        private InputList<Inputs.PlanArgs>? _plans;
+
+        /// <summary>
+        /// Offer plans
+        /// </summary>
+        public InputList<Inputs.PlanArgs> Plans
+        {
+            get => _plans ?? (_plans = new InputList<Inputs.PlanArgs>());
+            set => _plans = value;
+        }
 
         /// <summary>
         /// The store ID - must use the tenant ID

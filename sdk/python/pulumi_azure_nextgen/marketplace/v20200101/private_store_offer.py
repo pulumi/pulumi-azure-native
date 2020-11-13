@@ -18,8 +18,9 @@ class PrivateStoreOffer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 icon_file_uris: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IconArgs']]]]] = None,
+                 icon_file_uris: Optional[pulumi.Input[pulumi.InputType['OfferPropertiesIconFileUrisArgs']]] = None,
                  offer_id: Optional[pulumi.Input[str]] = None,
+                 plans: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanArgs']]]]] = None,
                  private_store_id: Optional[pulumi.Input[str]] = None,
                  specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  update_suppressed_due_idempotence: Optional[pulumi.Input[bool]] = None,
@@ -32,7 +33,9 @@ class PrivateStoreOffer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Identifier for purposes of race condition
+        :param pulumi.Input[pulumi.InputType['OfferPropertiesIconFileUrisArgs']] icon_file_uris: Icon File Uris
         :param pulumi.Input[str] offer_id: The offer ID to update or delete
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanArgs']]]] plans: Offer plans
         :param pulumi.Input[str] private_store_id: The store ID - must use the tenant ID
         :param pulumi.Input[Sequence[pulumi.Input[str]]] specific_plan_ids_limitation: Plan ids limitation for this offer
         :param pulumi.Input[bool] update_suppressed_due_idempotence: Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
@@ -59,6 +62,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
             if offer_id is None:
                 raise TypeError("Missing required property 'offer_id'")
             __props__['offer_id'] = offer_id
+            __props__['plans'] = plans
             if private_store_id is None:
                 raise TypeError("Missing required property 'private_store_id'")
             __props__['private_store_id'] = private_store_id
@@ -115,7 +119,10 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iconFileUris")
-    def icon_file_uris(self) -> pulumi.Output[Optional[Sequence['outputs.IconResponse']]]:
+    def icon_file_uris(self) -> pulumi.Output[Optional['outputs.OfferPropertiesResponseIconFileUris']]:
+        """
+        Icon File Uris
+        """
         return pulumi.get(self, "icon_file_uris")
 
     @property
@@ -141,6 +148,14 @@ class PrivateStoreOffer(pulumi.CustomResource):
         It will be displayed prominently in the marketplace
         """
         return pulumi.get(self, "offer_display_name")
+
+    @property
+    @pulumi.getter
+    def plans(self) -> pulumi.Output[Optional[Sequence['outputs.PlanResponse']]]:
+        """
+        Offer plans
+        """
+        return pulumi.get(self, "plans")
 
     @property
     @pulumi.getter(name="privateStoreId")

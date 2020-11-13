@@ -47,7 +47,10 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
         /// Identifier for purposes of race condition
         /// </summary>
         public readonly string? ETag;
-        public readonly ImmutableArray<Outputs.IconResponse> IconFileUris;
+        /// <summary>
+        /// Icon File Uris
+        /// </summary>
+        public readonly Outputs.OfferPropertiesResponseIconFileUris? IconFileUris;
         /// <summary>
         /// Private store offer modification date
         /// </summary>
@@ -60,6 +63,10 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
         /// It will be displayed prominently in the marketplace
         /// </summary>
         public readonly string OfferDisplayName;
+        /// <summary>
+        /// Offer plans
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlanResponse> Plans;
         /// <summary>
         /// Private store unique id
         /// </summary>
@@ -91,13 +98,15 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
 
             string? eTag,
 
-            ImmutableArray<Outputs.IconResponse> iconFileUris,
+            Outputs.OfferPropertiesResponseIconFileUris? iconFileUris,
 
             string modifiedAt,
 
             string name,
 
             string offerDisplayName,
+
+            ImmutableArray<Outputs.PlanResponse> plans,
 
             string privateStoreId,
 
@@ -117,6 +126,7 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
             ModifiedAt = modifiedAt;
             Name = name;
             OfferDisplayName = offerDisplayName;
+            Plans = plans;
             PrivateStoreId = privateStoreId;
             PublisherDisplayName = publisherDisplayName;
             SpecificPlanIdsLimitation = specificPlanIdsLimitation;

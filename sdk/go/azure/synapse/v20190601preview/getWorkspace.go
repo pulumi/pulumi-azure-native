@@ -25,8 +25,6 @@ type LookupWorkspaceArgs struct {
 
 // A workspace
 type LookupWorkspaceResult struct {
-	// Babylon Configuration
-	BabylonConfiguration *BabylonConfigurationResponse `pulumi:"babylonConfiguration"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
@@ -51,6 +49,8 @@ type LookupWorkspaceResult struct {
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Purview Configuration
+	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
 	// SQL administrator login password

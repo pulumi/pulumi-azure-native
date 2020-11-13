@@ -20,15 +20,15 @@ class GetPrivateStoreOfferResult:
     """
     The privateStore offer data structure.
     """
-    def __init__(__self__, created_at=None, e_tag=None, icon_file_uris=None, modified_at=None, name=None, offer_display_name=None, private_store_id=None, publisher_display_name=None, specific_plan_ids_limitation=None, type=None, unique_offer_id=None, update_suppressed_due_idempotence=None):
+    def __init__(__self__, created_at=None, e_tag=None, icon_file_uris=None, modified_at=None, name=None, offer_display_name=None, plans=None, private_store_id=None, publisher_display_name=None, specific_plan_ids_limitation=None, type=None, unique_offer_id=None, update_suppressed_due_idempotence=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
-        if icon_file_uris and not isinstance(icon_file_uris, list):
-            raise TypeError("Expected argument 'icon_file_uris' to be a list")
+        if icon_file_uris and not isinstance(icon_file_uris, dict):
+            raise TypeError("Expected argument 'icon_file_uris' to be a dict")
         pulumi.set(__self__, "icon_file_uris", icon_file_uris)
         if modified_at and not isinstance(modified_at, str):
             raise TypeError("Expected argument 'modified_at' to be a str")
@@ -39,6 +39,9 @@ class GetPrivateStoreOfferResult:
         if offer_display_name and not isinstance(offer_display_name, str):
             raise TypeError("Expected argument 'offer_display_name' to be a str")
         pulumi.set(__self__, "offer_display_name", offer_display_name)
+        if plans and not isinstance(plans, list):
+            raise TypeError("Expected argument 'plans' to be a list")
+        pulumi.set(__self__, "plans", plans)
         if private_store_id and not isinstance(private_store_id, str):
             raise TypeError("Expected argument 'private_store_id' to be a str")
         pulumi.set(__self__, "private_store_id", private_store_id)
@@ -76,7 +79,10 @@ class GetPrivateStoreOfferResult:
 
     @property
     @pulumi.getter(name="iconFileUris")
-    def icon_file_uris(self) -> Optional[Sequence['outputs.IconResponse']]:
+    def icon_file_uris(self) -> Optional['outputs.OfferPropertiesResponseIconFileUris']:
+        """
+        Icon File Uris
+        """
         return pulumi.get(self, "icon_file_uris")
 
     @property
@@ -102,6 +108,14 @@ class GetPrivateStoreOfferResult:
         It will be displayed prominently in the marketplace
         """
         return pulumi.get(self, "offer_display_name")
+
+    @property
+    @pulumi.getter
+    def plans(self) -> Optional[Sequence['outputs.PlanResponse']]:
+        """
+        Offer plans
+        """
+        return pulumi.get(self, "plans")
 
     @property
     @pulumi.getter(name="privateStoreId")
@@ -164,6 +178,7 @@ class AwaitableGetPrivateStoreOfferResult(GetPrivateStoreOfferResult):
             modified_at=self.modified_at,
             name=self.name,
             offer_display_name=self.offer_display_name,
+            plans=self.plans,
             private_store_id=self.private_store_id,
             publisher_display_name=self.publisher_display_name,
             specific_plan_ids_limitation=self.specific_plan_ids_limitation,
@@ -197,6 +212,7 @@ def get_private_store_offer(offer_id: Optional[str] = None,
         modified_at=__ret__.modified_at,
         name=__ret__.name,
         offer_display_name=__ret__.offer_display_name,
+        plans=__ret__.plans,
         private_store_id=__ret__.private_store_id,
         publisher_display_name=__ret__.publisher_display_name,
         specific_plan_ids_limitation=__ret__.specific_plan_ids_limitation,

@@ -18,14 +18,17 @@ type PrivateStoreOffer struct {
 	// Private store offer creation date
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Identifier for purposes of race condition
-	ETag         pulumi.StringPtrOutput  `pulumi:"eTag"`
-	IconFileUris IconResponseArrayOutput `pulumi:"iconFileUris"`
+	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
+	// Icon File Uris
+	IconFileUris OfferPropertiesResponseIconFileUrisPtrOutput `pulumi:"iconFileUris"`
 	// Private store offer modification date
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// It will be displayed prominently in the marketplace
 	OfferDisplayName pulumi.StringOutput `pulumi:"offerDisplayName"`
+	// Offer plans
+	Plans PlanResponseArrayOutput `pulumi:"plans"`
 	// Private store unique id
 	PrivateStoreId pulumi.StringOutput `pulumi:"privateStoreId"`
 	// Publisher name that will be displayed prominently in the marketplace
@@ -83,14 +86,17 @@ type privateStoreOfferState struct {
 	// Private store offer creation date
 	CreatedAt *string `pulumi:"createdAt"`
 	// Identifier for purposes of race condition
-	ETag         *string        `pulumi:"eTag"`
-	IconFileUris []IconResponse `pulumi:"iconFileUris"`
+	ETag *string `pulumi:"eTag"`
+	// Icon File Uris
+	IconFileUris *OfferPropertiesResponseIconFileUris `pulumi:"iconFileUris"`
 	// Private store offer modification date
 	ModifiedAt *string `pulumi:"modifiedAt"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// It will be displayed prominently in the marketplace
 	OfferDisplayName *string `pulumi:"offerDisplayName"`
+	// Offer plans
+	Plans []PlanResponse `pulumi:"plans"`
 	// Private store unique id
 	PrivateStoreId *string `pulumi:"privateStoreId"`
 	// Publisher name that will be displayed prominently in the marketplace
@@ -109,14 +115,17 @@ type PrivateStoreOfferState struct {
 	// Private store offer creation date
 	CreatedAt pulumi.StringPtrInput
 	// Identifier for purposes of race condition
-	ETag         pulumi.StringPtrInput
-	IconFileUris IconResponseArrayInput
+	ETag pulumi.StringPtrInput
+	// Icon File Uris
+	IconFileUris OfferPropertiesResponseIconFileUrisPtrInput
 	// Private store offer modification date
 	ModifiedAt pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// It will be displayed prominently in the marketplace
 	OfferDisplayName pulumi.StringPtrInput
+	// Offer plans
+	Plans PlanResponseArrayInput
 	// Private store unique id
 	PrivateStoreId pulumi.StringPtrInput
 	// Publisher name that will be displayed prominently in the marketplace
@@ -137,10 +146,13 @@ func (PrivateStoreOfferState) ElementType() reflect.Type {
 
 type privateStoreOfferArgs struct {
 	// Identifier for purposes of race condition
-	ETag         *string `pulumi:"eTag"`
-	IconFileUris []Icon  `pulumi:"iconFileUris"`
+	ETag *string `pulumi:"eTag"`
+	// Icon File Uris
+	IconFileUris *OfferPropertiesIconFileUris `pulumi:"iconFileUris"`
 	// The offer ID to update or delete
 	OfferId string `pulumi:"offerId"`
+	// Offer plans
+	Plans []Plan `pulumi:"plans"`
 	// The store ID - must use the tenant ID
 	PrivateStoreId string `pulumi:"privateStoreId"`
 	// Plan ids limitation for this offer
@@ -152,10 +164,13 @@ type privateStoreOfferArgs struct {
 // The set of arguments for constructing a PrivateStoreOffer resource.
 type PrivateStoreOfferArgs struct {
 	// Identifier for purposes of race condition
-	ETag         pulumi.StringPtrInput
-	IconFileUris IconArrayInput
+	ETag pulumi.StringPtrInput
+	// Icon File Uris
+	IconFileUris OfferPropertiesIconFileUrisPtrInput
 	// The offer ID to update or delete
 	OfferId pulumi.StringInput
+	// Offer plans
+	Plans PlanArrayInput
 	// The store ID - must use the tenant ID
 	PrivateStoreId pulumi.StringInput
 	// Plan ids limitation for this offer

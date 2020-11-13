@@ -12,7 +12,6 @@ from . import outputs
 __all__ = [
     'AutoPausePropertiesResponse',
     'AutoScalePropertiesResponse',
-    'BabylonConfigurationResponse',
     'CmdkeySetupResponse',
     'ComponentSetupResponse',
     'CustomerManagedKeyDetailsResponse',
@@ -42,6 +41,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'PurviewConfigurationResponse',
     'SecureStringResponse',
     'SelfHostedIntegrationRuntimeNodeResponseResult',
     'SelfHostedIntegrationRuntimeResponse',
@@ -144,32 +144,6 @@ class AutoScalePropertiesResponse(dict):
         The minimum number of nodes the Big Data pool can support.
         """
         return pulumi.get(self, "min_node_count")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class BabylonConfigurationResponse(dict):
-    """
-    Babylon Configuration
-    """
-    def __init__(__self__, *,
-                 babylon_resource_id: Optional[str] = None):
-        """
-        Babylon Configuration
-        :param str babylon_resource_id: Babylon Resource ID
-        """
-        if babylon_resource_id is not None:
-            pulumi.set(__self__, "babylon_resource_id", babylon_resource_id)
-
-    @property
-    @pulumi.getter(name="babylonResourceId")
-    def babylon_resource_id(self) -> Optional[str]:
-        """
-        Babylon Resource ID
-        """
-        return pulumi.get(self, "babylon_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1733,6 +1707,32 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         The private link service connection status.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PurviewConfigurationResponse(dict):
+    """
+    Purview Configuration
+    """
+    def __init__(__self__, *,
+                 purview_resource_id: Optional[str] = None):
+        """
+        Purview Configuration
+        :param str purview_resource_id: Purview Resource ID
+        """
+        if purview_resource_id is not None:
+            pulumi.set(__self__, "purview_resource_id", purview_resource_id)
+
+    @property
+    @pulumi.getter(name="purviewResourceId")
+    def purview_resource_id(self) -> Optional[str]:
+        """
+        Purview Resource ID
+        """
+        return pulumi.get(self, "purview_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
