@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly Outputs.ManagedClusterPropertiesResponseAutoScalerProfile? AutoScalerProfile;
         /// <summary>
+        /// Profile of auto upgrade configuration.
+        /// </summary>
+        public readonly Outputs.ManagedClusterAutoUpgradeProfileResponse? AutoUpgradeProfile;
+        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         public readonly string? DiskEncryptionSetID;
@@ -116,6 +120,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly string? NodeResourceGroup;
         /// <summary>
+        /// Profile of managed cluster pod identity.
+        /// </summary>
+        public readonly Outputs.ManagedClusterPodIdentityProfileResponse? PodIdentityProfile;
+        /// <summary>
         /// Represents the Power State of the cluster
         /// </summary>
         public readonly Outputs.PowerStateResponse PowerState;
@@ -160,6 +168,8 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 
             Outputs.ManagedClusterPropertiesResponseAutoScalerProfile? autoScalerProfile,
 
+            Outputs.ManagedClusterAutoUpgradeProfileResponse? autoUpgradeProfile,
+
             string? diskEncryptionSetID,
 
             string? dnsPrefix,
@@ -188,6 +198,8 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 
             string? nodeResourceGroup,
 
+            Outputs.ManagedClusterPodIdentityProfileResponse? podIdentityProfile,
+
             Outputs.PowerStateResponse powerState,
 
             string privateFQDN,
@@ -209,6 +221,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
             AgentPoolProfiles = agentPoolProfiles;
             ApiServerAccessProfile = apiServerAccessProfile;
             AutoScalerProfile = autoScalerProfile;
+            AutoUpgradeProfile = autoUpgradeProfile;
             DiskEncryptionSetID = diskEncryptionSetID;
             DnsPrefix = dnsPrefix;
             EnablePodSecurityPolicy = enablePodSecurityPolicy;
@@ -223,6 +236,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
             Name = name;
             NetworkProfile = networkProfile;
             NodeResourceGroup = nodeResourceGroup;
+            PodIdentityProfile = podIdentityProfile;
             PowerState = powerState;
             PrivateFQDN = privateFQDN;
             ProvisioningState = provisioningState;

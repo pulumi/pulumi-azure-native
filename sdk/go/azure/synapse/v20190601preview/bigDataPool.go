@@ -20,8 +20,6 @@ type BigDataPool struct {
 	AutoScale AutoScalePropertiesResponsePtrOutput `pulumi:"autoScale"`
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
-	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries LibraryInfoResponseArrayOutput `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrOutput `pulumi:"defaultSparkLogFolder"`
 	// Whether compute isolation is required or not.
@@ -40,8 +38,6 @@ type BigDataPool struct {
 	NodeSizeFamily pulumi.StringPtrOutput `pulumi:"nodeSizeFamily"`
 	// The state of the Big Data pool.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Whether session level library/package management is enabled or not.
-	SessionLevelPackagesEnabled pulumi.BoolPtrOutput `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties LibraryRequirementsResponsePtrOutput `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
@@ -100,8 +96,6 @@ type bigDataPoolState struct {
 	AutoScale *AutoScalePropertiesResponse `pulumi:"autoScale"`
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
-	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries []LibraryInfoResponse `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Whether compute isolation is required or not.
@@ -120,8 +114,6 @@ type bigDataPoolState struct {
 	NodeSizeFamily *string `pulumi:"nodeSizeFamily"`
 	// The state of the Big Data pool.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Whether session level library/package management is enabled or not.
-	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties *LibraryRequirementsResponse `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
@@ -141,8 +133,6 @@ type BigDataPoolState struct {
 	AutoScale AutoScalePropertiesResponsePtrInput
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrInput
-	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries LibraryInfoResponseArrayInput
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrInput
 	// Whether compute isolation is required or not.
@@ -161,8 +151,6 @@ type BigDataPoolState struct {
 	NodeSizeFamily pulumi.StringPtrInput
 	// The state of the Big Data pool.
 	ProvisioningState pulumi.StringPtrInput
-	// Whether session level library/package management is enabled or not.
-	SessionLevelPackagesEnabled pulumi.BoolPtrInput
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties LibraryRequirementsResponsePtrInput
 	// The Spark events folder
@@ -188,8 +176,6 @@ type bigDataPoolArgs struct {
 	BigDataPoolName string `pulumi:"bigDataPoolName"`
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
-	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries []LibraryInfo `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Whether to stop any running jobs in the Big Data pool
@@ -210,8 +196,6 @@ type bigDataPoolArgs struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Whether session level library/package management is enabled or not.
-	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties *LibraryRequirements `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
@@ -234,8 +218,6 @@ type BigDataPoolArgs struct {
 	BigDataPoolName pulumi.StringInput
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrInput
-	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries LibraryInfoArrayInput
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrInput
 	// Whether to stop any running jobs in the Big Data pool
@@ -256,8 +238,6 @@ type BigDataPoolArgs struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Whether session level library/package management is enabled or not.
-	SessionLevelPackagesEnabled pulumi.BoolPtrInput
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties LibraryRequirementsPtrInput
 	// The Spark events folder

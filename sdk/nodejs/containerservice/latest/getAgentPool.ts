@@ -57,6 +57,14 @@ export interface GetAgentPoolResult {
      */
     readonly enableNodePublicIP?: boolean;
     /**
+     * KubeletConfig specifies the configuration of kubelet on agent nodes.
+     */
+    readonly kubeletConfig?: outputs.containerservice.latest.KubeletConfigResponse;
+    /**
+     * LinuxOSConfig specifies the OS configuration of linux agent nodes.
+     */
+    readonly linuxOSConfig?: outputs.containerservice.latest.LinuxOSConfigResponse;
+    /**
      * Maximum number of nodes for auto-scaling
      */
     readonly maxCount?: number;
@@ -105,6 +113,10 @@ export interface GetAgentPoolResult {
      */
     readonly osType?: string;
     /**
+     * Pod SubnetID specifies the VNet's subnet identifier for pods.
+     */
+    readonly podSubnetID?: string;
+    /**
      * Describes whether the Agent Pool is Running or Stopped
      */
     readonly powerState: outputs.containerservice.latest.PowerStateResponse;
@@ -145,7 +157,7 @@ export interface GetAgentPoolResult {
      */
     readonly vmSize?: string;
     /**
-     * VNet SubnetID specifies the VNet's subnet identifier.
+     * VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
      */
     readonly vnetSubnetID?: string;
 }

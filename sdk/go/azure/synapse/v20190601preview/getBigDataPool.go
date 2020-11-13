@@ -33,8 +33,6 @@ type LookupBigDataPoolResult struct {
 	AutoScale *AutoScalePropertiesResponse `pulumi:"autoScale"`
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
-	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries []LibraryInfoResponse `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Whether compute isolation is required or not.
@@ -53,8 +51,6 @@ type LookupBigDataPoolResult struct {
 	NodeSizeFamily *string `pulumi:"nodeSizeFamily"`
 	// The state of the Big Data pool.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Whether session level library/package management is enabled or not.
-	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties *LibraryRequirementsResponse `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
