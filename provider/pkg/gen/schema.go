@@ -592,14 +592,13 @@ func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {
 		return ""
 	}
 
-	style := extensionLongRunningDefault
 	if options, ok := op.Extensions[extensionLongRunningOpts]; ok {
 		optionsMap := options.(map[string]interface{})
 		if finalStateVia, ok := optionsMap[extensionLongRunningVia].(string); ok {
-			style = finalStateVia
+			return finalStateVia
 		}
 	}
-	return style
+	return extensionLongRunningDefault
 }
 
 type moduleGenerator struct {
