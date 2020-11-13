@@ -43,7 +43,10 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
      * Identifier for purposes of race condition
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
-    public readonly iconFileUris!: pulumi.Output<outputs.marketplace.v20200101.IconResponse[] | undefined>;
+    /**
+     * Icon File Uris
+     */
+    public readonly iconFileUris!: pulumi.Output<outputs.marketplace.v20200101.OfferPropertiesResponseIconFileUris | undefined>;
     /**
      * Private store offer modification date
      */
@@ -56,6 +59,10 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
      * It will be displayed prominently in the marketplace
      */
     public /*out*/ readonly offerDisplayName!: pulumi.Output<string>;
+    /**
+     * Offer plans
+     */
+    public readonly plans!: pulumi.Output<outputs.marketplace.v20200101.PlanResponse[] | undefined>;
     /**
      * Private store unique id
      */
@@ -100,6 +107,7 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["iconFileUris"] = args ? args.iconFileUris : undefined;
             inputs["offerId"] = args ? args.offerId : undefined;
+            inputs["plans"] = args ? args.plans : undefined;
             inputs["privateStoreId"] = args ? args.privateStoreId : undefined;
             inputs["specificPlanIdsLimitation"] = args ? args.specificPlanIdsLimitation : undefined;
             inputs["updateSuppressedDueIdempotence"] = args ? args.updateSuppressedDueIdempotence : undefined;
@@ -117,6 +125,7 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
             inputs["modifiedAt"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["offerDisplayName"] = undefined /*out*/;
+            inputs["plans"] = undefined /*out*/;
             inputs["privateStoreId"] = undefined /*out*/;
             inputs["publisherDisplayName"] = undefined /*out*/;
             inputs["specificPlanIdsLimitation"] = undefined /*out*/;
@@ -145,11 +154,18 @@ export interface PrivateStoreOfferArgs {
      * Identifier for purposes of race condition
      */
     readonly eTag?: pulumi.Input<string>;
-    readonly iconFileUris?: pulumi.Input<pulumi.Input<inputs.marketplace.v20200101.Icon>[]>;
+    /**
+     * Icon File Uris
+     */
+    readonly iconFileUris?: pulumi.Input<inputs.marketplace.v20200101.OfferPropertiesIconFileUris>;
     /**
      * The offer ID to update or delete
      */
     readonly offerId: pulumi.Input<string>;
+    /**
+     * Offer plans
+     */
+    readonly plans?: pulumi.Input<pulumi.Input<inputs.marketplace.v20200101.Plan>[]>;
     /**
      * The store ID - must use the tenant ID
      */

@@ -28,14 +28,17 @@ type LookupPrivateStoreOfferResult struct {
 	// Private store offer creation date
 	CreatedAt string `pulumi:"createdAt"`
 	// Identifier for purposes of race condition
-	ETag         *string        `pulumi:"eTag"`
-	IconFileUris []IconResponse `pulumi:"iconFileUris"`
+	ETag *string `pulumi:"eTag"`
+	// Icon File Uris
+	IconFileUris *OfferPropertiesResponseIconFileUris `pulumi:"iconFileUris"`
 	// Private store offer modification date
 	ModifiedAt string `pulumi:"modifiedAt"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// It will be displayed prominently in the marketplace
 	OfferDisplayName string `pulumi:"offerDisplayName"`
+	// Offer plans
+	Plans []PlanResponse `pulumi:"plans"`
 	// Private store unique id
 	PrivateStoreId string `pulumi:"privateStoreId"`
 	// Publisher name that will be displayed prominently in the marketplace

@@ -15,8 +15,6 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// Babylon Configuration
-	BabylonConfiguration BabylonConfigurationResponsePtrOutput `pulumi:"babylonConfiguration"`
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
@@ -41,6 +39,8 @@ type Workspace struct {
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Purview Configuration
+	PurviewConfiguration PurviewConfigurationResponsePtrOutput `pulumi:"purviewConfiguration"`
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin pulumi.StringPtrOutput `pulumi:"sqlAdministratorLogin"`
 	// SQL administrator login password
@@ -94,8 +94,6 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// Babylon Configuration
-	BabylonConfiguration *BabylonConfigurationResponse `pulumi:"babylonConfiguration"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
@@ -120,6 +118,8 @@ type workspaceState struct {
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Purview Configuration
+	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
 	// SQL administrator login password
@@ -137,8 +137,6 @@ type workspaceState struct {
 }
 
 type WorkspaceState struct {
-	// Babylon Configuration
-	BabylonConfiguration BabylonConfigurationResponsePtrInput
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Workspace default data lake storage account details
@@ -163,6 +161,8 @@ type WorkspaceState struct {
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Resource provisioning state
 	ProvisioningState pulumi.StringPtrInput
+	// Purview Configuration
+	PurviewConfiguration PurviewConfigurationResponsePtrInput
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin pulumi.StringPtrInput
 	// SQL administrator login password
@@ -184,8 +184,6 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// Babylon Configuration
-	BabylonConfiguration *BabylonConfiguration `pulumi:"babylonConfiguration"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
@@ -204,6 +202,8 @@ type workspaceArgs struct {
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettings `pulumi:"managedVirtualNetworkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
+	// Purview Configuration
+	PurviewConfiguration *PurviewConfiguration `pulumi:"purviewConfiguration"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Login for workspace SQL active directory administrator
@@ -222,8 +222,6 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// Babylon Configuration
-	BabylonConfiguration BabylonConfigurationPtrInput
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Workspace default data lake storage account details
@@ -242,6 +240,8 @@ type WorkspaceArgs struct {
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsPtrInput
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
+	// Purview Configuration
+	PurviewConfiguration PurviewConfigurationPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Login for workspace SQL active directory administrator

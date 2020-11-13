@@ -40,10 +40,6 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public sealed class GetWorkspaceResult
     {
         /// <summary>
-        /// Babylon Configuration
-        /// </summary>
-        public readonly Outputs.BabylonConfigurationResponse? BabylonConfiguration;
-        /// <summary>
         /// Connectivity endpoints
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ConnectivityEndpoints;
@@ -92,6 +88,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Purview Configuration
+        /// </summary>
+        public readonly Outputs.PurviewConfigurationResponse? PurviewConfiguration;
+        /// <summary>
         /// Login for workspace SQL active directory administrator
         /// </summary>
         public readonly string? SqlAdministratorLogin;
@@ -122,8 +122,6 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
         [OutputConstructor]
         private GetWorkspaceResult(
-            Outputs.BabylonConfigurationResponse? babylonConfiguration,
-
             ImmutableDictionary<string, string>? connectivityEndpoints,
 
             Outputs.DataLakeStorageAccountDetailsResponse? defaultDataLakeStorage,
@@ -148,6 +146,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string provisioningState,
 
+            Outputs.PurviewConfigurationResponse? purviewConfiguration,
+
             string? sqlAdministratorLogin,
 
             string? sqlAdministratorLoginPassword,
@@ -162,7 +162,6 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string workspaceUID)
         {
-            BabylonConfiguration = babylonConfiguration;
             ConnectivityEndpoints = connectivityEndpoints;
             DefaultDataLakeStorage = defaultDataLakeStorage;
             Encryption = encryption;
@@ -175,6 +174,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PurviewConfiguration = purviewConfiguration;
             SqlAdministratorLogin = sqlAdministratorLogin;
             SqlAdministratorLoginPassword = sqlAdministratorLoginPassword;
             Tags = tags;

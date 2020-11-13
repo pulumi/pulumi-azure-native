@@ -660,274 +660,6 @@ func (o AutoScalePropertiesResponsePtrOutput) MinNodeCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Babylon Configuration
-type BabylonConfiguration struct {
-	// Babylon Resource ID
-	BabylonResourceId *string `pulumi:"babylonResourceId"`
-}
-
-// BabylonConfigurationInput is an input type that accepts BabylonConfigurationArgs and BabylonConfigurationOutput values.
-// You can construct a concrete instance of `BabylonConfigurationInput` via:
-//
-//          BabylonConfigurationArgs{...}
-type BabylonConfigurationInput interface {
-	pulumi.Input
-
-	ToBabylonConfigurationOutput() BabylonConfigurationOutput
-	ToBabylonConfigurationOutputWithContext(context.Context) BabylonConfigurationOutput
-}
-
-// Babylon Configuration
-type BabylonConfigurationArgs struct {
-	// Babylon Resource ID
-	BabylonResourceId pulumi.StringPtrInput `pulumi:"babylonResourceId"`
-}
-
-func (BabylonConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BabylonConfiguration)(nil)).Elem()
-}
-
-func (i BabylonConfigurationArgs) ToBabylonConfigurationOutput() BabylonConfigurationOutput {
-	return i.ToBabylonConfigurationOutputWithContext(context.Background())
-}
-
-func (i BabylonConfigurationArgs) ToBabylonConfigurationOutputWithContext(ctx context.Context) BabylonConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BabylonConfigurationOutput)
-}
-
-func (i BabylonConfigurationArgs) ToBabylonConfigurationPtrOutput() BabylonConfigurationPtrOutput {
-	return i.ToBabylonConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i BabylonConfigurationArgs) ToBabylonConfigurationPtrOutputWithContext(ctx context.Context) BabylonConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BabylonConfigurationOutput).ToBabylonConfigurationPtrOutputWithContext(ctx)
-}
-
-// BabylonConfigurationPtrInput is an input type that accepts BabylonConfigurationArgs, BabylonConfigurationPtr and BabylonConfigurationPtrOutput values.
-// You can construct a concrete instance of `BabylonConfigurationPtrInput` via:
-//
-//          BabylonConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type BabylonConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToBabylonConfigurationPtrOutput() BabylonConfigurationPtrOutput
-	ToBabylonConfigurationPtrOutputWithContext(context.Context) BabylonConfigurationPtrOutput
-}
-
-type babylonConfigurationPtrType BabylonConfigurationArgs
-
-func BabylonConfigurationPtr(v *BabylonConfigurationArgs) BabylonConfigurationPtrInput {
-	return (*babylonConfigurationPtrType)(v)
-}
-
-func (*babylonConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BabylonConfiguration)(nil)).Elem()
-}
-
-func (i *babylonConfigurationPtrType) ToBabylonConfigurationPtrOutput() BabylonConfigurationPtrOutput {
-	return i.ToBabylonConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *babylonConfigurationPtrType) ToBabylonConfigurationPtrOutputWithContext(ctx context.Context) BabylonConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BabylonConfigurationPtrOutput)
-}
-
-// Babylon Configuration
-type BabylonConfigurationOutput struct{ *pulumi.OutputState }
-
-func (BabylonConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BabylonConfiguration)(nil)).Elem()
-}
-
-func (o BabylonConfigurationOutput) ToBabylonConfigurationOutput() BabylonConfigurationOutput {
-	return o
-}
-
-func (o BabylonConfigurationOutput) ToBabylonConfigurationOutputWithContext(ctx context.Context) BabylonConfigurationOutput {
-	return o
-}
-
-func (o BabylonConfigurationOutput) ToBabylonConfigurationPtrOutput() BabylonConfigurationPtrOutput {
-	return o.ToBabylonConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o BabylonConfigurationOutput) ToBabylonConfigurationPtrOutputWithContext(ctx context.Context) BabylonConfigurationPtrOutput {
-	return o.ApplyT(func(v BabylonConfiguration) *BabylonConfiguration {
-		return &v
-	}).(BabylonConfigurationPtrOutput)
-}
-
-// Babylon Resource ID
-func (o BabylonConfigurationOutput) BabylonResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BabylonConfiguration) *string { return v.BabylonResourceId }).(pulumi.StringPtrOutput)
-}
-
-type BabylonConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (BabylonConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BabylonConfiguration)(nil)).Elem()
-}
-
-func (o BabylonConfigurationPtrOutput) ToBabylonConfigurationPtrOutput() BabylonConfigurationPtrOutput {
-	return o
-}
-
-func (o BabylonConfigurationPtrOutput) ToBabylonConfigurationPtrOutputWithContext(ctx context.Context) BabylonConfigurationPtrOutput {
-	return o
-}
-
-func (o BabylonConfigurationPtrOutput) Elem() BabylonConfigurationOutput {
-	return o.ApplyT(func(v *BabylonConfiguration) BabylonConfiguration { return *v }).(BabylonConfigurationOutput)
-}
-
-// Babylon Resource ID
-func (o BabylonConfigurationPtrOutput) BabylonResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BabylonConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BabylonResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Babylon Configuration
-type BabylonConfigurationResponse struct {
-	// Babylon Resource ID
-	BabylonResourceId *string `pulumi:"babylonResourceId"`
-}
-
-// BabylonConfigurationResponseInput is an input type that accepts BabylonConfigurationResponseArgs and BabylonConfigurationResponseOutput values.
-// You can construct a concrete instance of `BabylonConfigurationResponseInput` via:
-//
-//          BabylonConfigurationResponseArgs{...}
-type BabylonConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToBabylonConfigurationResponseOutput() BabylonConfigurationResponseOutput
-	ToBabylonConfigurationResponseOutputWithContext(context.Context) BabylonConfigurationResponseOutput
-}
-
-// Babylon Configuration
-type BabylonConfigurationResponseArgs struct {
-	// Babylon Resource ID
-	BabylonResourceId pulumi.StringPtrInput `pulumi:"babylonResourceId"`
-}
-
-func (BabylonConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BabylonConfigurationResponse)(nil)).Elem()
-}
-
-func (i BabylonConfigurationResponseArgs) ToBabylonConfigurationResponseOutput() BabylonConfigurationResponseOutput {
-	return i.ToBabylonConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i BabylonConfigurationResponseArgs) ToBabylonConfigurationResponseOutputWithContext(ctx context.Context) BabylonConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BabylonConfigurationResponseOutput)
-}
-
-func (i BabylonConfigurationResponseArgs) ToBabylonConfigurationResponsePtrOutput() BabylonConfigurationResponsePtrOutput {
-	return i.ToBabylonConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BabylonConfigurationResponseArgs) ToBabylonConfigurationResponsePtrOutputWithContext(ctx context.Context) BabylonConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BabylonConfigurationResponseOutput).ToBabylonConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-// BabylonConfigurationResponsePtrInput is an input type that accepts BabylonConfigurationResponseArgs, BabylonConfigurationResponsePtr and BabylonConfigurationResponsePtrOutput values.
-// You can construct a concrete instance of `BabylonConfigurationResponsePtrInput` via:
-//
-//          BabylonConfigurationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type BabylonConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToBabylonConfigurationResponsePtrOutput() BabylonConfigurationResponsePtrOutput
-	ToBabylonConfigurationResponsePtrOutputWithContext(context.Context) BabylonConfigurationResponsePtrOutput
-}
-
-type babylonConfigurationResponsePtrType BabylonConfigurationResponseArgs
-
-func BabylonConfigurationResponsePtr(v *BabylonConfigurationResponseArgs) BabylonConfigurationResponsePtrInput {
-	return (*babylonConfigurationResponsePtrType)(v)
-}
-
-func (*babylonConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BabylonConfigurationResponse)(nil)).Elem()
-}
-
-func (i *babylonConfigurationResponsePtrType) ToBabylonConfigurationResponsePtrOutput() BabylonConfigurationResponsePtrOutput {
-	return i.ToBabylonConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *babylonConfigurationResponsePtrType) ToBabylonConfigurationResponsePtrOutputWithContext(ctx context.Context) BabylonConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BabylonConfigurationResponsePtrOutput)
-}
-
-// Babylon Configuration
-type BabylonConfigurationResponseOutput struct{ *pulumi.OutputState }
-
-func (BabylonConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BabylonConfigurationResponse)(nil)).Elem()
-}
-
-func (o BabylonConfigurationResponseOutput) ToBabylonConfigurationResponseOutput() BabylonConfigurationResponseOutput {
-	return o
-}
-
-func (o BabylonConfigurationResponseOutput) ToBabylonConfigurationResponseOutputWithContext(ctx context.Context) BabylonConfigurationResponseOutput {
-	return o
-}
-
-func (o BabylonConfigurationResponseOutput) ToBabylonConfigurationResponsePtrOutput() BabylonConfigurationResponsePtrOutput {
-	return o.ToBabylonConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BabylonConfigurationResponseOutput) ToBabylonConfigurationResponsePtrOutputWithContext(ctx context.Context) BabylonConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v BabylonConfigurationResponse) *BabylonConfigurationResponse {
-		return &v
-	}).(BabylonConfigurationResponsePtrOutput)
-}
-
-// Babylon Resource ID
-func (o BabylonConfigurationResponseOutput) BabylonResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BabylonConfigurationResponse) *string { return v.BabylonResourceId }).(pulumi.StringPtrOutput)
-}
-
-type BabylonConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (BabylonConfigurationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BabylonConfigurationResponse)(nil)).Elem()
-}
-
-func (o BabylonConfigurationResponsePtrOutput) ToBabylonConfigurationResponsePtrOutput() BabylonConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o BabylonConfigurationResponsePtrOutput) ToBabylonConfigurationResponsePtrOutputWithContext(ctx context.Context) BabylonConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o BabylonConfigurationResponsePtrOutput) Elem() BabylonConfigurationResponseOutput {
-	return o.ApplyT(func(v *BabylonConfigurationResponse) BabylonConfigurationResponse { return *v }).(BabylonConfigurationResponseOutput)
-}
-
-// Babylon Resource ID
-func (o BabylonConfigurationResponsePtrOutput) BabylonResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BabylonConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BabylonResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
 // The custom setup of running cmdkey commands.
 type CmdkeySetup struct {
 	// The password of data source access.
@@ -8083,6 +7815,274 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Purview Configuration
+type PurviewConfiguration struct {
+	// Purview Resource ID
+	PurviewResourceId *string `pulumi:"purviewResourceId"`
+}
+
+// PurviewConfigurationInput is an input type that accepts PurviewConfigurationArgs and PurviewConfigurationOutput values.
+// You can construct a concrete instance of `PurviewConfigurationInput` via:
+//
+//          PurviewConfigurationArgs{...}
+type PurviewConfigurationInput interface {
+	pulumi.Input
+
+	ToPurviewConfigurationOutput() PurviewConfigurationOutput
+	ToPurviewConfigurationOutputWithContext(context.Context) PurviewConfigurationOutput
+}
+
+// Purview Configuration
+type PurviewConfigurationArgs struct {
+	// Purview Resource ID
+	PurviewResourceId pulumi.StringPtrInput `pulumi:"purviewResourceId"`
+}
+
+func (PurviewConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfiguration)(nil)).Elem()
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationOutput() PurviewConfigurationOutput {
+	return i.ToPurviewConfigurationOutputWithContext(context.Background())
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationOutputWithContext(ctx context.Context) PurviewConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationOutput)
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return i.ToPurviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationOutput).ToPurviewConfigurationPtrOutputWithContext(ctx)
+}
+
+// PurviewConfigurationPtrInput is an input type that accepts PurviewConfigurationArgs, PurviewConfigurationPtr and PurviewConfigurationPtrOutput values.
+// You can construct a concrete instance of `PurviewConfigurationPtrInput` via:
+//
+//          PurviewConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type PurviewConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput
+	ToPurviewConfigurationPtrOutputWithContext(context.Context) PurviewConfigurationPtrOutput
+}
+
+type purviewConfigurationPtrType PurviewConfigurationArgs
+
+func PurviewConfigurationPtr(v *PurviewConfigurationArgs) PurviewConfigurationPtrInput {
+	return (*purviewConfigurationPtrType)(v)
+}
+
+func (*purviewConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfiguration)(nil)).Elem()
+}
+
+func (i *purviewConfigurationPtrType) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return i.ToPurviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *purviewConfigurationPtrType) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationPtrOutput)
+}
+
+// Purview Configuration
+type PurviewConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfiguration)(nil)).Elem()
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationOutput() PurviewConfigurationOutput {
+	return o
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationOutputWithContext(ctx context.Context) PurviewConfigurationOutput {
+	return o
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return o.ToPurviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return o.ApplyT(func(v PurviewConfiguration) *PurviewConfiguration {
+		return &v
+	}).(PurviewConfigurationPtrOutput)
+}
+
+// Purview Resource ID
+func (o PurviewConfigurationOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurviewConfiguration) *string { return v.PurviewResourceId }).(pulumi.StringPtrOutput)
+}
+
+type PurviewConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfiguration)(nil)).Elem()
+}
+
+func (o PurviewConfigurationPtrOutput) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationPtrOutput) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationPtrOutput) Elem() PurviewConfigurationOutput {
+	return o.ApplyT(func(v *PurviewConfiguration) PurviewConfiguration { return *v }).(PurviewConfigurationOutput)
+}
+
+// Purview Resource ID
+func (o PurviewConfigurationPtrOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurviewConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PurviewResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Purview Configuration
+type PurviewConfigurationResponse struct {
+	// Purview Resource ID
+	PurviewResourceId *string `pulumi:"purviewResourceId"`
+}
+
+// PurviewConfigurationResponseInput is an input type that accepts PurviewConfigurationResponseArgs and PurviewConfigurationResponseOutput values.
+// You can construct a concrete instance of `PurviewConfigurationResponseInput` via:
+//
+//          PurviewConfigurationResponseArgs{...}
+type PurviewConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToPurviewConfigurationResponseOutput() PurviewConfigurationResponseOutput
+	ToPurviewConfigurationResponseOutputWithContext(context.Context) PurviewConfigurationResponseOutput
+}
+
+// Purview Configuration
+type PurviewConfigurationResponseArgs struct {
+	// Purview Resource ID
+	PurviewResourceId pulumi.StringPtrInput `pulumi:"purviewResourceId"`
+}
+
+func (PurviewConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfigurationResponse)(nil)).Elem()
+}
+
+func (i PurviewConfigurationResponseArgs) ToPurviewConfigurationResponseOutput() PurviewConfigurationResponseOutput {
+	return i.ToPurviewConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i PurviewConfigurationResponseArgs) ToPurviewConfigurationResponseOutputWithContext(ctx context.Context) PurviewConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationResponseOutput)
+}
+
+func (i PurviewConfigurationResponseArgs) ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput {
+	return i.ToPurviewConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PurviewConfigurationResponseArgs) ToPurviewConfigurationResponsePtrOutputWithContext(ctx context.Context) PurviewConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationResponseOutput).ToPurviewConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// PurviewConfigurationResponsePtrInput is an input type that accepts PurviewConfigurationResponseArgs, PurviewConfigurationResponsePtr and PurviewConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `PurviewConfigurationResponsePtrInput` via:
+//
+//          PurviewConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PurviewConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput
+	ToPurviewConfigurationResponsePtrOutputWithContext(context.Context) PurviewConfigurationResponsePtrOutput
+}
+
+type purviewConfigurationResponsePtrType PurviewConfigurationResponseArgs
+
+func PurviewConfigurationResponsePtr(v *PurviewConfigurationResponseArgs) PurviewConfigurationResponsePtrInput {
+	return (*purviewConfigurationResponsePtrType)(v)
+}
+
+func (*purviewConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfigurationResponse)(nil)).Elem()
+}
+
+func (i *purviewConfigurationResponsePtrType) ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput {
+	return i.ToPurviewConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *purviewConfigurationResponsePtrType) ToPurviewConfigurationResponsePtrOutputWithContext(ctx context.Context) PurviewConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationResponsePtrOutput)
+}
+
+// Purview Configuration
+type PurviewConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfigurationResponse)(nil)).Elem()
+}
+
+func (o PurviewConfigurationResponseOutput) ToPurviewConfigurationResponseOutput() PurviewConfigurationResponseOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponseOutput) ToPurviewConfigurationResponseOutputWithContext(ctx context.Context) PurviewConfigurationResponseOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponseOutput) ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput {
+	return o.ToPurviewConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PurviewConfigurationResponseOutput) ToPurviewConfigurationResponsePtrOutputWithContext(ctx context.Context) PurviewConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v PurviewConfigurationResponse) *PurviewConfigurationResponse {
+		return &v
+	}).(PurviewConfigurationResponsePtrOutput)
+}
+
+// Purview Resource ID
+func (o PurviewConfigurationResponseOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurviewConfigurationResponse) *string { return v.PurviewResourceId }).(pulumi.StringPtrOutput)
+}
+
+type PurviewConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfigurationResponse)(nil)).Elem()
+}
+
+func (o PurviewConfigurationResponsePtrOutput) ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponsePtrOutput) ToPurviewConfigurationResponsePtrOutputWithContext(ctx context.Context) PurviewConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponsePtrOutput) Elem() PurviewConfigurationResponseOutput {
+	return o.ApplyT(func(v *PurviewConfigurationResponse) PurviewConfigurationResponse { return *v }).(PurviewConfigurationResponseOutput)
+}
+
+// Purview Resource ID
+func (o PurviewConfigurationResponsePtrOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurviewConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PurviewResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureString struct {
 	// Type of the secret.
@@ -11889,10 +11889,6 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AutoScalePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(BabylonConfigurationOutput{})
-	pulumi.RegisterOutputType(BabylonConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(BabylonConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(BabylonConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(CmdkeySetupOutput{})
 	pulumi.RegisterOutputType(CmdkeySetupResponseOutput{})
 	pulumi.RegisterOutputType(ComponentSetupOutput{})
@@ -11981,6 +11977,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(SecureStringOutput{})
 	pulumi.RegisterOutputType(SecureStringPtrOutput{})
 	pulumi.RegisterOutputType(SecureStringResponseOutput{})

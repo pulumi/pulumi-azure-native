@@ -11,7 +11,6 @@ from ... import _utilities, _tables
 __all__ = [
     'AutoPausePropertiesArgs',
     'AutoScalePropertiesArgs',
-    'BabylonConfigurationArgs',
     'CmdkeySetupArgs',
     'ComponentSetupArgs',
     'CustomerManagedKeyDetailsArgs',
@@ -34,6 +33,7 @@ __all__ = [
     'ManagedVirtualNetworkSettingsArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'PurviewConfigurationArgs',
     'SecureStringArgs',
     'SelfHostedIntegrationRuntimeArgs',
     'SkuArgs',
@@ -138,30 +138,6 @@ class AutoScalePropertiesArgs:
     @min_node_count.setter
     def min_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_node_count", value)
-
-
-@pulumi.input_type
-class BabylonConfigurationArgs:
-    def __init__(__self__, *,
-                 babylon_resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        Babylon Configuration
-        :param pulumi.Input[str] babylon_resource_id: Babylon Resource ID
-        """
-        if babylon_resource_id is not None:
-            pulumi.set(__self__, "babylon_resource_id", babylon_resource_id)
-
-    @property
-    @pulumi.getter(name="babylonResourceId")
-    def babylon_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Babylon Resource ID
-        """
-        return pulumi.get(self, "babylon_resource_id")
-
-    @babylon_resource_id.setter
-    def babylon_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "babylon_resource_id", value)
 
 
 @pulumi.input_type
@@ -1284,6 +1260,30 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class PurviewConfigurationArgs:
+    def __init__(__self__, *,
+                 purview_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Purview Configuration
+        :param pulumi.Input[str] purview_resource_id: Purview Resource ID
+        """
+        if purview_resource_id is not None:
+            pulumi.set(__self__, "purview_resource_id", purview_resource_id)
+
+    @property
+    @pulumi.getter(name="purviewResourceId")
+    def purview_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Purview Resource ID
+        """
+        return pulumi.get(self, "purview_resource_id")
+
+    @purview_resource_id.setter
+    def purview_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "purview_resource_id", value)
 
 
 @pulumi.input_type

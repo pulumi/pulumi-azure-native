@@ -15,12 +15,6 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
-        /// Babylon Configuration
-        /// </summary>
-        [Output("babylonConfiguration")]
-        public Output<Outputs.BabylonConfigurationResponse?> BabylonConfiguration { get; private set; } = null!;
-
-        /// <summary>
         /// Connectivity endpoints
         /// </summary>
         [Output("connectivityEndpoints")]
@@ -91,6 +85,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Purview Configuration
+        /// </summary>
+        [Output("purviewConfiguration")]
+        public Output<Outputs.PurviewConfigurationResponse?> PurviewConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Login for workspace SQL active directory administrator
@@ -179,12 +179,6 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
     public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Babylon Configuration
-        /// </summary>
-        [Input("babylonConfiguration")]
-        public Input<Inputs.BabylonConfigurationArgs>? BabylonConfiguration { get; set; }
-
         [Input("connectivityEndpoints")]
         private InputMap<string>? _connectivityEndpoints;
 
@@ -250,6 +244,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
             set => _privateEndpointConnections = value;
         }
+
+        /// <summary>
+        /// Purview Configuration
+        /// </summary>
+        [Input("purviewConfiguration")]
+        public Input<Inputs.PurviewConfigurationArgs>? PurviewConfiguration { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

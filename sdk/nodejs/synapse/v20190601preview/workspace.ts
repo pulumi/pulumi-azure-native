@@ -36,10 +36,6 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
-     * Babylon Configuration
-     */
-    public readonly babylonConfiguration!: pulumi.Output<outputs.synapse.v20190601preview.BabylonConfigurationResponse | undefined>;
-    /**
      * Connectivity endpoints
      */
     public readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -88,6 +84,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Purview Configuration
+     */
+    public readonly purviewConfiguration!: pulumi.Output<outputs.synapse.v20190601preview.PurviewConfigurationResponse | undefined>;
+    /**
      * Login for workspace SQL active directory administrator
      */
     public readonly sqlAdministratorLogin!: pulumi.Output<string | undefined>;
@@ -135,7 +135,6 @@ export class Workspace extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["babylonConfiguration"] = args ? args.babylonConfiguration : undefined;
             inputs["connectivityEndpoints"] = args ? args.connectivityEndpoints : undefined;
             inputs["defaultDataLakeStorage"] = args ? args.defaultDataLakeStorage : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
@@ -145,6 +144,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["managedVirtualNetwork"] = args ? args.managedVirtualNetwork : undefined;
             inputs["managedVirtualNetworkSettings"] = args ? args.managedVirtualNetworkSettings : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
+            inputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
             inputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
@@ -158,7 +158,6 @@ export class Workspace extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["workspaceUID"] = undefined /*out*/;
         } else {
-            inputs["babylonConfiguration"] = undefined /*out*/;
             inputs["connectivityEndpoints"] = undefined /*out*/;
             inputs["defaultDataLakeStorage"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;
@@ -171,6 +170,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["purviewConfiguration"] = undefined /*out*/;
             inputs["sqlAdministratorLogin"] = undefined /*out*/;
             inputs["sqlAdministratorLoginPassword"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -194,10 +194,6 @@ export class Workspace extends pulumi.CustomResource {
  * The set of arguments for constructing a Workspace resource.
  */
 export interface WorkspaceArgs {
-    /**
-     * Babylon Configuration
-     */
-    readonly babylonConfiguration?: pulumi.Input<inputs.synapse.v20190601preview.BabylonConfiguration>;
     /**
      * Connectivity endpoints
      */
@@ -234,6 +230,10 @@ export interface WorkspaceArgs {
      * Private endpoint connections to the workspace
      */
     readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.v20190601preview.PrivateEndpointConnection>[]>;
+    /**
+     * Purview Configuration
+     */
+    readonly purviewConfiguration?: pulumi.Input<inputs.synapse.v20190601preview.PurviewConfiguration>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
