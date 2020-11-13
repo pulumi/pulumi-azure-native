@@ -1,6 +1,5 @@
 import * as pulumi from "@pulumi/pulumi";
-// TODO change to latest when https://github.com/Azure/azure-rest-api-specs/issues/11378 is fixed
-import * as documentdb from "@pulumi/azure-nextgen/documentdb/v20200401";
+import * as documentdb from "@pulumi/azure-nextgen/documentdb/latest";
 import * as resources from "@pulumi/azure-nextgen/resources/latest";
 import { documentdb as documentdbInputs } from "@pulumi/azure-nextgen/types/input";
 
