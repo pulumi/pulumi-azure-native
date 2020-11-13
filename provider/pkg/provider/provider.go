@@ -1180,7 +1180,7 @@ func (k *azureNextGenProvider) getAuthConfig() (*authentication.Config, error) {
 	if auxTenantsString != "" {
 		err := json.Unmarshal([]byte(auxTenantsString), &auxTenants)
 		if err != nil {
-			return nil, errors.Wrapf(err, "failed to unmarshal '%s' as Auxiliary Tenants")
+			return nil, errors.Wrapf(err, "failed to unmarshal '%s' as Auxiliary Tenants", auxTenantsString)
 		}
 	}
 	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
