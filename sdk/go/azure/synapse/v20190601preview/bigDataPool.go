@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -252,4 +253,43 @@ type BigDataPoolArgs struct {
 
 func (BigDataPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bigDataPoolArgs)(nil)).Elem()
+}
+
+type BigDataPoolInput interface {
+	pulumi.Input
+
+	ToBigDataPoolOutput() BigDataPoolOutput
+	ToBigDataPoolOutputWithContext(ctx context.Context) BigDataPoolOutput
+}
+
+func (BigDataPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*BigDataPool)(nil)).Elem()
+}
+
+func (i BigDataPool) ToBigDataPoolOutput() BigDataPoolOutput {
+	return i.ToBigDataPoolOutputWithContext(context.Background())
+}
+
+func (i BigDataPool) ToBigDataPoolOutputWithContext(ctx context.Context) BigDataPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BigDataPoolOutput)
+}
+
+type BigDataPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (BigDataPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BigDataPoolOutput)(nil)).Elem()
+}
+
+func (o BigDataPoolOutput) ToBigDataPoolOutput() BigDataPoolOutput {
+	return o
+}
+
+func (o BigDataPoolOutput) ToBigDataPoolOutputWithContext(ctx context.Context) BigDataPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BigDataPoolOutput{})
 }

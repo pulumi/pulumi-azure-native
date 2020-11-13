@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -217,4 +218,43 @@ type SiteHostNameBindingArgs struct {
 
 func (SiteHostNameBindingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteHostNameBindingArgs)(nil)).Elem()
+}
+
+type SiteHostNameBindingInput interface {
+	pulumi.Input
+
+	ToSiteHostNameBindingOutput() SiteHostNameBindingOutput
+	ToSiteHostNameBindingOutputWithContext(ctx context.Context) SiteHostNameBindingOutput
+}
+
+func (SiteHostNameBinding) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteHostNameBinding)(nil)).Elem()
+}
+
+func (i SiteHostNameBinding) ToSiteHostNameBindingOutput() SiteHostNameBindingOutput {
+	return i.ToSiteHostNameBindingOutputWithContext(context.Background())
+}
+
+func (i SiteHostNameBinding) ToSiteHostNameBindingOutputWithContext(ctx context.Context) SiteHostNameBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteHostNameBindingOutput)
+}
+
+type SiteHostNameBindingOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteHostNameBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteHostNameBindingOutput)(nil)).Elem()
+}
+
+func (o SiteHostNameBindingOutput) ToSiteHostNameBindingOutput() SiteHostNameBindingOutput {
+	return o
+}
+
+func (o SiteHostNameBindingOutput) ToSiteHostNameBindingOutputWithContext(ctx context.Context) SiteHostNameBindingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteHostNameBindingOutput{})
 }

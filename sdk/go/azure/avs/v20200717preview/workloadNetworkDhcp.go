@@ -4,6 +4,7 @@
 package v20200717preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type WorkloadNetworkDhcpArgs struct {
 
 func (WorkloadNetworkDhcpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadNetworkDhcpArgs)(nil)).Elem()
+}
+
+type WorkloadNetworkDhcpInput interface {
+	pulumi.Input
+
+	ToWorkloadNetworkDhcpOutput() WorkloadNetworkDhcpOutput
+	ToWorkloadNetworkDhcpOutputWithContext(ctx context.Context) WorkloadNetworkDhcpOutput
+}
+
+func (WorkloadNetworkDhcp) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkDhcp)(nil)).Elem()
+}
+
+func (i WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutput() WorkloadNetworkDhcpOutput {
+	return i.ToWorkloadNetworkDhcpOutputWithContext(context.Background())
+}
+
+func (i WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutputWithContext(ctx context.Context) WorkloadNetworkDhcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDhcpOutput)
+}
+
+type WorkloadNetworkDhcpOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkloadNetworkDhcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkDhcpOutput)(nil)).Elem()
+}
+
+func (o WorkloadNetworkDhcpOutput) ToWorkloadNetworkDhcpOutput() WorkloadNetworkDhcpOutput {
+	return o
+}
+
+func (o WorkloadNetworkDhcpOutput) ToWorkloadNetworkDhcpOutputWithContext(ctx context.Context) WorkloadNetworkDhcpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkloadNetworkDhcpOutput{})
 }

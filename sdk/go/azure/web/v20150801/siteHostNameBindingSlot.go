@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -224,4 +225,43 @@ type SiteHostNameBindingSlotArgs struct {
 
 func (SiteHostNameBindingSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteHostNameBindingSlotArgs)(nil)).Elem()
+}
+
+type SiteHostNameBindingSlotInput interface {
+	pulumi.Input
+
+	ToSiteHostNameBindingSlotOutput() SiteHostNameBindingSlotOutput
+	ToSiteHostNameBindingSlotOutputWithContext(ctx context.Context) SiteHostNameBindingSlotOutput
+}
+
+func (SiteHostNameBindingSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteHostNameBindingSlot)(nil)).Elem()
+}
+
+func (i SiteHostNameBindingSlot) ToSiteHostNameBindingSlotOutput() SiteHostNameBindingSlotOutput {
+	return i.ToSiteHostNameBindingSlotOutputWithContext(context.Background())
+}
+
+func (i SiteHostNameBindingSlot) ToSiteHostNameBindingSlotOutputWithContext(ctx context.Context) SiteHostNameBindingSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteHostNameBindingSlotOutput)
+}
+
+type SiteHostNameBindingSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteHostNameBindingSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteHostNameBindingSlotOutput)(nil)).Elem()
+}
+
+func (o SiteHostNameBindingSlotOutput) ToSiteHostNameBindingSlotOutput() SiteHostNameBindingSlotOutput {
+	return o
+}
+
+func (o SiteHostNameBindingSlotOutput) ToSiteHostNameBindingSlotOutputWithContext(ctx context.Context) SiteHostNameBindingSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteHostNameBindingSlotOutput{})
 }

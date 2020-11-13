@@ -4,6 +4,7 @@
 package v20150501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -373,4 +374,43 @@ type ManagedInstanceArgs struct {
 
 func (ManagedInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedInstanceArgs)(nil)).Elem()
+}
+
+type ManagedInstanceInput interface {
+	pulumi.Input
+
+	ToManagedInstanceOutput() ManagedInstanceOutput
+	ToManagedInstanceOutputWithContext(ctx context.Context) ManagedInstanceOutput
+}
+
+func (ManagedInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstance)(nil)).Elem()
+}
+
+func (i ManagedInstance) ToManagedInstanceOutput() ManagedInstanceOutput {
+	return i.ToManagedInstanceOutputWithContext(context.Background())
+}
+
+func (i ManagedInstance) ToManagedInstanceOutputWithContext(ctx context.Context) ManagedInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceOutput)
+}
+
+type ManagedInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceOutput)(nil)).Elem()
+}
+
+func (o ManagedInstanceOutput) ToManagedInstanceOutput() ManagedInstanceOutput {
+	return o
+}
+
+func (o ManagedInstanceOutput) ToManagedInstanceOutputWithContext(ctx context.Context) ManagedInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedInstanceOutput{})
 }

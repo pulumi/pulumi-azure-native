@@ -4,6 +4,7 @@
 package v20191201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -156,4 +157,43 @@ type ApiOperationPolicyArgs struct {
 
 func (ApiOperationPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiOperationPolicyArgs)(nil)).Elem()
+}
+
+type ApiOperationPolicyInput interface {
+	pulumi.Input
+
+	ToApiOperationPolicyOutput() ApiOperationPolicyOutput
+	ToApiOperationPolicyOutputWithContext(ctx context.Context) ApiOperationPolicyOutput
+}
+
+func (ApiOperationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationPolicy)(nil)).Elem()
+}
+
+func (i ApiOperationPolicy) ToApiOperationPolicyOutput() ApiOperationPolicyOutput {
+	return i.ToApiOperationPolicyOutputWithContext(context.Background())
+}
+
+func (i ApiOperationPolicy) ToApiOperationPolicyOutputWithContext(ctx context.Context) ApiOperationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyOutput)
+}
+
+type ApiOperationPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiOperationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationPolicyOutput)(nil)).Elem()
+}
+
+func (o ApiOperationPolicyOutput) ToApiOperationPolicyOutput() ApiOperationPolicyOutput {
+	return o
+}
+
+func (o ApiOperationPolicyOutput) ToApiOperationPolicyOutputWithContext(ctx context.Context) ApiOperationPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiOperationPolicyOutput{})
 }

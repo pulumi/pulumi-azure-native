@@ -4,6 +4,7 @@
 package v20160901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -207,4 +208,43 @@ type ApplianceDefinitionArgs struct {
 
 func (ApplianceDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applianceDefinitionArgs)(nil)).Elem()
+}
+
+type ApplianceDefinitionInput interface {
+	pulumi.Input
+
+	ToApplianceDefinitionOutput() ApplianceDefinitionOutput
+	ToApplianceDefinitionOutputWithContext(ctx context.Context) ApplianceDefinitionOutput
+}
+
+func (ApplianceDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceDefinition)(nil)).Elem()
+}
+
+func (i ApplianceDefinition) ToApplianceDefinitionOutput() ApplianceDefinitionOutput {
+	return i.ToApplianceDefinitionOutputWithContext(context.Background())
+}
+
+func (i ApplianceDefinition) ToApplianceDefinitionOutputWithContext(ctx context.Context) ApplianceDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceDefinitionOutput)
+}
+
+type ApplianceDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplianceDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceDefinitionOutput)(nil)).Elem()
+}
+
+func (o ApplianceDefinitionOutput) ToApplianceDefinitionOutput() ApplianceDefinitionOutput {
+	return o
+}
+
+func (o ApplianceDefinitionOutput) ToApplianceDefinitionOutputWithContext(ctx context.Context) ApplianceDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplianceDefinitionOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200717preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type WorkloadNetworkVMGroupArgs struct {
 
 func (WorkloadNetworkVMGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadNetworkVMGroupArgs)(nil)).Elem()
+}
+
+type WorkloadNetworkVMGroupInput interface {
+	pulumi.Input
+
+	ToWorkloadNetworkVMGroupOutput() WorkloadNetworkVMGroupOutput
+	ToWorkloadNetworkVMGroupOutputWithContext(ctx context.Context) WorkloadNetworkVMGroupOutput
+}
+
+func (WorkloadNetworkVMGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkVMGroup)(nil)).Elem()
+}
+
+func (i WorkloadNetworkVMGroup) ToWorkloadNetworkVMGroupOutput() WorkloadNetworkVMGroupOutput {
+	return i.ToWorkloadNetworkVMGroupOutputWithContext(context.Background())
+}
+
+func (i WorkloadNetworkVMGroup) ToWorkloadNetworkVMGroupOutputWithContext(ctx context.Context) WorkloadNetworkVMGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkVMGroupOutput)
+}
+
+type WorkloadNetworkVMGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkloadNetworkVMGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkVMGroupOutput)(nil)).Elem()
+}
+
+func (o WorkloadNetworkVMGroupOutput) ToWorkloadNetworkVMGroupOutput() WorkloadNetworkVMGroupOutput {
+	return o
+}
+
+func (o WorkloadNetworkVMGroupOutput) ToWorkloadNetworkVMGroupOutputWithContext(ctx context.Context) WorkloadNetworkVMGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkloadNetworkVMGroupOutput{})
 }

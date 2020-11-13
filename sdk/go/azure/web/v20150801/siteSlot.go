@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -413,4 +414,43 @@ type SiteSlotArgs struct {
 
 func (SiteSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteSlotArgs)(nil)).Elem()
+}
+
+type SiteSlotInput interface {
+	pulumi.Input
+
+	ToSiteSlotOutput() SiteSlotOutput
+	ToSiteSlotOutputWithContext(ctx context.Context) SiteSlotOutput
+}
+
+func (SiteSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteSlot)(nil)).Elem()
+}
+
+func (i SiteSlot) ToSiteSlotOutput() SiteSlotOutput {
+	return i.ToSiteSlotOutputWithContext(context.Background())
+}
+
+func (i SiteSlot) ToSiteSlotOutputWithContext(ctx context.Context) SiteSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteSlotOutput)
+}
+
+type SiteSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteSlotOutput)(nil)).Elem()
+}
+
+func (o SiteSlotOutput) ToSiteSlotOutput() SiteSlotOutput {
+	return o
+}
+
+func (o SiteSlotOutput) ToSiteSlotOutputWithContext(ctx context.Context) SiteSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteSlotOutput{})
 }

@@ -4,6 +4,7 @@
 package v20201001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -141,4 +142,43 @@ type RegisteredPrefixArgs struct {
 
 func (RegisteredPrefixArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registeredPrefixArgs)(nil)).Elem()
+}
+
+type RegisteredPrefixInput interface {
+	pulumi.Input
+
+	ToRegisteredPrefixOutput() RegisteredPrefixOutput
+	ToRegisteredPrefixOutputWithContext(ctx context.Context) RegisteredPrefixOutput
+}
+
+func (RegisteredPrefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredPrefix)(nil)).Elem()
+}
+
+func (i RegisteredPrefix) ToRegisteredPrefixOutput() RegisteredPrefixOutput {
+	return i.ToRegisteredPrefixOutputWithContext(context.Background())
+}
+
+func (i RegisteredPrefix) ToRegisteredPrefixOutputWithContext(ctx context.Context) RegisteredPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegisteredPrefixOutput)
+}
+
+type RegisteredPrefixOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegisteredPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredPrefixOutput)(nil)).Elem()
+}
+
+func (o RegisteredPrefixOutput) ToRegisteredPrefixOutput() RegisteredPrefixOutput {
+	return o
+}
+
+func (o RegisteredPrefixOutput) ToRegisteredPrefixOutputWithContext(ctx context.Context) RegisteredPrefixOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegisteredPrefixOutput{})
 }

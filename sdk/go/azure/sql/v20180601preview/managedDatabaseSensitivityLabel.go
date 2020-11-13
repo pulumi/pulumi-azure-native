@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -174,4 +175,43 @@ type ManagedDatabaseSensitivityLabelArgs struct {
 
 func (ManagedDatabaseSensitivityLabelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedDatabaseSensitivityLabelArgs)(nil)).Elem()
+}
+
+type ManagedDatabaseSensitivityLabelInput interface {
+	pulumi.Input
+
+	ToManagedDatabaseSensitivityLabelOutput() ManagedDatabaseSensitivityLabelOutput
+	ToManagedDatabaseSensitivityLabelOutputWithContext(ctx context.Context) ManagedDatabaseSensitivityLabelOutput
+}
+
+func (ManagedDatabaseSensitivityLabel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDatabaseSensitivityLabel)(nil)).Elem()
+}
+
+func (i ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutput() ManagedDatabaseSensitivityLabelOutput {
+	return i.ToManagedDatabaseSensitivityLabelOutputWithContext(context.Background())
+}
+
+func (i ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutputWithContext(ctx context.Context) ManagedDatabaseSensitivityLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseSensitivityLabelOutput)
+}
+
+type ManagedDatabaseSensitivityLabelOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedDatabaseSensitivityLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDatabaseSensitivityLabelOutput)(nil)).Elem()
+}
+
+func (o ManagedDatabaseSensitivityLabelOutput) ToManagedDatabaseSensitivityLabelOutput() ManagedDatabaseSensitivityLabelOutput {
+	return o
+}
+
+func (o ManagedDatabaseSensitivityLabelOutput) ToManagedDatabaseSensitivityLabelOutputWithContext(ctx context.Context) ManagedDatabaseSensitivityLabelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedDatabaseSensitivityLabelOutput{})
 }

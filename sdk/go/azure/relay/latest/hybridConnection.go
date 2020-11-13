@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -142,4 +143,43 @@ type HybridConnectionArgs struct {
 
 func (HybridConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hybridConnectionArgs)(nil)).Elem()
+}
+
+type HybridConnectionInput interface {
+	pulumi.Input
+
+	ToHybridConnectionOutput() HybridConnectionOutput
+	ToHybridConnectionOutputWithContext(ctx context.Context) HybridConnectionOutput
+}
+
+func (HybridConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnection)(nil)).Elem()
+}
+
+func (i HybridConnection) ToHybridConnectionOutput() HybridConnectionOutput {
+	return i.ToHybridConnectionOutputWithContext(context.Background())
+}
+
+func (i HybridConnection) ToHybridConnectionOutputWithContext(ctx context.Context) HybridConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionOutput)
+}
+
+type HybridConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (HybridConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionOutput)(nil)).Elem()
+}
+
+func (o HybridConnectionOutput) ToHybridConnectionOutput() HybridConnectionOutput {
+	return o
+}
+
+func (o HybridConnectionOutput) ToHybridConnectionOutputWithContext(ctx context.Context) HybridConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HybridConnectionOutput{})
 }

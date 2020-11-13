@@ -4,6 +4,7 @@
 package v20160301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -157,4 +158,43 @@ type NotificationHubAuthorizationRuleArgs struct {
 
 func (NotificationHubAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationHubAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type NotificationHubAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToNotificationHubAuthorizationRuleOutput() NotificationHubAuthorizationRuleOutput
+	ToNotificationHubAuthorizationRuleOutputWithContext(ctx context.Context) NotificationHubAuthorizationRuleOutput
+}
+
+func (NotificationHubAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHubAuthorizationRule)(nil)).Elem()
+}
+
+func (i NotificationHubAuthorizationRule) ToNotificationHubAuthorizationRuleOutput() NotificationHubAuthorizationRuleOutput {
+	return i.ToNotificationHubAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i NotificationHubAuthorizationRule) ToNotificationHubAuthorizationRuleOutputWithContext(ctx context.Context) NotificationHubAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubAuthorizationRuleOutput)
+}
+
+type NotificationHubAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotificationHubAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHubAuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o NotificationHubAuthorizationRuleOutput) ToNotificationHubAuthorizationRuleOutput() NotificationHubAuthorizationRuleOutput {
+	return o
+}
+
+func (o NotificationHubAuthorizationRuleOutput) ToNotificationHubAuthorizationRuleOutputWithContext(ctx context.Context) NotificationHubAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotificationHubAuthorizationRuleOutput{})
 }

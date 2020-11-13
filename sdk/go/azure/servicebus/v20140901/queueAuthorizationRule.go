@@ -4,6 +4,7 @@
 package v20140901
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -203,4 +204,43 @@ type QueueAuthorizationRuleArgs struct {
 
 func (QueueAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type QueueAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToQueueAuthorizationRuleOutput() QueueAuthorizationRuleOutput
+	ToQueueAuthorizationRuleOutputWithContext(ctx context.Context) QueueAuthorizationRuleOutput
+}
+
+func (QueueAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueAuthorizationRule)(nil)).Elem()
+}
+
+func (i QueueAuthorizationRule) ToQueueAuthorizationRuleOutput() QueueAuthorizationRuleOutput {
+	return i.ToQueueAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i QueueAuthorizationRule) ToQueueAuthorizationRuleOutputWithContext(ctx context.Context) QueueAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueAuthorizationRuleOutput)
+}
+
+type QueueAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueueAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueAuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o QueueAuthorizationRuleOutput) ToQueueAuthorizationRuleOutput() QueueAuthorizationRuleOutput {
+	return o
+}
+
+func (o QueueAuthorizationRuleOutput) ToQueueAuthorizationRuleOutputWithContext(ctx context.Context) QueueAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueueAuthorizationRuleOutput{})
 }

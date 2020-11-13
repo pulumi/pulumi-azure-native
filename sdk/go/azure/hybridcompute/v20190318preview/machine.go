@@ -4,6 +4,7 @@
 package v20190318preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -234,4 +235,43 @@ type MachineArgs struct {
 
 func (MachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*machineArgs)(nil)).Elem()
+}
+
+type MachineInput interface {
+	pulumi.Input
+
+	ToMachineOutput() MachineOutput
+	ToMachineOutputWithContext(ctx context.Context) MachineOutput
+}
+
+func (Machine) ElementType() reflect.Type {
+	return reflect.TypeOf((*Machine)(nil)).Elem()
+}
+
+func (i Machine) ToMachineOutput() MachineOutput {
+	return i.ToMachineOutputWithContext(context.Background())
+}
+
+func (i Machine) ToMachineOutputWithContext(ctx context.Context) MachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineOutput)
+}
+
+type MachineOutput struct {
+	*pulumi.OutputState
+}
+
+func (MachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineOutput)(nil)).Elem()
+}
+
+func (o MachineOutput) ToMachineOutput() MachineOutput {
+	return o
+}
+
+func (o MachineOutput) ToMachineOutputWithContext(ctx context.Context) MachineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MachineOutput{})
 }

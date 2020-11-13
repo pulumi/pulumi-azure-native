@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -111,4 +112,43 @@ type SecurityContactArgs struct {
 
 func (SecurityContactArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityContactArgs)(nil)).Elem()
+}
+
+type SecurityContactInput interface {
+	pulumi.Input
+
+	ToSecurityContactOutput() SecurityContactOutput
+	ToSecurityContactOutputWithContext(ctx context.Context) SecurityContactOutput
+}
+
+func (SecurityContact) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContact)(nil)).Elem()
+}
+
+func (i SecurityContact) ToSecurityContactOutput() SecurityContactOutput {
+	return i.ToSecurityContactOutputWithContext(context.Background())
+}
+
+func (i SecurityContact) ToSecurityContactOutputWithContext(ctx context.Context) SecurityContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactOutput)
+}
+
+type SecurityContactOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurityContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactOutput)(nil)).Elem()
+}
+
+func (o SecurityContactOutput) ToSecurityContactOutput() SecurityContactOutput {
+	return o
+}
+
+func (o SecurityContactOutput) ToSecurityContactOutputWithContext(ctx context.Context) SecurityContactOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecurityContactOutput{})
 }

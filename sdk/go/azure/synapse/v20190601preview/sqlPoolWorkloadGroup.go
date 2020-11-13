@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -171,4 +172,43 @@ type SqlPoolWorkloadGroupArgs struct {
 
 func (SqlPoolWorkloadGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolWorkloadGroupArgs)(nil)).Elem()
+}
+
+type SqlPoolWorkloadGroupInput interface {
+	pulumi.Input
+
+	ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGroupOutput
+	ToSqlPoolWorkloadGroupOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupOutput
+}
+
+func (SqlPoolWorkloadGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil)).Elem()
+}
+
+func (i SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGroupOutput {
+	return i.ToSqlPoolWorkloadGroupOutputWithContext(context.Background())
+}
+
+func (i SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupOutput)
+}
+
+type SqlPoolWorkloadGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlPoolWorkloadGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolWorkloadGroupOutput)(nil)).Elem()
+}
+
+func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGroupOutput {
+	return o
+}
+
+func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlPoolWorkloadGroupOutput{})
 }

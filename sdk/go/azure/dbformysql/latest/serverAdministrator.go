@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type ServerAdministratorArgs struct {
 
 func (ServerAdministratorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverAdministratorArgs)(nil)).Elem()
+}
+
+type ServerAdministratorInput interface {
+	pulumi.Input
+
+	ToServerAdministratorOutput() ServerAdministratorOutput
+	ToServerAdministratorOutputWithContext(ctx context.Context) ServerAdministratorOutput
+}
+
+func (ServerAdministrator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAdministrator)(nil)).Elem()
+}
+
+func (i ServerAdministrator) ToServerAdministratorOutput() ServerAdministratorOutput {
+	return i.ToServerAdministratorOutputWithContext(context.Background())
+}
+
+func (i ServerAdministrator) ToServerAdministratorOutputWithContext(ctx context.Context) ServerAdministratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorOutput)
+}
+
+type ServerAdministratorOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerAdministratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAdministratorOutput)(nil)).Elem()
+}
+
+func (o ServerAdministratorOutput) ToServerAdministratorOutput() ServerAdministratorOutput {
+	return o
+}
+
+func (o ServerAdministratorOutput) ToServerAdministratorOutputWithContext(ctx context.Context) ServerAdministratorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerAdministratorOutput{})
 }

@@ -4,6 +4,7 @@
 package v20191101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -207,4 +208,43 @@ type ExpressRouteGatewayArgs struct {
 
 func (ExpressRouteGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteGatewayArgs)(nil)).Elem()
+}
+
+type ExpressRouteGatewayInput interface {
+	pulumi.Input
+
+	ToExpressRouteGatewayOutput() ExpressRouteGatewayOutput
+	ToExpressRouteGatewayOutputWithContext(ctx context.Context) ExpressRouteGatewayOutput
+}
+
+func (ExpressRouteGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteGateway)(nil)).Elem()
+}
+
+func (i ExpressRouteGateway) ToExpressRouteGatewayOutput() ExpressRouteGatewayOutput {
+	return i.ToExpressRouteGatewayOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteGateway) ToExpressRouteGatewayOutputWithContext(ctx context.Context) ExpressRouteGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteGatewayOutput)
+}
+
+type ExpressRouteGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExpressRouteGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteGatewayOutput)(nil)).Elem()
+}
+
+func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutput() ExpressRouteGatewayOutput {
+	return o
+}
+
+func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutputWithContext(ctx context.Context) ExpressRouteGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExpressRouteGatewayOutput{})
 }

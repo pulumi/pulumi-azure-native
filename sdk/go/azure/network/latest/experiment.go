@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -179,4 +180,43 @@ type ExperimentArgs struct {
 
 func (ExperimentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*experimentArgs)(nil)).Elem()
+}
+
+type ExperimentInput interface {
+	pulumi.Input
+
+	ToExperimentOutput() ExperimentOutput
+	ToExperimentOutputWithContext(ctx context.Context) ExperimentOutput
+}
+
+func (Experiment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Experiment)(nil)).Elem()
+}
+
+func (i Experiment) ToExperimentOutput() ExperimentOutput {
+	return i.ToExperimentOutputWithContext(context.Background())
+}
+
+func (i Experiment) ToExperimentOutputWithContext(ctx context.Context) ExperimentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentOutput)
+}
+
+type ExperimentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExperimentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentOutput)(nil)).Elem()
+}
+
+func (o ExperimentOutput) ToExperimentOutput() ExperimentOutput {
+	return o
+}
+
+func (o ExperimentOutput) ToExperimentOutputWithContext(ctx context.Context) ExperimentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExperimentOutput{})
 }

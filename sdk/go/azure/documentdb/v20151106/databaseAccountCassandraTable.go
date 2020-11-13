@@ -4,6 +4,7 @@
 package v20151106
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -158,4 +159,43 @@ type DatabaseAccountCassandraTableArgs struct {
 
 func (DatabaseAccountCassandraTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseAccountCassandraTableArgs)(nil)).Elem()
+}
+
+type DatabaseAccountCassandraTableInput interface {
+	pulumi.Input
+
+	ToDatabaseAccountCassandraTableOutput() DatabaseAccountCassandraTableOutput
+	ToDatabaseAccountCassandraTableOutputWithContext(ctx context.Context) DatabaseAccountCassandraTableOutput
+}
+
+func (DatabaseAccountCassandraTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountCassandraTable)(nil)).Elem()
+}
+
+func (i DatabaseAccountCassandraTable) ToDatabaseAccountCassandraTableOutput() DatabaseAccountCassandraTableOutput {
+	return i.ToDatabaseAccountCassandraTableOutputWithContext(context.Background())
+}
+
+func (i DatabaseAccountCassandraTable) ToDatabaseAccountCassandraTableOutputWithContext(ctx context.Context) DatabaseAccountCassandraTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountCassandraTableOutput)
+}
+
+type DatabaseAccountCassandraTableOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatabaseAccountCassandraTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountCassandraTableOutput)(nil)).Elem()
+}
+
+func (o DatabaseAccountCassandraTableOutput) ToDatabaseAccountCassandraTableOutput() DatabaseAccountCassandraTableOutput {
+	return o
+}
+
+func (o DatabaseAccountCassandraTableOutput) ToDatabaseAccountCassandraTableOutputWithContext(ctx context.Context) DatabaseAccountCassandraTableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatabaseAccountCassandraTableOutput{})
 }

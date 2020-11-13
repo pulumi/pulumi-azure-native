@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -223,4 +224,43 @@ type WebAppDeploymentSlotArgs struct {
 
 func (WebAppDeploymentSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppDeploymentSlotArgs)(nil)).Elem()
+}
+
+type WebAppDeploymentSlotInput interface {
+	pulumi.Input
+
+	ToWebAppDeploymentSlotOutput() WebAppDeploymentSlotOutput
+	ToWebAppDeploymentSlotOutputWithContext(ctx context.Context) WebAppDeploymentSlotOutput
+}
+
+func (WebAppDeploymentSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDeploymentSlot)(nil)).Elem()
+}
+
+func (i WebAppDeploymentSlot) ToWebAppDeploymentSlotOutput() WebAppDeploymentSlotOutput {
+	return i.ToWebAppDeploymentSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppDeploymentSlot) ToWebAppDeploymentSlotOutputWithContext(ctx context.Context) WebAppDeploymentSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppDeploymentSlotOutput)
+}
+
+type WebAppDeploymentSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppDeploymentSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDeploymentSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppDeploymentSlotOutput) ToWebAppDeploymentSlotOutput() WebAppDeploymentSlotOutput {
+	return o
+}
+
+func (o WebAppDeploymentSlotOutput) ToWebAppDeploymentSlotOutputWithContext(ctx context.Context) WebAppDeploymentSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppDeploymentSlotOutput{})
 }

@@ -8,4 +8,12 @@ import * as v20191210preview from "./v20191210preview";
 import * as v20200921preview from "./v20200921preview";
 import * as v20201019preview from "./v20201019preview";
 import * as v20201102preview from "./v20201102preview";
-export {v20190123preview, v20190924preview, v20191210preview, v20200921preview, v20201019preview, v20201102preview};
+
+export {
+    v20190123preview,
+    v20190924preview,
+    v20191210preview,
+    v20200921preview,
+    v20201019preview,
+    v20201102preview,
+};

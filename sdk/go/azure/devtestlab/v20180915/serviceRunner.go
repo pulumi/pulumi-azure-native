@@ -4,6 +4,7 @@
 package v20180915
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type ServiceRunnerArgs struct {
 
 func (ServiceRunnerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceRunnerArgs)(nil)).Elem()
+}
+
+type ServiceRunnerInput interface {
+	pulumi.Input
+
+	ToServiceRunnerOutput() ServiceRunnerOutput
+	ToServiceRunnerOutputWithContext(ctx context.Context) ServiceRunnerOutput
+}
+
+func (ServiceRunner) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRunner)(nil)).Elem()
+}
+
+func (i ServiceRunner) ToServiceRunnerOutput() ServiceRunnerOutput {
+	return i.ToServiceRunnerOutputWithContext(context.Background())
+}
+
+func (i ServiceRunner) ToServiceRunnerOutputWithContext(ctx context.Context) ServiceRunnerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceRunnerOutput)
+}
+
+type ServiceRunnerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceRunnerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRunnerOutput)(nil)).Elem()
+}
+
+func (o ServiceRunnerOutput) ToServiceRunnerOutput() ServiceRunnerOutput {
+	return o
+}
+
+func (o ServiceRunnerOutput) ToServiceRunnerOutputWithContext(ctx context.Context) ServiceRunnerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceRunnerOutput{})
 }

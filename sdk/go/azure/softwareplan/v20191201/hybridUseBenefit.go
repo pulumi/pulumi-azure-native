@@ -4,6 +4,7 @@
 package v20191201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type HybridUseBenefitArgs struct {
 
 func (HybridUseBenefitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hybridUseBenefitArgs)(nil)).Elem()
+}
+
+type HybridUseBenefitInput interface {
+	pulumi.Input
+
+	ToHybridUseBenefitOutput() HybridUseBenefitOutput
+	ToHybridUseBenefitOutputWithContext(ctx context.Context) HybridUseBenefitOutput
+}
+
+func (HybridUseBenefit) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridUseBenefit)(nil)).Elem()
+}
+
+func (i HybridUseBenefit) ToHybridUseBenefitOutput() HybridUseBenefitOutput {
+	return i.ToHybridUseBenefitOutputWithContext(context.Background())
+}
+
+func (i HybridUseBenefit) ToHybridUseBenefitOutputWithContext(ctx context.Context) HybridUseBenefitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridUseBenefitOutput)
+}
+
+type HybridUseBenefitOutput struct {
+	*pulumi.OutputState
+}
+
+func (HybridUseBenefitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridUseBenefitOutput)(nil)).Elem()
+}
+
+func (o HybridUseBenefitOutput) ToHybridUseBenefitOutput() HybridUseBenefitOutput {
+	return o
+}
+
+func (o HybridUseBenefitOutput) ToHybridUseBenefitOutputWithContext(ctx context.Context) HybridUseBenefitOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HybridUseBenefitOutput{})
 }

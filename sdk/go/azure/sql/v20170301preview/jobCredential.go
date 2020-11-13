@@ -4,6 +4,7 @@
 package v20170301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -128,4 +129,43 @@ type JobCredentialArgs struct {
 
 func (JobCredentialArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobCredentialArgs)(nil)).Elem()
+}
+
+type JobCredentialInput interface {
+	pulumi.Input
+
+	ToJobCredentialOutput() JobCredentialOutput
+	ToJobCredentialOutputWithContext(ctx context.Context) JobCredentialOutput
+}
+
+func (JobCredential) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCredential)(nil)).Elem()
+}
+
+func (i JobCredential) ToJobCredentialOutput() JobCredentialOutput {
+	return i.ToJobCredentialOutputWithContext(context.Background())
+}
+
+func (i JobCredential) ToJobCredentialOutputWithContext(ctx context.Context) JobCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialOutput)
+}
+
+type JobCredentialOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCredentialOutput)(nil)).Elem()
+}
+
+func (o JobCredentialOutput) ToJobCredentialOutput() JobCredentialOutput {
+	return o
+}
+
+func (o JobCredentialOutput) ToJobCredentialOutputWithContext(ctx context.Context) JobCredentialOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobCredentialOutput{})
 }

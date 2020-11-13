@@ -4,6 +4,7 @@
 package v20180901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -115,4 +116,43 @@ type SolutionArgs struct {
 
 func (SolutionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*solutionArgs)(nil)).Elem()
+}
+
+type SolutionInput interface {
+	pulumi.Input
+
+	ToSolutionOutput() SolutionOutput
+	ToSolutionOutputWithContext(ctx context.Context) SolutionOutput
+}
+
+func (Solution) ElementType() reflect.Type {
+	return reflect.TypeOf((*Solution)(nil)).Elem()
+}
+
+func (i Solution) ToSolutionOutput() SolutionOutput {
+	return i.ToSolutionOutputWithContext(context.Background())
+}
+
+func (i Solution) ToSolutionOutputWithContext(ctx context.Context) SolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SolutionOutput)
+}
+
+type SolutionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SolutionOutput)(nil)).Elem()
+}
+
+func (o SolutionOutput) ToSolutionOutput() SolutionOutput {
+	return o
+}
+
+func (o SolutionOutput) ToSolutionOutputWithContext(ctx context.Context) SolutionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SolutionOutput{})
 }

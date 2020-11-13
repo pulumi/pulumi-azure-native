@@ -4,6 +4,7 @@
 package v20200601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -122,4 +123,43 @@ type ContentTypeArgs struct {
 
 func (ContentTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*contentTypeArgs)(nil)).Elem()
+}
+
+type ContentTypeInput interface {
+	pulumi.Input
+
+	ToContentTypeOutput() ContentTypeOutput
+	ToContentTypeOutputWithContext(ctx context.Context) ContentTypeOutput
+}
+
+func (ContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentType)(nil)).Elem()
+}
+
+func (i ContentType) ToContentTypeOutput() ContentTypeOutput {
+	return i.ToContentTypeOutputWithContext(context.Background())
+}
+
+func (i ContentType) ToContentTypeOutputWithContext(ctx context.Context) ContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentTypeOutput)
+}
+
+type ContentTypeOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentTypeOutput)(nil)).Elem()
+}
+
+func (o ContentTypeOutput) ToContentTypeOutput() ContentTypeOutput {
+	return o
+}
+
+func (o ContentTypeOutput) ToContentTypeOutputWithContext(ctx context.Context) ContentTypeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContentTypeOutput{})
 }

@@ -4,6 +4,7 @@
 package v20191201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type GatewayArgs struct {
 
 func (GatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayArgs)(nil)).Elem()
+}
+
+type GatewayInput interface {
+	pulumi.Input
+
+	ToGatewayOutput() GatewayOutput
+	ToGatewayOutputWithContext(ctx context.Context) GatewayOutput
+}
+
+func (Gateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*Gateway)(nil)).Elem()
+}
+
+func (i Gateway) ToGatewayOutput() GatewayOutput {
+	return i.ToGatewayOutputWithContext(context.Background())
+}
+
+func (i Gateway) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayOutput)
+}
+
+type GatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (GatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayOutput)(nil)).Elem()
+}
+
+func (o GatewayOutput) ToGatewayOutput() GatewayOutput {
+	return o
+}
+
+func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GatewayOutput{})
 }

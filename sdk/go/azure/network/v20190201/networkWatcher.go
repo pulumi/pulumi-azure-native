@@ -4,6 +4,7 @@
 package v20190201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -221,4 +222,43 @@ type NetworkWatcherArgs struct {
 
 func (NetworkWatcherArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkWatcherArgs)(nil)).Elem()
+}
+
+type NetworkWatcherInput interface {
+	pulumi.Input
+
+	ToNetworkWatcherOutput() NetworkWatcherOutput
+	ToNetworkWatcherOutputWithContext(ctx context.Context) NetworkWatcherOutput
+}
+
+func (NetworkWatcher) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkWatcher)(nil)).Elem()
+}
+
+func (i NetworkWatcher) ToNetworkWatcherOutput() NetworkWatcherOutput {
+	return i.ToNetworkWatcherOutputWithContext(context.Background())
+}
+
+func (i NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) NetworkWatcherOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherOutput)
+}
+
+type NetworkWatcherOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkWatcherOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkWatcherOutput)(nil)).Elem()
+}
+
+func (o NetworkWatcherOutput) ToNetworkWatcherOutput() NetworkWatcherOutput {
+	return o
+}
+
+func (o NetworkWatcherOutput) ToNetworkWatcherOutputWithContext(ctx context.Context) NetworkWatcherOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkWatcherOutput{})
 }

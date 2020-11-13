@@ -4,6 +4,7 @@
 package v20200501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -118,4 +119,43 @@ type GuestUsageArgs struct {
 
 func (GuestUsageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*guestUsageArgs)(nil)).Elem()
+}
+
+type GuestUsageInput interface {
+	pulumi.Input
+
+	ToGuestUsageOutput() GuestUsageOutput
+	ToGuestUsageOutputWithContext(ctx context.Context) GuestUsageOutput
+}
+
+func (GuestUsage) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestUsage)(nil)).Elem()
+}
+
+func (i GuestUsage) ToGuestUsageOutput() GuestUsageOutput {
+	return i.ToGuestUsageOutputWithContext(context.Background())
+}
+
+func (i GuestUsage) ToGuestUsageOutputWithContext(ctx context.Context) GuestUsageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestUsageOutput)
+}
+
+type GuestUsageOutput struct {
+	*pulumi.OutputState
+}
+
+func (GuestUsageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestUsageOutput)(nil)).Elem()
+}
+
+func (o GuestUsageOutput) ToGuestUsageOutput() GuestUsageOutput {
+	return o
+}
+
+func (o GuestUsageOutput) ToGuestUsageOutputWithContext(ctx context.Context) GuestUsageOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GuestUsageOutput{})
 }

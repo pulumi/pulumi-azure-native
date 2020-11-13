@@ -4,6 +4,7 @@
 package v20181101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -223,4 +224,43 @@ type P2sVpnServerConfigurationArgs struct {
 
 func (P2sVpnServerConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*p2sVpnServerConfigurationArgs)(nil)).Elem()
+}
+
+type P2sVpnServerConfigurationInput interface {
+	pulumi.Input
+
+	ToP2sVpnServerConfigurationOutput() P2sVpnServerConfigurationOutput
+	ToP2sVpnServerConfigurationOutputWithContext(ctx context.Context) P2sVpnServerConfigurationOutput
+}
+
+func (P2sVpnServerConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*P2sVpnServerConfiguration)(nil)).Elem()
+}
+
+func (i P2sVpnServerConfiguration) ToP2sVpnServerConfigurationOutput() P2sVpnServerConfigurationOutput {
+	return i.ToP2sVpnServerConfigurationOutputWithContext(context.Background())
+}
+
+func (i P2sVpnServerConfiguration) ToP2sVpnServerConfigurationOutputWithContext(ctx context.Context) P2sVpnServerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(P2sVpnServerConfigurationOutput)
+}
+
+type P2sVpnServerConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (P2sVpnServerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*P2sVpnServerConfigurationOutput)(nil)).Elem()
+}
+
+func (o P2sVpnServerConfigurationOutput) ToP2sVpnServerConfigurationOutput() P2sVpnServerConfigurationOutput {
+	return o
+}
+
+func (o P2sVpnServerConfigurationOutput) ToP2sVpnServerConfigurationOutputWithContext(ctx context.Context) P2sVpnServerConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(P2sVpnServerConfigurationOutput{})
 }

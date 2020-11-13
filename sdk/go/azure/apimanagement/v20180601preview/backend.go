@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -221,4 +222,43 @@ type BackendArgs struct {
 
 func (BackendArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*backendArgs)(nil)).Elem()
+}
+
+type BackendInput interface {
+	pulumi.Input
+
+	ToBackendOutput() BackendOutput
+	ToBackendOutputWithContext(ctx context.Context) BackendOutput
+}
+
+func (Backend) ElementType() reflect.Type {
+	return reflect.TypeOf((*Backend)(nil)).Elem()
+}
+
+func (i Backend) ToBackendOutput() BackendOutput {
+	return i.ToBackendOutputWithContext(context.Background())
+}
+
+func (i Backend) ToBackendOutputWithContext(ctx context.Context) BackendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendOutput)
+}
+
+type BackendOutput struct {
+	*pulumi.OutputState
+}
+
+func (BackendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendOutput)(nil)).Elem()
+}
+
+func (o BackendOutput) ToBackendOutput() BackendOutput {
+	return o
+}
+
+func (o BackendOutput) ToBackendOutputWithContext(ctx context.Context) BackendOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BackendOutput{})
 }

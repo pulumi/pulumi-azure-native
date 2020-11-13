@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -178,4 +179,43 @@ type ConnectedClusterArgs struct {
 
 func (ConnectedClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectedClusterArgs)(nil)).Elem()
+}
+
+type ConnectedClusterInput interface {
+	pulumi.Input
+
+	ToConnectedClusterOutput() ConnectedClusterOutput
+	ToConnectedClusterOutputWithContext(ctx context.Context) ConnectedClusterOutput
+}
+
+func (ConnectedCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedCluster)(nil)).Elem()
+}
+
+func (i ConnectedCluster) ToConnectedClusterOutput() ConnectedClusterOutput {
+	return i.ToConnectedClusterOutputWithContext(context.Background())
+}
+
+func (i ConnectedCluster) ToConnectedClusterOutputWithContext(ctx context.Context) ConnectedClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterOutput)
+}
+
+type ConnectedClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectedClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedClusterOutput)(nil)).Elem()
+}
+
+func (o ConnectedClusterOutput) ToConnectedClusterOutput() ConnectedClusterOutput {
+	return o
+}
+
+func (o ConnectedClusterOutput) ToConnectedClusterOutputWithContext(ctx context.Context) ConnectedClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectedClusterOutput{})
 }

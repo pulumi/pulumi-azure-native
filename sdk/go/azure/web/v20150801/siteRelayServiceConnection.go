@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -188,4 +189,43 @@ type SiteRelayServiceConnectionArgs struct {
 
 func (SiteRelayServiceConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteRelayServiceConnectionArgs)(nil)).Elem()
+}
+
+type SiteRelayServiceConnectionInput interface {
+	pulumi.Input
+
+	ToSiteRelayServiceConnectionOutput() SiteRelayServiceConnectionOutput
+	ToSiteRelayServiceConnectionOutputWithContext(ctx context.Context) SiteRelayServiceConnectionOutput
+}
+
+func (SiteRelayServiceConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteRelayServiceConnection)(nil)).Elem()
+}
+
+func (i SiteRelayServiceConnection) ToSiteRelayServiceConnectionOutput() SiteRelayServiceConnectionOutput {
+	return i.ToSiteRelayServiceConnectionOutputWithContext(context.Background())
+}
+
+func (i SiteRelayServiceConnection) ToSiteRelayServiceConnectionOutputWithContext(ctx context.Context) SiteRelayServiceConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteRelayServiceConnectionOutput)
+}
+
+type SiteRelayServiceConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteRelayServiceConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteRelayServiceConnectionOutput)(nil)).Elem()
+}
+
+func (o SiteRelayServiceConnectionOutput) ToSiteRelayServiceConnectionOutput() SiteRelayServiceConnectionOutput {
+	return o
+}
+
+func (o SiteRelayServiceConnectionOutput) ToSiteRelayServiceConnectionOutputWithContext(ctx context.Context) SiteRelayServiceConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteRelayServiceConnectionOutput{})
 }

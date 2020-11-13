@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type TransactionNodeArgs struct {
 
 func (TransactionNodeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transactionNodeArgs)(nil)).Elem()
+}
+
+type TransactionNodeInput interface {
+	pulumi.Input
+
+	ToTransactionNodeOutput() TransactionNodeOutput
+	ToTransactionNodeOutputWithContext(ctx context.Context) TransactionNodeOutput
+}
+
+func (TransactionNode) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransactionNode)(nil)).Elem()
+}
+
+func (i TransactionNode) ToTransactionNodeOutput() TransactionNodeOutput {
+	return i.ToTransactionNodeOutputWithContext(context.Background())
+}
+
+func (i TransactionNode) ToTransactionNodeOutputWithContext(ctx context.Context) TransactionNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransactionNodeOutput)
+}
+
+type TransactionNodeOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransactionNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransactionNodeOutput)(nil)).Elem()
+}
+
+func (o TransactionNodeOutput) ToTransactionNodeOutput() TransactionNodeOutput {
+	return o
+}
+
+func (o TransactionNodeOutput) ToTransactionNodeOutputWithContext(ctx context.Context) TransactionNodeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransactionNodeOutput{})
 }

@@ -4,6 +4,7 @@
 package v20180630
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -196,4 +197,43 @@ type Python2PackageArgs struct {
 
 func (Python2PackageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*python2PackageArgs)(nil)).Elem()
+}
+
+type Python2PackageInput interface {
+	pulumi.Input
+
+	ToPython2PackageOutput() Python2PackageOutput
+	ToPython2PackageOutputWithContext(ctx context.Context) Python2PackageOutput
+}
+
+func (Python2Package) ElementType() reflect.Type {
+	return reflect.TypeOf((*Python2Package)(nil)).Elem()
+}
+
+func (i Python2Package) ToPython2PackageOutput() Python2PackageOutput {
+	return i.ToPython2PackageOutputWithContext(context.Background())
+}
+
+func (i Python2Package) ToPython2PackageOutputWithContext(ctx context.Context) Python2PackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Python2PackageOutput)
+}
+
+type Python2PackageOutput struct {
+	*pulumi.OutputState
+}
+
+func (Python2PackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Python2PackageOutput)(nil)).Elem()
+}
+
+func (o Python2PackageOutput) ToPython2PackageOutput() Python2PackageOutput {
+	return o
+}
+
+func (o Python2PackageOutput) ToPython2PackageOutputWithContext(ctx context.Context) Python2PackageOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(Python2PackageOutput{})
 }

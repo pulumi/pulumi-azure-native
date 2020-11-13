@@ -4,6 +4,7 @@
 package v20170301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -115,4 +116,43 @@ type JobTargetGroupArgs struct {
 
 func (JobTargetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobTargetGroupArgs)(nil)).Elem()
+}
+
+type JobTargetGroupInput interface {
+	pulumi.Input
+
+	ToJobTargetGroupOutput() JobTargetGroupOutput
+	ToJobTargetGroupOutputWithContext(ctx context.Context) JobTargetGroupOutput
+}
+
+func (JobTargetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTargetGroup)(nil)).Elem()
+}
+
+func (i JobTargetGroup) ToJobTargetGroupOutput() JobTargetGroupOutput {
+	return i.ToJobTargetGroupOutputWithContext(context.Background())
+}
+
+func (i JobTargetGroup) ToJobTargetGroupOutputWithContext(ctx context.Context) JobTargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTargetGroupOutput)
+}
+
+type JobTargetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobTargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTargetGroupOutput)(nil)).Elem()
+}
+
+func (o JobTargetGroupOutput) ToJobTargetGroupOutput() JobTargetGroupOutput {
+	return o
+}
+
+func (o JobTargetGroupOutput) ToJobTargetGroupOutputWithContext(ctx context.Context) JobTargetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobTargetGroupOutput{})
 }

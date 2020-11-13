@@ -4,6 +4,7 @@
 package v20200820preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -151,4 +152,43 @@ type CommunicationServiceArgs struct {
 
 func (CommunicationServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*communicationServiceArgs)(nil)).Elem()
+}
+
+type CommunicationServiceInput interface {
+	pulumi.Input
+
+	ToCommunicationServiceOutput() CommunicationServiceOutput
+	ToCommunicationServiceOutputWithContext(ctx context.Context) CommunicationServiceOutput
+}
+
+func (CommunicationService) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommunicationService)(nil)).Elem()
+}
+
+func (i CommunicationService) ToCommunicationServiceOutput() CommunicationServiceOutput {
+	return i.ToCommunicationServiceOutputWithContext(context.Background())
+}
+
+func (i CommunicationService) ToCommunicationServiceOutputWithContext(ctx context.Context) CommunicationServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommunicationServiceOutput)
+}
+
+type CommunicationServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (CommunicationServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommunicationServiceOutput)(nil)).Elem()
+}
+
+func (o CommunicationServiceOutput) ToCommunicationServiceOutput() CommunicationServiceOutput {
+	return o
+}
+
+func (o CommunicationServiceOutput) ToCommunicationServiceOutputWithContext(ctx context.Context) CommunicationServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CommunicationServiceOutput{})
 }

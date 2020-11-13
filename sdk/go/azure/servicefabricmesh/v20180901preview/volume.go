@@ -4,6 +4,7 @@
 package v20180901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -168,4 +169,43 @@ type VolumeArgs struct {
 
 func (VolumeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeArgs)(nil)).Elem()
+}
+
+type VolumeInput interface {
+	pulumi.Input
+
+	ToVolumeOutput() VolumeOutput
+	ToVolumeOutputWithContext(ctx context.Context) VolumeOutput
+}
+
+func (Volume) ElementType() reflect.Type {
+	return reflect.TypeOf((*Volume)(nil)).Elem()
+}
+
+func (i Volume) ToVolumeOutput() VolumeOutput {
+	return i.ToVolumeOutputWithContext(context.Background())
+}
+
+func (i Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
+}
+
+type VolumeOutput struct {
+	*pulumi.OutputState
+}
+
+func (VolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOutput)(nil)).Elem()
+}
+
+func (o VolumeOutput) ToVolumeOutput() VolumeOutput {
+	return o
+}
+
+func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VolumeOutput{})
 }

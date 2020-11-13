@@ -4,6 +4,7 @@
 package v20150521preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -212,4 +213,43 @@ type PolicyResourceArgs struct {
 
 func (PolicyResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyResourceArgs)(nil)).Elem()
+}
+
+type PolicyResourceInput interface {
+	pulumi.Input
+
+	ToPolicyResourceOutput() PolicyResourceOutput
+	ToPolicyResourceOutputWithContext(ctx context.Context) PolicyResourceOutput
+}
+
+func (PolicyResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyResource)(nil)).Elem()
+}
+
+func (i PolicyResource) ToPolicyResourceOutput() PolicyResourceOutput {
+	return i.ToPolicyResourceOutputWithContext(context.Background())
+}
+
+func (i PolicyResource) ToPolicyResourceOutputWithContext(ctx context.Context) PolicyResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyResourceOutput)
+}
+
+type PolicyResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyResourceOutput)(nil)).Elem()
+}
+
+func (o PolicyResourceOutput) ToPolicyResourceOutput() PolicyResourceOutput {
+	return o
+}
+
+func (o PolicyResourceOutput) ToPolicyResourceOutputWithContext(ctx context.Context) PolicyResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyResourceOutput{})
 }

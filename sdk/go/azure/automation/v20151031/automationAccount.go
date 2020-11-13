@@ -4,6 +4,7 @@
 package v20151031
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -164,4 +165,43 @@ type AutomationAccountArgs struct {
 
 func (AutomationAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*automationAccountArgs)(nil)).Elem()
+}
+
+type AutomationAccountInput interface {
+	pulumi.Input
+
+	ToAutomationAccountOutput() AutomationAccountOutput
+	ToAutomationAccountOutputWithContext(ctx context.Context) AutomationAccountOutput
+}
+
+func (AutomationAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationAccount)(nil)).Elem()
+}
+
+func (i AutomationAccount) ToAutomationAccountOutput() AutomationAccountOutput {
+	return i.ToAutomationAccountOutputWithContext(context.Background())
+}
+
+func (i AutomationAccount) ToAutomationAccountOutputWithContext(ctx context.Context) AutomationAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationAccountOutput)
+}
+
+type AutomationAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (AutomationAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationAccountOutput)(nil)).Elem()
+}
+
+func (o AutomationAccountOutput) ToAutomationAccountOutput() AutomationAccountOutput {
+	return o
+}
+
+func (o AutomationAccountOutput) ToAutomationAccountOutputWithContext(ctx context.Context) AutomationAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AutomationAccountOutput{})
 }

@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -273,4 +274,43 @@ type StreamingEndpointArgs struct {
 
 func (StreamingEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamingEndpointArgs)(nil)).Elem()
+}
+
+type StreamingEndpointInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointOutput() StreamingEndpointOutput
+	ToStreamingEndpointOutputWithContext(ctx context.Context) StreamingEndpointOutput
+}
+
+func (StreamingEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpoint)(nil)).Elem()
+}
+
+func (i StreamingEndpoint) ToStreamingEndpointOutput() StreamingEndpointOutput {
+	return i.ToStreamingEndpointOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpoint) ToStreamingEndpointOutputWithContext(ctx context.Context) StreamingEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointOutput)
+}
+
+type StreamingEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamingEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointOutput)(nil)).Elem()
+}
+
+func (o StreamingEndpointOutput) ToStreamingEndpointOutput() StreamingEndpointOutput {
+	return o
+}
+
+func (o StreamingEndpointOutput) ToStreamingEndpointOutputWithContext(ctx context.Context) StreamingEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StreamingEndpointOutput{})
 }

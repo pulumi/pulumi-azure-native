@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -201,4 +202,43 @@ type IntegrationAccountMapArgs struct {
 
 func (IntegrationAccountMapArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountMapArgs)(nil)).Elem()
+}
+
+type IntegrationAccountMapInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMapOutput() IntegrationAccountMapOutput
+	ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput
+}
+
+func (IntegrationAccountMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMap)(nil)).Elem()
+}
+
+func (i IntegrationAccountMap) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {
+	return i.ToIntegrationAccountMapOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapOutput)
+}
+
+type IntegrationAccountMapOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationAccountMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMapOutput)(nil)).Elem()
+}
+
+func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {
+	return o
+}
+
+func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationAccountMapOutput{})
 }

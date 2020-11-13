@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -169,4 +170,43 @@ type SqlPoolSensitivityLabelArgs struct {
 
 func (SqlPoolSensitivityLabelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolSensitivityLabelArgs)(nil)).Elem()
+}
+
+type SqlPoolSensitivityLabelInput interface {
+	pulumi.Input
+
+	ToSqlPoolSensitivityLabelOutput() SqlPoolSensitivityLabelOutput
+	ToSqlPoolSensitivityLabelOutputWithContext(ctx context.Context) SqlPoolSensitivityLabelOutput
+}
+
+func (SqlPoolSensitivityLabel) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolSensitivityLabel)(nil)).Elem()
+}
+
+func (i SqlPoolSensitivityLabel) ToSqlPoolSensitivityLabelOutput() SqlPoolSensitivityLabelOutput {
+	return i.ToSqlPoolSensitivityLabelOutputWithContext(context.Background())
+}
+
+func (i SqlPoolSensitivityLabel) ToSqlPoolSensitivityLabelOutputWithContext(ctx context.Context) SqlPoolSensitivityLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolSensitivityLabelOutput)
+}
+
+type SqlPoolSensitivityLabelOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlPoolSensitivityLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolSensitivityLabelOutput)(nil)).Elem()
+}
+
+func (o SqlPoolSensitivityLabelOutput) ToSqlPoolSensitivityLabelOutput() SqlPoolSensitivityLabelOutput {
+	return o
+}
+
+func (o SqlPoolSensitivityLabelOutput) ToSqlPoolSensitivityLabelOutputWithContext(ctx context.Context) SqlPoolSensitivityLabelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlPoolSensitivityLabelOutput{})
 }

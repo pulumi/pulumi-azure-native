@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -156,4 +157,43 @@ type AlertsSuppressionRuleArgs struct {
 
 func (AlertsSuppressionRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertsSuppressionRuleArgs)(nil)).Elem()
+}
+
+type AlertsSuppressionRuleInput interface {
+	pulumi.Input
+
+	ToAlertsSuppressionRuleOutput() AlertsSuppressionRuleOutput
+	ToAlertsSuppressionRuleOutputWithContext(ctx context.Context) AlertsSuppressionRuleOutput
+}
+
+func (AlertsSuppressionRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertsSuppressionRule)(nil)).Elem()
+}
+
+func (i AlertsSuppressionRule) ToAlertsSuppressionRuleOutput() AlertsSuppressionRuleOutput {
+	return i.ToAlertsSuppressionRuleOutputWithContext(context.Background())
+}
+
+func (i AlertsSuppressionRule) ToAlertsSuppressionRuleOutputWithContext(ctx context.Context) AlertsSuppressionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertsSuppressionRuleOutput)
+}
+
+type AlertsSuppressionRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (AlertsSuppressionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertsSuppressionRuleOutput)(nil)).Elem()
+}
+
+func (o AlertsSuppressionRuleOutput) ToAlertsSuppressionRuleOutput() AlertsSuppressionRuleOutput {
+	return o
+}
+
+func (o AlertsSuppressionRuleOutput) ToAlertsSuppressionRuleOutputWithContext(ctx context.Context) AlertsSuppressionRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AlertsSuppressionRuleOutput{})
 }

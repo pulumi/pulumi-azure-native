@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -209,4 +210,43 @@ type ThreatIntelligenceIndicatorArgs struct {
 
 func (ThreatIntelligenceIndicatorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*threatIntelligenceIndicatorArgs)(nil)).Elem()
+}
+
+type ThreatIntelligenceIndicatorInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceIndicatorOutput() ThreatIntelligenceIndicatorOutput
+	ToThreatIntelligenceIndicatorOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorOutput
+}
+
+func (ThreatIntelligenceIndicator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceIndicator)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceIndicator) ToThreatIntelligenceIndicatorOutput() ThreatIntelligenceIndicatorOutput {
+	return i.ToThreatIntelligenceIndicatorOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceIndicator) ToThreatIntelligenceIndicatorOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorOutput)
+}
+
+type ThreatIntelligenceIndicatorOutput struct {
+	*pulumi.OutputState
+}
+
+func (ThreatIntelligenceIndicatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceIndicatorOutput)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceIndicatorOutput) ToThreatIntelligenceIndicatorOutput() ThreatIntelligenceIndicatorOutput {
+	return o
+}
+
+func (o ThreatIntelligenceIndicatorOutput) ToThreatIntelligenceIndicatorOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ThreatIntelligenceIndicatorOutput{})
 }

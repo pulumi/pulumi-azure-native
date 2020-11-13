@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -233,4 +234,43 @@ type VirtualMachineScaleSetVMRunCommandArgs struct {
 
 func (VirtualMachineScaleSetVMRunCommandArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineScaleSetVMRunCommandArgs)(nil)).Elem()
+}
+
+type VirtualMachineScaleSetVMRunCommandInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetVMRunCommandOutput() VirtualMachineScaleSetVMRunCommandOutput
+	ToVirtualMachineScaleSetVMRunCommandOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMRunCommandOutput
+}
+
+func (VirtualMachineScaleSetVMRunCommand) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetVMRunCommand)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetVMRunCommand) ToVirtualMachineScaleSetVMRunCommandOutput() VirtualMachineScaleSetVMRunCommandOutput {
+	return i.ToVirtualMachineScaleSetVMRunCommandOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetVMRunCommand) ToVirtualMachineScaleSetVMRunCommandOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMRunCommandOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMRunCommandOutput)
+}
+
+type VirtualMachineScaleSetVMRunCommandOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineScaleSetVMRunCommandOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetVMRunCommandOutput)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetVMRunCommandOutput) ToVirtualMachineScaleSetVMRunCommandOutput() VirtualMachineScaleSetVMRunCommandOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetVMRunCommandOutput) ToVirtualMachineScaleSetVMRunCommandOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMRunCommandOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualMachineScaleSetVMRunCommandOutput{})
 }

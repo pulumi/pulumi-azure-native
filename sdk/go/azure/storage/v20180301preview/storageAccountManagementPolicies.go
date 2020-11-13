@@ -4,6 +4,7 @@
 package v20180301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -129,4 +130,43 @@ type StorageAccountManagementPoliciesArgs struct {
 
 func (StorageAccountManagementPoliciesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageAccountManagementPoliciesArgs)(nil)).Elem()
+}
+
+type StorageAccountManagementPoliciesInput interface {
+	pulumi.Input
+
+	ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput
+	ToStorageAccountManagementPoliciesOutputWithContext(ctx context.Context) StorageAccountManagementPoliciesOutput
+}
+
+func (StorageAccountManagementPolicies) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountManagementPolicies)(nil)).Elem()
+}
+
+func (i StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput {
+	return i.ToStorageAccountManagementPoliciesOutputWithContext(context.Background())
+}
+
+func (i StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOutputWithContext(ctx context.Context) StorageAccountManagementPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountManagementPoliciesOutput)
+}
+
+type StorageAccountManagementPoliciesOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageAccountManagementPoliciesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountManagementPoliciesOutput)(nil)).Elem()
+}
+
+func (o StorageAccountManagementPoliciesOutput) ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput {
+	return o
+}
+
+func (o StorageAccountManagementPoliciesOutput) ToStorageAccountManagementPoliciesOutputWithContext(ctx context.Context) StorageAccountManagementPoliciesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageAccountManagementPoliciesOutput{})
 }

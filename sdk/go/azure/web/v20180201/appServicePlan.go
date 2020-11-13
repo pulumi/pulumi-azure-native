@@ -4,6 +4,7 @@
 package v20180201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -316,4 +317,43 @@ type AppServicePlanArgs struct {
 
 func (AppServicePlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*appServicePlanArgs)(nil)).Elem()
+}
+
+type AppServicePlanInput interface {
+	pulumi.Input
+
+	ToAppServicePlanOutput() AppServicePlanOutput
+	ToAppServicePlanOutputWithContext(ctx context.Context) AppServicePlanOutput
+}
+
+func (AppServicePlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServicePlan)(nil)).Elem()
+}
+
+func (i AppServicePlan) ToAppServicePlanOutput() AppServicePlanOutput {
+	return i.ToAppServicePlanOutputWithContext(context.Background())
+}
+
+func (i AppServicePlan) ToAppServicePlanOutputWithContext(ctx context.Context) AppServicePlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServicePlanOutput)
+}
+
+type AppServicePlanOutput struct {
+	*pulumi.OutputState
+}
+
+func (AppServicePlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServicePlanOutput)(nil)).Elem()
+}
+
+func (o AppServicePlanOutput) ToAppServicePlanOutput() AppServicePlanOutput {
+	return o
+}
+
+func (o AppServicePlanOutput) ToAppServicePlanOutputWithContext(ctx context.Context) AppServicePlanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AppServicePlanOutput{})
 }

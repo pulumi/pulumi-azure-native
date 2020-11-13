@@ -4,6 +4,7 @@
 package v20180601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -250,4 +251,43 @@ type VpnSiteArgs struct {
 
 func (VpnSiteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnSiteArgs)(nil)).Elem()
+}
+
+type VpnSiteInput interface {
+	pulumi.Input
+
+	ToVpnSiteOutput() VpnSiteOutput
+	ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput
+}
+
+func (VpnSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSite)(nil)).Elem()
+}
+
+func (i VpnSite) ToVpnSiteOutput() VpnSiteOutput {
+	return i.ToVpnSiteOutputWithContext(context.Background())
+}
+
+func (i VpnSite) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteOutput)
+}
+
+type VpnSiteOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnSiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSiteOutput)(nil)).Elem()
+}
+
+func (o VpnSiteOutput) ToVpnSiteOutput() VpnSiteOutput {
+	return o
+}
+
+func (o VpnSiteOutput) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpnSiteOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -202,4 +203,43 @@ type IpAllocationArgs struct {
 
 func (IpAllocationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipAllocationArgs)(nil)).Elem()
+}
+
+type IpAllocationInput interface {
+	pulumi.Input
+
+	ToIpAllocationOutput() IpAllocationOutput
+	ToIpAllocationOutputWithContext(ctx context.Context) IpAllocationOutput
+}
+
+func (IpAllocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAllocation)(nil)).Elem()
+}
+
+func (i IpAllocation) ToIpAllocationOutput() IpAllocationOutput {
+	return i.ToIpAllocationOutputWithContext(context.Background())
+}
+
+func (i IpAllocation) ToIpAllocationOutputWithContext(ctx context.Context) IpAllocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAllocationOutput)
+}
+
+type IpAllocationOutput struct {
+	*pulumi.OutputState
+}
+
+func (IpAllocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAllocationOutput)(nil)).Elem()
+}
+
+func (o IpAllocationOutput) ToIpAllocationOutput() IpAllocationOutput {
+	return o
+}
+
+func (o IpAllocationOutput) ToIpAllocationOutputWithContext(ctx context.Context) IpAllocationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IpAllocationOutput{})
 }

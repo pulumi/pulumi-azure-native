@@ -4,6 +4,7 @@
 package v20190201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -205,4 +206,43 @@ type WebApplicationFirewallPolicyArgs struct {
 
 func (WebApplicationFirewallPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webApplicationFirewallPolicyArgs)(nil)).Elem()
+}
+
+type WebApplicationFirewallPolicyInput interface {
+	pulumi.Input
+
+	ToWebApplicationFirewallPolicyOutput() WebApplicationFirewallPolicyOutput
+	ToWebApplicationFirewallPolicyOutputWithContext(ctx context.Context) WebApplicationFirewallPolicyOutput
+}
+
+func (WebApplicationFirewallPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebApplicationFirewallPolicy)(nil)).Elem()
+}
+
+func (i WebApplicationFirewallPolicy) ToWebApplicationFirewallPolicyOutput() WebApplicationFirewallPolicyOutput {
+	return i.ToWebApplicationFirewallPolicyOutputWithContext(context.Background())
+}
+
+func (i WebApplicationFirewallPolicy) ToWebApplicationFirewallPolicyOutputWithContext(ctx context.Context) WebApplicationFirewallPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebApplicationFirewallPolicyOutput)
+}
+
+type WebApplicationFirewallPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebApplicationFirewallPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebApplicationFirewallPolicyOutput)(nil)).Elem()
+}
+
+func (o WebApplicationFirewallPolicyOutput) ToWebApplicationFirewallPolicyOutput() WebApplicationFirewallPolicyOutput {
+	return o
+}
+
+func (o WebApplicationFirewallPolicyOutput) ToWebApplicationFirewallPolicyOutputWithContext(ctx context.Context) WebApplicationFirewallPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebApplicationFirewallPolicyOutput{})
 }

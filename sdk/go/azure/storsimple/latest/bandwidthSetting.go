@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -130,4 +131,43 @@ type BandwidthSettingArgs struct {
 
 func (BandwidthSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bandwidthSettingArgs)(nil)).Elem()
+}
+
+type BandwidthSettingInput interface {
+	pulumi.Input
+
+	ToBandwidthSettingOutput() BandwidthSettingOutput
+	ToBandwidthSettingOutputWithContext(ctx context.Context) BandwidthSettingOutput
+}
+
+func (BandwidthSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthSetting)(nil)).Elem()
+}
+
+func (i BandwidthSetting) ToBandwidthSettingOutput() BandwidthSettingOutput {
+	return i.ToBandwidthSettingOutputWithContext(context.Background())
+}
+
+func (i BandwidthSetting) ToBandwidthSettingOutputWithContext(ctx context.Context) BandwidthSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BandwidthSettingOutput)
+}
+
+type BandwidthSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (BandwidthSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthSettingOutput)(nil)).Elem()
+}
+
+func (o BandwidthSettingOutput) ToBandwidthSettingOutput() BandwidthSettingOutput {
+	return o
+}
+
+func (o BandwidthSettingOutput) ToBandwidthSettingOutputWithContext(ctx context.Context) BandwidthSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BandwidthSettingOutput{})
 }

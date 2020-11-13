@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -121,4 +122,43 @@ type CustomerSubscriptionArgs struct {
 
 func (CustomerSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerSubscriptionArgs)(nil)).Elem()
+}
+
+type CustomerSubscriptionInput interface {
+	pulumi.Input
+
+	ToCustomerSubscriptionOutput() CustomerSubscriptionOutput
+	ToCustomerSubscriptionOutputWithContext(ctx context.Context) CustomerSubscriptionOutput
+}
+
+func (CustomerSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerSubscription)(nil)).Elem()
+}
+
+func (i CustomerSubscription) ToCustomerSubscriptionOutput() CustomerSubscriptionOutput {
+	return i.ToCustomerSubscriptionOutputWithContext(context.Background())
+}
+
+func (i CustomerSubscription) ToCustomerSubscriptionOutputWithContext(ctx context.Context) CustomerSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionOutput)
+}
+
+type CustomerSubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomerSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerSubscriptionOutput)(nil)).Elem()
+}
+
+func (o CustomerSubscriptionOutput) ToCustomerSubscriptionOutput() CustomerSubscriptionOutput {
+	return o
+}
+
+func (o CustomerSubscriptionOutput) ToCustomerSubscriptionOutputWithContext(ctx context.Context) CustomerSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomerSubscriptionOutput{})
 }

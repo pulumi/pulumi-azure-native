@@ -4,6 +4,7 @@
 package v20180915
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -215,4 +216,43 @@ type GlobalScheduleArgs struct {
 
 func (GlobalScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalScheduleArgs)(nil)).Elem()
+}
+
+type GlobalScheduleInput interface {
+	pulumi.Input
+
+	ToGlobalScheduleOutput() GlobalScheduleOutput
+	ToGlobalScheduleOutputWithContext(ctx context.Context) GlobalScheduleOutput
+}
+
+func (GlobalSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalSchedule)(nil)).Elem()
+}
+
+func (i GlobalSchedule) ToGlobalScheduleOutput() GlobalScheduleOutput {
+	return i.ToGlobalScheduleOutputWithContext(context.Background())
+}
+
+func (i GlobalSchedule) ToGlobalScheduleOutputWithContext(ctx context.Context) GlobalScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalScheduleOutput)
+}
+
+type GlobalScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (GlobalScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalScheduleOutput)(nil)).Elem()
+}
+
+func (o GlobalScheduleOutput) ToGlobalScheduleOutput() GlobalScheduleOutput {
+	return o
+}
+
+func (o GlobalScheduleOutput) ToGlobalScheduleOutputWithContext(ctx context.Context) GlobalScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GlobalScheduleOutput{})
 }

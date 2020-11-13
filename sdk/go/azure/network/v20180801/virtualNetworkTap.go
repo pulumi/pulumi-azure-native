@@ -4,6 +4,7 @@
 package v20180801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -224,4 +225,43 @@ type VirtualNetworkTapArgs struct {
 
 func (VirtualNetworkTapArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkTapArgs)(nil)).Elem()
+}
+
+type VirtualNetworkTapInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkTapOutput() VirtualNetworkTapOutput
+	ToVirtualNetworkTapOutputWithContext(ctx context.Context) VirtualNetworkTapOutput
+}
+
+func (VirtualNetworkTap) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkTap)(nil)).Elem()
+}
+
+func (i VirtualNetworkTap) ToVirtualNetworkTapOutput() VirtualNetworkTapOutput {
+	return i.ToVirtualNetworkTapOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkTap) ToVirtualNetworkTapOutputWithContext(ctx context.Context) VirtualNetworkTapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkTapOutput)
+}
+
+type VirtualNetworkTapOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkTapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkTapOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkTapOutput) ToVirtualNetworkTapOutput() VirtualNetworkTapOutput {
+	return o
+}
+
+func (o VirtualNetworkTapOutput) ToVirtualNetworkTapOutputWithContext(ctx context.Context) VirtualNetworkTapOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkTapOutput{})
 }

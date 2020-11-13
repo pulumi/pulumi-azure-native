@@ -3,4 +3,7 @@
 
 // Export sub-modules:
 import * as v20151101preview from "./v20151101preview";
-export {v20151101preview};
+
+export {
+    v20151101preview,
+};

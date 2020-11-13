@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -162,4 +163,43 @@ type PropertyArgs struct {
 
 func (PropertyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*propertyArgs)(nil)).Elem()
+}
+
+type PropertyInput interface {
+	pulumi.Input
+
+	ToPropertyOutput() PropertyOutput
+	ToPropertyOutputWithContext(ctx context.Context) PropertyOutput
+}
+
+func (Property) ElementType() reflect.Type {
+	return reflect.TypeOf((*Property)(nil)).Elem()
+}
+
+func (i Property) ToPropertyOutput() PropertyOutput {
+	return i.ToPropertyOutputWithContext(context.Background())
+}
+
+func (i Property) ToPropertyOutputWithContext(ctx context.Context) PropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertyOutput)
+}
+
+type PropertyOutput struct {
+	*pulumi.OutputState
+}
+
+func (PropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertyOutput)(nil)).Elem()
+}
+
+func (o PropertyOutput) ToPropertyOutput() PropertyOutput {
+	return o
+}
+
+func (o PropertyOutput) ToPropertyOutputWithContext(ctx context.Context) PropertyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PropertyOutput{})
 }

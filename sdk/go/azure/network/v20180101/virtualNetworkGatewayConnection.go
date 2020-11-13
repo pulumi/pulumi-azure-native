@@ -4,6 +4,7 @@
 package v20180101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -380,4 +381,43 @@ type VirtualNetworkGatewayConnectionArgs struct {
 
 func (VirtualNetworkGatewayConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkGatewayConnectionArgs)(nil)).Elem()
+}
+
+type VirtualNetworkGatewayConnectionInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput
+	ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput
+}
+
+func (VirtualNetworkGatewayConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayConnection)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput {
+	return i.ToVirtualNetworkGatewayConnectionOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionOutput)
+}
+
+type VirtualNetworkGatewayConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkGatewayConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayConnectionOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionOutput{})
 }

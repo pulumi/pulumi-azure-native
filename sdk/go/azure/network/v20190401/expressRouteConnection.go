@@ -4,6 +4,7 @@
 package v20190401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -193,4 +194,43 @@ type ExpressRouteConnectionArgs struct {
 
 func (ExpressRouteConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteConnectionArgs)(nil)).Elem()
+}
+
+type ExpressRouteConnectionInput interface {
+	pulumi.Input
+
+	ToExpressRouteConnectionOutput() ExpressRouteConnectionOutput
+	ToExpressRouteConnectionOutputWithContext(ctx context.Context) ExpressRouteConnectionOutput
+}
+
+func (ExpressRouteConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteConnection)(nil)).Elem()
+}
+
+func (i ExpressRouteConnection) ToExpressRouteConnectionOutput() ExpressRouteConnectionOutput {
+	return i.ToExpressRouteConnectionOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteConnection) ToExpressRouteConnectionOutputWithContext(ctx context.Context) ExpressRouteConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionOutput)
+}
+
+type ExpressRouteConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExpressRouteConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteConnectionOutput)(nil)).Elem()
+}
+
+func (o ExpressRouteConnectionOutput) ToExpressRouteConnectionOutput() ExpressRouteConnectionOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionOutput) ToExpressRouteConnectionOutputWithContext(ctx context.Context) ExpressRouteConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExpressRouteConnectionOutput{})
 }

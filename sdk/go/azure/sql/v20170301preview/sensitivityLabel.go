@@ -4,6 +4,7 @@
 package v20170301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -174,4 +175,43 @@ type SensitivityLabelArgs struct {
 
 func (SensitivityLabelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sensitivityLabelArgs)(nil)).Elem()
+}
+
+type SensitivityLabelInput interface {
+	pulumi.Input
+
+	ToSensitivityLabelOutput() SensitivityLabelOutput
+	ToSensitivityLabelOutputWithContext(ctx context.Context) SensitivityLabelOutput
+}
+
+func (SensitivityLabel) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitivityLabel)(nil)).Elem()
+}
+
+func (i SensitivityLabel) ToSensitivityLabelOutput() SensitivityLabelOutput {
+	return i.ToSensitivityLabelOutputWithContext(context.Background())
+}
+
+func (i SensitivityLabel) ToSensitivityLabelOutputWithContext(ctx context.Context) SensitivityLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitivityLabelOutput)
+}
+
+type SensitivityLabelOutput struct {
+	*pulumi.OutputState
+}
+
+func (SensitivityLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitivityLabelOutput)(nil)).Elem()
+}
+
+func (o SensitivityLabelOutput) ToSensitivityLabelOutput() SensitivityLabelOutput {
+	return o
+}
+
+func (o SensitivityLabelOutput) ToSensitivityLabelOutputWithContext(ctx context.Context) SensitivityLabelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SensitivityLabelOutput{})
 }

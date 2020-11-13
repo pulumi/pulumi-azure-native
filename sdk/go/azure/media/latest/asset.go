@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -174,4 +175,43 @@ type AssetArgs struct {
 
 func (AssetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assetArgs)(nil)).Elem()
+}
+
+type AssetInput interface {
+	pulumi.Input
+
+	ToAssetOutput() AssetOutput
+	ToAssetOutputWithContext(ctx context.Context) AssetOutput
+}
+
+func (Asset) ElementType() reflect.Type {
+	return reflect.TypeOf((*Asset)(nil)).Elem()
+}
+
+func (i Asset) ToAssetOutput() AssetOutput {
+	return i.ToAssetOutputWithContext(context.Background())
+}
+
+func (i Asset) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetOutput)
+}
+
+type AssetOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetOutput)(nil)).Elem()
+}
+
+func (o AssetOutput) ToAssetOutput() AssetOutput {
+	return o
+}
+
+func (o AssetOutput) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssetOutput{})
 }

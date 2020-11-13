@@ -4,6 +4,7 @@
 package v20200801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -152,4 +153,43 @@ type ObjectReplicationPolicyArgs struct {
 
 func (ObjectReplicationPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*objectReplicationPolicyArgs)(nil)).Elem()
+}
+
+type ObjectReplicationPolicyInput interface {
+	pulumi.Input
+
+	ToObjectReplicationPolicyOutput() ObjectReplicationPolicyOutput
+	ToObjectReplicationPolicyOutputWithContext(ctx context.Context) ObjectReplicationPolicyOutput
+}
+
+func (ObjectReplicationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectReplicationPolicy)(nil)).Elem()
+}
+
+func (i ObjectReplicationPolicy) ToObjectReplicationPolicyOutput() ObjectReplicationPolicyOutput {
+	return i.ToObjectReplicationPolicyOutputWithContext(context.Background())
+}
+
+func (i ObjectReplicationPolicy) ToObjectReplicationPolicyOutputWithContext(ctx context.Context) ObjectReplicationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationPolicyOutput)
+}
+
+type ObjectReplicationPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ObjectReplicationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectReplicationPolicyOutput)(nil)).Elem()
+}
+
+func (o ObjectReplicationPolicyOutput) ToObjectReplicationPolicyOutput() ObjectReplicationPolicyOutput {
+	return o
+}
+
+func (o ObjectReplicationPolicyOutput) ToObjectReplicationPolicyOutputWithContext(ctx context.Context) ObjectReplicationPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ObjectReplicationPolicyOutput{})
 }

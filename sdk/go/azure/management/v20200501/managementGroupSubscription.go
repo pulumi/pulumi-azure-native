@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -111,4 +112,43 @@ type ManagementGroupSubscriptionArgs struct {
 
 func (ManagementGroupSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementGroupSubscriptionArgs)(nil)).Elem()
+}
+
+type ManagementGroupSubscriptionInput interface {
+	pulumi.Input
+
+	ToManagementGroupSubscriptionOutput() ManagementGroupSubscriptionOutput
+	ToManagementGroupSubscriptionOutputWithContext(ctx context.Context) ManagementGroupSubscriptionOutput
+}
+
+func (ManagementGroupSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupSubscription)(nil)).Elem()
+}
+
+func (i ManagementGroupSubscription) ToManagementGroupSubscriptionOutput() ManagementGroupSubscriptionOutput {
+	return i.ToManagementGroupSubscriptionOutputWithContext(context.Background())
+}
+
+func (i ManagementGroupSubscription) ToManagementGroupSubscriptionOutputWithContext(ctx context.Context) ManagementGroupSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupSubscriptionOutput)
+}
+
+type ManagementGroupSubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementGroupSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupSubscriptionOutput)(nil)).Elem()
+}
+
+func (o ManagementGroupSubscriptionOutput) ToManagementGroupSubscriptionOutput() ManagementGroupSubscriptionOutput {
+	return o
+}
+
+func (o ManagementGroupSubscriptionOutput) ToManagementGroupSubscriptionOutputWithContext(ctx context.Context) ManagementGroupSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementGroupSubscriptionOutput{})
 }

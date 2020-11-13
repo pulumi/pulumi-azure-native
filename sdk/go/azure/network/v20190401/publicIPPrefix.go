@@ -4,6 +4,7 @@
 package v20190401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -275,4 +276,43 @@ type PublicIPPrefixArgs struct {
 
 func (PublicIPPrefixArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicIPPrefixArgs)(nil)).Elem()
+}
+
+type PublicIPPrefixInput interface {
+	pulumi.Input
+
+	ToPublicIPPrefixOutput() PublicIPPrefixOutput
+	ToPublicIPPrefixOutputWithContext(ctx context.Context) PublicIPPrefixOutput
+}
+
+func (PublicIPPrefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIPPrefix)(nil)).Elem()
+}
+
+func (i PublicIPPrefix) ToPublicIPPrefixOutput() PublicIPPrefixOutput {
+	return i.ToPublicIPPrefixOutputWithContext(context.Background())
+}
+
+func (i PublicIPPrefix) ToPublicIPPrefixOutputWithContext(ctx context.Context) PublicIPPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIPPrefixOutput)
+}
+
+type PublicIPPrefixOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublicIPPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIPPrefixOutput)(nil)).Elem()
+}
+
+func (o PublicIPPrefixOutput) ToPublicIPPrefixOutput() PublicIPPrefixOutput {
+	return o
+}
+
+func (o PublicIPPrefixOutput) ToPublicIPPrefixOutputWithContext(ctx context.Context) PublicIPPrefixOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PublicIPPrefixOutput{})
 }

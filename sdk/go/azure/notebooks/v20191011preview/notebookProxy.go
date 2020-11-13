@@ -4,6 +4,7 @@
 package v20191011preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -104,4 +105,43 @@ type NotebookProxyArgs struct {
 
 func (NotebookProxyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notebookProxyArgs)(nil)).Elem()
+}
+
+type NotebookProxyInput interface {
+	pulumi.Input
+
+	ToNotebookProxyOutput() NotebookProxyOutput
+	ToNotebookProxyOutputWithContext(ctx context.Context) NotebookProxyOutput
+}
+
+func (NotebookProxy) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookProxy)(nil)).Elem()
+}
+
+func (i NotebookProxy) ToNotebookProxyOutput() NotebookProxyOutput {
+	return i.ToNotebookProxyOutputWithContext(context.Background())
+}
+
+func (i NotebookProxy) ToNotebookProxyOutputWithContext(ctx context.Context) NotebookProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookProxyOutput)
+}
+
+type NotebookProxyOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotebookProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookProxyOutput)(nil)).Elem()
+}
+
+func (o NotebookProxyOutput) ToNotebookProxyOutput() NotebookProxyOutput {
+	return o
+}
+
+func (o NotebookProxyOutput) ToNotebookProxyOutputWithContext(ctx context.Context) NotebookProxyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotebookProxyOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -193,4 +194,43 @@ type BlobContainerArgs struct {
 
 func (BlobContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*blobContainerArgs)(nil)).Elem()
+}
+
+type BlobContainerInput interface {
+	pulumi.Input
+
+	ToBlobContainerOutput() BlobContainerOutput
+	ToBlobContainerOutputWithContext(ctx context.Context) BlobContainerOutput
+}
+
+func (BlobContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainer)(nil)).Elem()
+}
+
+func (i BlobContainer) ToBlobContainerOutput() BlobContainerOutput {
+	return i.ToBlobContainerOutputWithContext(context.Background())
+}
+
+func (i BlobContainer) ToBlobContainerOutputWithContext(ctx context.Context) BlobContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerOutput)
+}
+
+type BlobContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (BlobContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerOutput)(nil)).Elem()
+}
+
+func (o BlobContainerOutput) ToBlobContainerOutput() BlobContainerOutput {
+	return o
+}
+
+func (o BlobContainerOutput) ToBlobContainerOutputWithContext(ctx context.Context) BlobContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BlobContainerOutput{})
 }

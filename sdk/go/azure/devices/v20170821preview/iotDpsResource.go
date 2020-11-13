@@ -4,6 +4,7 @@
 package v20170821preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,4 +164,43 @@ type IotDpsResourceArgs struct {
 
 func (IotDpsResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotDpsResourceArgs)(nil)).Elem()
+}
+
+type IotDpsResourceInput interface {
+	pulumi.Input
+
+	ToIotDpsResourceOutput() IotDpsResourceOutput
+	ToIotDpsResourceOutputWithContext(ctx context.Context) IotDpsResourceOutput
+}
+
+func (IotDpsResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsResource)(nil)).Elem()
+}
+
+func (i IotDpsResource) ToIotDpsResourceOutput() IotDpsResourceOutput {
+	return i.ToIotDpsResourceOutputWithContext(context.Background())
+}
+
+func (i IotDpsResource) ToIotDpsResourceOutputWithContext(ctx context.Context) IotDpsResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotDpsResourceOutput)
+}
+
+type IotDpsResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotDpsResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsResourceOutput)(nil)).Elem()
+}
+
+func (o IotDpsResourceOutput) ToIotDpsResourceOutput() IotDpsResourceOutput {
+	return o
+}
+
+func (o IotDpsResourceOutput) ToIotDpsResourceOutputWithContext(ctx context.Context) IotDpsResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IotDpsResourceOutput{})
 }

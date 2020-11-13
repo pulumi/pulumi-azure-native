@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -283,4 +284,43 @@ type AzureFirewallArgs struct {
 
 func (AzureFirewallArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*azureFirewallArgs)(nil)).Elem()
+}
+
+type AzureFirewallInput interface {
+	pulumi.Input
+
+	ToAzureFirewallOutput() AzureFirewallOutput
+	ToAzureFirewallOutputWithContext(ctx context.Context) AzureFirewallOutput
+}
+
+func (AzureFirewall) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFirewall)(nil)).Elem()
+}
+
+func (i AzureFirewall) ToAzureFirewallOutput() AzureFirewallOutput {
+	return i.ToAzureFirewallOutputWithContext(context.Background())
+}
+
+func (i AzureFirewall) ToAzureFirewallOutputWithContext(ctx context.Context) AzureFirewallOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFirewallOutput)
+}
+
+type AzureFirewallOutput struct {
+	*pulumi.OutputState
+}
+
+func (AzureFirewallOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFirewallOutput)(nil)).Elem()
+}
+
+func (o AzureFirewallOutput) ToAzureFirewallOutput() AzureFirewallOutput {
+	return o
+}
+
+func (o AzureFirewallOutput) ToAzureFirewallOutputWithContext(ctx context.Context) AzureFirewallOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AzureFirewallOutput{})
 }

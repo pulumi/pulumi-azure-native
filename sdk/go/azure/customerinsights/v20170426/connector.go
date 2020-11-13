@@ -4,6 +4,7 @@
 package v20170426
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -196,4 +197,43 @@ type ConnectorArgs struct {
 
 func (ConnectorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorArgs)(nil)).Elem()
+}
+
+type ConnectorInput interface {
+	pulumi.Input
+
+	ToConnectorOutput() ConnectorOutput
+	ToConnectorOutputWithContext(ctx context.Context) ConnectorOutput
+}
+
+func (Connector) ElementType() reflect.Type {
+	return reflect.TypeOf((*Connector)(nil)).Elem()
+}
+
+func (i Connector) ToConnectorOutput() ConnectorOutput {
+	return i.ToConnectorOutputWithContext(context.Background())
+}
+
+func (i Connector) ToConnectorOutputWithContext(ctx context.Context) ConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorOutput)
+}
+
+type ConnectorOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorOutput)(nil)).Elem()
+}
+
+func (o ConnectorOutput) ToConnectorOutput() ConnectorOutput {
+	return o
+}
+
+func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) ConnectorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectorOutput{})
 }

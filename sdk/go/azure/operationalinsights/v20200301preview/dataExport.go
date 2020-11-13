@@ -4,6 +4,7 @@
 package v20200301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -180,4 +181,43 @@ type DataExportArgs struct {
 
 func (DataExportArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataExportArgs)(nil)).Elem()
+}
+
+type DataExportInput interface {
+	pulumi.Input
+
+	ToDataExportOutput() DataExportOutput
+	ToDataExportOutputWithContext(ctx context.Context) DataExportOutput
+}
+
+func (DataExport) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExport)(nil)).Elem()
+}
+
+func (i DataExport) ToDataExportOutput() DataExportOutput {
+	return i.ToDataExportOutputWithContext(context.Background())
+}
+
+func (i DataExport) ToDataExportOutputWithContext(ctx context.Context) DataExportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataExportOutput)
+}
+
+type DataExportOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataExportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExportOutput)(nil)).Elem()
+}
+
+func (o DataExportOutput) ToDataExportOutput() DataExportOutput {
+	return o
+}
+
+func (o DataExportOutput) ToDataExportOutputWithContext(ctx context.Context) DataExportOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataExportOutput{})
 }

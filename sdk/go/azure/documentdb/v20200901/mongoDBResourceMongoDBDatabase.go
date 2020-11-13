@@ -4,6 +4,7 @@
 package v20200901
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,4 +154,43 @@ type MongoDBResourceMongoDBDatabaseArgs struct {
 
 func (MongoDBResourceMongoDBDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoDBResourceMongoDBDatabaseArgs)(nil)).Elem()
+}
+
+type MongoDBResourceMongoDBDatabaseInput interface {
+	pulumi.Input
+
+	ToMongoDBResourceMongoDBDatabaseOutput() MongoDBResourceMongoDBDatabaseOutput
+	ToMongoDBResourceMongoDBDatabaseOutputWithContext(ctx context.Context) MongoDBResourceMongoDBDatabaseOutput
+}
+
+func (MongoDBResourceMongoDBDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBResourceMongoDBDatabase)(nil)).Elem()
+}
+
+func (i MongoDBResourceMongoDBDatabase) ToMongoDBResourceMongoDBDatabaseOutput() MongoDBResourceMongoDBDatabaseOutput {
+	return i.ToMongoDBResourceMongoDBDatabaseOutputWithContext(context.Background())
+}
+
+func (i MongoDBResourceMongoDBDatabase) ToMongoDBResourceMongoDBDatabaseOutputWithContext(ctx context.Context) MongoDBResourceMongoDBDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBDatabaseOutput)
+}
+
+type MongoDBResourceMongoDBDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (MongoDBResourceMongoDBDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBResourceMongoDBDatabaseOutput)(nil)).Elem()
+}
+
+func (o MongoDBResourceMongoDBDatabaseOutput) ToMongoDBResourceMongoDBDatabaseOutput() MongoDBResourceMongoDBDatabaseOutput {
+	return o
+}
+
+func (o MongoDBResourceMongoDBDatabaseOutput) ToMongoDBResourceMongoDBDatabaseOutputWithContext(ctx context.Context) MongoDBResourceMongoDBDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MongoDBResourceMongoDBDatabaseOutput{})
 }

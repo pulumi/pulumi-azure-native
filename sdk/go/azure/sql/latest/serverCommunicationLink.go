@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -132,4 +133,43 @@ type ServerCommunicationLinkArgs struct {
 
 func (ServerCommunicationLinkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverCommunicationLinkArgs)(nil)).Elem()
+}
+
+type ServerCommunicationLinkInput interface {
+	pulumi.Input
+
+	ToServerCommunicationLinkOutput() ServerCommunicationLinkOutput
+	ToServerCommunicationLinkOutputWithContext(ctx context.Context) ServerCommunicationLinkOutput
+}
+
+func (ServerCommunicationLink) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerCommunicationLink)(nil)).Elem()
+}
+
+func (i ServerCommunicationLink) ToServerCommunicationLinkOutput() ServerCommunicationLinkOutput {
+	return i.ToServerCommunicationLinkOutputWithContext(context.Background())
+}
+
+func (i ServerCommunicationLink) ToServerCommunicationLinkOutputWithContext(ctx context.Context) ServerCommunicationLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerCommunicationLinkOutput)
+}
+
+type ServerCommunicationLinkOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerCommunicationLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerCommunicationLinkOutput)(nil)).Elem()
+}
+
+func (o ServerCommunicationLinkOutput) ToServerCommunicationLinkOutput() ServerCommunicationLinkOutput {
+	return o
+}
+
+func (o ServerCommunicationLinkOutput) ToServerCommunicationLinkOutputWithContext(ctx context.Context) ServerCommunicationLinkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerCommunicationLinkOutput{})
 }

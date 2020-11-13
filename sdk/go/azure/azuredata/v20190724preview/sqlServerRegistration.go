@@ -4,6 +4,7 @@
 package v20190724preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,4 +154,43 @@ type SqlServerRegistrationArgs struct {
 
 func (SqlServerRegistrationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlServerRegistrationArgs)(nil)).Elem()
+}
+
+type SqlServerRegistrationInput interface {
+	pulumi.Input
+
+	ToSqlServerRegistrationOutput() SqlServerRegistrationOutput
+	ToSqlServerRegistrationOutputWithContext(ctx context.Context) SqlServerRegistrationOutput
+}
+
+func (SqlServerRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerRegistration)(nil)).Elem()
+}
+
+func (i SqlServerRegistration) ToSqlServerRegistrationOutput() SqlServerRegistrationOutput {
+	return i.ToSqlServerRegistrationOutputWithContext(context.Background())
+}
+
+func (i SqlServerRegistration) ToSqlServerRegistrationOutputWithContext(ctx context.Context) SqlServerRegistrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerRegistrationOutput)
+}
+
+type SqlServerRegistrationOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlServerRegistrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerRegistrationOutput)(nil)).Elem()
+}
+
+func (o SqlServerRegistrationOutput) ToSqlServerRegistrationOutput() SqlServerRegistrationOutput {
+	return o
+}
+
+func (o SqlServerRegistrationOutput) ToSqlServerRegistrationOutputWithContext(ctx context.Context) SqlServerRegistrationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlServerRegistrationOutput{})
 }

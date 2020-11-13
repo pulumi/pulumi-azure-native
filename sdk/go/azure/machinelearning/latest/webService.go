@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -133,4 +134,43 @@ type WebServiceArgs struct {
 
 func (WebServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webServiceArgs)(nil)).Elem()
+}
+
+type WebServiceInput interface {
+	pulumi.Input
+
+	ToWebServiceOutput() WebServiceOutput
+	ToWebServiceOutputWithContext(ctx context.Context) WebServiceOutput
+}
+
+func (WebService) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebService)(nil)).Elem()
+}
+
+func (i WebService) ToWebServiceOutput() WebServiceOutput {
+	return i.ToWebServiceOutputWithContext(context.Background())
+}
+
+func (i WebService) ToWebServiceOutputWithContext(ctx context.Context) WebServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServiceOutput)
+}
+
+type WebServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServiceOutput)(nil)).Elem()
+}
+
+func (o WebServiceOutput) ToWebServiceOutput() WebServiceOutput {
+	return o
+}
+
+func (o WebServiceOutput) ToWebServiceOutputWithContext(ctx context.Context) WebServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebServiceOutput{})
 }

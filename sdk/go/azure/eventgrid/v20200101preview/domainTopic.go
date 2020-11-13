@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -119,4 +120,43 @@ type DomainTopicArgs struct {
 
 func (DomainTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainTopicArgs)(nil)).Elem()
+}
+
+type DomainTopicInput interface {
+	pulumi.Input
+
+	ToDomainTopicOutput() DomainTopicOutput
+	ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput
+}
+
+func (DomainTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTopic)(nil)).Elem()
+}
+
+func (i DomainTopic) ToDomainTopicOutput() DomainTopicOutput {
+	return i.ToDomainTopicOutputWithContext(context.Background())
+}
+
+func (i DomainTopic) ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicOutput)
+}
+
+type DomainTopicOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTopicOutput)(nil)).Elem()
+}
+
+func (o DomainTopicOutput) ToDomainTopicOutput() DomainTopicOutput {
+	return o
+}
+
+func (o DomainTopicOutput) ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainTopicOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200717preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,4 +154,43 @@ type WorkloadNetworkSegmentArgs struct {
 
 func (WorkloadNetworkSegmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadNetworkSegmentArgs)(nil)).Elem()
+}
+
+type WorkloadNetworkSegmentInput interface {
+	pulumi.Input
+
+	ToWorkloadNetworkSegmentOutput() WorkloadNetworkSegmentOutput
+	ToWorkloadNetworkSegmentOutputWithContext(ctx context.Context) WorkloadNetworkSegmentOutput
+}
+
+func (WorkloadNetworkSegment) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkSegment)(nil)).Elem()
+}
+
+func (i WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutput() WorkloadNetworkSegmentOutput {
+	return i.ToWorkloadNetworkSegmentOutputWithContext(context.Background())
+}
+
+func (i WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutputWithContext(ctx context.Context) WorkloadNetworkSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkSegmentOutput)
+}
+
+type WorkloadNetworkSegmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkloadNetworkSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkSegmentOutput)(nil)).Elem()
+}
+
+func (o WorkloadNetworkSegmentOutput) ToWorkloadNetworkSegmentOutput() WorkloadNetworkSegmentOutput {
+	return o
+}
+
+func (o WorkloadNetworkSegmentOutput) ToWorkloadNetworkSegmentOutputWithContext(ctx context.Context) WorkloadNetworkSegmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkloadNetworkSegmentOutput{})
 }

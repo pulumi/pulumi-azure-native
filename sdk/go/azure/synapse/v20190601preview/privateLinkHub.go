@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type PrivateLinkHubArgs struct {
 
 func (PrivateLinkHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkHubArgs)(nil)).Elem()
+}
+
+type PrivateLinkHubInput interface {
+	pulumi.Input
+
+	ToPrivateLinkHubOutput() PrivateLinkHubOutput
+	ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput
+}
+
+func (PrivateLinkHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkHub)(nil)).Elem()
+}
+
+func (i PrivateLinkHub) ToPrivateLinkHubOutput() PrivateLinkHubOutput {
+	return i.ToPrivateLinkHubOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkHub) ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubOutput)
+}
+
+type PrivateLinkHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateLinkHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkHubOutput)(nil)).Elem()
+}
+
+func (o PrivateLinkHubOutput) ToPrivateLinkHubOutput() PrivateLinkHubOutput {
+	return o
+}
+
+func (o PrivateLinkHubOutput) ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateLinkHubOutput{})
 }

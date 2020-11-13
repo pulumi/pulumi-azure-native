@@ -4,6 +4,7 @@
 package v20190701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -154,4 +155,43 @@ type RemediationAtSubscriptionArgs struct {
 
 func (RemediationAtSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*remediationAtSubscriptionArgs)(nil)).Elem()
+}
+
+type RemediationAtSubscriptionInput interface {
+	pulumi.Input
+
+	ToRemediationAtSubscriptionOutput() RemediationAtSubscriptionOutput
+	ToRemediationAtSubscriptionOutputWithContext(ctx context.Context) RemediationAtSubscriptionOutput
+}
+
+func (RemediationAtSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtSubscription)(nil)).Elem()
+}
+
+func (i RemediationAtSubscription) ToRemediationAtSubscriptionOutput() RemediationAtSubscriptionOutput {
+	return i.ToRemediationAtSubscriptionOutputWithContext(context.Background())
+}
+
+func (i RemediationAtSubscription) ToRemediationAtSubscriptionOutputWithContext(ctx context.Context) RemediationAtSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtSubscriptionOutput)
+}
+
+type RemediationAtSubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (RemediationAtSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtSubscriptionOutput)(nil)).Elem()
+}
+
+func (o RemediationAtSubscriptionOutput) ToRemediationAtSubscriptionOutput() RemediationAtSubscriptionOutput {
+	return o
+}
+
+func (o RemediationAtSubscriptionOutput) ToRemediationAtSubscriptionOutputWithContext(ctx context.Context) RemediationAtSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RemediationAtSubscriptionOutput{})
 }

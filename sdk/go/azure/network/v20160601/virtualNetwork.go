@@ -4,6 +4,7 @@
 package v20160601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -287,4 +288,43 @@ type VirtualNetworkArgs struct {
 
 func (VirtualNetworkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkArgs)(nil)).Elem()
+}
+
+type VirtualNetworkInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkOutput() VirtualNetworkOutput
+	ToVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkOutput
+}
+
+func (VirtualNetwork) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetwork)(nil)).Elem()
+}
+
+func (i VirtualNetwork) ToVirtualNetworkOutput() VirtualNetworkOutput {
+	return i.ToVirtualNetworkOutputWithContext(context.Background())
+}
+
+func (i VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
+}
+
+type VirtualNetworkOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkOutput) ToVirtualNetworkOutput() VirtualNetworkOutput {
+	return o
+}
+
+func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -162,4 +163,43 @@ type PrivateLinkForAzureAdArgs struct {
 
 func (PrivateLinkForAzureAdArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkForAzureAdArgs)(nil)).Elem()
+}
+
+type PrivateLinkForAzureAdInput interface {
+	pulumi.Input
+
+	ToPrivateLinkForAzureAdOutput() PrivateLinkForAzureAdOutput
+	ToPrivateLinkForAzureAdOutputWithContext(ctx context.Context) PrivateLinkForAzureAdOutput
+}
+
+func (PrivateLinkForAzureAd) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkForAzureAd)(nil)).Elem()
+}
+
+func (i PrivateLinkForAzureAd) ToPrivateLinkForAzureAdOutput() PrivateLinkForAzureAdOutput {
+	return i.ToPrivateLinkForAzureAdOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkForAzureAd) ToPrivateLinkForAzureAdOutputWithContext(ctx context.Context) PrivateLinkForAzureAdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkForAzureAdOutput)
+}
+
+type PrivateLinkForAzureAdOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateLinkForAzureAdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkForAzureAdOutput)(nil)).Elem()
+}
+
+func (o PrivateLinkForAzureAdOutput) ToPrivateLinkForAzureAdOutput() PrivateLinkForAzureAdOutput {
+	return o
+}
+
+func (o PrivateLinkForAzureAdOutput) ToPrivateLinkForAzureAdOutputWithContext(ctx context.Context) PrivateLinkForAzureAdOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateLinkForAzureAdOutput{})
 }

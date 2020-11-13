@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -164,4 +165,43 @@ type AutoscaleSettingArgs struct {
 
 func (AutoscaleSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoscaleSettingArgs)(nil)).Elem()
+}
+
+type AutoscaleSettingInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingOutput() AutoscaleSettingOutput
+	ToAutoscaleSettingOutputWithContext(ctx context.Context) AutoscaleSettingOutput
+}
+
+func (AutoscaleSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoscaleSetting)(nil)).Elem()
+}
+
+func (i AutoscaleSetting) ToAutoscaleSettingOutput() AutoscaleSettingOutput {
+	return i.ToAutoscaleSettingOutputWithContext(context.Background())
+}
+
+func (i AutoscaleSetting) ToAutoscaleSettingOutputWithContext(ctx context.Context) AutoscaleSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingOutput)
+}
+
+type AutoscaleSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (AutoscaleSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoscaleSettingOutput)(nil)).Elem()
+}
+
+func (o AutoscaleSettingOutput) ToAutoscaleSettingOutput() AutoscaleSettingOutput {
+	return o
+}
+
+func (o AutoscaleSettingOutput) ToAutoscaleSettingOutputWithContext(ctx context.Context) AutoscaleSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AutoscaleSettingOutput{})
 }

@@ -4,6 +4,7 @@
 package v20180101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -105,4 +106,43 @@ type NamespaceVirtualNetworkRuleArgs struct {
 
 func (NamespaceVirtualNetworkRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceVirtualNetworkRuleArgs)(nil)).Elem()
+}
+
+type NamespaceVirtualNetworkRuleInput interface {
+	pulumi.Input
+
+	ToNamespaceVirtualNetworkRuleOutput() NamespaceVirtualNetworkRuleOutput
+	ToNamespaceVirtualNetworkRuleOutputWithContext(ctx context.Context) NamespaceVirtualNetworkRuleOutput
+}
+
+func (NamespaceVirtualNetworkRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceVirtualNetworkRule)(nil)).Elem()
+}
+
+func (i NamespaceVirtualNetworkRule) ToNamespaceVirtualNetworkRuleOutput() NamespaceVirtualNetworkRuleOutput {
+	return i.ToNamespaceVirtualNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i NamespaceVirtualNetworkRule) ToNamespaceVirtualNetworkRuleOutputWithContext(ctx context.Context) NamespaceVirtualNetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceVirtualNetworkRuleOutput)
+}
+
+type NamespaceVirtualNetworkRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (NamespaceVirtualNetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceVirtualNetworkRuleOutput)(nil)).Elem()
+}
+
+func (o NamespaceVirtualNetworkRuleOutput) ToNamespaceVirtualNetworkRuleOutput() NamespaceVirtualNetworkRuleOutput {
+	return o
+}
+
+func (o NamespaceVirtualNetworkRuleOutput) ToNamespaceVirtualNetworkRuleOutputWithContext(ctx context.Context) NamespaceVirtualNetworkRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NamespaceVirtualNetworkRuleOutput{})
 }

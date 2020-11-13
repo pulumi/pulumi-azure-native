@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -121,4 +122,43 @@ type CustomDomainArgs struct {
 
 func (CustomDomainArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDomainArgs)(nil)).Elem()
+}
+
+type CustomDomainInput interface {
+	pulumi.Input
+
+	ToCustomDomainOutput() CustomDomainOutput
+	ToCustomDomainOutputWithContext(ctx context.Context) CustomDomainOutput
+}
+
+func (CustomDomain) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomain)(nil)).Elem()
+}
+
+func (i CustomDomain) ToCustomDomainOutput() CustomDomainOutput {
+	return i.ToCustomDomainOutputWithContext(context.Background())
+}
+
+func (i CustomDomain) ToCustomDomainOutputWithContext(ctx context.Context) CustomDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainOutput)
+}
+
+type CustomDomainOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainOutput)(nil)).Elem()
+}
+
+func (o CustomDomainOutput) ToCustomDomainOutput() CustomDomainOutput {
+	return o
+}
+
+func (o CustomDomainOutput) ToCustomDomainOutputWithContext(ctx context.Context) CustomDomainOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomDomainOutput{})
 }

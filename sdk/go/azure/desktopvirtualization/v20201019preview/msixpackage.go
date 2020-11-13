@@ -4,6 +4,7 @@
 package v20201019preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -214,4 +215,43 @@ type MSIXPackageArgs struct {
 
 func (MSIXPackageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*msixpackageArgs)(nil)).Elem()
+}
+
+type MSIXPackageInput interface {
+	pulumi.Input
+
+	ToMSIXPackageOutput() MSIXPackageOutput
+	ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPackageOutput
+}
+
+func (MSIXPackage) ElementType() reflect.Type {
+	return reflect.TypeOf((*MSIXPackage)(nil)).Elem()
+}
+
+func (i MSIXPackage) ToMSIXPackageOutput() MSIXPackageOutput {
+	return i.ToMSIXPackageOutputWithContext(context.Background())
+}
+
+func (i MSIXPackage) ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MSIXPackageOutput)
+}
+
+type MSIXPackageOutput struct {
+	*pulumi.OutputState
+}
+
+func (MSIXPackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MSIXPackageOutput)(nil)).Elem()
+}
+
+func (o MSIXPackageOutput) ToMSIXPackageOutput() MSIXPackageOutput {
+	return o
+}
+
+func (o MSIXPackageOutput) ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPackageOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MSIXPackageOutput{})
 }

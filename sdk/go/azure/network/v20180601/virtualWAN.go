@@ -4,6 +4,7 @@
 package v20180601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -209,4 +210,43 @@ type VirtualWANArgs struct {
 
 func (VirtualWANArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualWANArgs)(nil)).Elem()
+}
+
+type VirtualWANInput interface {
+	pulumi.Input
+
+	ToVirtualWANOutput() VirtualWANOutput
+	ToVirtualWANOutputWithContext(ctx context.Context) VirtualWANOutput
+}
+
+func (VirtualWAN) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualWAN)(nil)).Elem()
+}
+
+func (i VirtualWAN) ToVirtualWANOutput() VirtualWANOutput {
+	return i.ToVirtualWANOutputWithContext(context.Background())
+}
+
+func (i VirtualWAN) ToVirtualWANOutputWithContext(ctx context.Context) VirtualWANOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualWANOutput)
+}
+
+type VirtualWANOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualWANOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualWANOutput)(nil)).Elem()
+}
+
+func (o VirtualWANOutput) ToVirtualWANOutput() VirtualWANOutput {
+	return o
+}
+
+func (o VirtualWANOutput) ToVirtualWANOutputWithContext(ctx context.Context) VirtualWANOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualWANOutput{})
 }

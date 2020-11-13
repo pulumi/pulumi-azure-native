@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -170,4 +171,43 @@ type SiteSlotConfigNamesArgs struct {
 
 func (SiteSlotConfigNamesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteSlotConfigNamesArgs)(nil)).Elem()
+}
+
+type SiteSlotConfigNamesInput interface {
+	pulumi.Input
+
+	ToSiteSlotConfigNamesOutput() SiteSlotConfigNamesOutput
+	ToSiteSlotConfigNamesOutputWithContext(ctx context.Context) SiteSlotConfigNamesOutput
+}
+
+func (SiteSlotConfigNames) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteSlotConfigNames)(nil)).Elem()
+}
+
+func (i SiteSlotConfigNames) ToSiteSlotConfigNamesOutput() SiteSlotConfigNamesOutput {
+	return i.ToSiteSlotConfigNamesOutputWithContext(context.Background())
+}
+
+func (i SiteSlotConfigNames) ToSiteSlotConfigNamesOutputWithContext(ctx context.Context) SiteSlotConfigNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteSlotConfigNamesOutput)
+}
+
+type SiteSlotConfigNamesOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteSlotConfigNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteSlotConfigNamesOutput)(nil)).Elem()
+}
+
+func (o SiteSlotConfigNamesOutput) ToSiteSlotConfigNamesOutput() SiteSlotConfigNamesOutput {
+	return o
+}
+
+func (o SiteSlotConfigNamesOutput) ToSiteSlotConfigNamesOutputWithContext(ctx context.Context) SiteSlotConfigNamesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteSlotConfigNamesOutput{})
 }

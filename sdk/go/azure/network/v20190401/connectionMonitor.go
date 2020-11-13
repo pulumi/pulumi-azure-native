@@ -4,6 +4,7 @@
 package v20190401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -260,4 +261,43 @@ type ConnectionMonitorArgs struct {
 
 func (ConnectionMonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionMonitorArgs)(nil)).Elem()
+}
+
+type ConnectionMonitorInput interface {
+	pulumi.Input
+
+	ToConnectionMonitorOutput() ConnectionMonitorOutput
+	ToConnectionMonitorOutputWithContext(ctx context.Context) ConnectionMonitorOutput
+}
+
+func (ConnectionMonitor) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitor)(nil)).Elem()
+}
+
+func (i ConnectionMonitor) ToConnectionMonitorOutput() ConnectionMonitorOutput {
+	return i.ToConnectionMonitorOutputWithContext(context.Background())
+}
+
+func (i ConnectionMonitor) ToConnectionMonitorOutputWithContext(ctx context.Context) ConnectionMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorOutput)
+}
+
+type ConnectionMonitorOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectionMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitorOutput)(nil)).Elem()
+}
+
+func (o ConnectionMonitorOutput) ToConnectionMonitorOutput() ConnectionMonitorOutput {
+	return o
+}
+
+func (o ConnectionMonitorOutput) ToConnectionMonitorOutputWithContext(ctx context.Context) ConnectionMonitorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectionMonitorOutput{})
 }

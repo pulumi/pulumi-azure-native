@@ -4,6 +4,7 @@
 package v20180201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -253,4 +254,43 @@ type WebAppFunctionArgs struct {
 
 func (WebAppFunctionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppFunctionArgs)(nil)).Elem()
+}
+
+type WebAppFunctionInput interface {
+	pulumi.Input
+
+	ToWebAppFunctionOutput() WebAppFunctionOutput
+	ToWebAppFunctionOutputWithContext(ctx context.Context) WebAppFunctionOutput
+}
+
+func (WebAppFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppFunction)(nil)).Elem()
+}
+
+func (i WebAppFunction) ToWebAppFunctionOutput() WebAppFunctionOutput {
+	return i.ToWebAppFunctionOutputWithContext(context.Background())
+}
+
+func (i WebAppFunction) ToWebAppFunctionOutputWithContext(ctx context.Context) WebAppFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppFunctionOutput)
+}
+
+type WebAppFunctionOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppFunctionOutput)(nil)).Elem()
+}
+
+func (o WebAppFunctionOutput) ToWebAppFunctionOutput() WebAppFunctionOutput {
+	return o
+}
+
+func (o WebAppFunctionOutput) ToWebAppFunctionOutputWithContext(ctx context.Context) WebAppFunctionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppFunctionOutput{})
 }

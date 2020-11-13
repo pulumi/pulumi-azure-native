@@ -4,6 +4,7 @@
 package v20200701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type PrivateDnsZoneGroupArgs struct {
 
 func (PrivateDnsZoneGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateDnsZoneGroupArgs)(nil)).Elem()
+}
+
+type PrivateDnsZoneGroupInput interface {
+	pulumi.Input
+
+	ToPrivateDnsZoneGroupOutput() PrivateDnsZoneGroupOutput
+	ToPrivateDnsZoneGroupOutputWithContext(ctx context.Context) PrivateDnsZoneGroupOutput
+}
+
+func (PrivateDnsZoneGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsZoneGroup)(nil)).Elem()
+}
+
+func (i PrivateDnsZoneGroup) ToPrivateDnsZoneGroupOutput() PrivateDnsZoneGroupOutput {
+	return i.ToPrivateDnsZoneGroupOutputWithContext(context.Background())
+}
+
+func (i PrivateDnsZoneGroup) ToPrivateDnsZoneGroupOutputWithContext(ctx context.Context) PrivateDnsZoneGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsZoneGroupOutput)
+}
+
+type PrivateDnsZoneGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateDnsZoneGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsZoneGroupOutput)(nil)).Elem()
+}
+
+func (o PrivateDnsZoneGroupOutput) ToPrivateDnsZoneGroupOutput() PrivateDnsZoneGroupOutput {
+	return o
+}
+
+func (o PrivateDnsZoneGroupOutput) ToPrivateDnsZoneGroupOutputWithContext(ctx context.Context) PrivateDnsZoneGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateDnsZoneGroupOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -155,4 +156,43 @@ type MediaGraphArgs struct {
 
 func (MediaGraphArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mediaGraphArgs)(nil)).Elem()
+}
+
+type MediaGraphInput interface {
+	pulumi.Input
+
+	ToMediaGraphOutput() MediaGraphOutput
+	ToMediaGraphOutputWithContext(ctx context.Context) MediaGraphOutput
+}
+
+func (MediaGraph) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaGraph)(nil)).Elem()
+}
+
+func (i MediaGraph) ToMediaGraphOutput() MediaGraphOutput {
+	return i.ToMediaGraphOutputWithContext(context.Background())
+}
+
+func (i MediaGraph) ToMediaGraphOutputWithContext(ctx context.Context) MediaGraphOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphOutput)
+}
+
+type MediaGraphOutput struct {
+	*pulumi.OutputState
+}
+
+func (MediaGraphOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaGraphOutput)(nil)).Elem()
+}
+
+func (o MediaGraphOutput) ToMediaGraphOutput() MediaGraphOutput {
+	return o
+}
+
+func (o MediaGraphOutput) ToMediaGraphOutputWithContext(ctx context.Context) MediaGraphOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MediaGraphOutput{})
 }

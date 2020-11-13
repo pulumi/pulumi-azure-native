@@ -4,6 +4,7 @@
 package v20190123preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -274,4 +275,43 @@ type HostPoolArgs struct {
 
 func (HostPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostPoolArgs)(nil)).Elem()
+}
+
+type HostPoolInput interface {
+	pulumi.Input
+
+	ToHostPoolOutput() HostPoolOutput
+	ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput
+}
+
+func (HostPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostPool)(nil)).Elem()
+}
+
+func (i HostPool) ToHostPoolOutput() HostPoolOutput {
+	return i.ToHostPoolOutputWithContext(context.Background())
+}
+
+func (i HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolOutput)
+}
+
+type HostPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostPoolOutput)(nil)).Elem()
+}
+
+func (o HostPoolOutput) ToHostPoolOutput() HostPoolOutput {
+	return o
+}
+
+func (o HostPoolOutput) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HostPoolOutput{})
 }

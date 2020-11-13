@@ -4,6 +4,7 @@
 package v20180301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -184,4 +185,43 @@ type FileServerArgs struct {
 
 func (FileServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileServerArgs)(nil)).Elem()
+}
+
+type FileServerInput interface {
+	pulumi.Input
+
+	ToFileServerOutput() FileServerOutput
+	ToFileServerOutputWithContext(ctx context.Context) FileServerOutput
+}
+
+func (FileServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileServer)(nil)).Elem()
+}
+
+func (i FileServer) ToFileServerOutput() FileServerOutput {
+	return i.ToFileServerOutputWithContext(context.Background())
+}
+
+func (i FileServer) ToFileServerOutputWithContext(ctx context.Context) FileServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileServerOutput)
+}
+
+type FileServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (FileServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileServerOutput)(nil)).Elem()
+}
+
+func (o FileServerOutput) ToFileServerOutput() FileServerOutput {
+	return o
+}
+
+func (o FileServerOutput) ToFileServerOutputWithContext(ctx context.Context) FileServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FileServerOutput{})
 }

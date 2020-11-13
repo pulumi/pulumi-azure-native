@@ -4,6 +4,7 @@
 package v20180801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type ReportByDepartmentArgs struct {
 
 func (ReportByDepartmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportByDepartmentArgs)(nil)).Elem()
+}
+
+type ReportByDepartmentInput interface {
+	pulumi.Input
+
+	ToReportByDepartmentOutput() ReportByDepartmentOutput
+	ToReportByDepartmentOutputWithContext(ctx context.Context) ReportByDepartmentOutput
+}
+
+func (ReportByDepartment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportByDepartment)(nil)).Elem()
+}
+
+func (i ReportByDepartment) ToReportByDepartmentOutput() ReportByDepartmentOutput {
+	return i.ToReportByDepartmentOutputWithContext(context.Background())
+}
+
+func (i ReportByDepartment) ToReportByDepartmentOutputWithContext(ctx context.Context) ReportByDepartmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportByDepartmentOutput)
+}
+
+type ReportByDepartmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReportByDepartmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportByDepartmentOutput)(nil)).Elem()
+}
+
+func (o ReportByDepartmentOutput) ToReportByDepartmentOutput() ReportByDepartmentOutput {
+	return o
+}
+
+func (o ReportByDepartmentOutput) ToReportByDepartmentOutputWithContext(ctx context.Context) ReportByDepartmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReportByDepartmentOutput{})
 }

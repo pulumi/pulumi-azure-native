@@ -4,6 +4,7 @@
 package v20190601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -369,4 +370,43 @@ type ExpressRouteCircuitArgs struct {
 
 func (ExpressRouteCircuitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitArgs)(nil)).Elem()
+}
+
+type ExpressRouteCircuitInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput
+	ToExpressRouteCircuitOutputWithContext(ctx context.Context) ExpressRouteCircuitOutput
+}
+
+func (ExpressRouteCircuit) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuit)(nil)).Elem()
+}
+
+func (i ExpressRouteCircuit) ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput {
+	return i.ToExpressRouteCircuitOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuit) ToExpressRouteCircuitOutputWithContext(ctx context.Context) ExpressRouteCircuitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitOutput)
+}
+
+type ExpressRouteCircuitOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExpressRouteCircuitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitOutput)(nil)).Elem()
+}
+
+func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutputWithContext(ctx context.Context) ExpressRouteCircuitOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExpressRouteCircuitOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -114,4 +115,43 @@ type SharedPrivateLinkResourceArgs struct {
 
 func (SharedPrivateLinkResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedPrivateLinkResourceArgs)(nil)).Elem()
+}
+
+type SharedPrivateLinkResourceInput interface {
+	pulumi.Input
+
+	ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput
+	ToSharedPrivateLinkResourceOutputWithContext(ctx context.Context) SharedPrivateLinkResourceOutput
+}
+
+func (SharedPrivateLinkResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedPrivateLinkResource)(nil)).Elem()
+}
+
+func (i SharedPrivateLinkResource) ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput {
+	return i.ToSharedPrivateLinkResourceOutputWithContext(context.Background())
+}
+
+func (i SharedPrivateLinkResource) ToSharedPrivateLinkResourceOutputWithContext(ctx context.Context) SharedPrivateLinkResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceOutput)
+}
+
+type SharedPrivateLinkResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (SharedPrivateLinkResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedPrivateLinkResourceOutput)(nil)).Elem()
+}
+
+func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput {
+	return o
+}
+
+func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutputWithContext(ctx context.Context) SharedPrivateLinkResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SharedPrivateLinkResourceOutput{})
 }

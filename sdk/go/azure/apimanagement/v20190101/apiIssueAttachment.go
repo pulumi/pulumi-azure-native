@@ -4,6 +4,7 @@
 package v20190101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -172,4 +173,43 @@ type ApiIssueAttachmentArgs struct {
 
 func (ApiIssueAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIssueAttachmentArgs)(nil)).Elem()
+}
+
+type ApiIssueAttachmentInput interface {
+	pulumi.Input
+
+	ToApiIssueAttachmentOutput() ApiIssueAttachmentOutput
+	ToApiIssueAttachmentOutputWithContext(ctx context.Context) ApiIssueAttachmentOutput
+}
+
+func (ApiIssueAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueAttachment)(nil)).Elem()
+}
+
+func (i ApiIssueAttachment) ToApiIssueAttachmentOutput() ApiIssueAttachmentOutput {
+	return i.ToApiIssueAttachmentOutputWithContext(context.Background())
+}
+
+func (i ApiIssueAttachment) ToApiIssueAttachmentOutputWithContext(ctx context.Context) ApiIssueAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueAttachmentOutput)
+}
+
+type ApiIssueAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiIssueAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueAttachmentOutput)(nil)).Elem()
+}
+
+func (o ApiIssueAttachmentOutput) ToApiIssueAttachmentOutput() ApiIssueAttachmentOutput {
+	return o
+}
+
+func (o ApiIssueAttachmentOutput) ToApiIssueAttachmentOutputWithContext(ctx context.Context) ApiIssueAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiIssueAttachmentOutput{})
 }

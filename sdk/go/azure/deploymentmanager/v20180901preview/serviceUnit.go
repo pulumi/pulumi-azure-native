@@ -4,6 +4,7 @@
 package v20180901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -167,4 +168,43 @@ type ServiceUnitArgs struct {
 
 func (ServiceUnitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceUnitArgs)(nil)).Elem()
+}
+
+type ServiceUnitInput interface {
+	pulumi.Input
+
+	ToServiceUnitOutput() ServiceUnitOutput
+	ToServiceUnitOutputWithContext(ctx context.Context) ServiceUnitOutput
+}
+
+func (ServiceUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceUnit)(nil)).Elem()
+}
+
+func (i ServiceUnit) ToServiceUnitOutput() ServiceUnitOutput {
+	return i.ToServiceUnitOutputWithContext(context.Background())
+}
+
+func (i ServiceUnit) ToServiceUnitOutputWithContext(ctx context.Context) ServiceUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceUnitOutput)
+}
+
+type ServiceUnitOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceUnitOutput)(nil)).Elem()
+}
+
+func (o ServiceUnitOutput) ToServiceUnitOutput() ServiceUnitOutput {
+	return o
+}
+
+func (o ServiceUnitOutput) ToServiceUnitOutputWithContext(ctx context.Context) ServiceUnitOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceUnitOutput{})
 }

@@ -4,6 +4,7 @@
 package v20181101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type WebAppSlotConfigurationNamesArgs struct {
 
 func (WebAppSlotConfigurationNamesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppSlotConfigurationNamesArgs)(nil)).Elem()
+}
+
+type WebAppSlotConfigurationNamesInput interface {
+	pulumi.Input
+
+	ToWebAppSlotConfigurationNamesOutput() WebAppSlotConfigurationNamesOutput
+	ToWebAppSlotConfigurationNamesOutputWithContext(ctx context.Context) WebAppSlotConfigurationNamesOutput
+}
+
+func (WebAppSlotConfigurationNames) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSlotConfigurationNames)(nil)).Elem()
+}
+
+func (i WebAppSlotConfigurationNames) ToWebAppSlotConfigurationNamesOutput() WebAppSlotConfigurationNamesOutput {
+	return i.ToWebAppSlotConfigurationNamesOutputWithContext(context.Background())
+}
+
+func (i WebAppSlotConfigurationNames) ToWebAppSlotConfigurationNamesOutputWithContext(ctx context.Context) WebAppSlotConfigurationNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSlotConfigurationNamesOutput)
+}
+
+type WebAppSlotConfigurationNamesOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppSlotConfigurationNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSlotConfigurationNamesOutput)(nil)).Elem()
+}
+
+func (o WebAppSlotConfigurationNamesOutput) ToWebAppSlotConfigurationNamesOutput() WebAppSlotConfigurationNamesOutput {
+	return o
+}
+
+func (o WebAppSlotConfigurationNamesOutput) ToWebAppSlotConfigurationNamesOutputWithContext(ctx context.Context) WebAppSlotConfigurationNamesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppSlotConfigurationNamesOutput{})
 }

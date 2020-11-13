@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -201,4 +202,43 @@ type NetworkFunctionArgs struct {
 
 func (NetworkFunctionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkFunctionArgs)(nil)).Elem()
+}
+
+type NetworkFunctionInput interface {
+	pulumi.Input
+
+	ToNetworkFunctionOutput() NetworkFunctionOutput
+	ToNetworkFunctionOutputWithContext(ctx context.Context) NetworkFunctionOutput
+}
+
+func (NetworkFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunction)(nil)).Elem()
+}
+
+func (i NetworkFunction) ToNetworkFunctionOutput() NetworkFunctionOutput {
+	return i.ToNetworkFunctionOutputWithContext(context.Background())
+}
+
+func (i NetworkFunction) ToNetworkFunctionOutputWithContext(ctx context.Context) NetworkFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionOutput)
+}
+
+type NetworkFunctionOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunctionOutput)(nil)).Elem()
+}
+
+func (o NetworkFunctionOutput) ToNetworkFunctionOutput() NetworkFunctionOutput {
+	return o
+}
+
+func (o NetworkFunctionOutput) ToNetworkFunctionOutputWithContext(ctx context.Context) NetworkFunctionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkFunctionOutput{})
 }

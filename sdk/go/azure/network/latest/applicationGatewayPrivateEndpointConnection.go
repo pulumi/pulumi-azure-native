@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type ApplicationGatewayPrivateEndpointConnectionArgs struct {
 
 func (ApplicationGatewayPrivateEndpointConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationGatewayPrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+type ApplicationGatewayPrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput
+	ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx context.Context) ApplicationGatewayPrivateEndpointConnectionOutput
+}
+
+func (ApplicationGatewayPrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i ApplicationGatewayPrivateEndpointConnection) ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput {
+	return i.ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayPrivateEndpointConnection) ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx context.Context) ApplicationGatewayPrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPrivateEndpointConnectionOutput)
+}
+
+type ApplicationGatewayPrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationGatewayPrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnectionOutput)(nil)).Elem()
+}
+
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx context.Context) ApplicationGatewayPrivateEndpointConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationGatewayPrivateEndpointConnectionOutput{})
 }

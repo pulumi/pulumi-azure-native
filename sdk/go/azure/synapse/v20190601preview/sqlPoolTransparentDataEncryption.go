@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -118,4 +119,43 @@ type SqlPoolTransparentDataEncryptionArgs struct {
 
 func (SqlPoolTransparentDataEncryptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolTransparentDataEncryptionArgs)(nil)).Elem()
+}
+
+type SqlPoolTransparentDataEncryptionInput interface {
+	pulumi.Input
+
+	ToSqlPoolTransparentDataEncryptionOutput() SqlPoolTransparentDataEncryptionOutput
+	ToSqlPoolTransparentDataEncryptionOutputWithContext(ctx context.Context) SqlPoolTransparentDataEncryptionOutput
+}
+
+func (SqlPoolTransparentDataEncryption) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolTransparentDataEncryption)(nil)).Elem()
+}
+
+func (i SqlPoolTransparentDataEncryption) ToSqlPoolTransparentDataEncryptionOutput() SqlPoolTransparentDataEncryptionOutput {
+	return i.ToSqlPoolTransparentDataEncryptionOutputWithContext(context.Background())
+}
+
+func (i SqlPoolTransparentDataEncryption) ToSqlPoolTransparentDataEncryptionOutputWithContext(ctx context.Context) SqlPoolTransparentDataEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolTransparentDataEncryptionOutput)
+}
+
+type SqlPoolTransparentDataEncryptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlPoolTransparentDataEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolTransparentDataEncryptionOutput)(nil)).Elem()
+}
+
+func (o SqlPoolTransparentDataEncryptionOutput) ToSqlPoolTransparentDataEncryptionOutput() SqlPoolTransparentDataEncryptionOutput {
+	return o
+}
+
+func (o SqlPoolTransparentDataEncryptionOutput) ToSqlPoolTransparentDataEncryptionOutputWithContext(ctx context.Context) SqlPoolTransparentDataEncryptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlPoolTransparentDataEncryptionOutput{})
 }

@@ -4,6 +4,7 @@
 package v20181201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -200,4 +201,43 @@ type ServiceEndpointPolicyDefinitionArgs struct {
 
 func (ServiceEndpointPolicyDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointPolicyDefinitionArgs)(nil)).Elem()
+}
+
+type ServiceEndpointPolicyDefinitionInput interface {
+	pulumi.Input
+
+	ToServiceEndpointPolicyDefinitionOutput() ServiceEndpointPolicyDefinitionOutput
+	ToServiceEndpointPolicyDefinitionOutputWithContext(ctx context.Context) ServiceEndpointPolicyDefinitionOutput
+}
+
+func (ServiceEndpointPolicyDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointPolicyDefinition)(nil)).Elem()
+}
+
+func (i ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutput() ServiceEndpointPolicyDefinitionOutput {
+	return i.ToServiceEndpointPolicyDefinitionOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutputWithContext(ctx context.Context) ServiceEndpointPolicyDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPolicyDefinitionOutput)
+}
+
+type ServiceEndpointPolicyDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointPolicyDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointPolicyDefinitionOutput)(nil)).Elem()
+}
+
+func (o ServiceEndpointPolicyDefinitionOutput) ToServiceEndpointPolicyDefinitionOutput() ServiceEndpointPolicyDefinitionOutput {
+	return o
+}
+
+func (o ServiceEndpointPolicyDefinitionOutput) ToServiceEndpointPolicyDefinitionOutputWithContext(ctx context.Context) ServiceEndpointPolicyDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceEndpointPolicyDefinitionOutput{})
 }

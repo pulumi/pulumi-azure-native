@@ -4,6 +4,7 @@
 package v20200921preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -181,4 +182,43 @@ type ApplicationGroupArgs struct {
 
 func (ApplicationGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationGroupArgs)(nil)).Elem()
+}
+
+type ApplicationGroupInput interface {
+	pulumi.Input
+
+	ToApplicationGroupOutput() ApplicationGroupOutput
+	ToApplicationGroupOutputWithContext(ctx context.Context) ApplicationGroupOutput
+}
+
+func (ApplicationGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGroup)(nil)).Elem()
+}
+
+func (i ApplicationGroup) ToApplicationGroupOutput() ApplicationGroupOutput {
+	return i.ToApplicationGroupOutputWithContext(context.Background())
+}
+
+func (i ApplicationGroup) ToApplicationGroupOutputWithContext(ctx context.Context) ApplicationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGroupOutput)
+}
+
+type ApplicationGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGroupOutput)(nil)).Elem()
+}
+
+func (o ApplicationGroupOutput) ToApplicationGroupOutput() ApplicationGroupOutput {
+	return o
+}
+
+func (o ApplicationGroupOutput) ToApplicationGroupOutputWithContext(ctx context.Context) ApplicationGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationGroupOutput{})
 }

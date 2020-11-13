@@ -4,6 +4,7 @@
 package v20181001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -283,4 +284,43 @@ type VirtualMachineScaleSetVMArgs struct {
 
 func (VirtualMachineScaleSetVMArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineScaleSetVMArgs)(nil)).Elem()
+}
+
+type VirtualMachineScaleSetVMInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetVMOutput() VirtualMachineScaleSetVMOutput
+	ToVirtualMachineScaleSetVMOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMOutput
+}
+
+func (VirtualMachineScaleSetVM) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetVM)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetVM) ToVirtualMachineScaleSetVMOutput() VirtualMachineScaleSetVMOutput {
+	return i.ToVirtualMachineScaleSetVMOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetVM) ToVirtualMachineScaleSetVMOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMOutput)
+}
+
+type VirtualMachineScaleSetVMOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineScaleSetVMOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetVMOutput)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetVMOutput) ToVirtualMachineScaleSetVMOutput() VirtualMachineScaleSetVMOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetVMOutput) ToVirtualMachineScaleSetVMOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualMachineScaleSetVMOutput{})
 }

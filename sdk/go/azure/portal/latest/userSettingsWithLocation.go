@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -95,4 +96,43 @@ type UserSettingsWithLocationArgs struct {
 
 func (UserSettingsWithLocationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userSettingsWithLocationArgs)(nil)).Elem()
+}
+
+type UserSettingsWithLocationInput interface {
+	pulumi.Input
+
+	ToUserSettingsWithLocationOutput() UserSettingsWithLocationOutput
+	ToUserSettingsWithLocationOutputWithContext(ctx context.Context) UserSettingsWithLocationOutput
+}
+
+func (UserSettingsWithLocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsWithLocation)(nil)).Elem()
+}
+
+func (i UserSettingsWithLocation) ToUserSettingsWithLocationOutput() UserSettingsWithLocationOutput {
+	return i.ToUserSettingsWithLocationOutputWithContext(context.Background())
+}
+
+func (i UserSettingsWithLocation) ToUserSettingsWithLocationOutputWithContext(ctx context.Context) UserSettingsWithLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsWithLocationOutput)
+}
+
+type UserSettingsWithLocationOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserSettingsWithLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsWithLocationOutput)(nil)).Elem()
+}
+
+func (o UserSettingsWithLocationOutput) ToUserSettingsWithLocationOutput() UserSettingsWithLocationOutput {
+	return o
+}
+
+func (o UserSettingsWithLocationOutput) ToUserSettingsWithLocationOutputWithContext(ctx context.Context) UserSettingsWithLocationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserSettingsWithLocationOutput{})
 }

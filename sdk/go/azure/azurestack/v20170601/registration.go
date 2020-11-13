@@ -4,6 +4,7 @@
 package v20170601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -144,4 +145,43 @@ type RegistrationArgs struct {
 
 func (RegistrationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registrationArgs)(nil)).Elem()
+}
+
+type RegistrationInput interface {
+	pulumi.Input
+
+	ToRegistrationOutput() RegistrationOutput
+	ToRegistrationOutputWithContext(ctx context.Context) RegistrationOutput
+}
+
+func (Registration) ElementType() reflect.Type {
+	return reflect.TypeOf((*Registration)(nil)).Elem()
+}
+
+func (i Registration) ToRegistrationOutput() RegistrationOutput {
+	return i.ToRegistrationOutputWithContext(context.Background())
+}
+
+func (i Registration) ToRegistrationOutputWithContext(ctx context.Context) RegistrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationOutput)
+}
+
+type RegistrationOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegistrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationOutput)(nil)).Elem()
+}
+
+func (o RegistrationOutput) ToRegistrationOutput() RegistrationOutput {
+	return o
+}
+
+func (o RegistrationOutput) ToRegistrationOutputWithContext(ctx context.Context) RegistrationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegistrationOutput{})
 }

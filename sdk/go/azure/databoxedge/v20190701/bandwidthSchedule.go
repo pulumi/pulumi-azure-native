@@ -4,6 +4,7 @@
 package v20190701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -162,4 +163,43 @@ type BandwidthScheduleArgs struct {
 
 func (BandwidthScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bandwidthScheduleArgs)(nil)).Elem()
+}
+
+type BandwidthScheduleInput interface {
+	pulumi.Input
+
+	ToBandwidthScheduleOutput() BandwidthScheduleOutput
+	ToBandwidthScheduleOutputWithContext(ctx context.Context) BandwidthScheduleOutput
+}
+
+func (BandwidthSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthSchedule)(nil)).Elem()
+}
+
+func (i BandwidthSchedule) ToBandwidthScheduleOutput() BandwidthScheduleOutput {
+	return i.ToBandwidthScheduleOutputWithContext(context.Background())
+}
+
+func (i BandwidthSchedule) ToBandwidthScheduleOutputWithContext(ctx context.Context) BandwidthScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BandwidthScheduleOutput)
+}
+
+type BandwidthScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (BandwidthScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthScheduleOutput)(nil)).Elem()
+}
+
+func (o BandwidthScheduleOutput) ToBandwidthScheduleOutput() BandwidthScheduleOutput {
+	return o
+}
+
+func (o BandwidthScheduleOutput) ToBandwidthScheduleOutputWithContext(ctx context.Context) BandwidthScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BandwidthScheduleOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -172,4 +173,43 @@ type SqlPoolWorkloadClassifierArgs struct {
 
 func (SqlPoolWorkloadClassifierArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolWorkloadClassifierArgs)(nil)).Elem()
+}
+
+type SqlPoolWorkloadClassifierInput interface {
+	pulumi.Input
+
+	ToSqlPoolWorkloadClassifierOutput() SqlPoolWorkloadClassifierOutput
+	ToSqlPoolWorkloadClassifierOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierOutput
+}
+
+func (SqlPoolWorkloadClassifier) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil)).Elem()
+}
+
+func (i SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutput() SqlPoolWorkloadClassifierOutput {
+	return i.ToSqlPoolWorkloadClassifierOutputWithContext(context.Background())
+}
+
+func (i SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierOutput)
+}
+
+type SqlPoolWorkloadClassifierOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlPoolWorkloadClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolWorkloadClassifierOutput)(nil)).Elem()
+}
+
+func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierOutput() SqlPoolWorkloadClassifierOutput {
+	return o
+}
+
+func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlPoolWorkloadClassifierOutput{})
 }

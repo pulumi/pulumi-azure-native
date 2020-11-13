@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -143,4 +144,43 @@ type TemplateSpecArgs struct {
 
 func (TemplateSpecArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateSpecArgs)(nil)).Elem()
+}
+
+type TemplateSpecInput interface {
+	pulumi.Input
+
+	ToTemplateSpecOutput() TemplateSpecOutput
+	ToTemplateSpecOutputWithContext(ctx context.Context) TemplateSpecOutput
+}
+
+func (TemplateSpec) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpec)(nil)).Elem()
+}
+
+func (i TemplateSpec) ToTemplateSpecOutput() TemplateSpecOutput {
+	return i.ToTemplateSpecOutputWithContext(context.Background())
+}
+
+func (i TemplateSpec) ToTemplateSpecOutputWithContext(ctx context.Context) TemplateSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecOutput)
+}
+
+type TemplateSpecOutput struct {
+	*pulumi.OutputState
+}
+
+func (TemplateSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecOutput)(nil)).Elem()
+}
+
+func (o TemplateSpecOutput) ToTemplateSpecOutput() TemplateSpecOutput {
+	return o
+}
+
+func (o TemplateSpecOutput) ToTemplateSpecOutputWithContext(ctx context.Context) TemplateSpecOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TemplateSpecOutput{})
 }

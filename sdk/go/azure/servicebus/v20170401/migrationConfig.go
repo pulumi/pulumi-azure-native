@@ -4,6 +4,7 @@
 package v20170401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -145,4 +146,43 @@ type MigrationConfigArgs struct {
 
 func (MigrationConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*migrationConfigArgs)(nil)).Elem()
+}
+
+type MigrationConfigInput interface {
+	pulumi.Input
+
+	ToMigrationConfigOutput() MigrationConfigOutput
+	ToMigrationConfigOutputWithContext(ctx context.Context) MigrationConfigOutput
+}
+
+func (MigrationConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationConfig)(nil)).Elem()
+}
+
+func (i MigrationConfig) ToMigrationConfigOutput() MigrationConfigOutput {
+	return i.ToMigrationConfigOutputWithContext(context.Background())
+}
+
+func (i MigrationConfig) ToMigrationConfigOutputWithContext(ctx context.Context) MigrationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationConfigOutput)
+}
+
+type MigrationConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (MigrationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationConfigOutput)(nil)).Elem()
+}
+
+func (o MigrationConfigOutput) ToMigrationConfigOutput() MigrationConfigOutput {
+	return o
+}
+
+func (o MigrationConfigOutput) ToMigrationConfigOutputWithContext(ctx context.Context) MigrationConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MigrationConfigOutput{})
 }

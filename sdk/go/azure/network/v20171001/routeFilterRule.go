@@ -4,6 +4,7 @@
 package v20171001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -258,4 +259,43 @@ type RouteFilterRuleArgs struct {
 
 func (RouteFilterRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeFilterRuleArgs)(nil)).Elem()
+}
+
+type RouteFilterRuleInput interface {
+	pulumi.Input
+
+	ToRouteFilterRuleOutput() RouteFilterRuleOutput
+	ToRouteFilterRuleOutputWithContext(ctx context.Context) RouteFilterRuleOutput
+}
+
+func (RouteFilterRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteFilterRule)(nil)).Elem()
+}
+
+func (i RouteFilterRule) ToRouteFilterRuleOutput() RouteFilterRuleOutput {
+	return i.ToRouteFilterRuleOutputWithContext(context.Background())
+}
+
+func (i RouteFilterRule) ToRouteFilterRuleOutputWithContext(ctx context.Context) RouteFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterRuleOutput)
+}
+
+type RouteFilterRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (RouteFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteFilterRuleOutput)(nil)).Elem()
+}
+
+func (o RouteFilterRuleOutput) ToRouteFilterRuleOutput() RouteFilterRuleOutput {
+	return o
+}
+
+func (o RouteFilterRuleOutput) ToRouteFilterRuleOutputWithContext(ctx context.Context) RouteFilterRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RouteFilterRuleOutput{})
 }

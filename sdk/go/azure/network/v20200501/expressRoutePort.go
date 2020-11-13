@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -264,4 +265,43 @@ type ExpressRoutePortArgs struct {
 
 func (ExpressRoutePortArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRoutePortArgs)(nil)).Elem()
+}
+
+type ExpressRoutePortInput interface {
+	pulumi.Input
+
+	ToExpressRoutePortOutput() ExpressRoutePortOutput
+	ToExpressRoutePortOutputWithContext(ctx context.Context) ExpressRoutePortOutput
+}
+
+func (ExpressRoutePort) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRoutePort)(nil)).Elem()
+}
+
+func (i ExpressRoutePort) ToExpressRoutePortOutput() ExpressRoutePortOutput {
+	return i.ToExpressRoutePortOutputWithContext(context.Background())
+}
+
+func (i ExpressRoutePort) ToExpressRoutePortOutputWithContext(ctx context.Context) ExpressRoutePortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortOutput)
+}
+
+type ExpressRoutePortOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExpressRoutePortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRoutePortOutput)(nil)).Elem()
+}
+
+func (o ExpressRoutePortOutput) ToExpressRoutePortOutput() ExpressRoutePortOutput {
+	return o
+}
+
+func (o ExpressRoutePortOutput) ToExpressRoutePortOutputWithContext(ctx context.Context) ExpressRoutePortOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExpressRoutePortOutput{})
 }

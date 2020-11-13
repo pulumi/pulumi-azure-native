@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type AccountFilterArgs struct {
 
 func (AccountFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountFilterArgs)(nil)).Elem()
+}
+
+type AccountFilterInput interface {
+	pulumi.Input
+
+	ToAccountFilterOutput() AccountFilterOutput
+	ToAccountFilterOutputWithContext(ctx context.Context) AccountFilterOutput
+}
+
+func (AccountFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilter)(nil)).Elem()
+}
+
+func (i AccountFilter) ToAccountFilterOutput() AccountFilterOutput {
+	return i.ToAccountFilterOutputWithContext(context.Background())
+}
+
+func (i AccountFilter) ToAccountFilterOutputWithContext(ctx context.Context) AccountFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterOutput)
+}
+
+type AccountFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccountFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilterOutput)(nil)).Elem()
+}
+
+func (o AccountFilterOutput) ToAccountFilterOutput() AccountFilterOutput {
+	return o
+}
+
+func (o AccountFilterOutput) ToAccountFilterOutputWithContext(ctx context.Context) AccountFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccountFilterOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type IntegrationAccountSessionArgs struct {
 
 func (IntegrationAccountSessionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountSessionArgs)(nil)).Elem()
+}
+
+type IntegrationAccountSessionInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountSessionOutput() IntegrationAccountSessionOutput
+	ToIntegrationAccountSessionOutputWithContext(ctx context.Context) IntegrationAccountSessionOutput
+}
+
+func (IntegrationAccountSession) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountSession)(nil)).Elem()
+}
+
+func (i IntegrationAccountSession) ToIntegrationAccountSessionOutput() IntegrationAccountSessionOutput {
+	return i.ToIntegrationAccountSessionOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountSession) ToIntegrationAccountSessionOutputWithContext(ctx context.Context) IntegrationAccountSessionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSessionOutput)
+}
+
+type IntegrationAccountSessionOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationAccountSessionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountSessionOutput)(nil)).Elem()
+}
+
+func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionOutput() IntegrationAccountSessionOutput {
+	return o
+}
+
+func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionOutputWithContext(ctx context.Context) IntegrationAccountSessionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationAccountSessionOutput{})
 }

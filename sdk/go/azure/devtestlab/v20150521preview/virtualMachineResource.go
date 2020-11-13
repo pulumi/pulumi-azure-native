@@ -4,6 +4,7 @@
 package v20150521preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -335,4 +336,43 @@ type VirtualMachineResourceArgs struct {
 
 func (VirtualMachineResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineResourceArgs)(nil)).Elem()
+}
+
+type VirtualMachineResourceInput interface {
+	pulumi.Input
+
+	ToVirtualMachineResourceOutput() VirtualMachineResourceOutput
+	ToVirtualMachineResourceOutputWithContext(ctx context.Context) VirtualMachineResourceOutput
+}
+
+func (VirtualMachineResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineResource)(nil)).Elem()
+}
+
+func (i VirtualMachineResource) ToVirtualMachineResourceOutput() VirtualMachineResourceOutput {
+	return i.ToVirtualMachineResourceOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineResource) ToVirtualMachineResourceOutputWithContext(ctx context.Context) VirtualMachineResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineResourceOutput)
+}
+
+type VirtualMachineResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineResourceOutput)(nil)).Elem()
+}
+
+func (o VirtualMachineResourceOutput) ToVirtualMachineResourceOutput() VirtualMachineResourceOutput {
+	return o
+}
+
+func (o VirtualMachineResourceOutput) ToVirtualMachineResourceOutputWithContext(ctx context.Context) VirtualMachineResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualMachineResourceOutput{})
 }

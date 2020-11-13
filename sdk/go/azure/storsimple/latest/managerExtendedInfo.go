@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -183,4 +184,43 @@ type ManagerExtendedInfoArgs struct {
 
 func (ManagerExtendedInfoArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managerExtendedInfoArgs)(nil)).Elem()
+}
+
+type ManagerExtendedInfoInput interface {
+	pulumi.Input
+
+	ToManagerExtendedInfoOutput() ManagerExtendedInfoOutput
+	ToManagerExtendedInfoOutputWithContext(ctx context.Context) ManagerExtendedInfoOutput
+}
+
+func (ManagerExtendedInfo) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerExtendedInfo)(nil)).Elem()
+}
+
+func (i ManagerExtendedInfo) ToManagerExtendedInfoOutput() ManagerExtendedInfoOutput {
+	return i.ToManagerExtendedInfoOutputWithContext(context.Background())
+}
+
+func (i ManagerExtendedInfo) ToManagerExtendedInfoOutputWithContext(ctx context.Context) ManagerExtendedInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagerExtendedInfoOutput)
+}
+
+type ManagerExtendedInfoOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagerExtendedInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerExtendedInfoOutput)(nil)).Elem()
+}
+
+func (o ManagerExtendedInfoOutput) ToManagerExtendedInfoOutput() ManagerExtendedInfoOutput {
+	return o
+}
+
+func (o ManagerExtendedInfoOutput) ToManagerExtendedInfoOutputWithContext(ctx context.Context) ManagerExtendedInfoOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagerExtendedInfoOutput{})
 }

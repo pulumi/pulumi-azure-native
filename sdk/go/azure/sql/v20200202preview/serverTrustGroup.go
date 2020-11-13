@@ -4,6 +4,7 @@
 package v20200202preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -121,4 +122,43 @@ type ServerTrustGroupArgs struct {
 
 func (ServerTrustGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverTrustGroupArgs)(nil)).Elem()
+}
+
+type ServerTrustGroupInput interface {
+	pulumi.Input
+
+	ToServerTrustGroupOutput() ServerTrustGroupOutput
+	ToServerTrustGroupOutputWithContext(ctx context.Context) ServerTrustGroupOutput
+}
+
+func (ServerTrustGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerTrustGroup)(nil)).Elem()
+}
+
+func (i ServerTrustGroup) ToServerTrustGroupOutput() ServerTrustGroupOutput {
+	return i.ToServerTrustGroupOutputWithContext(context.Background())
+}
+
+func (i ServerTrustGroup) ToServerTrustGroupOutputWithContext(ctx context.Context) ServerTrustGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerTrustGroupOutput)
+}
+
+type ServerTrustGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerTrustGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerTrustGroupOutput)(nil)).Elem()
+}
+
+func (o ServerTrustGroupOutput) ToServerTrustGroupOutput() ServerTrustGroupOutput {
+	return o
+}
+
+func (o ServerTrustGroupOutput) ToServerTrustGroupOutputWithContext(ctx context.Context) ServerTrustGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerTrustGroupOutput{})
 }

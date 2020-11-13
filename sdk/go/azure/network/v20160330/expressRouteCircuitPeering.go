@@ -4,6 +4,7 @@
 package v20160330
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -342,4 +343,43 @@ type ExpressRouteCircuitPeeringArgs struct {
 
 func (ExpressRouteCircuitPeeringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitPeeringArgs)(nil)).Elem()
+}
+
+type ExpressRouteCircuitPeeringInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitPeeringOutput() ExpressRouteCircuitPeeringOutput
+	ToExpressRouteCircuitPeeringOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringOutput
+}
+
+func (ExpressRouteCircuitPeering) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitPeering)(nil)).Elem()
+}
+
+func (i ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutput() ExpressRouteCircuitPeeringOutput {
+	return i.ToExpressRouteCircuitPeeringOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringOutput)
+}
+
+type ExpressRouteCircuitPeeringOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExpressRouteCircuitPeeringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitPeeringOutput)(nil)).Elem()
+}
+
+func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringOutput() ExpressRouteCircuitPeeringOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringOutput{})
 }

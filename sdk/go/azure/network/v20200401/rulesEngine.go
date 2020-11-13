@@ -4,6 +4,7 @@
 package v20200401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,4 +124,43 @@ type RulesEngineArgs struct {
 
 func (RulesEngineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rulesEngineArgs)(nil)).Elem()
+}
+
+type RulesEngineInput interface {
+	pulumi.Input
+
+	ToRulesEngineOutput() RulesEngineOutput
+	ToRulesEngineOutputWithContext(ctx context.Context) RulesEngineOutput
+}
+
+func (RulesEngine) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngine)(nil)).Elem()
+}
+
+func (i RulesEngine) ToRulesEngineOutput() RulesEngineOutput {
+	return i.ToRulesEngineOutputWithContext(context.Background())
+}
+
+func (i RulesEngine) ToRulesEngineOutputWithContext(ctx context.Context) RulesEngineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineOutput)
+}
+
+type RulesEngineOutput struct {
+	*pulumi.OutputState
+}
+
+func (RulesEngineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesEngineOutput)(nil)).Elem()
+}
+
+func (o RulesEngineOutput) ToRulesEngineOutput() RulesEngineOutput {
+	return o
+}
+
+func (o RulesEngineOutput) ToRulesEngineOutputWithContext(ctx context.Context) RulesEngineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RulesEngineOutput{})
 }

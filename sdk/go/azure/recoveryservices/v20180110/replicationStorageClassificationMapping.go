@@ -4,6 +4,7 @@
 package v20180110
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type ReplicationStorageClassificationMappingArgs struct {
 
 func (ReplicationStorageClassificationMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationStorageClassificationMappingArgs)(nil)).Elem()
+}
+
+type ReplicationStorageClassificationMappingInput interface {
+	pulumi.Input
+
+	ToReplicationStorageClassificationMappingOutput() ReplicationStorageClassificationMappingOutput
+	ToReplicationStorageClassificationMappingOutputWithContext(ctx context.Context) ReplicationStorageClassificationMappingOutput
+}
+
+func (ReplicationStorageClassificationMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationStorageClassificationMapping)(nil)).Elem()
+}
+
+func (i ReplicationStorageClassificationMapping) ToReplicationStorageClassificationMappingOutput() ReplicationStorageClassificationMappingOutput {
+	return i.ToReplicationStorageClassificationMappingOutputWithContext(context.Background())
+}
+
+func (i ReplicationStorageClassificationMapping) ToReplicationStorageClassificationMappingOutputWithContext(ctx context.Context) ReplicationStorageClassificationMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationStorageClassificationMappingOutput)
+}
+
+type ReplicationStorageClassificationMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationStorageClassificationMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationStorageClassificationMappingOutput)(nil)).Elem()
+}
+
+func (o ReplicationStorageClassificationMappingOutput) ToReplicationStorageClassificationMappingOutput() ReplicationStorageClassificationMappingOutput {
+	return o
+}
+
+func (o ReplicationStorageClassificationMappingOutput) ToReplicationStorageClassificationMappingOutputWithContext(ctx context.Context) ReplicationStorageClassificationMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationStorageClassificationMappingOutput{})
 }

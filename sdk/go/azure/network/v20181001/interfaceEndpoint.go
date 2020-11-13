@@ -4,6 +4,7 @@
 package v20181001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -188,4 +189,43 @@ type InterfaceEndpointArgs struct {
 
 func (InterfaceEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*interfaceEndpointArgs)(nil)).Elem()
+}
+
+type InterfaceEndpointInput interface {
+	pulumi.Input
+
+	ToInterfaceEndpointOutput() InterfaceEndpointOutput
+	ToInterfaceEndpointOutputWithContext(ctx context.Context) InterfaceEndpointOutput
+}
+
+func (InterfaceEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*InterfaceEndpoint)(nil)).Elem()
+}
+
+func (i InterfaceEndpoint) ToInterfaceEndpointOutput() InterfaceEndpointOutput {
+	return i.ToInterfaceEndpointOutputWithContext(context.Background())
+}
+
+func (i InterfaceEndpoint) ToInterfaceEndpointOutputWithContext(ctx context.Context) InterfaceEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InterfaceEndpointOutput)
+}
+
+type InterfaceEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (InterfaceEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InterfaceEndpointOutput)(nil)).Elem()
+}
+
+func (o InterfaceEndpointOutput) ToInterfaceEndpointOutput() InterfaceEndpointOutput {
+	return o
+}
+
+func (o InterfaceEndpointOutput) ToInterfaceEndpointOutputWithContext(ctx context.Context) InterfaceEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InterfaceEndpointOutput{})
 }

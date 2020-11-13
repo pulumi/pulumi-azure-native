@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -218,4 +219,43 @@ type BookmarkArgs struct {
 
 func (BookmarkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bookmarkArgs)(nil)).Elem()
+}
+
+type BookmarkInput interface {
+	pulumi.Input
+
+	ToBookmarkOutput() BookmarkOutput
+	ToBookmarkOutputWithContext(ctx context.Context) BookmarkOutput
+}
+
+func (Bookmark) ElementType() reflect.Type {
+	return reflect.TypeOf((*Bookmark)(nil)).Elem()
+}
+
+func (i Bookmark) ToBookmarkOutput() BookmarkOutput {
+	return i.ToBookmarkOutputWithContext(context.Background())
+}
+
+func (i Bookmark) ToBookmarkOutputWithContext(ctx context.Context) BookmarkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkOutput)
+}
+
+type BookmarkOutput struct {
+	*pulumi.OutputState
+}
+
+func (BookmarkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkOutput)(nil)).Elem()
+}
+
+func (o BookmarkOutput) ToBookmarkOutput() BookmarkOutput {
+	return o
+}
+
+func (o BookmarkOutput) ToBookmarkOutputWithContext(ctx context.Context) BookmarkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BookmarkOutput{})
 }

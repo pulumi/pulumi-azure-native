@@ -4,6 +4,7 @@
 package v20150521preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -215,4 +216,43 @@ type ArtifactSourceResourceArgs struct {
 
 func (ArtifactSourceResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*artifactSourceResourceArgs)(nil)).Elem()
+}
+
+type ArtifactSourceResourceInput interface {
+	pulumi.Input
+
+	ToArtifactSourceResourceOutput() ArtifactSourceResourceOutput
+	ToArtifactSourceResourceOutputWithContext(ctx context.Context) ArtifactSourceResourceOutput
+}
+
+func (ArtifactSourceResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactSourceResource)(nil)).Elem()
+}
+
+func (i ArtifactSourceResource) ToArtifactSourceResourceOutput() ArtifactSourceResourceOutput {
+	return i.ToArtifactSourceResourceOutputWithContext(context.Background())
+}
+
+func (i ArtifactSourceResource) ToArtifactSourceResourceOutputWithContext(ctx context.Context) ArtifactSourceResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactSourceResourceOutput)
+}
+
+type ArtifactSourceResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ArtifactSourceResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactSourceResourceOutput)(nil)).Elem()
+}
+
+func (o ArtifactSourceResourceOutput) ToArtifactSourceResourceOutput() ArtifactSourceResourceOutput {
+	return o
+}
+
+func (o ArtifactSourceResourceOutput) ToArtifactSourceResourceOutputWithContext(ctx context.Context) ArtifactSourceResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ArtifactSourceResourceOutput{})
 }

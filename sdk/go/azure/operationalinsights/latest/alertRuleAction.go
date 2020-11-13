@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -141,4 +142,43 @@ type AlertRuleActionArgs struct {
 
 func (AlertRuleActionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertRuleActionArgs)(nil)).Elem()
+}
+
+type AlertRuleActionInput interface {
+	pulumi.Input
+
+	ToAlertRuleActionOutput() AlertRuleActionOutput
+	ToAlertRuleActionOutputWithContext(ctx context.Context) AlertRuleActionOutput
+}
+
+func (AlertRuleAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAction)(nil)).Elem()
+}
+
+func (i AlertRuleAction) ToAlertRuleActionOutput() AlertRuleActionOutput {
+	return i.ToAlertRuleActionOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAction) ToAlertRuleActionOutputWithContext(ctx context.Context) AlertRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleActionOutput)
+}
+
+type AlertRuleActionOutput struct {
+	*pulumi.OutputState
+}
+
+func (AlertRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleActionOutput)(nil)).Elem()
+}
+
+func (o AlertRuleActionOutput) ToAlertRuleActionOutput() AlertRuleActionOutput {
+	return o
+}
+
+func (o AlertRuleActionOutput) ToAlertRuleActionOutputWithContext(ctx context.Context) AlertRuleActionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AlertRuleActionOutput{})
 }

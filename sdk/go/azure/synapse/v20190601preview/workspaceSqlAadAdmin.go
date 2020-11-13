@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -128,4 +129,43 @@ type WorkspaceSqlAadAdminArgs struct {
 
 func (WorkspaceSqlAadAdminArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceSqlAadAdminArgs)(nil)).Elem()
+}
+
+type WorkspaceSqlAadAdminInput interface {
+	pulumi.Input
+
+	ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput
+	ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput
+}
+
+func (WorkspaceSqlAadAdmin) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil)).Elem()
+}
+
+func (i WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput {
+	return i.ToWorkspaceSqlAadAdminOutputWithContext(context.Background())
+}
+
+func (i WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminOutput)
+}
+
+type WorkspaceSqlAadAdminOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceSqlAadAdminOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSqlAadAdminOutput)(nil)).Elem()
+}
+
+func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput {
+	return o
+}
+
+func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkspaceSqlAadAdminOutput{})
 }

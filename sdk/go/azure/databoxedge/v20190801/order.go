@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,4 +164,43 @@ type OrderArgs struct {
 
 func (OrderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*orderArgs)(nil)).Elem()
+}
+
+type OrderInput interface {
+	pulumi.Input
+
+	ToOrderOutput() OrderOutput
+	ToOrderOutputWithContext(ctx context.Context) OrderOutput
+}
+
+func (Order) ElementType() reflect.Type {
+	return reflect.TypeOf((*Order)(nil)).Elem()
+}
+
+func (i Order) ToOrderOutput() OrderOutput {
+	return i.ToOrderOutputWithContext(context.Background())
+}
+
+func (i Order) ToOrderOutputWithContext(ctx context.Context) OrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderOutput)
+}
+
+type OrderOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderOutput)(nil)).Elem()
+}
+
+func (o OrderOutput) ToOrderOutput() OrderOutput {
+	return o
+}
+
+func (o OrderOutput) ToOrderOutputWithContext(ctx context.Context) OrderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrderOutput{})
 }

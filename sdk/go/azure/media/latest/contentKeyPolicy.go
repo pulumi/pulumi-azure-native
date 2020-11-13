@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -151,4 +152,43 @@ type ContentKeyPolicyArgs struct {
 
 func (ContentKeyPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*contentKeyPolicyArgs)(nil)).Elem()
+}
+
+type ContentKeyPolicyInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyOutput() ContentKeyPolicyOutput
+	ToContentKeyPolicyOutputWithContext(ctx context.Context) ContentKeyPolicyOutput
+}
+
+func (ContentKeyPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicy)(nil)).Elem()
+}
+
+func (i ContentKeyPolicy) ToContentKeyPolicyOutput() ContentKeyPolicyOutput {
+	return i.ToContentKeyPolicyOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicy) ToContentKeyPolicyOutputWithContext(ctx context.Context) ContentKeyPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOutput)
+}
+
+type ContentKeyPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContentKeyPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyOutput)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyOutput) ToContentKeyPolicyOutput() ContentKeyPolicyOutput {
+	return o
+}
+
+func (o ContentKeyPolicyOutput) ToContentKeyPolicyOutputWithContext(ctx context.Context) ContentKeyPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContentKeyPolicyOutput{})
 }

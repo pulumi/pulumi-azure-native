@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -297,4 +298,43 @@ type WatchlistArgs struct {
 
 func (WatchlistArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*watchlistArgs)(nil)).Elem()
+}
+
+type WatchlistInput interface {
+	pulumi.Input
+
+	ToWatchlistOutput() WatchlistOutput
+	ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput
+}
+
+func (Watchlist) ElementType() reflect.Type {
+	return reflect.TypeOf((*Watchlist)(nil)).Elem()
+}
+
+func (i Watchlist) ToWatchlistOutput() WatchlistOutput {
+	return i.ToWatchlistOutputWithContext(context.Background())
+}
+
+func (i Watchlist) ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WatchlistOutput)
+}
+
+type WatchlistOutput struct {
+	*pulumi.OutputState
+}
+
+func (WatchlistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WatchlistOutput)(nil)).Elem()
+}
+
+func (o WatchlistOutput) ToWatchlistOutput() WatchlistOutput {
+	return o
+}
+
+func (o WatchlistOutput) ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WatchlistOutput{})
 }

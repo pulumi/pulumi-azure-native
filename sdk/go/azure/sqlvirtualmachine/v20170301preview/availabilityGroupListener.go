@@ -4,6 +4,7 @@
 package v20170301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -141,4 +142,43 @@ type AvailabilityGroupListenerArgs struct {
 
 func (AvailabilityGroupListenerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*availabilityGroupListenerArgs)(nil)).Elem()
+}
+
+type AvailabilityGroupListenerInput interface {
+	pulumi.Input
+
+	ToAvailabilityGroupListenerOutput() AvailabilityGroupListenerOutput
+	ToAvailabilityGroupListenerOutputWithContext(ctx context.Context) AvailabilityGroupListenerOutput
+}
+
+func (AvailabilityGroupListener) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilityGroupListener)(nil)).Elem()
+}
+
+func (i AvailabilityGroupListener) ToAvailabilityGroupListenerOutput() AvailabilityGroupListenerOutput {
+	return i.ToAvailabilityGroupListenerOutputWithContext(context.Background())
+}
+
+func (i AvailabilityGroupListener) ToAvailabilityGroupListenerOutputWithContext(ctx context.Context) AvailabilityGroupListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityGroupListenerOutput)
+}
+
+type AvailabilityGroupListenerOutput struct {
+	*pulumi.OutputState
+}
+
+func (AvailabilityGroupListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilityGroupListenerOutput)(nil)).Elem()
+}
+
+func (o AvailabilityGroupListenerOutput) ToAvailabilityGroupListenerOutput() AvailabilityGroupListenerOutput {
+	return o
+}
+
+func (o AvailabilityGroupListenerOutput) ToAvailabilityGroupListenerOutputWithContext(ctx context.Context) AvailabilityGroupListenerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AvailabilityGroupListenerOutput{})
 }

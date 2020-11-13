@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -133,4 +134,43 @@ type VirtualNetworkRuleArgs struct {
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkRuleArgs)(nil)).Elem()
+}
+
+type VirtualNetworkRuleInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput
+	ToVirtualNetworkRuleOutputWithContext(ctx context.Context) VirtualNetworkRuleOutput
+}
+
+func (VirtualNetworkRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRule)(nil)).Elem()
+}
+
+func (i VirtualNetworkRule) ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput {
+	return i.ToVirtualNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRule) ToVirtualNetworkRuleOutputWithContext(ctx context.Context) VirtualNetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleOutput)
+}
+
+type VirtualNetworkRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx context.Context) VirtualNetworkRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 }

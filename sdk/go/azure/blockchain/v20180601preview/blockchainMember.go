@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -234,4 +235,43 @@ type BlockchainMemberArgs struct {
 
 func (BlockchainMemberArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*blockchainMemberArgs)(nil)).Elem()
+}
+
+type BlockchainMemberInput interface {
+	pulumi.Input
+
+	ToBlockchainMemberOutput() BlockchainMemberOutput
+	ToBlockchainMemberOutputWithContext(ctx context.Context) BlockchainMemberOutput
+}
+
+func (BlockchainMember) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlockchainMember)(nil)).Elem()
+}
+
+func (i BlockchainMember) ToBlockchainMemberOutput() BlockchainMemberOutput {
+	return i.ToBlockchainMemberOutputWithContext(context.Background())
+}
+
+func (i BlockchainMember) ToBlockchainMemberOutputWithContext(ctx context.Context) BlockchainMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlockchainMemberOutput)
+}
+
+type BlockchainMemberOutput struct {
+	*pulumi.OutputState
+}
+
+func (BlockchainMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlockchainMemberOutput)(nil)).Elem()
+}
+
+func (o BlockchainMemberOutput) ToBlockchainMemberOutput() BlockchainMemberOutput {
+	return o
+}
+
+func (o BlockchainMemberOutput) ToBlockchainMemberOutputWithContext(ctx context.Context) BlockchainMemberOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BlockchainMemberOutput{})
 }

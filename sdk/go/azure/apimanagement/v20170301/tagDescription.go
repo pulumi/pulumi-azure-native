@@ -4,6 +4,7 @@
 package v20170301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -162,4 +163,43 @@ type TagDescriptionArgs struct {
 
 func (TagDescriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagDescriptionArgs)(nil)).Elem()
+}
+
+type TagDescriptionInput interface {
+	pulumi.Input
+
+	ToTagDescriptionOutput() TagDescriptionOutput
+	ToTagDescriptionOutputWithContext(ctx context.Context) TagDescriptionOutput
+}
+
+func (TagDescription) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagDescription)(nil)).Elem()
+}
+
+func (i TagDescription) ToTagDescriptionOutput() TagDescriptionOutput {
+	return i.ToTagDescriptionOutputWithContext(context.Background())
+}
+
+func (i TagDescription) ToTagDescriptionOutputWithContext(ctx context.Context) TagDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagDescriptionOutput)
+}
+
+type TagDescriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (TagDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagDescriptionOutput)(nil)).Elem()
+}
+
+func (o TagDescriptionOutput) ToTagDescriptionOutput() TagDescriptionOutput {
+	return o
+}
+
+func (o TagDescriptionOutput) ToTagDescriptionOutputWithContext(ctx context.Context) TagDescriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TagDescriptionOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -126,4 +127,43 @@ type RegistrationDefinitionArgs struct {
 
 func (RegistrationDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registrationDefinitionArgs)(nil)).Elem()
+}
+
+type RegistrationDefinitionInput interface {
+	pulumi.Input
+
+	ToRegistrationDefinitionOutput() RegistrationDefinitionOutput
+	ToRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationDefinitionOutput
+}
+
+func (RegistrationDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationDefinition)(nil)).Elem()
+}
+
+func (i RegistrationDefinition) ToRegistrationDefinitionOutput() RegistrationDefinitionOutput {
+	return i.ToRegistrationDefinitionOutputWithContext(context.Background())
+}
+
+func (i RegistrationDefinition) ToRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionOutput)
+}
+
+type RegistrationDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegistrationDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationDefinitionOutput)(nil)).Elem()
+}
+
+func (o RegistrationDefinitionOutput) ToRegistrationDefinitionOutput() RegistrationDefinitionOutput {
+	return o
+}
+
+func (o RegistrationDefinitionOutput) ToRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegistrationDefinitionOutput{})
 }

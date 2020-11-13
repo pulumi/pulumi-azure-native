@@ -4,6 +4,7 @@
 package v20190801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type PeeringServicePrefixArgs struct {
 
 func (PeeringServicePrefixArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*peeringServicePrefixArgs)(nil)).Elem()
+}
+
+type PeeringServicePrefixInput interface {
+	pulumi.Input
+
+	ToPeeringServicePrefixOutput() PeeringServicePrefixOutput
+	ToPeeringServicePrefixOutputWithContext(ctx context.Context) PeeringServicePrefixOutput
+}
+
+func (PeeringServicePrefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringServicePrefix)(nil)).Elem()
+}
+
+func (i PeeringServicePrefix) ToPeeringServicePrefixOutput() PeeringServicePrefixOutput {
+	return i.ToPeeringServicePrefixOutputWithContext(context.Background())
+}
+
+func (i PeeringServicePrefix) ToPeeringServicePrefixOutputWithContext(ctx context.Context) PeeringServicePrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringServicePrefixOutput)
+}
+
+type PeeringServicePrefixOutput struct {
+	*pulumi.OutputState
+}
+
+func (PeeringServicePrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringServicePrefixOutput)(nil)).Elem()
+}
+
+func (o PeeringServicePrefixOutput) ToPeeringServicePrefixOutput() PeeringServicePrefixOutput {
+	return o
+}
+
+func (o PeeringServicePrefixOutput) ToPeeringServicePrefixOutputWithContext(ctx context.Context) PeeringServicePrefixOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PeeringServicePrefixOutput{})
 }

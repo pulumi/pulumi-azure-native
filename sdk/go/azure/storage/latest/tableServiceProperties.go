@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -114,4 +115,43 @@ type TableServicePropertiesArgs struct {
 
 func (TableServicePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableServicePropertiesArgs)(nil)).Elem()
+}
+
+type TableServicePropertiesInput interface {
+	pulumi.Input
+
+	ToTableServicePropertiesOutput() TableServicePropertiesOutput
+	ToTableServicePropertiesOutputWithContext(ctx context.Context) TableServicePropertiesOutput
+}
+
+func (TableServiceProperties) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableServiceProperties)(nil)).Elem()
+}
+
+func (i TableServiceProperties) ToTableServicePropertiesOutput() TableServicePropertiesOutput {
+	return i.ToTableServicePropertiesOutputWithContext(context.Background())
+}
+
+func (i TableServiceProperties) ToTableServicePropertiesOutputWithContext(ctx context.Context) TableServicePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableServicePropertiesOutput)
+}
+
+type TableServicePropertiesOutput struct {
+	*pulumi.OutputState
+}
+
+func (TableServicePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableServicePropertiesOutput)(nil)).Elem()
+}
+
+func (o TableServicePropertiesOutput) ToTableServicePropertiesOutput() TableServicePropertiesOutput {
+	return o
+}
+
+func (o TableServicePropertiesOutput) ToTableServicePropertiesOutputWithContext(ctx context.Context) TableServicePropertiesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TableServicePropertiesOutput{})
 }

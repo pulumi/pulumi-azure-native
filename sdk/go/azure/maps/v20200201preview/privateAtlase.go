@@ -4,6 +4,7 @@
 package v20200201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,4 +125,43 @@ type PrivateAtlaseArgs struct {
 
 func (PrivateAtlaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateAtlaseArgs)(nil)).Elem()
+}
+
+type PrivateAtlaseInput interface {
+	pulumi.Input
+
+	ToPrivateAtlaseOutput() PrivateAtlaseOutput
+	ToPrivateAtlaseOutputWithContext(ctx context.Context) PrivateAtlaseOutput
+}
+
+func (PrivateAtlase) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateAtlase)(nil)).Elem()
+}
+
+func (i PrivateAtlase) ToPrivateAtlaseOutput() PrivateAtlaseOutput {
+	return i.ToPrivateAtlaseOutputWithContext(context.Background())
+}
+
+func (i PrivateAtlase) ToPrivateAtlaseOutputWithContext(ctx context.Context) PrivateAtlaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateAtlaseOutput)
+}
+
+type PrivateAtlaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateAtlaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateAtlaseOutput)(nil)).Elem()
+}
+
+func (o PrivateAtlaseOutput) ToPrivateAtlaseOutput() PrivateAtlaseOutput {
+	return o
+}
+
+func (o PrivateAtlaseOutput) ToPrivateAtlaseOutputWithContext(ctx context.Context) PrivateAtlaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateAtlaseOutput{})
 }

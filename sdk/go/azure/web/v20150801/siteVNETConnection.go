@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -222,4 +223,43 @@ type SiteVNETConnectionArgs struct {
 
 func (SiteVNETConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteVNETConnectionArgs)(nil)).Elem()
+}
+
+type SiteVNETConnectionInput interface {
+	pulumi.Input
+
+	ToSiteVNETConnectionOutput() SiteVNETConnectionOutput
+	ToSiteVNETConnectionOutputWithContext(ctx context.Context) SiteVNETConnectionOutput
+}
+
+func (SiteVNETConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteVNETConnection)(nil)).Elem()
+}
+
+func (i SiteVNETConnection) ToSiteVNETConnectionOutput() SiteVNETConnectionOutput {
+	return i.ToSiteVNETConnectionOutputWithContext(context.Background())
+}
+
+func (i SiteVNETConnection) ToSiteVNETConnectionOutputWithContext(ctx context.Context) SiteVNETConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteVNETConnectionOutput)
+}
+
+type SiteVNETConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteVNETConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteVNETConnectionOutput)(nil)).Elem()
+}
+
+func (o SiteVNETConnectionOutput) ToSiteVNETConnectionOutput() SiteVNETConnectionOutput {
+	return o
+}
+
+func (o SiteVNETConnectionOutput) ToSiteVNETConnectionOutputWithContext(ctx context.Context) SiteVNETConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteVNETConnectionOutput{})
 }

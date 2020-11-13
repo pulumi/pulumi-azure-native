@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -172,4 +173,43 @@ type WorkloadClassifierArgs struct {
 
 func (WorkloadClassifierArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadClassifierArgs)(nil)).Elem()
+}
+
+type WorkloadClassifierInput interface {
+	pulumi.Input
+
+	ToWorkloadClassifierOutput() WorkloadClassifierOutput
+	ToWorkloadClassifierOutputWithContext(ctx context.Context) WorkloadClassifierOutput
+}
+
+func (WorkloadClassifier) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadClassifier)(nil)).Elem()
+}
+
+func (i WorkloadClassifier) ToWorkloadClassifierOutput() WorkloadClassifierOutput {
+	return i.ToWorkloadClassifierOutputWithContext(context.Background())
+}
+
+func (i WorkloadClassifier) ToWorkloadClassifierOutputWithContext(ctx context.Context) WorkloadClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadClassifierOutput)
+}
+
+type WorkloadClassifierOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkloadClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadClassifierOutput)(nil)).Elem()
+}
+
+func (o WorkloadClassifierOutput) ToWorkloadClassifierOutput() WorkloadClassifierOutput {
+	return o
+}
+
+func (o WorkloadClassifierOutput) ToWorkloadClassifierOutputWithContext(ctx context.Context) WorkloadClassifierOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkloadClassifierOutput{})
 }

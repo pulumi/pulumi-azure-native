@@ -4,6 +4,7 @@
 package v20190701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -126,4 +127,43 @@ type DeploymentAtScopeArgs struct {
 
 func (DeploymentAtScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentAtScopeArgs)(nil)).Elem()
+}
+
+type DeploymentAtScopeInput interface {
+	pulumi.Input
+
+	ToDeploymentAtScopeOutput() DeploymentAtScopeOutput
+	ToDeploymentAtScopeOutputWithContext(ctx context.Context) DeploymentAtScopeOutput
+}
+
+func (DeploymentAtScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtScope)(nil)).Elem()
+}
+
+func (i DeploymentAtScope) ToDeploymentAtScopeOutput() DeploymentAtScopeOutput {
+	return i.ToDeploymentAtScopeOutputWithContext(context.Background())
+}
+
+func (i DeploymentAtScope) ToDeploymentAtScopeOutputWithContext(ctx context.Context) DeploymentAtScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtScopeOutput)
+}
+
+type DeploymentAtScopeOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentAtScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtScopeOutput)(nil)).Elem()
+}
+
+func (o DeploymentAtScopeOutput) ToDeploymentAtScopeOutput() DeploymentAtScopeOutput {
+	return o
+}
+
+func (o DeploymentAtScopeOutput) ToDeploymentAtScopeOutputWithContext(ctx context.Context) DeploymentAtScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentAtScopeOutput{})
 }

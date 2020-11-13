@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,4 +124,43 @@ type PatchScheduleArgs struct {
 
 func (PatchScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*patchScheduleArgs)(nil)).Elem()
+}
+
+type PatchScheduleInput interface {
+	pulumi.Input
+
+	ToPatchScheduleOutput() PatchScheduleOutput
+	ToPatchScheduleOutputWithContext(ctx context.Context) PatchScheduleOutput
+}
+
+func (PatchSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchSchedule)(nil)).Elem()
+}
+
+func (i PatchSchedule) ToPatchScheduleOutput() PatchScheduleOutput {
+	return i.ToPatchScheduleOutputWithContext(context.Background())
+}
+
+func (i PatchSchedule) ToPatchScheduleOutputWithContext(ctx context.Context) PatchScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchScheduleOutput)
+}
+
+type PatchScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (PatchScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchScheduleOutput)(nil)).Elem()
+}
+
+func (o PatchScheduleOutput) ToPatchScheduleOutput() PatchScheduleOutput {
+	return o
+}
+
+func (o PatchScheduleOutput) ToPatchScheduleOutputWithContext(ctx context.Context) PatchScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PatchScheduleOutput{})
 }

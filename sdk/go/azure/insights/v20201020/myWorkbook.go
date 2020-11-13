@@ -4,6 +4,7 @@
 package v20201020
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -230,4 +231,43 @@ type MyWorkbookArgs struct {
 
 func (MyWorkbookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*myWorkbookArgs)(nil)).Elem()
+}
+
+type MyWorkbookInput interface {
+	pulumi.Input
+
+	ToMyWorkbookOutput() MyWorkbookOutput
+	ToMyWorkbookOutputWithContext(ctx context.Context) MyWorkbookOutput
+}
+
+func (MyWorkbook) ElementType() reflect.Type {
+	return reflect.TypeOf((*MyWorkbook)(nil)).Elem()
+}
+
+func (i MyWorkbook) ToMyWorkbookOutput() MyWorkbookOutput {
+	return i.ToMyWorkbookOutputWithContext(context.Background())
+}
+
+func (i MyWorkbook) ToMyWorkbookOutputWithContext(ctx context.Context) MyWorkbookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MyWorkbookOutput)
+}
+
+type MyWorkbookOutput struct {
+	*pulumi.OutputState
+}
+
+func (MyWorkbookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MyWorkbookOutput)(nil)).Elem()
+}
+
+func (o MyWorkbookOutput) ToMyWorkbookOutput() MyWorkbookOutput {
+	return o
+}
+
+func (o MyWorkbookOutput) ToMyWorkbookOutputWithContext(ctx context.Context) MyWorkbookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MyWorkbookOutput{})
 }

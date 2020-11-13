@@ -4,6 +4,7 @@
 package v20170601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -200,4 +201,43 @@ type PolicyAssignmentArgs struct {
 
 func (PolicyAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyAssignmentArgs)(nil)).Elem()
+}
+
+type PolicyAssignmentInput interface {
+	pulumi.Input
+
+	ToPolicyAssignmentOutput() PolicyAssignmentOutput
+	ToPolicyAssignmentOutputWithContext(ctx context.Context) PolicyAssignmentOutput
+}
+
+func (PolicyAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssignment)(nil)).Elem()
+}
+
+func (i PolicyAssignment) ToPolicyAssignmentOutput() PolicyAssignmentOutput {
+	return i.ToPolicyAssignmentOutputWithContext(context.Background())
+}
+
+func (i PolicyAssignment) ToPolicyAssignmentOutputWithContext(ctx context.Context) PolicyAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentOutput)
+}
+
+type PolicyAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssignmentOutput)(nil)).Elem()
+}
+
+func (o PolicyAssignmentOutput) ToPolicyAssignmentOutput() PolicyAssignmentOutput {
+	return o
+}
+
+func (o PolicyAssignmentOutput) ToPolicyAssignmentOutputWithContext(ctx context.Context) PolicyAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyAssignmentOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -239,4 +240,43 @@ type NetworkVirtualApplianceArgs struct {
 
 func (NetworkVirtualApplianceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkVirtualApplianceArgs)(nil)).Elem()
+}
+
+type NetworkVirtualApplianceInput interface {
+	pulumi.Input
+
+	ToNetworkVirtualApplianceOutput() NetworkVirtualApplianceOutput
+	ToNetworkVirtualApplianceOutputWithContext(ctx context.Context) NetworkVirtualApplianceOutput
+}
+
+func (NetworkVirtualAppliance) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkVirtualAppliance)(nil)).Elem()
+}
+
+func (i NetworkVirtualAppliance) ToNetworkVirtualApplianceOutput() NetworkVirtualApplianceOutput {
+	return i.ToNetworkVirtualApplianceOutputWithContext(context.Background())
+}
+
+func (i NetworkVirtualAppliance) ToNetworkVirtualApplianceOutputWithContext(ctx context.Context) NetworkVirtualApplianceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkVirtualApplianceOutput)
+}
+
+type NetworkVirtualApplianceOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkVirtualApplianceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkVirtualApplianceOutput)(nil)).Elem()
+}
+
+func (o NetworkVirtualApplianceOutput) ToNetworkVirtualApplianceOutput() NetworkVirtualApplianceOutput {
+	return o
+}
+
+func (o NetworkVirtualApplianceOutput) ToNetworkVirtualApplianceOutputWithContext(ctx context.Context) NetworkVirtualApplianceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkVirtualApplianceOutput{})
 }

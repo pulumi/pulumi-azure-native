@@ -4,6 +4,7 @@
 package v20170401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,4 +125,43 @@ type WCFRelayAuthorizationRuleArgs struct {
 
 func (WCFRelayAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*wcfrelayAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type WCFRelayAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToWCFRelayAuthorizationRuleOutput() WCFRelayAuthorizationRuleOutput
+	ToWCFRelayAuthorizationRuleOutputWithContext(ctx context.Context) WCFRelayAuthorizationRuleOutput
+}
+
+func (WCFRelayAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*WCFRelayAuthorizationRule)(nil)).Elem()
+}
+
+func (i WCFRelayAuthorizationRule) ToWCFRelayAuthorizationRuleOutput() WCFRelayAuthorizationRuleOutput {
+	return i.ToWCFRelayAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i WCFRelayAuthorizationRule) ToWCFRelayAuthorizationRuleOutputWithContext(ctx context.Context) WCFRelayAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayAuthorizationRuleOutput)
+}
+
+type WCFRelayAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (WCFRelayAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WCFRelayAuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o WCFRelayAuthorizationRuleOutput) ToWCFRelayAuthorizationRuleOutput() WCFRelayAuthorizationRuleOutput {
+	return o
+}
+
+func (o WCFRelayAuthorizationRuleOutput) ToWCFRelayAuthorizationRuleOutputWithContext(ctx context.Context) WCFRelayAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WCFRelayAuthorizationRuleOutput{})
 }

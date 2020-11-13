@@ -4,6 +4,7 @@
 package v20191101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -179,4 +180,43 @@ type NetworkInterfaceTapConfigurationArgs struct {
 
 func (NetworkInterfaceTapConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceTapConfigurationArgs)(nil)).Elem()
+}
+
+type NetworkInterfaceTapConfigurationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceTapConfigurationOutput() NetworkInterfaceTapConfigurationOutput
+	ToNetworkInterfaceTapConfigurationOutputWithContext(ctx context.Context) NetworkInterfaceTapConfigurationOutput
+}
+
+func (NetworkInterfaceTapConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceTapConfiguration)(nil)).Elem()
+}
+
+func (i NetworkInterfaceTapConfiguration) ToNetworkInterfaceTapConfigurationOutput() NetworkInterfaceTapConfigurationOutput {
+	return i.ToNetworkInterfaceTapConfigurationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceTapConfiguration) ToNetworkInterfaceTapConfigurationOutputWithContext(ctx context.Context) NetworkInterfaceTapConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceTapConfigurationOutput)
+}
+
+type NetworkInterfaceTapConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkInterfaceTapConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceTapConfigurationOutput)(nil)).Elem()
+}
+
+func (o NetworkInterfaceTapConfigurationOutput) ToNetworkInterfaceTapConfigurationOutput() NetworkInterfaceTapConfigurationOutput {
+	return o
+}
+
+func (o NetworkInterfaceTapConfigurationOutput) ToNetworkInterfaceTapConfigurationOutputWithContext(ctx context.Context) NetworkInterfaceTapConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkInterfaceTapConfigurationOutput{})
 }

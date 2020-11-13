@@ -4,6 +4,7 @@
 package v20200901
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -160,4 +161,43 @@ type GremlinResourceGremlinGraphArgs struct {
 
 func (GremlinResourceGremlinGraphArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gremlinResourceGremlinGraphArgs)(nil)).Elem()
+}
+
+type GremlinResourceGremlinGraphInput interface {
+	pulumi.Input
+
+	ToGremlinResourceGremlinGraphOutput() GremlinResourceGremlinGraphOutput
+	ToGremlinResourceGremlinGraphOutputWithContext(ctx context.Context) GremlinResourceGremlinGraphOutput
+}
+
+func (GremlinResourceGremlinGraph) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinResourceGremlinGraph)(nil)).Elem()
+}
+
+func (i GremlinResourceGremlinGraph) ToGremlinResourceGremlinGraphOutput() GremlinResourceGremlinGraphOutput {
+	return i.ToGremlinResourceGremlinGraphOutputWithContext(context.Background())
+}
+
+func (i GremlinResourceGremlinGraph) ToGremlinResourceGremlinGraphOutputWithContext(ctx context.Context) GremlinResourceGremlinGraphOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinGraphOutput)
+}
+
+type GremlinResourceGremlinGraphOutput struct {
+	*pulumi.OutputState
+}
+
+func (GremlinResourceGremlinGraphOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinResourceGremlinGraphOutput)(nil)).Elem()
+}
+
+func (o GremlinResourceGremlinGraphOutput) ToGremlinResourceGremlinGraphOutput() GremlinResourceGremlinGraphOutput {
+	return o
+}
+
+func (o GremlinResourceGremlinGraphOutput) ToGremlinResourceGremlinGraphOutputWithContext(ctx context.Context) GremlinResourceGremlinGraphOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GremlinResourceGremlinGraphOutput{})
 }

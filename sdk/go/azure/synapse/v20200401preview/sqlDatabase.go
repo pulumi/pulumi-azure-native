@@ -4,6 +4,7 @@
 package v20200401preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -156,4 +157,43 @@ type SqlDatabaseArgs struct {
 
 func (SqlDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlDatabaseArgs)(nil)).Elem()
+}
+
+type SqlDatabaseInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseOutput() SqlDatabaseOutput
+	ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput
+}
+
+func (SqlDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabase)(nil)).Elem()
+}
+
+func (i SqlDatabase) ToSqlDatabaseOutput() SqlDatabaseOutput {
+	return i.ToSqlDatabaseOutputWithContext(context.Background())
+}
+
+func (i SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseOutput)
+}
+
+type SqlDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseOutput)(nil)).Elem()
+}
+
+func (o SqlDatabaseOutput) ToSqlDatabaseOutput() SqlDatabaseOutput {
+	return o
+}
+
+func (o SqlDatabaseOutput) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlDatabaseOutput{})
 }

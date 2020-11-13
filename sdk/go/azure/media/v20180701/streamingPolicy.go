@@ -4,6 +4,7 @@
 package v20180701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -166,4 +167,43 @@ type StreamingPolicyArgs struct {
 
 func (StreamingPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamingPolicyArgs)(nil)).Elem()
+}
+
+type StreamingPolicyInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyOutput() StreamingPolicyOutput
+	ToStreamingPolicyOutputWithContext(ctx context.Context) StreamingPolicyOutput
+}
+
+func (StreamingPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicy)(nil)).Elem()
+}
+
+func (i StreamingPolicy) ToStreamingPolicyOutput() StreamingPolicyOutput {
+	return i.ToStreamingPolicyOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicy) ToStreamingPolicyOutputWithContext(ctx context.Context) StreamingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyOutput)
+}
+
+type StreamingPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyOutput)(nil)).Elem()
+}
+
+func (o StreamingPolicyOutput) ToStreamingPolicyOutput() StreamingPolicyOutput {
+	return o
+}
+
+func (o StreamingPolicyOutput) ToStreamingPolicyOutputWithContext(ctx context.Context) StreamingPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StreamingPolicyOutput{})
 }

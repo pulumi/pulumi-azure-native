@@ -4,6 +4,7 @@
 package v20190901
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -116,4 +117,43 @@ type RegistrationAssignmentArgs struct {
 
 func (RegistrationAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registrationAssignmentArgs)(nil)).Elem()
+}
+
+type RegistrationAssignmentInput interface {
+	pulumi.Input
+
+	ToRegistrationAssignmentOutput() RegistrationAssignmentOutput
+	ToRegistrationAssignmentOutputWithContext(ctx context.Context) RegistrationAssignmentOutput
+}
+
+func (RegistrationAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignment)(nil)).Elem()
+}
+
+func (i RegistrationAssignment) ToRegistrationAssignmentOutput() RegistrationAssignmentOutput {
+	return i.ToRegistrationAssignmentOutputWithContext(context.Background())
+}
+
+func (i RegistrationAssignment) ToRegistrationAssignmentOutputWithContext(ctx context.Context) RegistrationAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentOutput)
+}
+
+type RegistrationAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegistrationAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignmentOutput)(nil)).Elem()
+}
+
+func (o RegistrationAssignmentOutput) ToRegistrationAssignmentOutput() RegistrationAssignmentOutput {
+	return o
+}
+
+func (o RegistrationAssignmentOutput) ToRegistrationAssignmentOutputWithContext(ctx context.Context) RegistrationAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegistrationAssignmentOutput{})
 }

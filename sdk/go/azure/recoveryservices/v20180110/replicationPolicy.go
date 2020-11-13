@@ -4,6 +4,7 @@
 package v20180110
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,4 +124,43 @@ type ReplicationPolicyArgs struct {
 
 func (ReplicationPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationPolicyArgs)(nil)).Elem()
+}
+
+type ReplicationPolicyInput interface {
+	pulumi.Input
+
+	ToReplicationPolicyOutput() ReplicationPolicyOutput
+	ToReplicationPolicyOutputWithContext(ctx context.Context) ReplicationPolicyOutput
+}
+
+func (ReplicationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationPolicy)(nil)).Elem()
+}
+
+func (i ReplicationPolicy) ToReplicationPolicyOutput() ReplicationPolicyOutput {
+	return i.ToReplicationPolicyOutputWithContext(context.Background())
+}
+
+func (i ReplicationPolicy) ToReplicationPolicyOutputWithContext(ctx context.Context) ReplicationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationPolicyOutput)
+}
+
+type ReplicationPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationPolicyOutput)(nil)).Elem()
+}
+
+func (o ReplicationPolicyOutput) ToReplicationPolicyOutput() ReplicationPolicyOutput {
+	return o
+}
+
+func (o ReplicationPolicyOutput) ToReplicationPolicyOutputWithContext(ctx context.Context) ReplicationPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationPolicyOutput{})
 }

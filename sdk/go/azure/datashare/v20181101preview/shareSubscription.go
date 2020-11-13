@@ -4,6 +4,7 @@
 package v20181101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -189,4 +190,43 @@ type ShareSubscriptionArgs struct {
 
 func (ShareSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*shareSubscriptionArgs)(nil)).Elem()
+}
+
+type ShareSubscriptionInput interface {
+	pulumi.Input
+
+	ToShareSubscriptionOutput() ShareSubscriptionOutput
+	ToShareSubscriptionOutputWithContext(ctx context.Context) ShareSubscriptionOutput
+}
+
+func (ShareSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareSubscription)(nil)).Elem()
+}
+
+func (i ShareSubscription) ToShareSubscriptionOutput() ShareSubscriptionOutput {
+	return i.ToShareSubscriptionOutputWithContext(context.Background())
+}
+
+func (i ShareSubscription) ToShareSubscriptionOutputWithContext(ctx context.Context) ShareSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareSubscriptionOutput)
+}
+
+type ShareSubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ShareSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareSubscriptionOutput)(nil)).Elem()
+}
+
+func (o ShareSubscriptionOutput) ToShareSubscriptionOutput() ShareSubscriptionOutput {
+	return o
+}
+
+func (o ShareSubscriptionOutput) ToShareSubscriptionOutputWithContext(ctx context.Context) ShareSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ShareSubscriptionOutput{})
 }

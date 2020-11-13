@@ -4,6 +4,7 @@
 package v20180201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -189,4 +190,43 @@ type BuildTaskArgs struct {
 
 func (BuildTaskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*buildTaskArgs)(nil)).Elem()
+}
+
+type BuildTaskInput interface {
+	pulumi.Input
+
+	ToBuildTaskOutput() BuildTaskOutput
+	ToBuildTaskOutputWithContext(ctx context.Context) BuildTaskOutput
+}
+
+func (BuildTask) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildTask)(nil)).Elem()
+}
+
+func (i BuildTask) ToBuildTaskOutput() BuildTaskOutput {
+	return i.ToBuildTaskOutputWithContext(context.Background())
+}
+
+func (i BuildTask) ToBuildTaskOutputWithContext(ctx context.Context) BuildTaskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildTaskOutput)
+}
+
+type BuildTaskOutput struct {
+	*pulumi.OutputState
+}
+
+func (BuildTaskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildTaskOutput)(nil)).Elem()
+}
+
+func (o BuildTaskOutput) ToBuildTaskOutput() BuildTaskOutput {
+	return o
+}
+
+func (o BuildTaskOutput) ToBuildTaskOutputWithContext(ctx context.Context) BuildTaskOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BuildTaskOutput{})
 }

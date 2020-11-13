@@ -4,6 +4,7 @@
 package v20180601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -261,4 +262,43 @@ type GalleryImageArgs struct {
 
 func (GalleryImageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*galleryImageArgs)(nil)).Elem()
+}
+
+type GalleryImageInput interface {
+	pulumi.Input
+
+	ToGalleryImageOutput() GalleryImageOutput
+	ToGalleryImageOutputWithContext(ctx context.Context) GalleryImageOutput
+}
+
+func (GalleryImage) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImage)(nil)).Elem()
+}
+
+func (i GalleryImage) ToGalleryImageOutput() GalleryImageOutput {
+	return i.ToGalleryImageOutputWithContext(context.Background())
+}
+
+func (i GalleryImage) ToGalleryImageOutputWithContext(ctx context.Context) GalleryImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageOutput)
+}
+
+type GalleryImageOutput struct {
+	*pulumi.OutputState
+}
+
+func (GalleryImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageOutput)(nil)).Elem()
+}
+
+func (o GalleryImageOutput) ToGalleryImageOutput() GalleryImageOutput {
+	return o
+}
+
+func (o GalleryImageOutput) ToGalleryImageOutputWithContext(ctx context.Context) GalleryImageOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GalleryImageOutput{})
 }

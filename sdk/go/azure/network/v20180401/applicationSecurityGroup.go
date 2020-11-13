@@ -4,6 +4,7 @@
 package v20180401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -208,4 +209,43 @@ type ApplicationSecurityGroupArgs struct {
 
 func (ApplicationSecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationSecurityGroupArgs)(nil)).Elem()
+}
+
+type ApplicationSecurityGroupInput interface {
+	pulumi.Input
+
+	ToApplicationSecurityGroupOutput() ApplicationSecurityGroupOutput
+	ToApplicationSecurityGroupOutputWithContext(ctx context.Context) ApplicationSecurityGroupOutput
+}
+
+func (ApplicationSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSecurityGroup)(nil)).Elem()
+}
+
+func (i ApplicationSecurityGroup) ToApplicationSecurityGroupOutput() ApplicationSecurityGroupOutput {
+	return i.ToApplicationSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i ApplicationSecurityGroup) ToApplicationSecurityGroupOutputWithContext(ctx context.Context) ApplicationSecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSecurityGroupOutput)
+}
+
+type ApplicationSecurityGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationSecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSecurityGroupOutput)(nil)).Elem()
+}
+
+func (o ApplicationSecurityGroupOutput) ToApplicationSecurityGroupOutput() ApplicationSecurityGroupOutput {
+	return o
+}
+
+func (o ApplicationSecurityGroupOutput) ToApplicationSecurityGroupOutputWithContext(ctx context.Context) ApplicationSecurityGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationSecurityGroupOutput{})
 }

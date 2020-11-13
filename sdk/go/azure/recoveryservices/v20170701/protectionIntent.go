@@ -4,6 +4,7 @@
 package v20170701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -148,4 +149,43 @@ type ProtectionIntentArgs struct {
 
 func (ProtectionIntentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionIntentArgs)(nil)).Elem()
+}
+
+type ProtectionIntentInput interface {
+	pulumi.Input
+
+	ToProtectionIntentOutput() ProtectionIntentOutput
+	ToProtectionIntentOutputWithContext(ctx context.Context) ProtectionIntentOutput
+}
+
+func (ProtectionIntent) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionIntent)(nil)).Elem()
+}
+
+func (i ProtectionIntent) ToProtectionIntentOutput() ProtectionIntentOutput {
+	return i.ToProtectionIntentOutputWithContext(context.Background())
+}
+
+func (i ProtectionIntent) ToProtectionIntentOutputWithContext(ctx context.Context) ProtectionIntentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionIntentOutput)
+}
+
+type ProtectionIntentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectionIntentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionIntentOutput)(nil)).Elem()
+}
+
+func (o ProtectionIntentOutput) ToProtectionIntentOutput() ProtectionIntentOutput {
+	return o
+}
+
+func (o ProtectionIntentOutput) ToProtectionIntentOutputWithContext(ctx context.Context) ProtectionIntentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProtectionIntentOutput{})
 }

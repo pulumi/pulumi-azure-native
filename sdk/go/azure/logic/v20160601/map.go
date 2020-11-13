@@ -4,6 +4,7 @@
 package v20160601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -201,4 +202,43 @@ type MapArgs struct {
 
 func (MapArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mapArgs)(nil)).Elem()
+}
+
+type MapInput interface {
+	pulumi.Input
+
+	ToMapOutput() MapOutput
+	ToMapOutputWithContext(ctx context.Context) MapOutput
+}
+
+func (Map) ElementType() reflect.Type {
+	return reflect.TypeOf((*Map)(nil)).Elem()
+}
+
+func (i Map) ToMapOutput() MapOutput {
+	return i.ToMapOutputWithContext(context.Background())
+}
+
+func (i Map) ToMapOutputWithContext(ctx context.Context) MapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MapOutput)
+}
+
+type MapOutput struct {
+	*pulumi.OutputState
+}
+
+func (MapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MapOutput)(nil)).Elem()
+}
+
+func (o MapOutput) ToMapOutput() MapOutput {
+	return o
+}
+
+func (o MapOutput) ToMapOutputWithContext(ctx context.Context) MapOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MapOutput{})
 }

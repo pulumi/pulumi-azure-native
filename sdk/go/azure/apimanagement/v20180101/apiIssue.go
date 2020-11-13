@@ -4,6 +4,7 @@
 package v20180101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -191,4 +192,43 @@ type ApiIssueArgs struct {
 
 func (ApiIssueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIssueArgs)(nil)).Elem()
+}
+
+type ApiIssueInput interface {
+	pulumi.Input
+
+	ToApiIssueOutput() ApiIssueOutput
+	ToApiIssueOutputWithContext(ctx context.Context) ApiIssueOutput
+}
+
+func (ApiIssue) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssue)(nil)).Elem()
+}
+
+func (i ApiIssue) ToApiIssueOutput() ApiIssueOutput {
+	return i.ToApiIssueOutputWithContext(context.Background())
+}
+
+func (i ApiIssue) ToApiIssueOutputWithContext(ctx context.Context) ApiIssueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueOutput)
+}
+
+type ApiIssueOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiIssueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueOutput)(nil)).Elem()
+}
+
+func (o ApiIssueOutput) ToApiIssueOutput() ApiIssueOutput {
+	return o
+}
+
+func (o ApiIssueOutput) ToApiIssueOutputWithContext(ctx context.Context) ApiIssueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiIssueOutput{})
 }

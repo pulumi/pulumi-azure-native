@@ -4,6 +4,7 @@
 package v20140401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type DisasterRecoveryConfigurationArgs struct {
 
 func (DisasterRecoveryConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*disasterRecoveryConfigurationArgs)(nil)).Elem()
+}
+
+type DisasterRecoveryConfigurationInput interface {
+	pulumi.Input
+
+	ToDisasterRecoveryConfigurationOutput() DisasterRecoveryConfigurationOutput
+	ToDisasterRecoveryConfigurationOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationOutput
+}
+
+func (DisasterRecoveryConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfiguration)(nil)).Elem()
+}
+
+func (i DisasterRecoveryConfiguration) ToDisasterRecoveryConfigurationOutput() DisasterRecoveryConfigurationOutput {
+	return i.ToDisasterRecoveryConfigurationOutputWithContext(context.Background())
+}
+
+func (i DisasterRecoveryConfiguration) ToDisasterRecoveryConfigurationOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigurationOutput)
+}
+
+type DisasterRecoveryConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (DisasterRecoveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfigurationOutput)(nil)).Elem()
+}
+
+func (o DisasterRecoveryConfigurationOutput) ToDisasterRecoveryConfigurationOutput() DisasterRecoveryConfigurationOutput {
+	return o
+}
+
+func (o DisasterRecoveryConfigurationOutput) ToDisasterRecoveryConfigurationOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DisasterRecoveryConfigurationOutput{})
 }

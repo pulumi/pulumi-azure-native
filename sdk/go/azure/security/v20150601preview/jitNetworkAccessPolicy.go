@@ -4,6 +4,7 @@
 package v20150601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -143,4 +144,43 @@ type JitNetworkAccessPolicyArgs struct {
 
 func (JitNetworkAccessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jitNetworkAccessPolicyArgs)(nil)).Elem()
+}
+
+type JitNetworkAccessPolicyInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessPolicyOutput() JitNetworkAccessPolicyOutput
+	ToJitNetworkAccessPolicyOutputWithContext(ctx context.Context) JitNetworkAccessPolicyOutput
+}
+
+func (JitNetworkAccessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessPolicy)(nil)).Elem()
+}
+
+func (i JitNetworkAccessPolicy) ToJitNetworkAccessPolicyOutput() JitNetworkAccessPolicyOutput {
+	return i.ToJitNetworkAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessPolicy) ToJitNetworkAccessPolicyOutputWithContext(ctx context.Context) JitNetworkAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPolicyOutput)
+}
+
+type JitNetworkAccessPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (JitNetworkAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessPolicyOutput)(nil)).Elem()
+}
+
+func (o JitNetworkAccessPolicyOutput) ToJitNetworkAccessPolicyOutput() JitNetworkAccessPolicyOutput {
+	return o
+}
+
+func (o JitNetworkAccessPolicyOutput) ToJitNetworkAccessPolicyOutputWithContext(ctx context.Context) JitNetworkAccessPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JitNetworkAccessPolicyOutput{})
 }

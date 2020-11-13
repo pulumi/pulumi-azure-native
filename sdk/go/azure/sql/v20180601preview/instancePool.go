@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -160,4 +161,43 @@ type InstancePoolArgs struct {
 
 func (InstancePoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instancePoolArgs)(nil)).Elem()
+}
+
+type InstancePoolInput interface {
+	pulumi.Input
+
+	ToInstancePoolOutput() InstancePoolOutput
+	ToInstancePoolOutputWithContext(ctx context.Context) InstancePoolOutput
+}
+
+func (InstancePool) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePool)(nil)).Elem()
+}
+
+func (i InstancePool) ToInstancePoolOutput() InstancePoolOutput {
+	return i.ToInstancePoolOutputWithContext(context.Background())
+}
+
+func (i InstancePool) ToInstancePoolOutputWithContext(ctx context.Context) InstancePoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePoolOutput)
+}
+
+type InstancePoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (InstancePoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePoolOutput)(nil)).Elem()
+}
+
+func (o InstancePoolOutput) ToInstancePoolOutput() InstancePoolOutput {
+	return o
+}
+
+func (o InstancePoolOutput) ToInstancePoolOutputWithContext(ctx context.Context) InstancePoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InstancePoolOutput{})
 }

@@ -4,6 +4,7 @@
 package v20160501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type CommitmentPlanArgs struct {
 
 func (CommitmentPlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*commitmentPlanArgs)(nil)).Elem()
+}
+
+type CommitmentPlanInput interface {
+	pulumi.Input
+
+	ToCommitmentPlanOutput() CommitmentPlanOutput
+	ToCommitmentPlanOutputWithContext(ctx context.Context) CommitmentPlanOutput
+}
+
+func (CommitmentPlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlan)(nil)).Elem()
+}
+
+func (i CommitmentPlan) ToCommitmentPlanOutput() CommitmentPlanOutput {
+	return i.ToCommitmentPlanOutputWithContext(context.Background())
+}
+
+func (i CommitmentPlan) ToCommitmentPlanOutputWithContext(ctx context.Context) CommitmentPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanOutput)
+}
+
+type CommitmentPlanOutput struct {
+	*pulumi.OutputState
+}
+
+func (CommitmentPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlanOutput)(nil)).Elem()
+}
+
+func (o CommitmentPlanOutput) ToCommitmentPlanOutput() CommitmentPlanOutput {
+	return o
+}
+
+func (o CommitmentPlanOutput) ToCommitmentPlanOutputWithContext(ctx context.Context) CommitmentPlanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CommitmentPlanOutput{})
 }
