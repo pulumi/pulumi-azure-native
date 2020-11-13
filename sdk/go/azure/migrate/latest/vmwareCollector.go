@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -104,4 +105,43 @@ type VMwareCollectorArgs struct {
 
 func (VMwareCollectorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vmwareCollectorArgs)(nil)).Elem()
+}
+
+type VMwareCollectorInput interface {
+	pulumi.Input
+
+	ToVMwareCollectorOutput() VMwareCollectorOutput
+	ToVMwareCollectorOutputWithContext(ctx context.Context) VMwareCollectorOutput
+}
+
+func (VMwareCollector) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMwareCollector)(nil)).Elem()
+}
+
+func (i VMwareCollector) ToVMwareCollectorOutput() VMwareCollectorOutput {
+	return i.ToVMwareCollectorOutputWithContext(context.Background())
+}
+
+func (i VMwareCollector) ToVMwareCollectorOutputWithContext(ctx context.Context) VMwareCollectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMwareCollectorOutput)
+}
+
+type VMwareCollectorOutput struct {
+	*pulumi.OutputState
+}
+
+func (VMwareCollectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMwareCollectorOutput)(nil)).Elem()
+}
+
+func (o VMwareCollectorOutput) ToVMwareCollectorOutput() VMwareCollectorOutput {
+	return o
+}
+
+func (o VMwareCollectorOutput) ToVMwareCollectorOutputWithContext(ctx context.Context) VMwareCollectorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VMwareCollectorOutput{})
 }

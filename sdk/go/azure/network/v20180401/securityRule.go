@@ -4,6 +4,7 @@
 package v20180401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -381,4 +382,43 @@ type SecurityRuleArgs struct {
 
 func (SecurityRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityRuleArgs)(nil)).Elem()
+}
+
+type SecurityRuleInput interface {
+	pulumi.Input
+
+	ToSecurityRuleOutput() SecurityRuleOutput
+	ToSecurityRuleOutputWithContext(ctx context.Context) SecurityRuleOutput
+}
+
+func (SecurityRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityRule)(nil)).Elem()
+}
+
+func (i SecurityRule) ToSecurityRuleOutput() SecurityRuleOutput {
+	return i.ToSecurityRuleOutputWithContext(context.Background())
+}
+
+func (i SecurityRule) ToSecurityRuleOutputWithContext(ctx context.Context) SecurityRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityRuleOutput)
+}
+
+type SecurityRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurityRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityRuleOutput)(nil)).Elem()
+}
+
+func (o SecurityRuleOutput) ToSecurityRuleOutput() SecurityRuleOutput {
+	return o
+}
+
+func (o SecurityRuleOutput) ToSecurityRuleOutputWithContext(ctx context.Context) SecurityRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecurityRuleOutput{})
 }

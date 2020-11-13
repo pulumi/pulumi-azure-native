@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,4 +154,43 @@ type AdaptiveApplicationControlArgs struct {
 
 func (AdaptiveApplicationControlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*adaptiveApplicationControlArgs)(nil)).Elem()
+}
+
+type AdaptiveApplicationControlInput interface {
+	pulumi.Input
+
+	ToAdaptiveApplicationControlOutput() AdaptiveApplicationControlOutput
+	ToAdaptiveApplicationControlOutputWithContext(ctx context.Context) AdaptiveApplicationControlOutput
+}
+
+func (AdaptiveApplicationControl) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdaptiveApplicationControl)(nil)).Elem()
+}
+
+func (i AdaptiveApplicationControl) ToAdaptiveApplicationControlOutput() AdaptiveApplicationControlOutput {
+	return i.ToAdaptiveApplicationControlOutputWithContext(context.Background())
+}
+
+func (i AdaptiveApplicationControl) ToAdaptiveApplicationControlOutputWithContext(ctx context.Context) AdaptiveApplicationControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdaptiveApplicationControlOutput)
+}
+
+type AdaptiveApplicationControlOutput struct {
+	*pulumi.OutputState
+}
+
+func (AdaptiveApplicationControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdaptiveApplicationControlOutput)(nil)).Elem()
+}
+
+func (o AdaptiveApplicationControlOutput) ToAdaptiveApplicationControlOutput() AdaptiveApplicationControlOutput {
+	return o
+}
+
+func (o AdaptiveApplicationControlOutput) ToAdaptiveApplicationControlOutputWithContext(ctx context.Context) AdaptiveApplicationControlOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AdaptiveApplicationControlOutput{})
 }

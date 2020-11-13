@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -145,4 +146,43 @@ type PeerAsnArgs struct {
 
 func (PeerAsnArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*peerAsnArgs)(nil)).Elem()
+}
+
+type PeerAsnInput interface {
+	pulumi.Input
+
+	ToPeerAsnOutput() PeerAsnOutput
+	ToPeerAsnOutputWithContext(ctx context.Context) PeerAsnOutput
+}
+
+func (PeerAsn) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeerAsn)(nil)).Elem()
+}
+
+func (i PeerAsn) ToPeerAsnOutput() PeerAsnOutput {
+	return i.ToPeerAsnOutputWithContext(context.Background())
+}
+
+func (i PeerAsn) ToPeerAsnOutputWithContext(ctx context.Context) PeerAsnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeerAsnOutput)
+}
+
+type PeerAsnOutput struct {
+	*pulumi.OutputState
+}
+
+func (PeerAsnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeerAsnOutput)(nil)).Elem()
+}
+
+func (o PeerAsnOutput) ToPeerAsnOutput() PeerAsnOutput {
+	return o
+}
+
+func (o PeerAsnOutput) ToPeerAsnOutputWithContext(ctx context.Context) PeerAsnOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PeerAsnOutput{})
 }

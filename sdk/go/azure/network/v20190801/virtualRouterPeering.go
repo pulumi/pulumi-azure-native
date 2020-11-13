@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -168,4 +169,43 @@ type VirtualRouterPeeringArgs struct {
 
 func (VirtualRouterPeeringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualRouterPeeringArgs)(nil)).Elem()
+}
+
+type VirtualRouterPeeringInput interface {
+	pulumi.Input
+
+	ToVirtualRouterPeeringOutput() VirtualRouterPeeringOutput
+	ToVirtualRouterPeeringOutputWithContext(ctx context.Context) VirtualRouterPeeringOutput
+}
+
+func (VirtualRouterPeering) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualRouterPeering)(nil)).Elem()
+}
+
+func (i VirtualRouterPeering) ToVirtualRouterPeeringOutput() VirtualRouterPeeringOutput {
+	return i.ToVirtualRouterPeeringOutputWithContext(context.Background())
+}
+
+func (i VirtualRouterPeering) ToVirtualRouterPeeringOutputWithContext(ctx context.Context) VirtualRouterPeeringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterPeeringOutput)
+}
+
+type VirtualRouterPeeringOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualRouterPeeringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualRouterPeeringOutput)(nil)).Elem()
+}
+
+func (o VirtualRouterPeeringOutput) ToVirtualRouterPeeringOutput() VirtualRouterPeeringOutput {
+	return o
+}
+
+func (o VirtualRouterPeeringOutput) ToVirtualRouterPeeringOutputWithContext(ctx context.Context) VirtualRouterPeeringOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualRouterPeeringOutput{})
 }

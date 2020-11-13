@@ -4,6 +4,7 @@
 package v20170301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -273,4 +274,43 @@ type VirtualNetworkPeeringArgs struct {
 
 func (VirtualNetworkPeeringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkPeeringArgs)(nil)).Elem()
+}
+
+type VirtualNetworkPeeringInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPeeringOutput() VirtualNetworkPeeringOutput
+	ToVirtualNetworkPeeringOutputWithContext(ctx context.Context) VirtualNetworkPeeringOutput
+}
+
+func (VirtualNetworkPeering) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeering)(nil)).Elem()
+}
+
+func (i VirtualNetworkPeering) ToVirtualNetworkPeeringOutput() VirtualNetworkPeeringOutput {
+	return i.ToVirtualNetworkPeeringOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPeering) ToVirtualNetworkPeeringOutputWithContext(ctx context.Context) VirtualNetworkPeeringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringOutput)
+}
+
+type VirtualNetworkPeeringOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkPeeringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkPeeringOutput) ToVirtualNetworkPeeringOutput() VirtualNetworkPeeringOutput {
+	return o
+}
+
+func (o VirtualNetworkPeeringOutput) ToVirtualNetworkPeeringOutputWithContext(ctx context.Context) VirtualNetworkPeeringOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkPeeringOutput{})
 }

@@ -4,6 +4,7 @@
 package v20171101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type ManagementGroupArgs struct {
 
 func (ManagementGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementGroupArgs)(nil)).Elem()
+}
+
+type ManagementGroupInput interface {
+	pulumi.Input
+
+	ToManagementGroupOutput() ManagementGroupOutput
+	ToManagementGroupOutputWithContext(ctx context.Context) ManagementGroupOutput
+}
+
+func (ManagementGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroup)(nil)).Elem()
+}
+
+func (i ManagementGroup) ToManagementGroupOutput() ManagementGroupOutput {
+	return i.ToManagementGroupOutputWithContext(context.Background())
+}
+
+func (i ManagementGroup) ToManagementGroupOutputWithContext(ctx context.Context) ManagementGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupOutput)
+}
+
+type ManagementGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupOutput)(nil)).Elem()
+}
+
+func (o ManagementGroupOutput) ToManagementGroupOutput() ManagementGroupOutput {
+	return o
+}
+
+func (o ManagementGroupOutput) ToManagementGroupOutputWithContext(ctx context.Context) ManagementGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementGroupOutput{})
 }

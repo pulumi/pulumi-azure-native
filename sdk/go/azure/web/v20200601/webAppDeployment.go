@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -216,4 +217,43 @@ type WebAppDeploymentArgs struct {
 
 func (WebAppDeploymentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppDeploymentArgs)(nil)).Elem()
+}
+
+type WebAppDeploymentInput interface {
+	pulumi.Input
+
+	ToWebAppDeploymentOutput() WebAppDeploymentOutput
+	ToWebAppDeploymentOutputWithContext(ctx context.Context) WebAppDeploymentOutput
+}
+
+func (WebAppDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDeployment)(nil)).Elem()
+}
+
+func (i WebAppDeployment) ToWebAppDeploymentOutput() WebAppDeploymentOutput {
+	return i.ToWebAppDeploymentOutputWithContext(context.Background())
+}
+
+func (i WebAppDeployment) ToWebAppDeploymentOutputWithContext(ctx context.Context) WebAppDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppDeploymentOutput)
+}
+
+type WebAppDeploymentOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDeploymentOutput)(nil)).Elem()
+}
+
+func (o WebAppDeploymentOutput) ToWebAppDeploymentOutput() WebAppDeploymentOutput {
+	return o
+}
+
+func (o WebAppDeploymentOutput) ToWebAppDeploymentOutputWithContext(ctx context.Context) WebAppDeploymentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppDeploymentOutput{})
 }

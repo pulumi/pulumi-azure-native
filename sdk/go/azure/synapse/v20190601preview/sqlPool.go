@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -224,4 +225,43 @@ type SqlPoolArgs struct {
 
 func (SqlPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolArgs)(nil)).Elem()
+}
+
+type SqlPoolInput interface {
+	pulumi.Input
+
+	ToSqlPoolOutput() SqlPoolOutput
+	ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput
+}
+
+func (SqlPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPool)(nil)).Elem()
+}
+
+func (i SqlPool) ToSqlPoolOutput() SqlPoolOutput {
+	return i.ToSqlPoolOutputWithContext(context.Background())
+}
+
+func (i SqlPool) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolOutput)
+}
+
+type SqlPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolOutput)(nil)).Elem()
+}
+
+func (o SqlPoolOutput) ToSqlPoolOutput() SqlPoolOutput {
+	return o
+}
+
+func (o SqlPoolOutput) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlPoolOutput{})
 }

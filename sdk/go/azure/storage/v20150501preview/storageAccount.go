@@ -4,6 +4,7 @@
 package v20150501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -226,4 +227,43 @@ type StorageAccountArgs struct {
 
 func (StorageAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageAccountArgs)(nil)).Elem()
+}
+
+type StorageAccountInput interface {
+	pulumi.Input
+
+	ToStorageAccountOutput() StorageAccountOutput
+	ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput
+}
+
+func (StorageAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccount)(nil)).Elem()
+}
+
+func (i StorageAccount) ToStorageAccountOutput() StorageAccountOutput {
+	return i.ToStorageAccountOutputWithContext(context.Background())
+}
+
+func (i StorageAccount) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput)
+}
+
+type StorageAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountOutput)(nil)).Elem()
+}
+
+func (o StorageAccountOutput) ToStorageAccountOutput() StorageAccountOutput {
+	return o
+}
+
+func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageAccountOutput{})
 }

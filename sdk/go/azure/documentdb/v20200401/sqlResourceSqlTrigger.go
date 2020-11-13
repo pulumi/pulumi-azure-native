@@ -4,6 +4,7 @@
 package v20200401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -167,4 +168,43 @@ type SqlResourceSqlTriggerArgs struct {
 
 func (SqlResourceSqlTriggerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlResourceSqlTriggerArgs)(nil)).Elem()
+}
+
+type SqlResourceSqlTriggerInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlTriggerOutput() SqlResourceSqlTriggerOutput
+	ToSqlResourceSqlTriggerOutputWithContext(ctx context.Context) SqlResourceSqlTriggerOutput
+}
+
+func (SqlResourceSqlTrigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlTrigger)(nil)).Elem()
+}
+
+func (i SqlResourceSqlTrigger) ToSqlResourceSqlTriggerOutput() SqlResourceSqlTriggerOutput {
+	return i.ToSqlResourceSqlTriggerOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlTrigger) ToSqlResourceSqlTriggerOutputWithContext(ctx context.Context) SqlResourceSqlTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlTriggerOutput)
+}
+
+type SqlResourceSqlTriggerOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlResourceSqlTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlTriggerOutput)(nil)).Elem()
+}
+
+func (o SqlResourceSqlTriggerOutput) ToSqlResourceSqlTriggerOutput() SqlResourceSqlTriggerOutput {
+	return o
+}
+
+func (o SqlResourceSqlTriggerOutput) ToSqlResourceSqlTriggerOutputWithContext(ctx context.Context) SqlResourceSqlTriggerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlResourceSqlTriggerOutput{})
 }

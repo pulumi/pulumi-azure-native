@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -150,4 +151,43 @@ type BookmarkRelationArgs struct {
 
 func (BookmarkRelationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bookmarkRelationArgs)(nil)).Elem()
+}
+
+type BookmarkRelationInput interface {
+	pulumi.Input
+
+	ToBookmarkRelationOutput() BookmarkRelationOutput
+	ToBookmarkRelationOutputWithContext(ctx context.Context) BookmarkRelationOutput
+}
+
+func (BookmarkRelation) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkRelation)(nil)).Elem()
+}
+
+func (i BookmarkRelation) ToBookmarkRelationOutput() BookmarkRelationOutput {
+	return i.ToBookmarkRelationOutputWithContext(context.Background())
+}
+
+func (i BookmarkRelation) ToBookmarkRelationOutputWithContext(ctx context.Context) BookmarkRelationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkRelationOutput)
+}
+
+type BookmarkRelationOutput struct {
+	*pulumi.OutputState
+}
+
+func (BookmarkRelationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkRelationOutput)(nil)).Elem()
+}
+
+func (o BookmarkRelationOutput) ToBookmarkRelationOutput() BookmarkRelationOutput {
+	return o
+}
+
+func (o BookmarkRelationOutput) ToBookmarkRelationOutputWithContext(ctx context.Context) BookmarkRelationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BookmarkRelationOutput{})
 }

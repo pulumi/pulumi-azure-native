@@ -4,6 +4,7 @@
 package v20200301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -156,4 +157,43 @@ type OrganizationArgs struct {
 
 func (OrganizationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationArgs)(nil)).Elem()
+}
+
+type OrganizationInput interface {
+	pulumi.Input
+
+	ToOrganizationOutput() OrganizationOutput
+	ToOrganizationOutputWithContext(ctx context.Context) OrganizationOutput
+}
+
+func (Organization) ElementType() reflect.Type {
+	return reflect.TypeOf((*Organization)(nil)).Elem()
+}
+
+func (i Organization) ToOrganizationOutput() OrganizationOutput {
+	return i.ToOrganizationOutputWithContext(context.Background())
+}
+
+func (i Organization) ToOrganizationOutputWithContext(ctx context.Context) OrganizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationOutput)
+}
+
+type OrganizationOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationOutput)(nil)).Elem()
+}
+
+func (o OrganizationOutput) ToOrganizationOutput() OrganizationOutput {
+	return o
+}
+
+func (o OrganizationOutput) ToOrganizationOutputWithContext(ctx context.Context) OrganizationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationOutput{})
 }

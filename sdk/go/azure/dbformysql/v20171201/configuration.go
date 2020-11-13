@@ -4,6 +4,7 @@
 package v20171201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -148,4 +149,43 @@ type ConfigurationArgs struct {
 
 func (ConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationArgs)(nil)).Elem()
+}
+
+type ConfigurationInput interface {
+	pulumi.Input
+
+	ToConfigurationOutput() ConfigurationOutput
+	ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput
+}
+
+func (Configuration) ElementType() reflect.Type {
+	return reflect.TypeOf((*Configuration)(nil)).Elem()
+}
+
+func (i Configuration) ToConfigurationOutput() ConfigurationOutput {
+	return i.ToConfigurationOutputWithContext(context.Background())
+}
+
+func (i Configuration) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationOutput)
+}
+
+type ConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationOutput)(nil)).Elem()
+}
+
+func (o ConfigurationOutput) ToConfigurationOutput() ConfigurationOutput {
+	return o
+}
+
+func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationOutput{})
 }

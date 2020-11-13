@@ -4,6 +4,7 @@
 package v20170426
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -234,4 +235,43 @@ type ConnectorMappingArgs struct {
 
 func (ConnectorMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectorMappingArgs)(nil)).Elem()
+}
+
+type ConnectorMappingInput interface {
+	pulumi.Input
+
+	ToConnectorMappingOutput() ConnectorMappingOutput
+	ToConnectorMappingOutputWithContext(ctx context.Context) ConnectorMappingOutput
+}
+
+func (ConnectorMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMapping)(nil)).Elem()
+}
+
+func (i ConnectorMapping) ToConnectorMappingOutput() ConnectorMappingOutput {
+	return i.ToConnectorMappingOutputWithContext(context.Background())
+}
+
+func (i ConnectorMapping) ToConnectorMappingOutputWithContext(ctx context.Context) ConnectorMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingOutput)
+}
+
+type ConnectorMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectorMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingOutput)(nil)).Elem()
+}
+
+func (o ConnectorMappingOutput) ToConnectorMappingOutput() ConnectorMappingOutput {
+	return o
+}
+
+func (o ConnectorMappingOutput) ToConnectorMappingOutputWithContext(ctx context.Context) ConnectorMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectorMappingOutput{})
 }

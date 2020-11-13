@@ -4,6 +4,7 @@
 package v20191201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -154,4 +155,43 @@ type ImportPipelineArgs struct {
 
 func (ImportPipelineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*importPipelineArgs)(nil)).Elem()
+}
+
+type ImportPipelineInput interface {
+	pulumi.Input
+
+	ToImportPipelineOutput() ImportPipelineOutput
+	ToImportPipelineOutputWithContext(ctx context.Context) ImportPipelineOutput
+}
+
+func (ImportPipeline) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImportPipeline)(nil)).Elem()
+}
+
+func (i ImportPipeline) ToImportPipelineOutput() ImportPipelineOutput {
+	return i.ToImportPipelineOutputWithContext(context.Background())
+}
+
+func (i ImportPipeline) ToImportPipelineOutputWithContext(ctx context.Context) ImportPipelineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineOutput)
+}
+
+type ImportPipelineOutput struct {
+	*pulumi.OutputState
+}
+
+func (ImportPipelineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImportPipelineOutput)(nil)).Elem()
+}
+
+func (o ImportPipelineOutput) ToImportPipelineOutput() ImportPipelineOutput {
+	return o
+}
+
+func (o ImportPipelineOutput) ToImportPipelineOutputWithContext(ctx context.Context) ImportPipelineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ImportPipelineOutput{})
 }

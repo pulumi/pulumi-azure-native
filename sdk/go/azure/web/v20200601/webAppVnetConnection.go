@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -189,4 +190,43 @@ type WebAppVnetConnectionArgs struct {
 
 func (WebAppVnetConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppVnetConnectionArgs)(nil)).Elem()
+}
+
+type WebAppVnetConnectionInput interface {
+	pulumi.Input
+
+	ToWebAppVnetConnectionOutput() WebAppVnetConnectionOutput
+	ToWebAppVnetConnectionOutputWithContext(ctx context.Context) WebAppVnetConnectionOutput
+}
+
+func (WebAppVnetConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVnetConnection)(nil)).Elem()
+}
+
+func (i WebAppVnetConnection) ToWebAppVnetConnectionOutput() WebAppVnetConnectionOutput {
+	return i.ToWebAppVnetConnectionOutputWithContext(context.Background())
+}
+
+func (i WebAppVnetConnection) ToWebAppVnetConnectionOutputWithContext(ctx context.Context) WebAppVnetConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppVnetConnectionOutput)
+}
+
+type WebAppVnetConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppVnetConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVnetConnectionOutput)(nil)).Elem()
+}
+
+func (o WebAppVnetConnectionOutput) ToWebAppVnetConnectionOutput() WebAppVnetConnectionOutput {
+	return o
+}
+
+func (o WebAppVnetConnectionOutput) ToWebAppVnetConnectionOutputWithContext(ctx context.Context) WebAppVnetConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppVnetConnectionOutput{})
 }

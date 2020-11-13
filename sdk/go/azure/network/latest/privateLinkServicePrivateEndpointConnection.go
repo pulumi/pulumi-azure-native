@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -164,4 +165,43 @@ type PrivateLinkServicePrivateEndpointConnectionArgs struct {
 
 func (PrivateLinkServicePrivateEndpointConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkServicePrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+type PrivateLinkServicePrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServicePrivateEndpointConnectionOutput() PrivateLinkServicePrivateEndpointConnectionOutput
+	ToPrivateLinkServicePrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateLinkServicePrivateEndpointConnectionOutput
+}
+
+func (PrivateLinkServicePrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i PrivateLinkServicePrivateEndpointConnection) ToPrivateLinkServicePrivateEndpointConnectionOutput() PrivateLinkServicePrivateEndpointConnectionOutput {
+	return i.ToPrivateLinkServicePrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServicePrivateEndpointConnection) ToPrivateLinkServicePrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateLinkServicePrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServicePrivateEndpointConnectionOutput)
+}
+
+type PrivateLinkServicePrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateLinkServicePrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnectionOutput)(nil)).Elem()
+}
+
+func (o PrivateLinkServicePrivateEndpointConnectionOutput) ToPrivateLinkServicePrivateEndpointConnectionOutput() PrivateLinkServicePrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o PrivateLinkServicePrivateEndpointConnectionOutput) ToPrivateLinkServicePrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateLinkServicePrivateEndpointConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateLinkServicePrivateEndpointConnectionOutput{})
 }

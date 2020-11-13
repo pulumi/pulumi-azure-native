@@ -4,6 +4,7 @@
 package v20190501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type TokenArgs struct {
 
 func (TokenArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tokenArgs)(nil)).Elem()
+}
+
+type TokenInput interface {
+	pulumi.Input
+
+	ToTokenOutput() TokenOutput
+	ToTokenOutputWithContext(ctx context.Context) TokenOutput
+}
+
+func (Token) ElementType() reflect.Type {
+	return reflect.TypeOf((*Token)(nil)).Elem()
+}
+
+func (i Token) ToTokenOutput() TokenOutput {
+	return i.ToTokenOutputWithContext(context.Background())
+}
+
+func (i Token) ToTokenOutputWithContext(ctx context.Context) TokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenOutput)
+}
+
+type TokenOutput struct {
+	*pulumi.OutputState
+}
+
+func (TokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenOutput)(nil)).Elem()
+}
+
+func (o TokenOutput) ToTokenOutput() TokenOutput {
+	return o
+}
+
+func (o TokenOutput) ToTokenOutputWithContext(ctx context.Context) TokenOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TokenOutput{})
 }

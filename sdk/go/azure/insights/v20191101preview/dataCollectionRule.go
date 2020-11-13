@@ -4,6 +4,7 @@
 package v20191101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -174,4 +175,43 @@ type DataCollectionRuleArgs struct {
 
 func (DataCollectionRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataCollectionRuleArgs)(nil)).Elem()
+}
+
+type DataCollectionRuleInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleOutput() DataCollectionRuleOutput
+	ToDataCollectionRuleOutputWithContext(ctx context.Context) DataCollectionRuleOutput
+}
+
+func (DataCollectionRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRule)(nil)).Elem()
+}
+
+func (i DataCollectionRule) ToDataCollectionRuleOutput() DataCollectionRuleOutput {
+	return i.ToDataCollectionRuleOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRule) ToDataCollectionRuleOutputWithContext(ctx context.Context) DataCollectionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleOutput)
+}
+
+type DataCollectionRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataCollectionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleOutput)(nil)).Elem()
+}
+
+func (o DataCollectionRuleOutput) ToDataCollectionRuleOutput() DataCollectionRuleOutput {
+	return o
+}
+
+func (o DataCollectionRuleOutput) ToDataCollectionRuleOutputWithContext(ctx context.Context) DataCollectionRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataCollectionRuleOutput{})
 }

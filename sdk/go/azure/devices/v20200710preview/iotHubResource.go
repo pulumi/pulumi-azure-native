@@ -4,6 +4,7 @@
 package v20200710preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -202,4 +203,43 @@ type IotHubResourceArgs struct {
 
 func (IotHubResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotHubResourceArgs)(nil)).Elem()
+}
+
+type IotHubResourceInput interface {
+	pulumi.Input
+
+	ToIotHubResourceOutput() IotHubResourceOutput
+	ToIotHubResourceOutputWithContext(ctx context.Context) IotHubResourceOutput
+}
+
+func (IotHubResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubResource)(nil)).Elem()
+}
+
+func (i IotHubResource) ToIotHubResourceOutput() IotHubResourceOutput {
+	return i.ToIotHubResourceOutputWithContext(context.Background())
+}
+
+func (i IotHubResource) ToIotHubResourceOutputWithContext(ctx context.Context) IotHubResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceOutput)
+}
+
+type IotHubResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotHubResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubResourceOutput)(nil)).Elem()
+}
+
+func (o IotHubResourceOutput) ToIotHubResourceOutput() IotHubResourceOutput {
+	return o
+}
+
+func (o IotHubResourceOutput) ToIotHubResourceOutputWithContext(ctx context.Context) IotHubResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IotHubResourceOutput{})
 }

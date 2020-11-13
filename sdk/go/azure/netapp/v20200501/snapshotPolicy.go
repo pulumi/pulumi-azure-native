@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -186,4 +187,43 @@ type SnapshotPolicyArgs struct {
 
 func (SnapshotPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotPolicyArgs)(nil)).Elem()
+}
+
+type SnapshotPolicyInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyOutput() SnapshotPolicyOutput
+	ToSnapshotPolicyOutputWithContext(ctx context.Context) SnapshotPolicyOutput
+}
+
+func (SnapshotPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicy)(nil)).Elem()
+}
+
+func (i SnapshotPolicy) ToSnapshotPolicyOutput() SnapshotPolicyOutput {
+	return i.ToSnapshotPolicyOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicy) ToSnapshotPolicyOutputWithContext(ctx context.Context) SnapshotPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyOutput)
+}
+
+type SnapshotPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnapshotPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyOutput)(nil)).Elem()
+}
+
+func (o SnapshotPolicyOutput) ToSnapshotPolicyOutput() SnapshotPolicyOutput {
+	return o
+}
+
+func (o SnapshotPolicyOutput) ToSnapshotPolicyOutputWithContext(ctx context.Context) SnapshotPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SnapshotPolicyOutput{})
 }

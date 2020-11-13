@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -117,4 +118,43 @@ type IotDpsResourcePrivateEndpointConnectionArgs struct {
 
 func (IotDpsResourcePrivateEndpointConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotDpsResourcePrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+type IotDpsResourcePrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToIotDpsResourcePrivateEndpointConnectionOutput() IotDpsResourcePrivateEndpointConnectionOutput
+	ToIotDpsResourcePrivateEndpointConnectionOutputWithContext(ctx context.Context) IotDpsResourcePrivateEndpointConnectionOutput
+}
+
+func (IotDpsResourcePrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsResourcePrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i IotDpsResourcePrivateEndpointConnection) ToIotDpsResourcePrivateEndpointConnectionOutput() IotDpsResourcePrivateEndpointConnectionOutput {
+	return i.ToIotDpsResourcePrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i IotDpsResourcePrivateEndpointConnection) ToIotDpsResourcePrivateEndpointConnectionOutputWithContext(ctx context.Context) IotDpsResourcePrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotDpsResourcePrivateEndpointConnectionOutput)
+}
+
+type IotDpsResourcePrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotDpsResourcePrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsResourcePrivateEndpointConnectionOutput)(nil)).Elem()
+}
+
+func (o IotDpsResourcePrivateEndpointConnectionOutput) ToIotDpsResourcePrivateEndpointConnectionOutput() IotDpsResourcePrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o IotDpsResourcePrivateEndpointConnectionOutput) ToIotDpsResourcePrivateEndpointConnectionOutputWithContext(ctx context.Context) IotDpsResourcePrivateEndpointConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IotDpsResourcePrivateEndpointConnectionOutput{})
 }

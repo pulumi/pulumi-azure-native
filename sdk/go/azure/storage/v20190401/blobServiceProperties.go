@@ -4,6 +4,7 @@
 package v20190401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,4 +164,43 @@ type BlobServicePropertiesArgs struct {
 
 func (BlobServicePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*blobServicePropertiesArgs)(nil)).Elem()
+}
+
+type BlobServicePropertiesInput interface {
+	pulumi.Input
+
+	ToBlobServicePropertiesOutput() BlobServicePropertiesOutput
+	ToBlobServicePropertiesOutputWithContext(ctx context.Context) BlobServicePropertiesOutput
+}
+
+func (BlobServiceProperties) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobServiceProperties)(nil)).Elem()
+}
+
+func (i BlobServiceProperties) ToBlobServicePropertiesOutput() BlobServicePropertiesOutput {
+	return i.ToBlobServicePropertiesOutputWithContext(context.Background())
+}
+
+func (i BlobServiceProperties) ToBlobServicePropertiesOutputWithContext(ctx context.Context) BlobServicePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobServicePropertiesOutput)
+}
+
+type BlobServicePropertiesOutput struct {
+	*pulumi.OutputState
+}
+
+func (BlobServicePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobServicePropertiesOutput)(nil)).Elem()
+}
+
+func (o BlobServicePropertiesOutput) ToBlobServicePropertiesOutput() BlobServicePropertiesOutput {
+	return o
+}
+
+func (o BlobServicePropertiesOutput) ToBlobServicePropertiesOutputWithContext(ctx context.Context) BlobServicePropertiesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BlobServicePropertiesOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -117,4 +118,43 @@ type FileServicePropertiesArgs struct {
 
 func (FileServicePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileServicePropertiesArgs)(nil)).Elem()
+}
+
+type FileServicePropertiesInput interface {
+	pulumi.Input
+
+	ToFileServicePropertiesOutput() FileServicePropertiesOutput
+	ToFileServicePropertiesOutputWithContext(ctx context.Context) FileServicePropertiesOutput
+}
+
+func (FileServiceProperties) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileServiceProperties)(nil)).Elem()
+}
+
+func (i FileServiceProperties) ToFileServicePropertiesOutput() FileServicePropertiesOutput {
+	return i.ToFileServicePropertiesOutputWithContext(context.Background())
+}
+
+func (i FileServiceProperties) ToFileServicePropertiesOutputWithContext(ctx context.Context) FileServicePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileServicePropertiesOutput)
+}
+
+type FileServicePropertiesOutput struct {
+	*pulumi.OutputState
+}
+
+func (FileServicePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileServicePropertiesOutput)(nil)).Elem()
+}
+
+func (o FileServicePropertiesOutput) ToFileServicePropertiesOutput() FileServicePropertiesOutput {
+	return o
+}
+
+func (o FileServicePropertiesOutput) ToFileServicePropertiesOutputWithContext(ctx context.Context) FileServicePropertiesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FileServicePropertiesOutput{})
 }

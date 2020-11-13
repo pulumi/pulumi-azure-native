@@ -4,6 +4,7 @@
 package v20191201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -117,4 +118,43 @@ type ContentItemArgs struct {
 
 func (ContentItemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*contentItemArgs)(nil)).Elem()
+}
+
+type ContentItemInput interface {
+	pulumi.Input
+
+	ToContentItemOutput() ContentItemOutput
+	ToContentItemOutputWithContext(ctx context.Context) ContentItemOutput
+}
+
+func (ContentItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentItem)(nil)).Elem()
+}
+
+func (i ContentItem) ToContentItemOutput() ContentItemOutput {
+	return i.ToContentItemOutputWithContext(context.Background())
+}
+
+func (i ContentItem) ToContentItemOutputWithContext(ctx context.Context) ContentItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentItemOutput)
+}
+
+type ContentItemOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContentItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentItemOutput)(nil)).Elem()
+}
+
+func (o ContentItemOutput) ToContentItemOutput() ContentItemOutput {
+	return o
+}
+
+func (o ContentItemOutput) ToContentItemOutputWithContext(ctx context.Context) ContentItemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContentItemOutput{})
 }

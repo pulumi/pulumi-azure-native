@@ -4,6 +4,7 @@
 package v20190401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -237,4 +238,43 @@ type P2sVpnGatewayArgs struct {
 
 func (P2sVpnGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*p2sVpnGatewayArgs)(nil)).Elem()
+}
+
+type P2sVpnGatewayInput interface {
+	pulumi.Input
+
+	ToP2sVpnGatewayOutput() P2sVpnGatewayOutput
+	ToP2sVpnGatewayOutputWithContext(ctx context.Context) P2sVpnGatewayOutput
+}
+
+func (P2sVpnGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*P2sVpnGateway)(nil)).Elem()
+}
+
+func (i P2sVpnGateway) ToP2sVpnGatewayOutput() P2sVpnGatewayOutput {
+	return i.ToP2sVpnGatewayOutputWithContext(context.Background())
+}
+
+func (i P2sVpnGateway) ToP2sVpnGatewayOutputWithContext(ctx context.Context) P2sVpnGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(P2sVpnGatewayOutput)
+}
+
+type P2sVpnGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (P2sVpnGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*P2sVpnGatewayOutput)(nil)).Elem()
+}
+
+func (o P2sVpnGatewayOutput) ToP2sVpnGatewayOutput() P2sVpnGatewayOutput {
+	return o
+}
+
+func (o P2sVpnGatewayOutput) ToP2sVpnGatewayOutputWithContext(ctx context.Context) P2sVpnGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(P2sVpnGatewayOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,4 +154,43 @@ type VirtualHubBgpConnectionArgs struct {
 
 func (VirtualHubBgpConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubBgpConnectionArgs)(nil)).Elem()
+}
+
+type VirtualHubBgpConnectionInput interface {
+	pulumi.Input
+
+	ToVirtualHubBgpConnectionOutput() VirtualHubBgpConnectionOutput
+	ToVirtualHubBgpConnectionOutputWithContext(ctx context.Context) VirtualHubBgpConnectionOutput
+}
+
+func (VirtualHubBgpConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubBgpConnection)(nil)).Elem()
+}
+
+func (i VirtualHubBgpConnection) ToVirtualHubBgpConnectionOutput() VirtualHubBgpConnectionOutput {
+	return i.ToVirtualHubBgpConnectionOutputWithContext(context.Background())
+}
+
+func (i VirtualHubBgpConnection) ToVirtualHubBgpConnectionOutputWithContext(ctx context.Context) VirtualHubBgpConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubBgpConnectionOutput)
+}
+
+type VirtualHubBgpConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualHubBgpConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubBgpConnectionOutput)(nil)).Elem()
+}
+
+func (o VirtualHubBgpConnectionOutput) ToVirtualHubBgpConnectionOutput() VirtualHubBgpConnectionOutput {
+	return o
+}
+
+func (o VirtualHubBgpConnectionOutput) ToVirtualHubBgpConnectionOutputWithContext(ctx context.Context) VirtualHubBgpConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualHubBgpConnectionOutput{})
 }

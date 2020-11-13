@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -114,4 +115,43 @@ type TrustedIdProviderArgs struct {
 
 func (TrustedIdProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustedIdProviderArgs)(nil)).Elem()
+}
+
+type TrustedIdProviderInput interface {
+	pulumi.Input
+
+	ToTrustedIdProviderOutput() TrustedIdProviderOutput
+	ToTrustedIdProviderOutputWithContext(ctx context.Context) TrustedIdProviderOutput
+}
+
+func (TrustedIdProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedIdProvider)(nil)).Elem()
+}
+
+func (i TrustedIdProvider) ToTrustedIdProviderOutput() TrustedIdProviderOutput {
+	return i.ToTrustedIdProviderOutputWithContext(context.Background())
+}
+
+func (i TrustedIdProvider) ToTrustedIdProviderOutputWithContext(ctx context.Context) TrustedIdProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedIdProviderOutput)
+}
+
+type TrustedIdProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (TrustedIdProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedIdProviderOutput)(nil)).Elem()
+}
+
+func (o TrustedIdProviderOutput) ToTrustedIdProviderOutput() TrustedIdProviderOutput {
+	return o
+}
+
+func (o TrustedIdProviderOutput) ToTrustedIdProviderOutputWithContext(ctx context.Context) TrustedIdProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TrustedIdProviderOutput{})
 }

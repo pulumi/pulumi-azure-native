@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -142,4 +143,43 @@ type MediaServiceArgs struct {
 
 func (MediaServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mediaServiceArgs)(nil)).Elem()
+}
+
+type MediaServiceInput interface {
+	pulumi.Input
+
+	ToMediaServiceOutput() MediaServiceOutput
+	ToMediaServiceOutputWithContext(ctx context.Context) MediaServiceOutput
+}
+
+func (MediaService) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaService)(nil)).Elem()
+}
+
+func (i MediaService) ToMediaServiceOutput() MediaServiceOutput {
+	return i.ToMediaServiceOutputWithContext(context.Background())
+}
+
+func (i MediaService) ToMediaServiceOutputWithContext(ctx context.Context) MediaServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceOutput)
+}
+
+type MediaServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (MediaServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaServiceOutput)(nil)).Elem()
+}
+
+func (o MediaServiceOutput) ToMediaServiceOutput() MediaServiceOutput {
+	return o
+}
+
+func (o MediaServiceOutput) ToMediaServiceOutputWithContext(ctx context.Context) MediaServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MediaServiceOutput{})
 }

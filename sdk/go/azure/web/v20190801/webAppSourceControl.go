@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -169,4 +170,43 @@ type WebAppSourceControlArgs struct {
 
 func (WebAppSourceControlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppSourceControlArgs)(nil)).Elem()
+}
+
+type WebAppSourceControlInput interface {
+	pulumi.Input
+
+	ToWebAppSourceControlOutput() WebAppSourceControlOutput
+	ToWebAppSourceControlOutputWithContext(ctx context.Context) WebAppSourceControlOutput
+}
+
+func (WebAppSourceControl) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSourceControl)(nil)).Elem()
+}
+
+func (i WebAppSourceControl) ToWebAppSourceControlOutput() WebAppSourceControlOutput {
+	return i.ToWebAppSourceControlOutputWithContext(context.Background())
+}
+
+func (i WebAppSourceControl) ToWebAppSourceControlOutputWithContext(ctx context.Context) WebAppSourceControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSourceControlOutput)
+}
+
+type WebAppSourceControlOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppSourceControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSourceControlOutput)(nil)).Elem()
+}
+
+func (o WebAppSourceControlOutput) ToWebAppSourceControlOutput() WebAppSourceControlOutput {
+	return o
+}
+
+func (o WebAppSourceControlOutput) ToWebAppSourceControlOutputWithContext(ctx context.Context) WebAppSourceControlOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppSourceControlOutput{})
 }

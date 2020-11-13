@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -120,4 +121,43 @@ type ScopeAssignmentArgs struct {
 
 func (ScopeAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scopeAssignmentArgs)(nil)).Elem()
+}
+
+type ScopeAssignmentInput interface {
+	pulumi.Input
+
+	ToScopeAssignmentOutput() ScopeAssignmentOutput
+	ToScopeAssignmentOutputWithContext(ctx context.Context) ScopeAssignmentOutput
+}
+
+func (ScopeAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeAssignment)(nil)).Elem()
+}
+
+func (i ScopeAssignment) ToScopeAssignmentOutput() ScopeAssignmentOutput {
+	return i.ToScopeAssignmentOutputWithContext(context.Background())
+}
+
+func (i ScopeAssignment) ToScopeAssignmentOutputWithContext(ctx context.Context) ScopeAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeAssignmentOutput)
+}
+
+type ScopeAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScopeAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeAssignmentOutput)(nil)).Elem()
+}
+
+func (o ScopeAssignmentOutput) ToScopeAssignmentOutput() ScopeAssignmentOutput {
+	return o
+}
+
+func (o ScopeAssignmentOutput) ToScopeAssignmentOutputWithContext(ctx context.Context) ScopeAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScopeAssignmentOutput{})
 }

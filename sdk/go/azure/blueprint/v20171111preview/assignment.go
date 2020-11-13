@@ -4,6 +4,7 @@
 package v20171111preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -185,4 +186,43 @@ type AssignmentArgs struct {
 
 func (AssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentArgs)(nil)).Elem()
+}
+
+type AssignmentInput interface {
+	pulumi.Input
+
+	ToAssignmentOutput() AssignmentOutput
+	ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput
+}
+
+func (Assignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Assignment)(nil)).Elem()
+}
+
+func (i Assignment) ToAssignmentOutput() AssignmentOutput {
+	return i.ToAssignmentOutputWithContext(context.Background())
+}
+
+func (i Assignment) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
+}
+
+type AssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentOutput)(nil)).Elem()
+}
+
+func (o AssignmentOutput) ToAssignmentOutput() AssignmentOutput {
+	return o
+}
+
+func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssignmentOutput{})
 }

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -195,4 +196,43 @@ type CertificateCsrArgs struct {
 
 func (CertificateCsrArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateCsrArgs)(nil)).Elem()
+}
+
+type CertificateCsrInput interface {
+	pulumi.Input
+
+	ToCertificateCsrOutput() CertificateCsrOutput
+	ToCertificateCsrOutputWithContext(ctx context.Context) CertificateCsrOutput
+}
+
+func (CertificateCsr) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCsr)(nil)).Elem()
+}
+
+func (i CertificateCsr) ToCertificateCsrOutput() CertificateCsrOutput {
+	return i.ToCertificateCsrOutputWithContext(context.Background())
+}
+
+func (i CertificateCsr) ToCertificateCsrOutputWithContext(ctx context.Context) CertificateCsrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCsrOutput)
+}
+
+type CertificateCsrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateCsrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCsrOutput)(nil)).Elem()
+}
+
+func (o CertificateCsrOutput) ToCertificateCsrOutput() CertificateCsrOutput {
+	return o
+}
+
+func (o CertificateCsrOutput) ToCertificateCsrOutputWithContext(ctx context.Context) CertificateCsrOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CertificateCsrOutput{})
 }

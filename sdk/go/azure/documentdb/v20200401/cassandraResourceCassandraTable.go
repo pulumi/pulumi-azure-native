@@ -4,6 +4,7 @@
 package v20200401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,4 +164,43 @@ type CassandraResourceCassandraTableArgs struct {
 
 func (CassandraResourceCassandraTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cassandraResourceCassandraTableArgs)(nil)).Elem()
+}
+
+type CassandraResourceCassandraTableInput interface {
+	pulumi.Input
+
+	ToCassandraResourceCassandraTableOutput() CassandraResourceCassandraTableOutput
+	ToCassandraResourceCassandraTableOutputWithContext(ctx context.Context) CassandraResourceCassandraTableOutput
+}
+
+func (CassandraResourceCassandraTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraResourceCassandraTable)(nil)).Elem()
+}
+
+func (i CassandraResourceCassandraTable) ToCassandraResourceCassandraTableOutput() CassandraResourceCassandraTableOutput {
+	return i.ToCassandraResourceCassandraTableOutputWithContext(context.Background())
+}
+
+func (i CassandraResourceCassandraTable) ToCassandraResourceCassandraTableOutputWithContext(ctx context.Context) CassandraResourceCassandraTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraTableOutput)
+}
+
+type CassandraResourceCassandraTableOutput struct {
+	*pulumi.OutputState
+}
+
+func (CassandraResourceCassandraTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraResourceCassandraTableOutput)(nil)).Elem()
+}
+
+func (o CassandraResourceCassandraTableOutput) ToCassandraResourceCassandraTableOutput() CassandraResourceCassandraTableOutput {
+	return o
+}
+
+func (o CassandraResourceCassandraTableOutput) ToCassandraResourceCassandraTableOutputWithContext(ctx context.Context) CassandraResourceCassandraTableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CassandraResourceCassandraTableOutput{})
 }

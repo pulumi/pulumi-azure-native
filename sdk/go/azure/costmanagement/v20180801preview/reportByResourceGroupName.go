@@ -4,6 +4,7 @@
 package v20180801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type ReportByResourceGroupNameArgs struct {
 
 func (ReportByResourceGroupNameArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportByResourceGroupNameArgs)(nil)).Elem()
+}
+
+type ReportByResourceGroupNameInput interface {
+	pulumi.Input
+
+	ToReportByResourceGroupNameOutput() ReportByResourceGroupNameOutput
+	ToReportByResourceGroupNameOutputWithContext(ctx context.Context) ReportByResourceGroupNameOutput
+}
+
+func (ReportByResourceGroupName) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportByResourceGroupName)(nil)).Elem()
+}
+
+func (i ReportByResourceGroupName) ToReportByResourceGroupNameOutput() ReportByResourceGroupNameOutput {
+	return i.ToReportByResourceGroupNameOutputWithContext(context.Background())
+}
+
+func (i ReportByResourceGroupName) ToReportByResourceGroupNameOutputWithContext(ctx context.Context) ReportByResourceGroupNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportByResourceGroupNameOutput)
+}
+
+type ReportByResourceGroupNameOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReportByResourceGroupNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportByResourceGroupNameOutput)(nil)).Elem()
+}
+
+func (o ReportByResourceGroupNameOutput) ToReportByResourceGroupNameOutput() ReportByResourceGroupNameOutput {
+	return o
+}
+
+func (o ReportByResourceGroupNameOutput) ToReportByResourceGroupNameOutputWithContext(ctx context.Context) ReportByResourceGroupNameOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReportByResourceGroupNameOutput{})
 }

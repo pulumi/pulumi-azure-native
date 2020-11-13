@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,4 +154,43 @@ type GremlinResourceGremlinDatabaseArgs struct {
 
 func (GremlinResourceGremlinDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gremlinResourceGremlinDatabaseArgs)(nil)).Elem()
+}
+
+type GremlinResourceGremlinDatabaseInput interface {
+	pulumi.Input
+
+	ToGremlinResourceGremlinDatabaseOutput() GremlinResourceGremlinDatabaseOutput
+	ToGremlinResourceGremlinDatabaseOutputWithContext(ctx context.Context) GremlinResourceGremlinDatabaseOutput
+}
+
+func (GremlinResourceGremlinDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinResourceGremlinDatabase)(nil)).Elem()
+}
+
+func (i GremlinResourceGremlinDatabase) ToGremlinResourceGremlinDatabaseOutput() GremlinResourceGremlinDatabaseOutput {
+	return i.ToGremlinResourceGremlinDatabaseOutputWithContext(context.Background())
+}
+
+func (i GremlinResourceGremlinDatabase) ToGremlinResourceGremlinDatabaseOutputWithContext(ctx context.Context) GremlinResourceGremlinDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinDatabaseOutput)
+}
+
+type GremlinResourceGremlinDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (GremlinResourceGremlinDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinResourceGremlinDatabaseOutput)(nil)).Elem()
+}
+
+func (o GremlinResourceGremlinDatabaseOutput) ToGremlinResourceGremlinDatabaseOutput() GremlinResourceGremlinDatabaseOutput {
+	return o
+}
+
+func (o GremlinResourceGremlinDatabaseOutput) ToGremlinResourceGremlinDatabaseOutputWithContext(ctx context.Context) GremlinResourceGremlinDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GremlinResourceGremlinDatabaseOutput{})
 }

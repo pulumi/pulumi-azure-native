@@ -4,6 +4,7 @@
 package v20161201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -148,4 +149,43 @@ type ProtectionContainerArgs struct {
 
 func (ProtectionContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionContainerArgs)(nil)).Elem()
+}
+
+type ProtectionContainerInput interface {
+	pulumi.Input
+
+	ToProtectionContainerOutput() ProtectionContainerOutput
+	ToProtectionContainerOutputWithContext(ctx context.Context) ProtectionContainerOutput
+}
+
+func (ProtectionContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionContainer)(nil)).Elem()
+}
+
+func (i ProtectionContainer) ToProtectionContainerOutput() ProtectionContainerOutput {
+	return i.ToProtectionContainerOutputWithContext(context.Background())
+}
+
+func (i ProtectionContainer) ToProtectionContainerOutputWithContext(ctx context.Context) ProtectionContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerOutput)
+}
+
+type ProtectionContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectionContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionContainerOutput)(nil)).Elem()
+}
+
+func (o ProtectionContainerOutput) ToProtectionContainerOutput() ProtectionContainerOutput {
+	return o
+}
+
+func (o ProtectionContainerOutput) ToProtectionContainerOutputWithContext(ctx context.Context) ProtectionContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProtectionContainerOutput{})
 }

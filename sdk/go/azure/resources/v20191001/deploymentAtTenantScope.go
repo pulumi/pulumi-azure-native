@@ -4,6 +4,7 @@
 package v20191001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -132,4 +133,43 @@ type DeploymentAtTenantScopeArgs struct {
 
 func (DeploymentAtTenantScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentAtTenantScopeArgs)(nil)).Elem()
+}
+
+type DeploymentAtTenantScopeInput interface {
+	pulumi.Input
+
+	ToDeploymentAtTenantScopeOutput() DeploymentAtTenantScopeOutput
+	ToDeploymentAtTenantScopeOutputWithContext(ctx context.Context) DeploymentAtTenantScopeOutput
+}
+
+func (DeploymentAtTenantScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtTenantScope)(nil)).Elem()
+}
+
+func (i DeploymentAtTenantScope) ToDeploymentAtTenantScopeOutput() DeploymentAtTenantScopeOutput {
+	return i.ToDeploymentAtTenantScopeOutputWithContext(context.Background())
+}
+
+func (i DeploymentAtTenantScope) ToDeploymentAtTenantScopeOutputWithContext(ctx context.Context) DeploymentAtTenantScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtTenantScopeOutput)
+}
+
+type DeploymentAtTenantScopeOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentAtTenantScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtTenantScopeOutput)(nil)).Elem()
+}
+
+func (o DeploymentAtTenantScopeOutput) ToDeploymentAtTenantScopeOutput() DeploymentAtTenantScopeOutput {
+	return o
+}
+
+func (o DeploymentAtTenantScopeOutput) ToDeploymentAtTenantScopeOutputWithContext(ctx context.Context) DeploymentAtTenantScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentAtTenantScopeOutput{})
 }

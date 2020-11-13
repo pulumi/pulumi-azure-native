@@ -4,6 +4,7 @@
 package v20170101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -210,4 +211,43 @@ type RelationshipLinkArgs struct {
 
 func (RelationshipLinkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*relationshipLinkArgs)(nil)).Elem()
+}
+
+type RelationshipLinkInput interface {
+	pulumi.Input
+
+	ToRelationshipLinkOutput() RelationshipLinkOutput
+	ToRelationshipLinkOutputWithContext(ctx context.Context) RelationshipLinkOutput
+}
+
+func (RelationshipLink) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipLink)(nil)).Elem()
+}
+
+func (i RelationshipLink) ToRelationshipLinkOutput() RelationshipLinkOutput {
+	return i.ToRelationshipLinkOutputWithContext(context.Background())
+}
+
+func (i RelationshipLink) ToRelationshipLinkOutputWithContext(ctx context.Context) RelationshipLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkOutput)
+}
+
+type RelationshipLinkOutput struct {
+	*pulumi.OutputState
+}
+
+func (RelationshipLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipLinkOutput)(nil)).Elem()
+}
+
+func (o RelationshipLinkOutput) ToRelationshipLinkOutput() RelationshipLinkOutput {
+	return o
+}
+
+func (o RelationshipLinkOutput) ToRelationshipLinkOutputWithContext(ctx context.Context) RelationshipLinkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RelationshipLinkOutput{})
 }

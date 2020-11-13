@@ -4,6 +4,7 @@
 package v20200401preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -138,4 +139,43 @@ type PartnerNamespaceArgs struct {
 
 func (PartnerNamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*partnerNamespaceArgs)(nil)).Elem()
+}
+
+type PartnerNamespaceInput interface {
+	pulumi.Input
+
+	ToPartnerNamespaceOutput() PartnerNamespaceOutput
+	ToPartnerNamespaceOutputWithContext(ctx context.Context) PartnerNamespaceOutput
+}
+
+func (PartnerNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerNamespace)(nil)).Elem()
+}
+
+func (i PartnerNamespace) ToPartnerNamespaceOutput() PartnerNamespaceOutput {
+	return i.ToPartnerNamespaceOutputWithContext(context.Background())
+}
+
+func (i PartnerNamespace) ToPartnerNamespaceOutputWithContext(ctx context.Context) PartnerNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerNamespaceOutput)
+}
+
+type PartnerNamespaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (PartnerNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerNamespaceOutput)(nil)).Elem()
+}
+
+func (o PartnerNamespaceOutput) ToPartnerNamespaceOutput() PartnerNamespaceOutput {
+	return o
+}
+
+func (o PartnerNamespaceOutput) ToPartnerNamespaceOutputWithContext(ctx context.Context) PartnerNamespaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PartnerNamespaceOutput{})
 }

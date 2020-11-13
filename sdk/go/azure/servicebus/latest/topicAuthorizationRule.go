@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type TopicAuthorizationRuleArgs struct {
 
 func (TopicAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type TopicAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToTopicAuthorizationRuleOutput() TopicAuthorizationRuleOutput
+	ToTopicAuthorizationRuleOutputWithContext(ctx context.Context) TopicAuthorizationRuleOutput
+}
+
+func (TopicAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAuthorizationRule)(nil)).Elem()
+}
+
+func (i TopicAuthorizationRule) ToTopicAuthorizationRuleOutput() TopicAuthorizationRuleOutput {
+	return i.ToTopicAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i TopicAuthorizationRule) ToTopicAuthorizationRuleOutputWithContext(ctx context.Context) TopicAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorizationRuleOutput)
+}
+
+type TopicAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (TopicAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o TopicAuthorizationRuleOutput) ToTopicAuthorizationRuleOutput() TopicAuthorizationRuleOutput {
+	return o
+}
+
+func (o TopicAuthorizationRuleOutput) ToTopicAuthorizationRuleOutputWithContext(ctx context.Context) TopicAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TopicAuthorizationRuleOutput{})
 }

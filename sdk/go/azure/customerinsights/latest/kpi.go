@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -289,4 +290,43 @@ type KpiArgs struct {
 
 func (KpiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*kpiArgs)(nil)).Elem()
+}
+
+type KpiInput interface {
+	pulumi.Input
+
+	ToKpiOutput() KpiOutput
+	ToKpiOutputWithContext(ctx context.Context) KpiOutput
+}
+
+func (Kpi) ElementType() reflect.Type {
+	return reflect.TypeOf((*Kpi)(nil)).Elem()
+}
+
+func (i Kpi) ToKpiOutput() KpiOutput {
+	return i.ToKpiOutputWithContext(context.Background())
+}
+
+func (i Kpi) ToKpiOutputWithContext(ctx context.Context) KpiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiOutput)
+}
+
+type KpiOutput struct {
+	*pulumi.OutputState
+}
+
+func (KpiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiOutput)(nil)).Elem()
+}
+
+func (o KpiOutput) ToKpiOutput() KpiOutput {
+	return o
+}
+
+func (o KpiOutput) ToKpiOutputWithContext(ctx context.Context) KpiOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(KpiOutput{})
 }

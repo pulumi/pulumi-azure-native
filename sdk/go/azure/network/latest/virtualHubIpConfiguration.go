@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -167,4 +168,43 @@ type VirtualHubIpConfigurationArgs struct {
 
 func (VirtualHubIpConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubIpConfigurationArgs)(nil)).Elem()
+}
+
+type VirtualHubIpConfigurationInput interface {
+	pulumi.Input
+
+	ToVirtualHubIpConfigurationOutput() VirtualHubIpConfigurationOutput
+	ToVirtualHubIpConfigurationOutputWithContext(ctx context.Context) VirtualHubIpConfigurationOutput
+}
+
+func (VirtualHubIpConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubIpConfiguration)(nil)).Elem()
+}
+
+func (i VirtualHubIpConfiguration) ToVirtualHubIpConfigurationOutput() VirtualHubIpConfigurationOutput {
+	return i.ToVirtualHubIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i VirtualHubIpConfiguration) ToVirtualHubIpConfigurationOutputWithContext(ctx context.Context) VirtualHubIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubIpConfigurationOutput)
+}
+
+type VirtualHubIpConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualHubIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubIpConfigurationOutput)(nil)).Elem()
+}
+
+func (o VirtualHubIpConfigurationOutput) ToVirtualHubIpConfigurationOutput() VirtualHubIpConfigurationOutput {
+	return o
+}
+
+func (o VirtualHubIpConfigurationOutput) ToVirtualHubIpConfigurationOutputWithContext(ctx context.Context) VirtualHubIpConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualHubIpConfigurationOutput{})
 }

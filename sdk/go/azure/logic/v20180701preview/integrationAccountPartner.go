@@ -4,6 +4,7 @@
 package v20180701preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -178,4 +179,43 @@ type IntegrationAccountPartnerArgs struct {
 
 func (IntegrationAccountPartnerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountPartnerArgs)(nil)).Elem()
+}
+
+type IntegrationAccountPartnerInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountPartnerOutput() IntegrationAccountPartnerOutput
+	ToIntegrationAccountPartnerOutputWithContext(ctx context.Context) IntegrationAccountPartnerOutput
+}
+
+func (IntegrationAccountPartner) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountPartner)(nil)).Elem()
+}
+
+func (i IntegrationAccountPartner) ToIntegrationAccountPartnerOutput() IntegrationAccountPartnerOutput {
+	return i.ToIntegrationAccountPartnerOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountPartner) ToIntegrationAccountPartnerOutputWithContext(ctx context.Context) IntegrationAccountPartnerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerOutput)
+}
+
+type IntegrationAccountPartnerOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationAccountPartnerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountPartnerOutput)(nil)).Elem()
+}
+
+func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerOutput() IntegrationAccountPartnerOutput {
+	return o
+}
+
+func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerOutputWithContext(ctx context.Context) IntegrationAccountPartnerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationAccountPartnerOutput{})
 }

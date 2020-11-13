@@ -4,6 +4,7 @@
 package v20191212
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -167,4 +168,43 @@ type SqlResourceSqlUserDefinedFunctionArgs struct {
 
 func (SqlResourceSqlUserDefinedFunctionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlResourceSqlUserDefinedFunctionArgs)(nil)).Elem()
+}
+
+type SqlResourceSqlUserDefinedFunctionInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlUserDefinedFunctionOutput() SqlResourceSqlUserDefinedFunctionOutput
+	ToSqlResourceSqlUserDefinedFunctionOutputWithContext(ctx context.Context) SqlResourceSqlUserDefinedFunctionOutput
+}
+
+func (SqlResourceSqlUserDefinedFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunction)(nil)).Elem()
+}
+
+func (i SqlResourceSqlUserDefinedFunction) ToSqlResourceSqlUserDefinedFunctionOutput() SqlResourceSqlUserDefinedFunctionOutput {
+	return i.ToSqlResourceSqlUserDefinedFunctionOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlUserDefinedFunction) ToSqlResourceSqlUserDefinedFunctionOutputWithContext(ctx context.Context) SqlResourceSqlUserDefinedFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlUserDefinedFunctionOutput)
+}
+
+type SqlResourceSqlUserDefinedFunctionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlResourceSqlUserDefinedFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunctionOutput)(nil)).Elem()
+}
+
+func (o SqlResourceSqlUserDefinedFunctionOutput) ToSqlResourceSqlUserDefinedFunctionOutput() SqlResourceSqlUserDefinedFunctionOutput {
+	return o
+}
+
+func (o SqlResourceSqlUserDefinedFunctionOutput) ToSqlResourceSqlUserDefinedFunctionOutputWithContext(ctx context.Context) SqlResourceSqlUserDefinedFunctionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlResourceSqlUserDefinedFunctionOutput{})
 }

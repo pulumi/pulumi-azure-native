@@ -4,6 +4,7 @@
 package v20191001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -170,4 +171,43 @@ type ConfigurationStoreArgs struct {
 
 func (ConfigurationStoreArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationStoreArgs)(nil)).Elem()
+}
+
+type ConfigurationStoreInput interface {
+	pulumi.Input
+
+	ToConfigurationStoreOutput() ConfigurationStoreOutput
+	ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput
+}
+
+func (ConfigurationStore) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStore)(nil)).Elem()
+}
+
+func (i ConfigurationStore) ToConfigurationStoreOutput() ConfigurationStoreOutput {
+	return i.ToConfigurationStoreOutputWithContext(context.Background())
+}
+
+func (i ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreOutput)
+}
+
+type ConfigurationStoreOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationStoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStoreOutput)(nil)).Elem()
+}
+
+func (o ConfigurationStoreOutput) ToConfigurationStoreOutput() ConfigurationStoreOutput {
+	return o
+}
+
+func (o ConfigurationStoreOutput) ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationStoreOutput{})
 }

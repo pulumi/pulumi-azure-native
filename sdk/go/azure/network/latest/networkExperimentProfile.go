@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -144,4 +145,43 @@ type NetworkExperimentProfileArgs struct {
 
 func (NetworkExperimentProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkExperimentProfileArgs)(nil)).Elem()
+}
+
+type NetworkExperimentProfileInput interface {
+	pulumi.Input
+
+	ToNetworkExperimentProfileOutput() NetworkExperimentProfileOutput
+	ToNetworkExperimentProfileOutputWithContext(ctx context.Context) NetworkExperimentProfileOutput
+}
+
+func (NetworkExperimentProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkExperimentProfile)(nil)).Elem()
+}
+
+func (i NetworkExperimentProfile) ToNetworkExperimentProfileOutput() NetworkExperimentProfileOutput {
+	return i.ToNetworkExperimentProfileOutputWithContext(context.Background())
+}
+
+func (i NetworkExperimentProfile) ToNetworkExperimentProfileOutputWithContext(ctx context.Context) NetworkExperimentProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkExperimentProfileOutput)
+}
+
+type NetworkExperimentProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkExperimentProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkExperimentProfileOutput)(nil)).Elem()
+}
+
+func (o NetworkExperimentProfileOutput) ToNetworkExperimentProfileOutput() NetworkExperimentProfileOutput {
+	return o
+}
+
+func (o NetworkExperimentProfileOutput) ToNetworkExperimentProfileOutputWithContext(ctx context.Context) NetworkExperimentProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkExperimentProfileOutput{})
 }

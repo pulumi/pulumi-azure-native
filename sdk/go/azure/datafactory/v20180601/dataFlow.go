@@ -4,6 +4,7 @@
 package v20180601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -120,4 +121,43 @@ type DataFlowArgs struct {
 
 func (DataFlowArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataFlowArgs)(nil)).Elem()
+}
+
+type DataFlowInput interface {
+	pulumi.Input
+
+	ToDataFlowOutput() DataFlowOutput
+	ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutput
+}
+
+func (DataFlow) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlow)(nil)).Elem()
+}
+
+func (i DataFlow) ToDataFlowOutput() DataFlowOutput {
+	return i.ToDataFlowOutputWithContext(context.Background())
+}
+
+func (i DataFlow) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowOutput)
+}
+
+type DataFlowOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowOutput)(nil)).Elem()
+}
+
+func (o DataFlowOutput) ToDataFlowOutput() DataFlowOutput {
+	return o
+}
+
+func (o DataFlowOutput) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataFlowOutput{})
 }

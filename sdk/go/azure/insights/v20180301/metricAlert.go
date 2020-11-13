@@ -4,6 +4,7 @@
 package v20180301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -251,4 +252,43 @@ type MetricAlertArgs struct {
 
 func (MetricAlertArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricAlertArgs)(nil)).Elem()
+}
+
+type MetricAlertInput interface {
+	pulumi.Input
+
+	ToMetricAlertOutput() MetricAlertOutput
+	ToMetricAlertOutputWithContext(ctx context.Context) MetricAlertOutput
+}
+
+func (MetricAlert) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlert)(nil)).Elem()
+}
+
+func (i MetricAlert) ToMetricAlertOutput() MetricAlertOutput {
+	return i.ToMetricAlertOutputWithContext(context.Background())
+}
+
+func (i MetricAlert) ToMetricAlertOutputWithContext(ctx context.Context) MetricAlertOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertOutput)
+}
+
+type MetricAlertOutput struct {
+	*pulumi.OutputState
+}
+
+func (MetricAlertOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertOutput)(nil)).Elem()
+}
+
+func (o MetricAlertOutput) ToMetricAlertOutput() MetricAlertOutput {
+	return o
+}
+
+func (o MetricAlertOutput) ToMetricAlertOutputWithContext(ctx context.Context) MetricAlertOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MetricAlertOutput{})
 }

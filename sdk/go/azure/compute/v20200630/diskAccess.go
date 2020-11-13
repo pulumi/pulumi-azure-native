@@ -4,6 +4,7 @@
 package v20200630
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -138,4 +139,43 @@ type DiskAccessArgs struct {
 
 func (DiskAccessArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*diskAccessArgs)(nil)).Elem()
+}
+
+type DiskAccessInput interface {
+	pulumi.Input
+
+	ToDiskAccessOutput() DiskAccessOutput
+	ToDiskAccessOutputWithContext(ctx context.Context) DiskAccessOutput
+}
+
+func (DiskAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskAccess)(nil)).Elem()
+}
+
+func (i DiskAccess) ToDiskAccessOutput() DiskAccessOutput {
+	return i.ToDiskAccessOutputWithContext(context.Background())
+}
+
+func (i DiskAccess) ToDiskAccessOutputWithContext(ctx context.Context) DiskAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessOutput)
+}
+
+type DiskAccessOutput struct {
+	*pulumi.OutputState
+}
+
+func (DiskAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskAccessOutput)(nil)).Elem()
+}
+
+func (o DiskAccessOutput) ToDiskAccessOutput() DiskAccessOutput {
+	return o
+}
+
+func (o DiskAccessOutput) ToDiskAccessOutputWithContext(ctx context.Context) DiskAccessOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DiskAccessOutput{})
 }

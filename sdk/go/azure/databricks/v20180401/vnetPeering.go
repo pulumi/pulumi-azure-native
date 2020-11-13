@@ -4,6 +4,7 @@
 package v20180401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -196,4 +197,43 @@ type VNetPeeringArgs struct {
 
 func (VNetPeeringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vnetPeeringArgs)(nil)).Elem()
+}
+
+type VNetPeeringInput interface {
+	pulumi.Input
+
+	ToVNetPeeringOutput() VNetPeeringOutput
+	ToVNetPeeringOutputWithContext(ctx context.Context) VNetPeeringOutput
+}
+
+func (VNetPeering) ElementType() reflect.Type {
+	return reflect.TypeOf((*VNetPeering)(nil)).Elem()
+}
+
+func (i VNetPeering) ToVNetPeeringOutput() VNetPeeringOutput {
+	return i.ToVNetPeeringOutputWithContext(context.Background())
+}
+
+func (i VNetPeering) ToVNetPeeringOutputWithContext(ctx context.Context) VNetPeeringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VNetPeeringOutput)
+}
+
+type VNetPeeringOutput struct {
+	*pulumi.OutputState
+}
+
+func (VNetPeeringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VNetPeeringOutput)(nil)).Elem()
+}
+
+func (o VNetPeeringOutput) ToVNetPeeringOutput() VNetPeeringOutput {
+	return o
+}
+
+func (o VNetPeeringOutput) ToVNetPeeringOutputWithContext(ctx context.Context) VNetPeeringOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VNetPeeringOutput{})
 }

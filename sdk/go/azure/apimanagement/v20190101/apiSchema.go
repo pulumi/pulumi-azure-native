@@ -4,6 +4,7 @@
 package v20190101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type ApiSchemaArgs struct {
 
 func (ApiSchemaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiSchemaArgs)(nil)).Elem()
+}
+
+type ApiSchemaInput interface {
+	pulumi.Input
+
+	ToApiSchemaOutput() ApiSchemaOutput
+	ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput
+}
+
+func (ApiSchema) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiSchema)(nil)).Elem()
+}
+
+func (i ApiSchema) ToApiSchemaOutput() ApiSchemaOutput {
+	return i.ToApiSchemaOutputWithContext(context.Background())
+}
+
+func (i ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaOutput)
+}
+
+type ApiSchemaOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiSchemaOutput)(nil)).Elem()
+}
+
+func (o ApiSchemaOutput) ToApiSchemaOutput() ApiSchemaOutput {
+	return o
+}
+
+func (o ApiSchemaOutput) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiSchemaOutput{})
 }

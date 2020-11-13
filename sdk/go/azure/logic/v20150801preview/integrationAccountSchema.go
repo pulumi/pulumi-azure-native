@@ -4,6 +4,7 @@
 package v20150801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -209,4 +210,43 @@ type IntegrationAccountSchemaArgs struct {
 
 func (IntegrationAccountSchemaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountSchemaArgs)(nil)).Elem()
+}
+
+type IntegrationAccountSchemaInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountSchemaOutput() IntegrationAccountSchemaOutput
+	ToIntegrationAccountSchemaOutputWithContext(ctx context.Context) IntegrationAccountSchemaOutput
+}
+
+func (IntegrationAccountSchema) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountSchema)(nil)).Elem()
+}
+
+func (i IntegrationAccountSchema) ToIntegrationAccountSchemaOutput() IntegrationAccountSchemaOutput {
+	return i.ToIntegrationAccountSchemaOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountSchema) ToIntegrationAccountSchemaOutputWithContext(ctx context.Context) IntegrationAccountSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSchemaOutput)
+}
+
+type IntegrationAccountSchemaOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationAccountSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountSchemaOutput)(nil)).Elem()
+}
+
+func (o IntegrationAccountSchemaOutput) ToIntegrationAccountSchemaOutput() IntegrationAccountSchemaOutput {
+	return o
+}
+
+func (o IntegrationAccountSchemaOutput) ToIntegrationAccountSchemaOutputWithContext(ctx context.Context) IntegrationAccountSchemaOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationAccountSchemaOutput{})
 }

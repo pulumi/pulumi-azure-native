@@ -4,6 +4,7 @@
 package v20200501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -233,4 +234,43 @@ type ScheduledQueryRuleArgs struct {
 
 func (ScheduledQueryRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledQueryRuleArgs)(nil)).Elem()
+}
+
+type ScheduledQueryRuleInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput
+	ToScheduledQueryRuleOutputWithContext(ctx context.Context) ScheduledQueryRuleOutput
+}
+
+func (ScheduledQueryRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRule)(nil)).Elem()
+}
+
+func (i ScheduledQueryRule) ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput {
+	return i.ToScheduledQueryRuleOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRule) ToScheduledQueryRuleOutputWithContext(ctx context.Context) ScheduledQueryRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleOutput)
+}
+
+type ScheduledQueryRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduledQueryRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRuleOutput)(nil)).Elem()
+}
+
+func (o ScheduledQueryRuleOutput) ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput {
+	return o
+}
+
+func (o ScheduledQueryRuleOutput) ToScheduledQueryRuleOutputWithContext(ctx context.Context) ScheduledQueryRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScheduledQueryRuleOutput{})
 }

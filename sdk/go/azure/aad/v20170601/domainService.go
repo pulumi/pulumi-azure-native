@@ -4,6 +4,7 @@
 package v20170601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -280,4 +281,43 @@ type DomainServiceArgs struct {
 
 func (DomainServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainServiceArgs)(nil)).Elem()
+}
+
+type DomainServiceInput interface {
+	pulumi.Input
+
+	ToDomainServiceOutput() DomainServiceOutput
+	ToDomainServiceOutputWithContext(ctx context.Context) DomainServiceOutput
+}
+
+func (DomainService) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainService)(nil)).Elem()
+}
+
+func (i DomainService) ToDomainServiceOutput() DomainServiceOutput {
+	return i.ToDomainServiceOutputWithContext(context.Background())
+}
+
+func (i DomainService) ToDomainServiceOutputWithContext(ctx context.Context) DomainServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceOutput)
+}
+
+type DomainServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainServiceOutput)(nil)).Elem()
+}
+
+func (o DomainServiceOutput) ToDomainServiceOutput() DomainServiceOutput {
+	return o
+}
+
+func (o DomainServiceOutput) ToDomainServiceOutputWithContext(ctx context.Context) DomainServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainServiceOutput{})
 }

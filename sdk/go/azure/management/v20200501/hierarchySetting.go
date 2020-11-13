@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -116,4 +117,43 @@ type HierarchySettingArgs struct {
 
 func (HierarchySettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hierarchySettingArgs)(nil)).Elem()
+}
+
+type HierarchySettingInput interface {
+	pulumi.Input
+
+	ToHierarchySettingOutput() HierarchySettingOutput
+	ToHierarchySettingOutputWithContext(ctx context.Context) HierarchySettingOutput
+}
+
+func (HierarchySetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*HierarchySetting)(nil)).Elem()
+}
+
+func (i HierarchySetting) ToHierarchySettingOutput() HierarchySettingOutput {
+	return i.ToHierarchySettingOutputWithContext(context.Background())
+}
+
+func (i HierarchySetting) ToHierarchySettingOutputWithContext(ctx context.Context) HierarchySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HierarchySettingOutput)
+}
+
+type HierarchySettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (HierarchySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HierarchySettingOutput)(nil)).Elem()
+}
+
+func (o HierarchySettingOutput) ToHierarchySettingOutput() HierarchySettingOutput {
+	return o
+}
+
+func (o HierarchySettingOutput) ToHierarchySettingOutputWithContext(ctx context.Context) HierarchySettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HierarchySettingOutput{})
 }

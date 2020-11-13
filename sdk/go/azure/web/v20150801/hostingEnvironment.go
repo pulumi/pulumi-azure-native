@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -455,4 +456,43 @@ type HostingEnvironmentArgs struct {
 
 func (HostingEnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostingEnvironmentArgs)(nil)).Elem()
+}
+
+type HostingEnvironmentInput interface {
+	pulumi.Input
+
+	ToHostingEnvironmentOutput() HostingEnvironmentOutput
+	ToHostingEnvironmentOutputWithContext(ctx context.Context) HostingEnvironmentOutput
+}
+
+func (HostingEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostingEnvironment)(nil)).Elem()
+}
+
+func (i HostingEnvironment) ToHostingEnvironmentOutput() HostingEnvironmentOutput {
+	return i.ToHostingEnvironmentOutputWithContext(context.Background())
+}
+
+func (i HostingEnvironment) ToHostingEnvironmentOutputWithContext(ctx context.Context) HostingEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentOutput)
+}
+
+type HostingEnvironmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostingEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostingEnvironmentOutput)(nil)).Elem()
+}
+
+func (o HostingEnvironmentOutput) ToHostingEnvironmentOutput() HostingEnvironmentOutput {
+	return o
+}
+
+func (o HostingEnvironmentOutput) ToHostingEnvironmentOutputWithContext(ctx context.Context) HostingEnvironmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HostingEnvironmentOutput{})
 }

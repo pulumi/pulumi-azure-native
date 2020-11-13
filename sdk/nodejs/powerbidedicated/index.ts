@@ -4,4 +4,8 @@
 // Export sub-modules:
 import * as latest from "./latest";
 import * as v20171001 from "./v20171001";
-export {latest, v20171001};
+
+export {
+    latest,
+    v20171001,
+};

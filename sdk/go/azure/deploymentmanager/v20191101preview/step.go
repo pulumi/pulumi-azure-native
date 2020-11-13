@@ -4,6 +4,7 @@
 package v20191101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -130,4 +131,43 @@ type StepArgs struct {
 
 func (StepArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stepArgs)(nil)).Elem()
+}
+
+type StepInput interface {
+	pulumi.Input
+
+	ToStepOutput() StepOutput
+	ToStepOutputWithContext(ctx context.Context) StepOutput
+}
+
+func (Step) ElementType() reflect.Type {
+	return reflect.TypeOf((*Step)(nil)).Elem()
+}
+
+func (i Step) ToStepOutput() StepOutput {
+	return i.ToStepOutputWithContext(context.Background())
+}
+
+func (i Step) ToStepOutputWithContext(ctx context.Context) StepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepOutput)
+}
+
+type StepOutput struct {
+	*pulumi.OutputState
+}
+
+func (StepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepOutput)(nil)).Elem()
+}
+
+func (o StepOutput) ToStepOutput() StepOutput {
+	return o
+}
+
+func (o StepOutput) ToStepOutputWithContext(ctx context.Context) StepOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StepOutput{})
 }

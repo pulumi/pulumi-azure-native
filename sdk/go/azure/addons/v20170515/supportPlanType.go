@@ -4,6 +4,7 @@
 package v20170515
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -103,4 +104,43 @@ type SupportPlanTypeArgs struct {
 
 func (SupportPlanTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*supportPlanTypeArgs)(nil)).Elem()
+}
+
+type SupportPlanTypeInput interface {
+	pulumi.Input
+
+	ToSupportPlanTypeOutput() SupportPlanTypeOutput
+	ToSupportPlanTypeOutputWithContext(ctx context.Context) SupportPlanTypeOutput
+}
+
+func (SupportPlanType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SupportPlanType)(nil)).Elem()
+}
+
+func (i SupportPlanType) ToSupportPlanTypeOutput() SupportPlanTypeOutput {
+	return i.ToSupportPlanTypeOutputWithContext(context.Background())
+}
+
+func (i SupportPlanType) ToSupportPlanTypeOutputWithContext(ctx context.Context) SupportPlanTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SupportPlanTypeOutput)
+}
+
+type SupportPlanTypeOutput struct {
+	*pulumi.OutputState
+}
+
+func (SupportPlanTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SupportPlanTypeOutput)(nil)).Elem()
+}
+
+func (o SupportPlanTypeOutput) ToSupportPlanTypeOutput() SupportPlanTypeOutput {
+	return o
+}
+
+func (o SupportPlanTypeOutput) ToSupportPlanTypeOutputWithContext(ctx context.Context) SupportPlanTypeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SupportPlanTypeOutput{})
 }

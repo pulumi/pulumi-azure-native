@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -200,4 +201,43 @@ type NetworkProfileArgs struct {
 
 func (NetworkProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkProfileArgs)(nil)).Elem()
+}
+
+type NetworkProfileInput interface {
+	pulumi.Input
+
+	ToNetworkProfileOutput() NetworkProfileOutput
+	ToNetworkProfileOutputWithContext(ctx context.Context) NetworkProfileOutput
+}
+
+func (NetworkProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfile)(nil)).Elem()
+}
+
+func (i NetworkProfile) ToNetworkProfileOutput() NetworkProfileOutput {
+	return i.ToNetworkProfileOutputWithContext(context.Background())
+}
+
+func (i NetworkProfile) ToNetworkProfileOutputWithContext(ctx context.Context) NetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileOutput)
+}
+
+type NetworkProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileOutput)(nil)).Elem()
+}
+
+func (o NetworkProfileOutput) ToNetworkProfileOutput() NetworkProfileOutput {
+	return o
+}
+
+func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Context) NetworkProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkProfileOutput{})
 }

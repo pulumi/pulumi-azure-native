@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -158,4 +159,43 @@ type BlobContainerImmutabilityPolicyArgs struct {
 
 func (BlobContainerImmutabilityPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*blobContainerImmutabilityPolicyArgs)(nil)).Elem()
+}
+
+type BlobContainerImmutabilityPolicyInput interface {
+	pulumi.Input
+
+	ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput
+	ToBlobContainerImmutabilityPolicyOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyOutput
+}
+
+func (BlobContainerImmutabilityPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerImmutabilityPolicy)(nil)).Elem()
+}
+
+func (i BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput {
+	return i.ToBlobContainerImmutabilityPolicyOutputWithContext(context.Background())
+}
+
+func (i BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerImmutabilityPolicyOutput)
+}
+
+type BlobContainerImmutabilityPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (BlobContainerImmutabilityPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerImmutabilityPolicyOutput)(nil)).Elem()
+}
+
+func (o BlobContainerImmutabilityPolicyOutput) ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput {
+	return o
+}
+
+func (o BlobContainerImmutabilityPolicyOutput) ToBlobContainerImmutabilityPolicyOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BlobContainerImmutabilityPolicyOutput{})
 }

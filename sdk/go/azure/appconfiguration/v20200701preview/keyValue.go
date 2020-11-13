@@ -4,6 +4,7 @@
 package v20200701preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -169,4 +170,43 @@ type KeyValueArgs struct {
 
 func (KeyValueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyValueArgs)(nil)).Elem()
+}
+
+type KeyValueInput interface {
+	pulumi.Input
+
+	ToKeyValueOutput() KeyValueOutput
+	ToKeyValueOutputWithContext(ctx context.Context) KeyValueOutput
+}
+
+func (KeyValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyValue)(nil)).Elem()
+}
+
+func (i KeyValue) ToKeyValueOutput() KeyValueOutput {
+	return i.ToKeyValueOutputWithContext(context.Background())
+}
+
+func (i KeyValue) ToKeyValueOutputWithContext(ctx context.Context) KeyValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyValueOutput)
+}
+
+type KeyValueOutput struct {
+	*pulumi.OutputState
+}
+
+func (KeyValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyValueOutput)(nil)).Elem()
+}
+
+func (o KeyValueOutput) ToKeyValueOutput() KeyValueOutput {
+	return o
+}
+
+func (o KeyValueOutput) ToKeyValueOutputWithContext(ctx context.Context) KeyValueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(KeyValueOutput{})
 }

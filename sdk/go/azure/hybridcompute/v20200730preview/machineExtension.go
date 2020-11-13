@@ -4,6 +4,7 @@
 package v20200730preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -216,4 +217,43 @@ type MachineExtensionArgs struct {
 
 func (MachineExtensionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*machineExtensionArgs)(nil)).Elem()
+}
+
+type MachineExtensionInput interface {
+	pulumi.Input
+
+	ToMachineExtensionOutput() MachineExtensionOutput
+	ToMachineExtensionOutputWithContext(ctx context.Context) MachineExtensionOutput
+}
+
+func (MachineExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtension)(nil)).Elem()
+}
+
+func (i MachineExtension) ToMachineExtensionOutput() MachineExtensionOutput {
+	return i.ToMachineExtensionOutputWithContext(context.Background())
+}
+
+func (i MachineExtension) ToMachineExtensionOutputWithContext(ctx context.Context) MachineExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionOutput)
+}
+
+type MachineExtensionOutput struct {
+	*pulumi.OutputState
+}
+
+func (MachineExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionOutput)(nil)).Elem()
+}
+
+func (o MachineExtensionOutput) ToMachineExtensionOutput() MachineExtensionOutput {
+	return o
+}
+
+func (o MachineExtensionOutput) ToMachineExtensionOutputWithContext(ctx context.Context) MachineExtensionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MachineExtensionOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -154,4 +155,43 @@ type ApiReleaseArgs struct {
 
 func (ApiReleaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiReleaseArgs)(nil)).Elem()
+}
+
+type ApiReleaseInput interface {
+	pulumi.Input
+
+	ToApiReleaseOutput() ApiReleaseOutput
+	ToApiReleaseOutputWithContext(ctx context.Context) ApiReleaseOutput
+}
+
+func (ApiRelease) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiRelease)(nil)).Elem()
+}
+
+func (i ApiRelease) ToApiReleaseOutput() ApiReleaseOutput {
+	return i.ToApiReleaseOutputWithContext(context.Background())
+}
+
+func (i ApiRelease) ToApiReleaseOutputWithContext(ctx context.Context) ApiReleaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiReleaseOutput)
+}
+
+type ApiReleaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiReleaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiReleaseOutput)(nil)).Elem()
+}
+
+func (o ApiReleaseOutput) ToApiReleaseOutput() ApiReleaseOutput {
+	return o
+}
+
+func (o ApiReleaseOutput) ToApiReleaseOutputWithContext(ctx context.Context) ApiReleaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiReleaseOutput{})
 }

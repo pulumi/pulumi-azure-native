@@ -4,6 +4,7 @@
 package v20190501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -210,4 +211,43 @@ type VirtualMachineImageTemplateArgs struct {
 
 func (VirtualMachineImageTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineImageTemplateArgs)(nil)).Elem()
+}
+
+type VirtualMachineImageTemplateInput interface {
+	pulumi.Input
+
+	ToVirtualMachineImageTemplateOutput() VirtualMachineImageTemplateOutput
+	ToVirtualMachineImageTemplateOutputWithContext(ctx context.Context) VirtualMachineImageTemplateOutput
+}
+
+func (VirtualMachineImageTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineImageTemplate)(nil)).Elem()
+}
+
+func (i VirtualMachineImageTemplate) ToVirtualMachineImageTemplateOutput() VirtualMachineImageTemplateOutput {
+	return i.ToVirtualMachineImageTemplateOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineImageTemplate) ToVirtualMachineImageTemplateOutputWithContext(ctx context.Context) VirtualMachineImageTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineImageTemplateOutput)
+}
+
+type VirtualMachineImageTemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineImageTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineImageTemplateOutput)(nil)).Elem()
+}
+
+func (o VirtualMachineImageTemplateOutput) ToVirtualMachineImageTemplateOutput() VirtualMachineImageTemplateOutput {
+	return o
+}
+
+func (o VirtualMachineImageTemplateOutput) ToVirtualMachineImageTemplateOutputWithContext(ctx context.Context) VirtualMachineImageTemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualMachineImageTemplateOutput{})
 }

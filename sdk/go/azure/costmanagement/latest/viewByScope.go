@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -228,4 +229,43 @@ type ViewByScopeArgs struct {
 
 func (ViewByScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*viewByScopeArgs)(nil)).Elem()
+}
+
+type ViewByScopeInput interface {
+	pulumi.Input
+
+	ToViewByScopeOutput() ViewByScopeOutput
+	ToViewByScopeOutputWithContext(ctx context.Context) ViewByScopeOutput
+}
+
+func (ViewByScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewByScope)(nil)).Elem()
+}
+
+func (i ViewByScope) ToViewByScopeOutput() ViewByScopeOutput {
+	return i.ToViewByScopeOutputWithContext(context.Background())
+}
+
+func (i ViewByScope) ToViewByScopeOutputWithContext(ctx context.Context) ViewByScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewByScopeOutput)
+}
+
+type ViewByScopeOutput struct {
+	*pulumi.OutputState
+}
+
+func (ViewByScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewByScopeOutput)(nil)).Elem()
+}
+
+func (o ViewByScopeOutput) ToViewByScopeOutput() ViewByScopeOutput {
+	return o
+}
+
+func (o ViewByScopeOutput) ToViewByScopeOutputWithContext(ctx context.Context) ViewByScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ViewByScopeOutput{})
 }

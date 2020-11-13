@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -150,4 +151,43 @@ type MaintenanceConfigurationArgs struct {
 
 func (MaintenanceConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*maintenanceConfigurationArgs)(nil)).Elem()
+}
+
+type MaintenanceConfigurationInput interface {
+	pulumi.Input
+
+	ToMaintenanceConfigurationOutput() MaintenanceConfigurationOutput
+	ToMaintenanceConfigurationOutputWithContext(ctx context.Context) MaintenanceConfigurationOutput
+}
+
+func (MaintenanceConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceConfiguration)(nil)).Elem()
+}
+
+func (i MaintenanceConfiguration) ToMaintenanceConfigurationOutput() MaintenanceConfigurationOutput {
+	return i.ToMaintenanceConfigurationOutputWithContext(context.Background())
+}
+
+func (i MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(ctx context.Context) MaintenanceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceConfigurationOutput)
+}
+
+type MaintenanceConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (MaintenanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceConfigurationOutput)(nil)).Elem()
+}
+
+func (o MaintenanceConfigurationOutput) ToMaintenanceConfigurationOutput() MaintenanceConfigurationOutput {
+	return o
+}
+
+func (o MaintenanceConfigurationOutput) ToMaintenanceConfigurationOutputWithContext(ctx context.Context) MaintenanceConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MaintenanceConfigurationOutput{})
 }

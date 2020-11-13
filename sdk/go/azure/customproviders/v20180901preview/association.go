@@ -4,6 +4,7 @@
 package v20180901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -104,4 +105,43 @@ type AssociationArgs struct {
 
 func (AssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*associationArgs)(nil)).Elem()
+}
+
+type AssociationInput interface {
+	pulumi.Input
+
+	ToAssociationOutput() AssociationOutput
+	ToAssociationOutputWithContext(ctx context.Context) AssociationOutput
+}
+
+func (Association) ElementType() reflect.Type {
+	return reflect.TypeOf((*Association)(nil)).Elem()
+}
+
+func (i Association) ToAssociationOutput() AssociationOutput {
+	return i.ToAssociationOutputWithContext(context.Background())
+}
+
+func (i Association) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutput)
+}
+
+type AssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationOutput)(nil)).Elem()
+}
+
+func (o AssociationOutput) ToAssociationOutput() AssociationOutput {
+	return o
+}
+
+func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssociationOutput{})
 }

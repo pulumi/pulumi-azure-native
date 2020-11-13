@@ -4,6 +4,7 @@
 package v20200808preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type DelegatedSubnetServiceDetailsArgs struct {
 
 func (DelegatedSubnetServiceDetailsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*delegatedSubnetServiceDetailsArgs)(nil)).Elem()
+}
+
+type DelegatedSubnetServiceDetailsInput interface {
+	pulumi.Input
+
+	ToDelegatedSubnetServiceDetailsOutput() DelegatedSubnetServiceDetailsOutput
+	ToDelegatedSubnetServiceDetailsOutputWithContext(ctx context.Context) DelegatedSubnetServiceDetailsOutput
+}
+
+func (DelegatedSubnetServiceDetails) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegatedSubnetServiceDetails)(nil)).Elem()
+}
+
+func (i DelegatedSubnetServiceDetails) ToDelegatedSubnetServiceDetailsOutput() DelegatedSubnetServiceDetailsOutput {
+	return i.ToDelegatedSubnetServiceDetailsOutputWithContext(context.Background())
+}
+
+func (i DelegatedSubnetServiceDetails) ToDelegatedSubnetServiceDetailsOutputWithContext(ctx context.Context) DelegatedSubnetServiceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetServiceDetailsOutput)
+}
+
+type DelegatedSubnetServiceDetailsOutput struct {
+	*pulumi.OutputState
+}
+
+func (DelegatedSubnetServiceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegatedSubnetServiceDetailsOutput)(nil)).Elem()
+}
+
+func (o DelegatedSubnetServiceDetailsOutput) ToDelegatedSubnetServiceDetailsOutput() DelegatedSubnetServiceDetailsOutput {
+	return o
+}
+
+func (o DelegatedSubnetServiceDetailsOutput) ToDelegatedSubnetServiceDetailsOutputWithContext(ctx context.Context) DelegatedSubnetServiceDetailsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DelegatedSubnetServiceDetailsOutput{})
 }

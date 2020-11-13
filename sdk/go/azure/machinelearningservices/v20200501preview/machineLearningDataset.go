@@ -4,6 +4,7 @@
 package v20200501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -148,4 +149,43 @@ type MachineLearningDatasetArgs struct {
 
 func (MachineLearningDatasetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*machineLearningDatasetArgs)(nil)).Elem()
+}
+
+type MachineLearningDatasetInput interface {
+	pulumi.Input
+
+	ToMachineLearningDatasetOutput() MachineLearningDatasetOutput
+	ToMachineLearningDatasetOutputWithContext(ctx context.Context) MachineLearningDatasetOutput
+}
+
+func (MachineLearningDataset) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineLearningDataset)(nil)).Elem()
+}
+
+func (i MachineLearningDataset) ToMachineLearningDatasetOutput() MachineLearningDatasetOutput {
+	return i.ToMachineLearningDatasetOutputWithContext(context.Background())
+}
+
+func (i MachineLearningDataset) ToMachineLearningDatasetOutputWithContext(ctx context.Context) MachineLearningDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningDatasetOutput)
+}
+
+type MachineLearningDatasetOutput struct {
+	*pulumi.OutputState
+}
+
+func (MachineLearningDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineLearningDatasetOutput)(nil)).Elem()
+}
+
+func (o MachineLearningDatasetOutput) ToMachineLearningDatasetOutput() MachineLearningDatasetOutput {
+	return o
+}
+
+func (o MachineLearningDatasetOutput) ToMachineLearningDatasetOutputWithContext(ctx context.Context) MachineLearningDatasetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MachineLearningDatasetOutput{})
 }

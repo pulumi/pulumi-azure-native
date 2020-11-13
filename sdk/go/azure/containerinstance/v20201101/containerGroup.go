@@ -4,6 +4,7 @@
 package v20201101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -304,4 +305,43 @@ type ContainerGroupArgs struct {
 
 func (ContainerGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerGroupArgs)(nil)).Elem()
+}
+
+type ContainerGroupInput interface {
+	pulumi.Input
+
+	ToContainerGroupOutput() ContainerGroupOutput
+	ToContainerGroupOutputWithContext(ctx context.Context) ContainerGroupOutput
+}
+
+func (ContainerGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroup)(nil)).Elem()
+}
+
+func (i ContainerGroup) ToContainerGroupOutput() ContainerGroupOutput {
+	return i.ToContainerGroupOutputWithContext(context.Background())
+}
+
+func (i ContainerGroup) ToContainerGroupOutputWithContext(ctx context.Context) ContainerGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupOutput)
+}
+
+type ContainerGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContainerGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupOutput)(nil)).Elem()
+}
+
+func (o ContainerGroupOutput) ToContainerGroupOutput() ContainerGroupOutput {
+	return o
+}
+
+func (o ContainerGroupOutput) ToContainerGroupOutputWithContext(ctx context.Context) ContainerGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContainerGroupOutput{})
 }

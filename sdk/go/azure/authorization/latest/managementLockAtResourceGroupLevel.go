@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -130,4 +131,43 @@ type ManagementLockAtResourceGroupLevelArgs struct {
 
 func (ManagementLockAtResourceGroupLevelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementLockAtResourceGroupLevelArgs)(nil)).Elem()
+}
+
+type ManagementLockAtResourceGroupLevelInput interface {
+	pulumi.Input
+
+	ToManagementLockAtResourceGroupLevelOutput() ManagementLockAtResourceGroupLevelOutput
+	ToManagementLockAtResourceGroupLevelOutputWithContext(ctx context.Context) ManagementLockAtResourceGroupLevelOutput
+}
+
+func (ManagementLockAtResourceGroupLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockAtResourceGroupLevel)(nil)).Elem()
+}
+
+func (i ManagementLockAtResourceGroupLevel) ToManagementLockAtResourceGroupLevelOutput() ManagementLockAtResourceGroupLevelOutput {
+	return i.ToManagementLockAtResourceGroupLevelOutputWithContext(context.Background())
+}
+
+func (i ManagementLockAtResourceGroupLevel) ToManagementLockAtResourceGroupLevelOutputWithContext(ctx context.Context) ManagementLockAtResourceGroupLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockAtResourceGroupLevelOutput)
+}
+
+type ManagementLockAtResourceGroupLevelOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementLockAtResourceGroupLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockAtResourceGroupLevelOutput)(nil)).Elem()
+}
+
+func (o ManagementLockAtResourceGroupLevelOutput) ToManagementLockAtResourceGroupLevelOutput() ManagementLockAtResourceGroupLevelOutput {
+	return o
+}
+
+func (o ManagementLockAtResourceGroupLevelOutput) ToManagementLockAtResourceGroupLevelOutputWithContext(ctx context.Context) ManagementLockAtResourceGroupLevelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementLockAtResourceGroupLevelOutput{})
 }

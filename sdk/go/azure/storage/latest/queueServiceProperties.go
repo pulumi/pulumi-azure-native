@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -114,4 +115,43 @@ type QueueServicePropertiesArgs struct {
 
 func (QueueServicePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueServicePropertiesArgs)(nil)).Elem()
+}
+
+type QueueServicePropertiesInput interface {
+	pulumi.Input
+
+	ToQueueServicePropertiesOutput() QueueServicePropertiesOutput
+	ToQueueServicePropertiesOutputWithContext(ctx context.Context) QueueServicePropertiesOutput
+}
+
+func (QueueServiceProperties) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueServiceProperties)(nil)).Elem()
+}
+
+func (i QueueServiceProperties) ToQueueServicePropertiesOutput() QueueServicePropertiesOutput {
+	return i.ToQueueServicePropertiesOutputWithContext(context.Background())
+}
+
+func (i QueueServiceProperties) ToQueueServicePropertiesOutputWithContext(ctx context.Context) QueueServicePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueServicePropertiesOutput)
+}
+
+type QueueServicePropertiesOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueueServicePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueServicePropertiesOutput)(nil)).Elem()
+}
+
+func (o QueueServicePropertiesOutput) ToQueueServicePropertiesOutput() QueueServicePropertiesOutput {
+	return o
+}
+
+func (o QueueServicePropertiesOutput) ToQueueServicePropertiesOutputWithContext(ctx context.Context) QueueServicePropertiesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueueServicePropertiesOutput{})
 }

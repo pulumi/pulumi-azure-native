@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -183,4 +184,43 @@ type BastionHostArgs struct {
 
 func (BastionHostArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bastionHostArgs)(nil)).Elem()
+}
+
+type BastionHostInput interface {
+	pulumi.Input
+
+	ToBastionHostOutput() BastionHostOutput
+	ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput
+}
+
+func (BastionHost) ElementType() reflect.Type {
+	return reflect.TypeOf((*BastionHost)(nil)).Elem()
+}
+
+func (i BastionHost) ToBastionHostOutput() BastionHostOutput {
+	return i.ToBastionHostOutputWithContext(context.Background())
+}
+
+func (i BastionHost) ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BastionHostOutput)
+}
+
+type BastionHostOutput struct {
+	*pulumi.OutputState
+}
+
+func (BastionHostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BastionHostOutput)(nil)).Elem()
+}
+
+func (o BastionHostOutput) ToBastionHostOutput() BastionHostOutput {
+	return o
+}
+
+func (o BastionHostOutput) ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BastionHostOutput{})
 }

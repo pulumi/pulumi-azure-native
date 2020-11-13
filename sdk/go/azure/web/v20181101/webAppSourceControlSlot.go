@@ -4,6 +4,7 @@
 package v20181101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -176,4 +177,43 @@ type WebAppSourceControlSlotArgs struct {
 
 func (WebAppSourceControlSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppSourceControlSlotArgs)(nil)).Elem()
+}
+
+type WebAppSourceControlSlotInput interface {
+	pulumi.Input
+
+	ToWebAppSourceControlSlotOutput() WebAppSourceControlSlotOutput
+	ToWebAppSourceControlSlotOutputWithContext(ctx context.Context) WebAppSourceControlSlotOutput
+}
+
+func (WebAppSourceControlSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSourceControlSlot)(nil)).Elem()
+}
+
+func (i WebAppSourceControlSlot) ToWebAppSourceControlSlotOutput() WebAppSourceControlSlotOutput {
+	return i.ToWebAppSourceControlSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppSourceControlSlot) ToWebAppSourceControlSlotOutputWithContext(ctx context.Context) WebAppSourceControlSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSourceControlSlotOutput)
+}
+
+type WebAppSourceControlSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppSourceControlSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSourceControlSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppSourceControlSlotOutput) ToWebAppSourceControlSlotOutput() WebAppSourceControlSlotOutput {
+	return o
+}
+
+func (o WebAppSourceControlSlotOutput) ToWebAppSourceControlSlotOutputWithContext(ctx context.Context) WebAppSourceControlSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppSourceControlSlotOutput{})
 }

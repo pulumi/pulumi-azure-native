@@ -4,6 +4,7 @@
 package v20190101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -342,4 +343,43 @@ type ApiManagementServiceArgs struct {
 
 func (ApiManagementServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiManagementServiceArgs)(nil)).Elem()
+}
+
+type ApiManagementServiceInput interface {
+	pulumi.Input
+
+	ToApiManagementServiceOutput() ApiManagementServiceOutput
+	ToApiManagementServiceOutputWithContext(ctx context.Context) ApiManagementServiceOutput
+}
+
+func (ApiManagementService) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiManagementService)(nil)).Elem()
+}
+
+func (i ApiManagementService) ToApiManagementServiceOutput() ApiManagementServiceOutput {
+	return i.ToApiManagementServiceOutputWithContext(context.Background())
+}
+
+func (i ApiManagementService) ToApiManagementServiceOutputWithContext(ctx context.Context) ApiManagementServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceOutput)
+}
+
+type ApiManagementServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiManagementServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiManagementServiceOutput)(nil)).Elem()
+}
+
+func (o ApiManagementServiceOutput) ToApiManagementServiceOutput() ApiManagementServiceOutput {
+	return o
+}
+
+func (o ApiManagementServiceOutput) ToApiManagementServiceOutputWithContext(ctx context.Context) ApiManagementServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiManagementServiceOutput{})
 }

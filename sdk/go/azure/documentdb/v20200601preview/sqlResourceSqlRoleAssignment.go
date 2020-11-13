@@ -4,6 +4,7 @@
 package v20200601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -125,4 +126,43 @@ type SqlResourceSqlRoleAssignmentArgs struct {
 
 func (SqlResourceSqlRoleAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlResourceSqlRoleAssignmentArgs)(nil)).Elem()
+}
+
+type SqlResourceSqlRoleAssignmentInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlRoleAssignmentOutput() SqlResourceSqlRoleAssignmentOutput
+	ToSqlResourceSqlRoleAssignmentOutputWithContext(ctx context.Context) SqlResourceSqlRoleAssignmentOutput
+}
+
+func (SqlResourceSqlRoleAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlRoleAssignment)(nil)).Elem()
+}
+
+func (i SqlResourceSqlRoleAssignment) ToSqlResourceSqlRoleAssignmentOutput() SqlResourceSqlRoleAssignmentOutput {
+	return i.ToSqlResourceSqlRoleAssignmentOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlRoleAssignment) ToSqlResourceSqlRoleAssignmentOutputWithContext(ctx context.Context) SqlResourceSqlRoleAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlRoleAssignmentOutput)
+}
+
+type SqlResourceSqlRoleAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlResourceSqlRoleAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlRoleAssignmentOutput)(nil)).Elem()
+}
+
+func (o SqlResourceSqlRoleAssignmentOutput) ToSqlResourceSqlRoleAssignmentOutput() SqlResourceSqlRoleAssignmentOutput {
+	return o
+}
+
+func (o SqlResourceSqlRoleAssignmentOutput) ToSqlResourceSqlRoleAssignmentOutputWithContext(ctx context.Context) SqlResourceSqlRoleAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlResourceSqlRoleAssignmentOutput{})
 }

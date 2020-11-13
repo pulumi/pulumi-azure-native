@@ -4,6 +4,7 @@
 package v20180701preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -162,4 +163,43 @@ type RemediationAtManagementGroupArgs struct {
 
 func (RemediationAtManagementGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*remediationAtManagementGroupArgs)(nil)).Elem()
+}
+
+type RemediationAtManagementGroupInput interface {
+	pulumi.Input
+
+	ToRemediationAtManagementGroupOutput() RemediationAtManagementGroupOutput
+	ToRemediationAtManagementGroupOutputWithContext(ctx context.Context) RemediationAtManagementGroupOutput
+}
+
+func (RemediationAtManagementGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtManagementGroup)(nil)).Elem()
+}
+
+func (i RemediationAtManagementGroup) ToRemediationAtManagementGroupOutput() RemediationAtManagementGroupOutput {
+	return i.ToRemediationAtManagementGroupOutputWithContext(context.Background())
+}
+
+func (i RemediationAtManagementGroup) ToRemediationAtManagementGroupOutputWithContext(ctx context.Context) RemediationAtManagementGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtManagementGroupOutput)
+}
+
+type RemediationAtManagementGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (RemediationAtManagementGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtManagementGroupOutput)(nil)).Elem()
+}
+
+func (o RemediationAtManagementGroupOutput) ToRemediationAtManagementGroupOutput() RemediationAtManagementGroupOutput {
+	return o
+}
+
+func (o RemediationAtManagementGroupOutput) ToRemediationAtManagementGroupOutputWithContext(ctx context.Context) RemediationAtManagementGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RemediationAtManagementGroupOutput{})
 }

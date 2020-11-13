@@ -4,6 +4,7 @@
 package v20190501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -183,4 +184,43 @@ type WebhookArgs struct {
 
 func (WebhookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webhookArgs)(nil)).Elem()
+}
+
+type WebhookInput interface {
+	pulumi.Input
+
+	ToWebhookOutput() WebhookOutput
+	ToWebhookOutputWithContext(ctx context.Context) WebhookOutput
+}
+
+func (Webhook) ElementType() reflect.Type {
+	return reflect.TypeOf((*Webhook)(nil)).Elem()
+}
+
+func (i Webhook) ToWebhookOutput() WebhookOutput {
+	return i.ToWebhookOutputWithContext(context.Background())
+}
+
+func (i Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookOutput)
+}
+
+type WebhookOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebhookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookOutput)(nil)).Elem()
+}
+
+func (o WebhookOutput) ToWebhookOutput() WebhookOutput {
+	return o
+}
+
+func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebhookOutput{})
 }

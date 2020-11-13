@@ -4,6 +4,7 @@
 package v20160601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type SessionArgs struct {
 
 func (SessionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sessionArgs)(nil)).Elem()
+}
+
+type SessionInput interface {
+	pulumi.Input
+
+	ToSessionOutput() SessionOutput
+	ToSessionOutputWithContext(ctx context.Context) SessionOutput
+}
+
+func (Session) ElementType() reflect.Type {
+	return reflect.TypeOf((*Session)(nil)).Elem()
+}
+
+func (i Session) ToSessionOutput() SessionOutput {
+	return i.ToSessionOutputWithContext(context.Background())
+}
+
+func (i Session) ToSessionOutputWithContext(ctx context.Context) SessionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionOutput)
+}
+
+type SessionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SessionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionOutput)(nil)).Elem()
+}
+
+func (o SessionOutput) ToSessionOutput() SessionOutput {
+	return o
+}
+
+func (o SessionOutput) ToSessionOutputWithContext(ctx context.Context) SessionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SessionOutput{})
 }

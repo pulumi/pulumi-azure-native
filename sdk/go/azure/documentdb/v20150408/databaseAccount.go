@@ -4,6 +4,7 @@
 package v20150408
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -294,4 +295,43 @@ type DatabaseAccountArgs struct {
 
 func (DatabaseAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseAccountArgs)(nil)).Elem()
+}
+
+type DatabaseAccountInput interface {
+	pulumi.Input
+
+	ToDatabaseAccountOutput() DatabaseAccountOutput
+	ToDatabaseAccountOutputWithContext(ctx context.Context) DatabaseAccountOutput
+}
+
+func (DatabaseAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccount)(nil)).Elem()
+}
+
+func (i DatabaseAccount) ToDatabaseAccountOutput() DatabaseAccountOutput {
+	return i.ToDatabaseAccountOutputWithContext(context.Background())
+}
+
+func (i DatabaseAccount) ToDatabaseAccountOutputWithContext(ctx context.Context) DatabaseAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountOutput)
+}
+
+type DatabaseAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatabaseAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountOutput)(nil)).Elem()
+}
+
+func (o DatabaseAccountOutput) ToDatabaseAccountOutput() DatabaseAccountOutput {
+	return o
+}
+
+func (o DatabaseAccountOutput) ToDatabaseAccountOutputWithContext(ctx context.Context) DatabaseAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatabaseAccountOutput{})
 }

@@ -4,6 +4,7 @@
 package v20171103preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -180,4 +181,43 @@ type HanaInstanceArgs struct {
 
 func (HanaInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hanaInstanceArgs)(nil)).Elem()
+}
+
+type HanaInstanceInput interface {
+	pulumi.Input
+
+	ToHanaInstanceOutput() HanaInstanceOutput
+	ToHanaInstanceOutputWithContext(ctx context.Context) HanaInstanceOutput
+}
+
+func (HanaInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*HanaInstance)(nil)).Elem()
+}
+
+func (i HanaInstance) ToHanaInstanceOutput() HanaInstanceOutput {
+	return i.ToHanaInstanceOutputWithContext(context.Background())
+}
+
+func (i HanaInstance) ToHanaInstanceOutputWithContext(ctx context.Context) HanaInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HanaInstanceOutput)
+}
+
+type HanaInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (HanaInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HanaInstanceOutput)(nil)).Elem()
+}
+
+func (o HanaInstanceOutput) ToHanaInstanceOutput() HanaInstanceOutput {
+	return o
+}
+
+func (o HanaInstanceOutput) ToHanaInstanceOutputWithContext(ctx context.Context) HanaInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HanaInstanceOutput{})
 }

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -184,4 +185,43 @@ type PolicyDefinitionArgs struct {
 
 func (PolicyDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyDefinitionArgs)(nil)).Elem()
+}
+
+type PolicyDefinitionInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionOutput() PolicyDefinitionOutput
+	ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput
+}
+
+func (PolicyDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinition)(nil)).Elem()
+}
+
+func (i PolicyDefinition) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
+	return i.ToPolicyDefinitionOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinition) ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionOutput)
+}
+
+type PolicyDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionOutput)(nil)).Elem()
+}
+
+func (o PolicyDefinitionOutput) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
+	return o
+}
+
+func (o PolicyDefinitionOutput) ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyDefinitionOutput{})
 }

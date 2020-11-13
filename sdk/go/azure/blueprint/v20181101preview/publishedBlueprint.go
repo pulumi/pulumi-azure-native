@@ -4,6 +4,7 @@
 package v20181101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -167,4 +168,43 @@ type PublishedBlueprintArgs struct {
 
 func (PublishedBlueprintArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publishedBlueprintArgs)(nil)).Elem()
+}
+
+type PublishedBlueprintInput interface {
+	pulumi.Input
+
+	ToPublishedBlueprintOutput() PublishedBlueprintOutput
+	ToPublishedBlueprintOutputWithContext(ctx context.Context) PublishedBlueprintOutput
+}
+
+func (PublishedBlueprint) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublishedBlueprint)(nil)).Elem()
+}
+
+func (i PublishedBlueprint) ToPublishedBlueprintOutput() PublishedBlueprintOutput {
+	return i.ToPublishedBlueprintOutputWithContext(context.Background())
+}
+
+func (i PublishedBlueprint) ToPublishedBlueprintOutputWithContext(ctx context.Context) PublishedBlueprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublishedBlueprintOutput)
+}
+
+type PublishedBlueprintOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublishedBlueprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublishedBlueprintOutput)(nil)).Elem()
+}
+
+func (o PublishedBlueprintOutput) ToPublishedBlueprintOutput() PublishedBlueprintOutput {
+	return o
+}
+
+func (o PublishedBlueprintOutput) ToPublishedBlueprintOutputWithContext(ctx context.Context) PublishedBlueprintOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PublishedBlueprintOutput{})
 }

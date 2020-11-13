@@ -4,6 +4,7 @@
 package v20200901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -151,4 +152,43 @@ type WorkspaceConnectionArgs struct {
 
 func (WorkspaceConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceConnectionArgs)(nil)).Elem()
+}
+
+type WorkspaceConnectionInput interface {
+	pulumi.Input
+
+	ToWorkspaceConnectionOutput() WorkspaceConnectionOutput
+	ToWorkspaceConnectionOutputWithContext(ctx context.Context) WorkspaceConnectionOutput
+}
+
+func (WorkspaceConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConnection)(nil)).Elem()
+}
+
+func (i WorkspaceConnection) ToWorkspaceConnectionOutput() WorkspaceConnectionOutput {
+	return i.ToWorkspaceConnectionOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConnection) ToWorkspaceConnectionOutputWithContext(ctx context.Context) WorkspaceConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionOutput)
+}
+
+type WorkspaceConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConnectionOutput)(nil)).Elem()
+}
+
+func (o WorkspaceConnectionOutput) ToWorkspaceConnectionOutput() WorkspaceConnectionOutput {
+	return o
+}
+
+func (o WorkspaceConnectionOutput) ToWorkspaceConnectionOutputWithContext(ctx context.Context) WorkspaceConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkspaceConnectionOutput{})
 }

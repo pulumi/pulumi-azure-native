@@ -4,6 +4,7 @@
 package v20160319
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -157,4 +158,43 @@ type DatabaseAccountGremlinDatabaseArgs struct {
 
 func (DatabaseAccountGremlinDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseAccountGremlinDatabaseArgs)(nil)).Elem()
+}
+
+type DatabaseAccountGremlinDatabaseInput interface {
+	pulumi.Input
+
+	ToDatabaseAccountGremlinDatabaseOutput() DatabaseAccountGremlinDatabaseOutput
+	ToDatabaseAccountGremlinDatabaseOutputWithContext(ctx context.Context) DatabaseAccountGremlinDatabaseOutput
+}
+
+func (DatabaseAccountGremlinDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountGremlinDatabase)(nil)).Elem()
+}
+
+func (i DatabaseAccountGremlinDatabase) ToDatabaseAccountGremlinDatabaseOutput() DatabaseAccountGremlinDatabaseOutput {
+	return i.ToDatabaseAccountGremlinDatabaseOutputWithContext(context.Background())
+}
+
+func (i DatabaseAccountGremlinDatabase) ToDatabaseAccountGremlinDatabaseOutputWithContext(ctx context.Context) DatabaseAccountGremlinDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountGremlinDatabaseOutput)
+}
+
+type DatabaseAccountGremlinDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatabaseAccountGremlinDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountGremlinDatabaseOutput)(nil)).Elem()
+}
+
+func (o DatabaseAccountGremlinDatabaseOutput) ToDatabaseAccountGremlinDatabaseOutput() DatabaseAccountGremlinDatabaseOutput {
+	return o
+}
+
+func (o DatabaseAccountGremlinDatabaseOutput) ToDatabaseAccountGremlinDatabaseOutputWithContext(ctx context.Context) DatabaseAccountGremlinDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatabaseAccountGremlinDatabaseOutput{})
 }

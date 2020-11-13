@@ -4,6 +4,7 @@
 package v20180401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,4 +164,43 @@ type ProximityPlacementGroupArgs struct {
 
 func (ProximityPlacementGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*proximityPlacementGroupArgs)(nil)).Elem()
+}
+
+type ProximityPlacementGroupInput interface {
+	pulumi.Input
+
+	ToProximityPlacementGroupOutput() ProximityPlacementGroupOutput
+	ToProximityPlacementGroupOutputWithContext(ctx context.Context) ProximityPlacementGroupOutput
+}
+
+func (ProximityPlacementGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProximityPlacementGroup)(nil)).Elem()
+}
+
+func (i ProximityPlacementGroup) ToProximityPlacementGroupOutput() ProximityPlacementGroupOutput {
+	return i.ToProximityPlacementGroupOutputWithContext(context.Background())
+}
+
+func (i ProximityPlacementGroup) ToProximityPlacementGroupOutputWithContext(ctx context.Context) ProximityPlacementGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProximityPlacementGroupOutput)
+}
+
+type ProximityPlacementGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProximityPlacementGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProximityPlacementGroupOutput)(nil)).Elem()
+}
+
+func (o ProximityPlacementGroupOutput) ToProximityPlacementGroupOutput() ProximityPlacementGroupOutput {
+	return o
+}
+
+func (o ProximityPlacementGroupOutput) ToProximityPlacementGroupOutputWithContext(ctx context.Context) ProximityPlacementGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProximityPlacementGroupOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200701preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -120,4 +121,43 @@ type DataPoolArgs struct {
 
 func (DataPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataPoolArgs)(nil)).Elem()
+}
+
+type DataPoolInput interface {
+	pulumi.Input
+
+	ToDataPoolOutput() DataPoolOutput
+	ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutput
+}
+
+func (DataPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPool)(nil)).Elem()
+}
+
+func (i DataPool) ToDataPoolOutput() DataPoolOutput {
+	return i.ToDataPoolOutputWithContext(context.Background())
+}
+
+func (i DataPool) ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataPoolOutput)
+}
+
+type DataPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPoolOutput)(nil)).Elem()
+}
+
+func (o DataPoolOutput) ToDataPoolOutput() DataPoolOutput {
+	return o
+}
+
+func (o DataPoolOutput) ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataPoolOutput{})
 }

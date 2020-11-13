@@ -4,6 +4,7 @@
 package v20181001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -194,4 +195,43 @@ type BudgetByResourceGroupNameArgs struct {
 
 func (BudgetByResourceGroupNameArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*budgetByResourceGroupNameArgs)(nil)).Elem()
+}
+
+type BudgetByResourceGroupNameInput interface {
+	pulumi.Input
+
+	ToBudgetByResourceGroupNameOutput() BudgetByResourceGroupNameOutput
+	ToBudgetByResourceGroupNameOutputWithContext(ctx context.Context) BudgetByResourceGroupNameOutput
+}
+
+func (BudgetByResourceGroupName) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetByResourceGroupName)(nil)).Elem()
+}
+
+func (i BudgetByResourceGroupName) ToBudgetByResourceGroupNameOutput() BudgetByResourceGroupNameOutput {
+	return i.ToBudgetByResourceGroupNameOutputWithContext(context.Background())
+}
+
+func (i BudgetByResourceGroupName) ToBudgetByResourceGroupNameOutputWithContext(ctx context.Context) BudgetByResourceGroupNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetByResourceGroupNameOutput)
+}
+
+type BudgetByResourceGroupNameOutput struct {
+	*pulumi.OutputState
+}
+
+func (BudgetByResourceGroupNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetByResourceGroupNameOutput)(nil)).Elem()
+}
+
+func (o BudgetByResourceGroupNameOutput) ToBudgetByResourceGroupNameOutput() BudgetByResourceGroupNameOutput {
+	return o
+}
+
+func (o BudgetByResourceGroupNameOutput) ToBudgetByResourceGroupNameOutputWithContext(ctx context.Context) BudgetByResourceGroupNameOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BudgetByResourceGroupNameOutput{})
 }

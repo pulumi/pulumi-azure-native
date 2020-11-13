@@ -4,6 +4,7 @@
 package v20180701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -219,4 +220,43 @@ type ServerEndpointArgs struct {
 
 func (ServerEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverEndpointArgs)(nil)).Elem()
+}
+
+type ServerEndpointInput interface {
+	pulumi.Input
+
+	ToServerEndpointOutput() ServerEndpointOutput
+	ToServerEndpointOutputWithContext(ctx context.Context) ServerEndpointOutput
+}
+
+func (ServerEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpoint)(nil)).Elem()
+}
+
+func (i ServerEndpoint) ToServerEndpointOutput() ServerEndpointOutput {
+	return i.ToServerEndpointOutputWithContext(context.Background())
+}
+
+func (i ServerEndpoint) ToServerEndpointOutputWithContext(ctx context.Context) ServerEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointOutput)
+}
+
+type ServerEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointOutput)(nil)).Elem()
+}
+
+func (o ServerEndpointOutput) ToServerEndpointOutput() ServerEndpointOutput {
+	return o
+}
+
+func (o ServerEndpointOutput) ToServerEndpointOutputWithContext(ctx context.Context) ServerEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerEndpointOutput{})
 }

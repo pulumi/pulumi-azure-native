@@ -4,6 +4,7 @@
 package v20170907privatepreview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -174,4 +175,43 @@ type EventHubConnectionArgs struct {
 
 func (EventHubConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubConnectionArgs)(nil)).Elem()
+}
+
+type EventHubConnectionInput interface {
+	pulumi.Input
+
+	ToEventHubConnectionOutput() EventHubConnectionOutput
+	ToEventHubConnectionOutputWithContext(ctx context.Context) EventHubConnectionOutput
+}
+
+func (EventHubConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubConnection)(nil)).Elem()
+}
+
+func (i EventHubConnection) ToEventHubConnectionOutput() EventHubConnectionOutput {
+	return i.ToEventHubConnectionOutputWithContext(context.Background())
+}
+
+func (i EventHubConnection) ToEventHubConnectionOutputWithContext(ctx context.Context) EventHubConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubConnectionOutput)
+}
+
+type EventHubConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHubConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubConnectionOutput)(nil)).Elem()
+}
+
+func (o EventHubConnectionOutput) ToEventHubConnectionOutput() EventHubConnectionOutput {
+	return o
+}
+
+func (o EventHubConnectionOutput) ToEventHubConnectionOutputWithContext(ctx context.Context) EventHubConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventHubConnectionOutput{})
 }

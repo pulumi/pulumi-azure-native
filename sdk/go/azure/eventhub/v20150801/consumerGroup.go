@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,4 +164,43 @@ type ConsumerGroupArgs struct {
 
 func (ConsumerGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*consumerGroupArgs)(nil)).Elem()
+}
+
+type ConsumerGroupInput interface {
+	pulumi.Input
+
+	ToConsumerGroupOutput() ConsumerGroupOutput
+	ToConsumerGroupOutputWithContext(ctx context.Context) ConsumerGroupOutput
+}
+
+func (ConsumerGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsumerGroup)(nil)).Elem()
+}
+
+func (i ConsumerGroup) ToConsumerGroupOutput() ConsumerGroupOutput {
+	return i.ToConsumerGroupOutputWithContext(context.Background())
+}
+
+func (i ConsumerGroup) ToConsumerGroupOutputWithContext(ctx context.Context) ConsumerGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupOutput)
+}
+
+type ConsumerGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConsumerGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsumerGroupOutput)(nil)).Elem()
+}
+
+func (o ConsumerGroupOutput) ToConsumerGroupOutput() ConsumerGroupOutput {
+	return o
+}
+
+func (o ConsumerGroupOutput) ToConsumerGroupOutputWithContext(ctx context.Context) ConsumerGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConsumerGroupOutput{})
 }

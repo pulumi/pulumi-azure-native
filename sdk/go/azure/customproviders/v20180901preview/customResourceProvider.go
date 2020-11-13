@@ -4,6 +4,7 @@
 package v20180901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -147,4 +148,43 @@ type CustomResourceProviderArgs struct {
 
 func (CustomResourceProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customResourceProviderArgs)(nil)).Elem()
+}
+
+type CustomResourceProviderInput interface {
+	pulumi.Input
+
+	ToCustomResourceProviderOutput() CustomResourceProviderOutput
+	ToCustomResourceProviderOutputWithContext(ctx context.Context) CustomResourceProviderOutput
+}
+
+func (CustomResourceProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomResourceProvider)(nil)).Elem()
+}
+
+func (i CustomResourceProvider) ToCustomResourceProviderOutput() CustomResourceProviderOutput {
+	return i.ToCustomResourceProviderOutputWithContext(context.Background())
+}
+
+func (i CustomResourceProvider) ToCustomResourceProviderOutputWithContext(ctx context.Context) CustomResourceProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomResourceProviderOutput)
+}
+
+type CustomResourceProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomResourceProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomResourceProviderOutput)(nil)).Elem()
+}
+
+func (o CustomResourceProviderOutput) ToCustomResourceProviderOutput() CustomResourceProviderOutput {
+	return o
+}
+
+func (o CustomResourceProviderOutput) ToCustomResourceProviderOutputWithContext(ctx context.Context) CustomResourceProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomResourceProviderOutput{})
 }

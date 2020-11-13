@@ -4,6 +4,7 @@
 package v20151031
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -147,4 +148,43 @@ type DscNodeConfigurationArgs struct {
 
 func (DscNodeConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dscNodeConfigurationArgs)(nil)).Elem()
+}
+
+type DscNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToDscNodeConfigurationOutput() DscNodeConfigurationOutput
+	ToDscNodeConfigurationOutputWithContext(ctx context.Context) DscNodeConfigurationOutput
+}
+
+func (DscNodeConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscNodeConfiguration)(nil)).Elem()
+}
+
+func (i DscNodeConfiguration) ToDscNodeConfigurationOutput() DscNodeConfigurationOutput {
+	return i.ToDscNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i DscNodeConfiguration) ToDscNodeConfigurationOutputWithContext(ctx context.Context) DscNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DscNodeConfigurationOutput)
+}
+
+type DscNodeConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (DscNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscNodeConfigurationOutput)(nil)).Elem()
+}
+
+func (o DscNodeConfigurationOutput) ToDscNodeConfigurationOutput() DscNodeConfigurationOutput {
+	return o
+}
+
+func (o DscNodeConfigurationOutput) ToDscNodeConfigurationOutputWithContext(ctx context.Context) DscNodeConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DscNodeConfigurationOutput{})
 }

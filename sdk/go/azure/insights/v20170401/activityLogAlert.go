@@ -4,6 +4,7 @@
 package v20170401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -176,4 +177,43 @@ type ActivityLogAlertArgs struct {
 
 func (ActivityLogAlertArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activityLogAlertArgs)(nil)).Elem()
+}
+
+type ActivityLogAlertInput interface {
+	pulumi.Input
+
+	ToActivityLogAlertOutput() ActivityLogAlertOutput
+	ToActivityLogAlertOutputWithContext(ctx context.Context) ActivityLogAlertOutput
+}
+
+func (ActivityLogAlert) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityLogAlert)(nil)).Elem()
+}
+
+func (i ActivityLogAlert) ToActivityLogAlertOutput() ActivityLogAlertOutput {
+	return i.ToActivityLogAlertOutputWithContext(context.Background())
+}
+
+func (i ActivityLogAlert) ToActivityLogAlertOutputWithContext(ctx context.Context) ActivityLogAlertOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertOutput)
+}
+
+type ActivityLogAlertOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActivityLogAlertOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityLogAlertOutput)(nil)).Elem()
+}
+
+func (o ActivityLogAlertOutput) ToActivityLogAlertOutput() ActivityLogAlertOutput {
+	return o
+}
+
+func (o ActivityLogAlertOutput) ToActivityLogAlertOutputWithContext(ctx context.Context) ActivityLogAlertOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActivityLogAlertOutput{})
 }

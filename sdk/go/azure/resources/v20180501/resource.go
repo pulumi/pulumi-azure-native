@@ -4,6 +4,7 @@
 package v20180501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -234,4 +235,43 @@ type ResourceArgs struct {
 
 func (ResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceArgs)(nil)).Elem()
+}
+
+type ResourceInput interface {
+	pulumi.Input
+
+	ToResourceOutput() ResourceOutput
+	ToResourceOutputWithContext(ctx context.Context) ResourceOutput
+}
+
+func (Resource) ElementType() reflect.Type {
+	return reflect.TypeOf((*Resource)(nil)).Elem()
+}
+
+func (i Resource) ToResourceOutput() ResourceOutput {
+	return i.ToResourceOutputWithContext(context.Background())
+}
+
+func (i Resource) ToResourceOutputWithContext(ctx context.Context) ResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceOutput)
+}
+
+type ResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceOutput)(nil)).Elem()
+}
+
+func (o ResourceOutput) ToResourceOutput() ResourceOutput {
+	return o
+}
+
+func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) ResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceOutput{})
 }

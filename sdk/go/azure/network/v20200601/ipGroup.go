@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -167,4 +168,43 @@ type IpGroupArgs struct {
 
 func (IpGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipGroupArgs)(nil)).Elem()
+}
+
+type IpGroupInput interface {
+	pulumi.Input
+
+	ToIpGroupOutput() IpGroupOutput
+	ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput
+}
+
+func (IpGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpGroup)(nil)).Elem()
+}
+
+func (i IpGroup) ToIpGroupOutput() IpGroupOutput {
+	return i.ToIpGroupOutputWithContext(context.Background())
+}
+
+func (i IpGroup) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpGroupOutput)
+}
+
+type IpGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (IpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpGroupOutput)(nil)).Elem()
+}
+
+func (o IpGroupOutput) ToIpGroupOutput() IpGroupOutput {
+	return o
+}
+
+func (o IpGroupOutput) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IpGroupOutput{})
 }

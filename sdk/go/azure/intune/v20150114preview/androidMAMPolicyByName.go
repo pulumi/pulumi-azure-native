@@ -4,6 +4,7 @@
 package v20150114preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -211,4 +212,43 @@ type AndroidMAMPolicyByNameArgs struct {
 
 func (AndroidMAMPolicyByNameArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*androidMAMPolicyByNameArgs)(nil)).Elem()
+}
+
+type AndroidMAMPolicyByNameInput interface {
+	pulumi.Input
+
+	ToAndroidMAMPolicyByNameOutput() AndroidMAMPolicyByNameOutput
+	ToAndroidMAMPolicyByNameOutputWithContext(ctx context.Context) AndroidMAMPolicyByNameOutput
+}
+
+func (AndroidMAMPolicyByName) ElementType() reflect.Type {
+	return reflect.TypeOf((*AndroidMAMPolicyByName)(nil)).Elem()
+}
+
+func (i AndroidMAMPolicyByName) ToAndroidMAMPolicyByNameOutput() AndroidMAMPolicyByNameOutput {
+	return i.ToAndroidMAMPolicyByNameOutputWithContext(context.Background())
+}
+
+func (i AndroidMAMPolicyByName) ToAndroidMAMPolicyByNameOutputWithContext(ctx context.Context) AndroidMAMPolicyByNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AndroidMAMPolicyByNameOutput)
+}
+
+type AndroidMAMPolicyByNameOutput struct {
+	*pulumi.OutputState
+}
+
+func (AndroidMAMPolicyByNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AndroidMAMPolicyByNameOutput)(nil)).Elem()
+}
+
+func (o AndroidMAMPolicyByNameOutput) ToAndroidMAMPolicyByNameOutput() AndroidMAMPolicyByNameOutput {
+	return o
+}
+
+func (o AndroidMAMPolicyByNameOutput) ToAndroidMAMPolicyByNameOutputWithContext(ctx context.Context) AndroidMAMPolicyByNameOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AndroidMAMPolicyByNameOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -141,4 +142,43 @@ type AssetFilterArgs struct {
 
 func (AssetFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assetFilterArgs)(nil)).Elem()
+}
+
+type AssetFilterInput interface {
+	pulumi.Input
+
+	ToAssetFilterOutput() AssetFilterOutput
+	ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput
+}
+
+func (AssetFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilter)(nil)).Elem()
+}
+
+func (i AssetFilter) ToAssetFilterOutput() AssetFilterOutput {
+	return i.ToAssetFilterOutputWithContext(context.Background())
+}
+
+func (i AssetFilter) ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterOutput)
+}
+
+type AssetFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssetFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilterOutput)(nil)).Elem()
+}
+
+func (o AssetFilterOutput) ToAssetFilterOutput() AssetFilterOutput {
+	return o
+}
+
+func (o AssetFilterOutput) ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssetFilterOutput{})
 }

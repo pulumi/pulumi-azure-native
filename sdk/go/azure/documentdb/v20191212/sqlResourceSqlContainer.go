@@ -4,6 +4,7 @@
 package v20191212
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -160,4 +161,43 @@ type SqlResourceSqlContainerArgs struct {
 
 func (SqlResourceSqlContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlResourceSqlContainerArgs)(nil)).Elem()
+}
+
+type SqlResourceSqlContainerInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlContainerOutput() SqlResourceSqlContainerOutput
+	ToSqlResourceSqlContainerOutputWithContext(ctx context.Context) SqlResourceSqlContainerOutput
+}
+
+func (SqlResourceSqlContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlContainer)(nil)).Elem()
+}
+
+func (i SqlResourceSqlContainer) ToSqlResourceSqlContainerOutput() SqlResourceSqlContainerOutput {
+	return i.ToSqlResourceSqlContainerOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlContainer) ToSqlResourceSqlContainerOutputWithContext(ctx context.Context) SqlResourceSqlContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlContainerOutput)
+}
+
+type SqlResourceSqlContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlResourceSqlContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlContainerOutput)(nil)).Elem()
+}
+
+func (o SqlResourceSqlContainerOutput) ToSqlResourceSqlContainerOutput() SqlResourceSqlContainerOutput {
+	return o
+}
+
+func (o SqlResourceSqlContainerOutput) ToSqlResourceSqlContainerOutputWithContext(ctx context.Context) SqlResourceSqlContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlResourceSqlContainerOutput{})
 }

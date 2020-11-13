@@ -4,6 +4,7 @@
 package v20180701preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -155,4 +156,43 @@ type RemediationAtResourceGroupArgs struct {
 
 func (RemediationAtResourceGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*remediationAtResourceGroupArgs)(nil)).Elem()
+}
+
+type RemediationAtResourceGroupInput interface {
+	pulumi.Input
+
+	ToRemediationAtResourceGroupOutput() RemediationAtResourceGroupOutput
+	ToRemediationAtResourceGroupOutputWithContext(ctx context.Context) RemediationAtResourceGroupOutput
+}
+
+func (RemediationAtResourceGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtResourceGroup)(nil)).Elem()
+}
+
+func (i RemediationAtResourceGroup) ToRemediationAtResourceGroupOutput() RemediationAtResourceGroupOutput {
+	return i.ToRemediationAtResourceGroupOutputWithContext(context.Background())
+}
+
+func (i RemediationAtResourceGroup) ToRemediationAtResourceGroupOutputWithContext(ctx context.Context) RemediationAtResourceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtResourceGroupOutput)
+}
+
+type RemediationAtResourceGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (RemediationAtResourceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtResourceGroupOutput)(nil)).Elem()
+}
+
+func (o RemediationAtResourceGroupOutput) ToRemediationAtResourceGroupOutput() RemediationAtResourceGroupOutput {
+	return o
+}
+
+func (o RemediationAtResourceGroupOutput) ToRemediationAtResourceGroupOutputWithContext(ctx context.Context) RemediationAtResourceGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RemediationAtResourceGroupOutput{})
 }

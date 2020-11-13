@@ -4,6 +4,7 @@
 package v20150320
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -166,4 +167,43 @@ type StorageInsightArgs struct {
 
 func (StorageInsightArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageInsightArgs)(nil)).Elem()
+}
+
+type StorageInsightInput interface {
+	pulumi.Input
+
+	ToStorageInsightOutput() StorageInsightOutput
+	ToStorageInsightOutputWithContext(ctx context.Context) StorageInsightOutput
+}
+
+func (StorageInsight) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsight)(nil)).Elem()
+}
+
+func (i StorageInsight) ToStorageInsightOutput() StorageInsightOutput {
+	return i.ToStorageInsightOutputWithContext(context.Background())
+}
+
+func (i StorageInsight) ToStorageInsightOutputWithContext(ctx context.Context) StorageInsightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightOutput)
+}
+
+type StorageInsightOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageInsightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsightOutput)(nil)).Elem()
+}
+
+func (o StorageInsightOutput) ToStorageInsightOutput() StorageInsightOutput {
+	return o
+}
+
+func (o StorageInsightOutput) ToStorageInsightOutputWithContext(ctx context.Context) StorageInsightOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageInsightOutput{})
 }

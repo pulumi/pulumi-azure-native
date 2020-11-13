@@ -4,6 +4,7 @@
 package v20190301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -174,4 +175,43 @@ type GalleryImageVersionArgs struct {
 
 func (GalleryImageVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*galleryImageVersionArgs)(nil)).Elem()
+}
+
+type GalleryImageVersionInput interface {
+	pulumi.Input
+
+	ToGalleryImageVersionOutput() GalleryImageVersionOutput
+	ToGalleryImageVersionOutputWithContext(ctx context.Context) GalleryImageVersionOutput
+}
+
+func (GalleryImageVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageVersion)(nil)).Elem()
+}
+
+func (i GalleryImageVersion) ToGalleryImageVersionOutput() GalleryImageVersionOutput {
+	return i.ToGalleryImageVersionOutputWithContext(context.Background())
+}
+
+func (i GalleryImageVersion) ToGalleryImageVersionOutputWithContext(ctx context.Context) GalleryImageVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionOutput)
+}
+
+type GalleryImageVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (GalleryImageVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageVersionOutput)(nil)).Elem()
+}
+
+func (o GalleryImageVersionOutput) ToGalleryImageVersionOutput() GalleryImageVersionOutput {
+	return o
+}
+
+func (o GalleryImageVersionOutput) ToGalleryImageVersionOutputWithContext(ctx context.Context) GalleryImageVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GalleryImageVersionOutput{})
 }

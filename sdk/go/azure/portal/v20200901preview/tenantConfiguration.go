@@ -4,6 +4,7 @@
 package v20200901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -97,4 +98,43 @@ type TenantConfigurationArgs struct {
 
 func (TenantConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tenantConfigurationArgs)(nil)).Elem()
+}
+
+type TenantConfigurationInput interface {
+	pulumi.Input
+
+	ToTenantConfigurationOutput() TenantConfigurationOutput
+	ToTenantConfigurationOutputWithContext(ctx context.Context) TenantConfigurationOutput
+}
+
+func (TenantConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantConfiguration)(nil)).Elem()
+}
+
+func (i TenantConfiguration) ToTenantConfigurationOutput() TenantConfigurationOutput {
+	return i.ToTenantConfigurationOutputWithContext(context.Background())
+}
+
+func (i TenantConfiguration) ToTenantConfigurationOutputWithContext(ctx context.Context) TenantConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantConfigurationOutput)
+}
+
+type TenantConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (TenantConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantConfigurationOutput)(nil)).Elem()
+}
+
+func (o TenantConfigurationOutput) ToTenantConfigurationOutput() TenantConfigurationOutput {
+	return o
+}
+
+func (o TenantConfigurationOutput) ToTenantConfigurationOutputWithContext(ctx context.Context) TenantConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TenantConfigurationOutput{})
 }

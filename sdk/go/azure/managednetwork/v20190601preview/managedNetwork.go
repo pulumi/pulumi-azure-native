@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -139,4 +140,43 @@ type ManagedNetworkArgs struct {
 
 func (ManagedNetworkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedNetworkArgs)(nil)).Elem()
+}
+
+type ManagedNetworkInput interface {
+	pulumi.Input
+
+	ToManagedNetworkOutput() ManagedNetworkOutput
+	ToManagedNetworkOutputWithContext(ctx context.Context) ManagedNetworkOutput
+}
+
+func (ManagedNetwork) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetwork)(nil)).Elem()
+}
+
+func (i ManagedNetwork) ToManagedNetworkOutput() ManagedNetworkOutput {
+	return i.ToManagedNetworkOutputWithContext(context.Background())
+}
+
+func (i ManagedNetwork) ToManagedNetworkOutputWithContext(ctx context.Context) ManagedNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkOutput)
+}
+
+type ManagedNetworkOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkOutput)(nil)).Elem()
+}
+
+func (o ManagedNetworkOutput) ToManagedNetworkOutput() ManagedNetworkOutput {
+	return o
+}
+
+func (o ManagedNetworkOutput) ToManagedNetworkOutputWithContext(ctx context.Context) ManagedNetworkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedNetworkOutput{})
 }

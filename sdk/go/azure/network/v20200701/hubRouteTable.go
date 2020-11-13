@@ -4,6 +4,7 @@
 package v20200701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -162,4 +163,43 @@ type HubRouteTableArgs struct {
 
 func (HubRouteTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hubRouteTableArgs)(nil)).Elem()
+}
+
+type HubRouteTableInput interface {
+	pulumi.Input
+
+	ToHubRouteTableOutput() HubRouteTableOutput
+	ToHubRouteTableOutputWithContext(ctx context.Context) HubRouteTableOutput
+}
+
+func (HubRouteTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubRouteTable)(nil)).Elem()
+}
+
+func (i HubRouteTable) ToHubRouteTableOutput() HubRouteTableOutput {
+	return i.ToHubRouteTableOutputWithContext(context.Background())
+}
+
+func (i HubRouteTable) ToHubRouteTableOutputWithContext(ctx context.Context) HubRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubRouteTableOutput)
+}
+
+type HubRouteTableOutput struct {
+	*pulumi.OutputState
+}
+
+func (HubRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubRouteTableOutput)(nil)).Elem()
+}
+
+func (o HubRouteTableOutput) ToHubRouteTableOutput() HubRouteTableOutput {
+	return o
+}
+
+func (o HubRouteTableOutput) ToHubRouteTableOutputWithContext(ctx context.Context) HubRouteTableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HubRouteTableOutput{})
 }

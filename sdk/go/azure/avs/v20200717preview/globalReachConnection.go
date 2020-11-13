@@ -4,6 +4,7 @@
 package v20200717preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -133,4 +134,43 @@ type GlobalReachConnectionArgs struct {
 
 func (GlobalReachConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalReachConnectionArgs)(nil)).Elem()
+}
+
+type GlobalReachConnectionInput interface {
+	pulumi.Input
+
+	ToGlobalReachConnectionOutput() GlobalReachConnectionOutput
+	ToGlobalReachConnectionOutputWithContext(ctx context.Context) GlobalReachConnectionOutput
+}
+
+func (GlobalReachConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReachConnection)(nil)).Elem()
+}
+
+func (i GlobalReachConnection) ToGlobalReachConnectionOutput() GlobalReachConnectionOutput {
+	return i.ToGlobalReachConnectionOutputWithContext(context.Background())
+}
+
+func (i GlobalReachConnection) ToGlobalReachConnectionOutputWithContext(ctx context.Context) GlobalReachConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReachConnectionOutput)
+}
+
+type GlobalReachConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (GlobalReachConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReachConnectionOutput)(nil)).Elem()
+}
+
+func (o GlobalReachConnectionOutput) ToGlobalReachConnectionOutput() GlobalReachConnectionOutput {
+	return o
+}
+
+func (o GlobalReachConnectionOutput) ToGlobalReachConnectionOutputWithContext(ctx context.Context) GlobalReachConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GlobalReachConnectionOutput{})
 }

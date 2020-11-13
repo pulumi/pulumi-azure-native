@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -178,4 +179,43 @@ type AutomationArgs struct {
 
 func (AutomationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*automationArgs)(nil)).Elem()
+}
+
+type AutomationInput interface {
+	pulumi.Input
+
+	ToAutomationOutput() AutomationOutput
+	ToAutomationOutputWithContext(ctx context.Context) AutomationOutput
+}
+
+func (Automation) ElementType() reflect.Type {
+	return reflect.TypeOf((*Automation)(nil)).Elem()
+}
+
+func (i Automation) ToAutomationOutput() AutomationOutput {
+	return i.ToAutomationOutputWithContext(context.Background())
+}
+
+func (i Automation) ToAutomationOutputWithContext(ctx context.Context) AutomationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationOutput)
+}
+
+type AutomationOutput struct {
+	*pulumi.OutputState
+}
+
+func (AutomationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationOutput)(nil)).Elem()
+}
+
+func (o AutomationOutput) ToAutomationOutput() AutomationOutput {
+	return o
+}
+
+func (o AutomationOutput) ToAutomationOutputWithContext(ctx context.Context) AutomationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AutomationOutput{})
 }

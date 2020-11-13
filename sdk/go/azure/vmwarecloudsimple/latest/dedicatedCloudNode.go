@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -247,4 +248,43 @@ type DedicatedCloudNodeArgs struct {
 
 func (DedicatedCloudNodeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedCloudNodeArgs)(nil)).Elem()
+}
+
+type DedicatedCloudNodeInput interface {
+	pulumi.Input
+
+	ToDedicatedCloudNodeOutput() DedicatedCloudNodeOutput
+	ToDedicatedCloudNodeOutputWithContext(ctx context.Context) DedicatedCloudNodeOutput
+}
+
+func (DedicatedCloudNode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedCloudNode)(nil)).Elem()
+}
+
+func (i DedicatedCloudNode) ToDedicatedCloudNodeOutput() DedicatedCloudNodeOutput {
+	return i.ToDedicatedCloudNodeOutputWithContext(context.Background())
+}
+
+func (i DedicatedCloudNode) ToDedicatedCloudNodeOutputWithContext(ctx context.Context) DedicatedCloudNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedCloudNodeOutput)
+}
+
+type DedicatedCloudNodeOutput struct {
+	*pulumi.OutputState
+}
+
+func (DedicatedCloudNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedCloudNodeOutput)(nil)).Elem()
+}
+
+func (o DedicatedCloudNodeOutput) ToDedicatedCloudNodeOutput() DedicatedCloudNodeOutput {
+	return o
+}
+
+func (o DedicatedCloudNodeOutput) ToDedicatedCloudNodeOutputWithContext(ctx context.Context) DedicatedCloudNodeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DedicatedCloudNodeOutput{})
 }

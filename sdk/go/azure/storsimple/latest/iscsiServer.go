@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -164,4 +165,43 @@ type IscsiServerArgs struct {
 
 func (IscsiServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iscsiServerArgs)(nil)).Elem()
+}
+
+type IscsiServerInput interface {
+	pulumi.Input
+
+	ToIscsiServerOutput() IscsiServerOutput
+	ToIscsiServerOutputWithContext(ctx context.Context) IscsiServerOutput
+}
+
+func (IscsiServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiServer)(nil)).Elem()
+}
+
+func (i IscsiServer) ToIscsiServerOutput() IscsiServerOutput {
+	return i.ToIscsiServerOutputWithContext(context.Background())
+}
+
+func (i IscsiServer) ToIscsiServerOutputWithContext(ctx context.Context) IscsiServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IscsiServerOutput)
+}
+
+type IscsiServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (IscsiServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiServerOutput)(nil)).Elem()
+}
+
+func (o IscsiServerOutput) ToIscsiServerOutput() IscsiServerOutput {
+	return o
+}
+
+func (o IscsiServerOutput) ToIscsiServerOutputWithContext(ctx context.Context) IscsiServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IscsiServerOutput{})
 }

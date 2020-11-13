@@ -4,6 +4,7 @@
 package v20190901
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -350,4 +351,43 @@ type SubnetArgs struct {
 
 func (SubnetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetArgs)(nil)).Elem()
+}
+
+type SubnetInput interface {
+	pulumi.Input
+
+	ToSubnetOutput() SubnetOutput
+	ToSubnetOutputWithContext(ctx context.Context) SubnetOutput
+}
+
+func (Subnet) ElementType() reflect.Type {
+	return reflect.TypeOf((*Subnet)(nil)).Elem()
+}
+
+func (i Subnet) ToSubnetOutput() SubnetOutput {
+	return i.ToSubnetOutputWithContext(context.Background())
+}
+
+func (i Subnet) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetOutput)
+}
+
+type SubnetOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetOutput)(nil)).Elem()
+}
+
+func (o SubnetOutput) ToSubnetOutput() SubnetOutput {
+	return o
+}
+
+func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubnetOutput{})
 }

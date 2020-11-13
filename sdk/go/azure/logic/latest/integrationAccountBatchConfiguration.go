@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type IntegrationAccountBatchConfigurationArgs struct {
 
 func (IntegrationAccountBatchConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountBatchConfigurationArgs)(nil)).Elem()
+}
+
+type IntegrationAccountBatchConfigurationInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountBatchConfigurationOutput() IntegrationAccountBatchConfigurationOutput
+	ToIntegrationAccountBatchConfigurationOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationOutput
+}
+
+func (IntegrationAccountBatchConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountBatchConfiguration)(nil)).Elem()
+}
+
+func (i IntegrationAccountBatchConfiguration) ToIntegrationAccountBatchConfigurationOutput() IntegrationAccountBatchConfigurationOutput {
+	return i.ToIntegrationAccountBatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountBatchConfiguration) ToIntegrationAccountBatchConfigurationOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationOutput)
+}
+
+type IntegrationAccountBatchConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationAccountBatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountBatchConfigurationOutput)(nil)).Elem()
+}
+
+func (o IntegrationAccountBatchConfigurationOutput) ToIntegrationAccountBatchConfigurationOutput() IntegrationAccountBatchConfigurationOutput {
+	return o
+}
+
+func (o IntegrationAccountBatchConfigurationOutput) ToIntegrationAccountBatchConfigurationOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationOutput{})
 }

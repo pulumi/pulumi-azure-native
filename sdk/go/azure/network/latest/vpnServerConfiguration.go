@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -274,4 +275,43 @@ type VpnServerConfigurationArgs struct {
 
 func (VpnServerConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnServerConfigurationArgs)(nil)).Elem()
+}
+
+type VpnServerConfigurationInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationOutput() VpnServerConfigurationOutput
+	ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput
+}
+
+func (VpnServerConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfiguration)(nil)).Elem()
+}
+
+func (i VpnServerConfiguration) ToVpnServerConfigurationOutput() VpnServerConfigurationOutput {
+	return i.ToVpnServerConfigurationOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfiguration) ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationOutput)
+}
+
+type VpnServerConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnServerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationOutput)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutput() VpnServerConfigurationOutput {
+	return o
+}
+
+func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpnServerConfigurationOutput{})
 }

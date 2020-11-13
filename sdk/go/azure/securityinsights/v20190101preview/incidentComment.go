@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -150,4 +151,43 @@ type IncidentCommentArgs struct {
 
 func (IncidentCommentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentCommentArgs)(nil)).Elem()
+}
+
+type IncidentCommentInput interface {
+	pulumi.Input
+
+	ToIncidentCommentOutput() IncidentCommentOutput
+	ToIncidentCommentOutputWithContext(ctx context.Context) IncidentCommentOutput
+}
+
+func (IncidentComment) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentComment)(nil)).Elem()
+}
+
+func (i IncidentComment) ToIncidentCommentOutput() IncidentCommentOutput {
+	return i.ToIncidentCommentOutputWithContext(context.Background())
+}
+
+func (i IncidentComment) ToIncidentCommentOutputWithContext(ctx context.Context) IncidentCommentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentCommentOutput)
+}
+
+type IncidentCommentOutput struct {
+	*pulumi.OutputState
+}
+
+func (IncidentCommentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentCommentOutput)(nil)).Elem()
+}
+
+func (o IncidentCommentOutput) ToIncidentCommentOutput() IncidentCommentOutput {
+	return o
+}
+
+func (o IncidentCommentOutput) ToIncidentCommentOutputWithContext(ctx context.Context) IncidentCommentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IncidentCommentOutput{})
 }

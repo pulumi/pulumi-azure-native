@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -103,4 +104,43 @@ type TagAtScopeArgs struct {
 
 func (TagAtScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagAtScopeArgs)(nil)).Elem()
+}
+
+type TagAtScopeInput interface {
+	pulumi.Input
+
+	ToTagAtScopeOutput() TagAtScopeOutput
+	ToTagAtScopeOutputWithContext(ctx context.Context) TagAtScopeOutput
+}
+
+func (TagAtScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAtScope)(nil)).Elem()
+}
+
+func (i TagAtScope) ToTagAtScopeOutput() TagAtScopeOutput {
+	return i.ToTagAtScopeOutputWithContext(context.Background())
+}
+
+func (i TagAtScope) ToTagAtScopeOutputWithContext(ctx context.Context) TagAtScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAtScopeOutput)
+}
+
+type TagAtScopeOutput struct {
+	*pulumi.OutputState
+}
+
+func (TagAtScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAtScopeOutput)(nil)).Elem()
+}
+
+func (o TagAtScopeOutput) ToTagAtScopeOutput() TagAtScopeOutput {
+	return o
+}
+
+func (o TagAtScopeOutput) ToTagAtScopeOutputWithContext(ctx context.Context) TagAtScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TagAtScopeOutput{})
 }

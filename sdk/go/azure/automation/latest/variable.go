@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -150,4 +151,43 @@ type VariableArgs struct {
 
 func (VariableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*variableArgs)(nil)).Elem()
+}
+
+type VariableInput interface {
+	pulumi.Input
+
+	ToVariableOutput() VariableOutput
+	ToVariableOutputWithContext(ctx context.Context) VariableOutput
+}
+
+func (Variable) ElementType() reflect.Type {
+	return reflect.TypeOf((*Variable)(nil)).Elem()
+}
+
+func (i Variable) ToVariableOutput() VariableOutput {
+	return i.ToVariableOutputWithContext(context.Background())
+}
+
+func (i Variable) ToVariableOutputWithContext(ctx context.Context) VariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VariableOutput)
+}
+
+type VariableOutput struct {
+	*pulumi.OutputState
+}
+
+func (VariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VariableOutput)(nil)).Elem()
+}
+
+func (o VariableOutput) ToVariableOutput() VariableOutput {
+	return o
+}
+
+func (o VariableOutput) ToVariableOutputWithContext(ctx context.Context) VariableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VariableOutput{})
 }

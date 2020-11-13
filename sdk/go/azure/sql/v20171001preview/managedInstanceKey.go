@@ -4,6 +4,7 @@
 package v20171001preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -136,4 +137,43 @@ type ManagedInstanceKeyArgs struct {
 
 func (ManagedInstanceKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedInstanceKeyArgs)(nil)).Elem()
+}
+
+type ManagedInstanceKeyInput interface {
+	pulumi.Input
+
+	ToManagedInstanceKeyOutput() ManagedInstanceKeyOutput
+	ToManagedInstanceKeyOutputWithContext(ctx context.Context) ManagedInstanceKeyOutput
+}
+
+func (ManagedInstanceKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceKey)(nil)).Elem()
+}
+
+func (i ManagedInstanceKey) ToManagedInstanceKeyOutput() ManagedInstanceKeyOutput {
+	return i.ToManagedInstanceKeyOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceKey) ToManagedInstanceKeyOutputWithContext(ctx context.Context) ManagedInstanceKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceKeyOutput)
+}
+
+type ManagedInstanceKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedInstanceKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceKeyOutput)(nil)).Elem()
+}
+
+func (o ManagedInstanceKeyOutput) ToManagedInstanceKeyOutput() ManagedInstanceKeyOutput {
+	return o
+}
+
+func (o ManagedInstanceKeyOutput) ToManagedInstanceKeyOutputWithContext(ctx context.Context) ManagedInstanceKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedInstanceKeyOutput{})
 }

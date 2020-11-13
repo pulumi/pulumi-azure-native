@@ -4,6 +4,7 @@
 package v20180501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -131,4 +132,43 @@ type DeploymentAtSubscriptionScopeArgs struct {
 
 func (DeploymentAtSubscriptionScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentAtSubscriptionScopeArgs)(nil)).Elem()
+}
+
+type DeploymentAtSubscriptionScopeInput interface {
+	pulumi.Input
+
+	ToDeploymentAtSubscriptionScopeOutput() DeploymentAtSubscriptionScopeOutput
+	ToDeploymentAtSubscriptionScopeOutputWithContext(ctx context.Context) DeploymentAtSubscriptionScopeOutput
+}
+
+func (DeploymentAtSubscriptionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtSubscriptionScope)(nil)).Elem()
+}
+
+func (i DeploymentAtSubscriptionScope) ToDeploymentAtSubscriptionScopeOutput() DeploymentAtSubscriptionScopeOutput {
+	return i.ToDeploymentAtSubscriptionScopeOutputWithContext(context.Background())
+}
+
+func (i DeploymentAtSubscriptionScope) ToDeploymentAtSubscriptionScopeOutputWithContext(ctx context.Context) DeploymentAtSubscriptionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtSubscriptionScopeOutput)
+}
+
+type DeploymentAtSubscriptionScopeOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentAtSubscriptionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtSubscriptionScopeOutput)(nil)).Elem()
+}
+
+func (o DeploymentAtSubscriptionScopeOutput) ToDeploymentAtSubscriptionScopeOutput() DeploymentAtSubscriptionScopeOutput {
+	return o
+}
+
+func (o DeploymentAtSubscriptionScopeOutput) ToDeploymentAtSubscriptionScopeOutputWithContext(ctx context.Context) DeploymentAtSubscriptionScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentAtSubscriptionScopeOutput{})
 }

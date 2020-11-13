@@ -4,6 +4,7 @@
 package v20180110
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -130,4 +131,43 @@ type ReplicationRecoveryServicesProviderArgs struct {
 
 func (ReplicationRecoveryServicesProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationRecoveryServicesProviderArgs)(nil)).Elem()
+}
+
+type ReplicationRecoveryServicesProviderInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryServicesProviderOutput() ReplicationRecoveryServicesProviderOutput
+	ToReplicationRecoveryServicesProviderOutputWithContext(ctx context.Context) ReplicationRecoveryServicesProviderOutput
+}
+
+func (ReplicationRecoveryServicesProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryServicesProvider)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProviderOutput() ReplicationRecoveryServicesProviderOutput {
+	return i.ToReplicationRecoveryServicesProviderOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProviderOutputWithContext(ctx context.Context) ReplicationRecoveryServicesProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryServicesProviderOutput)
+}
+
+type ReplicationRecoveryServicesProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationRecoveryServicesProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryServicesProviderOutput)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryServicesProviderOutput) ToReplicationRecoveryServicesProviderOutput() ReplicationRecoveryServicesProviderOutput {
+	return o
+}
+
+func (o ReplicationRecoveryServicesProviderOutput) ToReplicationRecoveryServicesProviderOutputWithContext(ctx context.Context) ReplicationRecoveryServicesProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationRecoveryServicesProviderOutput{})
 }

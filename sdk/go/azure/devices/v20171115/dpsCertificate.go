@@ -4,6 +4,7 @@
 package v20171115
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -132,4 +133,43 @@ type DpsCertificateArgs struct {
 
 func (DpsCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dpsCertificateArgs)(nil)).Elem()
+}
+
+type DpsCertificateInput interface {
+	pulumi.Input
+
+	ToDpsCertificateOutput() DpsCertificateOutput
+	ToDpsCertificateOutputWithContext(ctx context.Context) DpsCertificateOutput
+}
+
+func (DpsCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*DpsCertificate)(nil)).Elem()
+}
+
+func (i DpsCertificate) ToDpsCertificateOutput() DpsCertificateOutput {
+	return i.ToDpsCertificateOutputWithContext(context.Background())
+}
+
+func (i DpsCertificate) ToDpsCertificateOutputWithContext(ctx context.Context) DpsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DpsCertificateOutput)
+}
+
+type DpsCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (DpsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DpsCertificateOutput)(nil)).Elem()
+}
+
+func (o DpsCertificateOutput) ToDpsCertificateOutput() DpsCertificateOutput {
+	return o
+}
+
+func (o DpsCertificateOutput) ToDpsCertificateOutputWithContext(ctx context.Context) DpsCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DpsCertificateOutput{})
 }

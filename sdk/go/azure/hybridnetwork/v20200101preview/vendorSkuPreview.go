@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -95,4 +96,43 @@ type VendorSkuPreviewArgs struct {
 
 func (VendorSkuPreviewArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vendorSkuPreviewArgs)(nil)).Elem()
+}
+
+type VendorSkuPreviewInput interface {
+	pulumi.Input
+
+	ToVendorSkuPreviewOutput() VendorSkuPreviewOutput
+	ToVendorSkuPreviewOutputWithContext(ctx context.Context) VendorSkuPreviewOutput
+}
+
+func (VendorSkuPreview) ElementType() reflect.Type {
+	return reflect.TypeOf((*VendorSkuPreview)(nil)).Elem()
+}
+
+func (i VendorSkuPreview) ToVendorSkuPreviewOutput() VendorSkuPreviewOutput {
+	return i.ToVendorSkuPreviewOutputWithContext(context.Background())
+}
+
+func (i VendorSkuPreview) ToVendorSkuPreviewOutputWithContext(ctx context.Context) VendorSkuPreviewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VendorSkuPreviewOutput)
+}
+
+type VendorSkuPreviewOutput struct {
+	*pulumi.OutputState
+}
+
+func (VendorSkuPreviewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VendorSkuPreviewOutput)(nil)).Elem()
+}
+
+func (o VendorSkuPreviewOutput) ToVendorSkuPreviewOutput() VendorSkuPreviewOutput {
+	return o
+}
+
+func (o VendorSkuPreviewOutput) ToVendorSkuPreviewOutputWithContext(ctx context.Context) VendorSkuPreviewOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VendorSkuPreviewOutput{})
 }

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -229,4 +230,43 @@ type VirtualMachineScheduleArgs struct {
 
 func (VirtualMachineScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineScheduleArgs)(nil)).Elem()
+}
+
+type VirtualMachineScheduleInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScheduleOutput() VirtualMachineScheduleOutput
+	ToVirtualMachineScheduleOutputWithContext(ctx context.Context) VirtualMachineScheduleOutput
+}
+
+func (VirtualMachineSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineSchedule)(nil)).Elem()
+}
+
+func (i VirtualMachineSchedule) ToVirtualMachineScheduleOutput() VirtualMachineScheduleOutput {
+	return i.ToVirtualMachineScheduleOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineSchedule) ToVirtualMachineScheduleOutputWithContext(ctx context.Context) VirtualMachineScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScheduleOutput)
+}
+
+type VirtualMachineScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScheduleOutput)(nil)).Elem()
+}
+
+func (o VirtualMachineScheduleOutput) ToVirtualMachineScheduleOutput() VirtualMachineScheduleOutput {
+	return o
+}
+
+func (o VirtualMachineScheduleOutput) ToVirtualMachineScheduleOutputWithContext(ctx context.Context) VirtualMachineScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualMachineScheduleOutput{})
 }

@@ -4,6 +4,7 @@
 package v20150501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -135,4 +136,43 @@ type SyncAgentArgs struct {
 
 func (SyncAgentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*syncAgentArgs)(nil)).Elem()
+}
+
+type SyncAgentInput interface {
+	pulumi.Input
+
+	ToSyncAgentOutput() SyncAgentOutput
+	ToSyncAgentOutputWithContext(ctx context.Context) SyncAgentOutput
+}
+
+func (SyncAgent) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncAgent)(nil)).Elem()
+}
+
+func (i SyncAgent) ToSyncAgentOutput() SyncAgentOutput {
+	return i.ToSyncAgentOutputWithContext(context.Background())
+}
+
+func (i SyncAgent) ToSyncAgentOutputWithContext(ctx context.Context) SyncAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncAgentOutput)
+}
+
+type SyncAgentOutput struct {
+	*pulumi.OutputState
+}
+
+func (SyncAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncAgentOutput)(nil)).Elem()
+}
+
+func (o SyncAgentOutput) ToSyncAgentOutput() SyncAgentOutput {
+	return o
+}
+
+func (o SyncAgentOutput) ToSyncAgentOutputWithContext(ctx context.Context) SyncAgentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SyncAgentOutput{})
 }

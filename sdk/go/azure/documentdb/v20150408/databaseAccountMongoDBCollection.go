@@ -4,6 +4,7 @@
 package v20150408
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -158,4 +159,43 @@ type DatabaseAccountMongoDBCollectionArgs struct {
 
 func (DatabaseAccountMongoDBCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseAccountMongoDBCollectionArgs)(nil)).Elem()
+}
+
+type DatabaseAccountMongoDBCollectionInput interface {
+	pulumi.Input
+
+	ToDatabaseAccountMongoDBCollectionOutput() DatabaseAccountMongoDBCollectionOutput
+	ToDatabaseAccountMongoDBCollectionOutputWithContext(ctx context.Context) DatabaseAccountMongoDBCollectionOutput
+}
+
+func (DatabaseAccountMongoDBCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountMongoDBCollection)(nil)).Elem()
+}
+
+func (i DatabaseAccountMongoDBCollection) ToDatabaseAccountMongoDBCollectionOutput() DatabaseAccountMongoDBCollectionOutput {
+	return i.ToDatabaseAccountMongoDBCollectionOutputWithContext(context.Background())
+}
+
+func (i DatabaseAccountMongoDBCollection) ToDatabaseAccountMongoDBCollectionOutputWithContext(ctx context.Context) DatabaseAccountMongoDBCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountMongoDBCollectionOutput)
+}
+
+type DatabaseAccountMongoDBCollectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatabaseAccountMongoDBCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountMongoDBCollectionOutput)(nil)).Elem()
+}
+
+func (o DatabaseAccountMongoDBCollectionOutput) ToDatabaseAccountMongoDBCollectionOutput() DatabaseAccountMongoDBCollectionOutput {
+	return o
+}
+
+func (o DatabaseAccountMongoDBCollectionOutput) ToDatabaseAccountMongoDBCollectionOutputWithContext(ctx context.Context) DatabaseAccountMongoDBCollectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatabaseAccountMongoDBCollectionOutput{})
 }

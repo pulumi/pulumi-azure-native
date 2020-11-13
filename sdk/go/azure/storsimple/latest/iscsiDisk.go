@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -202,4 +203,43 @@ type IscsiDiskArgs struct {
 
 func (IscsiDiskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iscsiDiskArgs)(nil)).Elem()
+}
+
+type IscsiDiskInput interface {
+	pulumi.Input
+
+	ToIscsiDiskOutput() IscsiDiskOutput
+	ToIscsiDiskOutputWithContext(ctx context.Context) IscsiDiskOutput
+}
+
+func (IscsiDisk) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiDisk)(nil)).Elem()
+}
+
+func (i IscsiDisk) ToIscsiDiskOutput() IscsiDiskOutput {
+	return i.ToIscsiDiskOutputWithContext(context.Background())
+}
+
+func (i IscsiDisk) ToIscsiDiskOutputWithContext(ctx context.Context) IscsiDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IscsiDiskOutput)
+}
+
+type IscsiDiskOutput struct {
+	*pulumi.OutputState
+}
+
+func (IscsiDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiDiskOutput)(nil)).Elem()
+}
+
+func (o IscsiDiskOutput) ToIscsiDiskOutput() IscsiDiskOutput {
+	return o
+}
+
+func (o IscsiDiskOutput) ToIscsiDiskOutputWithContext(ctx context.Context) IscsiDiskOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IscsiDiskOutput{})
 }

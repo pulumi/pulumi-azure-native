@@ -4,6 +4,7 @@
 package v20200430
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -207,4 +208,43 @@ type OpenShiftClusterArgs struct {
 
 func (OpenShiftClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*openShiftClusterArgs)(nil)).Elem()
+}
+
+type OpenShiftClusterInput interface {
+	pulumi.Input
+
+	ToOpenShiftClusterOutput() OpenShiftClusterOutput
+	ToOpenShiftClusterOutputWithContext(ctx context.Context) OpenShiftClusterOutput
+}
+
+func (OpenShiftCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftCluster)(nil)).Elem()
+}
+
+func (i OpenShiftCluster) ToOpenShiftClusterOutput() OpenShiftClusterOutput {
+	return i.ToOpenShiftClusterOutputWithContext(context.Background())
+}
+
+func (i OpenShiftCluster) ToOpenShiftClusterOutputWithContext(ctx context.Context) OpenShiftClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftClusterOutput)
+}
+
+type OpenShiftClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (OpenShiftClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftClusterOutput)(nil)).Elem()
+}
+
+func (o OpenShiftClusterOutput) ToOpenShiftClusterOutput() OpenShiftClusterOutput {
+	return o
+}
+
+func (o OpenShiftClusterOutput) ToOpenShiftClusterOutputWithContext(ctx context.Context) OpenShiftClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OpenShiftClusterOutput{})
 }

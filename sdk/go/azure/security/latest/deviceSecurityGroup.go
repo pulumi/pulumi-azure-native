@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type DeviceSecurityGroupArgs struct {
 
 func (DeviceSecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceSecurityGroupArgs)(nil)).Elem()
+}
+
+type DeviceSecurityGroupInput interface {
+	pulumi.Input
+
+	ToDeviceSecurityGroupOutput() DeviceSecurityGroupOutput
+	ToDeviceSecurityGroupOutputWithContext(ctx context.Context) DeviceSecurityGroupOutput
+}
+
+func (DeviceSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceSecurityGroup)(nil)).Elem()
+}
+
+func (i DeviceSecurityGroup) ToDeviceSecurityGroupOutput() DeviceSecurityGroupOutput {
+	return i.ToDeviceSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i DeviceSecurityGroup) ToDeviceSecurityGroupOutputWithContext(ctx context.Context) DeviceSecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupOutput)
+}
+
+type DeviceSecurityGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeviceSecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceSecurityGroupOutput)(nil)).Elem()
+}
+
+func (o DeviceSecurityGroupOutput) ToDeviceSecurityGroupOutput() DeviceSecurityGroupOutput {
+	return o
+}
+
+func (o DeviceSecurityGroupOutput) ToDeviceSecurityGroupOutputWithContext(ctx context.Context) DeviceSecurityGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeviceSecurityGroupOutput{})
 }

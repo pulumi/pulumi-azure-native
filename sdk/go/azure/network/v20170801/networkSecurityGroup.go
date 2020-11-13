@@ -4,6 +4,7 @@
 package v20170801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -279,4 +280,43 @@ type NetworkSecurityGroupArgs struct {
 
 func (NetworkSecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSecurityGroupArgs)(nil)).Elem()
+}
+
+type NetworkSecurityGroupInput interface {
+	pulumi.Input
+
+	ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput
+	ToNetworkSecurityGroupOutputWithContext(ctx context.Context) NetworkSecurityGroupOutput
+}
+
+func (NetworkSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSecurityGroup)(nil)).Elem()
+}
+
+func (i NetworkSecurityGroup) ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput {
+	return i.ToNetworkSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i NetworkSecurityGroup) ToNetworkSecurityGroupOutputWithContext(ctx context.Context) NetworkSecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupOutput)
+}
+
+type NetworkSecurityGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkSecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSecurityGroupOutput)(nil)).Elem()
+}
+
+func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput {
+	return o
+}
+
+func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupOutputWithContext(ctx context.Context) NetworkSecurityGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkSecurityGroupOutput{})
 }

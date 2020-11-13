@@ -4,6 +4,7 @@
 package v20190301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -209,4 +210,43 @@ type CloudConnectorArgs struct {
 
 func (CloudConnectorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudConnectorArgs)(nil)).Elem()
+}
+
+type CloudConnectorInput interface {
+	pulumi.Input
+
+	ToCloudConnectorOutput() CloudConnectorOutput
+	ToCloudConnectorOutputWithContext(ctx context.Context) CloudConnectorOutput
+}
+
+func (CloudConnector) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnector)(nil)).Elem()
+}
+
+func (i CloudConnector) ToCloudConnectorOutput() CloudConnectorOutput {
+	return i.ToCloudConnectorOutputWithContext(context.Background())
+}
+
+func (i CloudConnector) ToCloudConnectorOutputWithContext(ctx context.Context) CloudConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorOutput)
+}
+
+type CloudConnectorOutput struct {
+	*pulumi.OutputState
+}
+
+func (CloudConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorOutput)(nil)).Elem()
+}
+
+func (o CloudConnectorOutput) ToCloudConnectorOutput() CloudConnectorOutput {
+	return o
+}
+
+func (o CloudConnectorOutput) ToCloudConnectorOutputWithContext(ctx context.Context) CloudConnectorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CloudConnectorOutput{})
 }

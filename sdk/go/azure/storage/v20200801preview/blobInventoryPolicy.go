@@ -4,6 +4,7 @@
 package v20200801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -120,4 +121,43 @@ type BlobInventoryPolicyArgs struct {
 
 func (BlobInventoryPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*blobInventoryPolicyArgs)(nil)).Elem()
+}
+
+type BlobInventoryPolicyInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyOutput() BlobInventoryPolicyOutput
+	ToBlobInventoryPolicyOutputWithContext(ctx context.Context) BlobInventoryPolicyOutput
+}
+
+func (BlobInventoryPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicy)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicy) ToBlobInventoryPolicyOutput() BlobInventoryPolicyOutput {
+	return i.ToBlobInventoryPolicyOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicy) ToBlobInventoryPolicyOutputWithContext(ctx context.Context) BlobInventoryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyOutput)
+}
+
+type BlobInventoryPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (BlobInventoryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyOutput)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyOutput() BlobInventoryPolicyOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyOutputWithContext(ctx context.Context) BlobInventoryPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BlobInventoryPolicyOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200401preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -143,4 +144,43 @@ type SystemTopicArgs struct {
 
 func (SystemTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*systemTopicArgs)(nil)).Elem()
+}
+
+type SystemTopicInput interface {
+	pulumi.Input
+
+	ToSystemTopicOutput() SystemTopicOutput
+	ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput
+}
+
+func (SystemTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopic)(nil)).Elem()
+}
+
+func (i SystemTopic) ToSystemTopicOutput() SystemTopicOutput {
+	return i.ToSystemTopicOutputWithContext(context.Background())
+}
+
+func (i SystemTopic) ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicOutput)
+}
+
+type SystemTopicOutput struct {
+	*pulumi.OutputState
+}
+
+func (SystemTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicOutput)(nil)).Elem()
+}
+
+func (o SystemTopicOutput) ToSystemTopicOutput() SystemTopicOutput {
+	return o
+}
+
+func (o SystemTopicOutput) ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SystemTopicOutput{})
 }

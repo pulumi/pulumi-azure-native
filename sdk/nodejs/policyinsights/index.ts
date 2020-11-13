@@ -5,4 +5,9 @@
 import * as latest from "./latest";
 import * as v20180701preview from "./v20180701preview";
 import * as v20190701 from "./v20190701";
-export {latest, v20180701preview, v20190701};
+
+export {
+    latest,
+    v20180701preview,
+    v20190701,
+};

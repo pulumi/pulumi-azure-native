@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -147,4 +148,43 @@ type VirtualApplianceSiteArgs struct {
 
 func (VirtualApplianceSiteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualApplianceSiteArgs)(nil)).Elem()
+}
+
+type VirtualApplianceSiteInput interface {
+	pulumi.Input
+
+	ToVirtualApplianceSiteOutput() VirtualApplianceSiteOutput
+	ToVirtualApplianceSiteOutputWithContext(ctx context.Context) VirtualApplianceSiteOutput
+}
+
+func (VirtualApplianceSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualApplianceSite)(nil)).Elem()
+}
+
+func (i VirtualApplianceSite) ToVirtualApplianceSiteOutput() VirtualApplianceSiteOutput {
+	return i.ToVirtualApplianceSiteOutputWithContext(context.Background())
+}
+
+func (i VirtualApplianceSite) ToVirtualApplianceSiteOutputWithContext(ctx context.Context) VirtualApplianceSiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualApplianceSiteOutput)
+}
+
+type VirtualApplianceSiteOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualApplianceSiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualApplianceSiteOutput)(nil)).Elem()
+}
+
+func (o VirtualApplianceSiteOutput) ToVirtualApplianceSiteOutput() VirtualApplianceSiteOutput {
+	return o
+}
+
+func (o VirtualApplianceSiteOutput) ToVirtualApplianceSiteOutputWithContext(ctx context.Context) VirtualApplianceSiteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualApplianceSiteOutput{})
 }

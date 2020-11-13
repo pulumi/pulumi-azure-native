@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -148,4 +149,43 @@ type TaskRunArgs struct {
 
 func (TaskRunArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskRunArgs)(nil)).Elem()
+}
+
+type TaskRunInput interface {
+	pulumi.Input
+
+	ToTaskRunOutput() TaskRunOutput
+	ToTaskRunOutputWithContext(ctx context.Context) TaskRunOutput
+}
+
+func (TaskRun) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskRun)(nil)).Elem()
+}
+
+func (i TaskRun) ToTaskRunOutput() TaskRunOutput {
+	return i.ToTaskRunOutputWithContext(context.Background())
+}
+
+func (i TaskRun) ToTaskRunOutputWithContext(ctx context.Context) TaskRunOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskRunOutput)
+}
+
+type TaskRunOutput struct {
+	*pulumi.OutputState
+}
+
+func (TaskRunOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskRunOutput)(nil)).Elem()
+}
+
+func (o TaskRunOutput) ToTaskRunOutput() TaskRunOutput {
+	return o
+}
+
+func (o TaskRunOutput) ToTaskRunOutputWithContext(ctx context.Context) TaskRunOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TaskRunOutput{})
 }

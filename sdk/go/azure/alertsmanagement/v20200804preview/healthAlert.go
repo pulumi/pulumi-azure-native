@@ -4,6 +4,7 @@
 package v20200804preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -176,4 +177,43 @@ type HealthAlertArgs struct {
 
 func (HealthAlertArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*healthAlertArgs)(nil)).Elem()
+}
+
+type HealthAlertInput interface {
+	pulumi.Input
+
+	ToHealthAlertOutput() HealthAlertOutput
+	ToHealthAlertOutputWithContext(ctx context.Context) HealthAlertOutput
+}
+
+func (HealthAlert) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthAlert)(nil)).Elem()
+}
+
+func (i HealthAlert) ToHealthAlertOutput() HealthAlertOutput {
+	return i.ToHealthAlertOutputWithContext(context.Background())
+}
+
+func (i HealthAlert) ToHealthAlertOutputWithContext(ctx context.Context) HealthAlertOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertOutput)
+}
+
+type HealthAlertOutput struct {
+	*pulumi.OutputState
+}
+
+func (HealthAlertOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthAlertOutput)(nil)).Elem()
+}
+
+func (o HealthAlertOutput) ToHealthAlertOutput() HealthAlertOutput {
+	return o
+}
+
+func (o HealthAlertOutput) ToHealthAlertOutputWithContext(ctx context.Context) HealthAlertOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HealthAlertOutput{})
 }

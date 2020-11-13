@@ -4,6 +4,7 @@
 package v20160801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -156,4 +157,43 @@ type WebAppPublicCertificateSlotArgs struct {
 
 func (WebAppPublicCertificateSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppPublicCertificateSlotArgs)(nil)).Elem()
+}
+
+type WebAppPublicCertificateSlotInput interface {
+	pulumi.Input
+
+	ToWebAppPublicCertificateSlotOutput() WebAppPublicCertificateSlotOutput
+	ToWebAppPublicCertificateSlotOutputWithContext(ctx context.Context) WebAppPublicCertificateSlotOutput
+}
+
+func (WebAppPublicCertificateSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPublicCertificateSlot)(nil)).Elem()
+}
+
+func (i WebAppPublicCertificateSlot) ToWebAppPublicCertificateSlotOutput() WebAppPublicCertificateSlotOutput {
+	return i.ToWebAppPublicCertificateSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppPublicCertificateSlot) ToWebAppPublicCertificateSlotOutputWithContext(ctx context.Context) WebAppPublicCertificateSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppPublicCertificateSlotOutput)
+}
+
+type WebAppPublicCertificateSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppPublicCertificateSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPublicCertificateSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppPublicCertificateSlotOutput) ToWebAppPublicCertificateSlotOutput() WebAppPublicCertificateSlotOutput {
+	return o
+}
+
+func (o WebAppPublicCertificateSlotOutput) ToWebAppPublicCertificateSlotOutputWithContext(ctx context.Context) WebAppPublicCertificateSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppPublicCertificateSlotOutput{})
 }

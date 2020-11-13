@@ -4,6 +4,7 @@
 package v20180101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -132,4 +133,43 @@ type TagByApiArgs struct {
 
 func (TagByApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagByApiArgs)(nil)).Elem()
+}
+
+type TagByApiInput interface {
+	pulumi.Input
+
+	ToTagByApiOutput() TagByApiOutput
+	ToTagByApiOutputWithContext(ctx context.Context) TagByApiOutput
+}
+
+func (TagByApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByApi)(nil)).Elem()
+}
+
+func (i TagByApi) ToTagByApiOutput() TagByApiOutput {
+	return i.ToTagByApiOutputWithContext(context.Background())
+}
+
+func (i TagByApi) ToTagByApiOutputWithContext(ctx context.Context) TagByApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagByApiOutput)
+}
+
+type TagByApiOutput struct {
+	*pulumi.OutputState
+}
+
+func (TagByApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByApiOutput)(nil)).Elem()
+}
+
+func (o TagByApiOutput) ToTagByApiOutput() TagByApiOutput {
+	return o
+}
+
+func (o TagByApiOutput) ToTagByApiOutputWithContext(ctx context.Context) TagByApiOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TagByApiOutput{})
 }

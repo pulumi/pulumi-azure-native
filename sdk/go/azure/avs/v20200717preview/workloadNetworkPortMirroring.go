@@ -4,6 +4,7 @@
 package v20200717preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -157,4 +158,43 @@ type WorkloadNetworkPortMirroringArgs struct {
 
 func (WorkloadNetworkPortMirroringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadNetworkPortMirroringArgs)(nil)).Elem()
+}
+
+type WorkloadNetworkPortMirroringInput interface {
+	pulumi.Input
+
+	ToWorkloadNetworkPortMirroringOutput() WorkloadNetworkPortMirroringOutput
+	ToWorkloadNetworkPortMirroringOutputWithContext(ctx context.Context) WorkloadNetworkPortMirroringOutput
+}
+
+func (WorkloadNetworkPortMirroring) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkPortMirroring)(nil)).Elem()
+}
+
+func (i WorkloadNetworkPortMirroring) ToWorkloadNetworkPortMirroringOutput() WorkloadNetworkPortMirroringOutput {
+	return i.ToWorkloadNetworkPortMirroringOutputWithContext(context.Background())
+}
+
+func (i WorkloadNetworkPortMirroring) ToWorkloadNetworkPortMirroringOutputWithContext(ctx context.Context) WorkloadNetworkPortMirroringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkPortMirroringOutput)
+}
+
+type WorkloadNetworkPortMirroringOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkloadNetworkPortMirroringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadNetworkPortMirroringOutput)(nil)).Elem()
+}
+
+func (o WorkloadNetworkPortMirroringOutput) ToWorkloadNetworkPortMirroringOutput() WorkloadNetworkPortMirroringOutput {
+	return o
+}
+
+func (o WorkloadNetworkPortMirroringOutput) ToWorkloadNetworkPortMirroringOutputWithContext(ctx context.Context) WorkloadNetworkPortMirroringOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkloadNetworkPortMirroringOutput{})
 }

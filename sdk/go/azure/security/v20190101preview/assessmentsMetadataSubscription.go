@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -195,4 +196,43 @@ type AssessmentsMetadataSubscriptionArgs struct {
 
 func (AssessmentsMetadataSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentsMetadataSubscriptionArgs)(nil)).Elem()
+}
+
+type AssessmentsMetadataSubscriptionInput interface {
+	pulumi.Input
+
+	ToAssessmentsMetadataSubscriptionOutput() AssessmentsMetadataSubscriptionOutput
+	ToAssessmentsMetadataSubscriptionOutputWithContext(ctx context.Context) AssessmentsMetadataSubscriptionOutput
+}
+
+func (AssessmentsMetadataSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentsMetadataSubscription)(nil)).Elem()
+}
+
+func (i AssessmentsMetadataSubscription) ToAssessmentsMetadataSubscriptionOutput() AssessmentsMetadataSubscriptionOutput {
+	return i.ToAssessmentsMetadataSubscriptionOutputWithContext(context.Background())
+}
+
+func (i AssessmentsMetadataSubscription) ToAssessmentsMetadataSubscriptionOutputWithContext(ctx context.Context) AssessmentsMetadataSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentsMetadataSubscriptionOutput)
+}
+
+type AssessmentsMetadataSubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssessmentsMetadataSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentsMetadataSubscriptionOutput)(nil)).Elem()
+}
+
+func (o AssessmentsMetadataSubscriptionOutput) ToAssessmentsMetadataSubscriptionOutput() AssessmentsMetadataSubscriptionOutput {
+	return o
+}
+
+func (o AssessmentsMetadataSubscriptionOutput) ToAssessmentsMetadataSubscriptionOutputWithContext(ctx context.Context) AssessmentsMetadataSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssessmentsMetadataSubscriptionOutput{})
 }

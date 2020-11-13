@@ -4,6 +4,7 @@
 package v20190501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -145,4 +146,43 @@ type ReplicationArgs struct {
 
 func (ReplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationArgs)(nil)).Elem()
+}
+
+type ReplicationInput interface {
+	pulumi.Input
+
+	ToReplicationOutput() ReplicationOutput
+	ToReplicationOutputWithContext(ctx context.Context) ReplicationOutput
+}
+
+func (Replication) ElementType() reflect.Type {
+	return reflect.TypeOf((*Replication)(nil)).Elem()
+}
+
+func (i Replication) ToReplicationOutput() ReplicationOutput {
+	return i.ToReplicationOutputWithContext(context.Background())
+}
+
+func (i Replication) ToReplicationOutputWithContext(ctx context.Context) ReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationOutput)
+}
+
+type ReplicationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationOutput)(nil)).Elem()
+}
+
+func (o ReplicationOutput) ToReplicationOutput() ReplicationOutput {
+	return o
+}
+
+func (o ReplicationOutput) ToReplicationOutputWithContext(ctx context.Context) ReplicationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationOutput{})
 }

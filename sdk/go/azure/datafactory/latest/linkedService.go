@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,4 +124,43 @@ type LinkedServiceArgs struct {
 
 func (LinkedServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceArgs)(nil)).Elem()
+}
+
+type LinkedServiceInput interface {
+	pulumi.Input
+
+	ToLinkedServiceOutput() LinkedServiceOutput
+	ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput
+}
+
+func (LinkedService) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedService)(nil)).Elem()
+}
+
+func (i LinkedService) ToLinkedServiceOutput() LinkedServiceOutput {
+	return i.ToLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
+}
+
+type LinkedServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceOutput)(nil)).Elem()
+}
+
+func (o LinkedServiceOutput) ToLinkedServiceOutput() LinkedServiceOutput {
+	return o
+}
+
+func (o LinkedServiceOutput) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServiceOutput{})
 }

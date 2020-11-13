@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -211,4 +212,43 @@ type DscpConfigurationArgs struct {
 
 func (DscpConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dscpConfigurationArgs)(nil)).Elem()
+}
+
+type DscpConfigurationInput interface {
+	pulumi.Input
+
+	ToDscpConfigurationOutput() DscpConfigurationOutput
+	ToDscpConfigurationOutputWithContext(ctx context.Context) DscpConfigurationOutput
+}
+
+func (DscpConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscpConfiguration)(nil)).Elem()
+}
+
+func (i DscpConfiguration) ToDscpConfigurationOutput() DscpConfigurationOutput {
+	return i.ToDscpConfigurationOutputWithContext(context.Background())
+}
+
+func (i DscpConfiguration) ToDscpConfigurationOutputWithContext(ctx context.Context) DscpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DscpConfigurationOutput)
+}
+
+type DscpConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (DscpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscpConfigurationOutput)(nil)).Elem()
+}
+
+func (o DscpConfigurationOutput) ToDscpConfigurationOutput() DscpConfigurationOutput {
+	return o
+}
+
+func (o DscpConfigurationOutput) ToDscpConfigurationOutputWithContext(ctx context.Context) DscpConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DscpConfigurationOutput{})
 }

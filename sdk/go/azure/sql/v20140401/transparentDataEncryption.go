@@ -4,6 +4,7 @@
 package v20140401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,4 +125,43 @@ type TransparentDataEncryptionArgs struct {
 
 func (TransparentDataEncryptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transparentDataEncryptionArgs)(nil)).Elem()
+}
+
+type TransparentDataEncryptionInput interface {
+	pulumi.Input
+
+	ToTransparentDataEncryptionOutput() TransparentDataEncryptionOutput
+	ToTransparentDataEncryptionOutputWithContext(ctx context.Context) TransparentDataEncryptionOutput
+}
+
+func (TransparentDataEncryption) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransparentDataEncryption)(nil)).Elem()
+}
+
+func (i TransparentDataEncryption) ToTransparentDataEncryptionOutput() TransparentDataEncryptionOutput {
+	return i.ToTransparentDataEncryptionOutputWithContext(context.Background())
+}
+
+func (i TransparentDataEncryption) ToTransparentDataEncryptionOutputWithContext(ctx context.Context) TransparentDataEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionOutput)
+}
+
+type TransparentDataEncryptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransparentDataEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransparentDataEncryptionOutput)(nil)).Elem()
+}
+
+func (o TransparentDataEncryptionOutput) ToTransparentDataEncryptionOutput() TransparentDataEncryptionOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionOutput) ToTransparentDataEncryptionOutputWithContext(ctx context.Context) TransparentDataEncryptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransparentDataEncryptionOutput{})
 }

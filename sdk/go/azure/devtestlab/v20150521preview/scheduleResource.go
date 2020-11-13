@@ -4,6 +4,7 @@
 package v20150521preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -205,4 +206,43 @@ type ScheduleResourceArgs struct {
 
 func (ScheduleResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduleResourceArgs)(nil)).Elem()
+}
+
+type ScheduleResourceInput interface {
+	pulumi.Input
+
+	ToScheduleResourceOutput() ScheduleResourceOutput
+	ToScheduleResourceOutputWithContext(ctx context.Context) ScheduleResourceOutput
+}
+
+func (ScheduleResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleResource)(nil)).Elem()
+}
+
+func (i ScheduleResource) ToScheduleResourceOutput() ScheduleResourceOutput {
+	return i.ToScheduleResourceOutputWithContext(context.Background())
+}
+
+func (i ScheduleResource) ToScheduleResourceOutputWithContext(ctx context.Context) ScheduleResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResourceOutput)
+}
+
+type ScheduleResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduleResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleResourceOutput)(nil)).Elem()
+}
+
+func (o ScheduleResourceOutput) ToScheduleResourceOutput() ScheduleResourceOutput {
+	return o
+}
+
+func (o ScheduleResourceOutput) ToScheduleResourceOutputWithContext(ctx context.Context) ScheduleResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScheduleResourceOutput{})
 }

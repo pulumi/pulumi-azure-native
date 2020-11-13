@@ -4,6 +4,7 @@
 package v20200701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -171,4 +172,43 @@ type HubVirtualNetworkConnectionArgs struct {
 
 func (HubVirtualNetworkConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hubVirtualNetworkConnectionArgs)(nil)).Elem()
+}
+
+type HubVirtualNetworkConnectionInput interface {
+	pulumi.Input
+
+	ToHubVirtualNetworkConnectionOutput() HubVirtualNetworkConnectionOutput
+	ToHubVirtualNetworkConnectionOutputWithContext(ctx context.Context) HubVirtualNetworkConnectionOutput
+}
+
+func (HubVirtualNetworkConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubVirtualNetworkConnection)(nil)).Elem()
+}
+
+func (i HubVirtualNetworkConnection) ToHubVirtualNetworkConnectionOutput() HubVirtualNetworkConnectionOutput {
+	return i.ToHubVirtualNetworkConnectionOutputWithContext(context.Background())
+}
+
+func (i HubVirtualNetworkConnection) ToHubVirtualNetworkConnectionOutputWithContext(ctx context.Context) HubVirtualNetworkConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubVirtualNetworkConnectionOutput)
+}
+
+type HubVirtualNetworkConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (HubVirtualNetworkConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubVirtualNetworkConnectionOutput)(nil)).Elem()
+}
+
+func (o HubVirtualNetworkConnectionOutput) ToHubVirtualNetworkConnectionOutput() HubVirtualNetworkConnectionOutput {
+	return o
+}
+
+func (o HubVirtualNetworkConnectionOutput) ToHubVirtualNetworkConnectionOutputWithContext(ctx context.Context) HubVirtualNetworkConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HubVirtualNetworkConnectionOutput{})
 }

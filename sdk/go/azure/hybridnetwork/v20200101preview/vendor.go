@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -93,4 +94,43 @@ type VendorArgs struct {
 
 func (VendorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vendorArgs)(nil)).Elem()
+}
+
+type VendorInput interface {
+	pulumi.Input
+
+	ToVendorOutput() VendorOutput
+	ToVendorOutputWithContext(ctx context.Context) VendorOutput
+}
+
+func (Vendor) ElementType() reflect.Type {
+	return reflect.TypeOf((*Vendor)(nil)).Elem()
+}
+
+func (i Vendor) ToVendorOutput() VendorOutput {
+	return i.ToVendorOutputWithContext(context.Background())
+}
+
+func (i Vendor) ToVendorOutputWithContext(ctx context.Context) VendorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VendorOutput)
+}
+
+type VendorOutput struct {
+	*pulumi.OutputState
+}
+
+func (VendorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VendorOutput)(nil)).Elem()
+}
+
+func (o VendorOutput) ToVendorOutput() VendorOutput {
+	return o
+}
+
+func (o VendorOutput) ToVendorOutputWithContext(ctx context.Context) VendorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VendorOutput{})
 }

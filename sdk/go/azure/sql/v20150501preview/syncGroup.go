@@ -4,6 +4,7 @@
 package v20150501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -180,4 +181,43 @@ type SyncGroupArgs struct {
 
 func (SyncGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*syncGroupArgs)(nil)).Elem()
+}
+
+type SyncGroupInput interface {
+	pulumi.Input
+
+	ToSyncGroupOutput() SyncGroupOutput
+	ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput
+}
+
+func (SyncGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroup)(nil)).Elem()
+}
+
+func (i SyncGroup) ToSyncGroupOutput() SyncGroupOutput {
+	return i.ToSyncGroupOutputWithContext(context.Background())
+}
+
+func (i SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
+}
+
+type SyncGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (SyncGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupOutput)(nil)).Elem()
+}
+
+func (o SyncGroupOutput) ToSyncGroupOutput() SyncGroupOutput {
+	return o
+}
+
+func (o SyncGroupOutput) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SyncGroupOutput{})
 }

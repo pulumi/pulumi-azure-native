@@ -4,6 +4,7 @@
 package v20181031preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -166,4 +167,43 @@ type DedicatedHsmArgs struct {
 
 func (DedicatedHsmArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedHsmArgs)(nil)).Elem()
+}
+
+type DedicatedHsmInput interface {
+	pulumi.Input
+
+	ToDedicatedHsmOutput() DedicatedHsmOutput
+	ToDedicatedHsmOutputWithContext(ctx context.Context) DedicatedHsmOutput
+}
+
+func (DedicatedHsm) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHsm)(nil)).Elem()
+}
+
+func (i DedicatedHsm) ToDedicatedHsmOutput() DedicatedHsmOutput {
+	return i.ToDedicatedHsmOutputWithContext(context.Background())
+}
+
+func (i DedicatedHsm) ToDedicatedHsmOutputWithContext(ctx context.Context) DedicatedHsmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHsmOutput)
+}
+
+type DedicatedHsmOutput struct {
+	*pulumi.OutputState
+}
+
+func (DedicatedHsmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHsmOutput)(nil)).Elem()
+}
+
+func (o DedicatedHsmOutput) ToDedicatedHsmOutput() DedicatedHsmOutput {
+	return o
+}
+
+func (o DedicatedHsmOutput) ToDedicatedHsmOutputWithContext(ctx context.Context) DedicatedHsmOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DedicatedHsmOutput{})
 }

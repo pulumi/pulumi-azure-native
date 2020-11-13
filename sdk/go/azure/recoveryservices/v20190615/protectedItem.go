@@ -4,6 +4,7 @@
 package v20190615
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -161,4 +162,43 @@ type ProtectedItemArgs struct {
 
 func (ProtectedItemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectedItemArgs)(nil)).Elem()
+}
+
+type ProtectedItemInput interface {
+	pulumi.Input
+
+	ToProtectedItemOutput() ProtectedItemOutput
+	ToProtectedItemOutputWithContext(ctx context.Context) ProtectedItemOutput
+}
+
+func (ProtectedItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedItem)(nil)).Elem()
+}
+
+func (i ProtectedItem) ToProtectedItemOutput() ProtectedItemOutput {
+	return i.ToProtectedItemOutputWithContext(context.Background())
+}
+
+func (i ProtectedItem) ToProtectedItemOutputWithContext(ctx context.Context) ProtectedItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemOutput)
+}
+
+type ProtectedItemOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectedItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedItemOutput)(nil)).Elem()
+}
+
+func (o ProtectedItemOutput) ToProtectedItemOutput() ProtectedItemOutput {
+	return o
+}
+
+func (o ProtectedItemOutput) ToProtectedItemOutputWithContext(ctx context.Context) ProtectedItemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProtectedItemOutput{})
 }

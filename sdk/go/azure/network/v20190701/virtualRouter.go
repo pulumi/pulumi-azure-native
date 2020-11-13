@@ -4,6 +4,7 @@
 package v20190701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -203,4 +204,43 @@ type VirtualRouterArgs struct {
 
 func (VirtualRouterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualRouterArgs)(nil)).Elem()
+}
+
+type VirtualRouterInput interface {
+	pulumi.Input
+
+	ToVirtualRouterOutput() VirtualRouterOutput
+	ToVirtualRouterOutputWithContext(ctx context.Context) VirtualRouterOutput
+}
+
+func (VirtualRouter) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualRouter)(nil)).Elem()
+}
+
+func (i VirtualRouter) ToVirtualRouterOutput() VirtualRouterOutput {
+	return i.ToVirtualRouterOutputWithContext(context.Background())
+}
+
+func (i VirtualRouter) ToVirtualRouterOutputWithContext(ctx context.Context) VirtualRouterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterOutput)
+}
+
+type VirtualRouterOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualRouterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualRouterOutput)(nil)).Elem()
+}
+
+func (o VirtualRouterOutput) ToVirtualRouterOutput() VirtualRouterOutput {
+	return o
+}
+
+func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Context) VirtualRouterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualRouterOutput{})
 }

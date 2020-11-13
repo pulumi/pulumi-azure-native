@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -145,4 +146,43 @@ type DeploymentAtManagementGroupScopeArgs struct {
 
 func (DeploymentAtManagementGroupScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentAtManagementGroupScopeArgs)(nil)).Elem()
+}
+
+type DeploymentAtManagementGroupScopeInput interface {
+	pulumi.Input
+
+	ToDeploymentAtManagementGroupScopeOutput() DeploymentAtManagementGroupScopeOutput
+	ToDeploymentAtManagementGroupScopeOutputWithContext(ctx context.Context) DeploymentAtManagementGroupScopeOutput
+}
+
+func (DeploymentAtManagementGroupScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtManagementGroupScope)(nil)).Elem()
+}
+
+func (i DeploymentAtManagementGroupScope) ToDeploymentAtManagementGroupScopeOutput() DeploymentAtManagementGroupScopeOutput {
+	return i.ToDeploymentAtManagementGroupScopeOutputWithContext(context.Background())
+}
+
+func (i DeploymentAtManagementGroupScope) ToDeploymentAtManagementGroupScopeOutputWithContext(ctx context.Context) DeploymentAtManagementGroupScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtManagementGroupScopeOutput)
+}
+
+type DeploymentAtManagementGroupScopeOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentAtManagementGroupScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtManagementGroupScopeOutput)(nil)).Elem()
+}
+
+func (o DeploymentAtManagementGroupScopeOutput) ToDeploymentAtManagementGroupScopeOutput() DeploymentAtManagementGroupScopeOutput {
+	return o
+}
+
+func (o DeploymentAtManagementGroupScopeOutput) ToDeploymentAtManagementGroupScopeOutputWithContext(ctx context.Context) DeploymentAtManagementGroupScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentAtManagementGroupScopeOutput{})
 }

@@ -4,6 +4,7 @@
 package v20181101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -303,4 +304,43 @@ type ExpressRouteCrossConnectionPeeringArgs struct {
 
 func (ExpressRouteCrossConnectionPeeringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCrossConnectionPeeringArgs)(nil)).Elem()
+}
+
+type ExpressRouteCrossConnectionPeeringInput interface {
+	pulumi.Input
+
+	ToExpressRouteCrossConnectionPeeringOutput() ExpressRouteCrossConnectionPeeringOutput
+	ToExpressRouteCrossConnectionPeeringOutputWithContext(ctx context.Context) ExpressRouteCrossConnectionPeeringOutput
+}
+
+func (ExpressRouteCrossConnectionPeering) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCrossConnectionPeering)(nil)).Elem()
+}
+
+func (i ExpressRouteCrossConnectionPeering) ToExpressRouteCrossConnectionPeeringOutput() ExpressRouteCrossConnectionPeeringOutput {
+	return i.ToExpressRouteCrossConnectionPeeringOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCrossConnectionPeering) ToExpressRouteCrossConnectionPeeringOutputWithContext(ctx context.Context) ExpressRouteCrossConnectionPeeringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCrossConnectionPeeringOutput)
+}
+
+type ExpressRouteCrossConnectionPeeringOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExpressRouteCrossConnectionPeeringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCrossConnectionPeeringOutput)(nil)).Elem()
+}
+
+func (o ExpressRouteCrossConnectionPeeringOutput) ToExpressRouteCrossConnectionPeeringOutput() ExpressRouteCrossConnectionPeeringOutput {
+	return o
+}
+
+func (o ExpressRouteCrossConnectionPeeringOutput) ToExpressRouteCrossConnectionPeeringOutputWithContext(ctx context.Context) ExpressRouteCrossConnectionPeeringOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExpressRouteCrossConnectionPeeringOutput{})
 }

@@ -4,6 +4,7 @@
 package v20170601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -133,4 +134,43 @@ type AccessControlRecordArgs struct {
 
 func (AccessControlRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessControlRecordArgs)(nil)).Elem()
+}
+
+type AccessControlRecordInput interface {
+	pulumi.Input
+
+	ToAccessControlRecordOutput() AccessControlRecordOutput
+	ToAccessControlRecordOutputWithContext(ctx context.Context) AccessControlRecordOutput
+}
+
+func (AccessControlRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControlRecord)(nil)).Elem()
+}
+
+func (i AccessControlRecord) ToAccessControlRecordOutput() AccessControlRecordOutput {
+	return i.ToAccessControlRecordOutputWithContext(context.Background())
+}
+
+func (i AccessControlRecord) ToAccessControlRecordOutputWithContext(ctx context.Context) AccessControlRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessControlRecordOutput)
+}
+
+type AccessControlRecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccessControlRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControlRecordOutput)(nil)).Elem()
+}
+
+func (o AccessControlRecordOutput) ToAccessControlRecordOutput() AccessControlRecordOutput {
+	return o
+}
+
+func (o AccessControlRecordOutput) ToAccessControlRecordOutputWithContext(ctx context.Context) AccessControlRecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccessControlRecordOutput{})
 }

@@ -4,6 +4,7 @@
 package v20201001preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -174,4 +175,43 @@ type RedisEnterpriseArgs struct {
 
 func (RedisEnterpriseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*redisEnterpriseArgs)(nil)).Elem()
+}
+
+type RedisEnterpriseInput interface {
+	pulumi.Input
+
+	ToRedisEnterpriseOutput() RedisEnterpriseOutput
+	ToRedisEnterpriseOutputWithContext(ctx context.Context) RedisEnterpriseOutput
+}
+
+func (RedisEnterprise) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisEnterprise)(nil)).Elem()
+}
+
+func (i RedisEnterprise) ToRedisEnterpriseOutput() RedisEnterpriseOutput {
+	return i.ToRedisEnterpriseOutputWithContext(context.Background())
+}
+
+func (i RedisEnterprise) ToRedisEnterpriseOutputWithContext(ctx context.Context) RedisEnterpriseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisEnterpriseOutput)
+}
+
+type RedisEnterpriseOutput struct {
+	*pulumi.OutputState
+}
+
+func (RedisEnterpriseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisEnterpriseOutput)(nil)).Elem()
+}
+
+func (o RedisEnterpriseOutput) ToRedisEnterpriseOutput() RedisEnterpriseOutput {
+	return o
+}
+
+func (o RedisEnterpriseOutput) ToRedisEnterpriseOutputWithContext(ctx context.Context) RedisEnterpriseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RedisEnterpriseOutput{})
 }

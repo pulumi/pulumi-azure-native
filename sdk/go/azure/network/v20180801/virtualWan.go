@@ -4,6 +4,7 @@
 package v20180801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -255,4 +256,43 @@ type VirtualWanArgs struct {
 
 func (VirtualWanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualWanArgs)(nil)).Elem()
+}
+
+type VirtualWanInput interface {
+	pulumi.Input
+
+	ToVirtualWanOutput() VirtualWanOutput
+	ToVirtualWanOutputWithContext(ctx context.Context) VirtualWanOutput
+}
+
+func (VirtualWan) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualWan)(nil)).Elem()
+}
+
+func (i VirtualWan) ToVirtualWanOutput() VirtualWanOutput {
+	return i.ToVirtualWanOutputWithContext(context.Background())
+}
+
+func (i VirtualWan) ToVirtualWanOutputWithContext(ctx context.Context) VirtualWanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanOutput)
+}
+
+type VirtualWanOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualWanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualWanOutput)(nil)).Elem()
+}
+
+func (o VirtualWanOutput) ToVirtualWanOutput() VirtualWanOutput {
+	return o
+}
+
+func (o VirtualWanOutput) ToVirtualWanOutputWithContext(ctx context.Context) VirtualWanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualWanOutput{})
 }

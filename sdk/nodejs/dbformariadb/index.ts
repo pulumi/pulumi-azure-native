@@ -7,4 +7,11 @@ import * as v20180601 from "./v20180601";
 import * as v20180601preview from "./v20180601preview";
 import * as v20180601privatepreview from "./v20180601privatepreview";
 import * as v20200101privatepreview from "./v20200101privatepreview";
-export {latest, v20180601, v20180601preview, v20180601privatepreview, v20200101privatepreview};
+
+export {
+    latest,
+    v20180601,
+    v20180601preview,
+    v20180601privatepreview,
+    v20200101privatepreview,
+};

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -151,4 +152,43 @@ type AttestationProviderArgs struct {
 
 func (AttestationProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*attestationProviderArgs)(nil)).Elem()
+}
+
+type AttestationProviderInput interface {
+	pulumi.Input
+
+	ToAttestationProviderOutput() AttestationProviderOutput
+	ToAttestationProviderOutputWithContext(ctx context.Context) AttestationProviderOutput
+}
+
+func (AttestationProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttestationProvider)(nil)).Elem()
+}
+
+func (i AttestationProvider) ToAttestationProviderOutput() AttestationProviderOutput {
+	return i.ToAttestationProviderOutputWithContext(context.Background())
+}
+
+func (i AttestationProvider) ToAttestationProviderOutputWithContext(ctx context.Context) AttestationProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttestationProviderOutput)
+}
+
+type AttestationProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (AttestationProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttestationProviderOutput)(nil)).Elem()
+}
+
+func (o AttestationProviderOutput) ToAttestationProviderOutput() AttestationProviderOutput {
+	return o
+}
+
+func (o AttestationProviderOutput) ToAttestationProviderOutputWithContext(ctx context.Context) AttestationProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AttestationProviderOutput{})
 }

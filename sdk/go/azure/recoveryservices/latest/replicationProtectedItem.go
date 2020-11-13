@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type ReplicationProtectedItemArgs struct {
 
 func (ReplicationProtectedItemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationProtectedItemArgs)(nil)).Elem()
+}
+
+type ReplicationProtectedItemInput interface {
+	pulumi.Input
+
+	ToReplicationProtectedItemOutput() ReplicationProtectedItemOutput
+	ToReplicationProtectedItemOutputWithContext(ctx context.Context) ReplicationProtectedItemOutput
+}
+
+func (ReplicationProtectedItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationProtectedItem)(nil)).Elem()
+}
+
+func (i ReplicationProtectedItem) ToReplicationProtectedItemOutput() ReplicationProtectedItemOutput {
+	return i.ToReplicationProtectedItemOutputWithContext(context.Background())
+}
+
+func (i ReplicationProtectedItem) ToReplicationProtectedItemOutputWithContext(ctx context.Context) ReplicationProtectedItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemOutput)
+}
+
+type ReplicationProtectedItemOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationProtectedItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationProtectedItemOutput)(nil)).Elem()
+}
+
+func (o ReplicationProtectedItemOutput) ToReplicationProtectedItemOutput() ReplicationProtectedItemOutput {
+	return o
+}
+
+func (o ReplicationProtectedItemOutput) ToReplicationProtectedItemOutputWithContext(ctx context.Context) ReplicationProtectedItemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationProtectedItemOutput{})
 }
