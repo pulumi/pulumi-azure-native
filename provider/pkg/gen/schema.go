@@ -335,12 +335,16 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 
 // Microsoft-specific API extension constants.
 const (
-	extensionClientFlatten     = "x-ms-client-flatten"
-	extensionClientName        = "x-ms-client-name"
-	extensionEnum              = "x-ms-enum"
-	extensionMutability        = "x-ms-mutability"
-	extensionMutabilityCreate  = "create"
-	extensionMutabilityUpdate  = "update"
+	extensionClientFlatten      = "x-ms-client-flatten"
+	extensionClientName         = "x-ms-client-name"
+	extensionEnum               = "x-ms-enum"
+	extensionLongRunning        = "x-ms-long-running-operation"
+	extensionLongRunningDefault = "azure-async-operation"
+	extensionLongRunningOpts    = "x-ms-long-running-operation-options"
+	extensionLongRunningVia     = "final-state-via"
+	extensionMutability         = "x-ms-mutability"
+	extensionMutabilityCreate   = "create"
+	extensionMutabilityUpdate   = "update"
 )
 
 type packageGenerator struct {
@@ -439,13 +443,15 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	g.pkg.Functions[functionTok] = functionSpec
 
 	r := provider.AzureAPIResource{
-		APIVersion:    swagger.Info.Version,
-		Path:          resource.Path,
-		GetParameters: requestFunction.parameters,
-		PutParameters: resourceRequest.parameters,
-		Response:      resourceResponse.properties,
-		DefaultBody:   resource.DefaultBody,
-		Singleton:     resource.PathItem.Delete == nil,
+		APIVersion:       swagger.Info.Version,
+		Path:             resource.Path,
+		GetParameters:    requestFunction.parameters,
+		PutParameters:    resourceRequest.parameters,
+		Response:         resourceResponse.properties,
+		DefaultBody:      resource.DefaultBody,
+		Singleton:        resource.PathItem.Delete == nil,
+		PutAsyncStyle:    g.getAsyncStyle(resource.PathItem.Put),
+		DeleteAsyncStyle: g.getAsyncStyle(resource.PathItem.Delete),
 	}
 	g.metadata.Resources[resourceTok] = r
 
@@ -458,7 +464,6 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	g.metadata.Invokes[functionTok] = f
 
 	g.generateExampleReferences(resourceTok, path, swagger)
-
 }
 
 func (g *packageGenerator) generateExampleReferences(resourceTok string, path *spec.PathItem, swagger *openapi.Spec) error {
@@ -575,6 +580,26 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 // providerToModule produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
 func (g *packageGenerator) providerToModule(prov string) string {
 	return fmt.Sprintf("%s/%s", strings.ToLower(prov), g.apiVersion)
+}
+
+func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {
+	if op == nil {
+		return ""
+	}
+
+	enabled, ok := op.Extensions.GetBool(extensionLongRunning)
+	if !ok || !enabled {
+		return ""
+	}
+
+	style := extensionLongRunningDefault
+	if options, ok := op.Extensions[extensionLongRunningOpts]; ok {
+		optionsMap := options.(map[string]interface{})
+		if finalStateVia, ok := optionsMap[extensionLongRunningVia].(string); ok {
+			style = finalStateVia
+		}
+	}
+	return style
 }
 
 type moduleGenerator struct {
