@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/latest:AttestationProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:attestation/v20180901:AttestationProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:attestation/v20180901preview:AttestationProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

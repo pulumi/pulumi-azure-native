@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Attestation.V20180901
+namespace Pulumi.AzureNextGen.Attestation.V20180901Preview
 {
     /// <summary>
     /// Attestation service response message.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureNextGen.Attestation.V20180901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AttestationProvider(string name, AttestationProviderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:attestation/v20180901:AttestationProvider", name, args ?? new AttestationProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:attestation/v20180901preview:AttestationProvider", name, args ?? new AttestationProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AttestationProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:attestation/v20180901:AttestationProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:attestation/v20180901preview:AttestationProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 

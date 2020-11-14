@@ -130,7 +130,7 @@ def get_attestation_provider(provider_name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-nextgen:attestation/v20180901:getAttestationProvider', __args__, opts=opts, typ=GetAttestationProviderResult).value
+    __ret__ = pulumi.runtime.invoke('azure-nextgen:attestation/v20180901preview:getAttestationProvider', __args__, opts=opts, typ=GetAttestationProviderResult).value
 
     return AwaitableGetAttestationProviderResult(
         attest_uri=__ret__.attest_uri,
