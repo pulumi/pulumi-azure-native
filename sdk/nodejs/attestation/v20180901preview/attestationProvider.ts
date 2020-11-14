@@ -22,7 +22,7 @@ export class AttestationProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:attestation/v20180901:AttestationProvider';
+    public static readonly __pulumiType = 'azure-nextgen:attestation/v20180901preview:AttestationProvider';
 
     /**
      * Returns true if the given object is an instance of AttestationProvider.  This is designed to work even
@@ -129,7 +129,7 @@ export interface AttestationProviderArgs {
     /**
      * Properties of the attestation service instance
      */
-    readonly properties: pulumi.Input<inputs.attestation.v20180901.AttestationServiceCreationSpecificParams>;
+    readonly properties: pulumi.Input<inputs.attestation.v20180901preview.AttestationServiceCreationSpecificParams>;
     /**
      * Name of the attestation service instance.
      */

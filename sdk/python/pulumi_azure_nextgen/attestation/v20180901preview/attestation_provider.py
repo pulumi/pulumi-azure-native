@@ -73,7 +73,7 @@ class AttestationProvider(pulumi.CustomResource):
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:attestation/latest:AttestationProvider"), pulumi.Alias(type_="azure-nextgen:attestation/v20201001:AttestationProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttestationProvider, __self__).__init__(
-            'azure-nextgen:attestation/v20180901:AttestationProvider',
+            'azure-nextgen:attestation/v20180901preview:AttestationProvider',
             resource_name,
             __props__,
             opts)
