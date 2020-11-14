@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -243,4 +244,43 @@ type SiteDeploymentArgs struct {
 
 func (SiteDeploymentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteDeploymentArgs)(nil)).Elem()
+}
+
+type SiteDeploymentInput interface {
+	pulumi.Input
+
+	ToSiteDeploymentOutput() SiteDeploymentOutput
+	ToSiteDeploymentOutputWithContext(ctx context.Context) SiteDeploymentOutput
+}
+
+func (SiteDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteDeployment)(nil)).Elem()
+}
+
+func (i SiteDeployment) ToSiteDeploymentOutput() SiteDeploymentOutput {
+	return i.ToSiteDeploymentOutputWithContext(context.Background())
+}
+
+func (i SiteDeployment) ToSiteDeploymentOutputWithContext(ctx context.Context) SiteDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteDeploymentOutput)
+}
+
+type SiteDeploymentOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteDeploymentOutput)(nil)).Elem()
+}
+
+func (o SiteDeploymentOutput) ToSiteDeploymentOutput() SiteDeploymentOutput {
+	return o
+}
+
+func (o SiteDeploymentOutput) ToSiteDeploymentOutputWithContext(ctx context.Context) SiteDeploymentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteDeploymentOutput{})
 }

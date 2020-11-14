@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -24,7 +25,7 @@ type DataSource struct {
 	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -93,7 +94,7 @@ type dataSourceState struct {
 	Properties interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -108,7 +109,7 @@ type DataSourceState struct {
 	Properties pulumi.Input
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -153,4 +154,43 @@ type DataSourceArgs struct {
 
 func (DataSourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceArgs)(nil)).Elem()
+}
+
+type DataSourceInput interface {
+	pulumi.Input
+
+	ToDataSourceOutput() DataSourceOutput
+	ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput
+}
+
+func (DataSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSource)(nil)).Elem()
+}
+
+func (i DataSource) ToDataSourceOutput() DataSourceOutput {
+	return i.ToDataSourceOutputWithContext(context.Background())
+}
+
+func (i DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOutput)
+}
+
+type DataSourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceOutput)(nil)).Elem()
+}
+
+func (o DataSourceOutput) ToDataSourceOutput() DataSourceOutput {
+	return o
+}
+
+func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataSourceOutput{})
 }

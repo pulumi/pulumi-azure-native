@@ -13,6 +13,9 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Outputs
     [OutputType]
     public sealed class MonitorPropertiesResponse
     {
+        /// <summary>
+        /// Datadog organization properties
+        /// </summary>
         public readonly Outputs.DatadogOrganizationPropertiesResponse? DatadogOrganizationProperties;
         public readonly string LiftrResourceCategory;
         /// <summary>
@@ -28,6 +31,9 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Outputs
         /// </summary>
         public readonly string? MonitoringStatus;
         public readonly string? ProvisioningState;
+        /// <summary>
+        /// User info
+        /// </summary>
         public readonly Outputs.UserInfoResponse? UserInfo;
 
         [OutputConstructor]

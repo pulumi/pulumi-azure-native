@@ -4,6 +4,7 @@
 package v20201030preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type EnterprisePolicyArgs struct {
 
 func (EnterprisePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*enterprisePolicyArgs)(nil)).Elem()
+}
+
+type EnterprisePolicyInput interface {
+	pulumi.Input
+
+	ToEnterprisePolicyOutput() EnterprisePolicyOutput
+	ToEnterprisePolicyOutputWithContext(ctx context.Context) EnterprisePolicyOutput
+}
+
+func (EnterprisePolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterprisePolicy)(nil)).Elem()
+}
+
+func (i EnterprisePolicy) ToEnterprisePolicyOutput() EnterprisePolicyOutput {
+	return i.ToEnterprisePolicyOutputWithContext(context.Background())
+}
+
+func (i EnterprisePolicy) ToEnterprisePolicyOutputWithContext(ctx context.Context) EnterprisePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyOutput)
+}
+
+type EnterprisePolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (EnterprisePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterprisePolicyOutput)(nil)).Elem()
+}
+
+func (o EnterprisePolicyOutput) ToEnterprisePolicyOutput() EnterprisePolicyOutput {
+	return o
+}
+
+func (o EnterprisePolicyOutput) ToEnterprisePolicyOutputWithContext(ctx context.Context) EnterprisePolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EnterprisePolicyOutput{})
 }

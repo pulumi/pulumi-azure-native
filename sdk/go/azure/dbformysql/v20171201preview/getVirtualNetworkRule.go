@@ -33,7 +33,7 @@ type LookupVirtualNetworkRuleResult struct {
 	Name string `pulumi:"name"`
 	// Virtual Network Rule State
 	State string `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`

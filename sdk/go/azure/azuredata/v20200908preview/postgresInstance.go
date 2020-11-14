@@ -4,6 +4,7 @@
 package v20200908preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,4 +164,43 @@ type PostgresInstanceArgs struct {
 
 func (PostgresInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*postgresInstanceArgs)(nil)).Elem()
+}
+
+type PostgresInstanceInput interface {
+	pulumi.Input
+
+	ToPostgresInstanceOutput() PostgresInstanceOutput
+	ToPostgresInstanceOutputWithContext(ctx context.Context) PostgresInstanceOutput
+}
+
+func (PostgresInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresInstance)(nil)).Elem()
+}
+
+func (i PostgresInstance) ToPostgresInstanceOutput() PostgresInstanceOutput {
+	return i.ToPostgresInstanceOutputWithContext(context.Background())
+}
+
+func (i PostgresInstance) ToPostgresInstanceOutputWithContext(ctx context.Context) PostgresInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceOutput)
+}
+
+type PostgresInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (PostgresInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresInstanceOutput)(nil)).Elem()
+}
+
+func (o PostgresInstanceOutput) ToPostgresInstanceOutput() PostgresInstanceOutput {
+	return o
+}
+
+func (o PostgresInstanceOutput) ToPostgresInstanceOutputWithContext(ctx context.Context) PostgresInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PostgresInstanceOutput{})
 }

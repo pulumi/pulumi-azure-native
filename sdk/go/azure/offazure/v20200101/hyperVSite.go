@@ -4,6 +4,7 @@
 package v20200101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -136,4 +137,43 @@ type HyperVSiteArgs struct {
 
 func (HyperVSiteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hyperVSiteArgs)(nil)).Elem()
+}
+
+type HyperVSiteInput interface {
+	pulumi.Input
+
+	ToHyperVSiteOutput() HyperVSiteOutput
+	ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSiteOutput
+}
+
+func (HyperVSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*HyperVSite)(nil)).Elem()
+}
+
+func (i HyperVSite) ToHyperVSiteOutput() HyperVSiteOutput {
+	return i.ToHyperVSiteOutputWithContext(context.Background())
+}
+
+func (i HyperVSite) ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteOutput)
+}
+
+type HyperVSiteOutput struct {
+	*pulumi.OutputState
+}
+
+func (HyperVSiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HyperVSiteOutput)(nil)).Elem()
+}
+
+func (o HyperVSiteOutput) ToHyperVSiteOutput() HyperVSiteOutput {
+	return o
+}
+
+func (o HyperVSiteOutput) ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSiteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HyperVSiteOutput{})
 }

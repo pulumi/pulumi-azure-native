@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -140,7 +139,7 @@ export class VirtualWan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualWan" }, { type: "azure-nextgen:network/v20180401:VirtualWan" }, { type: "azure-nextgen:network/v20180601:VirtualWan" }, { type: "azure-nextgen:network/v20180701:VirtualWan" }, { type: "azure-nextgen:network/v20180801:VirtualWan" }, { type: "azure-nextgen:network/v20181001:VirtualWan" }, { type: "azure-nextgen:network/v20181101:VirtualWan" }, { type: "azure-nextgen:network/v20181201:VirtualWan" }, { type: "azure-nextgen:network/v20190201:VirtualWan" }, { type: "azure-nextgen:network/v20190401:VirtualWan" }, { type: "azure-nextgen:network/v20190601:VirtualWan" }, { type: "azure-nextgen:network/v20190701:VirtualWan" }, { type: "azure-nextgen:network/v20190801:VirtualWan" }, { type: "azure-nextgen:network/v20190901:VirtualWan" }, { type: "azure-nextgen:network/v20191101:VirtualWan" }, { type: "azure-nextgen:network/v20191201:VirtualWan" }, { type: "azure-nextgen:network/v20200301:VirtualWan" }, { type: "azure-nextgen:network/v20200401:VirtualWan" }, { type: "azure-nextgen:network/v20200501:VirtualWan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualWan" }, { type: "azure-nextgen:network/v20180401:VirtualWan" }, { type: "azure-nextgen:network/v20180601:VirtualWan" }, { type: "azure-nextgen:network/v20180701:VirtualWan" }, { type: "azure-nextgen:network/v20180801:VirtualWan" }, { type: "azure-nextgen:network/v20181001:VirtualWan" }, { type: "azure-nextgen:network/v20181101:VirtualWan" }, { type: "azure-nextgen:network/v20181201:VirtualWan" }, { type: "azure-nextgen:network/v20190201:VirtualWan" }, { type: "azure-nextgen:network/v20190401:VirtualWan" }, { type: "azure-nextgen:network/v20190601:VirtualWan" }, { type: "azure-nextgen:network/v20190701:VirtualWan" }, { type: "azure-nextgen:network/v20190801:VirtualWan" }, { type: "azure-nextgen:network/v20190901:VirtualWan" }, { type: "azure-nextgen:network/v20191101:VirtualWan" }, { type: "azure-nextgen:network/v20191201:VirtualWan" }, { type: "azure-nextgen:network/v20200301:VirtualWan" }, { type: "azure-nextgen:network/v20200401:VirtualWan" }, { type: "azure-nextgen:network/v20200501:VirtualWan" }, { type: "azure-nextgen:network/v20200701:VirtualWan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualWan.__pulumiType, name, inputs, opts);
     }

@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Status of the database.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
         /// SystemData of SqlDatabase.
         /// </summary>
         [Output("systemData")]
@@ -57,7 +63,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

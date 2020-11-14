@@ -4,6 +4,7 @@
 package v20160810
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,4 +138,43 @@ type ReplicationProtectionContainerMappingArgs struct {
 
 func (ReplicationProtectionContainerMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationProtectionContainerMappingArgs)(nil)).Elem()
+}
+
+type ReplicationProtectionContainerMappingInput interface {
+	pulumi.Input
+
+	ToReplicationProtectionContainerMappingOutput() ReplicationProtectionContainerMappingOutput
+	ToReplicationProtectionContainerMappingOutputWithContext(ctx context.Context) ReplicationProtectionContainerMappingOutput
+}
+
+func (ReplicationProtectionContainerMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationProtectionContainerMapping)(nil)).Elem()
+}
+
+func (i ReplicationProtectionContainerMapping) ToReplicationProtectionContainerMappingOutput() ReplicationProtectionContainerMappingOutput {
+	return i.ToReplicationProtectionContainerMappingOutputWithContext(context.Background())
+}
+
+func (i ReplicationProtectionContainerMapping) ToReplicationProtectionContainerMappingOutputWithContext(ctx context.Context) ReplicationProtectionContainerMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectionContainerMappingOutput)
+}
+
+type ReplicationProtectionContainerMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationProtectionContainerMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationProtectionContainerMappingOutput)(nil)).Elem()
+}
+
+func (o ReplicationProtectionContainerMappingOutput) ToReplicationProtectionContainerMappingOutput() ReplicationProtectionContainerMappingOutput {
+	return o
+}
+
+func (o ReplicationProtectionContainerMappingOutput) ToReplicationProtectionContainerMappingOutputWithContext(ctx context.Context) ReplicationProtectionContainerMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationProtectionContainerMappingOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -24,7 +25,7 @@ type WorkspaceAadAdmin struct {
 	Sid pulumi.StringPtrOutput `pulumi:"sid"`
 	// Tenant ID of the workspace active directory administrator
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -72,7 +73,7 @@ type workspaceAadAdminState struct {
 	Sid *string `pulumi:"sid"`
 	// Tenant ID of the workspace active directory administrator
 	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -87,7 +88,7 @@ type WorkspaceAadAdminState struct {
 	Sid pulumi.StringPtrInput
 	// Tenant ID of the workspace active directory administrator
 	TenantId pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -128,4 +129,43 @@ type WorkspaceAadAdminArgs struct {
 
 func (WorkspaceAadAdminArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceAadAdminArgs)(nil)).Elem()
+}
+
+type WorkspaceAadAdminInput interface {
+	pulumi.Input
+
+	ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput
+	ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput
+}
+
+func (WorkspaceAadAdmin) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceAadAdmin)(nil)).Elem()
+}
+
+func (i WorkspaceAadAdmin) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
+	return i.ToWorkspaceAadAdminOutputWithContext(context.Background())
+}
+
+func (i WorkspaceAadAdmin) ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminOutput)
+}
+
+type WorkspaceAadAdminOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceAadAdminOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceAadAdminOutput)(nil)).Elem()
+}
+
+func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
+	return o
+}
+
+func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})
 }

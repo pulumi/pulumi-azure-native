@@ -4,6 +4,7 @@
 package v20200701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -174,4 +175,43 @@ type BackupArgs struct {
 
 func (BackupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupArgs)(nil)).Elem()
+}
+
+type BackupInput interface {
+	pulumi.Input
+
+	ToBackupOutput() BackupOutput
+	ToBackupOutputWithContext(ctx context.Context) BackupOutput
+}
+
+func (Backup) ElementType() reflect.Type {
+	return reflect.TypeOf((*Backup)(nil)).Elem()
+}
+
+func (i Backup) ToBackupOutput() BackupOutput {
+	return i.ToBackupOutputWithContext(context.Background())
+}
+
+func (i Backup) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupOutput)
+}
+
+type BackupOutput struct {
+	*pulumi.OutputState
+}
+
+func (BackupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupOutput)(nil)).Elem()
+}
+
+func (o BackupOutput) ToBackupOutput() BackupOutput {
+	return o
+}
+
+func (o BackupOutput) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BackupOutput{})
 }

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
@@ -44,6 +43,10 @@ export interface GetWorkspaceResult {
      */
     readonly defaultDataLakeStorage?: outputs.synapse.v20190601preview.DataLakeStorageAccountDetailsResponse;
     /**
+     * The encryption details of the workspace
+     */
+    readonly encryption?: outputs.synapse.v20190601preview.EncryptionDetailsResponse;
+    /**
      * Workspace level configs and feature flags
      */
     readonly extraProperties: {[key: string]: any};
@@ -80,6 +83,10 @@ export interface GetWorkspaceResult {
      */
     readonly provisioningState: string;
     /**
+     * Purview Configuration
+     */
+    readonly purviewConfiguration?: outputs.synapse.v20190601preview.PurviewConfigurationResponse;
+    /**
      * Login for workspace SQL active directory administrator
      */
     readonly sqlAdministratorLogin?: string;
@@ -92,11 +99,19 @@ export interface GetWorkspaceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
      * Virtual Network profile
      */
     readonly virtualNetworkProfile?: outputs.synapse.v20190601preview.VirtualNetworkProfileResponse;
+    /**
+     * Git integration settings
+     */
+    readonly workspaceRepositoryConfiguration?: outputs.synapse.v20190601preview.WorkspaceRepositoryConfigurationResponse;
+    /**
+     * The workspace unique identifier
+     */
+    readonly workspaceUID: string;
 }

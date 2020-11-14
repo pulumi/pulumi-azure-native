@@ -4,6 +4,7 @@
 package v20200630preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,7 +23,7 @@ type Account struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -71,7 +72,7 @@ type accountState struct {
 	Name *string `pulumi:"name"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -84,7 +85,7 @@ type AccountState struct {
 	Name pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -121,4 +122,43 @@ type AccountArgs struct {
 
 func (AccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountArgs)(nil)).Elem()
+}
+
+type AccountInput interface {
+	pulumi.Input
+
+	ToAccountOutput() AccountOutput
+	ToAccountOutputWithContext(ctx context.Context) AccountOutput
+}
+
+func (Account) ElementType() reflect.Type {
+	return reflect.TypeOf((*Account)(nil)).Elem()
+}
+
+func (i Account) ToAccountOutput() AccountOutput {
+	return i.ToAccountOutputWithContext(context.Background())
+}
+
+func (i Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
+}
+
+type AccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountOutput)(nil)).Elem()
+}
+
+func (o AccountOutput) ToAccountOutput() AccountOutput {
+	return o
+}
+
+func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccountOutput{})
 }

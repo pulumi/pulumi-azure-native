@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type WebAppSwiftVirtualNetworkConnectionSlotArgs struct {
 
 func (WebAppSwiftVirtualNetworkConnectionSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppSwiftVirtualNetworkConnectionSlotArgs)(nil)).Elem()
+}
+
+type WebAppSwiftVirtualNetworkConnectionSlotInput interface {
+	pulumi.Input
+
+	ToWebAppSwiftVirtualNetworkConnectionSlotOutput() WebAppSwiftVirtualNetworkConnectionSlotOutput
+	ToWebAppSwiftVirtualNetworkConnectionSlotOutputWithContext(ctx context.Context) WebAppSwiftVirtualNetworkConnectionSlotOutput
+}
+
+func (WebAppSwiftVirtualNetworkConnectionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnectionSlot)(nil)).Elem()
+}
+
+func (i WebAppSwiftVirtualNetworkConnectionSlot) ToWebAppSwiftVirtualNetworkConnectionSlotOutput() WebAppSwiftVirtualNetworkConnectionSlotOutput {
+	return i.ToWebAppSwiftVirtualNetworkConnectionSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppSwiftVirtualNetworkConnectionSlot) ToWebAppSwiftVirtualNetworkConnectionSlotOutputWithContext(ctx context.Context) WebAppSwiftVirtualNetworkConnectionSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSwiftVirtualNetworkConnectionSlotOutput)
+}
+
+type WebAppSwiftVirtualNetworkConnectionSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppSwiftVirtualNetworkConnectionSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnectionSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppSwiftVirtualNetworkConnectionSlotOutput) ToWebAppSwiftVirtualNetworkConnectionSlotOutput() WebAppSwiftVirtualNetworkConnectionSlotOutput {
+	return o
+}
+
+func (o WebAppSwiftVirtualNetworkConnectionSlotOutput) ToWebAppSwiftVirtualNetworkConnectionSlotOutputWithContext(ctx context.Context) WebAppSwiftVirtualNetworkConnectionSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppSwiftVirtualNetworkConnectionSlotOutput{})
 }

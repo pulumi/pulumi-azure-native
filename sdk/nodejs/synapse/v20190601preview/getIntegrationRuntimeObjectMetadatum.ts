@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntimeObjectMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeObjectMetadatumResult> {
@@ -36,7 +35,7 @@ export interface GetIntegrationRuntimeObjectMetadatumArgs {
      */
     readonly resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     readonly workspaceName: string;
 }

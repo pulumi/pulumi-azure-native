@@ -4,6 +4,7 @@
 package v20200201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,7 +23,7 @@ type Creator struct {
 	Properties CreatorPropertiesResponseOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -74,7 +75,7 @@ type creatorState struct {
 	Properties *CreatorPropertiesResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -87,7 +88,7 @@ type CreatorState struct {
 	Properties CreatorPropertiesResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -124,4 +125,43 @@ type CreatorArgs struct {
 
 func (CreatorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*creatorArgs)(nil)).Elem()
+}
+
+type CreatorInput interface {
+	pulumi.Input
+
+	ToCreatorOutput() CreatorOutput
+	ToCreatorOutputWithContext(ctx context.Context) CreatorOutput
+}
+
+func (Creator) ElementType() reflect.Type {
+	return reflect.TypeOf((*Creator)(nil)).Elem()
+}
+
+func (i Creator) ToCreatorOutput() CreatorOutput {
+	return i.ToCreatorOutputWithContext(context.Background())
+}
+
+func (i Creator) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreatorOutput)
+}
+
+type CreatorOutput struct {
+	*pulumi.OutputState
+}
+
+func (CreatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreatorOutput)(nil)).Elem()
+}
+
+func (o CreatorOutput) ToCreatorOutput() CreatorOutput {
+	return o
+}
+
+func (o CreatorOutput) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CreatorOutput{})
 }

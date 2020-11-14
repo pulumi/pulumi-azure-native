@@ -4,6 +4,7 @@
 package v20200406preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -25,7 +26,7 @@ type RemoteRenderingAccount struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -83,7 +84,7 @@ type remoteRenderingAccountState struct {
 	Name *string `pulumi:"name"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -99,7 +100,7 @@ type RemoteRenderingAccountState struct {
 	Name pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -134,4 +135,43 @@ type RemoteRenderingAccountArgs struct {
 
 func (RemoteRenderingAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteRenderingAccountArgs)(nil)).Elem()
+}
+
+type RemoteRenderingAccountInput interface {
+	pulumi.Input
+
+	ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput
+	ToRemoteRenderingAccountOutputWithContext(ctx context.Context) RemoteRenderingAccountOutput
+}
+
+func (RemoteRenderingAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteRenderingAccount)(nil)).Elem()
+}
+
+func (i RemoteRenderingAccount) ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput {
+	return i.ToRemoteRenderingAccountOutputWithContext(context.Background())
+}
+
+func (i RemoteRenderingAccount) ToRemoteRenderingAccountOutputWithContext(ctx context.Context) RemoteRenderingAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteRenderingAccountOutput)
+}
+
+type RemoteRenderingAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (RemoteRenderingAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteRenderingAccountOutput)(nil)).Elem()
+}
+
+func (o RemoteRenderingAccountOutput) ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput {
+	return o
+}
+
+func (o RemoteRenderingAccountOutput) ToRemoteRenderingAccountOutputWithContext(ctx context.Context) RemoteRenderingAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RemoteRenderingAccountOutput{})
 }

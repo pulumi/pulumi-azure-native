@@ -19,18 +19,21 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  default_data_lake_storage: Optional[pulumi.Input[pulumi.InputType['DataLakeStorageAccountDetailsArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionDetailsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_settings: Optional[pulumi.Input[pulumi.InputType['ManagedVirtualNetworkSettingsArgs']]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 purview_configuration: Optional[pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_profile: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
+                 workspace_repository_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceRepositoryConfigurationArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -41,18 +44,21 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: Connectivity endpoints
         :param pulumi.Input[pulumi.InputType['DataLakeStorageAccountDetailsArgs']] default_data_lake_storage: Workspace default data lake storage account details
+        :param pulumi.Input[pulumi.InputType['EncryptionDetailsArgs']] encryption: The encryption details of the workspace
         :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: Identity of the workspace
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
         :param pulumi.Input[str] managed_virtual_network: Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
         :param pulumi.Input[pulumi.InputType['ManagedVirtualNetworkSettingsArgs']] managed_virtual_network_settings: Managed Virtual Network Settings
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: Private endpoint connections to the workspace
+        :param pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']] purview_configuration: Purview Configuration
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sql_administrator_login: Login for workspace SQL active directory administrator
         :param pulumi.Input[str] sql_administrator_login_password: SQL administrator login password
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network_profile: Virtual Network profile
         :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[pulumi.InputType['WorkspaceRepositoryConfigurationArgs']] workspace_repository_configuration: Git integration settings
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,6 +79,7 @@ class Workspace(pulumi.CustomResource):
 
             __props__['connectivity_endpoints'] = connectivity_endpoints
             __props__['default_data_lake_storage'] = default_data_lake_storage
+            __props__['encryption'] = encryption
             __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -81,6 +88,7 @@ class Workspace(pulumi.CustomResource):
             __props__['managed_virtual_network'] = managed_virtual_network
             __props__['managed_virtual_network_settings'] = managed_virtual_network_settings
             __props__['private_endpoint_connections'] = private_endpoint_connections
+            __props__['purview_configuration'] = purview_configuration
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -91,10 +99,12 @@ class Workspace(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['workspace_repository_configuration'] = workspace_repository_configuration
             __props__['extra_properties'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['workspace_uid'] = None
         super(Workspace, __self__).__init__(
             'azure-nextgen:synapse/v20190601preview:Workspace',
             resource_name,
@@ -134,6 +144,14 @@ class Workspace(pulumi.CustomResource):
         Workspace default data lake storage account details
         """
         return pulumi.get(self, "default_data_lake_storage")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionDetailsResponse']]:
+        """
+        The encryption details of the workspace
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="extraProperties")
@@ -208,6 +226,14 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="purviewConfiguration")
+    def purview_configuration(self) -> pulumi.Output[Optional['outputs.PurviewConfigurationResponse']]:
+        """
+        Purview Configuration
+        """
+        return pulumi.get(self, "purview_configuration")
+
+    @property
     @pulumi.getter(name="sqlAdministratorLogin")
     def sql_administrator_login(self) -> pulumi.Output[Optional[str]]:
         """
@@ -235,7 +261,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -246,6 +272,22 @@ class Workspace(pulumi.CustomResource):
         Virtual Network profile
         """
         return pulumi.get(self, "virtual_network_profile")
+
+    @property
+    @pulumi.getter(name="workspaceRepositoryConfiguration")
+    def workspace_repository_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceRepositoryConfigurationResponse']]:
+        """
+        Git integration settings
+        """
+        return pulumi.get(self, "workspace_repository_configuration")
+
+    @property
+    @pulumi.getter(name="workspaceUID")
+    def workspace_uid(self) -> pulumi.Output[str]:
+        """
+        The workspace unique identifier
+        """
+        return pulumi.get(self, "workspace_uid")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -4,6 +4,7 @@
 package v20191101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,6 +164,9 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:PublicIPAddress"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -338,4 +342,43 @@ type PublicIPAddressArgs struct {
 
 func (PublicIPAddressArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicIPAddressArgs)(nil)).Elem()
+}
+
+type PublicIPAddressInput interface {
+	pulumi.Input
+
+	ToPublicIPAddressOutput() PublicIPAddressOutput
+	ToPublicIPAddressOutputWithContext(ctx context.Context) PublicIPAddressOutput
+}
+
+func (PublicIPAddress) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIPAddress)(nil)).Elem()
+}
+
+func (i PublicIPAddress) ToPublicIPAddressOutput() PublicIPAddressOutput {
+	return i.ToPublicIPAddressOutputWithContext(context.Background())
+}
+
+func (i PublicIPAddress) ToPublicIPAddressOutputWithContext(ctx context.Context) PublicIPAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressOutput)
+}
+
+type PublicIPAddressOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublicIPAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIPAddressOutput)(nil)).Elem()
+}
+
+func (o PublicIPAddressOutput) ToPublicIPAddressOutput() PublicIPAddressOutput {
+	return o
+}
+
+func (o PublicIPAddressOutput) ToPublicIPAddressOutputWithContext(ctx context.Context) PublicIPAddressOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PublicIPAddressOutput{})
 }

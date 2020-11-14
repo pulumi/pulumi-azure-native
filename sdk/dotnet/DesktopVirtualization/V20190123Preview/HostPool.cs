@@ -105,7 +105,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190123Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -150,6 +150,8 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190123Preview
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190924preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20200921preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201019preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201102preview:HostPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -16,6 +17,8 @@ type VirtualNetworkGatewayConnection struct {
 
 	// The authorizationKey.
 	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
+	// The connection mode for this connection.
+	ConnectionMode pulumi.StringPtrOutput `pulumi:"connectionMode"`
 	// Connection protocol used for this connection.
 	ConnectionProtocol pulumi.StringPtrOutput `pulumi:"connectionProtocol"`
 	// Virtual Network Gateway connection status.
@@ -185,6 +188,9 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualNetworkGatewayConnection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualNetworkGatewayConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkGatewayConnection
@@ -211,6 +217,8 @@ func GetVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 type virtualNetworkGatewayConnectionState struct {
 	// The authorizationKey.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The connection mode for this connection.
+	ConnectionMode *string `pulumi:"connectionMode"`
 	// Connection protocol used for this connection.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// Virtual Network Gateway connection status.
@@ -268,6 +276,8 @@ type virtualNetworkGatewayConnectionState struct {
 type VirtualNetworkGatewayConnectionState struct {
 	// The authorizationKey.
 	AuthorizationKey pulumi.StringPtrInput
+	// The connection mode for this connection.
+	ConnectionMode pulumi.StringPtrInput
 	// Connection protocol used for this connection.
 	ConnectionProtocol pulumi.StringPtrInput
 	// Virtual Network Gateway connection status.
@@ -329,6 +339,8 @@ func (VirtualNetworkGatewayConnectionState) ElementType() reflect.Type {
 type virtualNetworkGatewayConnectionArgs struct {
 	// The authorizationKey.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The connection mode for this connection.
+	ConnectionMode *string `pulumi:"connectionMode"`
 	// Connection protocol used for this connection.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// Gateway connection type.
@@ -375,6 +387,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 type VirtualNetworkGatewayConnectionArgs struct {
 	// The authorizationKey.
 	AuthorizationKey pulumi.StringPtrInput
+	// The connection mode for this connection.
+	ConnectionMode pulumi.StringPtrInput
 	// Connection protocol used for this connection.
 	ConnectionProtocol pulumi.StringPtrInput
 	// Gateway connection type.
@@ -419,4 +433,43 @@ type VirtualNetworkGatewayConnectionArgs struct {
 
 func (VirtualNetworkGatewayConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkGatewayConnectionArgs)(nil)).Elem()
+}
+
+type VirtualNetworkGatewayConnectionInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput
+	ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput
+}
+
+func (VirtualNetworkGatewayConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayConnection)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput {
+	return i.ToVirtualNetworkGatewayConnectionOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionOutput)
+}
+
+type VirtualNetworkGatewayConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkGatewayConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayConnectionOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionOutput{})
 }

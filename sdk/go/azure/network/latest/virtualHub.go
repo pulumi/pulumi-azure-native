@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -16,12 +17,12 @@ type VirtualHub struct {
 
 	// Address-prefix for this VirtualHub.
 	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
+	// Flag to control transit for VirtualRouter hub.
+	AllowBranchToBranchTraffic pulumi.BoolPtrOutput `pulumi:"allowBranchToBranchTraffic"`
 	// The azureFirewall associated with this VirtualHub.
 	AzureFirewall SubResourceResponsePtrOutput `pulumi:"azureFirewall"`
 	// List of references to Bgp Connections.
 	BgpConnections SubResourceResponseArrayOutput `pulumi:"bgpConnections"`
-	// Flag to control route propogation for VirtualRouter hub.
-	EnableVirtualRouterRoutePropogation pulumi.BoolPtrOutput `pulumi:"enableVirtualRouterRoutePropogation"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The expressRouteGateway associated with this VirtualHub.
@@ -135,6 +136,9 @@ func NewVirtualHub(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHub"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHub"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualHub
@@ -161,12 +165,12 @@ func GetVirtualHub(ctx *pulumi.Context,
 type virtualHubState struct {
 	// Address-prefix for this VirtualHub.
 	AddressPrefix *string `pulumi:"addressPrefix"`
+	// Flag to control transit for VirtualRouter hub.
+	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
 	// The azureFirewall associated with this VirtualHub.
 	AzureFirewall *SubResourceResponse `pulumi:"azureFirewall"`
 	// List of references to Bgp Connections.
 	BgpConnections []SubResourceResponse `pulumi:"bgpConnections"`
-	// Flag to control route propogation for VirtualRouter hub.
-	EnableVirtualRouterRoutePropogation *bool `pulumi:"enableVirtualRouterRoutePropogation"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// The expressRouteGateway associated with this VirtualHub.
@@ -210,12 +214,12 @@ type virtualHubState struct {
 type VirtualHubState struct {
 	// Address-prefix for this VirtualHub.
 	AddressPrefix pulumi.StringPtrInput
+	// Flag to control transit for VirtualRouter hub.
+	AllowBranchToBranchTraffic pulumi.BoolPtrInput
 	// The azureFirewall associated with this VirtualHub.
 	AzureFirewall SubResourceResponsePtrInput
 	// List of references to Bgp Connections.
 	BgpConnections SubResourceResponseArrayInput
-	// Flag to control route propogation for VirtualRouter hub.
-	EnableVirtualRouterRoutePropogation pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// The expressRouteGateway associated with this VirtualHub.
@@ -263,10 +267,10 @@ func (VirtualHubState) ElementType() reflect.Type {
 type virtualHubArgs struct {
 	// Address-prefix for this VirtualHub.
 	AddressPrefix *string `pulumi:"addressPrefix"`
+	// Flag to control transit for VirtualRouter hub.
+	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
 	// The azureFirewall associated with this VirtualHub.
 	AzureFirewall *SubResource `pulumi:"azureFirewall"`
-	// Flag to control route propogation for VirtualRouter hub.
-	EnableVirtualRouterRoutePropogation *bool `pulumi:"enableVirtualRouterRoutePropogation"`
 	// The expressRouteGateway associated with this VirtualHub.
 	ExpressRouteGateway *SubResource `pulumi:"expressRouteGateway"`
 	// Resource ID.
@@ -305,10 +309,10 @@ type virtualHubArgs struct {
 type VirtualHubArgs struct {
 	// Address-prefix for this VirtualHub.
 	AddressPrefix pulumi.StringPtrInput
+	// Flag to control transit for VirtualRouter hub.
+	AllowBranchToBranchTraffic pulumi.BoolPtrInput
 	// The azureFirewall associated with this VirtualHub.
 	AzureFirewall SubResourcePtrInput
-	// Flag to control route propogation for VirtualRouter hub.
-	EnableVirtualRouterRoutePropogation pulumi.BoolPtrInput
 	// The expressRouteGateway associated with this VirtualHub.
 	ExpressRouteGateway SubResourcePtrInput
 	// Resource ID.
@@ -345,4 +349,43 @@ type VirtualHubArgs struct {
 
 func (VirtualHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubArgs)(nil)).Elem()
+}
+
+type VirtualHubInput interface {
+	pulumi.Input
+
+	ToVirtualHubOutput() VirtualHubOutput
+	ToVirtualHubOutputWithContext(ctx context.Context) VirtualHubOutput
+}
+
+func (VirtualHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHub)(nil)).Elem()
+}
+
+func (i VirtualHub) ToVirtualHubOutput() VirtualHubOutput {
+	return i.ToVirtualHubOutputWithContext(context.Background())
+}
+
+func (i VirtualHub) ToVirtualHubOutputWithContext(ctx context.Context) VirtualHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubOutput)
+}
+
+type VirtualHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubOutput)(nil)).Elem()
+}
+
+func (o VirtualHubOutput) ToVirtualHubOutput() VirtualHubOutput {
+	return o
+}
+
+func (o VirtualHubOutput) ToVirtualHubOutputWithContext(ctx context.Context) VirtualHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualHubOutput{})
 }

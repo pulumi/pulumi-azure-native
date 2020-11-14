@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -175,4 +176,43 @@ type ApiVersionSetArgs struct {
 
 func (ApiVersionSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiVersionSetArgs)(nil)).Elem()
+}
+
+type ApiVersionSetInput interface {
+	pulumi.Input
+
+	ToApiVersionSetOutput() ApiVersionSetOutput
+	ToApiVersionSetOutputWithContext(ctx context.Context) ApiVersionSetOutput
+}
+
+func (ApiVersionSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiVersionSet)(nil)).Elem()
+}
+
+func (i ApiVersionSet) ToApiVersionSetOutput() ApiVersionSetOutput {
+	return i.ToApiVersionSetOutputWithContext(context.Background())
+}
+
+func (i ApiVersionSet) ToApiVersionSetOutputWithContext(ctx context.Context) ApiVersionSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionSetOutput)
+}
+
+type ApiVersionSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiVersionSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiVersionSetOutput)(nil)).Elem()
+}
+
+func (o ApiVersionSetOutput) ToApiVersionSetOutput() ApiVersionSetOutput {
+	return o
+}
+
+func (o ApiVersionSetOutput) ToApiVersionSetOutputWithContext(ctx context.Context) ApiVersionSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiVersionSetOutput{})
 }

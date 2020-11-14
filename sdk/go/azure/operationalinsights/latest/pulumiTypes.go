@@ -318,7 +318,7 @@ func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 
 // Identity for the resource.
 type Identity struct {
-	// The identity type.
+	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type string `pulumi:"type"`
 }
 
@@ -335,7 +335,7 @@ type IdentityInput interface {
 
 // Identity for the resource.
 type IdentityArgs struct {
-	// The identity type.
+	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -417,7 +417,7 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
+// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 func (o IdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -440,7 +440,7 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
-// The identity type.
+// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -456,8 +456,10 @@ type IdentityResponse struct {
 	PrincipalId string `pulumi:"principalId"`
 	// The tenant ID of resource.
 	TenantId string `pulumi:"tenantId"`
-	// The identity type.
+	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type string `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]UserIdentityPropertiesResponse `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -477,8 +479,10 @@ type IdentityResponseArgs struct {
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The tenant ID of resource.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
+	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type pulumi.StringInput `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities UserIdentityPropertiesResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -569,9 +573,14 @@ func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
+// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityResponseOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]UserIdentityPropertiesResponse { return v.UserAssignedIdentities }).(UserIdentityPropertiesResponseMapOutput)
 }
 
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -612,7 +621,7 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
+// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -620,6 +629,16 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]UserIdentityPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserIdentityPropertiesResponseMapOutput)
 }
 
 // Incident additional data property bag.
@@ -1813,6 +1832,8 @@ type KeyVaultProperties struct {
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion *string `pulumi:"keyVersion"`
+	// Selected key minimum required key size.
+	RsaKeySize *int `pulumi:"rsaKeySize"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -1834,6 +1855,8 @@ type KeyVaultPropertiesArgs struct {
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	// Selected key minimum required key size.
+	RsaKeySize pulumi.IntPtrInput `pulumi:"rsaKeySize"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -1929,6 +1952,11 @@ func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required key size.
+func (o KeyVaultPropertiesOutput) RsaKeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *int { return v.RsaKeySize }).(pulumi.IntPtrOutput)
+}
+
 type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
@@ -1977,6 +2005,16 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required key size.
+func (o KeyVaultPropertiesPtrOutput) RsaKeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RsaKeySize
+	}).(pulumi.IntPtrOutput)
+}
+
 // The key vault properties.
 type KeyVaultPropertiesResponse struct {
 	// The name of the key associated with the Log Analytics cluster.
@@ -1985,6 +2023,8 @@ type KeyVaultPropertiesResponse struct {
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion *string `pulumi:"keyVersion"`
+	// Selected key minimum required key size.
+	RsaKeySize *int `pulumi:"rsaKeySize"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -2006,6 +2046,8 @@ type KeyVaultPropertiesResponseArgs struct {
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	// Selected key minimum required key size.
+	RsaKeySize pulumi.IntPtrInput `pulumi:"rsaKeySize"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2101,6 +2143,11 @@ func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required key size.
+func (o KeyVaultPropertiesResponseOutput) RsaKeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *int { return v.RsaKeySize }).(pulumi.IntPtrOutput)
+}
+
 type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
@@ -2147,6 +2194,16 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 		}
 		return v.KeyVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Selected key minimum required key size.
+func (o KeyVaultPropertiesResponsePtrOutput) RsaKeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RsaKeySize
+	}).(pulumi.IntPtrOutput)
 }
 
 // The private link scope resource reference.
@@ -2933,6 +2990,115 @@ func (o TagResponseArrayOutput) Index(i pulumi.IntInput) TagResponseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagResponse {
 		return vs[0].([]TagResponse)[vs[1].(int)]
 	}).(TagResponseOutput)
+}
+
+// User assigned identity properties.
+type UserIdentityPropertiesResponse struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// UserIdentityPropertiesResponseInput is an input type that accepts UserIdentityPropertiesResponseArgs and UserIdentityPropertiesResponseOutput values.
+// You can construct a concrete instance of `UserIdentityPropertiesResponseInput` via:
+//
+//          UserIdentityPropertiesResponseArgs{...}
+type UserIdentityPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToUserIdentityPropertiesResponseOutput() UserIdentityPropertiesResponseOutput
+	ToUserIdentityPropertiesResponseOutputWithContext(context.Context) UserIdentityPropertiesResponseOutput
+}
+
+// User assigned identity properties.
+type UserIdentityPropertiesResponseArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserIdentityPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (i UserIdentityPropertiesResponseArgs) ToUserIdentityPropertiesResponseOutput() UserIdentityPropertiesResponseOutput {
+	return i.ToUserIdentityPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i UserIdentityPropertiesResponseArgs) ToUserIdentityPropertiesResponseOutputWithContext(ctx context.Context) UserIdentityPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityPropertiesResponseOutput)
+}
+
+// UserIdentityPropertiesResponseMapInput is an input type that accepts UserIdentityPropertiesResponseMap and UserIdentityPropertiesResponseMapOutput values.
+// You can construct a concrete instance of `UserIdentityPropertiesResponseMapInput` via:
+//
+//          UserIdentityPropertiesResponseMap{ "key": UserIdentityPropertiesResponseArgs{...} }
+type UserIdentityPropertiesResponseMapInput interface {
+	pulumi.Input
+
+	ToUserIdentityPropertiesResponseMapOutput() UserIdentityPropertiesResponseMapOutput
+	ToUserIdentityPropertiesResponseMapOutputWithContext(context.Context) UserIdentityPropertiesResponseMapOutput
+}
+
+type UserIdentityPropertiesResponseMap map[string]UserIdentityPropertiesResponseInput
+
+func (UserIdentityPropertiesResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (i UserIdentityPropertiesResponseMap) ToUserIdentityPropertiesResponseMapOutput() UserIdentityPropertiesResponseMapOutput {
+	return i.ToUserIdentityPropertiesResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserIdentityPropertiesResponseMap) ToUserIdentityPropertiesResponseMapOutputWithContext(ctx context.Context) UserIdentityPropertiesResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityPropertiesResponseMapOutput)
+}
+
+// User assigned identity properties.
+type UserIdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (o UserIdentityPropertiesResponseOutput) ToUserIdentityPropertiesResponseOutput() UserIdentityPropertiesResponseOutput {
+	return o
+}
+
+func (o UserIdentityPropertiesResponseOutput) ToUserIdentityPropertiesResponseOutputWithContext(ctx context.Context) UserIdentityPropertiesResponseOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o UserIdentityPropertiesResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserIdentityPropertiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o UserIdentityPropertiesResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserIdentityPropertiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserIdentityPropertiesResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityPropertiesResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (o UserIdentityPropertiesResponseMapOutput) ToUserIdentityPropertiesResponseMapOutput() UserIdentityPropertiesResponseMapOutput {
+	return o
+}
+
+func (o UserIdentityPropertiesResponseMapOutput) ToUserIdentityPropertiesResponseMapOutputWithContext(ctx context.Context) UserIdentityPropertiesResponseMapOutput {
+	return o
+}
+
+func (o UserIdentityPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdentityPropertiesResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserIdentityPropertiesResponse {
+		return vs[0].(map[string]UserIdentityPropertiesResponse)[vs[1].(string)]
+	}).(UserIdentityPropertiesResponseOutput)
 }
 
 // User information that made some action
@@ -3930,6 +4096,8 @@ func init() {
 	pulumi.RegisterOutputType(TagArrayOutput{})
 	pulumi.RegisterOutputType(TagResponseOutput{})
 	pulumi.RegisterOutputType(TagResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserIdentityPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(UserIdentityPropertiesResponseMapOutput{})
 	pulumi.RegisterOutputType(UserInfoOutput{})
 	pulumi.RegisterOutputType(UserInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserInfoResponseOutput{})

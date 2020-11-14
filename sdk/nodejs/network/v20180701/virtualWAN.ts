@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -119,7 +118,7 @@ export class VirtualWAN extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualWAN" }, { type: "azure-nextgen:network/v20180401:VirtualWAN" }, { type: "azure-nextgen:network/v20180601:VirtualWAN" }, { type: "azure-nextgen:network/v20180801:VirtualWAN" }, { type: "azure-nextgen:network/v20181001:VirtualWAN" }, { type: "azure-nextgen:network/v20181101:VirtualWAN" }, { type: "azure-nextgen:network/v20181201:VirtualWAN" }, { type: "azure-nextgen:network/v20190201:VirtualWAN" }, { type: "azure-nextgen:network/v20190401:VirtualWAN" }, { type: "azure-nextgen:network/v20190601:VirtualWAN" }, { type: "azure-nextgen:network/v20190701:VirtualWAN" }, { type: "azure-nextgen:network/v20190801:VirtualWAN" }, { type: "azure-nextgen:network/v20190901:VirtualWAN" }, { type: "azure-nextgen:network/v20191101:VirtualWAN" }, { type: "azure-nextgen:network/v20191201:VirtualWAN" }, { type: "azure-nextgen:network/v20200301:VirtualWAN" }, { type: "azure-nextgen:network/v20200401:VirtualWAN" }, { type: "azure-nextgen:network/v20200501:VirtualWAN" }, { type: "azure-nextgen:network/v20200601:VirtualWAN" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualWAN" }, { type: "azure-nextgen:network/v20180401:VirtualWAN" }, { type: "azure-nextgen:network/v20180601:VirtualWAN" }, { type: "azure-nextgen:network/v20180801:VirtualWAN" }, { type: "azure-nextgen:network/v20181001:VirtualWAN" }, { type: "azure-nextgen:network/v20181101:VirtualWAN" }, { type: "azure-nextgen:network/v20181201:VirtualWAN" }, { type: "azure-nextgen:network/v20190201:VirtualWAN" }, { type: "azure-nextgen:network/v20190401:VirtualWAN" }, { type: "azure-nextgen:network/v20190601:VirtualWAN" }, { type: "azure-nextgen:network/v20190701:VirtualWAN" }, { type: "azure-nextgen:network/v20190801:VirtualWAN" }, { type: "azure-nextgen:network/v20190901:VirtualWAN" }, { type: "azure-nextgen:network/v20191101:VirtualWAN" }, { type: "azure-nextgen:network/v20191201:VirtualWAN" }, { type: "azure-nextgen:network/v20200301:VirtualWAN" }, { type: "azure-nextgen:network/v20200401:VirtualWAN" }, { type: "azure-nextgen:network/v20200501:VirtualWAN" }, { type: "azure-nextgen:network/v20200601:VirtualWAN" }, { type: "azure-nextgen:network/v20200701:VirtualWAN" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualWAN.__pulumiType, name, inputs, opts);
     }

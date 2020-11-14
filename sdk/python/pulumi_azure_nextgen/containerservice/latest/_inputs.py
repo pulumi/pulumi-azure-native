@@ -22,15 +22,21 @@ __all__ = [
     'ContainerServiceSshPublicKeyArgs',
     'ContainerServiceVMDiagnosticsArgs',
     'ContainerServiceWindowsProfileArgs',
+    'KubeletConfigArgs',
+    'LinuxOSConfigArgs',
     'ManagedClusterAADProfileArgs',
     'ManagedClusterAPIServerAccessProfileArgs',
     'ManagedClusterAddonProfileArgs',
     'ManagedClusterAgentPoolProfileArgs',
+    'ManagedClusterAutoUpgradeProfileArgs',
     'ManagedClusterIdentityArgs',
     'ManagedClusterLoadBalancerProfileArgs',
     'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs',
     'ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs',
     'ManagedClusterLoadBalancerProfileOutboundIPsArgs',
+    'ManagedClusterPodIdentityArgs',
+    'ManagedClusterPodIdentityExceptionArgs',
+    'ManagedClusterPodIdentityProfileArgs',
     'ManagedClusterPropertiesAutoScalerProfileArgs',
     'ManagedClusterPropertiesIdentityProfileArgs',
     'ManagedClusterSKUArgs',
@@ -47,6 +53,8 @@ __all__ = [
     'PrivateLinkServiceConnectionStateArgs',
     'PurchasePlanArgs',
     'ResourceReferenceArgs',
+    'SysctlConfigArgs',
+    'UserAssignedIdentityArgs',
 ]
 
 @pulumi.input_type
@@ -600,6 +608,214 @@ class ContainerServiceWindowsProfileArgs:
 
 
 @pulumi.input_type
+class KubeletConfigArgs:
+    def __init__(__self__, *,
+                 allowed_unsafe_sysctls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cpu_cfs_quota: Optional[pulumi.Input[bool]] = None,
+                 cpu_cfs_quota_period: Optional[pulumi.Input[str]] = None,
+                 cpu_manager_policy: Optional[pulumi.Input[str]] = None,
+                 fail_swap_on: Optional[pulumi.Input[bool]] = None,
+                 image_gc_high_threshold: Optional[pulumi.Input[int]] = None,
+                 image_gc_low_threshold: Optional[pulumi.Input[int]] = None,
+                 topology_manager_policy: Optional[pulumi.Input[str]] = None):
+        """
+        Kubelet configurations of agent nodes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_unsafe_sysctls: Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+        :param pulumi.Input[bool] cpu_cfs_quota: Enable CPU CFS quota enforcement for containers that specify CPU limits.
+        :param pulumi.Input[str] cpu_cfs_quota_period: Sets CPU CFS quota period value.
+        :param pulumi.Input[str] cpu_manager_policy: CPU Manager policy to use.
+        :param pulumi.Input[bool] fail_swap_on: If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+        :param pulumi.Input[int] image_gc_high_threshold: The percent of disk usage after which image garbage collection is always run.
+        :param pulumi.Input[int] image_gc_low_threshold: The percent of disk usage before which image garbage collection is never run.
+        :param pulumi.Input[str] topology_manager_policy: Topology Manager policy to use.
+        """
+        if allowed_unsafe_sysctls is not None:
+            pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
+        if cpu_cfs_quota is not None:
+            pulumi.set(__self__, "cpu_cfs_quota", cpu_cfs_quota)
+        if cpu_cfs_quota_period is not None:
+            pulumi.set(__self__, "cpu_cfs_quota_period", cpu_cfs_quota_period)
+        if cpu_manager_policy is not None:
+            pulumi.set(__self__, "cpu_manager_policy", cpu_manager_policy)
+        if fail_swap_on is not None:
+            pulumi.set(__self__, "fail_swap_on", fail_swap_on)
+        if image_gc_high_threshold is not None:
+            pulumi.set(__self__, "image_gc_high_threshold", image_gc_high_threshold)
+        if image_gc_low_threshold is not None:
+            pulumi.set(__self__, "image_gc_low_threshold", image_gc_low_threshold)
+        if topology_manager_policy is not None:
+            pulumi.set(__self__, "topology_manager_policy", topology_manager_policy)
+
+    @property
+    @pulumi.getter(name="allowedUnsafeSysctls")
+    def allowed_unsafe_sysctls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+        """
+        return pulumi.get(self, "allowed_unsafe_sysctls")
+
+    @allowed_unsafe_sysctls.setter
+    def allowed_unsafe_sysctls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_unsafe_sysctls", value)
+
+    @property
+    @pulumi.getter(name="cpuCfsQuota")
+    def cpu_cfs_quota(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable CPU CFS quota enforcement for containers that specify CPU limits.
+        """
+        return pulumi.get(self, "cpu_cfs_quota")
+
+    @cpu_cfs_quota.setter
+    def cpu_cfs_quota(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cpu_cfs_quota", value)
+
+    @property
+    @pulumi.getter(name="cpuCfsQuotaPeriod")
+    def cpu_cfs_quota_period(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets CPU CFS quota period value.
+        """
+        return pulumi.get(self, "cpu_cfs_quota_period")
+
+    @cpu_cfs_quota_period.setter
+    def cpu_cfs_quota_period(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_cfs_quota_period", value)
+
+    @property
+    @pulumi.getter(name="cpuManagerPolicy")
+    def cpu_manager_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        CPU Manager policy to use.
+        """
+        return pulumi.get(self, "cpu_manager_policy")
+
+    @cpu_manager_policy.setter
+    def cpu_manager_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_manager_policy", value)
+
+    @property
+    @pulumi.getter(name="failSwapOn")
+    def fail_swap_on(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+        """
+        return pulumi.get(self, "fail_swap_on")
+
+    @fail_swap_on.setter
+    def fail_swap_on(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fail_swap_on", value)
+
+    @property
+    @pulumi.getter(name="imageGcHighThreshold")
+    def image_gc_high_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percent of disk usage after which image garbage collection is always run.
+        """
+        return pulumi.get(self, "image_gc_high_threshold")
+
+    @image_gc_high_threshold.setter
+    def image_gc_high_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_gc_high_threshold", value)
+
+    @property
+    @pulumi.getter(name="imageGcLowThreshold")
+    def image_gc_low_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percent of disk usage before which image garbage collection is never run.
+        """
+        return pulumi.get(self, "image_gc_low_threshold")
+
+    @image_gc_low_threshold.setter
+    def image_gc_low_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_gc_low_threshold", value)
+
+    @property
+    @pulumi.getter(name="topologyManagerPolicy")
+    def topology_manager_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Topology Manager policy to use.
+        """
+        return pulumi.get(self, "topology_manager_policy")
+
+    @topology_manager_policy.setter
+    def topology_manager_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "topology_manager_policy", value)
+
+
+@pulumi.input_type
+class LinuxOSConfigArgs:
+    def __init__(__self__, *,
+                 swap_file_size_mb: Optional[pulumi.Input[int]] = None,
+                 sysctls: Optional[pulumi.Input['SysctlConfigArgs']] = None,
+                 transparent_huge_page_defrag: Optional[pulumi.Input[str]] = None,
+                 transparent_huge_page_enabled: Optional[pulumi.Input[str]] = None):
+        """
+        OS configurations of Linux agent nodes.
+        :param pulumi.Input[int] swap_file_size_mb: SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+        :param pulumi.Input['SysctlConfigArgs'] sysctls: Sysctl settings for Linux agent nodes.
+        :param pulumi.Input[str] transparent_huge_page_defrag: Transparent Huge Page defrag configuration.
+        :param pulumi.Input[str] transparent_huge_page_enabled: Transparent Huge Page enabled configuration.
+        """
+        if swap_file_size_mb is not None:
+            pulumi.set(__self__, "swap_file_size_mb", swap_file_size_mb)
+        if sysctls is not None:
+            pulumi.set(__self__, "sysctls", sysctls)
+        if transparent_huge_page_defrag is not None:
+            pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
+        if transparent_huge_page_enabled is not None:
+            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
+
+    @property
+    @pulumi.getter(name="swapFileSizeMB")
+    def swap_file_size_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+        """
+        return pulumi.get(self, "swap_file_size_mb")
+
+    @swap_file_size_mb.setter
+    def swap_file_size_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "swap_file_size_mb", value)
+
+    @property
+    @pulumi.getter
+    def sysctls(self) -> Optional[pulumi.Input['SysctlConfigArgs']]:
+        """
+        Sysctl settings for Linux agent nodes.
+        """
+        return pulumi.get(self, "sysctls")
+
+    @sysctls.setter
+    def sysctls(self, value: Optional[pulumi.Input['SysctlConfigArgs']]):
+        pulumi.set(self, "sysctls", value)
+
+    @property
+    @pulumi.getter(name="transparentHugePageDefrag")
+    def transparent_huge_page_defrag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Transparent Huge Page defrag configuration.
+        """
+        return pulumi.get(self, "transparent_huge_page_defrag")
+
+    @transparent_huge_page_defrag.setter
+    def transparent_huge_page_defrag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_huge_page_defrag", value)
+
+    @property
+    @pulumi.getter(name="transparentHugePageEnabled")
+    def transparent_huge_page_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Transparent Huge Page enabled configuration.
+        """
+        return pulumi.get(self, "transparent_huge_page_enabled")
+
+    @transparent_huge_page_enabled.setter
+    def transparent_huge_page_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_huge_page_enabled", value)
+
+
+@pulumi.input_type
 class ManagedClusterAADProfileArgs:
     def __init__(__self__, *,
                  admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -723,16 +939,20 @@ class ManagedClusterAADProfileArgs:
 class ManagedClusterAPIServerAccessProfileArgs:
     def __init__(__self__, *,
                  authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 enable_private_cluster: Optional[pulumi.Input[bool]] = None):
+                 enable_private_cluster: Optional[pulumi.Input[bool]] = None,
+                 private_dns_zone: Optional[pulumi.Input[str]] = None):
         """
         Access profile for managed cluster API server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_ip_ranges: Authorized IP Ranges to kubernetes API server.
         :param pulumi.Input[bool] enable_private_cluster: Whether to create the cluster as a private cluster or not.
+        :param pulumi.Input[str] private_dns_zone: Private dns zone mode for private cluster. 
         """
         if authorized_ip_ranges is not None:
             pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
         if enable_private_cluster is not None:
             pulumi.set(__self__, "enable_private_cluster", enable_private_cluster)
+        if private_dns_zone is not None:
+            pulumi.set(__self__, "private_dns_zone", private_dns_zone)
 
     @property
     @pulumi.getter(name="authorizedIPRanges")
@@ -757,6 +977,18 @@ class ManagedClusterAPIServerAccessProfileArgs:
     @enable_private_cluster.setter
     def enable_private_cluster(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_private_cluster", value)
+
+    @property
+    @pulumi.getter(name="privateDNSZone")
+    def private_dns_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private dns zone mode for private cluster. 
+        """
+        return pulumi.get(self, "private_dns_zone")
+
+    @private_dns_zone.setter
+    def private_dns_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_dns_zone", value)
 
 
 @pulumi.input_type
@@ -806,6 +1038,8 @@ class ManagedClusterAgentPoolProfileArgs:
                  count: Optional[pulumi.Input[int]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 kubelet_config: Optional[pulumi.Input['KubeletConfigArgs']] = None,
+                 linux_os_config: Optional[pulumi.Input['LinuxOSConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
@@ -816,6 +1050,7 @@ class ManagedClusterAgentPoolProfileArgs:
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  scale_set_eviction_policy: Optional[pulumi.Input[str]] = None,
                  scale_set_priority: Optional[pulumi.Input[str]] = None,
@@ -832,6 +1067,8 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
+        :param pulumi.Input['KubeletConfigArgs'] kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
+        :param pulumi.Input['LinuxOSConfigArgs'] linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
         :param pulumi.Input[int] max_count: Maximum number of nodes for auto-scaling
         :param pulumi.Input[int] max_pods: Maximum number of pods that can run on a node.
         :param pulumi.Input[int] min_count: Minimum number of nodes for auto-scaling
@@ -842,6 +1079,7 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[str] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param pulumi.Input[str] pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
         :param pulumi.Input[str] scale_set_eviction_policy: ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
         :param pulumi.Input[str] scale_set_priority: ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
@@ -850,7 +1088,7 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[str] type: AgentPoolType represents types of an agent pool
         :param pulumi.Input['AgentPoolUpgradeSettingsArgs'] upgrade_settings: Settings for upgrading the agentpool
         :param pulumi.Input[str] vm_size: Size of agent VMs.
-        :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
+        :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
         pulumi.set(__self__, "name", name)
         if availability_zones is not None:
@@ -861,6 +1099,10 @@ class ManagedClusterAgentPoolProfileArgs:
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if kubelet_config is not None:
+            pulumi.set(__self__, "kubelet_config", kubelet_config)
+        if linux_os_config is not None:
+            pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count is not None:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
@@ -881,6 +1123,8 @@ class ManagedClusterAgentPoolProfileArgs:
             pulumi.set(__self__, "os_disk_type", os_disk_type)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if pod_subnet_id is not None:
+            pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if scale_set_eviction_policy is not None:
@@ -959,6 +1203,30 @@ class ManagedClusterAgentPoolProfileArgs:
     @enable_node_public_ip.setter
     def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_node_public_ip", value)
+
+    @property
+    @pulumi.getter(name="kubeletConfig")
+    def kubelet_config(self) -> Optional[pulumi.Input['KubeletConfigArgs']]:
+        """
+        KubeletConfig specifies the configuration of kubelet on agent nodes.
+        """
+        return pulumi.get(self, "kubelet_config")
+
+    @kubelet_config.setter
+    def kubelet_config(self, value: Optional[pulumi.Input['KubeletConfigArgs']]):
+        pulumi.set(self, "kubelet_config", value)
+
+    @property
+    @pulumi.getter(name="linuxOSConfig")
+    def linux_os_config(self) -> Optional[pulumi.Input['LinuxOSConfigArgs']]:
+        """
+        LinuxOSConfig specifies the OS configuration of linux agent nodes.
+        """
+        return pulumi.get(self, "linux_os_config")
+
+    @linux_os_config.setter
+    def linux_os_config(self, value: Optional[pulumi.Input['LinuxOSConfigArgs']]):
+        pulumi.set(self, "linux_os_config", value)
 
     @property
     @pulumi.getter(name="maxCount")
@@ -1081,6 +1349,18 @@ class ManagedClusterAgentPoolProfileArgs:
         pulumi.set(self, "os_type", value)
 
     @property
+    @pulumi.getter(name="podSubnetID")
+    def pod_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Pod SubnetID specifies the VNet's subnet identifier for pods.
+        """
+        return pulumi.get(self, "pod_subnet_id")
+
+    @pod_subnet_id.setter
+    def pod_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pod_subnet_id", value)
+
+    @property
     @pulumi.getter(name="proximityPlacementGroupID")
     def proximity_placement_group_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1180,13 +1460,37 @@ class ManagedClusterAgentPoolProfileArgs:
     @pulumi.getter(name="vnetSubnetID")
     def vnet_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        VNet SubnetID specifies the VNet's subnet identifier.
+        VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
         return pulumi.get(self, "vnet_subnet_id")
 
     @vnet_subnet_id.setter
     def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_subnet_id", value)
+
+
+@pulumi.input_type
+class ManagedClusterAutoUpgradeProfileArgs:
+    def __init__(__self__, *,
+                 upgrade_channel: Optional[pulumi.Input[str]] = None):
+        """
+        Auto upgrade profile for a managed cluster.
+        :param pulumi.Input[str] upgrade_channel: upgrade channel for auto upgrade.
+        """
+        if upgrade_channel is not None:
+            pulumi.set(__self__, "upgrade_channel", upgrade_channel)
+
+    @property
+    @pulumi.getter(name="upgradeChannel")
+    def upgrade_channel(self) -> Optional[pulumi.Input[str]]:
+        """
+        upgrade channel for auto upgrade.
+        """
+        return pulumi.get(self, "upgrade_channel")
+
+    @upgrade_channel.setter
+    def upgrade_channel(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "upgrade_channel", value)
 
 
 @pulumi.input_type
@@ -1387,6 +1691,165 @@ class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
     @public_ips.setter
     def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "public_ips", value)
+
+
+@pulumi.input_type
+class ManagedClusterPodIdentityArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input['UserAssignedIdentityArgs'],
+                 name: pulumi.Input[str],
+                 namespace: pulumi.Input[str]):
+        """
+        :param pulumi.Input['UserAssignedIdentityArgs'] identity: Information of the user assigned identity.
+        :param pulumi.Input[str] name: Name of the pod identity.
+        :param pulumi.Input[str] namespace: Namespace of the pod identity.
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['UserAssignedIdentityArgs']:
+        """
+        Information of the user assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['UserAssignedIdentityArgs']):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the pod identity.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        Namespace of the pod identity.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class ManagedClusterPodIdentityExceptionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 namespace: pulumi.Input[str],
+                 pod_labels: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Name of the pod identity exception.
+        :param pulumi.Input[str] namespace: Namespace of the pod identity exception.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] pod_labels: Pod labels to match.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "pod_labels", pod_labels)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the pod identity exception.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        Namespace of the pod identity exception.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter(name="podLabels")
+    def pod_labels(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Pod labels to match.
+        """
+        return pulumi.get(self, "pod_labels")
+
+    @pod_labels.setter
+    def pod_labels(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "pod_labels", value)
+
+
+@pulumi.input_type
+class ManagedClusterPodIdentityProfileArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityArgs']]]] = None,
+                 user_assigned_identity_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether the pod identity addon is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityArgs']]] user_assigned_identities: User assigned pod identity settings.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]] user_assigned_identity_exceptions: User assigned pod identity exception settings.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+        if user_assigned_identity_exceptions is not None:
+            pulumi.set(__self__, "user_assigned_identity_exceptions", user_assigned_identity_exceptions)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the pod identity addon is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityArgs']]]]:
+        """
+        User assigned pod identity settings.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityArgs']]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityExceptions")
+    def user_assigned_identity_exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]]]:
+        """
+        User assigned pod identity exception settings.
+        """
+        return pulumi.get(self, "user_assigned_identity_exceptions")
+
+    @user_assigned_identity_exceptions.setter
+    def user_assigned_identity_exceptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]]]):
+        pulumi.set(self, "user_assigned_identity_exceptions", value)
 
 
 @pulumi.input_type
@@ -2353,5 +2816,516 @@ class ResourceReferenceArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SysctlConfigArgs:
+    def __init__(__self__, *,
+                 fs_aio_max_nr: Optional[pulumi.Input[int]] = None,
+                 fs_file_max: Optional[pulumi.Input[int]] = None,
+                 fs_inotify_max_user_watches: Optional[pulumi.Input[int]] = None,
+                 fs_nr_open: Optional[pulumi.Input[int]] = None,
+                 kernel_threads_max: Optional[pulumi.Input[int]] = None,
+                 net_core_netdev_max_backlog: Optional[pulumi.Input[int]] = None,
+                 net_core_optmem_max: Optional[pulumi.Input[int]] = None,
+                 net_core_rmem_max: Optional[pulumi.Input[int]] = None,
+                 net_core_somaxconn: Optional[pulumi.Input[int]] = None,
+                 net_core_wmem_max: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_ip_local_port_range: Optional[pulumi.Input[str]] = None,
+                 net_ipv4_neigh_default_gc_thresh1: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_neigh_default_gc_thresh2: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_neigh_default_gc_thresh3: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_fin_timeout: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_keepalive_probes: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_keepalive_time: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_max_syn_backlog: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_max_tw_buckets: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_rmem: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcp_tw_reuse: Optional[pulumi.Input[bool]] = None,
+                 net_ipv4_tcp_wmem: Optional[pulumi.Input[int]] = None,
+                 net_ipv4_tcpkeepalive_intvl: Optional[pulumi.Input[int]] = None,
+                 net_netfilter_nf_conntrack_buckets: Optional[pulumi.Input[int]] = None,
+                 net_netfilter_nf_conntrack_max: Optional[pulumi.Input[int]] = None,
+                 vm_max_map_count: Optional[pulumi.Input[int]] = None,
+                 vm_swappiness: Optional[pulumi.Input[int]] = None,
+                 vm_vfs_cache_pressure: Optional[pulumi.Input[int]] = None):
+        """
+        Sysctl settings for Linux agent nodes.
+        :param pulumi.Input[int] fs_aio_max_nr: Sysctl setting fs.aio-max-nr.
+        :param pulumi.Input[int] fs_file_max: Sysctl setting fs.file-max.
+        :param pulumi.Input[int] fs_inotify_max_user_watches: Sysctl setting fs.inotify.max_user_watches.
+        :param pulumi.Input[int] fs_nr_open: Sysctl setting fs.nr_open.
+        :param pulumi.Input[int] kernel_threads_max: Sysctl setting kernel.threads-max.
+        :param pulumi.Input[int] net_core_netdev_max_backlog: Sysctl setting net.core.netdev_max_backlog.
+        :param pulumi.Input[int] net_core_optmem_max: Sysctl setting net.core.optmem_max.
+        :param pulumi.Input[int] net_core_rmem_max: Sysctl setting net.core.rmem_max.
+        :param pulumi.Input[int] net_core_somaxconn: Sysctl setting net.core.somaxconn.
+        :param pulumi.Input[int] net_core_wmem_max: Sysctl setting net.core.wmem_max.
+        :param pulumi.Input[str] net_ipv4_ip_local_port_range: Sysctl setting net.ipv4.ip_local_port_range.
+        :param pulumi.Input[int] net_ipv4_neigh_default_gc_thresh1: Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+        :param pulumi.Input[int] net_ipv4_neigh_default_gc_thresh2: Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+        :param pulumi.Input[int] net_ipv4_neigh_default_gc_thresh3: Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+        :param pulumi.Input[int] net_ipv4_tcp_fin_timeout: Sysctl setting net.ipv4.tcp_fin_timeout.
+        :param pulumi.Input[int] net_ipv4_tcp_keepalive_probes: Sysctl setting net.ipv4.tcp_keepalive_probes.
+        :param pulumi.Input[int] net_ipv4_tcp_keepalive_time: Sysctl setting net.ipv4.tcp_keepalive_time.
+        :param pulumi.Input[int] net_ipv4_tcp_max_syn_backlog: Sysctl setting net.ipv4.tcp_max_syn_backlog.
+        :param pulumi.Input[int] net_ipv4_tcp_max_tw_buckets: Sysctl setting net.ipv4.tcp_max_tw_buckets.
+        :param pulumi.Input[int] net_ipv4_tcp_rmem: Sysctl setting net.ipv4.tcp_rmem.
+        :param pulumi.Input[bool] net_ipv4_tcp_tw_reuse: Sysctl setting net.ipv4.tcp_tw_reuse.
+        :param pulumi.Input[int] net_ipv4_tcp_wmem: Sysctl setting net.ipv4.tcp_wmem.
+        :param pulumi.Input[int] net_ipv4_tcpkeepalive_intvl: Sysctl setting net.ipv4.tcp_keepalive_intvl.
+        :param pulumi.Input[int] net_netfilter_nf_conntrack_buckets: Sysctl setting net.netfilter.nf_conntrack_buckets.
+        :param pulumi.Input[int] net_netfilter_nf_conntrack_max: Sysctl setting net.netfilter.nf_conntrack_max.
+        :param pulumi.Input[int] vm_max_map_count: Sysctl setting vm.max_map_count.
+        :param pulumi.Input[int] vm_swappiness: Sysctl setting vm.swappiness.
+        :param pulumi.Input[int] vm_vfs_cache_pressure: Sysctl setting vm.vfs_cache_pressure.
+        """
+        if fs_aio_max_nr is not None:
+            pulumi.set(__self__, "fs_aio_max_nr", fs_aio_max_nr)
+        if fs_file_max is not None:
+            pulumi.set(__self__, "fs_file_max", fs_file_max)
+        if fs_inotify_max_user_watches is not None:
+            pulumi.set(__self__, "fs_inotify_max_user_watches", fs_inotify_max_user_watches)
+        if fs_nr_open is not None:
+            pulumi.set(__self__, "fs_nr_open", fs_nr_open)
+        if kernel_threads_max is not None:
+            pulumi.set(__self__, "kernel_threads_max", kernel_threads_max)
+        if net_core_netdev_max_backlog is not None:
+            pulumi.set(__self__, "net_core_netdev_max_backlog", net_core_netdev_max_backlog)
+        if net_core_optmem_max is not None:
+            pulumi.set(__self__, "net_core_optmem_max", net_core_optmem_max)
+        if net_core_rmem_max is not None:
+            pulumi.set(__self__, "net_core_rmem_max", net_core_rmem_max)
+        if net_core_somaxconn is not None:
+            pulumi.set(__self__, "net_core_somaxconn", net_core_somaxconn)
+        if net_core_wmem_max is not None:
+            pulumi.set(__self__, "net_core_wmem_max", net_core_wmem_max)
+        if net_ipv4_ip_local_port_range is not None:
+            pulumi.set(__self__, "net_ipv4_ip_local_port_range", net_ipv4_ip_local_port_range)
+        if net_ipv4_neigh_default_gc_thresh1 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh1", net_ipv4_neigh_default_gc_thresh1)
+        if net_ipv4_neigh_default_gc_thresh2 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh2", net_ipv4_neigh_default_gc_thresh2)
+        if net_ipv4_neigh_default_gc_thresh3 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh3", net_ipv4_neigh_default_gc_thresh3)
+        if net_ipv4_tcp_fin_timeout is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_fin_timeout", net_ipv4_tcp_fin_timeout)
+        if net_ipv4_tcp_keepalive_probes is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_keepalive_probes", net_ipv4_tcp_keepalive_probes)
+        if net_ipv4_tcp_keepalive_time is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_keepalive_time", net_ipv4_tcp_keepalive_time)
+        if net_ipv4_tcp_max_syn_backlog is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_max_syn_backlog", net_ipv4_tcp_max_syn_backlog)
+        if net_ipv4_tcp_max_tw_buckets is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_max_tw_buckets", net_ipv4_tcp_max_tw_buckets)
+        if net_ipv4_tcp_rmem is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_rmem", net_ipv4_tcp_rmem)
+        if net_ipv4_tcp_tw_reuse is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_tw_reuse", net_ipv4_tcp_tw_reuse)
+        if net_ipv4_tcp_wmem is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_wmem", net_ipv4_tcp_wmem)
+        if net_ipv4_tcpkeepalive_intvl is not None:
+            pulumi.set(__self__, "net_ipv4_tcpkeepalive_intvl", net_ipv4_tcpkeepalive_intvl)
+        if net_netfilter_nf_conntrack_buckets is not None:
+            pulumi.set(__self__, "net_netfilter_nf_conntrack_buckets", net_netfilter_nf_conntrack_buckets)
+        if net_netfilter_nf_conntrack_max is not None:
+            pulumi.set(__self__, "net_netfilter_nf_conntrack_max", net_netfilter_nf_conntrack_max)
+        if vm_max_map_count is not None:
+            pulumi.set(__self__, "vm_max_map_count", vm_max_map_count)
+        if vm_swappiness is not None:
+            pulumi.set(__self__, "vm_swappiness", vm_swappiness)
+        if vm_vfs_cache_pressure is not None:
+            pulumi.set(__self__, "vm_vfs_cache_pressure", vm_vfs_cache_pressure)
+
+    @property
+    @pulumi.getter(name="fsAioMaxNr")
+    def fs_aio_max_nr(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting fs.aio-max-nr.
+        """
+        return pulumi.get(self, "fs_aio_max_nr")
+
+    @fs_aio_max_nr.setter
+    def fs_aio_max_nr(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_aio_max_nr", value)
+
+    @property
+    @pulumi.getter(name="fsFileMax")
+    def fs_file_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting fs.file-max.
+        """
+        return pulumi.get(self, "fs_file_max")
+
+    @fs_file_max.setter
+    def fs_file_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_file_max", value)
+
+    @property
+    @pulumi.getter(name="fsInotifyMaxUserWatches")
+    def fs_inotify_max_user_watches(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting fs.inotify.max_user_watches.
+        """
+        return pulumi.get(self, "fs_inotify_max_user_watches")
+
+    @fs_inotify_max_user_watches.setter
+    def fs_inotify_max_user_watches(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_inotify_max_user_watches", value)
+
+    @property
+    @pulumi.getter(name="fsNrOpen")
+    def fs_nr_open(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting fs.nr_open.
+        """
+        return pulumi.get(self, "fs_nr_open")
+
+    @fs_nr_open.setter
+    def fs_nr_open(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fs_nr_open", value)
+
+    @property
+    @pulumi.getter(name="kernelThreadsMax")
+    def kernel_threads_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting kernel.threads-max.
+        """
+        return pulumi.get(self, "kernel_threads_max")
+
+    @kernel_threads_max.setter
+    def kernel_threads_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "kernel_threads_max", value)
+
+    @property
+    @pulumi.getter(name="netCoreNetdevMaxBacklog")
+    def net_core_netdev_max_backlog(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.core.netdev_max_backlog.
+        """
+        return pulumi.get(self, "net_core_netdev_max_backlog")
+
+    @net_core_netdev_max_backlog.setter
+    def net_core_netdev_max_backlog(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_netdev_max_backlog", value)
+
+    @property
+    @pulumi.getter(name="netCoreOptmemMax")
+    def net_core_optmem_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.core.optmem_max.
+        """
+        return pulumi.get(self, "net_core_optmem_max")
+
+    @net_core_optmem_max.setter
+    def net_core_optmem_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_optmem_max", value)
+
+    @property
+    @pulumi.getter(name="netCoreRmemMax")
+    def net_core_rmem_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.core.rmem_max.
+        """
+        return pulumi.get(self, "net_core_rmem_max")
+
+    @net_core_rmem_max.setter
+    def net_core_rmem_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_rmem_max", value)
+
+    @property
+    @pulumi.getter(name="netCoreSomaxconn")
+    def net_core_somaxconn(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.core.somaxconn.
+        """
+        return pulumi.get(self, "net_core_somaxconn")
+
+    @net_core_somaxconn.setter
+    def net_core_somaxconn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_somaxconn", value)
+
+    @property
+    @pulumi.getter(name="netCoreWmemMax")
+    def net_core_wmem_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.core.wmem_max.
+        """
+        return pulumi.get(self, "net_core_wmem_max")
+
+    @net_core_wmem_max.setter
+    def net_core_wmem_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_core_wmem_max", value)
+
+    @property
+    @pulumi.getter(name="netIpv4IpLocalPortRange")
+    def net_ipv4_ip_local_port_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sysctl setting net.ipv4.ip_local_port_range.
+        """
+        return pulumi.get(self, "net_ipv4_ip_local_port_range")
+
+    @net_ipv4_ip_local_port_range.setter
+    def net_ipv4_ip_local_port_range(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "net_ipv4_ip_local_port_range", value)
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh1")
+    def net_ipv4_neigh_default_gc_thresh1(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh1")
+
+    @net_ipv4_neigh_default_gc_thresh1.setter
+    def net_ipv4_neigh_default_gc_thresh1(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_neigh_default_gc_thresh1", value)
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh2")
+    def net_ipv4_neigh_default_gc_thresh2(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh2")
+
+    @net_ipv4_neigh_default_gc_thresh2.setter
+    def net_ipv4_neigh_default_gc_thresh2(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_neigh_default_gc_thresh2", value)
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh3")
+    def net_ipv4_neigh_default_gc_thresh3(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh3")
+
+    @net_ipv4_neigh_default_gc_thresh3.setter
+    def net_ipv4_neigh_default_gc_thresh3(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_neigh_default_gc_thresh3", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpFinTimeout")
+    def net_ipv4_tcp_fin_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.tcp_fin_timeout.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_fin_timeout")
+
+    @net_ipv4_tcp_fin_timeout.setter
+    def net_ipv4_tcp_fin_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_fin_timeout", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpKeepaliveProbes")
+    def net_ipv4_tcp_keepalive_probes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_probes.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_keepalive_probes")
+
+    @net_ipv4_tcp_keepalive_probes.setter
+    def net_ipv4_tcp_keepalive_probes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_keepalive_probes", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpKeepaliveTime")
+    def net_ipv4_tcp_keepalive_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_time.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_keepalive_time")
+
+    @net_ipv4_tcp_keepalive_time.setter
+    def net_ipv4_tcp_keepalive_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_keepalive_time", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpMaxSynBacklog")
+    def net_ipv4_tcp_max_syn_backlog(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.tcp_max_syn_backlog.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_max_syn_backlog")
+
+    @net_ipv4_tcp_max_syn_backlog.setter
+    def net_ipv4_tcp_max_syn_backlog(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_max_syn_backlog", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpMaxTwBuckets")
+    def net_ipv4_tcp_max_tw_buckets(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.tcp_max_tw_buckets.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_max_tw_buckets")
+
+    @net_ipv4_tcp_max_tw_buckets.setter
+    def net_ipv4_tcp_max_tw_buckets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_max_tw_buckets", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpRmem")
+    def net_ipv4_tcp_rmem(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.tcp_rmem.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_rmem")
+
+    @net_ipv4_tcp_rmem.setter
+    def net_ipv4_tcp_rmem(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_rmem", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpTwReuse")
+    def net_ipv4_tcp_tw_reuse(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Sysctl setting net.ipv4.tcp_tw_reuse.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_tw_reuse")
+
+    @net_ipv4_tcp_tw_reuse.setter
+    def net_ipv4_tcp_tw_reuse(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "net_ipv4_tcp_tw_reuse", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpWmem")
+    def net_ipv4_tcp_wmem(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.tcp_wmem.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_wmem")
+
+    @net_ipv4_tcp_wmem.setter
+    def net_ipv4_tcp_wmem(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcp_wmem", value)
+
+    @property
+    @pulumi.getter(name="netIpv4TcpkeepaliveIntvl")
+    def net_ipv4_tcpkeepalive_intvl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_intvl.
+        """
+        return pulumi.get(self, "net_ipv4_tcpkeepalive_intvl")
+
+    @net_ipv4_tcpkeepalive_intvl.setter
+    def net_ipv4_tcpkeepalive_intvl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_ipv4_tcpkeepalive_intvl", value)
+
+    @property
+    @pulumi.getter(name="netNetfilterNfConntrackBuckets")
+    def net_netfilter_nf_conntrack_buckets(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.netfilter.nf_conntrack_buckets.
+        """
+        return pulumi.get(self, "net_netfilter_nf_conntrack_buckets")
+
+    @net_netfilter_nf_conntrack_buckets.setter
+    def net_netfilter_nf_conntrack_buckets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_netfilter_nf_conntrack_buckets", value)
+
+    @property
+    @pulumi.getter(name="netNetfilterNfConntrackMax")
+    def net_netfilter_nf_conntrack_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting net.netfilter.nf_conntrack_max.
+        """
+        return pulumi.get(self, "net_netfilter_nf_conntrack_max")
+
+    @net_netfilter_nf_conntrack_max.setter
+    def net_netfilter_nf_conntrack_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "net_netfilter_nf_conntrack_max", value)
+
+    @property
+    @pulumi.getter(name="vmMaxMapCount")
+    def vm_max_map_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting vm.max_map_count.
+        """
+        return pulumi.get(self, "vm_max_map_count")
+
+    @vm_max_map_count.setter
+    def vm_max_map_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vm_max_map_count", value)
+
+    @property
+    @pulumi.getter(name="vmSwappiness")
+    def vm_swappiness(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting vm.swappiness.
+        """
+        return pulumi.get(self, "vm_swappiness")
+
+    @vm_swappiness.setter
+    def vm_swappiness(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vm_swappiness", value)
+
+    @property
+    @pulumi.getter(name="vmVfsCachePressure")
+    def vm_vfs_cache_pressure(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sysctl setting vm.vfs_cache_pressure.
+        """
+        return pulumi.get(self, "vm_vfs_cache_pressure")
+
+    @vm_vfs_cache_pressure.setter
+    def vm_vfs_cache_pressure(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vm_vfs_cache_pressure", value)
+
+
+@pulumi.input_type
+class UserAssignedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The client id of the user assigned identity.
+        :param pulumi.Input[str] object_id: The object id of the user assigned identity.
+        :param pulumi.Input[str] resource_id: The resource id of the user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client id of the user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object id of the user assigned identity.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the user assigned identity.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 

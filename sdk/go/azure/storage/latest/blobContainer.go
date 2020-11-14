@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -48,7 +49,7 @@ type BlobContainer struct {
 	PublicAccess pulumi.StringPtrOutput `pulumi:"publicAccess"`
 	// Remaining retention days for soft deleted blob container.
 	RemainingRetentionDays pulumi.IntOutput `pulumi:"remainingRetentionDays"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version of the deleted blob container.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -149,7 +150,7 @@ type blobContainerState struct {
 	PublicAccess *string `pulumi:"publicAccess"`
 	// Remaining retention days for soft deleted blob container.
 	RemainingRetentionDays *int `pulumi:"remainingRetentionDays"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The version of the deleted blob container.
 	Version *string `pulumi:"version"`
@@ -190,7 +191,7 @@ type BlobContainerState struct {
 	PublicAccess pulumi.StringPtrInput
 	// Remaining retention days for soft deleted blob container.
 	RemainingRetentionDays pulumi.IntPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The version of the deleted blob container.
 	Version pulumi.StringPtrInput
@@ -237,4 +238,43 @@ type BlobContainerArgs struct {
 
 func (BlobContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*blobContainerArgs)(nil)).Elem()
+}
+
+type BlobContainerInput interface {
+	pulumi.Input
+
+	ToBlobContainerOutput() BlobContainerOutput
+	ToBlobContainerOutputWithContext(ctx context.Context) BlobContainerOutput
+}
+
+func (BlobContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainer)(nil)).Elem()
+}
+
+func (i BlobContainer) ToBlobContainerOutput() BlobContainerOutput {
+	return i.ToBlobContainerOutputWithContext(context.Background())
+}
+
+func (i BlobContainer) ToBlobContainerOutputWithContext(ctx context.Context) BlobContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerOutput)
+}
+
+type BlobContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (BlobContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerOutput)(nil)).Elem()
+}
+
+func (o BlobContainerOutput) ToBlobContainerOutput() BlobContainerOutput {
+	return o
+}
+
+func (o BlobContainerOutput) ToBlobContainerOutputWithContext(ctx context.Context) BlobContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BlobContainerOutput{})
 }

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -18,6 +19,8 @@ type PublicIPPrefix struct {
 	CustomIPPrefix SubResourceResponsePtrOutput `pulumi:"customIPPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The extended location of the public ip address.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// The allocated Prefix.
 	IpPrefix pulumi.StringOutput `pulumi:"ipPrefix"`
 	// The list of tags associated with the public IP prefix.
@@ -112,6 +115,9 @@ func NewPublicIPPrefix(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PublicIPPrefix"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:PublicIPPrefix"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PublicIPPrefix
@@ -140,6 +146,8 @@ type publicIPPrefixState struct {
 	CustomIPPrefix *SubResourceResponse `pulumi:"customIPPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The extended location of the public ip address.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The allocated Prefix.
 	IpPrefix *string `pulumi:"ipPrefix"`
 	// The list of tags associated with the public IP prefix.
@@ -175,6 +183,8 @@ type PublicIPPrefixState struct {
 	CustomIPPrefix SubResourceResponsePtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The extended location of the public ip address.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// The allocated Prefix.
 	IpPrefix pulumi.StringPtrInput
 	// The list of tags associated with the public IP prefix.
@@ -212,6 +222,8 @@ func (PublicIPPrefixState) ElementType() reflect.Type {
 type publicIPPrefixArgs struct {
 	// The customIpPrefix that this prefix is associated with.
 	CustomIPPrefix *SubResource `pulumi:"customIPPrefix"`
+	// The extended location of the public ip address.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The list of tags associated with the public IP prefix.
@@ -238,6 +250,8 @@ type publicIPPrefixArgs struct {
 type PublicIPPrefixArgs struct {
 	// The customIpPrefix that this prefix is associated with.
 	CustomIPPrefix SubResourcePtrInput
+	// The extended location of the public ip address.
+	ExtendedLocation ExtendedLocationPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The list of tags associated with the public IP prefix.
@@ -262,4 +276,43 @@ type PublicIPPrefixArgs struct {
 
 func (PublicIPPrefixArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicIPPrefixArgs)(nil)).Elem()
+}
+
+type PublicIPPrefixInput interface {
+	pulumi.Input
+
+	ToPublicIPPrefixOutput() PublicIPPrefixOutput
+	ToPublicIPPrefixOutputWithContext(ctx context.Context) PublicIPPrefixOutput
+}
+
+func (PublicIPPrefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIPPrefix)(nil)).Elem()
+}
+
+func (i PublicIPPrefix) ToPublicIPPrefixOutput() PublicIPPrefixOutput {
+	return i.ToPublicIPPrefixOutputWithContext(context.Background())
+}
+
+func (i PublicIPPrefix) ToPublicIPPrefixOutputWithContext(ctx context.Context) PublicIPPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIPPrefixOutput)
+}
+
+type PublicIPPrefixOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublicIPPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIPPrefixOutput)(nil)).Elem()
+}
+
+func (o PublicIPPrefixOutput) ToPublicIPPrefixOutput() PublicIPPrefixOutput {
+	return o
+}
+
+func (o PublicIPPrefixOutput) ToPublicIPPrefixOutputWithContext(ctx context.Context) PublicIPPrefixOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PublicIPPrefixOutput{})
 }

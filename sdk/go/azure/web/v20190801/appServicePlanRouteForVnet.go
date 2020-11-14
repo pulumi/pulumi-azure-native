@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -185,4 +186,43 @@ type AppServicePlanRouteForVnetArgs struct {
 
 func (AppServicePlanRouteForVnetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*appServicePlanRouteForVnetArgs)(nil)).Elem()
+}
+
+type AppServicePlanRouteForVnetInput interface {
+	pulumi.Input
+
+	ToAppServicePlanRouteForVnetOutput() AppServicePlanRouteForVnetOutput
+	ToAppServicePlanRouteForVnetOutputWithContext(ctx context.Context) AppServicePlanRouteForVnetOutput
+}
+
+func (AppServicePlanRouteForVnet) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServicePlanRouteForVnet)(nil)).Elem()
+}
+
+func (i AppServicePlanRouteForVnet) ToAppServicePlanRouteForVnetOutput() AppServicePlanRouteForVnetOutput {
+	return i.ToAppServicePlanRouteForVnetOutputWithContext(context.Background())
+}
+
+func (i AppServicePlanRouteForVnet) ToAppServicePlanRouteForVnetOutputWithContext(ctx context.Context) AppServicePlanRouteForVnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServicePlanRouteForVnetOutput)
+}
+
+type AppServicePlanRouteForVnetOutput struct {
+	*pulumi.OutputState
+}
+
+func (AppServicePlanRouteForVnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServicePlanRouteForVnetOutput)(nil)).Elem()
+}
+
+func (o AppServicePlanRouteForVnetOutput) ToAppServicePlanRouteForVnetOutput() AppServicePlanRouteForVnetOutput {
+	return o
+}
+
+func (o AppServicePlanRouteForVnetOutput) ToAppServicePlanRouteForVnetOutputWithContext(ctx context.Context) AppServicePlanRouteForVnetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AppServicePlanRouteForVnetOutput{})
 }

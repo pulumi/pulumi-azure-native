@@ -4,6 +4,7 @@
 package v20191201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type PipelineRunArgs struct {
 
 func (PipelineRunArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineRunArgs)(nil)).Elem()
+}
+
+type PipelineRunInput interface {
+	pulumi.Input
+
+	ToPipelineRunOutput() PipelineRunOutput
+	ToPipelineRunOutputWithContext(ctx context.Context) PipelineRunOutput
+}
+
+func (PipelineRun) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRun)(nil)).Elem()
+}
+
+func (i PipelineRun) ToPipelineRunOutput() PipelineRunOutput {
+	return i.ToPipelineRunOutputWithContext(context.Background())
+}
+
+func (i PipelineRun) ToPipelineRunOutputWithContext(ctx context.Context) PipelineRunOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunOutput)
+}
+
+type PipelineRunOutput struct {
+	*pulumi.OutputState
+}
+
+func (PipelineRunOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunOutput)(nil)).Elem()
+}
+
+func (o PipelineRunOutput) ToPipelineRunOutput() PipelineRunOutput {
+	return o
+}
+
+func (o PipelineRunOutput) ToPipelineRunOutputWithContext(ctx context.Context) PipelineRunOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PipelineRunOutput{})
 }

@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
         /// </summary>
         public readonly string DeploymentId;
         /// <summary>
+        /// Distinguished Name of OuContainer instance
+        /// </summary>
+        public readonly string DistinguishedName;
+        /// <summary>
         /// The domain name of Domain Services.
         /// </summary>
         public readonly string DomainName;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
 
             string deploymentId,
 
+            string distinguishedName,
+
             string domainName,
 
             string? etag,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
             Accounts = accounts;
             ContainerId = containerId;
             DeploymentId = deploymentId;
+            DistinguishedName = distinguishedName;
             DomainName = domainName;
             Etag = etag;
             Location = location;

@@ -51,6 +51,6 @@ type LookupRolloutResult struct {
 	TargetServiceTopologyId string `pulumi:"targetServiceTopologyId"`
 	// The cardinal count of total number of retries performed on the rollout at a given time.
 	TotalRetryAttempts int `pulumi:"totalRetryAttempts"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

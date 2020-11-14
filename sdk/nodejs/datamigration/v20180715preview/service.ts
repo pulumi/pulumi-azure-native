@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -73,6 +72,10 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
+     * The ID of the Microsoft.Network/networkInterfaces resource which the service have
+     */
+    public readonly virtualNicId!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */
     public readonly virtualSubnetId!: pulumi.Output<string>;
@@ -107,6 +110,7 @@ export class Service extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNicId"] = args ? args.virtualNicId : undefined;
             inputs["virtualSubnetId"] = args ? args.virtualSubnetId : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -121,6 +125,7 @@ export class Service extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualNicId"] = undefined /*out*/;
             inputs["virtualSubnetId"] = undefined /*out*/;
         }
         if (!opts) {
@@ -172,6 +177,10 @@ export interface ServiceArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the Microsoft.Network/networkInterfaces resource which the service have
+     */
+    readonly virtualNicId?: pulumi.Input<string>;
     /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */

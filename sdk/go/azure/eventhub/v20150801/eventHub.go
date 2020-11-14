@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -176,4 +177,43 @@ type EventHubArgs struct {
 
 func (EventHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubArgs)(nil)).Elem()
+}
+
+type EventHubInput interface {
+	pulumi.Input
+
+	ToEventHubOutput() EventHubOutput
+	ToEventHubOutputWithContext(ctx context.Context) EventHubOutput
+}
+
+func (EventHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHub)(nil)).Elem()
+}
+
+func (i EventHub) ToEventHubOutput() EventHubOutput {
+	return i.ToEventHubOutputWithContext(context.Background())
+}
+
+func (i EventHub) ToEventHubOutputWithContext(ctx context.Context) EventHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubOutput)
+}
+
+type EventHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubOutput)(nil)).Elem()
+}
+
+func (o EventHubOutput) ToEventHubOutput() EventHubOutput {
+	return o
+}
+
+func (o EventHubOutput) ToEventHubOutputWithContext(ctx context.Context) EventHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventHubOutput{})
 }

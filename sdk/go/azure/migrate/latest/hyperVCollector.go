@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -104,4 +105,43 @@ type HyperVCollectorArgs struct {
 
 func (HyperVCollectorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hyperVCollectorArgs)(nil)).Elem()
+}
+
+type HyperVCollectorInput interface {
+	pulumi.Input
+
+	ToHyperVCollectorOutput() HyperVCollectorOutput
+	ToHyperVCollectorOutputWithContext(ctx context.Context) HyperVCollectorOutput
+}
+
+func (HyperVCollector) ElementType() reflect.Type {
+	return reflect.TypeOf((*HyperVCollector)(nil)).Elem()
+}
+
+func (i HyperVCollector) ToHyperVCollectorOutput() HyperVCollectorOutput {
+	return i.ToHyperVCollectorOutputWithContext(context.Background())
+}
+
+func (i HyperVCollector) ToHyperVCollectorOutputWithContext(ctx context.Context) HyperVCollectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HyperVCollectorOutput)
+}
+
+type HyperVCollectorOutput struct {
+	*pulumi.OutputState
+}
+
+func (HyperVCollectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HyperVCollectorOutput)(nil)).Elem()
+}
+
+func (o HyperVCollectorOutput) ToHyperVCollectorOutput() HyperVCollectorOutput {
+	return o
+}
+
+func (o HyperVCollectorOutput) ToHyperVCollectorOutputWithContext(ctx context.Context) HyperVCollectorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HyperVCollectorOutput{})
 }

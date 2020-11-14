@@ -4,6 +4,7 @@
 package v20200401preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -217,4 +218,43 @@ type SystemTopicEventSubscriptionArgs struct {
 
 func (SystemTopicEventSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*systemTopicEventSubscriptionArgs)(nil)).Elem()
+}
+
+type SystemTopicEventSubscriptionInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput
+	ToSystemTopicEventSubscriptionOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionOutput
+}
+
+func (SystemTopicEventSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscription)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput {
+	return i.ToSystemTopicEventSubscriptionOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionOutput)
+}
+
+type SystemTopicEventSubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SystemTopicEventSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionOutput)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200815preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -20,7 +21,7 @@ type PrivateLinkScopedResource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the private endpoint connection.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -67,7 +68,7 @@ type privateLinkScopedResourceState struct {
 	Name *string `pulumi:"name"`
 	// State of the private endpoint connection.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -78,7 +79,7 @@ type PrivateLinkScopedResourceState struct {
 	Name pulumi.StringPtrInput
 	// State of the private endpoint connection.
 	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -111,4 +112,43 @@ type PrivateLinkScopedResourceArgs struct {
 
 func (PrivateLinkScopedResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkScopedResourceArgs)(nil)).Elem()
+}
+
+type PrivateLinkScopedResourceInput interface {
+	pulumi.Input
+
+	ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput
+	ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput
+}
+
+func (PrivateLinkScopedResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResource)(nil)).Elem()
+}
+
+func (i PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {
+	return i.ToPrivateLinkScopedResourceOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceOutput)
+}
+
+type PrivateLinkScopedResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateLinkScopedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResourceOutput)(nil)).Elem()
+}
+
+func (o PrivateLinkScopedResourceOutput) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceOutput) ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateLinkScopedResourceOutput{})
 }

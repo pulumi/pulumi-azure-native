@@ -4,6 +4,7 @@
 package v20150504preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -24,7 +25,7 @@ type RecordSet struct {
 	Properties RecordSetPropertiesResponseOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -99,7 +100,7 @@ type recordSetState struct {
 	Properties *RecordSetPropertiesResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -114,7 +115,7 @@ type RecordSetState struct {
 	Properties RecordSetPropertiesResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -163,4 +164,43 @@ type RecordSetArgs struct {
 
 func (RecordSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*recordSetArgs)(nil)).Elem()
+}
+
+type RecordSetInput interface {
+	pulumi.Input
+
+	ToRecordSetOutput() RecordSetOutput
+	ToRecordSetOutputWithContext(ctx context.Context) RecordSetOutput
+}
+
+func (RecordSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSet)(nil)).Elem()
+}
+
+func (i RecordSet) ToRecordSetOutput() RecordSetOutput {
+	return i.ToRecordSetOutputWithContext(context.Background())
+}
+
+func (i RecordSet) ToRecordSetOutputWithContext(ctx context.Context) RecordSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetOutput)
+}
+
+type RecordSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (RecordSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetOutput)(nil)).Elem()
+}
+
+func (o RecordSetOutput) ToRecordSetOutput() RecordSetOutput {
+	return o
+}
+
+func (o RecordSetOutput) ToRecordSetOutputWithContext(ctx context.Context) RecordSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RecordSetOutput{})
 }

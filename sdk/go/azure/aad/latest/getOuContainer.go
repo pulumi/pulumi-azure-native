@@ -33,6 +33,8 @@ type LookupOuContainerResult struct {
 	ContainerId string `pulumi:"containerId"`
 	// The Deployment id
 	DeploymentId string `pulumi:"deploymentId"`
+	// Distinguished Name of OuContainer instance
+	DistinguishedName string `pulumi:"distinguishedName"`
 	// The domain name of Domain Services.
 	DomainName string `pulumi:"domainName"`
 	// Resource etag

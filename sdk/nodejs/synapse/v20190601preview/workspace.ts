@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,6 +44,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly defaultDataLakeStorage!: pulumi.Output<outputs.synapse.v20190601preview.DataLakeStorageAccountDetailsResponse | undefined>;
     /**
+     * The encryption details of the workspace
+     */
+    public readonly encryption!: pulumi.Output<outputs.synapse.v20190601preview.EncryptionDetailsResponse | undefined>;
+    /**
      * Workspace level configs and feature flags
      */
     public /*out*/ readonly extraProperties!: pulumi.Output<{[key: string]: any}>;
@@ -81,6 +84,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Purview Configuration
+     */
+    public readonly purviewConfiguration!: pulumi.Output<outputs.synapse.v20190601preview.PurviewConfigurationResponse | undefined>;
+    /**
      * Login for workspace SQL active directory administrator
      */
     public readonly sqlAdministratorLogin!: pulumi.Output<string | undefined>;
@@ -93,13 +100,21 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
      * Virtual Network profile
      */
     public readonly virtualNetworkProfile!: pulumi.Output<outputs.synapse.v20190601preview.VirtualNetworkProfileResponse | undefined>;
+    /**
+     * Git integration settings
+     */
+    public readonly workspaceRepositoryConfiguration!: pulumi.Output<outputs.synapse.v20190601preview.WorkspaceRepositoryConfigurationResponse | undefined>;
+    /**
+     * The workspace unique identifier
+     */
+    public /*out*/ readonly workspaceUID!: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -122,25 +137,30 @@ export class Workspace extends pulumi.CustomResource {
             }
             inputs["connectivityEndpoints"] = args ? args.connectivityEndpoints : undefined;
             inputs["defaultDataLakeStorage"] = args ? args.defaultDataLakeStorage : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["managedVirtualNetwork"] = args ? args.managedVirtualNetwork : undefined;
             inputs["managedVirtualNetworkSettings"] = args ? args.managedVirtualNetworkSettings : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
+            inputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
             inputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkProfile"] = args ? args.virtualNetworkProfile : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["workspaceRepositoryConfiguration"] = args ? args.workspaceRepositoryConfiguration : undefined;
             inputs["extraProperties"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["workspaceUID"] = undefined /*out*/;
         } else {
             inputs["connectivityEndpoints"] = undefined /*out*/;
             inputs["defaultDataLakeStorage"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
             inputs["extraProperties"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -150,11 +170,14 @@ export class Workspace extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["purviewConfiguration"] = undefined /*out*/;
             inputs["sqlAdministratorLogin"] = undefined /*out*/;
             inputs["sqlAdministratorLoginPassword"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetworkProfile"] = undefined /*out*/;
+            inputs["workspaceRepositoryConfiguration"] = undefined /*out*/;
+            inputs["workspaceUID"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -180,6 +203,10 @@ export interface WorkspaceArgs {
      */
     readonly defaultDataLakeStorage?: pulumi.Input<inputs.synapse.v20190601preview.DataLakeStorageAccountDetails>;
     /**
+     * The encryption details of the workspace
+     */
+    readonly encryption?: pulumi.Input<inputs.synapse.v20190601preview.EncryptionDetails>;
+    /**
      * Identity of the workspace
      */
     readonly identity?: pulumi.Input<inputs.synapse.v20190601preview.ManagedIdentity>;
@@ -204,6 +231,10 @@ export interface WorkspaceArgs {
      */
     readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.v20190601preview.PrivateEndpointConnection>[]>;
     /**
+     * Purview Configuration
+     */
+    readonly purviewConfiguration?: pulumi.Input<inputs.synapse.v20190601preview.PurviewConfiguration>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -227,4 +258,8 @@ export interface WorkspaceArgs {
      * The name of the workspace
      */
     readonly workspaceName: pulumi.Input<string>;
+    /**
+     * Git integration settings
+     */
+    readonly workspaceRepositoryConfiguration?: pulumi.Input<inputs.synapse.v20190601preview.WorkspaceRepositoryConfiguration>;
 }

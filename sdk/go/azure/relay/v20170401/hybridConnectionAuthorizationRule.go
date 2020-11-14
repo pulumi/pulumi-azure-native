@@ -4,6 +4,7 @@
 package v20170401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,4 +125,43 @@ type HybridConnectionAuthorizationRuleArgs struct {
 
 func (HybridConnectionAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hybridConnectionAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type HybridConnectionAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToHybridConnectionAuthorizationRuleOutput() HybridConnectionAuthorizationRuleOutput
+	ToHybridConnectionAuthorizationRuleOutputWithContext(ctx context.Context) HybridConnectionAuthorizationRuleOutput
+}
+
+func (HybridConnectionAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionAuthorizationRule)(nil)).Elem()
+}
+
+func (i HybridConnectionAuthorizationRule) ToHybridConnectionAuthorizationRuleOutput() HybridConnectionAuthorizationRuleOutput {
+	return i.ToHybridConnectionAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i HybridConnectionAuthorizationRule) ToHybridConnectionAuthorizationRuleOutputWithContext(ctx context.Context) HybridConnectionAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionAuthorizationRuleOutput)
+}
+
+type HybridConnectionAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (HybridConnectionAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionAuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o HybridConnectionAuthorizationRuleOutput) ToHybridConnectionAuthorizationRuleOutput() HybridConnectionAuthorizationRuleOutput {
+	return o
+}
+
+func (o HybridConnectionAuthorizationRuleOutput) ToHybridConnectionAuthorizationRuleOutputWithContext(ctx context.Context) HybridConnectionAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HybridConnectionAuthorizationRuleOutput{})
 }

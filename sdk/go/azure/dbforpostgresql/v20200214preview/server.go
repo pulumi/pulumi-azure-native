@@ -4,6 +4,7 @@
 package v20200214preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,7 +58,7 @@ type Server struct {
 	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// PostgreSQL Server version.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
@@ -149,7 +150,7 @@ type serverState struct {
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// PostgreSQL Server version.
 	Version *string `pulumi:"version"`
@@ -199,7 +200,7 @@ type ServerState struct {
 	StorageProfile StorageProfileResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// PostgreSQL Server version.
 	Version pulumi.StringPtrInput
@@ -288,4 +289,43 @@ type ServerArgs struct {
 
 func (ServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverArgs)(nil)).Elem()
+}
+
+type ServerInput interface {
+	pulumi.Input
+
+	ToServerOutput() ServerOutput
+	ToServerOutputWithContext(ctx context.Context) ServerOutput
+}
+
+func (Server) ElementType() reflect.Type {
+	return reflect.TypeOf((*Server)(nil)).Elem()
+}
+
+func (i Server) ToServerOutput() ServerOutput {
+	return i.ToServerOutputWithContext(context.Background())
+}
+
+func (i Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
+}
+
+type ServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerOutput)(nil)).Elem()
+}
+
+func (o ServerOutput) ToServerOutput() ServerOutput {
+	return o
+}
+
+func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerOutput{})
 }

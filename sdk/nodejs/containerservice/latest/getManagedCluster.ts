@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
@@ -55,6 +54,10 @@ export interface GetManagedClusterResult {
      * Parameters to be applied to the cluster-autoscaler when enabled
      */
     readonly autoScalerProfile?: outputs.containerservice.latest.ManagedClusterPropertiesResponseAutoScalerProfile;
+    /**
+     * Profile of auto upgrade configuration.
+     */
+    readonly autoUpgradeProfile?: outputs.containerservice.latest.ManagedClusterAutoUpgradeProfileResponse;
     /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
@@ -111,6 +114,10 @@ export interface GetManagedClusterResult {
      * Name of the resource group containing agent pool nodes.
      */
     readonly nodeResourceGroup?: string;
+    /**
+     * Profile of managed cluster pod identity.
+     */
+    readonly podIdentityProfile?: outputs.containerservice.latest.ManagedClusterPodIdentityProfileResponse;
     /**
      * Represents the Power State of the cluster
      */

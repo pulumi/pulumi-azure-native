@@ -4,6 +4,7 @@
 package v20150501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -187,4 +188,43 @@ type FavoriteArgs struct {
 
 func (FavoriteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*favoriteArgs)(nil)).Elem()
+}
+
+type FavoriteInput interface {
+	pulumi.Input
+
+	ToFavoriteOutput() FavoriteOutput
+	ToFavoriteOutputWithContext(ctx context.Context) FavoriteOutput
+}
+
+func (Favorite) ElementType() reflect.Type {
+	return reflect.TypeOf((*Favorite)(nil)).Elem()
+}
+
+func (i Favorite) ToFavoriteOutput() FavoriteOutput {
+	return i.ToFavoriteOutputWithContext(context.Background())
+}
+
+func (i Favorite) ToFavoriteOutputWithContext(ctx context.Context) FavoriteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FavoriteOutput)
+}
+
+type FavoriteOutput struct {
+	*pulumi.OutputState
+}
+
+func (FavoriteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FavoriteOutput)(nil)).Elem()
+}
+
+func (o FavoriteOutput) ToFavoriteOutput() FavoriteOutput {
+	return o
+}
+
+func (o FavoriteOutput) ToFavoriteOutputWithContext(ctx context.Context) FavoriteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FavoriteOutput{})
 }

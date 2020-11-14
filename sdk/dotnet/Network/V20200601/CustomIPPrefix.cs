@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:CustomIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:CustomIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

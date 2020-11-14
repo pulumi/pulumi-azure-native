@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -144,4 +145,43 @@ type GatewayHostnameConfigurationArgs struct {
 
 func (GatewayHostnameConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayHostnameConfigurationArgs)(nil)).Elem()
+}
+
+type GatewayHostnameConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayHostnameConfigurationOutput() GatewayHostnameConfigurationOutput
+	ToGatewayHostnameConfigurationOutputWithContext(ctx context.Context) GatewayHostnameConfigurationOutput
+}
+
+func (GatewayHostnameConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayHostnameConfiguration)(nil)).Elem()
+}
+
+func (i GatewayHostnameConfiguration) ToGatewayHostnameConfigurationOutput() GatewayHostnameConfigurationOutput {
+	return i.ToGatewayHostnameConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayHostnameConfiguration) ToGatewayHostnameConfigurationOutputWithContext(ctx context.Context) GatewayHostnameConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayHostnameConfigurationOutput)
+}
+
+type GatewayHostnameConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (GatewayHostnameConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayHostnameConfigurationOutput)(nil)).Elem()
+}
+
+func (o GatewayHostnameConfigurationOutput) ToGatewayHostnameConfigurationOutput() GatewayHostnameConfigurationOutput {
+	return o
+}
+
+func (o GatewayHostnameConfigurationOutput) ToGatewayHostnameConfigurationOutputWithContext(ctx context.Context) GatewayHostnameConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GatewayHostnameConfigurationOutput{})
 }

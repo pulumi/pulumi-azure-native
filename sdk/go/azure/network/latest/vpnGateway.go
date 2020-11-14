@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,6 +23,8 @@ type VpnGateway struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// List of all IPs configured on the gateway.
 	IpConfigurations VpnGatewayIpConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
+	// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+	IsRoutingPreferenceInternet pulumi.BoolPtrOutput `pulumi:"isRoutingPreferenceInternet"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
@@ -111,6 +114,9 @@ func NewVpnGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VpnGateway"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VpnGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VpnGateway
@@ -143,6 +149,8 @@ type vpnGatewayState struct {
 	Etag *string `pulumi:"etag"`
 	// List of all IPs configured on the gateway.
 	IpConfigurations []VpnGatewayIpConfigurationResponse `pulumi:"ipConfigurations"`
+	// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+	IsRoutingPreferenceInternet *bool `pulumi:"isRoutingPreferenceInternet"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -168,6 +176,8 @@ type VpnGatewayState struct {
 	Etag pulumi.StringPtrInput
 	// List of all IPs configured on the gateway.
 	IpConfigurations VpnGatewayIpConfigurationResponseArrayInput
+	// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+	IsRoutingPreferenceInternet pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
@@ -197,6 +207,8 @@ type vpnGatewayArgs struct {
 	GatewayName string `pulumi:"gatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+	IsRoutingPreferenceInternet *bool `pulumi:"isRoutingPreferenceInternet"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The resource group name of the VpnGateway.
@@ -219,6 +231,8 @@ type VpnGatewayArgs struct {
 	GatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+	IsRoutingPreferenceInternet pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// The resource group name of the VpnGateway.
@@ -233,4 +247,43 @@ type VpnGatewayArgs struct {
 
 func (VpnGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayArgs)(nil)).Elem()
+}
+
+type VpnGatewayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayOutput() VpnGatewayOutput
+	ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatewayOutput
+}
+
+func (VpnGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGateway)(nil)).Elem()
+}
+
+func (i VpnGateway) ToVpnGatewayOutput() VpnGatewayOutput {
+	return i.ToVpnGatewayOutputWithContext(context.Background())
+}
+
+func (i VpnGateway) ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayOutput)
+}
+
+type VpnGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayOutput)(nil)).Elem()
+}
+
+func (o VpnGatewayOutput) ToVpnGatewayOutput() VpnGatewayOutput {
+	return o
+}
+
+func (o VpnGatewayOutput) ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpnGatewayOutput{})
 }

@@ -49,7 +49,7 @@ type LookupMSIXPackageResult struct {
 	PackageName *string `pulumi:"packageName"`
 	// Relative Path to the package inside the image.
 	PackageRelativePath *string `pulumi:"packageRelativePath"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Package Version found in the appxmanifest.xml.
 	Version *string `pulumi:"version"`

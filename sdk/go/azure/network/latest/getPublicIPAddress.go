@@ -19,7 +19,7 @@ func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs,
 type LookupPublicIPAddressArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
-	// The name of the subnet.
+	// The name of the public IP address.
 	PublicIpAddressName string `pulumi:"publicIpAddressName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -33,6 +33,8 @@ type LookupPublicIPAddressResult struct {
 	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The extended location of the public ip address.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The idle timeout of the public IP address.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The IP address associated with the public IP address resource.

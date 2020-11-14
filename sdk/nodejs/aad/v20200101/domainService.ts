@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -40,6 +39,10 @@ export class DomainService extends pulumi.CustomResource {
      * Deployment Id
      */
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    /**
+     * Domain Configuration Type
+     */
+    public readonly domainConfigurationType!: pulumi.Output<string | undefined>;
     /**
      * The name of the Azure domain that the user would like to deploy Domain Services to.
      */
@@ -81,6 +84,14 @@ export class DomainService extends pulumi.CustomResource {
      */
     public readonly replicaSets!: pulumi.Output<outputs.aad.v20200101.ReplicaSetResponse[] | undefined>;
     /**
+     * Resource Forest Settings
+     */
+    public readonly resourceForestSettings!: pulumi.Output<outputs.aad.v20200101.ResourceForestSettingsResponse | undefined>;
+    /**
+     * Sku Type
+     */
+    public readonly sku!: pulumi.Output<string | undefined>;
+    /**
      * SyncOwner ReplicaSet Id
      */
     public /*out*/ readonly syncOwner!: pulumi.Output<string>;
@@ -117,6 +128,7 @@ export class DomainService extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["domainSecuritySettings"] = args ? args.domainSecuritySettings : undefined;
             inputs["domainServiceName"] = args ? args.domainServiceName : undefined;
@@ -126,7 +138,9 @@ export class DomainService extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["notificationSettings"] = args ? args.notificationSettings : undefined;
             inputs["replicaSets"] = args ? args.replicaSets : undefined;
+            inputs["resourceForestSettings"] = args ? args.resourceForestSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["deploymentId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -137,6 +151,7 @@ export class DomainService extends pulumi.CustomResource {
             inputs["version"] = undefined /*out*/;
         } else {
             inputs["deploymentId"] = undefined /*out*/;
+            inputs["domainConfigurationType"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["domainSecuritySettings"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
@@ -147,6 +162,8 @@ export class DomainService extends pulumi.CustomResource {
             inputs["notificationSettings"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["replicaSets"] = undefined /*out*/;
+            inputs["resourceForestSettings"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["syncOwner"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
@@ -170,6 +187,10 @@ export class DomainService extends pulumi.CustomResource {
  * The set of arguments for constructing a DomainService resource.
  */
 export interface DomainServiceArgs {
+    /**
+     * Domain Configuration Type
+     */
+    readonly domainConfigurationType?: pulumi.Input<string>;
     /**
      * The name of the Azure domain that the user would like to deploy Domain Services to.
      */
@@ -207,9 +228,17 @@ export interface DomainServiceArgs {
      */
     readonly replicaSets?: pulumi.Input<pulumi.Input<inputs.aad.v20200101.ReplicaSet>[]>;
     /**
+     * Resource Forest Settings
+     */
+    readonly resourceForestSettings?: pulumi.Input<inputs.aad.v20200101.ResourceForestSettings>;
+    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Sku Type
+     */
+    readonly sku?: pulumi.Input<string>;
     /**
      * Resource tags
      */

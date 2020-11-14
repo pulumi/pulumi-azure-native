@@ -25,6 +25,10 @@ type LookupDomainServiceArgs struct {
 
 // Domain service.
 type LookupDomainServiceResult struct {
+	// Deployment Id
+	DeploymentId string `pulumi:"deploymentId"`
+	// Domain Configuration Type
+	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
 	// List of Domain Controller IP Address
 	DomainControllerIpAddress []string `pulumi:"domainControllerIpAddress"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
@@ -51,16 +55,22 @@ type LookupDomainServiceResult struct {
 	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
 	// the current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource Forest Settings
+	ResourceForestSettings *ResourceForestSettingsResponse `pulumi:"resourceForestSettings"`
 	// Status of Domain Service instance
 	ServiceStatus string `pulumi:"serviceStatus"`
+	// Sku Type
+	Sku *string `pulumi:"sku"`
 	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
 	SubnetId *string `pulumi:"subnetId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// Azure Active Directory tenant id
+	// Azure Active Directory Tenant Id
 	TenantId string `pulumi:"tenantId"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Data Model Version
+	Version int `pulumi:"version"`
 	// Virtual network site id
 	VnetSiteId string `pulumi:"vnetSiteId"`
 }

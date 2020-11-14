@@ -15,6 +15,18 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
     public partial class DomainService : Pulumi.CustomResource
     {
         /// <summary>
+        /// Deployment Id
+        /// </summary>
+        [Output("deploymentId")]
+        public Output<string> DeploymentId { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain Configuration Type
+        /// </summary>
+        [Output("domainConfigurationType")]
+        public Output<string?> DomainConfigurationType { get; private set; } = null!;
+
+        /// <summary>
         /// List of Domain Controller IP Address
         /// </summary>
         [Output("domainControllerIpAddress")]
@@ -93,10 +105,22 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Resource Forest Settings
+        /// </summary>
+        [Output("resourceForestSettings")]
+        public Output<Outputs.ResourceForestSettingsResponse?> ResourceForestSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Status of Domain Service instance
         /// </summary>
         [Output("serviceStatus")]
         public Output<string> ServiceStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Sku Type
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
@@ -111,7 +135,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Active Directory tenant id
+        /// Azure Active Directory Tenant Id
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -121,6 +145,12 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Data Model Version
+        /// </summary>
+        [Output("version")]
+        public Output<int> Version { get; private set; } = null!;
 
         /// <summary>
         /// Virtual network site id
@@ -180,6 +210,12 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
     public sealed class DomainServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Domain Configuration Type
+        /// </summary>
+        [Input("domainConfigurationType")]
+        public Input<string>? DomainConfigurationType { get; set; }
+
+        /// <summary>
         /// The name of the Azure domain that the user would like to deploy Domain Services to.
         /// </summary>
         [Input("domainName")]
@@ -228,10 +264,22 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         public Input<Inputs.NotificationSettingsArgs>? NotificationSettings { get; set; }
 
         /// <summary>
+        /// Resource Forest Settings
+        /// </summary>
+        [Input("resourceForestSettings")]
+        public Input<Inputs.ResourceForestSettingsArgs>? ResourceForestSettings { get; set; }
+
+        /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Sku Type
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         /// <summary>
         /// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
@@ -43,9 +42,17 @@ export interface GetViewResult {
      */
     readonly createdOn: string;
     /**
+     * Selected currency.
+     */
+    readonly currency: string;
+    /**
      * Has definition for data in this report config.
      */
     readonly dataset?: outputs.costmanagement.v20191101.ReportConfigDatasetResponse;
+    /**
+     * Selected date range for viewing cost in.
+     */
+    readonly dateRange: string;
     /**
      * User input name of the view. Required.
      */

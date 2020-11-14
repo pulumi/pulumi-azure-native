@@ -4,6 +4,7 @@
 package v20181203
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type EnterpriseKnowledgeGraphArgs struct {
 
 func (EnterpriseKnowledgeGraphArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*enterpriseKnowledgeGraphArgs)(nil)).Elem()
+}
+
+type EnterpriseKnowledgeGraphInput interface {
+	pulumi.Input
+
+	ToEnterpriseKnowledgeGraphOutput() EnterpriseKnowledgeGraphOutput
+	ToEnterpriseKnowledgeGraphOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphOutput
+}
+
+func (EnterpriseKnowledgeGraph) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseKnowledgeGraph)(nil)).Elem()
+}
+
+func (i EnterpriseKnowledgeGraph) ToEnterpriseKnowledgeGraphOutput() EnterpriseKnowledgeGraphOutput {
+	return i.ToEnterpriseKnowledgeGraphOutputWithContext(context.Background())
+}
+
+func (i EnterpriseKnowledgeGraph) ToEnterpriseKnowledgeGraphOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseKnowledgeGraphOutput)
+}
+
+type EnterpriseKnowledgeGraphOutput struct {
+	*pulumi.OutputState
+}
+
+func (EnterpriseKnowledgeGraphOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseKnowledgeGraphOutput)(nil)).Elem()
+}
+
+func (o EnterpriseKnowledgeGraphOutput) ToEnterpriseKnowledgeGraphOutput() EnterpriseKnowledgeGraphOutput {
+	return o
+}
+
+func (o EnterpriseKnowledgeGraphOutput) ToEnterpriseKnowledgeGraphOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphOutput{})
 }

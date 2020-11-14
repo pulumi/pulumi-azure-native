@@ -4,6 +4,7 @@
 package v20180701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -145,6 +146,9 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:LocalNetworkGateway"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:LocalNetworkGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LocalNetworkGateway
@@ -267,4 +271,43 @@ type LocalNetworkGatewayArgs struct {
 
 func (LocalNetworkGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*localNetworkGatewayArgs)(nil)).Elem()
+}
+
+type LocalNetworkGatewayInput interface {
+	pulumi.Input
+
+	ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput
+	ToLocalNetworkGatewayOutputWithContext(ctx context.Context) LocalNetworkGatewayOutput
+}
+
+func (LocalNetworkGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalNetworkGateway)(nil)).Elem()
+}
+
+func (i LocalNetworkGateway) ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput {
+	return i.ToLocalNetworkGatewayOutputWithContext(context.Background())
+}
+
+func (i LocalNetworkGateway) ToLocalNetworkGatewayOutputWithContext(ctx context.Context) LocalNetworkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayOutput)
+}
+
+type LocalNetworkGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (LocalNetworkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalNetworkGatewayOutput)(nil)).Elem()
+}
+
+func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput {
+	return o
+}
+
+func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutputWithContext(ctx context.Context) LocalNetworkGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LocalNetworkGatewayOutput{})
 }

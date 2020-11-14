@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -265,4 +266,43 @@ type SignalRArgs struct {
 
 func (SignalRArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*signalRArgs)(nil)).Elem()
+}
+
+type SignalRInput interface {
+	pulumi.Input
+
+	ToSignalROutput() SignalROutput
+	ToSignalROutputWithContext(ctx context.Context) SignalROutput
+}
+
+func (SignalR) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalR)(nil)).Elem()
+}
+
+func (i SignalR) ToSignalROutput() SignalROutput {
+	return i.ToSignalROutputWithContext(context.Background())
+}
+
+func (i SignalR) ToSignalROutputWithContext(ctx context.Context) SignalROutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalROutput)
+}
+
+type SignalROutput struct {
+	*pulumi.OutputState
+}
+
+func (SignalROutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalROutput)(nil)).Elem()
+}
+
+func (o SignalROutput) ToSignalROutput() SignalROutput {
+	return o
+}
+
+func (o SignalROutput) ToSignalROutputWithContext(ctx context.Context) SignalROutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SignalROutput{})
 }

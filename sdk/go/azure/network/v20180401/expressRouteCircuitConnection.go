@@ -4,6 +4,7 @@
 package v20180401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -110,6 +111,9 @@ func NewExpressRouteCircuitConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteCircuitConnection"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -225,4 +229,43 @@ type ExpressRouteCircuitConnectionArgs struct {
 
 func (ExpressRouteCircuitConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitConnectionArgs)(nil)).Elem()
+}
+
+type ExpressRouteCircuitConnectionInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitConnectionOutput() ExpressRouteCircuitConnectionOutput
+	ToExpressRouteCircuitConnectionOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionOutput
+}
+
+func (ExpressRouteCircuitConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitConnection)(nil)).Elem()
+}
+
+func (i ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionOutput() ExpressRouteCircuitConnectionOutput {
+	return i.ToExpressRouteCircuitConnectionOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionOutput)
+}
+
+type ExpressRouteCircuitConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExpressRouteCircuitConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitConnectionOutput)(nil)).Elem()
+}
+
+func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionOutput() ExpressRouteCircuitConnectionOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExpressRouteCircuitConnectionOutput{})
 }

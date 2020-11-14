@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,7 +37,7 @@ type Workspace struct {
 	Sku WorkspaceSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The daily volume cap for ingestion.
 	WorkspaceCapping WorkspaceCappingResponsePtrOutput `pulumi:"workspaceCapping"`
@@ -113,7 +114,7 @@ type workspaceState struct {
 	Sku *WorkspaceSkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The daily volume cap for ingestion.
 	WorkspaceCapping *WorkspaceCappingResponse `pulumi:"workspaceCapping"`
@@ -142,7 +143,7 @@ type WorkspaceState struct {
 	Sku WorkspaceSkuResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The daily volume cap for ingestion.
 	WorkspaceCapping WorkspaceCappingResponsePtrInput
@@ -205,4 +206,43 @@ type WorkspaceArgs struct {
 
 func (WorkspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceArgs)(nil)).Elem()
+}
+
+type WorkspaceInput interface {
+	pulumi.Input
+
+	ToWorkspaceOutput() WorkspaceOutput
+	ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput
+}
+
+func (Workspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workspace)(nil)).Elem()
+}
+
+func (i Workspace) ToWorkspaceOutput() WorkspaceOutput {
+	return i.ToWorkspaceOutputWithContext(context.Background())
+}
+
+func (i Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
+}
+
+type WorkspaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceOutput)(nil)).Elem()
+}
+
+func (o WorkspaceOutput) ToWorkspaceOutput() WorkspaceOutput {
+	return o
+}
+
+func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkspaceOutput{})
 }

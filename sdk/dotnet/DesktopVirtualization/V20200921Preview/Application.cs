@@ -99,7 +99,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20200921Preview
         public Output<bool?> ShowInPortal { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -132,6 +132,8 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20200921Preview
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190123preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190924preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201019preview:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201102preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

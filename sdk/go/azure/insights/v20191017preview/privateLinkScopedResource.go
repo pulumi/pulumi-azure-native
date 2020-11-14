@@ -4,6 +4,7 @@
 package v20191017preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -111,4 +112,43 @@ type PrivateLinkScopedResourceArgs struct {
 
 func (PrivateLinkScopedResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkScopedResourceArgs)(nil)).Elem()
+}
+
+type PrivateLinkScopedResourceInput interface {
+	pulumi.Input
+
+	ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput
+	ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput
+}
+
+func (PrivateLinkScopedResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResource)(nil)).Elem()
+}
+
+func (i PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {
+	return i.ToPrivateLinkScopedResourceOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceOutput)
+}
+
+type PrivateLinkScopedResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateLinkScopedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResourceOutput)(nil)).Elem()
+}
+
+func (o PrivateLinkScopedResourceOutput) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceOutput) ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateLinkScopedResourceOutput{})
 }

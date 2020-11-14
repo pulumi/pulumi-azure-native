@@ -20,7 +20,10 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, domain_controller_ip_address=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, health_alerts=None, health_last_evaluated=None, health_monitors=None, ldaps_settings=None, location=None, name=None, notification_settings=None, provisioning_state=None, service_status=None, subnet_id=None, tags=None, tenant_id=None, type=None, vnet_site_id=None):
+    def __init__(__self__, deployment_id=None, domain_controller_ip_address=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, health_alerts=None, health_last_evaluated=None, health_monitors=None, ldaps_settings=None, location=None, name=None, notification_settings=None, provisioning_state=None, service_status=None, subnet_id=None, tags=None, tenant_id=None, type=None, vnet_site_id=None):
+        if deployment_id and not isinstance(deployment_id, str):
+            raise TypeError("Expected argument 'deployment_id' to be a str")
+        pulumi.set(__self__, "deployment_id", deployment_id)
         if domain_controller_ip_address and not isinstance(domain_controller_ip_address, list):
             raise TypeError("Expected argument 'domain_controller_ip_address' to be a list")
         pulumi.set(__self__, "domain_controller_ip_address", domain_controller_ip_address)
@@ -78,6 +81,14 @@ class GetDomainServiceResult:
         if vnet_site_id and not isinstance(vnet_site_id, str):
             raise TypeError("Expected argument 'vnet_site_id' to be a str")
         pulumi.set(__self__, "vnet_site_id", vnet_site_id)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> str:
+        """
+        Deployment Id
+        """
+        return pulumi.get(self, "deployment_id")
 
     @property
     @pulumi.getter(name="domainControllerIpAddress")
@@ -238,6 +249,7 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
         if False:
             yield self
         return GetDomainServiceResult(
+            deployment_id=self.deployment_id,
             domain_controller_ip_address=self.domain_controller_ip_address,
             domain_name=self.domain_name,
             domain_security_settings=self.domain_security_settings,
@@ -278,6 +290,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:aad/v20170101:getDomainService', __args__, opts=opts, typ=GetDomainServiceResult).value
 
     return AwaitableGetDomainServiceResult(
+        deployment_id=__ret__.deployment_id,
         domain_controller_ip_address=__ret__.domain_controller_ip_address,
         domain_name=__ret__.domain_name,
         domain_security_settings=__ret__.domain_security_settings,

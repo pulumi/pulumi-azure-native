@@ -17,7 +17,7 @@ func LookupPrivateLinkHub(ctx *pulumi.Context, args *LookupPrivateLinkHubArgs, o
 }
 
 type LookupPrivateLinkHubArgs struct {
-	// The name of the privateLinkHub
+	// Name of the privateLinkHub
 	PrivateLinkHubName string `pulumi:"privateLinkHubName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -29,10 +29,12 @@ type LookupPrivateLinkHubResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// List of private endpoint connections
+	PrivateEndpointConnections []PrivateEndpointConnectionForPrivateLinkHubBasicResponse `pulumi:"privateEndpointConnections"`
 	// PrivateLinkHub provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

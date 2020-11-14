@@ -13,7 +13,9 @@ __all__ = [
     'AutoScalePropertiesArgs',
     'CmdkeySetupArgs',
     'ComponentSetupArgs',
+    'CustomerManagedKeyDetailsArgs',
     'DataLakeStorageAccountDetailsArgs',
+    'EncryptionDetailsArgs',
     'EntityReferenceArgs',
     'EnvironmentVariableSetupArgs',
     'IntegrationRuntimeComputePropertiesArgs',
@@ -23,7 +25,6 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoArgs',
     'IntegrationRuntimeSsisPropertiesArgs',
     'IntegrationRuntimeVNetPropertiesArgs',
-    'LibraryInfoArgs',
     'LibraryRequirementsArgs',
     'LinkedIntegrationRuntimeKeyAuthorizationArgs',
     'LinkedIntegrationRuntimeRbacAuthorizationArgs',
@@ -32,12 +33,15 @@ __all__ = [
     'ManagedVirtualNetworkSettingsArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'PurviewConfigurationArgs',
     'SecureStringArgs',
     'SelfHostedIntegrationRuntimeArgs',
     'SkuArgs',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs',
     'VirtualNetworkProfileArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
+    'WorkspaceKeyDetailsArgs',
+    'WorkspaceRepositoryConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -259,6 +263,30 @@ class ComponentSetupArgs:
 
 
 @pulumi.input_type
+class CustomerManagedKeyDetailsArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input['WorkspaceKeyDetailsArgs']] = None):
+        """
+        Details of the customer managed key associated with the workspace
+        :param pulumi.Input['WorkspaceKeyDetailsArgs'] key: The key object of the workspace
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input['WorkspaceKeyDetailsArgs']]:
+        """
+        The key object of the workspace
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input['WorkspaceKeyDetailsArgs']]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
 class DataLakeStorageAccountDetailsArgs:
     def __init__(__self__, *,
                  account_url: Optional[pulumi.Input[str]] = None,
@@ -296,6 +324,30 @@ class DataLakeStorageAccountDetailsArgs:
     @filesystem.setter
     def filesystem(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filesystem", value)
+
+
+@pulumi.input_type
+class EncryptionDetailsArgs:
+    def __init__(__self__, *,
+                 cmk: Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']] = None):
+        """
+        Details of the encryption associated with the workspace
+        :param pulumi.Input['CustomerManagedKeyDetailsArgs'] cmk: Customer Managed Key Details
+        """
+        if cmk is not None:
+            pulumi.set(__self__, "cmk", cmk)
+
+    @property
+    @pulumi.getter
+    def cmk(self) -> Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']]:
+        """
+        Customer Managed Key Details
+        """
+        return pulumi.get(self, "cmk")
+
+    @cmk.setter
+    def cmk(self, value: Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']]):
+        pulumi.set(self, "cmk", value)
 
 
 @pulumi.input_type
@@ -880,94 +932,6 @@ class IntegrationRuntimeVNetPropertiesArgs:
 
 
 @pulumi.input_type
-class LibraryInfoArgs:
-    def __init__(__self__, *,
-                 container_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 path: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
-                 uploaded_timestamp: Optional[pulumi.Input[str]] = None):
-        """
-        Library/package information of a Big Data pool powered by Apache Spark
-        :param pulumi.Input[str] container_name: Storage blob container name.
-        :param pulumi.Input[str] name: Name of the library.
-        :param pulumi.Input[str] path: Storage blob path of library.
-        :param pulumi.Input[str] type: Type of the library.
-        :param pulumi.Input[str] uploaded_timestamp: The last update time of the library.
-        """
-        if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if uploaded_timestamp is not None:
-            pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
-
-    @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Storage blob container name.
-        """
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "container_name", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the library.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        Storage blob path of library.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of the library.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="uploadedTimestamp")
-    def uploaded_timestamp(self) -> Optional[pulumi.Input[str]]:
-        """
-        The last update time of the library.
-        """
-        return pulumi.get(self, "uploaded_timestamp")
-
-    @uploaded_timestamp.setter
-    def uploaded_timestamp(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "uploaded_timestamp", value)
-
-
-@pulumi.input_type
 class LibraryRequirementsArgs:
     def __init__(__self__, *,
                  content: Optional[pulumi.Input[str]] = None,
@@ -1299,6 +1263,30 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class PurviewConfigurationArgs:
+    def __init__(__self__, *,
+                 purview_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Purview Configuration
+        :param pulumi.Input[str] purview_resource_id: Purview Resource ID
+        """
+        if purview_resource_id is not None:
+            pulumi.set(__self__, "purview_resource_id", purview_resource_id)
+
+    @property
+    @pulumi.getter(name="purviewResourceId")
+    def purview_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Purview Resource ID
+        """
+        return pulumi.get(self, "purview_resource_id")
+
+    @purview_resource_id.setter
+    def purview_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "purview_resource_id", value)
+
+
+@pulumi.input_type
 class SecureStringArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -1346,7 +1334,7 @@ class SelfHostedIntegrationRuntimeArgs:
         Self-hosted integration runtime.
         :param pulumi.Input[str] type: Type of integration runtime.
         :param pulumi.Input[str] description: Integration runtime description.
-        :param pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']] linked_info: The base definition of a linked integration runtime.
+        :param pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']] linked_info: Linked integration runtime type from data factory
         """
         pulumi.set(__self__, "type", 'SelfHosted')
         if description is not None:
@@ -1382,7 +1370,7 @@ class SelfHostedIntegrationRuntimeArgs:
     @pulumi.getter(name="linkedInfo")
     def linked_info(self) -> Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]]:
         """
-        The base definition of a linked integration runtime.
+        Linked integration runtime type from data factory
         """
         return pulumi.get(self, "linked_info")
 
@@ -1548,5 +1536,165 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
     @is_enabled.setter
     def is_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_enabled", value)
+
+
+@pulumi.input_type
+class WorkspaceKeyDetailsArgs:
+    def __init__(__self__, *,
+                 key_vault_url: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Details of the customer managed key associated with the workspace
+        :param pulumi.Input[str] key_vault_url: Workspace Key sub-resource key vault url
+        :param pulumi.Input[str] name: Workspace Key sub-resource name
+        """
+        if key_vault_url is not None:
+            pulumi.set(__self__, "key_vault_url", key_vault_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="keyVaultUrl")
+    def key_vault_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workspace Key sub-resource key vault url
+        """
+        return pulumi.get(self, "key_vault_url")
+
+    @key_vault_url.setter
+    def key_vault_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_url", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workspace Key sub-resource name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class WorkspaceRepositoryConfigurationArgs:
+    def __init__(__self__, *,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 collaboration_branch: Optional[pulumi.Input[str]] = None,
+                 host_name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 root_folder: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Git integration settings
+        :param pulumi.Input[str] account_name: Account name
+        :param pulumi.Input[str] collaboration_branch: Collaboration branch
+        :param pulumi.Input[str] host_name: GitHub Enterprise host name. For example: https://github.mydomain.com
+        :param pulumi.Input[str] project_name: VSTS project name
+        :param pulumi.Input[str] repository_name: Repository name
+        :param pulumi.Input[str] root_folder: Root folder to use in the repository
+        :param pulumi.Input[str] type: Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if collaboration_branch is not None:
+            pulumi.set(__self__, "collaboration_branch", collaboration_branch)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if root_folder is not None:
+            pulumi.set(__self__, "root_folder", root_folder)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Account name
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="collaborationBranch")
+    def collaboration_branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Collaboration branch
+        """
+        return pulumi.get(self, "collaboration_branch")
+
+    @collaboration_branch.setter
+    def collaboration_branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "collaboration_branch", value)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        GitHub Enterprise host name. For example: https://github.mydomain.com
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        VSTS project name
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository name
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter(name="rootFolder")
+    def root_folder(self) -> Optional[pulumi.Input[str]]:
+        """
+        Root folder to use in the repository
+        """
+        return pulumi.get(self, "root_folder")
+
+    @root_folder.setter
+    def root_folder(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_folder", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 

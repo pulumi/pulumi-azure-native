@@ -4,6 +4,7 @@
 package v20200515
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type AccessPolicyArgs struct {
 
 func (AccessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPolicyArgs)(nil)).Elem()
+}
+
+type AccessPolicyInput interface {
+	pulumi.Input
+
+	ToAccessPolicyOutput() AccessPolicyOutput
+	ToAccessPolicyOutputWithContext(ctx context.Context) AccessPolicyOutput
+}
+
+func (AccessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicy)(nil)).Elem()
+}
+
+func (i AccessPolicy) ToAccessPolicyOutput() AccessPolicyOutput {
+	return i.ToAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i AccessPolicy) ToAccessPolicyOutputWithContext(ctx context.Context) AccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyOutput)
+}
+
+type AccessPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyOutput)(nil)).Elem()
+}
+
+func (o AccessPolicyOutput) ToAccessPolicyOutput() AccessPolicyOutput {
+	return o
+}
+
+func (o AccessPolicyOutput) ToAccessPolicyOutputWithContext(ctx context.Context) AccessPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccessPolicyOutput{})
 }

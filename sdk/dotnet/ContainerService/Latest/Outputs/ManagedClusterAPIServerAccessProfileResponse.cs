@@ -21,15 +21,22 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Outputs
         /// Whether to create the cluster as a private cluster or not.
         /// </summary>
         public readonly bool? EnablePrivateCluster;
+        /// <summary>
+        /// Private dns zone mode for private cluster. 
+        /// </summary>
+        public readonly string? PrivateDNSZone;
 
         [OutputConstructor]
         private ManagedClusterAPIServerAccessProfileResponse(
             ImmutableArray<string> authorizedIPRanges,
 
-            bool? enablePrivateCluster)
+            bool? enablePrivateCluster,
+
+            string? privateDNSZone)
         {
             AuthorizedIPRanges = authorizedIPRanges;
             EnablePrivateCluster = enablePrivateCluster;
+            PrivateDNSZone = privateDNSZone;
         }
     }
 }

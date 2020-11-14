@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -106,6 +107,9 @@ func NewAgentPool(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200901:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20201101:AgentPool"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -297,4 +301,43 @@ type AgentPoolArgs struct {
 
 func (AgentPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentPoolArgs)(nil)).Elem()
+}
+
+type AgentPoolInput interface {
+	pulumi.Input
+
+	ToAgentPoolOutput() AgentPoolOutput
+	ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolOutput
+}
+
+func (AgentPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPool)(nil)).Elem()
+}
+
+func (i AgentPool) ToAgentPoolOutput() AgentPoolOutput {
+	return i.ToAgentPoolOutputWithContext(context.Background())
+}
+
+func (i AgentPool) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolOutput)
+}
+
+type AgentPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (AgentPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPoolOutput)(nil)).Elem()
+}
+
+func (o AgentPoolOutput) ToAgentPoolOutput() AgentPoolOutput {
+	return o
+}
+
+func (o AgentPoolOutput) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AgentPoolOutput{})
 }

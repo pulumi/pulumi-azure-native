@@ -4,6 +4,7 @@
 package v20200801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,7 +23,7 @@ type LinkedService struct {
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
 	WriteAccessResourceId pulumi.StringPtrOutput `pulumi:"writeAccessResourceId"`
@@ -88,7 +89,7 @@ type linkedServiceState struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
 	WriteAccessResourceId *string `pulumi:"writeAccessResourceId"`
@@ -103,7 +104,7 @@ type LinkedServiceState struct {
 	ResourceId pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
 	WriteAccessResourceId pulumi.StringPtrInput
@@ -150,4 +151,43 @@ type LinkedServiceArgs struct {
 
 func (LinkedServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceArgs)(nil)).Elem()
+}
+
+type LinkedServiceInput interface {
+	pulumi.Input
+
+	ToLinkedServiceOutput() LinkedServiceOutput
+	ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput
+}
+
+func (LinkedService) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedService)(nil)).Elem()
+}
+
+func (i LinkedService) ToLinkedServiceOutput() LinkedServiceOutput {
+	return i.ToLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
+}
+
+type LinkedServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceOutput)(nil)).Elem()
+}
+
+func (o LinkedServiceOutput) ToLinkedServiceOutput() LinkedServiceOutput {
+	return o
+}
+
+func (o LinkedServiceOutput) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServiceOutput{})
 }

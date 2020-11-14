@@ -4,6 +4,7 @@
 package v20191101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,4 +124,43 @@ type DataCollectionRuleAssociationArgs struct {
 
 func (DataCollectionRuleAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataCollectionRuleAssociationArgs)(nil)).Elem()
+}
+
+type DataCollectionRuleAssociationInput interface {
+	pulumi.Input
+
+	ToDataCollectionRuleAssociationOutput() DataCollectionRuleAssociationOutput
+	ToDataCollectionRuleAssociationOutputWithContext(ctx context.Context) DataCollectionRuleAssociationOutput
+}
+
+func (DataCollectionRuleAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleAssociation)(nil)).Elem()
+}
+
+func (i DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutput() DataCollectionRuleAssociationOutput {
+	return i.ToDataCollectionRuleAssociationOutputWithContext(context.Background())
+}
+
+func (i DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutputWithContext(ctx context.Context) DataCollectionRuleAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleAssociationOutput)
+}
+
+type DataCollectionRuleAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataCollectionRuleAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionRuleAssociationOutput)(nil)).Elem()
+}
+
+func (o DataCollectionRuleAssociationOutput) ToDataCollectionRuleAssociationOutput() DataCollectionRuleAssociationOutput {
+	return o
+}
+
+func (o DataCollectionRuleAssociationOutput) ToDataCollectionRuleAssociationOutputWithContext(ctx context.Context) DataCollectionRuleAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataCollectionRuleAssociationOutput{})
 }

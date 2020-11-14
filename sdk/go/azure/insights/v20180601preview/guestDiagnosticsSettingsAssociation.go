@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -124,4 +125,43 @@ type GuestDiagnosticsSettingsAssociationArgs struct {
 
 func (GuestDiagnosticsSettingsAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*guestDiagnosticsSettingsAssociationArgs)(nil)).Elem()
+}
+
+type GuestDiagnosticsSettingsAssociationInput interface {
+	pulumi.Input
+
+	ToGuestDiagnosticsSettingsAssociationOutput() GuestDiagnosticsSettingsAssociationOutput
+	ToGuestDiagnosticsSettingsAssociationOutputWithContext(ctx context.Context) GuestDiagnosticsSettingsAssociationOutput
+}
+
+func (GuestDiagnosticsSettingsAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestDiagnosticsSettingsAssociation)(nil)).Elem()
+}
+
+func (i GuestDiagnosticsSettingsAssociation) ToGuestDiagnosticsSettingsAssociationOutput() GuestDiagnosticsSettingsAssociationOutput {
+	return i.ToGuestDiagnosticsSettingsAssociationOutputWithContext(context.Background())
+}
+
+func (i GuestDiagnosticsSettingsAssociation) ToGuestDiagnosticsSettingsAssociationOutputWithContext(ctx context.Context) GuestDiagnosticsSettingsAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestDiagnosticsSettingsAssociationOutput)
+}
+
+type GuestDiagnosticsSettingsAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (GuestDiagnosticsSettingsAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestDiagnosticsSettingsAssociationOutput)(nil)).Elem()
+}
+
+func (o GuestDiagnosticsSettingsAssociationOutput) ToGuestDiagnosticsSettingsAssociationOutput() GuestDiagnosticsSettingsAssociationOutput {
+	return o
+}
+
+func (o GuestDiagnosticsSettingsAssociationOutput) ToGuestDiagnosticsSettingsAssociationOutputWithContext(ctx context.Context) GuestDiagnosticsSettingsAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GuestDiagnosticsSettingsAssociationOutput{})
 }

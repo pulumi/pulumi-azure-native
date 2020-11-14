@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getVirtualMachineScaleSetVMExtension(args: GetVirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMExtensionResult> {
@@ -47,7 +46,7 @@ export interface GetVirtualMachineScaleSetVMExtensionArgs {
 }
 
 /**
- * Describes a Virtual Machine Extension.
+ * Describes a VMSS VM Extension.
  */
 export interface GetVirtualMachineScaleSetVMExtensionResult {
     /**
@@ -67,11 +66,7 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
      */
     readonly instanceView?: outputs.compute.v20200601.VirtualMachineExtensionInstanceViewResponse;
     /**
-     * Resource location
-     */
-    readonly location: string;
-    /**
-     * Resource name
+     * The name of the extension.
      */
     readonly name: string;
     /**
@@ -90,10 +85,6 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
      * Json formatted public settings for the extension.
      */
     readonly settings?: any;
-    /**
-     * Resource tags
-     */
-    readonly tags?: {[key: string]: string};
     /**
      * Resource type
      */

@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20180701
         /// </summary>
         public readonly string? StorageSyncServiceUid;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

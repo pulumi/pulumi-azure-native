@@ -4,6 +4,7 @@
 package v20170601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -14,6 +15,10 @@ import (
 type DomainService struct {
 	pulumi.CustomResourceState
 
+	// Deployment Id
+	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
+	// Domain Configuration Type
+	DomainConfigurationType pulumi.StringPtrOutput `pulumi:"domainConfigurationType"`
 	// List of Domain Controller IP Address
 	DomainControllerIpAddress pulumi.StringArrayOutput `pulumi:"domainControllerIpAddress"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
@@ -40,16 +45,22 @@ type DomainService struct {
 	NotificationSettings NotificationSettingsResponsePtrOutput `pulumi:"notificationSettings"`
 	// the current deployment or provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Resource Forest Settings
+	ResourceForestSettings ResourceForestSettingsResponsePtrOutput `pulumi:"resourceForestSettings"`
 	// Status of Domain Service instance
 	ServiceStatus pulumi.StringOutput `pulumi:"serviceStatus"`
+	// Sku Type
+	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure Active Directory tenant id
+	// Azure Active Directory Tenant Id
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Data Model Version
+	Version pulumi.IntOutput `pulumi:"version"`
 	// Virtual network site id
 	VnetSiteId pulumi.StringOutput `pulumi:"vnetSiteId"`
 }
@@ -100,6 +111,10 @@ func GetDomainService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainService resources.
 type domainServiceState struct {
+	// Deployment Id
+	DeploymentId *string `pulumi:"deploymentId"`
+	// Domain Configuration Type
+	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
 	// List of Domain Controller IP Address
 	DomainControllerIpAddress []string `pulumi:"domainControllerIpAddress"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
@@ -126,21 +141,31 @@ type domainServiceState struct {
 	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
 	// the current deployment or provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource Forest Settings
+	ResourceForestSettings *ResourceForestSettingsResponse `pulumi:"resourceForestSettings"`
 	// Status of Domain Service instance
 	ServiceStatus *string `pulumi:"serviceStatus"`
+	// Sku Type
+	Sku *string `pulumi:"sku"`
 	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
 	SubnetId *string `pulumi:"subnetId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// Azure Active Directory tenant id
+	// Azure Active Directory Tenant Id
 	TenantId *string `pulumi:"tenantId"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Data Model Version
+	Version *int `pulumi:"version"`
 	// Virtual network site id
 	VnetSiteId *string `pulumi:"vnetSiteId"`
 }
 
 type DomainServiceState struct {
+	// Deployment Id
+	DeploymentId pulumi.StringPtrInput
+	// Domain Configuration Type
+	DomainConfigurationType pulumi.StringPtrInput
 	// List of Domain Controller IP Address
 	DomainControllerIpAddress pulumi.StringArrayInput
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
@@ -167,16 +192,22 @@ type DomainServiceState struct {
 	NotificationSettings NotificationSettingsResponsePtrInput
 	// the current deployment or provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
+	// Resource Forest Settings
+	ResourceForestSettings ResourceForestSettingsResponsePtrInput
 	// Status of Domain Service instance
 	ServiceStatus pulumi.StringPtrInput
+	// Sku Type
+	Sku pulumi.StringPtrInput
 	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
 	SubnetId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
-	// Azure Active Directory tenant id
+	// Azure Active Directory Tenant Id
 	TenantId pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Data Model Version
+	Version pulumi.IntPtrInput
 	// Virtual network site id
 	VnetSiteId pulumi.StringPtrInput
 }
@@ -186,6 +217,8 @@ func (DomainServiceState) ElementType() reflect.Type {
 }
 
 type domainServiceArgs struct {
+	// Domain Configuration Type
+	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
 	DomainName *string `pulumi:"domainName"`
 	// DomainSecurity Settings
@@ -202,8 +235,12 @@ type domainServiceArgs struct {
 	Location *string `pulumi:"location"`
 	// Notification Settings
 	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
+	// Resource Forest Settings
+	ResourceForestSettings *ResourceForestSettings `pulumi:"resourceForestSettings"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Sku Type
+	Sku *string `pulumi:"sku"`
 	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
 	SubnetId *string `pulumi:"subnetId"`
 	// Resource tags
@@ -212,6 +249,8 @@ type domainServiceArgs struct {
 
 // The set of arguments for constructing a DomainService resource.
 type DomainServiceArgs struct {
+	// Domain Configuration Type
+	DomainConfigurationType pulumi.StringPtrInput
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
 	DomainName pulumi.StringPtrInput
 	// DomainSecurity Settings
@@ -228,8 +267,12 @@ type DomainServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// Notification Settings
 	NotificationSettings NotificationSettingsPtrInput
+	// Resource Forest Settings
+	ResourceForestSettings ResourceForestSettingsPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Sku Type
+	Sku pulumi.StringPtrInput
 	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
 	SubnetId pulumi.StringPtrInput
 	// Resource tags
@@ -238,4 +281,43 @@ type DomainServiceArgs struct {
 
 func (DomainServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainServiceArgs)(nil)).Elem()
+}
+
+type DomainServiceInput interface {
+	pulumi.Input
+
+	ToDomainServiceOutput() DomainServiceOutput
+	ToDomainServiceOutputWithContext(ctx context.Context) DomainServiceOutput
+}
+
+func (DomainService) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainService)(nil)).Elem()
+}
+
+func (i DomainService) ToDomainServiceOutput() DomainServiceOutput {
+	return i.ToDomainServiceOutputWithContext(context.Background())
+}
+
+func (i DomainService) ToDomainServiceOutputWithContext(ctx context.Context) DomainServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceOutput)
+}
+
+type DomainServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainServiceOutput)(nil)).Elem()
+}
+
+func (o DomainServiceOutput) ToDomainServiceOutput() DomainServiceOutput {
+	return o
+}
+
+func (o DomainServiceOutput) ToDomainServiceOutputWithContext(ctx context.Context) DomainServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainServiceOutput{})
 }

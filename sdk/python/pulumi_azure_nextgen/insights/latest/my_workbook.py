@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['MyWorkbook']
 
@@ -18,6 +20,7 @@ class MyWorkbook(pulumi.CustomResource):
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -25,6 +28,7 @@ class MyWorkbook(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  serialized_data: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
+                 storage_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -39,6 +43,7 @@ class MyWorkbook(pulumi.CustomResource):
         :param pulumi.Input[str] category: Workbook category, as defined by the user at creation time.
         :param pulumi.Input[str] display_name: The user-defined name of the private workbook.
         :param pulumi.Input[str] id: Azure resource Id
+        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: Identity used for BYOS
         :param pulumi.Input[str] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: Azure resource name
@@ -46,6 +51,7 @@ class MyWorkbook(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[str] serialized_data: Configuration of this particular private workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[str] source_id: Optional resourceId for a source resource.
+        :param pulumi.Input[str] storage_uri: BYOS Storage Account URI
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Azure resource type
         :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked private workbook.
@@ -74,6 +80,7 @@ class MyWorkbook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['id'] = id
+            __props__['identity'] = identity
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['name'] = name
@@ -87,12 +94,13 @@ class MyWorkbook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'serialized_data'")
             __props__['serialized_data'] = serialized_data
             __props__['source_id'] = source_id
+            __props__['storage_uri'] = storage_uri
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['version'] = version
             __props__['time_modified'] = None
             __props__['user_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:MyWorkbook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:MyWorkbook"), pulumi.Alias(type_="azure-nextgen:insights/v20201020:MyWorkbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MyWorkbook, __self__).__init__(
             'azure-nextgen:insights/latest:MyWorkbook',
@@ -136,6 +144,14 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityResponse']]:
+        """
+        Identity used for BYOS
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The kind of workbook. Choices are user and shared.
@@ -173,6 +189,14 @@ class MyWorkbook(pulumi.CustomResource):
         Optional resourceId for a source resource.
         """
         return pulumi.get(self, "source_id")
+
+    @property
+    @pulumi.getter(name="storageUri")
+    def storage_uri(self) -> pulumi.Output[Optional[str]]:
+        """
+        BYOS Storage Account URI
+        """
+        return pulumi.get(self, "storage_uri")
 
     @property
     @pulumi.getter

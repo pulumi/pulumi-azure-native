@@ -4,6 +4,7 @@
 package v20160301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -224,4 +225,43 @@ type NotificationHubArgs struct {
 
 func (NotificationHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationHubArgs)(nil)).Elem()
+}
+
+type NotificationHubInput interface {
+	pulumi.Input
+
+	ToNotificationHubOutput() NotificationHubOutput
+	ToNotificationHubOutputWithContext(ctx context.Context) NotificationHubOutput
+}
+
+func (NotificationHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHub)(nil)).Elem()
+}
+
+func (i NotificationHub) ToNotificationHubOutput() NotificationHubOutput {
+	return i.ToNotificationHubOutputWithContext(context.Background())
+}
+
+func (i NotificationHub) ToNotificationHubOutputWithContext(ctx context.Context) NotificationHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubOutput)
+}
+
+type NotificationHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotificationHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHubOutput)(nil)).Elem()
+}
+
+func (o NotificationHubOutput) ToNotificationHubOutput() NotificationHubOutput {
+	return o
+}
+
+func (o NotificationHubOutput) ToNotificationHubOutputWithContext(ctx context.Context) NotificationHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotificationHubOutput{})
 }

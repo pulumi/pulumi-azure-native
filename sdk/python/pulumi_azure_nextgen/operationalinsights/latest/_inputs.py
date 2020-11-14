@@ -68,7 +68,7 @@ class IdentityArgs:
                  type: pulumi.Input[str]):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input[str] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         """
         pulumi.set(__self__, "type", type)
 
@@ -76,7 +76,7 @@ class IdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The identity type.
+        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         """
         return pulumi.get(self, "type")
 
@@ -253,12 +253,14 @@ class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_vault_uri: Optional[pulumi.Input[str]] = None,
-                 key_version: Optional[pulumi.Input[str]] = None):
+                 key_version: Optional[pulumi.Input[str]] = None,
+                 rsa_key_size: Optional[pulumi.Input[int]] = None):
         """
         The key vault properties.
         :param pulumi.Input[str] key_name: The name of the key associated with the Log Analytics cluster.
         :param pulumi.Input[str] key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
         :param pulumi.Input[str] key_version: The version of the key associated with the Log Analytics cluster.
+        :param pulumi.Input[int] rsa_key_size: Selected key minimum required key size.
         """
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
@@ -266,6 +268,8 @@ class KeyVaultPropertiesArgs:
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+        if rsa_key_size is not None:
+            pulumi.set(__self__, "rsa_key_size", rsa_key_size)
 
     @property
     @pulumi.getter(name="keyName")
@@ -302,6 +306,18 @@ class KeyVaultPropertiesArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
+
+    @property
+    @pulumi.getter(name="rsaKeySize")
+    def rsa_key_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Selected key minimum required key size.
+        """
+        return pulumi.get(self, "rsa_key_size")
+
+    @rsa_key_size.setter
+    def rsa_key_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rsa_key_size", value)
 
 
 @pulumi.input_type

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -155,7 +154,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:PrivateLinkService" }, { type: "azure-nextgen:network/v20190401:PrivateLinkService" }, { type: "azure-nextgen:network/v20190601:PrivateLinkService" }, { type: "azure-nextgen:network/v20190701:PrivateLinkService" }, { type: "azure-nextgen:network/v20190801:PrivateLinkService" }, { type: "azure-nextgen:network/v20190901:PrivateLinkService" }, { type: "azure-nextgen:network/v20191101:PrivateLinkService" }, { type: "azure-nextgen:network/v20200301:PrivateLinkService" }, { type: "azure-nextgen:network/v20200401:PrivateLinkService" }, { type: "azure-nextgen:network/v20200501:PrivateLinkService" }, { type: "azure-nextgen:network/v20200601:PrivateLinkService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:PrivateLinkService" }, { type: "azure-nextgen:network/v20190401:PrivateLinkService" }, { type: "azure-nextgen:network/v20190601:PrivateLinkService" }, { type: "azure-nextgen:network/v20190701:PrivateLinkService" }, { type: "azure-nextgen:network/v20190801:PrivateLinkService" }, { type: "azure-nextgen:network/v20190901:PrivateLinkService" }, { type: "azure-nextgen:network/v20191101:PrivateLinkService" }, { type: "azure-nextgen:network/v20200301:PrivateLinkService" }, { type: "azure-nextgen:network/v20200401:PrivateLinkService" }, { type: "azure-nextgen:network/v20200501:PrivateLinkService" }, { type: "azure-nextgen:network/v20200601:PrivateLinkService" }, { type: "azure-nextgen:network/v20200701:PrivateLinkService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateLinkService.__pulumiType, name, inputs, opts);
     }

@@ -12,6 +12,7 @@ __all__ = [
     'ClusterSkuArgs',
     'ConnectionStateArgs',
     'KeyVaultPropertiesArgs',
+    'NWRuleSetIpRulesArgs',
     'PrivateEndpointArgs',
     'SkuArgs',
 ]
@@ -149,6 +150,46 @@ class KeyVaultPropertiesArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
+class NWRuleSetIpRulesArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 ip_mask: Optional[pulumi.Input[str]] = None):
+        """
+        The response from the List namespace operation.
+        :param pulumi.Input[str] action: The IP Filter Action
+        :param pulumi.Input[str] ip_mask: IP Mask
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if ip_mask is not None:
+            pulumi.set(__self__, "ip_mask", ip_mask)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP Filter Action
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP Mask
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_mask", value)
 
 
 @pulumi.input_type

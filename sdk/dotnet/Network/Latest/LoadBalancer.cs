@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The extended location of the load balancer.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// Object representing the frontend IPs to be used for the load balancer.
         /// </summary>
         [Output("frontendIPConfigurations")]
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:LoadBalancer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -196,6 +203,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
             get => _backendAddressPools ?? (_backendAddressPools = new InputList<Inputs.BackendAddressPoolArgs>());
             set => _backendAddressPools = value;
         }
+
+        /// <summary>
+        /// The extended location of the load balancer.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         [Input("frontendIPConfigurations")]
         private InputList<Inputs.FrontendIPConfigurationArgs>? _frontendIPConfigurations;

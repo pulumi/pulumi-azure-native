@@ -4,6 +4,7 @@
 package v20200701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -131,6 +132,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200901:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20201101:ManagedCluster"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -366,4 +370,43 @@ type ManagedClusterArgs struct {
 
 func (ManagedClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedClusterArgs)(nil)).Elem()
+}
+
+type ManagedClusterInput interface {
+	pulumi.Input
+
+	ToManagedClusterOutput() ManagedClusterOutput
+	ToManagedClusterOutputWithContext(ctx context.Context) ManagedClusterOutput
+}
+
+func (ManagedCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedCluster)(nil)).Elem()
+}
+
+func (i ManagedCluster) ToManagedClusterOutput() ManagedClusterOutput {
+	return i.ToManagedClusterOutputWithContext(context.Background())
+}
+
+func (i ManagedCluster) ToManagedClusterOutputWithContext(ctx context.Context) ManagedClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterOutput)
+}
+
+type ManagedClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterOutput)(nil)).Elem()
+}
+
+func (o ManagedClusterOutput) ToManagedClusterOutput() ManagedClusterOutput {
+	return o
+}
+
+func (o ManagedClusterOutput) ToManagedClusterOutputWithContext(ctx context.Context) ManagedClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedClusterOutput{})
 }

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -88,4 +89,43 @@ type UserSettingsArgs struct {
 
 func (UserSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userSettingsArgs)(nil)).Elem()
+}
+
+type UserSettingsInput interface {
+	pulumi.Input
+
+	ToUserSettingsOutput() UserSettingsOutput
+	ToUserSettingsOutputWithContext(ctx context.Context) UserSettingsOutput
+}
+
+func (UserSettings) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettings)(nil)).Elem()
+}
+
+func (i UserSettings) ToUserSettingsOutput() UserSettingsOutput {
+	return i.ToUserSettingsOutputWithContext(context.Background())
+}
+
+func (i UserSettings) ToUserSettingsOutputWithContext(ctx context.Context) UserSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsOutput)
+}
+
+type UserSettingsOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsOutput)(nil)).Elem()
+}
+
+func (o UserSettingsOutput) ToUserSettingsOutput() UserSettingsOutput {
+	return o
+}
+
+func (o UserSettingsOutput) ToUserSettingsOutputWithContext(ctx context.Context) UserSettingsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserSettingsOutput{})
 }

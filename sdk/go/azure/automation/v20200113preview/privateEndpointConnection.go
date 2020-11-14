@@ -4,6 +4,7 @@
 package v20200113preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -20,7 +21,7 @@ type PrivateEndpointConnection struct {
 	PrivateEndpoint PrivateEndpointPropertyResponsePtrOutput `pulumi:"privateEndpoint"`
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -67,7 +68,7 @@ type privateEndpointConnectionState struct {
 	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -78,7 +79,7 @@ type PrivateEndpointConnectionState struct {
 	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -115,4 +116,43 @@ type PrivateEndpointConnectionArgs struct {
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateEndpointConnectionArgs)(nil)).Elem()
+}
+
+type PrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput
+	ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput
+}
+
+func (PrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnection) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
+	return i.ToPrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnection) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
+}
+
+type PrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionOutput)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
 }

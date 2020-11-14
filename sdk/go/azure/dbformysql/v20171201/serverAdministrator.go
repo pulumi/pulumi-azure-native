@@ -4,6 +4,7 @@
 package v20171201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -24,7 +25,7 @@ type ServerAdministrator struct {
 	Sid pulumi.StringOutput `pulumi:"sid"`
 	// The server Active Directory Administrator tenant id.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -93,7 +94,7 @@ type serverAdministratorState struct {
 	Sid *string `pulumi:"sid"`
 	// The server Active Directory Administrator tenant id.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -108,7 +109,7 @@ type ServerAdministratorState struct {
 	Sid pulumi.StringPtrInput
 	// The server Active Directory Administrator tenant id.
 	TenantId pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -149,4 +150,43 @@ type ServerAdministratorArgs struct {
 
 func (ServerAdministratorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverAdministratorArgs)(nil)).Elem()
+}
+
+type ServerAdministratorInput interface {
+	pulumi.Input
+
+	ToServerAdministratorOutput() ServerAdministratorOutput
+	ToServerAdministratorOutputWithContext(ctx context.Context) ServerAdministratorOutput
+}
+
+func (ServerAdministrator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAdministrator)(nil)).Elem()
+}
+
+func (i ServerAdministrator) ToServerAdministratorOutput() ServerAdministratorOutput {
+	return i.ToServerAdministratorOutputWithContext(context.Background())
+}
+
+func (i ServerAdministrator) ToServerAdministratorOutputWithContext(ctx context.Context) ServerAdministratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorOutput)
+}
+
+type ServerAdministratorOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerAdministratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAdministratorOutput)(nil)).Elem()
+}
+
+func (o ServerAdministratorOutput) ToServerAdministratorOutput() ServerAdministratorOutput {
+	return o
+}
+
+func (o ServerAdministratorOutput) ToServerAdministratorOutputWithContext(ctx context.Context) ServerAdministratorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerAdministratorOutput{})
 }

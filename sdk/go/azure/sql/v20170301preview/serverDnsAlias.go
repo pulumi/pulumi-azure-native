@@ -4,6 +4,7 @@
 package v20170301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -101,4 +102,43 @@ type ServerDnsAliasArgs struct {
 
 func (ServerDnsAliasArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverDnsAliasArgs)(nil)).Elem()
+}
+
+type ServerDnsAliasInput interface {
+	pulumi.Input
+
+	ToServerDnsAliasOutput() ServerDnsAliasOutput
+	ToServerDnsAliasOutputWithContext(ctx context.Context) ServerDnsAliasOutput
+}
+
+func (ServerDnsAlias) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDnsAlias)(nil)).Elem()
+}
+
+func (i ServerDnsAlias) ToServerDnsAliasOutput() ServerDnsAliasOutput {
+	return i.ToServerDnsAliasOutputWithContext(context.Background())
+}
+
+func (i ServerDnsAlias) ToServerDnsAliasOutputWithContext(ctx context.Context) ServerDnsAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerDnsAliasOutput)
+}
+
+type ServerDnsAliasOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerDnsAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDnsAliasOutput)(nil)).Elem()
+}
+
+func (o ServerDnsAliasOutput) ToServerDnsAliasOutput() ServerDnsAliasOutput {
+	return o
+}
+
+func (o ServerDnsAliasOutput) ToServerDnsAliasOutputWithContext(ctx context.Context) ServerDnsAliasOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerDnsAliasOutput{})
 }

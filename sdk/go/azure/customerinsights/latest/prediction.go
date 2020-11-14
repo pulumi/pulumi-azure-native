@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -276,4 +277,43 @@ type PredictionArgs struct {
 
 func (PredictionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*predictionArgs)(nil)).Elem()
+}
+
+type PredictionInput interface {
+	pulumi.Input
+
+	ToPredictionOutput() PredictionOutput
+	ToPredictionOutputWithContext(ctx context.Context) PredictionOutput
+}
+
+func (Prediction) ElementType() reflect.Type {
+	return reflect.TypeOf((*Prediction)(nil)).Elem()
+}
+
+func (i Prediction) ToPredictionOutput() PredictionOutput {
+	return i.ToPredictionOutputWithContext(context.Background())
+}
+
+func (i Prediction) ToPredictionOutputWithContext(ctx context.Context) PredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionOutput)
+}
+
+type PredictionOutput struct {
+	*pulumi.OutputState
+}
+
+func (PredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionOutput)(nil)).Elem()
+}
+
+func (o PredictionOutput) ToPredictionOutput() PredictionOutput {
+	return o
+}
+
+func (o PredictionOutput) ToPredictionOutputWithContext(ctx context.Context) PredictionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PredictionOutput{})
 }

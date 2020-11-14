@@ -4,6 +4,7 @@
 package v20180715preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -122,4 +123,43 @@ type FileArgs struct {
 
 func (FileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileArgs)(nil)).Elem()
+}
+
+type FileInput interface {
+	pulumi.Input
+
+	ToFileOutput() FileOutput
+	ToFileOutputWithContext(ctx context.Context) FileOutput
+}
+
+func (File) ElementType() reflect.Type {
+	return reflect.TypeOf((*File)(nil)).Elem()
+}
+
+func (i File) ToFileOutput() FileOutput {
+	return i.ToFileOutputWithContext(context.Background())
+}
+
+func (i File) ToFileOutputWithContext(ctx context.Context) FileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileOutput)
+}
+
+type FileOutput struct {
+	*pulumi.OutputState
+}
+
+func (FileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileOutput)(nil)).Elem()
+}
+
+func (o FileOutput) ToFileOutput() FileOutput {
+	return o
+}
+
+func (o FileOutput) ToFileOutputWithContext(ctx context.Context) FileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FileOutput{})
 }

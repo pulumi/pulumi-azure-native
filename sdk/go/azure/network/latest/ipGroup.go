@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -16,7 +17,9 @@ type IpGroup struct {
 
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// List of references to Azure resources that this IpGroups is associated with.
+	// List of references to Firewall Policies resources that this IpGroups is associated with.
+	FirewallPolicies SubResourceResponseArrayOutput `pulumi:"firewallPolicies"`
+	// List of references to Firewall resources that this IpGroups is associated with.
 	Firewalls SubResourceResponseArrayOutput `pulumi:"firewalls"`
 	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
 	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
@@ -66,6 +69,9 @@ func NewIpGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:IpGroup"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:IpGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IpGroup
@@ -92,7 +98,9 @@ func GetIpGroup(ctx *pulumi.Context,
 type ipGroupState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
-	// List of references to Azure resources that this IpGroups is associated with.
+	// List of references to Firewall Policies resources that this IpGroups is associated with.
+	FirewallPolicies []SubResourceResponse `pulumi:"firewallPolicies"`
+	// List of references to Firewall resources that this IpGroups is associated with.
 	Firewalls []SubResourceResponse `pulumi:"firewalls"`
 	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
 	IpAddresses []string `pulumi:"ipAddresses"`
@@ -111,7 +119,9 @@ type ipGroupState struct {
 type IpGroupState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
-	// List of references to Azure resources that this IpGroups is associated with.
+	// List of references to Firewall Policies resources that this IpGroups is associated with.
+	FirewallPolicies SubResourceResponseArrayInput
+	// List of references to Firewall resources that this IpGroups is associated with.
 	Firewalls SubResourceResponseArrayInput
 	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
 	IpAddresses pulumi.StringArrayInput
@@ -164,4 +174,43 @@ type IpGroupArgs struct {
 
 func (IpGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipGroupArgs)(nil)).Elem()
+}
+
+type IpGroupInput interface {
+	pulumi.Input
+
+	ToIpGroupOutput() IpGroupOutput
+	ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput
+}
+
+func (IpGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpGroup)(nil)).Elem()
+}
+
+func (i IpGroup) ToIpGroupOutput() IpGroupOutput {
+	return i.ToIpGroupOutputWithContext(context.Background())
+}
+
+func (i IpGroup) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpGroupOutput)
+}
+
+type IpGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (IpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpGroupOutput)(nil)).Elem()
+}
+
+func (o IpGroupOutput) ToIpGroupOutput() IpGroupOutput {
+	return o
+}
+
+func (o IpGroupOutput) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IpGroupOutput{})
 }

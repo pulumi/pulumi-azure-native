@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -18,7 +19,7 @@ type Table struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Table name under the specified account
 	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -72,7 +73,7 @@ type tableState struct {
 	Name *string `pulumi:"name"`
 	// Table name under the specified account
 	TableName *string `pulumi:"tableName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -81,7 +82,7 @@ type TableState struct {
 	Name pulumi.StringPtrInput
 	// Table name under the specified account
 	TableName pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -110,4 +111,43 @@ type TableArgs struct {
 
 func (TableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableArgs)(nil)).Elem()
+}
+
+type TableInput interface {
+	pulumi.Input
+
+	ToTableOutput() TableOutput
+	ToTableOutputWithContext(ctx context.Context) TableOutput
+}
+
+func (Table) ElementType() reflect.Type {
+	return reflect.TypeOf((*Table)(nil)).Elem()
+}
+
+func (i Table) ToTableOutput() TableOutput {
+	return i.ToTableOutputWithContext(context.Background())
+}
+
+func (i Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOutput)
+}
+
+type TableOutput struct {
+	*pulumi.OutputState
+}
+
+func (TableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOutput)(nil)).Elem()
+}
+
+func (o TableOutput) ToTableOutput() TableOutput {
+	return o
+}
+
+func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TableOutput{})
 }

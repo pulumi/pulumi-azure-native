@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -18,6 +19,8 @@ type Workspace struct {
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsResponsePtrOutput `pulumi:"defaultDataLakeStorage"`
+	// The encryption details of the workspace
+	Encryption EncryptionDetailsResponsePtrOutput `pulumi:"encryption"`
 	// Workspace level configs and feature flags
 	ExtraProperties pulumi.MapOutput `pulumi:"extraProperties"`
 	// Identity of the workspace
@@ -36,16 +39,22 @@ type Workspace struct {
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Purview Configuration
+	PurviewConfiguration PurviewConfigurationResponsePtrOutput `pulumi:"purviewConfiguration"`
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin pulumi.StringPtrOutput `pulumi:"sqlAdministratorLogin"`
 	// SQL administrator login password
 	SqlAdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"sqlAdministratorLoginPassword"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Virtual Network profile
 	VirtualNetworkProfile VirtualNetworkProfileResponsePtrOutput `pulumi:"virtualNetworkProfile"`
+	// Git integration settings
+	WorkspaceRepositoryConfiguration WorkspaceRepositoryConfigurationResponsePtrOutput `pulumi:"workspaceRepositoryConfiguration"`
+	// The workspace unique identifier
+	WorkspaceUID pulumi.StringOutput `pulumi:"workspaceUID"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -89,6 +98,8 @@ type workspaceState struct {
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage *DataLakeStorageAccountDetailsResponse `pulumi:"defaultDataLakeStorage"`
+	// The encryption details of the workspace
+	Encryption *EncryptionDetailsResponse `pulumi:"encryption"`
 	// Workspace level configs and feature flags
 	ExtraProperties map[string]interface{} `pulumi:"extraProperties"`
 	// Identity of the workspace
@@ -107,16 +118,22 @@ type workspaceState struct {
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Purview Configuration
+	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
 	// SQL administrator login password
 	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Virtual Network profile
 	VirtualNetworkProfile *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
+	// Git integration settings
+	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfigurationResponse `pulumi:"workspaceRepositoryConfiguration"`
+	// The workspace unique identifier
+	WorkspaceUID *string `pulumi:"workspaceUID"`
 }
 
 type WorkspaceState struct {
@@ -124,6 +141,8 @@ type WorkspaceState struct {
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsResponsePtrInput
+	// The encryption details of the workspace
+	Encryption EncryptionDetailsResponsePtrInput
 	// Workspace level configs and feature flags
 	ExtraProperties pulumi.MapInput
 	// Identity of the workspace
@@ -142,16 +161,22 @@ type WorkspaceState struct {
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Resource provisioning state
 	ProvisioningState pulumi.StringPtrInput
+	// Purview Configuration
+	PurviewConfiguration PurviewConfigurationResponsePtrInput
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin pulumi.StringPtrInput
 	// SQL administrator login password
 	SqlAdministratorLoginPassword pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Virtual Network profile
 	VirtualNetworkProfile VirtualNetworkProfileResponsePtrInput
+	// Git integration settings
+	WorkspaceRepositoryConfiguration WorkspaceRepositoryConfigurationResponsePtrInput
+	// The workspace unique identifier
+	WorkspaceUID pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -163,6 +188,8 @@ type workspaceArgs struct {
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage *DataLakeStorageAccountDetails `pulumi:"defaultDataLakeStorage"`
+	// The encryption details of the workspace
+	Encryption *EncryptionDetails `pulumi:"encryption"`
 	// Identity of the workspace
 	Identity *ManagedIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -175,6 +202,8 @@ type workspaceArgs struct {
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettings `pulumi:"managedVirtualNetworkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
+	// Purview Configuration
+	PurviewConfiguration *PurviewConfiguration `pulumi:"purviewConfiguration"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Login for workspace SQL active directory administrator
@@ -187,6 +216,8 @@ type workspaceArgs struct {
 	VirtualNetworkProfile *VirtualNetworkProfile `pulumi:"virtualNetworkProfile"`
 	// The name of the workspace
 	WorkspaceName string `pulumi:"workspaceName"`
+	// Git integration settings
+	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfiguration `pulumi:"workspaceRepositoryConfiguration"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -195,6 +226,8 @@ type WorkspaceArgs struct {
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsPtrInput
+	// The encryption details of the workspace
+	Encryption EncryptionDetailsPtrInput
 	// Identity of the workspace
 	Identity ManagedIdentityPtrInput
 	// The geo-location where the resource lives
@@ -207,6 +240,8 @@ type WorkspaceArgs struct {
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsPtrInput
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
+	// Purview Configuration
+	PurviewConfiguration PurviewConfigurationPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Login for workspace SQL active directory administrator
@@ -219,8 +254,49 @@ type WorkspaceArgs struct {
 	VirtualNetworkProfile VirtualNetworkProfilePtrInput
 	// The name of the workspace
 	WorkspaceName pulumi.StringInput
+	// Git integration settings
+	WorkspaceRepositoryConfiguration WorkspaceRepositoryConfigurationPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceArgs)(nil)).Elem()
+}
+
+type WorkspaceInput interface {
+	pulumi.Input
+
+	ToWorkspaceOutput() WorkspaceOutput
+	ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput
+}
+
+func (Workspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workspace)(nil)).Elem()
+}
+
+func (i Workspace) ToWorkspaceOutput() WorkspaceOutput {
+	return i.ToWorkspaceOutputWithContext(context.Background())
+}
+
+func (i Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
+}
+
+type WorkspaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceOutput)(nil)).Elem()
+}
+
+func (o WorkspaceOutput) ToWorkspaceOutput() WorkspaceOutput {
+	return o
+}
+
+func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkspaceOutput{})
 }

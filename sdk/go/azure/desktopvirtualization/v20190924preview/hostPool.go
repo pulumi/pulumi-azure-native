@@ -4,6 +4,7 @@
 package v20190924preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,7 +45,7 @@ type HostPool struct {
 	SsoContext pulumi.StringPtrOutput `pulumi:"ssoContext"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Is validation environment.
 	ValidationEnvironment pulumi.BoolPtrOutput `pulumi:"validationEnvironment"`
@@ -85,6 +86,12 @@ func NewHostPool(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:HostPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:HostPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:HostPool"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -140,7 +147,7 @@ type hostPoolState struct {
 	SsoContext *string `pulumi:"ssoContext"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Is validation environment.
 	ValidationEnvironment *bool `pulumi:"validationEnvironment"`
@@ -179,7 +186,7 @@ type HostPoolState struct {
 	SsoContext pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Is validation environment.
 	ValidationEnvironment pulumi.BoolPtrInput
@@ -268,4 +275,43 @@ type HostPoolArgs struct {
 
 func (HostPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostPoolArgs)(nil)).Elem()
+}
+
+type HostPoolInput interface {
+	pulumi.Input
+
+	ToHostPoolOutput() HostPoolOutput
+	ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput
+}
+
+func (HostPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostPool)(nil)).Elem()
+}
+
+func (i HostPool) ToHostPoolOutput() HostPoolOutput {
+	return i.ToHostPoolOutputWithContext(context.Background())
+}
+
+func (i HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolOutput)
+}
+
+type HostPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostPoolOutput)(nil)).Elem()
+}
+
+func (o HostPoolOutput) ToHostPoolOutput() HostPoolOutput {
+	return o
+}
+
+func (o HostPoolOutput) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HostPoolOutput{})
 }

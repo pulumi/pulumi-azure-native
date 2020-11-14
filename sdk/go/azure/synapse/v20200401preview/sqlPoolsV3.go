@@ -4,6 +4,7 @@
 package v20200401preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,7 +35,7 @@ type SqlPoolsV3 struct {
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -104,7 +105,7 @@ type sqlPoolsV3State struct {
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -129,7 +130,7 @@ type SqlPoolsV3State struct {
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -170,4 +171,43 @@ type SqlPoolsV3Args struct {
 
 func (SqlPoolsV3Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolsV3Args)(nil)).Elem()
+}
+
+type SqlPoolsV3Input interface {
+	pulumi.Input
+
+	ToSqlPoolsV3Output() SqlPoolsV3Output
+	ToSqlPoolsV3OutputWithContext(ctx context.Context) SqlPoolsV3Output
+}
+
+func (SqlPoolsV3) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolsV3)(nil)).Elem()
+}
+
+func (i SqlPoolsV3) ToSqlPoolsV3Output() SqlPoolsV3Output {
+	return i.ToSqlPoolsV3OutputWithContext(context.Background())
+}
+
+func (i SqlPoolsV3) ToSqlPoolsV3OutputWithContext(ctx context.Context) SqlPoolsV3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolsV3Output)
+}
+
+type SqlPoolsV3Output struct {
+	*pulumi.OutputState
+}
+
+func (SqlPoolsV3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolsV3Output)(nil)).Elem()
+}
+
+func (o SqlPoolsV3Output) ToSqlPoolsV3Output() SqlPoolsV3Output {
+	return o
+}
+
+func (o SqlPoolsV3Output) ToSqlPoolsV3OutputWithContext(ctx context.Context) SqlPoolsV3Output {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlPoolsV3Output{})
 }

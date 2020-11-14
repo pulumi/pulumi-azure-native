@@ -4,6 +4,7 @@
 package v20190101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -145,4 +146,43 @@ type AssessmentArgs struct {
 
 func (AssessmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentArgs)(nil)).Elem()
+}
+
+type AssessmentInput interface {
+	pulumi.Input
+
+	ToAssessmentOutput() AssessmentOutput
+	ToAssessmentOutputWithContext(ctx context.Context) AssessmentOutput
+}
+
+func (Assessment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Assessment)(nil)).Elem()
+}
+
+func (i Assessment) ToAssessmentOutput() AssessmentOutput {
+	return i.ToAssessmentOutputWithContext(context.Background())
+}
+
+func (i Assessment) ToAssessmentOutputWithContext(ctx context.Context) AssessmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentOutput)
+}
+
+type AssessmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssessmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentOutput)(nil)).Elem()
+}
+
+func (o AssessmentOutput) ToAssessmentOutput() AssessmentOutput {
+	return o
+}
+
+func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) AssessmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssessmentOutput{})
 }

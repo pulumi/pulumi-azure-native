@@ -4,6 +4,7 @@
 package v20201001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -129,4 +130,43 @@ type RegisteredAsnArgs struct {
 
 func (RegisteredAsnArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registeredAsnArgs)(nil)).Elem()
+}
+
+type RegisteredAsnInput interface {
+	pulumi.Input
+
+	ToRegisteredAsnOutput() RegisteredAsnOutput
+	ToRegisteredAsnOutputWithContext(ctx context.Context) RegisteredAsnOutput
+}
+
+func (RegisteredAsn) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredAsn)(nil)).Elem()
+}
+
+func (i RegisteredAsn) ToRegisteredAsnOutput() RegisteredAsnOutput {
+	return i.ToRegisteredAsnOutputWithContext(context.Background())
+}
+
+func (i RegisteredAsn) ToRegisteredAsnOutputWithContext(ctx context.Context) RegisteredAsnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegisteredAsnOutput)
+}
+
+type RegisteredAsnOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegisteredAsnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredAsnOutput)(nil)).Elem()
+}
+
+func (o RegisteredAsnOutput) ToRegisteredAsnOutput() RegisteredAsnOutput {
+	return o
+}
+
+func (o RegisteredAsnOutput) ToRegisteredAsnOutputWithContext(ctx context.Context) RegisteredAsnOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegisteredAsnOutput{})
 }

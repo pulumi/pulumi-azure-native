@@ -4,6 +4,7 @@
 package v20180601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -20,7 +21,7 @@ type VirtualNetworkRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Virtual Network Rule State
 	State pulumi.StringOutput `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId pulumi.StringOutput `pulumi:"virtualNetworkSubnetId"`
@@ -81,7 +82,7 @@ type virtualNetworkRuleState struct {
 	Name *string `pulumi:"name"`
 	// Virtual Network Rule State
 	State *string `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
@@ -94,7 +95,7 @@ type VirtualNetworkRuleState struct {
 	Name pulumi.StringPtrInput
 	// Virtual Network Rule State
 	State pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId pulumi.StringPtrInput
@@ -133,4 +134,43 @@ type VirtualNetworkRuleArgs struct {
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkRuleArgs)(nil)).Elem()
+}
+
+type VirtualNetworkRuleInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput
+	ToVirtualNetworkRuleOutputWithContext(ctx context.Context) VirtualNetworkRuleOutput
+}
+
+func (VirtualNetworkRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRule)(nil)).Elem()
+}
+
+func (i VirtualNetworkRule) ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput {
+	return i.ToVirtualNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRule) ToVirtualNetworkRuleOutputWithContext(ctx context.Context) VirtualNetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleOutput)
+}
+
+type VirtualNetworkRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx context.Context) VirtualNetworkRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 }

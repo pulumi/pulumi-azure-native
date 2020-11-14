@@ -4,6 +4,7 @@
 package v20200806preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -100,4 +101,43 @@ type IotDefenderSettingArgs struct {
 
 func (IotDefenderSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotDefenderSettingArgs)(nil)).Elem()
+}
+
+type IotDefenderSettingInput interface {
+	pulumi.Input
+
+	ToIotDefenderSettingOutput() IotDefenderSettingOutput
+	ToIotDefenderSettingOutputWithContext(ctx context.Context) IotDefenderSettingOutput
+}
+
+func (IotDefenderSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDefenderSetting)(nil)).Elem()
+}
+
+func (i IotDefenderSetting) ToIotDefenderSettingOutput() IotDefenderSettingOutput {
+	return i.ToIotDefenderSettingOutputWithContext(context.Background())
+}
+
+func (i IotDefenderSetting) ToIotDefenderSettingOutputWithContext(ctx context.Context) IotDefenderSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotDefenderSettingOutput)
+}
+
+type IotDefenderSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotDefenderSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDefenderSettingOutput)(nil)).Elem()
+}
+
+func (o IotDefenderSettingOutput) ToIotDefenderSettingOutput() IotDefenderSettingOutput {
+	return o
+}
+
+func (o IotDefenderSettingOutput) ToIotDefenderSettingOutputWithContext(ctx context.Context) IotDefenderSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IotDefenderSettingOutput{})
 }

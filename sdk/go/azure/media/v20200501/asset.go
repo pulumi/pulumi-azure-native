@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -32,7 +33,7 @@ type Asset struct {
 	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
 	// The Asset encryption format. One of None or MediaStorageEncryption.
 	StorageEncryptionFormat pulumi.StringOutput `pulumi:"storageEncryptionFormat"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -106,7 +107,7 @@ type assetState struct {
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The Asset encryption format. One of None or MediaStorageEncryption.
 	StorageEncryptionFormat *string `pulumi:"storageEncryptionFormat"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -129,7 +130,7 @@ type AssetState struct {
 	StorageAccountName pulumi.StringPtrInput
 	// The Asset encryption format. One of None or MediaStorageEncryption.
 	StorageEncryptionFormat pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -174,4 +175,43 @@ type AssetArgs struct {
 
 func (AssetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assetArgs)(nil)).Elem()
+}
+
+type AssetInput interface {
+	pulumi.Input
+
+	ToAssetOutput() AssetOutput
+	ToAssetOutputWithContext(ctx context.Context) AssetOutput
+}
+
+func (Asset) ElementType() reflect.Type {
+	return reflect.TypeOf((*Asset)(nil)).Elem()
+}
+
+func (i Asset) ToAssetOutput() AssetOutput {
+	return i.ToAssetOutputWithContext(context.Background())
+}
+
+func (i Asset) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetOutput)
+}
+
+type AssetOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetOutput)(nil)).Elem()
+}
+
+func (o AssetOutput) ToAssetOutput() AssetOutput {
+	return o
+}
+
+func (o AssetOutput) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssetOutput{})
 }

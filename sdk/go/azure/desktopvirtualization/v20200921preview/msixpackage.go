@@ -4,6 +4,7 @@
 package v20200921preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,7 +37,7 @@ type MSIXPackage struct {
 	PackageName pulumi.StringPtrOutput `pulumi:"packageName"`
 	// Relative Path to the package inside the image.
 	PackageRelativePath pulumi.StringPtrOutput `pulumi:"packageRelativePath"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Package Version found in the appxmanifest.xml.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
@@ -57,6 +58,15 @@ func NewMSIXPackage(ctx *pulumi.Context,
 	if args == nil {
 		args = &MSIXPackageArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:MSIXPackage"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:MSIXPackage"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MSIXPackage
 	err := ctx.RegisterResource("azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage", name, args, &resource, opts...)
 	if err != nil {
@@ -101,7 +111,7 @@ type msixpackageState struct {
 	PackageName *string `pulumi:"packageName"`
 	// Relative Path to the package inside the image.
 	PackageRelativePath *string `pulumi:"packageRelativePath"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Package Version found in the appxmanifest.xml.
 	Version *string `pulumi:"version"`
@@ -130,7 +140,7 @@ type MSIXPackageState struct {
 	PackageName pulumi.StringPtrInput
 	// Relative Path to the package inside the image.
 	PackageRelativePath pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Package Version found in the appxmanifest.xml.
 	Version pulumi.StringPtrInput
@@ -205,4 +215,43 @@ type MSIXPackageArgs struct {
 
 func (MSIXPackageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*msixpackageArgs)(nil)).Elem()
+}
+
+type MSIXPackageInput interface {
+	pulumi.Input
+
+	ToMSIXPackageOutput() MSIXPackageOutput
+	ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPackageOutput
+}
+
+func (MSIXPackage) ElementType() reflect.Type {
+	return reflect.TypeOf((*MSIXPackage)(nil)).Elem()
+}
+
+func (i MSIXPackage) ToMSIXPackageOutput() MSIXPackageOutput {
+	return i.ToMSIXPackageOutputWithContext(context.Background())
+}
+
+func (i MSIXPackage) ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MSIXPackageOutput)
+}
+
+type MSIXPackageOutput struct {
+	*pulumi.OutputState
+}
+
+func (MSIXPackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MSIXPackageOutput)(nil)).Elem()
+}
+
+func (o MSIXPackageOutput) ToMSIXPackageOutput() MSIXPackageOutput {
+	return o
+}
+
+func (o MSIXPackageOutput) ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPackageOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MSIXPackageOutput{})
 }

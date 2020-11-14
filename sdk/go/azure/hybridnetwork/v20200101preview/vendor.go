@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -20,7 +21,7 @@ type Vendor struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// A list of IDs of the vendor skus offered by the vendor.
 	Skus SubResourceResponseArrayOutput `pulumi:"skus"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -61,7 +62,7 @@ type vendorState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// A list of IDs of the vendor skus offered by the vendor.
 	Skus []SubResourceResponse `pulumi:"skus"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -72,7 +73,7 @@ type VendorState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// A list of IDs of the vendor skus offered by the vendor.
 	Skus SubResourceResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -93,4 +94,43 @@ type VendorArgs struct {
 
 func (VendorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vendorArgs)(nil)).Elem()
+}
+
+type VendorInput interface {
+	pulumi.Input
+
+	ToVendorOutput() VendorOutput
+	ToVendorOutputWithContext(ctx context.Context) VendorOutput
+}
+
+func (Vendor) ElementType() reflect.Type {
+	return reflect.TypeOf((*Vendor)(nil)).Elem()
+}
+
+func (i Vendor) ToVendorOutput() VendorOutput {
+	return i.ToVendorOutputWithContext(context.Background())
+}
+
+func (i Vendor) ToVendorOutputWithContext(ctx context.Context) VendorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VendorOutput)
+}
+
+type VendorOutput struct {
+	*pulumi.OutputState
+}
+
+func (VendorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VendorOutput)(nil)).Elem()
+}
+
+func (o VendorOutput) ToVendorOutput() VendorOutput {
+	return o
+}
+
+func (o VendorOutput) ToVendorOutputWithContext(ctx context.Context) VendorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VendorOutput{})
 }

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -56,6 +55,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      * Parameters to be applied to the cluster-autoscaler when enabled
      */
     public readonly autoScalerProfile!: pulumi.Output<outputs.containerservice.latest.ManagedClusterPropertiesResponseAutoScalerProfile | undefined>;
+    /**
+     * Profile of auto upgrade configuration.
+     */
+    public readonly autoUpgradeProfile!: pulumi.Output<outputs.containerservice.latest.ManagedClusterAutoUpgradeProfileResponse | undefined>;
     /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
@@ -113,6 +116,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly nodeResourceGroup!: pulumi.Output<string | undefined>;
     /**
+     * Profile of managed cluster pod identity.
+     */
+    public readonly podIdentityProfile!: pulumi.Output<outputs.containerservice.latest.ManagedClusterPodIdentityProfileResponse | undefined>;
+    /**
      * Represents the Power State of the cluster
      */
     public /*out*/ readonly powerState!: pulumi.Output<outputs.containerservice.latest.PowerStateResponse>;
@@ -169,6 +176,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
             inputs["apiServerAccessProfile"] = args ? args.apiServerAccessProfile : undefined;
             inputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
+            inputs["autoUpgradeProfile"] = args ? args.autoUpgradeProfile : undefined;
             inputs["diskEncryptionSetID"] = args ? args.diskEncryptionSetID : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
@@ -180,6 +188,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
+            inputs["podIdentityProfile"] = args ? args.podIdentityProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
@@ -199,6 +208,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["agentPoolProfiles"] = undefined /*out*/;
             inputs["apiServerAccessProfile"] = undefined /*out*/;
             inputs["autoScalerProfile"] = undefined /*out*/;
+            inputs["autoUpgradeProfile"] = undefined /*out*/;
             inputs["diskEncryptionSetID"] = undefined /*out*/;
             inputs["dnsPrefix"] = undefined /*out*/;
             inputs["enablePodSecurityPolicy"] = undefined /*out*/;
@@ -213,6 +223,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["networkProfile"] = undefined /*out*/;
             inputs["nodeResourceGroup"] = undefined /*out*/;
+            inputs["podIdentityProfile"] = undefined /*out*/;
             inputs["powerState"] = undefined /*out*/;
             inputs["privateFQDN"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -229,7 +240,7 @@ export class ManagedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20170831:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180331:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190801:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191001:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200301:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200701:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200901:ManagedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20170831:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180331:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190801:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191001:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200301:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200701:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200901:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201101:ManagedCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedCluster.__pulumiType, name, inputs, opts);
     }
@@ -259,6 +270,10 @@ export interface ManagedClusterArgs {
      * Parameters to be applied to the cluster-autoscaler when enabled
      */
     readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.latest.ManagedClusterPropertiesAutoScalerProfile>;
+    /**
+     * Profile of auto upgrade configuration.
+     */
+    readonly autoUpgradeProfile?: pulumi.Input<inputs.containerservice.latest.ManagedClusterAutoUpgradeProfile>;
     /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
@@ -303,6 +318,10 @@ export interface ManagedClusterArgs {
      * Name of the resource group containing agent pool nodes.
      */
     readonly nodeResourceGroup?: pulumi.Input<string>;
+    /**
+     * Profile of managed cluster pod identity.
+     */
+    readonly podIdentityProfile?: pulumi.Input<inputs.containerservice.latest.ManagedClusterPodIdentityProfile>;
     /**
      * The name of the resource group.
      */

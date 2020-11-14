@@ -4,6 +4,7 @@
 package v20200601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -175,4 +176,43 @@ type EmailTemplateArgs struct {
 
 func (EmailTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailTemplateArgs)(nil)).Elem()
+}
+
+type EmailTemplateInput interface {
+	pulumi.Input
+
+	ToEmailTemplateOutput() EmailTemplateOutput
+	ToEmailTemplateOutputWithContext(ctx context.Context) EmailTemplateOutput
+}
+
+func (EmailTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailTemplate)(nil)).Elem()
+}
+
+func (i EmailTemplate) ToEmailTemplateOutput() EmailTemplateOutput {
+	return i.ToEmailTemplateOutputWithContext(context.Background())
+}
+
+func (i EmailTemplate) ToEmailTemplateOutputWithContext(ctx context.Context) EmailTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateOutput)
+}
+
+type EmailTemplateOutput struct {
+	*pulumi.OutputState
+}
+
+func (EmailTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailTemplateOutput)(nil)).Elem()
+}
+
+func (o EmailTemplateOutput) ToEmailTemplateOutput() EmailTemplateOutput {
+	return o
+}
+
+func (o EmailTemplateOutput) ToEmailTemplateOutputWithContext(ctx context.Context) EmailTemplateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EmailTemplateOutput{})
 }

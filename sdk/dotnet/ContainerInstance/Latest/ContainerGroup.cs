@@ -165,6 +165,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20180901:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20181001:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20191201:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20201101:ContainerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

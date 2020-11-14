@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -105,7 +104,7 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200501:VirtualApplianceSite" }, { type: "azure-nextgen:network/v20200601:VirtualApplianceSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200501:VirtualApplianceSite" }, { type: "azure-nextgen:network/v20200601:VirtualApplianceSite" }, { type: "azure-nextgen:network/v20200701:VirtualApplianceSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualApplianceSite.__pulumiType, name, inputs, opts);
     }

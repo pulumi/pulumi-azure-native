@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<string?> AddressPrefix { get; private set; } = null!;
 
         /// <summary>
+        /// Flag to control transit for VirtualRouter hub.
+        /// </summary>
+        [Output("allowBranchToBranchTraffic")]
+        public Output<bool?> AllowBranchToBranchTraffic { get; private set; } = null!;
+
+        /// <summary>
         /// The azureFirewall associated with this VirtualHub.
         /// </summary>
         [Output("azureFirewall")]
@@ -31,12 +37,6 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Output("bgpConnections")]
         public Output<ImmutableArray<Outputs.SubResourceResponse>> BgpConnections { get; private set; } = null!;
-
-        /// <summary>
-        /// Flag to control route propogation for VirtualRouter hub.
-        /// </summary>
-        [Output("enableVirtualRouterRoutePropogation")]
-        public Output<bool?> EnableVirtualRouterRoutePropogation { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -196,6 +196,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualHub"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -226,16 +227,16 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Input<string>? AddressPrefix { get; set; }
 
         /// <summary>
+        /// Flag to control transit for VirtualRouter hub.
+        /// </summary>
+        [Input("allowBranchToBranchTraffic")]
+        public Input<bool>? AllowBranchToBranchTraffic { get; set; }
+
+        /// <summary>
         /// The azureFirewall associated with this VirtualHub.
         /// </summary>
         [Input("azureFirewall")]
         public Input<Inputs.SubResourceArgs>? AzureFirewall { get; set; }
-
-        /// <summary>
-        /// Flag to control route propogation for VirtualRouter hub.
-        /// </summary>
-        [Input("enableVirtualRouterRoutePropogation")]
-        public Input<bool>? EnableVirtualRouterRoutePropogation { get; set; }
 
         /// <summary>
         /// The expressRouteGateway associated with this VirtualHub.

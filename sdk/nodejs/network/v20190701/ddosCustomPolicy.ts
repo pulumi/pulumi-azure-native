@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -119,7 +118,7 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20181101:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20181201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190401:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190601:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190801:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190901:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20191101:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20191201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200301:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200401:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200501:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200601:DdosCustomPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20181101:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20181201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190401:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190601:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190801:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190901:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20191101:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20191201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200301:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200401:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200501:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200601:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200701:DdosCustomPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DdosCustomPolicy.__pulumiType, name, inputs, opts);
     }

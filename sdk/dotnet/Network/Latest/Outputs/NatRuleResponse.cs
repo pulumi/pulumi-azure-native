@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// </summary>
         public readonly string? TranslatedAddress;
         /// <summary>
+        /// The translated FQDN for this NAT rule.
+        /// </summary>
+        public readonly string? TranslatedFqdn;
+        /// <summary>
         /// The translated port for this NAT rule.
         /// </summary>
         public readonly string? TranslatedPort;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             string? translatedAddress,
 
+            string? translatedFqdn,
+
             string? translatedPort)
         {
             Description = description;
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
             SourceAddresses = sourceAddresses;
             SourceIpGroups = sourceIpGroups;
             TranslatedAddress = translatedAddress;
+            TranslatedFqdn = translatedFqdn;
             TranslatedPort = translatedPort;
         }
     }

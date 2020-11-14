@@ -20,13 +20,16 @@ class GetP2sVpnGatewayResult:
     """
     P2SVpnGateway Resource.
     """
-    def __init__(__self__, custom_dns_servers=None, etag=None, location=None, name=None, p2_s_connection_configurations=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_client_connection_health=None, vpn_gateway_scale_unit=None, vpn_server_configuration=None):
+    def __init__(__self__, custom_dns_servers=None, etag=None, is_routing_preference_internet=None, location=None, name=None, p2_s_connection_configurations=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_client_connection_health=None, vpn_gateway_scale_unit=None, vpn_server_configuration=None):
         if custom_dns_servers and not isinstance(custom_dns_servers, list):
             raise TypeError("Expected argument 'custom_dns_servers' to be a list")
         pulumi.set(__self__, "custom_dns_servers", custom_dns_servers)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if is_routing_preference_internet and not isinstance(is_routing_preference_internet, bool):
+            raise TypeError("Expected argument 'is_routing_preference_internet' to be a bool")
+        pulumi.set(__self__, "is_routing_preference_internet", is_routing_preference_internet)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -73,6 +76,14 @@ class GetP2sVpnGatewayResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="isRoutingPreferenceInternet")
+    def is_routing_preference_internet(self) -> Optional[bool]:
+        """
+        Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+        """
+        return pulumi.get(self, "is_routing_preference_internet")
 
     @property
     @pulumi.getter
@@ -163,6 +174,7 @@ class AwaitableGetP2sVpnGatewayResult(GetP2sVpnGatewayResult):
         return GetP2sVpnGatewayResult(
             custom_dns_servers=self.custom_dns_servers,
             etag=self.etag,
+            is_routing_preference_internet=self.is_routing_preference_internet,
             location=self.location,
             name=self.name,
             p2_s_connection_configurations=self.p2_s_connection_configurations,
@@ -196,6 +208,7 @@ def get_p2s_vpn_gateway(gateway_name: Optional[str] = None,
     return AwaitableGetP2sVpnGatewayResult(
         custom_dns_servers=__ret__.custom_dns_servers,
         etag=__ret__.etag,
+        is_routing_preference_internet=__ret__.is_routing_preference_internet,
         location=__ret__.location,
         name=__ret__.name,
         p2_s_connection_configurations=__ret__.p2_s_connection_configurations,

@@ -52,13 +52,17 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
     public sealed class GetWatchlistResult
     {
         /// <summary>
-        /// Describes a user that created the watchlist
+        /// The content type of the raw content. Example : text/csv or text/tsv 
         /// </summary>
-        public readonly Outputs.UserInfoResponse? CreatedBy;
+        public readonly string? ContentType;
         /// <summary>
         /// The time the watchlist was created
         /// </summary>
-        public readonly string? CreatedTimeUtc;
+        public readonly string? Created;
+        /// <summary>
+        /// Describes a user that created the watchlist
+        /// </summary>
+        public readonly Outputs.UserInfoResponse? CreatedBy;
         /// <summary>
         /// The default duration of a watchlist (in ISO 8601 duration format)
         /// </summary>
@@ -76,31 +80,35 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// A flag that indicates if the watchlist is deleted or not
+        /// </summary>
+        public readonly bool? IsDeleted;
+        /// <summary>
         /// List of labels relevant to this watchlist
         /// </summary>
         public readonly ImmutableArray<string> Labels;
-        /// <summary>
-        /// The last time the watchlist was updated
-        /// </summary>
-        public readonly string? LastUpdatedTimeUtc;
         /// <summary>
         /// Azure resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The notes of the watchlist
+        /// The number of lines in a csv/tsv content to skip before the header
         /// </summary>
-        public readonly string? Notes;
+        public readonly int? NumberOfLinesToSkip;
         /// <summary>
         /// The provider of the watchlist
         /// </summary>
         public readonly string Provider;
         /// <summary>
+        /// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        /// </summary>
+        public readonly string? RawContent;
+        /// <summary>
         /// The source of the watchlist
         /// </summary>
         public readonly string Source;
         /// <summary>
-        /// The tenantId where the watchlist belongs to.
+        /// The tenantId where the watchlist belongs to
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
@@ -108,27 +116,33 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// The last time the watchlist was updated
+        /// </summary>
+        public readonly string? Updated;
+        /// <summary>
         /// Describes a user that updated the watchlist
         /// </summary>
         public readonly Outputs.UserInfoResponse? UpdatedBy;
         /// <summary>
-        /// List of watchlist items.
+        /// The alias of the watchlist
         /// </summary>
-        public readonly ImmutableArray<Outputs.WatchlistItemResponse> WatchlistItems;
+        public readonly string? WatchlistAlias;
+        /// <summary>
+        /// The id (a Guid) of the watchlist
+        /// </summary>
+        public readonly string? WatchlistId;
         /// <summary>
         /// The type of the watchlist
         /// </summary>
         public readonly string? WatchlistType;
-        /// <summary>
-        /// The workspaceId where the watchlist belongs to.
-        /// </summary>
-        public readonly string? WorkspaceId;
 
         [OutputConstructor]
         private GetWatchlistResult(
-            Outputs.UserInfoResponse? createdBy,
+            string? contentType,
 
-            string? createdTimeUtc,
+            string? created,
+
+            Outputs.UserInfoResponse? createdBy,
 
             string? defaultDuration,
 
@@ -138,15 +152,17 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             string? etag,
 
-            ImmutableArray<string> labels,
+            bool? isDeleted,
 
-            string? lastUpdatedTimeUtc,
+            ImmutableArray<string> labels,
 
             string name,
 
-            string? notes,
+            int? numberOfLinesToSkip,
 
             string provider,
+
+            string? rawContent,
 
             string source,
 
@@ -154,32 +170,37 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             string type,
 
+            string? updated,
+
             Outputs.UserInfoResponse? updatedBy,
 
-            ImmutableArray<Outputs.WatchlistItemResponse> watchlistItems,
+            string? watchlistAlias,
 
-            string? watchlistType,
+            string? watchlistId,
 
-            string? workspaceId)
+            string? watchlistType)
         {
+            ContentType = contentType;
+            Created = created;
             CreatedBy = createdBy;
-            CreatedTimeUtc = createdTimeUtc;
             DefaultDuration = defaultDuration;
             Description = description;
             DisplayName = displayName;
             Etag = etag;
+            IsDeleted = isDeleted;
             Labels = labels;
-            LastUpdatedTimeUtc = lastUpdatedTimeUtc;
             Name = name;
-            Notes = notes;
+            NumberOfLinesToSkip = numberOfLinesToSkip;
             Provider = provider;
+            RawContent = rawContent;
             Source = source;
             TenantId = tenantId;
             Type = type;
+            Updated = updated;
             UpdatedBy = updatedBy;
-            WatchlistItems = watchlistItems;
+            WatchlistAlias = watchlistAlias;
+            WatchlistId = watchlistId;
             WatchlistType = watchlistType;
-            WorkspaceId = workspaceId;
         }
     }
 }

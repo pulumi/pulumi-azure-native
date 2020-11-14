@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -29,7 +30,7 @@ type MediaService struct {
 	StorageAuthentication pulumi.StringPtrOutput            `pulumi:"storageAuthentication"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -103,7 +104,7 @@ type mediaServiceState struct {
 	StorageAuthentication *string                  `pulumi:"storageAuthentication"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -123,7 +124,7 @@ type MediaServiceState struct {
 	StorageAuthentication pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -170,4 +171,43 @@ type MediaServiceArgs struct {
 
 func (MediaServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mediaServiceArgs)(nil)).Elem()
+}
+
+type MediaServiceInput interface {
+	pulumi.Input
+
+	ToMediaServiceOutput() MediaServiceOutput
+	ToMediaServiceOutputWithContext(ctx context.Context) MediaServiceOutput
+}
+
+func (MediaService) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaService)(nil)).Elem()
+}
+
+func (i MediaService) ToMediaServiceOutput() MediaServiceOutput {
+	return i.ToMediaServiceOutputWithContext(context.Background())
+}
+
+func (i MediaService) ToMediaServiceOutputWithContext(ctx context.Context) MediaServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceOutput)
+}
+
+type MediaServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (MediaServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaServiceOutput)(nil)).Elem()
+}
+
+func (o MediaServiceOutput) ToMediaServiceOutput() MediaServiceOutput {
+	return o
+}
+
+func (o MediaServiceOutput) ToMediaServiceOutputWithContext(ctx context.Context) MediaServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MediaServiceOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200701preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -21,7 +22,7 @@ type AzureADMetric struct {
 	Properties AzureADMetricsPropertiesFormatResponseOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -69,7 +70,7 @@ type azureADMetricState struct {
 	Properties *AzureADMetricsPropertiesFormatResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -81,7 +82,7 @@ type AzureADMetricState struct {
 	Properties AzureADMetricsPropertiesFormatResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -114,4 +115,43 @@ type AzureADMetricArgs struct {
 
 func (AzureADMetricArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*azureADMetricArgs)(nil)).Elem()
+}
+
+type AzureADMetricInput interface {
+	pulumi.Input
+
+	ToAzureADMetricOutput() AzureADMetricOutput
+	ToAzureADMetricOutputWithContext(ctx context.Context) AzureADMetricOutput
+}
+
+func (AzureADMetric) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureADMetric)(nil)).Elem()
+}
+
+func (i AzureADMetric) ToAzureADMetricOutput() AzureADMetricOutput {
+	return i.ToAzureADMetricOutputWithContext(context.Background())
+}
+
+func (i AzureADMetric) ToAzureADMetricOutputWithContext(ctx context.Context) AzureADMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureADMetricOutput)
+}
+
+type AzureADMetricOutput struct {
+	*pulumi.OutputState
+}
+
+func (AzureADMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureADMetricOutput)(nil)).Elem()
+}
+
+func (o AzureADMetricOutput) ToAzureADMetricOutput() AzureADMetricOutput {
+	return o
+}
+
+func (o AzureADMetricOutput) ToAzureADMetricOutputWithContext(ctx context.Context) AzureADMetricOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AzureADMetricOutput{})
 }

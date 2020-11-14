@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -26,7 +27,7 @@ type SqlPoolSensitivityLabel struct {
 	LabelName pulumi.StringPtrOutput `pulumi:"labelName"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -91,7 +92,7 @@ type sqlPoolSensitivityLabelState struct {
 	LabelName *string `pulumi:"labelName"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -108,7 +109,7 @@ type SqlPoolSensitivityLabelState struct {
 	LabelName pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -169,4 +170,43 @@ type SqlPoolSensitivityLabelArgs struct {
 
 func (SqlPoolSensitivityLabelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolSensitivityLabelArgs)(nil)).Elem()
+}
+
+type SqlPoolSensitivityLabelInput interface {
+	pulumi.Input
+
+	ToSqlPoolSensitivityLabelOutput() SqlPoolSensitivityLabelOutput
+	ToSqlPoolSensitivityLabelOutputWithContext(ctx context.Context) SqlPoolSensitivityLabelOutput
+}
+
+func (SqlPoolSensitivityLabel) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolSensitivityLabel)(nil)).Elem()
+}
+
+func (i SqlPoolSensitivityLabel) ToSqlPoolSensitivityLabelOutput() SqlPoolSensitivityLabelOutput {
+	return i.ToSqlPoolSensitivityLabelOutputWithContext(context.Background())
+}
+
+func (i SqlPoolSensitivityLabel) ToSqlPoolSensitivityLabelOutputWithContext(ctx context.Context) SqlPoolSensitivityLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolSensitivityLabelOutput)
+}
+
+type SqlPoolSensitivityLabelOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlPoolSensitivityLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolSensitivityLabelOutput)(nil)).Elem()
+}
+
+func (o SqlPoolSensitivityLabelOutput) ToSqlPoolSensitivityLabelOutput() SqlPoolSensitivityLabelOutput {
+	return o
+}
+
+func (o SqlPoolSensitivityLabelOutput) ToSqlPoolSensitivityLabelOutputWithContext(ctx context.Context) SqlPoolSensitivityLabelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlPoolSensitivityLabelOutput{})
 }

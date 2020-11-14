@@ -20,13 +20,16 @@ class GetLoadBalancerResult:
     """
     LoadBalancer resource.
     """
-    def __init__(__self__, backend_address_pools=None, etag=None, frontend_ip_configurations=None, inbound_nat_pools=None, inbound_nat_rules=None, load_balancing_rules=None, location=None, name=None, outbound_rules=None, probes=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None):
+    def __init__(__self__, backend_address_pools=None, etag=None, extended_location=None, frontend_ip_configurations=None, inbound_nat_pools=None, inbound_nat_rules=None, load_balancing_rules=None, location=None, name=None, outbound_rules=None, probes=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None):
         if backend_address_pools and not isinstance(backend_address_pools, list):
             raise TypeError("Expected argument 'backend_address_pools' to be a list")
         pulumi.set(__self__, "backend_address_pools", backend_address_pools)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if frontend_ip_configurations and not isinstance(frontend_ip_configurations, list):
             raise TypeError("Expected argument 'frontend_ip_configurations' to be a list")
         pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
@@ -82,6 +85,14 @@ class GetLoadBalancerResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the load balancer.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
@@ -196,6 +207,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
         return GetLoadBalancerResult(
             backend_address_pools=self.backend_address_pools,
             etag=self.etag,
+            extended_location=self.extended_location,
             frontend_ip_configurations=self.frontend_ip_configurations,
             inbound_nat_pools=self.inbound_nat_pools,
             inbound_nat_rules=self.inbound_nat_rules,
@@ -235,6 +247,7 @@ def get_load_balancer(expand: Optional[str] = None,
     return AwaitableGetLoadBalancerResult(
         backend_address_pools=__ret__.backend_address_pools,
         etag=__ret__.etag,
+        extended_location=__ret__.extended_location,
         frontend_ip_configurations=__ret__.frontend_ip_configurations,
         inbound_nat_pools=__ret__.inbound_nat_pools,
         inbound_nat_rules=__ret__.inbound_nat_rules,

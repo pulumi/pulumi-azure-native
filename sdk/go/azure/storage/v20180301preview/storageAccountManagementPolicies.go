@@ -4,6 +4,7 @@
 package v20180301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -20,7 +21,7 @@ type StorageAccountManagementPolicies struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -85,7 +86,7 @@ type storageAccountManagementPoliciesState struct {
 	Name *string `pulumi:"name"`
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Policy interface{} `pulumi:"policy"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -96,7 +97,7 @@ type StorageAccountManagementPoliciesState struct {
 	Name pulumi.StringPtrInput
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Policy pulumi.Input
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -129,4 +130,43 @@ type StorageAccountManagementPoliciesArgs struct {
 
 func (StorageAccountManagementPoliciesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageAccountManagementPoliciesArgs)(nil)).Elem()
+}
+
+type StorageAccountManagementPoliciesInput interface {
+	pulumi.Input
+
+	ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput
+	ToStorageAccountManagementPoliciesOutputWithContext(ctx context.Context) StorageAccountManagementPoliciesOutput
+}
+
+func (StorageAccountManagementPolicies) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountManagementPolicies)(nil)).Elem()
+}
+
+func (i StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput {
+	return i.ToStorageAccountManagementPoliciesOutputWithContext(context.Background())
+}
+
+func (i StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOutputWithContext(ctx context.Context) StorageAccountManagementPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountManagementPoliciesOutput)
+}
+
+type StorageAccountManagementPoliciesOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageAccountManagementPoliciesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountManagementPoliciesOutput)(nil)).Elem()
+}
+
+func (o StorageAccountManagementPoliciesOutput) ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput {
+	return o
+}
+
+func (o StorageAccountManagementPoliciesOutput) ToStorageAccountManagementPoliciesOutputWithContext(ctx context.Context) StorageAccountManagementPoliciesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageAccountManagementPoliciesOutput{})
 }

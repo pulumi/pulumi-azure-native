@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -182,4 +183,43 @@ type DiagnosticArgs struct {
 
 func (DiagnosticArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*diagnosticArgs)(nil)).Elem()
+}
+
+type DiagnosticInput interface {
+	pulumi.Input
+
+	ToDiagnosticOutput() DiagnosticOutput
+	ToDiagnosticOutputWithContext(ctx context.Context) DiagnosticOutput
+}
+
+func (Diagnostic) ElementType() reflect.Type {
+	return reflect.TypeOf((*Diagnostic)(nil)).Elem()
+}
+
+func (i Diagnostic) ToDiagnosticOutput() DiagnosticOutput {
+	return i.ToDiagnosticOutputWithContext(context.Background())
+}
+
+func (i Diagnostic) ToDiagnosticOutputWithContext(ctx context.Context) DiagnosticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticOutput)
+}
+
+type DiagnosticOutput struct {
+	*pulumi.OutputState
+}
+
+func (DiagnosticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticOutput)(nil)).Elem()
+}
+
+func (o DiagnosticOutput) ToDiagnosticOutput() DiagnosticOutput {
+	return o
+}
+
+func (o DiagnosticOutput) ToDiagnosticOutputWithContext(ctx context.Context) DiagnosticOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DiagnosticOutput{})
 }

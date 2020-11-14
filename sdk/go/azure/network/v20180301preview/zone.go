@@ -4,6 +4,7 @@
 package v20180301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -32,7 +33,7 @@ type Zone struct {
 	ResolutionVirtualNetworks SubResourceResponseArrayOutput `pulumi:"resolutionVirtualNetworks"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The type of this DNS zone (Public or Private).
 	ZoneType pulumi.StringPtrOutput `pulumi:"zoneType"`
@@ -114,7 +115,7 @@ type zoneState struct {
 	ResolutionVirtualNetworks []SubResourceResponse `pulumi:"resolutionVirtualNetworks"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The type of this DNS zone (Public or Private).
 	ZoneType *string `pulumi:"zoneType"`
@@ -139,7 +140,7 @@ type ZoneState struct {
 	ResolutionVirtualNetworks SubResourceResponseArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The type of this DNS zone (Public or Private).
 	ZoneType pulumi.StringPtrInput
@@ -190,4 +191,43 @@ type ZoneArgs struct {
 
 func (ZoneArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneArgs)(nil)).Elem()
+}
+
+type ZoneInput interface {
+	pulumi.Input
+
+	ToZoneOutput() ZoneOutput
+	ToZoneOutputWithContext(ctx context.Context) ZoneOutput
+}
+
+func (Zone) ElementType() reflect.Type {
+	return reflect.TypeOf((*Zone)(nil)).Elem()
+}
+
+func (i Zone) ToZoneOutput() ZoneOutput {
+	return i.ToZoneOutputWithContext(context.Background())
+}
+
+func (i Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneOutput)
+}
+
+type ZoneOutput struct {
+	*pulumi.OutputState
+}
+
+func (ZoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneOutput)(nil)).Elem()
+}
+
+func (o ZoneOutput) ToZoneOutput() ZoneOutput {
+	return o
+}
+
+func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ZoneOutput{})
 }

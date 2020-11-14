@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -58,6 +59,9 @@ func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -161,4 +165,43 @@ type LoadBalancerBackendAddressPoolArgs struct {
 
 func (LoadBalancerBackendAddressPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerBackendAddressPoolArgs)(nil)).Elem()
+}
+
+type LoadBalancerBackendAddressPoolInput interface {
+	pulumi.Input
+
+	ToLoadBalancerBackendAddressPoolOutput() LoadBalancerBackendAddressPoolOutput
+	ToLoadBalancerBackendAddressPoolOutputWithContext(ctx context.Context) LoadBalancerBackendAddressPoolOutput
+}
+
+func (LoadBalancerBackendAddressPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerBackendAddressPool)(nil)).Elem()
+}
+
+func (i LoadBalancerBackendAddressPool) ToLoadBalancerBackendAddressPoolOutput() LoadBalancerBackendAddressPoolOutput {
+	return i.ToLoadBalancerBackendAddressPoolOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerBackendAddressPool) ToLoadBalancerBackendAddressPoolOutputWithContext(ctx context.Context) LoadBalancerBackendAddressPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendAddressPoolOutput)
+}
+
+type LoadBalancerBackendAddressPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerBackendAddressPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerBackendAddressPoolOutput)(nil)).Elem()
+}
+
+func (o LoadBalancerBackendAddressPoolOutput) ToLoadBalancerBackendAddressPoolOutput() LoadBalancerBackendAddressPoolOutput {
+	return o
+}
+
+func (o LoadBalancerBackendAddressPoolOutput) ToLoadBalancerBackendAddressPoolOutputWithContext(ctx context.Context) LoadBalancerBackendAddressPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoadBalancerBackendAddressPoolOutput{})
 }

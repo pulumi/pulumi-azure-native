@@ -4,6 +4,7 @@
 package v20200501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,7 +38,7 @@ type ScheduledQueryRule struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
 	TargetResourceTypes pulumi.StringArrayOutput `pulumi:"targetResourceTypes"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
 	WindowSize pulumi.StringOutput `pulumi:"windowSize"`
@@ -130,7 +131,7 @@ type scheduledQueryRuleState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
 	TargetResourceTypes []string `pulumi:"targetResourceTypes"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
 	WindowSize *string `pulumi:"windowSize"`
@@ -160,7 +161,7 @@ type ScheduledQueryRuleState struct {
 	Tags pulumi.StringMapInput
 	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
 	TargetResourceTypes pulumi.StringArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
 	WindowSize pulumi.StringPtrInput
@@ -233,4 +234,43 @@ type ScheduledQueryRuleArgs struct {
 
 func (ScheduledQueryRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledQueryRuleArgs)(nil)).Elem()
+}
+
+type ScheduledQueryRuleInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput
+	ToScheduledQueryRuleOutputWithContext(ctx context.Context) ScheduledQueryRuleOutput
+}
+
+func (ScheduledQueryRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRule)(nil)).Elem()
+}
+
+func (i ScheduledQueryRule) ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput {
+	return i.ToScheduledQueryRuleOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRule) ToScheduledQueryRuleOutputWithContext(ctx context.Context) ScheduledQueryRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleOutput)
+}
+
+type ScheduledQueryRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduledQueryRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRuleOutput)(nil)).Elem()
+}
+
+func (o ScheduledQueryRuleOutput) ToScheduledQueryRuleOutput() ScheduledQueryRuleOutput {
+	return o
+}
+
+func (o ScheduledQueryRuleOutput) ToScheduledQueryRuleOutputWithContext(ctx context.Context) ScheduledQueryRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScheduledQueryRuleOutput{})
 }

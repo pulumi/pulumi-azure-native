@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -212,4 +213,43 @@ type WebAppHostNameBindingArgs struct {
 
 func (WebAppHostNameBindingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppHostNameBindingArgs)(nil)).Elem()
+}
+
+type WebAppHostNameBindingInput interface {
+	pulumi.Input
+
+	ToWebAppHostNameBindingOutput() WebAppHostNameBindingOutput
+	ToWebAppHostNameBindingOutputWithContext(ctx context.Context) WebAppHostNameBindingOutput
+}
+
+func (WebAppHostNameBinding) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHostNameBinding)(nil)).Elem()
+}
+
+func (i WebAppHostNameBinding) ToWebAppHostNameBindingOutput() WebAppHostNameBindingOutput {
+	return i.ToWebAppHostNameBindingOutputWithContext(context.Background())
+}
+
+func (i WebAppHostNameBinding) ToWebAppHostNameBindingOutputWithContext(ctx context.Context) WebAppHostNameBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppHostNameBindingOutput)
+}
+
+type WebAppHostNameBindingOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppHostNameBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHostNameBindingOutput)(nil)).Elem()
+}
+
+func (o WebAppHostNameBindingOutput) ToWebAppHostNameBindingOutput() WebAppHostNameBindingOutput {
+	return o
+}
+
+func (o WebAppHostNameBindingOutput) ToWebAppHostNameBindingOutputWithContext(ctx context.Context) WebAppHostNameBindingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppHostNameBindingOutput{})
 }

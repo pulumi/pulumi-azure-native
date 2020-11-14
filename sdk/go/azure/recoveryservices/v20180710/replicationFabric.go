@@ -4,6 +4,7 @@
 package v20180710
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,4 +124,43 @@ type ReplicationFabricArgs struct {
 
 func (ReplicationFabricArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationFabricArgs)(nil)).Elem()
+}
+
+type ReplicationFabricInput interface {
+	pulumi.Input
+
+	ToReplicationFabricOutput() ReplicationFabricOutput
+	ToReplicationFabricOutputWithContext(ctx context.Context) ReplicationFabricOutput
+}
+
+func (ReplicationFabric) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationFabric)(nil)).Elem()
+}
+
+func (i ReplicationFabric) ToReplicationFabricOutput() ReplicationFabricOutput {
+	return i.ToReplicationFabricOutputWithContext(context.Background())
+}
+
+func (i ReplicationFabric) ToReplicationFabricOutputWithContext(ctx context.Context) ReplicationFabricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationFabricOutput)
+}
+
+type ReplicationFabricOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationFabricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationFabricOutput)(nil)).Elem()
+}
+
+func (o ReplicationFabricOutput) ToReplicationFabricOutput() ReplicationFabricOutput {
+	return o
+}
+
+func (o ReplicationFabricOutput) ToReplicationFabricOutputWithContext(ctx context.Context) ReplicationFabricOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationFabricOutput{})
 }

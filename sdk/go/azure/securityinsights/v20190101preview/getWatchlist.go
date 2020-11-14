@@ -29,10 +29,12 @@ type LookupWatchlistArgs struct {
 
 // Represents a Watchlist in Azure Security Insights.
 type LookupWatchlistResult struct {
+	// The content type of the raw content. Example : text/csv or text/tsv
+	ContentType *string `pulumi:"contentType"`
+	// The time the watchlist was created
+	Created *string `pulumi:"created"`
 	// Describes a user that created the watchlist
 	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
-	// The time the watchlist was created
-	CreatedTimeUtc *string `pulumi:"createdTimeUtc"`
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration *string `pulumi:"defaultDuration"`
 	// A description of the watchlist
@@ -41,28 +43,32 @@ type LookupWatchlistResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// A flag that indicates if the watchlist is deleted or not
+	IsDeleted *bool `pulumi:"isDeleted"`
 	// List of labels relevant to this watchlist
 	Labels []string `pulumi:"labels"`
-	// The last time the watchlist was updated
-	LastUpdatedTimeUtc *string `pulumi:"lastUpdatedTimeUtc"`
 	// Azure resource name
 	Name string `pulumi:"name"`
-	// The notes of the watchlist
-	Notes *string `pulumi:"notes"`
+	// The number of lines in a csv/tsv content to skip before the header
+	NumberOfLinesToSkip *int `pulumi:"numberOfLinesToSkip"`
 	// The provider of the watchlist
 	Provider string `pulumi:"provider"`
+	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+	RawContent *string `pulumi:"rawContent"`
 	// The source of the watchlist
 	Source string `pulumi:"source"`
-	// The tenantId where the watchlist belongs to.
+	// The tenantId where the watchlist belongs to
 	TenantId *string `pulumi:"tenantId"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+	// The last time the watchlist was updated
+	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
-	// List of watchlist items.
-	WatchlistItems []WatchlistItemResponse `pulumi:"watchlistItems"`
+	// The alias of the watchlist
+	WatchlistAlias *string `pulumi:"watchlistAlias"`
+	// The id (a Guid) of the watchlist
+	WatchlistId *string `pulumi:"watchlistId"`
 	// The type of the watchlist
 	WatchlistType *string `pulumi:"watchlistType"`
-	// The workspaceId where the watchlist belongs to.
-	WorkspaceId *string `pulumi:"workspaceId"`
 }

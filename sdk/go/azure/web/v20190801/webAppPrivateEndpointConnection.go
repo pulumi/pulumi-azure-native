@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -131,4 +132,43 @@ type WebAppPrivateEndpointConnectionArgs struct {
 
 func (WebAppPrivateEndpointConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppPrivateEndpointConnectionArgs)(nil)).Elem()
+}
+
+type WebAppPrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToWebAppPrivateEndpointConnectionOutput() WebAppPrivateEndpointConnectionOutput
+	ToWebAppPrivateEndpointConnectionOutputWithContext(ctx context.Context) WebAppPrivateEndpointConnectionOutput
+}
+
+func (WebAppPrivateEndpointConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i WebAppPrivateEndpointConnection) ToWebAppPrivateEndpointConnectionOutput() WebAppPrivateEndpointConnectionOutput {
+	return i.ToWebAppPrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i WebAppPrivateEndpointConnection) ToWebAppPrivateEndpointConnectionOutputWithContext(ctx context.Context) WebAppPrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppPrivateEndpointConnectionOutput)
+}
+
+type WebAppPrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppPrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPrivateEndpointConnectionOutput)(nil)).Elem()
+}
+
+func (o WebAppPrivateEndpointConnectionOutput) ToWebAppPrivateEndpointConnectionOutput() WebAppPrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o WebAppPrivateEndpointConnectionOutput) ToWebAppPrivateEndpointConnectionOutputWithContext(ctx context.Context) WebAppPrivateEndpointConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppPrivateEndpointConnectionOutput{})
 }

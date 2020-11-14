@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
@@ -35,6 +34,14 @@ export interface GetDomainServiceArgs {
  * Domain service.
  */
 export interface GetDomainServiceResult {
+    /**
+     * Deployment Id
+     */
+    readonly deploymentId: string;
+    /**
+     * Domain Configuration Type
+     */
+    readonly domainConfigurationType?: string;
     /**
      * List of Domain Controller IP Address
      */
@@ -88,9 +95,17 @@ export interface GetDomainServiceResult {
      */
     readonly provisioningState: string;
     /**
+     * Resource Forest Settings
+     */
+    readonly resourceForestSettings?: outputs.aad.v20170601.ResourceForestSettingsResponse;
+    /**
      * Status of Domain Service instance
      */
     readonly serviceStatus: string;
+    /**
+     * Sku Type
+     */
+    readonly sku?: string;
     /**
      * The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
      */
@@ -100,13 +115,17 @@ export interface GetDomainServiceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Azure Active Directory tenant id
+     * Azure Active Directory Tenant Id
      */
     readonly tenantId: string;
     /**
      * Resource type
      */
     readonly type: string;
+    /**
+     * Data Model Version
+     */
+    readonly version: number;
     /**
      * Virtual network site id
      */

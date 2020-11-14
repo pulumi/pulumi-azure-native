@@ -4,6 +4,7 @@
 package v20181201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -162,4 +163,43 @@ type IotHubResourceEventHubConsumerGroupArgs struct {
 
 func (IotHubResourceEventHubConsumerGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotHubResourceEventHubConsumerGroupArgs)(nil)).Elem()
+}
+
+type IotHubResourceEventHubConsumerGroupInput interface {
+	pulumi.Input
+
+	ToIotHubResourceEventHubConsumerGroupOutput() IotHubResourceEventHubConsumerGroupOutput
+	ToIotHubResourceEventHubConsumerGroupOutputWithContext(ctx context.Context) IotHubResourceEventHubConsumerGroupOutput
+}
+
+func (IotHubResourceEventHubConsumerGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubResourceEventHubConsumerGroup)(nil)).Elem()
+}
+
+func (i IotHubResourceEventHubConsumerGroup) ToIotHubResourceEventHubConsumerGroupOutput() IotHubResourceEventHubConsumerGroupOutput {
+	return i.ToIotHubResourceEventHubConsumerGroupOutputWithContext(context.Background())
+}
+
+func (i IotHubResourceEventHubConsumerGroup) ToIotHubResourceEventHubConsumerGroupOutputWithContext(ctx context.Context) IotHubResourceEventHubConsumerGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceEventHubConsumerGroupOutput)
+}
+
+type IotHubResourceEventHubConsumerGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotHubResourceEventHubConsumerGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubResourceEventHubConsumerGroupOutput)(nil)).Elem()
+}
+
+func (o IotHubResourceEventHubConsumerGroupOutput) ToIotHubResourceEventHubConsumerGroupOutput() IotHubResourceEventHubConsumerGroupOutput {
+	return o
+}
+
+func (o IotHubResourceEventHubConsumerGroupOutput) ToIotHubResourceEventHubConsumerGroupOutputWithContext(ctx context.Context) IotHubResourceEventHubConsumerGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IotHubResourceEventHubConsumerGroupOutput{})
 }

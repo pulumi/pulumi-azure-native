@@ -4,6 +4,7 @@
 package v20200701preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,7 +23,7 @@ type DataPool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Gets the status of the data pool at the time the operation was called.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -74,7 +75,7 @@ type dataPoolState struct {
 	Name *string `pulumi:"name"`
 	// Gets the status of the data pool at the time the operation was called.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -87,7 +88,7 @@ type DataPoolState struct {
 	Name pulumi.StringPtrInput
 	// Gets the status of the data pool at the time the operation was called.
 	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -120,4 +121,43 @@ type DataPoolArgs struct {
 
 func (DataPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataPoolArgs)(nil)).Elem()
+}
+
+type DataPoolInput interface {
+	pulumi.Input
+
+	ToDataPoolOutput() DataPoolOutput
+	ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutput
+}
+
+func (DataPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPool)(nil)).Elem()
+}
+
+func (i DataPool) ToDataPoolOutput() DataPoolOutput {
+	return i.ToDataPoolOutputWithContext(context.Background())
+}
+
+func (i DataPool) ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataPoolOutput)
+}
+
+type DataPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPoolOutput)(nil)).Elem()
+}
+
+func (o DataPoolOutput) ToDataPoolOutput() DataPoolOutput {
+	return o
+}
+
+func (o DataPoolOutput) ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataPoolOutput{})
 }

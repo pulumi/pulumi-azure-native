@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualApplianceSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualApplianceSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

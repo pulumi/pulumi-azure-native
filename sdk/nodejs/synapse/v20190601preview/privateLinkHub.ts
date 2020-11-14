@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,15 +44,19 @@ export class PrivateLinkHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * List of private endpoint connections
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.synapse.v20190601preview.PrivateEndpointConnectionForPrivateLinkHubBasicResponse[]>;
+    /**
      * PrivateLinkHub provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -76,14 +81,16 @@ export class PrivateLinkHub extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["privateLinkHubName"] = args ? args.privateLinkHubName : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -108,9 +115,13 @@ export interface PrivateLinkHubArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the privateLinkHub
+     * Name of the privateLinkHub
      */
     readonly privateLinkHubName: pulumi.Input<string>;
+    /**
+     * PrivateLinkHub provisioning state
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -81,6 +82,9 @@ func NewFlowLog(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:FlowLog"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -224,4 +228,43 @@ type FlowLogArgs struct {
 
 func (FlowLogArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowLogArgs)(nil)).Elem()
+}
+
+type FlowLogInput interface {
+	pulumi.Input
+
+	ToFlowLogOutput() FlowLogOutput
+	ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput
+}
+
+func (FlowLog) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLog)(nil)).Elem()
+}
+
+func (i FlowLog) ToFlowLogOutput() FlowLogOutput {
+	return i.ToFlowLogOutputWithContext(context.Background())
+}
+
+func (i FlowLog) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogOutput)
+}
+
+type FlowLogOutput struct {
+	*pulumi.OutputState
+}
+
+func (FlowLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLogOutput)(nil)).Elem()
+}
+
+func (o FlowLogOutput) ToFlowLogOutput() FlowLogOutput {
+	return o
+}
+
+func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FlowLogOutput{})
 }

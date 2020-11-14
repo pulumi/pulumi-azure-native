@@ -46,10 +46,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     public sealed class GetDataExportResult
     {
         /// <summary>
-        /// When ‘true’, all workspace's tables are exported.
-        /// </summary>
-        public readonly bool? AllTables;
-        /// <summary>
         /// The latest data export rule modification time.
         /// </summary>
         public readonly string? CreatedDate;
@@ -82,14 +78,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         public readonly ImmutableArray<string> TableNames;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetDataExportResult(
-            bool? allTables,
-
             string? createdDate,
 
             string? dataExportId,
@@ -108,7 +102,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
             string type)
         {
-            AllTables = allTables;
             CreatedDate = createdDate;
             DataExportId = dataExportId;
             Enable = enable;

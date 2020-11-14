@@ -53,6 +53,6 @@ type LookupClusterResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Number of days remaining in the trial period.
 	TrialDaysRemaining float64 `pulumi:"trialDaysRemaining"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

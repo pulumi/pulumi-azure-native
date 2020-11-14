@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:IpGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

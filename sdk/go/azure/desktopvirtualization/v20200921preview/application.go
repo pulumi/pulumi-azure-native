@@ -4,6 +4,7 @@
 package v20200921preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,7 +43,7 @@ type Application struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal pulumi.BoolPtrOutput `pulumi:"showInPortal"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -73,6 +74,12 @@ func NewApplication(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20191210preview:Application"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:Application"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:Application"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -126,7 +133,7 @@ type applicationState struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal *bool `pulumi:"showInPortal"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -159,7 +166,7 @@ type ApplicationState struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal pulumi.BoolPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -232,4 +239,43 @@ type ApplicationArgs struct {
 
 func (ApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationArgs)(nil)).Elem()
+}
+
+type ApplicationInput interface {
+	pulumi.Input
+
+	ToApplicationOutput() ApplicationOutput
+	ToApplicationOutputWithContext(ctx context.Context) ApplicationOutput
+}
+
+func (Application) ElementType() reflect.Type {
+	return reflect.TypeOf((*Application)(nil)).Elem()
+}
+
+func (i Application) ToApplicationOutput() ApplicationOutput {
+	return i.ToApplicationOutputWithContext(context.Background())
+}
+
+func (i Application) ToApplicationOutputWithContext(ctx context.Context) ApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
+}
+
+type ApplicationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutput)(nil)).Elem()
+}
+
+func (o ApplicationOutput) ToApplicationOutput() ApplicationOutput {
+	return o
+}
+
+func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) ApplicationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationOutput{})
 }

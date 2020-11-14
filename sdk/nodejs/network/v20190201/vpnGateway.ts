@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -128,7 +127,7 @@ export class VpnGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VpnGateway" }, { type: "azure-nextgen:network/v20180401:VpnGateway" }, { type: "azure-nextgen:network/v20180601:VpnGateway" }, { type: "azure-nextgen:network/v20180701:VpnGateway" }, { type: "azure-nextgen:network/v20180801:VpnGateway" }, { type: "azure-nextgen:network/v20181001:VpnGateway" }, { type: "azure-nextgen:network/v20181101:VpnGateway" }, { type: "azure-nextgen:network/v20181201:VpnGateway" }, { type: "azure-nextgen:network/v20190401:VpnGateway" }, { type: "azure-nextgen:network/v20190601:VpnGateway" }, { type: "azure-nextgen:network/v20190701:VpnGateway" }, { type: "azure-nextgen:network/v20190801:VpnGateway" }, { type: "azure-nextgen:network/v20190901:VpnGateway" }, { type: "azure-nextgen:network/v20191101:VpnGateway" }, { type: "azure-nextgen:network/v20191201:VpnGateway" }, { type: "azure-nextgen:network/v20200301:VpnGateway" }, { type: "azure-nextgen:network/v20200401:VpnGateway" }, { type: "azure-nextgen:network/v20200501:VpnGateway" }, { type: "azure-nextgen:network/v20200601:VpnGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VpnGateway" }, { type: "azure-nextgen:network/v20180401:VpnGateway" }, { type: "azure-nextgen:network/v20180601:VpnGateway" }, { type: "azure-nextgen:network/v20180701:VpnGateway" }, { type: "azure-nextgen:network/v20180801:VpnGateway" }, { type: "azure-nextgen:network/v20181001:VpnGateway" }, { type: "azure-nextgen:network/v20181101:VpnGateway" }, { type: "azure-nextgen:network/v20181201:VpnGateway" }, { type: "azure-nextgen:network/v20190401:VpnGateway" }, { type: "azure-nextgen:network/v20190601:VpnGateway" }, { type: "azure-nextgen:network/v20190701:VpnGateway" }, { type: "azure-nextgen:network/v20190801:VpnGateway" }, { type: "azure-nextgen:network/v20190901:VpnGateway" }, { type: "azure-nextgen:network/v20191101:VpnGateway" }, { type: "azure-nextgen:network/v20191201:VpnGateway" }, { type: "azure-nextgen:network/v20200301:VpnGateway" }, { type: "azure-nextgen:network/v20200401:VpnGateway" }, { type: "azure-nextgen:network/v20200501:VpnGateway" }, { type: "azure-nextgen:network/v20200601:VpnGateway" }, { type: "azure-nextgen:network/v20200701:VpnGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VpnGateway.__pulumiType, name, inputs, opts);
     }

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
@@ -40,15 +39,23 @@ export interface GetWorkbookResult {
      */
     readonly category: string;
     /**
+     * The user-defined name (display name) of the workbook.
+     */
+    readonly displayName: string;
+    /**
+     * Identity used for BYOS
+     */
+    readonly identity?: outputs.insights.latest.ManagedIdentityResponse;
+    /**
      * The kind of workbook. Choices are user and shared.
      */
     readonly kind?: string;
     /**
      * Resource location
      */
-    readonly location?: string;
+    readonly location: string;
     /**
-     * Azure resource name
+     * Azure resource name. This is GUID value. The display name should be assigned within properties field.
      */
     readonly name: string;
     /**
@@ -56,13 +63,13 @@ export interface GetWorkbookResult {
      */
     readonly serializedData: string;
     /**
-     * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+     * ResourceId for a source resource.
      */
-    readonly sharedTypeKind: string;
+    readonly sourceId?: string;
     /**
-     * Optional resourceId for a source resource.
+     * BYOS Storage Account URI
      */
-    readonly sourceResourceId?: string;
+    readonly storageUri?: string;
     /**
      * Resource tags
      */
@@ -80,11 +87,7 @@ export interface GetWorkbookResult {
      */
     readonly userId: string;
     /**
-     * This instance's version of the data model. This can change as new features are added that can be marked workbook.
+     * Workbook version
      */
     readonly version?: string;
-    /**
-     * Internally assigned unique id of the workbook definition.
-     */
-    readonly workbookId: string;
 }

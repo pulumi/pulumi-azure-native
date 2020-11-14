@@ -25,6 +25,8 @@ type LookupDomainServiceArgs struct {
 
 // Domain service.
 type LookupDomainServiceResult struct {
+	// Deployment Id
+	DeploymentId string `pulumi:"deploymentId"`
 	// List of Domain Controller IP Address
 	DomainControllerIpAddress []string `pulumi:"domainControllerIpAddress"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.

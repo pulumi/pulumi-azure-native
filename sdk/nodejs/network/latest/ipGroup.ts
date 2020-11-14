@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -41,7 +40,11 @@ export class IpGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * List of references to Azure resources that this IpGroups is associated with.
+     * List of references to Firewall Policies resources that this IpGroups is associated with.
+     */
+    public /*out*/ readonly firewallPolicies!: pulumi.Output<outputs.network.latest.SubResourceResponse[]>;
+    /**
+     * List of references to Firewall resources that this IpGroups is associated with.
      */
     public /*out*/ readonly firewalls!: pulumi.Output<outputs.network.latest.SubResourceResponse[]>;
     /**
@@ -92,12 +95,14 @@ export class IpGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["firewallPolicies"] = undefined /*out*/;
             inputs["firewalls"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
+            inputs["firewallPolicies"] = undefined /*out*/;
             inputs["firewalls"] = undefined /*out*/;
             inputs["ipAddresses"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -113,7 +118,7 @@ export class IpGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190901:IpGroup" }, { type: "azure-nextgen:network/v20191101:IpGroup" }, { type: "azure-nextgen:network/v20191201:IpGroup" }, { type: "azure-nextgen:network/v20200301:IpGroup" }, { type: "azure-nextgen:network/v20200401:IpGroup" }, { type: "azure-nextgen:network/v20200501:IpGroup" }, { type: "azure-nextgen:network/v20200601:IpGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190901:IpGroup" }, { type: "azure-nextgen:network/v20191101:IpGroup" }, { type: "azure-nextgen:network/v20191201:IpGroup" }, { type: "azure-nextgen:network/v20200301:IpGroup" }, { type: "azure-nextgen:network/v20200401:IpGroup" }, { type: "azure-nextgen:network/v20200501:IpGroup" }, { type: "azure-nextgen:network/v20200601:IpGroup" }, { type: "azure-nextgen:network/v20200701:IpGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpGroup.__pulumiType, name, inputs, opts);
     }

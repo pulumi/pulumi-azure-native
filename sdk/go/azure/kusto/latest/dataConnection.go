@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -20,7 +21,7 @@ type DataConnection struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -97,7 +98,7 @@ type dataConnectionState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -108,7 +109,7 @@ type DataConnectionState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -149,4 +150,43 @@ type DataConnectionArgs struct {
 
 func (DataConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectionArgs)(nil)).Elem()
+}
+
+type DataConnectionInput interface {
+	pulumi.Input
+
+	ToDataConnectionOutput() DataConnectionOutput
+	ToDataConnectionOutputWithContext(ctx context.Context) DataConnectionOutput
+}
+
+func (DataConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnection)(nil)).Elem()
+}
+
+func (i DataConnection) ToDataConnectionOutput() DataConnectionOutput {
+	return i.ToDataConnectionOutputWithContext(context.Background())
+}
+
+func (i DataConnection) ToDataConnectionOutputWithContext(ctx context.Context) DataConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataConnectionOutput)
+}
+
+type DataConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectionOutput)(nil)).Elem()
+}
+
+func (o DataConnectionOutput) ToDataConnectionOutput() DataConnectionOutput {
+	return o
+}
+
+func (o DataConnectionOutput) ToDataConnectionOutputWithContext(ctx context.Context) DataConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataConnectionOutput{})
 }

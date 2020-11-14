@@ -12,11 +12,13 @@ from . import outputs
 __all__ = [
     'ContainerAccountResponse',
     'DomainSecuritySettingsResponse',
+    'ForestTrustResponse',
     'HealthAlertResponse',
     'HealthMonitorResponse',
     'LdapsSettingsResponse',
     'NotificationSettingsResponse',
     'ReplicaSetResponse',
+    'ResourceForestSettingsResponse',
 ]
 
 @pulumi.output_type
@@ -76,18 +78,26 @@ class DomainSecuritySettingsResponse(dict):
     """
     def __init__(__self__, *,
                  ntlm_v1: Optional[str] = None,
+                 sync_kerberos_passwords: Optional[str] = None,
                  sync_ntlm_passwords: Optional[str] = None,
+                 sync_on_prem_passwords: Optional[str] = None,
                  tls_v1: Optional[str] = None):
         """
         Domain Security Settings
         :param str ntlm_v1: A flag to determine whether or not NtlmV1 is enabled or disabled.
+        :param str sync_kerberos_passwords: A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
         :param str sync_ntlm_passwords: A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+        :param str sync_on_prem_passwords: A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
         :param str tls_v1: A flag to determine whether or not TlsV1 is enabled or disabled.
         """
         if ntlm_v1 is not None:
             pulumi.set(__self__, "ntlm_v1", ntlm_v1)
+        if sync_kerberos_passwords is not None:
+            pulumi.set(__self__, "sync_kerberos_passwords", sync_kerberos_passwords)
         if sync_ntlm_passwords is not None:
             pulumi.set(__self__, "sync_ntlm_passwords", sync_ntlm_passwords)
+        if sync_on_prem_passwords is not None:
+            pulumi.set(__self__, "sync_on_prem_passwords", sync_on_prem_passwords)
         if tls_v1 is not None:
             pulumi.set(__self__, "tls_v1", tls_v1)
 
@@ -100,6 +110,14 @@ class DomainSecuritySettingsResponse(dict):
         return pulumi.get(self, "ntlm_v1")
 
     @property
+    @pulumi.getter(name="syncKerberosPasswords")
+    def sync_kerberos_passwords(self) -> Optional[str]:
+        """
+        A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+        """
+        return pulumi.get(self, "sync_kerberos_passwords")
+
+    @property
     @pulumi.getter(name="syncNtlmPasswords")
     def sync_ntlm_passwords(self) -> Optional[str]:
         """
@@ -108,12 +126,94 @@ class DomainSecuritySettingsResponse(dict):
         return pulumi.get(self, "sync_ntlm_passwords")
 
     @property
+    @pulumi.getter(name="syncOnPremPasswords")
+    def sync_on_prem_passwords(self) -> Optional[str]:
+        """
+        A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+        """
+        return pulumi.get(self, "sync_on_prem_passwords")
+
+    @property
     @pulumi.getter(name="tlsV1")
     def tls_v1(self) -> Optional[str]:
         """
         A flag to determine whether or not TlsV1 is enabled or disabled.
         """
         return pulumi.get(self, "tls_v1")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ForestTrustResponse(dict):
+    """
+    Forest Trust Setting
+    """
+    def __init__(__self__, *,
+                 friendly_name: Optional[str] = None,
+                 remote_dns_ips: Optional[str] = None,
+                 trust_direction: Optional[str] = None,
+                 trust_password: Optional[str] = None,
+                 trusted_domain_fqdn: Optional[str] = None):
+        """
+        Forest Trust Setting
+        :param str friendly_name: Friendly Name
+        :param str remote_dns_ips: Remote Dns ips
+        :param str trust_direction: Trust Direction
+        :param str trust_password: Trust Password
+        :param str trusted_domain_fqdn: Trusted Domain FQDN
+        """
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if remote_dns_ips is not None:
+            pulumi.set(__self__, "remote_dns_ips", remote_dns_ips)
+        if trust_direction is not None:
+            pulumi.set(__self__, "trust_direction", trust_direction)
+        if trust_password is not None:
+            pulumi.set(__self__, "trust_password", trust_password)
+        if trusted_domain_fqdn is not None:
+            pulumi.set(__self__, "trusted_domain_fqdn", trusted_domain_fqdn)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Friendly Name
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="remoteDnsIps")
+    def remote_dns_ips(self) -> Optional[str]:
+        """
+        Remote Dns ips
+        """
+        return pulumi.get(self, "remote_dns_ips")
+
+    @property
+    @pulumi.getter(name="trustDirection")
+    def trust_direction(self) -> Optional[str]:
+        """
+        Trust Direction
+        """
+        return pulumi.get(self, "trust_direction")
+
+    @property
+    @pulumi.getter(name="trustPassword")
+    def trust_password(self) -> Optional[str]:
+        """
+        Trust Password
+        """
+        return pulumi.get(self, "trust_password")
+
+    @property
+    @pulumi.getter(name="trustedDomainFqdn")
+    def trusted_domain_fqdn(self) -> Optional[str]:
+        """
+        Trusted Domain FQDN
+        """
+        return pulumi.get(self, "trusted_domain_fqdn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -523,6 +623,44 @@ class ReplicaSetResponse(dict):
         The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
         """
         return pulumi.get(self, "subnet_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceForestSettingsResponse(dict):
+    """
+    Settings for Resource Forest
+    """
+    def __init__(__self__, *,
+                 resource_forest: Optional[str] = None,
+                 settings: Optional[Sequence['outputs.ForestTrustResponse']] = None):
+        """
+        Settings for Resource Forest
+        :param str resource_forest: Resource Forest
+        :param Sequence['ForestTrustResponseArgs'] settings: List of settings for Resource Forest
+        """
+        if resource_forest is not None:
+            pulumi.set(__self__, "resource_forest", resource_forest)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="resourceForest")
+    def resource_forest(self) -> Optional[str]:
+        """
+        Resource Forest
+        """
+        return pulumi.get(self, "resource_forest")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[Sequence['outputs.ForestTrustResponse']]:
+        """
+        List of settings for Resource Forest
+        """
+        return pulumi.get(self, "settings")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

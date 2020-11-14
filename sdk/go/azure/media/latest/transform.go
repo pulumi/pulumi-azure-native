@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -24,7 +25,7 @@ type Transform struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of one or more TransformOutputs that the Transform should generate.
 	Outputs TransformOutputResponseArrayOutput `pulumi:"outputs"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -93,7 +94,7 @@ type transformState struct {
 	Name *string `pulumi:"name"`
 	// An array of one or more TransformOutputs that the Transform should generate.
 	Outputs []TransformOutputResponse `pulumi:"outputs"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -108,7 +109,7 @@ type TransformState struct {
 	Name pulumi.StringPtrInput
 	// An array of one or more TransformOutputs that the Transform should generate.
 	Outputs TransformOutputResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -145,4 +146,43 @@ type TransformArgs struct {
 
 func (TransformArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transformArgs)(nil)).Elem()
+}
+
+type TransformInput interface {
+	pulumi.Input
+
+	ToTransformOutput() TransformOutput
+	ToTransformOutputWithContext(ctx context.Context) TransformOutput
+}
+
+func (Transform) ElementType() reflect.Type {
+	return reflect.TypeOf((*Transform)(nil)).Elem()
+}
+
+func (i Transform) ToTransformOutput() TransformOutput {
+	return i.ToTransformOutputWithContext(context.Background())
+}
+
+func (i Transform) ToTransformOutputWithContext(ctx context.Context) TransformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutput)
+}
+
+type TransformOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutput)(nil)).Elem()
+}
+
+func (o TransformOutput) ToTransformOutput() TransformOutput {
+	return o
+}
+
+func (o TransformOutput) ToTransformOutputWithContext(ctx context.Context) TransformOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TransformOutput{})
 }

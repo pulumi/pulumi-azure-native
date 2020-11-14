@@ -33,10 +33,6 @@ import (
 )
 
 const (
-	ActiveDirectoryEndpoint = "https://login.microsoftonline.com/"
-	AuthTokenAudience       = "https://management.azure.com/" //nolint:gosec
-	// DefaultBaseURI is the default URI used for the service.
-	DefaultBaseURI = "https://management.azure.com"
 	// Microsoft's Pulumi Partner ID.
 	PulumiPartnerID = "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
 )
@@ -46,6 +42,7 @@ type azureNextGenProvider struct {
 	name           string
 	version        string
 	subscriptionID string
+	environment    azure.Environment
 	client         autorest.Client
 	resourceMap    *AzureAPIMetadata
 	config         map[string]string
@@ -124,6 +121,15 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 	if err != nil {
 		return nil, errors.Wrap(err, "building auth config")
 	}
+
+	env, err := azure.EnvironmentFromName(authConfig.Environment)
+	if err != nil {
+		env, err = azure.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", authConfig.Environment))
+		if err != nil {
+			return nil, errors.Wrapf(err, "environment %q was not found", authConfig.Environment)
+		}
+	}
+	k.environment = env
 
 	authorizer, err := k.getAuthorizationToken(authConfig)
 	if err != nil {
@@ -590,7 +596,7 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 	// (though it's technically impossible since the only operation supported is an upsert).
-	err = k.azureCanCreate(ctx, id, res.APIVersion)
+	err = k.azureCanCreate(ctx, id, &res)
 	if err != nil {
 		return nil, err
 	}
@@ -644,6 +650,10 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 
 	response, err := k.azureGet(ctx, id, res.APIVersion)
 	if err != nil {
+		if reqErr, ok := err.(*azure.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
+			// 404 means that the resource was deleted.
+			return &rpc.ReadResponse{Id: ""}, nil
+		}
 		return nil, err
 	}
 
@@ -802,9 +812,26 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 	if !ok {
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
-	err := k.azureDelete(ctx, id, res.APIVersion)
-	if err != nil {
-		return nil, err
+
+	switch {
+	case res.Singleton:
+		// Singleton resources can't be deleted (or created), set them to the default state.
+		for _, param := range res.PutParameters {
+			if param.Location == "body" {
+				requestBody := k.converter.SdkPropertiesToRequestBody(param.Body.Properties, res.DefaultBody)
+
+				queryParams := map[string]interface{}{"api-version": res.APIVersion}
+				_, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams)
+				if err != nil {
+					return nil, err
+				}
+			}
+		}
+	default:
+		err := k.azureDelete(ctx, id, res.APIVersion)
+		if err != nil {
+			return nil, errors.Wrapf(err, "deleting %s", label)
+		}
 	}
 	return &pbempty.Empty{}, nil
 }
@@ -840,7 +867,7 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	preparer := autorest.CreatePreparer(
 		autorest.AsContentType("application/json; charset=utf-8"),
 		autorest.AsPut(),
-		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithJSON(bodyProps),
 		autorest.WithQueryParameters(queryParameters))
@@ -891,7 +918,7 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 	}
 	preparer := autorest.CreatePreparer(
 		autorest.AsDelete(),
-		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithQueryParameters(queryParameters))
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
@@ -934,13 +961,13 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 
 // azureCanCreate asserts that a resource with a given ID and API version can be created
 // or returns an error otherwise.
-func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, apiVersion string) error {
+func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, res *AzureAPIResource) error {
 	queryParameters := map[string]interface{}{
-		"api-version": apiVersion,
+		"api-version": res.APIVersion,
 	}
 	preparer := autorest.CreatePreparer(
 		autorest.AsGet(),
-		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithQueryParameters(queryParameters))
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
@@ -956,13 +983,38 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, ap
 		return err
 	}
 
-	switch resp.StatusCode {
-	case 200:
-		return fmt.Errorf("cannot create already existing resource %v", id)
-	case 404:
+	switch {
+	case http.StatusOK == resp.StatusCode && res.Singleton:
+		// Singleton resources always exist, so OK is expected.
+		return nil
+	case http.StatusNotFound == resp.StatusCode && res.Singleton:
+		return fmt.Errorf("parent resource does not exist for resource '%s'", id)
+	case http.StatusOK == resp.StatusCode && res.DefaultBody != nil:
+		// This resource is automatically created with a parent and set to its default state. It can be deleted though.
+		// Validate that its current shape is in the default state to avoid unintended adoption and destructive
+		// actions.
+		// NOTE: We may reconsider and relax this restriction when we get more examples of such resources.
+		// The difference between "take any singleton resource as-is" and "require default body for deletable resources"
+		// isn't very principled but is based on what subjectively feels best for the current examples.
+		var outputs map[string]interface{}
+		err = autorest.Respond(
+			resp,
+			k.client.ByInspecting(),
+			autorest.ByUnmarshallingJSON(&outputs),
+			autorest.ByClosing())
+		if err != nil {
+			return err
+		}
+		if !k.converter.isDefaultResponse(res.PutParameters, outputs, res.DefaultBody) {
+			return fmt.Errorf("cannot create already existing subresource '%s'", id)
+		}
+		return nil
+	case http.StatusOK == resp.StatusCode:
+		return fmt.Errorf("cannot create already existing resource '%s'", id)
+	case http.StatusNotFound == resp.StatusCode:
 		return nil
 	default:
-		return fmt.Errorf("cannot check existence of resource %v: status code %d", id, resp.StatusCode)
+		return fmt.Errorf("cannot check existence of resource '%s': status code %d", id, resp.StatusCode)
 	}
 }
 
@@ -973,7 +1025,7 @@ func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
 	}
 	preparer := autorest.CreatePreparer(
 		autorest.AsGet(),
-		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithQueryParameters(queryParameters))
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
@@ -993,12 +1045,35 @@ func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
 		resp,
 		k.client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
+		forceRequestErrorForStatusNotFound,
 		autorest.ByUnmarshallingJSON(&outputs),
 		autorest.ByClosing())
 	if err != nil {
 		return nil, err
 	}
 	return outputs, nil
+}
+
+// If a Status Code is 404, always return a request error 'StatusNotFound'. This doesn't work out-of-the-box
+// in case the service returns an invalid response that failed to parse into an 'autorest.ServiceError'.
+// The parsing error (e.g., 'json.UnmarshalTypeError') would mask the 404 response and the provider wouldn't
+// be able to make the right decision for a missing resource.
+func forceRequestErrorForStatusNotFound(r autorest.Responder) autorest.Responder {
+	return autorest.ResponderFunc(func(resp *http.Response) error {
+		err := r.Respond(resp)
+		if err == nil || !autorest.ResponseHasStatusCode(resp, http.StatusNotFound) {
+			return err
+		}
+		if _, ok := err.(*azure.RequestError); ok {
+			return err
+		}
+		return &azure.RequestError{
+			DetailedError: autorest.DetailedError{
+				Original:   err,
+				StatusCode: http.StatusNotFound,
+			},
+		}
+	})
 }
 
 func (k *azureNextGenProvider) azurePost(
@@ -1010,7 +1085,7 @@ func (k *azureNextGenProvider) azurePost(
 	preparer := autorest.CreatePreparer(
 		autorest.AsContentType("application/json; charset=utf-8"),
 		autorest.AsPost(),
-		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithJSON(bodyProps),
 		autorest.WithQueryParameters(queryParameters))
@@ -1043,10 +1118,6 @@ func (k *azureNextGenProvider) azurePost(
 func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []AzureAPIParameter, methodInputs,
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
-	locations := map[string]map[string]interface{}{
-		"client": clientInputs,
-		"method": methodInputs,
-	}
 	params := map[string]map[string]interface{}{
 		"body": {},
 		"query": {
@@ -1065,14 +1136,10 @@ func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []
 			if param.Value.SdkName != "" {
 				sdkName = param.Value.SdkName
 			}
-			if param.Source != "" {
-				val, has = locations[param.Source][sdkName]
-			} else {
-				// If not specified where to find it, look in both with `method` first
-				val, has = methodInputs[sdkName]
-				if !has {
-					val, has = clientInputs[sdkName]
-				}
+			// Look in both `method` and `client` inputs with `method` first
+			val, has = methodInputs[sdkName]
+			if !has {
+				val, has = clientInputs[sdkName]
 			}
 			if has {
 				params[param.Location][param.Name] = val
@@ -1138,7 +1205,7 @@ func (k *azureNextGenProvider) getAuthConfig() (*authentication.Config, error) {
 }
 
 func (k *azureNextGenProvider) getAuthorizationToken(authConfig *authentication.Config) (autorest.Authorizer, error) {
-	oauthConfig, err := authConfig.BuildOAuthConfig(ActiveDirectoryEndpoint)
+	oauthConfig, err := authConfig.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
 	if err != nil {
 		return nil, err
 	}
@@ -1148,7 +1215,7 @@ func (k *azureNextGenProvider) getAuthorizationToken(authConfig *authentication.
 	}
 
 	buildSender := sender.BuildSender("AzureNextGen")
-	return authConfig.GetAuthorizationToken(buildSender, oauthConfig, AuthTokenAudience)
+	return authConfig.GetAuthorizationToken(buildSender, oauthConfig, k.environment.ResourceManagerEndpoint)
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.

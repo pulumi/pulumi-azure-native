@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -48,6 +47,10 @@ export class OuContainer extends pulumi.CustomResource {
      * The Deployment id
      */
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    /**
+     * Distinguished Name of OuContainer instance
+     */
+    public /*out*/ readonly distinguishedName!: pulumi.Output<string>;
     /**
      * The domain name of Domain Services.
      */
@@ -113,6 +116,7 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["accounts"] = undefined /*out*/;
             inputs["containerId"] = undefined /*out*/;
             inputs["deploymentId"] = undefined /*out*/;
+            inputs["distinguishedName"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -126,6 +130,7 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["accounts"] = undefined /*out*/;
             inputs["containerId"] = undefined /*out*/;
             inputs["deploymentId"] = undefined /*out*/;
+            inputs["distinguishedName"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;

@@ -33,6 +33,7 @@ __all__ = [
     'LogMetricTriggerArgs',
     'LogToMetricActionArgs',
     'LogicAppReceiverArgs',
+    'ManagedIdentityArgs',
     'ManagementEventAggregationConditionArgs',
     'ManagementEventRuleConditionArgs',
     'MetricAlertActionArgs',
@@ -1530,6 +1531,30 @@ class LogicAppReceiverArgs:
     @use_common_alert_schema.setter
     def use_common_alert_schema(self, value: pulumi.Input[bool]):
         pulumi.set(self, "use_common_alert_schema", value)
+
+
+@pulumi.input_type
+class ManagedIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Customer Managed Identity
+        :param pulumi.Input[str] type: The identity type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

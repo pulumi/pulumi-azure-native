@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -44,6 +43,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The extended location of the load balancer.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.network.latest.ExtendedLocationResponse | undefined>;
     /**
      * Object representing the frontend IPs to be used for the load balancer.
      */
@@ -114,6 +117,7 @@ export class LoadBalancer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["inboundNatPools"] = args ? args.inboundNatPools : undefined;
@@ -134,6 +138,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         } else {
             inputs["backendAddressPools"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["frontendIPConfigurations"] = undefined /*out*/;
             inputs["inboundNatPools"] = undefined /*out*/;
             inputs["inboundNatRules"] = undefined /*out*/;
@@ -155,7 +160,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:LoadBalancer" }, { type: "azure-nextgen:network/v20150615:LoadBalancer" }, { type: "azure-nextgen:network/v20160330:LoadBalancer" }, { type: "azure-nextgen:network/v20160601:LoadBalancer" }, { type: "azure-nextgen:network/v20160901:LoadBalancer" }, { type: "azure-nextgen:network/v20161201:LoadBalancer" }, { type: "azure-nextgen:network/v20170301:LoadBalancer" }, { type: "azure-nextgen:network/v20170601:LoadBalancer" }, { type: "azure-nextgen:network/v20170801:LoadBalancer" }, { type: "azure-nextgen:network/v20170901:LoadBalancer" }, { type: "azure-nextgen:network/v20171001:LoadBalancer" }, { type: "azure-nextgen:network/v20171101:LoadBalancer" }, { type: "azure-nextgen:network/v20180101:LoadBalancer" }, { type: "azure-nextgen:network/v20180201:LoadBalancer" }, { type: "azure-nextgen:network/v20180401:LoadBalancer" }, { type: "azure-nextgen:network/v20180601:LoadBalancer" }, { type: "azure-nextgen:network/v20180701:LoadBalancer" }, { type: "azure-nextgen:network/v20180801:LoadBalancer" }, { type: "azure-nextgen:network/v20181001:LoadBalancer" }, { type: "azure-nextgen:network/v20181101:LoadBalancer" }, { type: "azure-nextgen:network/v20181201:LoadBalancer" }, { type: "azure-nextgen:network/v20190201:LoadBalancer" }, { type: "azure-nextgen:network/v20190401:LoadBalancer" }, { type: "azure-nextgen:network/v20190601:LoadBalancer" }, { type: "azure-nextgen:network/v20190701:LoadBalancer" }, { type: "azure-nextgen:network/v20190801:LoadBalancer" }, { type: "azure-nextgen:network/v20190901:LoadBalancer" }, { type: "azure-nextgen:network/v20191101:LoadBalancer" }, { type: "azure-nextgen:network/v20191201:LoadBalancer" }, { type: "azure-nextgen:network/v20200301:LoadBalancer" }, { type: "azure-nextgen:network/v20200401:LoadBalancer" }, { type: "azure-nextgen:network/v20200501:LoadBalancer" }, { type: "azure-nextgen:network/v20200601:LoadBalancer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:LoadBalancer" }, { type: "azure-nextgen:network/v20150615:LoadBalancer" }, { type: "azure-nextgen:network/v20160330:LoadBalancer" }, { type: "azure-nextgen:network/v20160601:LoadBalancer" }, { type: "azure-nextgen:network/v20160901:LoadBalancer" }, { type: "azure-nextgen:network/v20161201:LoadBalancer" }, { type: "azure-nextgen:network/v20170301:LoadBalancer" }, { type: "azure-nextgen:network/v20170601:LoadBalancer" }, { type: "azure-nextgen:network/v20170801:LoadBalancer" }, { type: "azure-nextgen:network/v20170901:LoadBalancer" }, { type: "azure-nextgen:network/v20171001:LoadBalancer" }, { type: "azure-nextgen:network/v20171101:LoadBalancer" }, { type: "azure-nextgen:network/v20180101:LoadBalancer" }, { type: "azure-nextgen:network/v20180201:LoadBalancer" }, { type: "azure-nextgen:network/v20180401:LoadBalancer" }, { type: "azure-nextgen:network/v20180601:LoadBalancer" }, { type: "azure-nextgen:network/v20180701:LoadBalancer" }, { type: "azure-nextgen:network/v20180801:LoadBalancer" }, { type: "azure-nextgen:network/v20181001:LoadBalancer" }, { type: "azure-nextgen:network/v20181101:LoadBalancer" }, { type: "azure-nextgen:network/v20181201:LoadBalancer" }, { type: "azure-nextgen:network/v20190201:LoadBalancer" }, { type: "azure-nextgen:network/v20190401:LoadBalancer" }, { type: "azure-nextgen:network/v20190601:LoadBalancer" }, { type: "azure-nextgen:network/v20190701:LoadBalancer" }, { type: "azure-nextgen:network/v20190801:LoadBalancer" }, { type: "azure-nextgen:network/v20190901:LoadBalancer" }, { type: "azure-nextgen:network/v20191101:LoadBalancer" }, { type: "azure-nextgen:network/v20191201:LoadBalancer" }, { type: "azure-nextgen:network/v20200301:LoadBalancer" }, { type: "azure-nextgen:network/v20200401:LoadBalancer" }, { type: "azure-nextgen:network/v20200501:LoadBalancer" }, { type: "azure-nextgen:network/v20200601:LoadBalancer" }, { type: "azure-nextgen:network/v20200701:LoadBalancer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancer.__pulumiType, name, inputs, opts);
     }
@@ -169,6 +174,10 @@ export interface LoadBalancerArgs {
      * Collection of backend address pools used by a load balancer.
      */
     readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.latest.BackendAddressPool>[]>;
+    /**
+     * The extended location of the load balancer.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.network.latest.ExtendedLocation>;
     /**
      * Object representing the frontend IPs to be used for the load balancer.
      */

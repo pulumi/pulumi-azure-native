@@ -4,6 +4,7 @@
 package v20170515preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -171,4 +172,43 @@ type SoftwareUpdateConfigurationByNameArgs struct {
 
 func (SoftwareUpdateConfigurationByNameArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*softwareUpdateConfigurationByNameArgs)(nil)).Elem()
+}
+
+type SoftwareUpdateConfigurationByNameInput interface {
+	pulumi.Input
+
+	ToSoftwareUpdateConfigurationByNameOutput() SoftwareUpdateConfigurationByNameOutput
+	ToSoftwareUpdateConfigurationByNameOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationByNameOutput
+}
+
+func (SoftwareUpdateConfigurationByName) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationByName)(nil)).Elem()
+}
+
+func (i SoftwareUpdateConfigurationByName) ToSoftwareUpdateConfigurationByNameOutput() SoftwareUpdateConfigurationByNameOutput {
+	return i.ToSoftwareUpdateConfigurationByNameOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationByName) ToSoftwareUpdateConfigurationByNameOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationByNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationByNameOutput)
+}
+
+type SoftwareUpdateConfigurationByNameOutput struct {
+	*pulumi.OutputState
+}
+
+func (SoftwareUpdateConfigurationByNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationByNameOutput)(nil)).Elem()
+}
+
+func (o SoftwareUpdateConfigurationByNameOutput) ToSoftwareUpdateConfigurationByNameOutput() SoftwareUpdateConfigurationByNameOutput {
+	return o
+}
+
+func (o SoftwareUpdateConfigurationByNameOutput) ToSoftwareUpdateConfigurationByNameOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationByNameOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationByNameOutput{})
 }

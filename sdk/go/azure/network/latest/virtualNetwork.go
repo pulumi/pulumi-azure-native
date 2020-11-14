@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -28,6 +29,8 @@ type VirtualNetwork struct {
 	EnableVmProtection pulumi.BoolPtrOutput `pulumi:"enableVmProtection"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The extended location of the virtual network.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// Array of IpAllocation which reference this VNET.
 	IpAllocations SubResourceResponseArrayOutput `pulumi:"ipAllocations"`
 	// Resource location.
@@ -160,6 +163,9 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualNetwork"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualNetwork"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetwork
@@ -198,6 +204,8 @@ type virtualNetworkState struct {
 	EnableVmProtection *bool `pulumi:"enableVmProtection"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The extended location of the virtual network.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Array of IpAllocation which reference this VNET.
 	IpAllocations []SubResourceResponse `pulumi:"ipAllocations"`
 	// Resource location.
@@ -233,6 +241,8 @@ type VirtualNetworkState struct {
 	EnableVmProtection pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The extended location of the virtual network.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// Array of IpAllocation which reference this VNET.
 	IpAllocations SubResourceResponseArrayInput
 	// Resource location.
@@ -270,6 +280,8 @@ type virtualNetworkArgs struct {
 	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
 	// Indicates if VM protection is enabled for all the subnets in the virtual network.
 	EnableVmProtection *bool `pulumi:"enableVmProtection"`
+	// The extended location of the virtual network.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Array of IpAllocation which reference this VNET.
@@ -302,6 +314,8 @@ type VirtualNetworkArgs struct {
 	EnableDdosProtection pulumi.BoolPtrInput
 	// Indicates if VM protection is enabled for all the subnets in the virtual network.
 	EnableVmProtection pulumi.BoolPtrInput
+	// The extended location of the virtual network.
+	ExtendedLocation ExtendedLocationPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Array of IpAllocation which reference this VNET.
@@ -322,4 +336,43 @@ type VirtualNetworkArgs struct {
 
 func (VirtualNetworkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkArgs)(nil)).Elem()
+}
+
+type VirtualNetworkInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkOutput() VirtualNetworkOutput
+	ToVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkOutput
+}
+
+func (VirtualNetwork) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetwork)(nil)).Elem()
+}
+
+func (i VirtualNetwork) ToVirtualNetworkOutput() VirtualNetworkOutput {
+	return i.ToVirtualNetworkOutputWithContext(context.Background())
+}
+
+func (i VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
+}
+
+type VirtualNetworkOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkOutput) ToVirtualNetworkOutput() VirtualNetworkOutput {
+	return o
+}
+
+func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkOutput{})
 }

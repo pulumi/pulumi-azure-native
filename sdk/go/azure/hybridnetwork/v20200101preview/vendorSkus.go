@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -30,7 +31,7 @@ type VendorSkus struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The sku type.
 	SkuType pulumi.StringPtrOutput `pulumi:"skuType"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -84,7 +85,7 @@ type vendorSkusState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The sku type.
 	SkuType *string `pulumi:"skuType"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -105,7 +106,7 @@ type VendorSkusState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The sku type.
 	SkuType pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -154,4 +155,43 @@ type VendorSkusArgs struct {
 
 func (VendorSkusArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vendorSkusArgs)(nil)).Elem()
+}
+
+type VendorSkusInput interface {
+	pulumi.Input
+
+	ToVendorSkusOutput() VendorSkusOutput
+	ToVendorSkusOutputWithContext(ctx context.Context) VendorSkusOutput
+}
+
+func (VendorSkus) ElementType() reflect.Type {
+	return reflect.TypeOf((*VendorSkus)(nil)).Elem()
+}
+
+func (i VendorSkus) ToVendorSkusOutput() VendorSkusOutput {
+	return i.ToVendorSkusOutputWithContext(context.Background())
+}
+
+func (i VendorSkus) ToVendorSkusOutputWithContext(ctx context.Context) VendorSkusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VendorSkusOutput)
+}
+
+type VendorSkusOutput struct {
+	*pulumi.OutputState
+}
+
+func (VendorSkusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VendorSkusOutput)(nil)).Elem()
+}
+
+func (o VendorSkusOutput) ToVendorSkusOutput() VendorSkusOutput {
+	return o
+}
+
+func (o VendorSkusOutput) ToVendorSkusOutputWithContext(ctx context.Context) VendorSkusOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VendorSkusOutput{})
 }

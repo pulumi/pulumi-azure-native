@@ -4,6 +4,7 @@
 package v20200801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -18,7 +19,7 @@ type SharedPrivateLinkResource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
 	Properties SharedPrivateLinkResourcePropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -72,7 +73,7 @@ type sharedPrivateLinkResourceState struct {
 	Name *string `pulumi:"name"`
 	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
 	Properties *SharedPrivateLinkResourcePropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -81,7 +82,7 @@ type SharedPrivateLinkResourceState struct {
 	Name pulumi.StringPtrInput
 	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
 	Properties SharedPrivateLinkResourcePropertiesResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -114,4 +115,43 @@ type SharedPrivateLinkResourceArgs struct {
 
 func (SharedPrivateLinkResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedPrivateLinkResourceArgs)(nil)).Elem()
+}
+
+type SharedPrivateLinkResourceInput interface {
+	pulumi.Input
+
+	ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput
+	ToSharedPrivateLinkResourceOutputWithContext(ctx context.Context) SharedPrivateLinkResourceOutput
+}
+
+func (SharedPrivateLinkResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedPrivateLinkResource)(nil)).Elem()
+}
+
+func (i SharedPrivateLinkResource) ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput {
+	return i.ToSharedPrivateLinkResourceOutputWithContext(context.Background())
+}
+
+func (i SharedPrivateLinkResource) ToSharedPrivateLinkResourceOutputWithContext(ctx context.Context) SharedPrivateLinkResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceOutput)
+}
+
+type SharedPrivateLinkResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (SharedPrivateLinkResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedPrivateLinkResourceOutput)(nil)).Elem()
+}
+
+func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput {
+	return o
+}
+
+func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutputWithContext(ctx context.Context) SharedPrivateLinkResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SharedPrivateLinkResourceOutput{})
 }

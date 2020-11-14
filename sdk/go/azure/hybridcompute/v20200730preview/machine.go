@@ -4,6 +4,7 @@
 package v20200730preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -55,7 +56,7 @@ type Machine struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the hybrid machine unique ID.
 	VmId pulumi.StringPtrOutput `pulumi:"vmId"`
@@ -162,7 +163,7 @@ type machineState struct {
 	Status *string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Specifies the hybrid machine unique ID.
 	VmId *string `pulumi:"vmId"`
@@ -212,7 +213,7 @@ type MachineState struct {
 	Status pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Specifies the hybrid machine unique ID.
 	VmId pulumi.StringPtrInput
@@ -267,4 +268,43 @@ type MachineArgs struct {
 
 func (MachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*machineArgs)(nil)).Elem()
+}
+
+type MachineInput interface {
+	pulumi.Input
+
+	ToMachineOutput() MachineOutput
+	ToMachineOutputWithContext(ctx context.Context) MachineOutput
+}
+
+func (Machine) ElementType() reflect.Type {
+	return reflect.TypeOf((*Machine)(nil)).Elem()
+}
+
+func (i Machine) ToMachineOutput() MachineOutput {
+	return i.ToMachineOutputWithContext(context.Background())
+}
+
+func (i Machine) ToMachineOutputWithContext(ctx context.Context) MachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineOutput)
+}
+
+type MachineOutput struct {
+	*pulumi.OutputState
+}
+
+func (MachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineOutput)(nil)).Elem()
+}
+
+func (o MachineOutput) ToMachineOutput() MachineOutput {
+	return o
+}
+
+func (o MachineOutput) ToMachineOutputWithContext(ctx context.Context) MachineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MachineOutput{})
 }

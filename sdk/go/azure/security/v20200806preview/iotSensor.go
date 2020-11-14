@@ -4,6 +4,7 @@
 package v20200806preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -88,4 +89,43 @@ type IotSensorArgs struct {
 
 func (IotSensorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotSensorArgs)(nil)).Elem()
+}
+
+type IotSensorInput interface {
+	pulumi.Input
+
+	ToIotSensorOutput() IotSensorOutput
+	ToIotSensorOutputWithContext(ctx context.Context) IotSensorOutput
+}
+
+func (IotSensor) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotSensor)(nil)).Elem()
+}
+
+func (i IotSensor) ToIotSensorOutput() IotSensorOutput {
+	return i.ToIotSensorOutputWithContext(context.Background())
+}
+
+func (i IotSensor) ToIotSensorOutputWithContext(ctx context.Context) IotSensorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotSensorOutput)
+}
+
+type IotSensorOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotSensorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotSensorOutput)(nil)).Elem()
+}
+
+func (o IotSensorOutput) ToIotSensorOutput() IotSensorOutput {
+	return o
+}
+
+func (o IotSensorOutput) ToIotSensorOutputWithContext(ctx context.Context) IotSensorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IotSensorOutput{})
 }

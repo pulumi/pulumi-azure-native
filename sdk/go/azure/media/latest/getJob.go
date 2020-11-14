@@ -51,6 +51,6 @@ type LookupJobResult struct {
 	StartTime string `pulumi:"startTime"`
 	// The current state of the job.
 	State string `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

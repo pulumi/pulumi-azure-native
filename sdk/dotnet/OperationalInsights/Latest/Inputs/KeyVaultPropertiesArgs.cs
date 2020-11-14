@@ -33,6 +33,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest.Inputs
         [Input("keyVersion")]
         public Input<string>? KeyVersion { get; set; }
 
+        /// <summary>
+        /// Selected key minimum required key size.
+        /// </summary>
+        [Input("rsaKeySize")]
+        public Input<int>? RsaKeySize { get; set; }
+
         public KeyVaultPropertiesArgs()
         {
         }

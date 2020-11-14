@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -30,7 +31,7 @@ type ClusterPrincipalAssignment struct {
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// The tenant name of the principal
 	TenantName pulumi.StringOutput `pulumi:"tenantName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -111,7 +112,7 @@ type clusterPrincipalAssignmentState struct {
 	TenantId *string `pulumi:"tenantId"`
 	// The tenant name of the principal
 	TenantName *string `pulumi:"tenantName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -132,7 +133,7 @@ type ClusterPrincipalAssignmentState struct {
 	TenantId pulumi.StringPtrInput
 	// The tenant name of the principal
 	TenantName pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -177,4 +178,43 @@ type ClusterPrincipalAssignmentArgs struct {
 
 func (ClusterPrincipalAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterPrincipalAssignmentArgs)(nil)).Elem()
+}
+
+type ClusterPrincipalAssignmentInput interface {
+	pulumi.Input
+
+	ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput
+	ToClusterPrincipalAssignmentOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentOutput
+}
+
+func (ClusterPrincipalAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPrincipalAssignment)(nil)).Elem()
+}
+
+func (i ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput {
+	return i.ToClusterPrincipalAssignmentOutputWithContext(context.Background())
+}
+
+func (i ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentOutput)
+}
+
+type ClusterPrincipalAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterPrincipalAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPrincipalAssignmentOutput)(nil)).Elem()
+}
+
+func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput {
+	return o
+}
+
+func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClusterPrincipalAssignmentOutput{})
 }

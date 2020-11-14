@@ -21,7 +21,7 @@ type GetIntegrationRuntimeStatusArgs struct {
 	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 

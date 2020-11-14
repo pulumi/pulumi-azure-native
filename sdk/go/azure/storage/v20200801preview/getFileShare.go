@@ -57,7 +57,9 @@ type LookupFileShareResult struct {
 	ShareQuota *int `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes int `pulumi:"shareUsageBytes"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+	SnapshotTime string `pulumi:"snapshotTime"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The version of the share.
 	Version string `pulumi:"version"`

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
@@ -35,6 +34,10 @@ export interface GetDomainServiceArgs {
  * Domain service.
  */
 export interface GetDomainServiceResult {
+    /**
+     * Deployment Id
+     */
+    readonly deploymentId: string;
     /**
      * List of Domain Controller IP Address
      */

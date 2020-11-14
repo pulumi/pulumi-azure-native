@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,7 +37,7 @@ type LiveOutput struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource state of the live output.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -126,7 +127,7 @@ type liveOutputState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource state of the live output.
 	ResourceState *string `pulumi:"resourceState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -153,7 +154,7 @@ type LiveOutputState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The resource state of the live output.
 	ResourceState pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -210,4 +211,43 @@ type LiveOutputArgs struct {
 
 func (LiveOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*liveOutputArgs)(nil)).Elem()
+}
+
+type LiveOutputInput interface {
+	pulumi.Input
+
+	ToLiveOutputOutput() LiveOutputOutput
+	ToLiveOutputOutputWithContext(ctx context.Context) LiveOutputOutput
+}
+
+func (LiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveOutput)(nil)).Elem()
+}
+
+func (i LiveOutput) ToLiveOutputOutput() LiveOutputOutput {
+	return i.ToLiveOutputOutputWithContext(context.Background())
+}
+
+func (i LiveOutput) ToLiveOutputOutputWithContext(ctx context.Context) LiveOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveOutputOutput)
+}
+
+type LiveOutputOutput struct {
+	*pulumi.OutputState
+}
+
+func (LiveOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveOutputOutput)(nil)).Elem()
+}
+
+func (o LiveOutputOutput) ToLiveOutputOutput() LiveOutputOutput {
+	return o
+}
+
+func (o LiveOutputOutput) ToLiveOutputOutputWithContext(ctx context.Context) LiveOutputOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LiveOutputOutput{})
 }

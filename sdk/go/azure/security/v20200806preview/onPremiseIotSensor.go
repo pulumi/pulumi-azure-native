@@ -4,6 +4,7 @@
 package v20200806preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -81,4 +82,43 @@ type OnPremiseIotSensorArgs struct {
 
 func (OnPremiseIotSensorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*onPremiseIotSensorArgs)(nil)).Elem()
+}
+
+type OnPremiseIotSensorInput interface {
+	pulumi.Input
+
+	ToOnPremiseIotSensorOutput() OnPremiseIotSensorOutput
+	ToOnPremiseIotSensorOutputWithContext(ctx context.Context) OnPremiseIotSensorOutput
+}
+
+func (OnPremiseIotSensor) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseIotSensor)(nil)).Elem()
+}
+
+func (i OnPremiseIotSensor) ToOnPremiseIotSensorOutput() OnPremiseIotSensorOutput {
+	return i.ToOnPremiseIotSensorOutputWithContext(context.Background())
+}
+
+func (i OnPremiseIotSensor) ToOnPremiseIotSensorOutputWithContext(ctx context.Context) OnPremiseIotSensorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseIotSensorOutput)
+}
+
+type OnPremiseIotSensorOutput struct {
+	*pulumi.OutputState
+}
+
+func (OnPremiseIotSensorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseIotSensorOutput)(nil)).Elem()
+}
+
+func (o OnPremiseIotSensorOutput) ToOnPremiseIotSensorOutput() OnPremiseIotSensorOutput {
+	return o
+}
+
+func (o OnPremiseIotSensorOutput) ToOnPremiseIotSensorOutputWithContext(ctx context.Context) OnPremiseIotSensorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OnPremiseIotSensorOutput{})
 }

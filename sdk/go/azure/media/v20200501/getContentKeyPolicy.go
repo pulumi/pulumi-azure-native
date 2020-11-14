@@ -39,6 +39,6 @@ type LookupContentKeyPolicyResult struct {
 	Options []ContentKeyPolicyOptionResponse `pulumi:"options"`
 	// The legacy Policy ID.
 	PolicyId string `pulumi:"policyId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

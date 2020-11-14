@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The base definition of a linked integration runtime.
+        /// Linked integration runtime type from data factory
         /// </summary>
         [Input("linkedInfo")]
         public InputUnion<Inputs.LinkedIntegrationRuntimeKeyAuthorizationArgs, Inputs.LinkedIntegrationRuntimeRbacAuthorizationArgs>? LinkedInfo { get; set; }

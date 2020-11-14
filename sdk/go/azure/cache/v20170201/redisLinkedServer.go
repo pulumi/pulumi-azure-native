@@ -4,6 +4,7 @@
 package v20170201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -158,4 +159,43 @@ type RedisLinkedServerArgs struct {
 
 func (RedisLinkedServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*redisLinkedServerArgs)(nil)).Elem()
+}
+
+type RedisLinkedServerInput interface {
+	pulumi.Input
+
+	ToRedisLinkedServerOutput() RedisLinkedServerOutput
+	ToRedisLinkedServerOutputWithContext(ctx context.Context) RedisLinkedServerOutput
+}
+
+func (RedisLinkedServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisLinkedServer)(nil)).Elem()
+}
+
+func (i RedisLinkedServer) ToRedisLinkedServerOutput() RedisLinkedServerOutput {
+	return i.ToRedisLinkedServerOutputWithContext(context.Background())
+}
+
+func (i RedisLinkedServer) ToRedisLinkedServerOutputWithContext(ctx context.Context) RedisLinkedServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerOutput)
+}
+
+type RedisLinkedServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (RedisLinkedServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisLinkedServerOutput)(nil)).Elem()
+}
+
+func (o RedisLinkedServerOutput) ToRedisLinkedServerOutput() RedisLinkedServerOutput {
+	return o
+}
+
+func (o RedisLinkedServerOutput) ToRedisLinkedServerOutputWithContext(ctx context.Context) RedisLinkedServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RedisLinkedServerOutput{})
 }

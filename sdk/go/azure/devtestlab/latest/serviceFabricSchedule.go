@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -233,4 +234,43 @@ type ServiceFabricScheduleArgs struct {
 
 func (ServiceFabricScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceFabricScheduleArgs)(nil)).Elem()
+}
+
+type ServiceFabricScheduleInput interface {
+	pulumi.Input
+
+	ToServiceFabricScheduleOutput() ServiceFabricScheduleOutput
+	ToServiceFabricScheduleOutputWithContext(ctx context.Context) ServiceFabricScheduleOutput
+}
+
+func (ServiceFabricSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFabricSchedule)(nil)).Elem()
+}
+
+func (i ServiceFabricSchedule) ToServiceFabricScheduleOutput() ServiceFabricScheduleOutput {
+	return i.ToServiceFabricScheduleOutputWithContext(context.Background())
+}
+
+func (i ServiceFabricSchedule) ToServiceFabricScheduleOutputWithContext(ctx context.Context) ServiceFabricScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFabricScheduleOutput)
+}
+
+type ServiceFabricScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceFabricScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFabricScheduleOutput)(nil)).Elem()
+}
+
+func (o ServiceFabricScheduleOutput) ToServiceFabricScheduleOutput() ServiceFabricScheduleOutput {
+	return o
+}
+
+func (o ServiceFabricScheduleOutput) ToServiceFabricScheduleOutputWithContext(ctx context.Context) ServiceFabricScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceFabricScheduleOutput{})
 }

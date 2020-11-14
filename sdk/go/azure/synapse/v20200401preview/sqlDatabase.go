@@ -4,6 +4,7 @@
 package v20200401preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -24,11 +25,13 @@ type SqlDatabase struct {
 	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Status of the database.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// SystemData of SqlDatabase.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -82,11 +85,13 @@ type sqlDatabaseState struct {
 	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// Status of the database.
+	Status *string `pulumi:"status"`
 	// SystemData of SqlDatabase.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -101,11 +106,13 @@ type SqlDatabaseState struct {
 	MaxSizeBytes pulumi.IntPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// Status of the database.
+	Status pulumi.StringPtrInput
 	// SystemData of SqlDatabase.
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -150,4 +157,43 @@ type SqlDatabaseArgs struct {
 
 func (SqlDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlDatabaseArgs)(nil)).Elem()
+}
+
+type SqlDatabaseInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseOutput() SqlDatabaseOutput
+	ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput
+}
+
+func (SqlDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabase)(nil)).Elem()
+}
+
+func (i SqlDatabase) ToSqlDatabaseOutput() SqlDatabaseOutput {
+	return i.ToSqlDatabaseOutputWithContext(context.Background())
+}
+
+func (i SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseOutput)
+}
+
+type SqlDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseOutput)(nil)).Elem()
+}
+
+func (o SqlDatabaseOutput) ToSqlDatabaseOutput() SqlDatabaseOutput {
+	return o
+}
+
+func (o SqlDatabaseOutput) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlDatabaseOutput{})
 }

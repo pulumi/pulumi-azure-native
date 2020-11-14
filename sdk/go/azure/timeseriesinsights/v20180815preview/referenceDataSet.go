@@ -4,6 +4,7 @@
 package v20180815preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -168,4 +169,43 @@ type ReferenceDataSetArgs struct {
 
 func (ReferenceDataSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*referenceDataSetArgs)(nil)).Elem()
+}
+
+type ReferenceDataSetInput interface {
+	pulumi.Input
+
+	ToReferenceDataSetOutput() ReferenceDataSetOutput
+	ToReferenceDataSetOutputWithContext(ctx context.Context) ReferenceDataSetOutput
+}
+
+func (ReferenceDataSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceDataSet)(nil)).Elem()
+}
+
+func (i ReferenceDataSet) ToReferenceDataSetOutput() ReferenceDataSetOutput {
+	return i.ToReferenceDataSetOutputWithContext(context.Background())
+}
+
+func (i ReferenceDataSet) ToReferenceDataSetOutputWithContext(ctx context.Context) ReferenceDataSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetOutput)
+}
+
+type ReferenceDataSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReferenceDataSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceDataSetOutput)(nil)).Elem()
+}
+
+func (o ReferenceDataSetOutput) ToReferenceDataSetOutput() ReferenceDataSetOutput {
+	return o
+}
+
+func (o ReferenceDataSetOutput) ToReferenceDataSetOutputWithContext(ctx context.Context) ReferenceDataSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReferenceDataSetOutput{})
 }

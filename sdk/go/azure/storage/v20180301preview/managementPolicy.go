@@ -4,6 +4,7 @@
 package v20180301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -20,7 +21,7 @@ type ManagementPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -85,7 +86,7 @@ type managementPolicyState struct {
 	Name *string `pulumi:"name"`
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Policy interface{} `pulumi:"policy"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -96,7 +97,7 @@ type ManagementPolicyState struct {
 	Name pulumi.StringPtrInput
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Policy pulumi.Input
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -129,4 +130,43 @@ type ManagementPolicyArgs struct {
 
 func (ManagementPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementPolicyArgs)(nil)).Elem()
+}
+
+type ManagementPolicyInput interface {
+	pulumi.Input
+
+	ToManagementPolicyOutput() ManagementPolicyOutput
+	ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput
+}
+
+func (ManagementPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicy)(nil)).Elem()
+}
+
+func (i ManagementPolicy) ToManagementPolicyOutput() ManagementPolicyOutput {
+	return i.ToManagementPolicyOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicy) ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyOutput)
+}
+
+type ManagementPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyOutput)(nil)).Elem()
+}
+
+func (o ManagementPolicyOutput) ToManagementPolicyOutput() ManagementPolicyOutput {
+	return o
+}
+
+func (o ManagementPolicyOutput) ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementPolicyOutput{})
 }

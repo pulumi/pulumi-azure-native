@@ -27,10 +27,16 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connections
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// PrivateLinkHub provisioning state
         /// </summary>
         [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -39,7 +45,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -96,10 +102,16 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the privateLinkHub
+        /// Name of the privateLinkHub
         /// </summary>
         [Input("privateLinkHubName", required: true)]
         public Input<string> PrivateLinkHubName { get; set; } = null!;
+
+        /// <summary>
+        /// PrivateLinkHub provisioning state
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

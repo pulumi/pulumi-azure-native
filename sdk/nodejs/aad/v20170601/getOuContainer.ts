@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
@@ -52,6 +51,10 @@ export interface GetOuContainerResult {
      * The Deployment id
      */
     readonly deploymentId: string;
+    /**
+     * Distinguished Name of OuContainer instance
+     */
+    readonly distinguishedName: string;
     /**
      * The domain name of Domain Services.
      */

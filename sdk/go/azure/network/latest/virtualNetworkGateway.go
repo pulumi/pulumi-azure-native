@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -28,6 +29,8 @@ type VirtualNetworkGateway struct {
 	EnablePrivateIpAddress pulumi.BoolPtrOutput `pulumi:"enablePrivateIpAddress"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The extended location of type local virtual network gateway.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
 	GatewayDefaultSite SubResourceResponsePtrOutput `pulumi:"gatewayDefaultSite"`
 	// The type of this virtual network gateway.
@@ -50,6 +53,8 @@ type VirtualNetworkGateway struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VirtualNetworkExtendedLocationResourceId pulumi.StringPtrOutput `pulumi:"virtualNetworkExtendedLocationResourceId"`
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration VpnClientConfigurationResponsePtrOutput `pulumi:"vpnClientConfiguration"`
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -167,6 +172,9 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualNetworkGateway"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualNetworkGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkGateway
@@ -205,6 +213,8 @@ type virtualNetworkGatewayState struct {
 	EnablePrivateIpAddress *bool `pulumi:"enablePrivateIpAddress"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The extended location of type local virtual network gateway.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
 	GatewayDefaultSite *SubResourceResponse `pulumi:"gatewayDefaultSite"`
 	// The type of this virtual network gateway.
@@ -227,6 +237,8 @@ type virtualNetworkGatewayState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VirtualNetworkExtendedLocationResourceId *string `pulumi:"virtualNetworkExtendedLocationResourceId"`
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration *VpnClientConfigurationResponse `pulumi:"vpnClientConfiguration"`
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -250,6 +262,8 @@ type VirtualNetworkGatewayState struct {
 	EnablePrivateIpAddress pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The extended location of type local virtual network gateway.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
 	GatewayDefaultSite SubResourceResponsePtrInput
 	// The type of this virtual network gateway.
@@ -272,6 +286,8 @@ type VirtualNetworkGatewayState struct {
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VirtualNetworkExtendedLocationResourceId pulumi.StringPtrInput
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration VpnClientConfigurationResponsePtrInput
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -297,6 +313,8 @@ type virtualNetworkGatewayArgs struct {
 	EnableDnsForwarding *bool `pulumi:"enableDnsForwarding"`
 	// Whether private IP needs to be enabled on this gateway for connections or not.
 	EnablePrivateIpAddress *bool `pulumi:"enablePrivateIpAddress"`
+	// The extended location of type local virtual network gateway.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
 	GatewayDefaultSite *SubResource `pulumi:"gatewayDefaultSite"`
 	// The type of this virtual network gateway.
@@ -313,6 +331,8 @@ type virtualNetworkGatewayArgs struct {
 	Sku *VirtualNetworkGatewaySku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VirtualNetworkExtendedLocationResourceId *string `pulumi:"virtualNetworkExtendedLocationResourceId"`
 	// The name of the virtual network gateway.
 	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
@@ -337,6 +357,8 @@ type VirtualNetworkGatewayArgs struct {
 	EnableDnsForwarding pulumi.BoolPtrInput
 	// Whether private IP needs to be enabled on this gateway for connections or not.
 	EnablePrivateIpAddress pulumi.BoolPtrInput
+	// The extended location of type local virtual network gateway.
+	ExtendedLocation ExtendedLocationPtrInput
 	// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
 	GatewayDefaultSite SubResourcePtrInput
 	// The type of this virtual network gateway.
@@ -353,6 +375,8 @@ type VirtualNetworkGatewayArgs struct {
 	Sku VirtualNetworkGatewaySkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VirtualNetworkExtendedLocationResourceId pulumi.StringPtrInput
 	// The name of the virtual network gateway.
 	VirtualNetworkGatewayName pulumi.StringInput
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
@@ -365,4 +389,43 @@ type VirtualNetworkGatewayArgs struct {
 
 func (VirtualNetworkGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkGatewayArgs)(nil)).Elem()
+}
+
+type VirtualNetworkGatewayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayOutput() VirtualNetworkGatewayOutput
+	ToVirtualNetworkGatewayOutputWithContext(ctx context.Context) VirtualNetworkGatewayOutput
+}
+
+func (VirtualNetworkGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGateway)(nil)).Elem()
+}
+
+func (i VirtualNetworkGateway) ToVirtualNetworkGatewayOutput() VirtualNetworkGatewayOutput {
+	return i.ToVirtualNetworkGatewayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGateway) ToVirtualNetworkGatewayOutputWithContext(ctx context.Context) VirtualNetworkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayOutput)
+}
+
+type VirtualNetworkGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayOutput) ToVirtualNetworkGatewayOutput() VirtualNetworkGatewayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayOutput) ToVirtualNetworkGatewayOutputWithContext(ctx context.Context) VirtualNetworkGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkGatewayOutput{})
 }

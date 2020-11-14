@@ -4,6 +4,7 @@
 package v20170301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -178,4 +179,43 @@ type JobStepArgs struct {
 
 func (JobStepArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobStepArgs)(nil)).Elem()
+}
+
+type JobStepInput interface {
+	pulumi.Input
+
+	ToJobStepOutput() JobStepOutput
+	ToJobStepOutputWithContext(ctx context.Context) JobStepOutput
+}
+
+func (JobStep) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStep)(nil)).Elem()
+}
+
+func (i JobStep) ToJobStepOutput() JobStepOutput {
+	return i.ToJobStepOutputWithContext(context.Background())
+}
+
+func (i JobStep) ToJobStepOutputWithContext(ctx context.Context) JobStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutput)
+}
+
+type JobStepOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepOutput)(nil)).Elem()
+}
+
+func (o JobStepOutput) ToJobStepOutput() JobStepOutput {
+	return o
+}
+
+func (o JobStepOutput) ToJobStepOutputWithContext(ctx context.Context) JobStepOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobStepOutput{})
 }

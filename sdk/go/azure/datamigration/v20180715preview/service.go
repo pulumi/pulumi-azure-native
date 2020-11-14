@@ -4,6 +4,7 @@
 package v20180715preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -32,6 +33,8 @@ type Service struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+	VirtualNicId pulumi.StringPtrOutput `pulumi:"virtualNicId"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId pulumi.StringOutput `pulumi:"virtualSubnetId"`
 }
@@ -112,6 +115,8 @@ type serviceState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+	VirtualNicId *string `pulumi:"virtualNicId"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId *string `pulumi:"virtualSubnetId"`
 }
@@ -135,6 +140,8 @@ type ServiceState struct {
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+	VirtualNicId pulumi.StringPtrInput
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId pulumi.StringPtrInput
 }
@@ -160,6 +167,8 @@ type serviceArgs struct {
 	Sku *ServiceSku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+	VirtualNicId *string `pulumi:"virtualNicId"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId string `pulumi:"virtualSubnetId"`
 }
@@ -182,10 +191,51 @@ type ServiceArgs struct {
 	Sku ServiceSkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+	VirtualNicId pulumi.StringPtrInput
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId pulumi.StringInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceArgs)(nil)).Elem()
+}
+
+type ServiceInput interface {
+	pulumi.Input
+
+	ToServiceOutput() ServiceOutput
+	ToServiceOutputWithContext(ctx context.Context) ServiceOutput
+}
+
+func (Service) ElementType() reflect.Type {
+	return reflect.TypeOf((*Service)(nil)).Elem()
+}
+
+func (i Service) ToServiceOutput() ServiceOutput {
+	return i.ToServiceOutputWithContext(context.Background())
+}
+
+func (i Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
+}
+
+type ServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceOutput)(nil)).Elem()
+}
+
+func (o ServiceOutput) ToServiceOutput() ServiceOutput {
+	return o
+}
+
+func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceOutput{})
 }

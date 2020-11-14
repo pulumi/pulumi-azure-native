@@ -37,6 +37,8 @@ type LookupNetworkInterfaceResult struct {
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The extended location of the network interface.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// A list of references to linked BareMetal resources.
 	HostedWorkloads []string `pulumi:"hostedWorkloads"`
 	// A list of IPConfigurations of the network interface.

@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        /// </summary>
+        public readonly string? VirtualNicId;
+        /// <summary>
         /// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         /// </summary>
         public readonly string VirtualSubnetId;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
 
             string type,
 
+            string? virtualNicId,
+
             string virtualSubnetId)
         {
             Etag = etag;
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
             Sku = sku;
             Tags = tags;
             Type = type;
+            VirtualNicId = virtualNicId;
             VirtualSubnetId = virtualSubnetId;
         }
     }

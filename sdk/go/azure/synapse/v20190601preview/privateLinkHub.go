@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -18,11 +19,13 @@ type PrivateLinkHub struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of private endpoint connections
+	PrivateEndpointConnections PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// PrivateLinkHub provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -67,11 +70,13 @@ type privateLinkHubState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// List of private endpoint connections
+	PrivateEndpointConnections []PrivateEndpointConnectionForPrivateLinkHubBasicResponse `pulumi:"privateEndpointConnections"`
 	// PrivateLinkHub provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -80,11 +85,13 @@ type PrivateLinkHubState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// List of private endpoint connections
+	PrivateEndpointConnections PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayInput
 	// PrivateLinkHub provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -95,8 +102,10 @@ func (PrivateLinkHubState) ElementType() reflect.Type {
 type privateLinkHubArgs struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the privateLinkHub
+	// Name of the privateLinkHub
 	PrivateLinkHubName string `pulumi:"privateLinkHubName"`
+	// PrivateLinkHub provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -107,8 +116,10 @@ type privateLinkHubArgs struct {
 type PrivateLinkHubArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The name of the privateLinkHub
+	// Name of the privateLinkHub
 	PrivateLinkHubName pulumi.StringInput
+	// PrivateLinkHub provisioning state
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
@@ -117,4 +128,43 @@ type PrivateLinkHubArgs struct {
 
 func (PrivateLinkHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkHubArgs)(nil)).Elem()
+}
+
+type PrivateLinkHubInput interface {
+	pulumi.Input
+
+	ToPrivateLinkHubOutput() PrivateLinkHubOutput
+	ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput
+}
+
+func (PrivateLinkHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkHub)(nil)).Elem()
+}
+
+func (i PrivateLinkHub) ToPrivateLinkHubOutput() PrivateLinkHubOutput {
+	return i.ToPrivateLinkHubOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkHub) ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubOutput)
+}
+
+type PrivateLinkHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateLinkHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkHubOutput)(nil)).Elem()
+}
+
+func (o PrivateLinkHubOutput) ToPrivateLinkHubOutput() PrivateLinkHubOutput {
+	return o
+}
+
+func (o PrivateLinkHubOutput) ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateLinkHubOutput{})
 }

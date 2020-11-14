@@ -4,6 +4,7 @@
 package v20200710preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -16,6 +17,8 @@ type IotHubResource struct {
 
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// The managed identities for the IotHub.
+	Identity ArmIdentityResponsePtrOutput `pulumi:"identity"`
 	// The resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The resource name.
@@ -120,6 +123,8 @@ func GetIotHubResource(ctx *pulumi.Context,
 type iotHubResourceState struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
+	// The managed identities for the IotHub.
+	Identity *ArmIdentityResponse `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
@@ -137,6 +142,8 @@ type iotHubResourceState struct {
 type IotHubResourceState struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrInput
+	// The managed identities for the IotHub.
+	Identity ArmIdentityResponsePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The resource name.
@@ -158,6 +165,8 @@ func (IotHubResourceState) ElementType() reflect.Type {
 type iotHubResourceArgs struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
+	// The managed identities for the IotHub.
+	Identity *ArmIdentity `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// IotHub properties
@@ -176,6 +185,8 @@ type iotHubResourceArgs struct {
 type IotHubResourceArgs struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrInput
+	// The managed identities for the IotHub.
+	Identity ArmIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringInput
 	// IotHub properties
@@ -192,4 +203,43 @@ type IotHubResourceArgs struct {
 
 func (IotHubResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotHubResourceArgs)(nil)).Elem()
+}
+
+type IotHubResourceInput interface {
+	pulumi.Input
+
+	ToIotHubResourceOutput() IotHubResourceOutput
+	ToIotHubResourceOutputWithContext(ctx context.Context) IotHubResourceOutput
+}
+
+func (IotHubResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubResource)(nil)).Elem()
+}
+
+func (i IotHubResource) ToIotHubResourceOutput() IotHubResourceOutput {
+	return i.ToIotHubResourceOutputWithContext(context.Background())
+}
+
+func (i IotHubResource) ToIotHubResourceOutputWithContext(ctx context.Context) IotHubResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceOutput)
+}
+
+type IotHubResourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotHubResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubResourceOutput)(nil)).Elem()
+}
+
+func (o IotHubResourceOutput) ToIotHubResourceOutput() IotHubResourceOutput {
+	return o
+}
+
+func (o IotHubResourceOutput) ToIotHubResourceOutputWithContext(ctx context.Context) IotHubResourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IotHubResourceOutput{})
 }

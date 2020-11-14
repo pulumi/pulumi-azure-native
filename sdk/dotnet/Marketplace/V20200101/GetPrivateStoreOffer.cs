@@ -40,17 +40,21 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
     public sealed class GetPrivateStoreOfferResult
     {
         /// <summary>
-        /// Private store offer creator name
+        /// Private store offer creation date
         /// </summary>
-        public readonly string CreatedBy;
-        /// <summary>
-        /// Private store offer created date
-        /// </summary>
-        public readonly string CreatedDate;
+        public readonly string CreatedAt;
         /// <summary>
         /// Identifier for purposes of race condition
         /// </summary>
         public readonly string? ETag;
+        /// <summary>
+        /// Icon File Uris
+        /// </summary>
+        public readonly Outputs.OfferPropertiesResponseIconFileUris? IconFileUris;
+        /// <summary>
+        /// Private store offer modification date
+        /// </summary>
+        public readonly string ModifiedAt;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -59,6 +63,10 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// It will be displayed prominently in the marketplace
         /// </summary>
         public readonly string OfferDisplayName;
+        /// <summary>
+        /// Offer plans
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlanResponse> Plans;
         /// <summary>
         /// Private store unique id
         /// </summary>
@@ -79,18 +87,26 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// Offers unique id
         /// </summary>
         public readonly string UniqueOfferId;
+        /// <summary>
+        /// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+        /// </summary>
+        public readonly bool? UpdateSuppressedDueIdempotence;
 
         [OutputConstructor]
         private GetPrivateStoreOfferResult(
-            string createdBy,
-
-            string createdDate,
+            string createdAt,
 
             string? eTag,
+
+            Outputs.OfferPropertiesResponseIconFileUris? iconFileUris,
+
+            string modifiedAt,
 
             string name,
 
             string offerDisplayName,
+
+            ImmutableArray<Outputs.PlanResponse> plans,
 
             string privateStoreId,
 
@@ -100,18 +116,23 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
 
             string type,
 
-            string uniqueOfferId)
+            string uniqueOfferId,
+
+            bool? updateSuppressedDueIdempotence)
         {
-            CreatedBy = createdBy;
-            CreatedDate = createdDate;
+            CreatedAt = createdAt;
             ETag = eTag;
+            IconFileUris = iconFileUris;
+            ModifiedAt = modifiedAt;
             Name = name;
             OfferDisplayName = offerDisplayName;
+            Plans = plans;
             PrivateStoreId = privateStoreId;
             PublisherDisplayName = publisherDisplayName;
             SpecificPlanIdsLimitation = specificPlanIdsLimitation;
             Type = type;
             UniqueOfferId = uniqueOfferId;
+            UpdateSuppressedDueIdempotence = updateSuppressedDueIdempotence;
         }
     }
 }

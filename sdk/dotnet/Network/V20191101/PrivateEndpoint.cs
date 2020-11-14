@@ -110,6 +110,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

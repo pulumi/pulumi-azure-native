@@ -4,6 +4,7 @@
 package v20191201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -105,6 +106,9 @@ func NewDdosProtectionPlan(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:DdosProtectionPlan"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:DdosProtectionPlan"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DdosProtectionPlan
@@ -195,4 +199,43 @@ type DdosProtectionPlanArgs struct {
 
 func (DdosProtectionPlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ddosProtectionPlanArgs)(nil)).Elem()
+}
+
+type DdosProtectionPlanInput interface {
+	pulumi.Input
+
+	ToDdosProtectionPlanOutput() DdosProtectionPlanOutput
+	ToDdosProtectionPlanOutputWithContext(ctx context.Context) DdosProtectionPlanOutput
+}
+
+func (DdosProtectionPlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*DdosProtectionPlan)(nil)).Elem()
+}
+
+func (i DdosProtectionPlan) ToDdosProtectionPlanOutput() DdosProtectionPlanOutput {
+	return i.ToDdosProtectionPlanOutputWithContext(context.Background())
+}
+
+func (i DdosProtectionPlan) ToDdosProtectionPlanOutputWithContext(ctx context.Context) DdosProtectionPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DdosProtectionPlanOutput)
+}
+
+type DdosProtectionPlanOutput struct {
+	*pulumi.OutputState
+}
+
+func (DdosProtectionPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DdosProtectionPlanOutput)(nil)).Elem()
+}
+
+func (o DdosProtectionPlanOutput) ToDdosProtectionPlanOutput() DdosProtectionPlanOutput {
+	return o
+}
+
+func (o DdosProtectionPlanOutput) ToDdosProtectionPlanOutputWithContext(ctx context.Context) DdosProtectionPlanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DdosProtectionPlanOutput{})
 }

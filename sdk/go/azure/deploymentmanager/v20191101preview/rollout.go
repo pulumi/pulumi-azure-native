@@ -4,6 +4,7 @@
 package v20191101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -30,7 +31,7 @@ type Rollout struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
 	TargetServiceTopologyId pulumi.StringOutput `pulumi:"targetServiceTopologyId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -105,7 +106,7 @@ type rolloutState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
 	TargetServiceTopologyId *string `pulumi:"targetServiceTopologyId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -126,7 +127,7 @@ type RolloutState struct {
 	Tags pulumi.StringMapInput
 	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
 	TargetServiceTopologyId pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -179,4 +180,43 @@ type RolloutArgs struct {
 
 func (RolloutArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rolloutArgs)(nil)).Elem()
+}
+
+type RolloutInput interface {
+	pulumi.Input
+
+	ToRolloutOutput() RolloutOutput
+	ToRolloutOutputWithContext(ctx context.Context) RolloutOutput
+}
+
+func (Rollout) ElementType() reflect.Type {
+	return reflect.TypeOf((*Rollout)(nil)).Elem()
+}
+
+func (i Rollout) ToRolloutOutput() RolloutOutput {
+	return i.ToRolloutOutputWithContext(context.Background())
+}
+
+func (i Rollout) ToRolloutOutputWithContext(ctx context.Context) RolloutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolloutOutput)
+}
+
+type RolloutOutput struct {
+	*pulumi.OutputState
+}
+
+func (RolloutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolloutOutput)(nil)).Elem()
+}
+
+func (o RolloutOutput) ToRolloutOutput() RolloutOutput {
+	return o
+}
+
+func (o RolloutOutput) ToRolloutOutputWithContext(ctx context.Context) RolloutOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RolloutOutput{})
 }

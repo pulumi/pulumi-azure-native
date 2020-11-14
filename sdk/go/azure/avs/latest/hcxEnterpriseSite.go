@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,9 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:HcxEnterpriseSite"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:avs/v20200717preview:HcxEnterpriseSite"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -113,4 +117,43 @@ type HcxEnterpriseSiteArgs struct {
 
 func (HcxEnterpriseSiteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hcxEnterpriseSiteArgs)(nil)).Elem()
+}
+
+type HcxEnterpriseSiteInput interface {
+	pulumi.Input
+
+	ToHcxEnterpriseSiteOutput() HcxEnterpriseSiteOutput
+	ToHcxEnterpriseSiteOutputWithContext(ctx context.Context) HcxEnterpriseSiteOutput
+}
+
+func (HcxEnterpriseSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*HcxEnterpriseSite)(nil)).Elem()
+}
+
+func (i HcxEnterpriseSite) ToHcxEnterpriseSiteOutput() HcxEnterpriseSiteOutput {
+	return i.ToHcxEnterpriseSiteOutputWithContext(context.Background())
+}
+
+func (i HcxEnterpriseSite) ToHcxEnterpriseSiteOutputWithContext(ctx context.Context) HcxEnterpriseSiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HcxEnterpriseSiteOutput)
+}
+
+type HcxEnterpriseSiteOutput struct {
+	*pulumi.OutputState
+}
+
+func (HcxEnterpriseSiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HcxEnterpriseSiteOutput)(nil)).Elem()
+}
+
+func (o HcxEnterpriseSiteOutput) ToHcxEnterpriseSiteOutput() HcxEnterpriseSiteOutput {
+	return o
+}
+
+func (o HcxEnterpriseSiteOutput) ToHcxEnterpriseSiteOutputWithContext(ctx context.Context) HcxEnterpriseSiteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HcxEnterpriseSiteOutput{})
 }

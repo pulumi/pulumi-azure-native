@@ -4,6 +4,7 @@
 package v20190301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -24,7 +25,7 @@ type StorageSyncService struct {
 	StorageSyncServiceUid pulumi.StringOutput `pulumi:"storageSyncServiceUid"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -108,7 +109,7 @@ type storageSyncServiceState struct {
 	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -123,7 +124,7 @@ type StorageSyncServiceState struct {
 	StorageSyncServiceUid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -158,4 +159,43 @@ type StorageSyncServiceArgs struct {
 
 func (StorageSyncServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageSyncServiceArgs)(nil)).Elem()
+}
+
+type StorageSyncServiceInput interface {
+	pulumi.Input
+
+	ToStorageSyncServiceOutput() StorageSyncServiceOutput
+	ToStorageSyncServiceOutputWithContext(ctx context.Context) StorageSyncServiceOutput
+}
+
+func (StorageSyncService) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSyncService)(nil)).Elem()
+}
+
+func (i StorageSyncService) ToStorageSyncServiceOutput() StorageSyncServiceOutput {
+	return i.ToStorageSyncServiceOutputWithContext(context.Background())
+}
+
+func (i StorageSyncService) ToStorageSyncServiceOutputWithContext(ctx context.Context) StorageSyncServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSyncServiceOutput)
+}
+
+type StorageSyncServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageSyncServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSyncServiceOutput)(nil)).Elem()
+}
+
+func (o StorageSyncServiceOutput) ToStorageSyncServiceOutput() StorageSyncServiceOutput {
+	return o
+}
+
+func (o StorageSyncServiceOutput) ToStorageSyncServiceOutputWithContext(ctx context.Context) StorageSyncServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageSyncServiceOutput{})
 }

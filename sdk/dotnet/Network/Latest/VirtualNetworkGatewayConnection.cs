@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<string?> AuthorizationKey { get; private set; } = null!;
 
         /// <summary>
+        /// The connection mode for this connection.
+        /// </summary>
+        [Output("connectionMode")]
+        public Output<string?> ConnectionMode { get; private set; } = null!;
+
+        /// <summary>
         /// Connection protocol used for this connection.
         /// </summary>
         [Output("connectionProtocol")]
@@ -233,6 +239,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualNetworkGatewayConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -261,6 +268,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("authorizationKey")]
         public Input<string>? AuthorizationKey { get; set; }
+
+        /// <summary>
+        /// The connection mode for this connection.
+        /// </summary>
+        [Input("connectionMode")]
+        public Input<string>? ConnectionMode { get; set; }
 
         /// <summary>
         /// Connection protocol used for this connection.

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -140,4 +141,43 @@ type TaskArgs struct {
 
 func (TaskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskArgs)(nil)).Elem()
+}
+
+type TaskInput interface {
+	pulumi.Input
+
+	ToTaskOutput() TaskOutput
+	ToTaskOutputWithContext(ctx context.Context) TaskOutput
+}
+
+func (Task) ElementType() reflect.Type {
+	return reflect.TypeOf((*Task)(nil)).Elem()
+}
+
+func (i Task) ToTaskOutput() TaskOutput {
+	return i.ToTaskOutputWithContext(context.Background())
+}
+
+func (i Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskOutput)
+}
+
+type TaskOutput struct {
+	*pulumi.OutputState
+}
+
+func (TaskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskOutput)(nil)).Elem()
+}
+
+func (o TaskOutput) ToTaskOutput() TaskOutput {
+	return o
+}
+
+func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TaskOutput{})
 }

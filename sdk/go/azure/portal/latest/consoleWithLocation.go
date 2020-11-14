@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -88,4 +89,43 @@ type ConsoleWithLocationArgs struct {
 
 func (ConsoleWithLocationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*consoleWithLocationArgs)(nil)).Elem()
+}
+
+type ConsoleWithLocationInput interface {
+	pulumi.Input
+
+	ToConsoleWithLocationOutput() ConsoleWithLocationOutput
+	ToConsoleWithLocationOutputWithContext(ctx context.Context) ConsoleWithLocationOutput
+}
+
+func (ConsoleWithLocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsoleWithLocation)(nil)).Elem()
+}
+
+func (i ConsoleWithLocation) ToConsoleWithLocationOutput() ConsoleWithLocationOutput {
+	return i.ToConsoleWithLocationOutputWithContext(context.Background())
+}
+
+func (i ConsoleWithLocation) ToConsoleWithLocationOutputWithContext(ctx context.Context) ConsoleWithLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsoleWithLocationOutput)
+}
+
+type ConsoleWithLocationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConsoleWithLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsoleWithLocationOutput)(nil)).Elem()
+}
+
+func (o ConsoleWithLocationOutput) ToConsoleWithLocationOutput() ConsoleWithLocationOutput {
+	return o
+}
+
+func (o ConsoleWithLocationOutput) ToConsoleWithLocationOutputWithContext(ctx context.Context) ConsoleWithLocationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConsoleWithLocationOutput{})
 }

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type EventHubAuthorizationRuleArgs struct {
 
 func (EventHubAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type EventHubAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput
+	ToEventHubAuthorizationRuleOutputWithContext(ctx context.Context) EventHubAuthorizationRuleOutput
+}
+
+func (EventHubAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubAuthorizationRule)(nil)).Elem()
+}
+
+func (i EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput {
+	return i.ToEventHubAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutputWithContext(ctx context.Context) EventHubAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleOutput)
+}
+
+type EventHubAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHubAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubAuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput {
+	return o
+}
+
+func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRuleOutputWithContext(ctx context.Context) EventHubAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventHubAuthorizationRuleOutput{})
 }

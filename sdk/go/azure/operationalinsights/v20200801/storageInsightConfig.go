@@ -4,6 +4,7 @@
 package v20200801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -28,7 +29,7 @@ type StorageInsightConfig struct {
 	Tables pulumi.StringArrayOutput `pulumi:"tables"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -98,7 +99,7 @@ type storageInsightConfigState struct {
 	Tables []string `pulumi:"tables"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -117,7 +118,7 @@ type StorageInsightConfigState struct {
 	Tables pulumi.StringArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -166,4 +167,43 @@ type StorageInsightConfigArgs struct {
 
 func (StorageInsightConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageInsightConfigArgs)(nil)).Elem()
+}
+
+type StorageInsightConfigInput interface {
+	pulumi.Input
+
+	ToStorageInsightConfigOutput() StorageInsightConfigOutput
+	ToStorageInsightConfigOutputWithContext(ctx context.Context) StorageInsightConfigOutput
+}
+
+func (StorageInsightConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsightConfig)(nil)).Elem()
+}
+
+func (i StorageInsightConfig) ToStorageInsightConfigOutput() StorageInsightConfigOutput {
+	return i.ToStorageInsightConfigOutputWithContext(context.Background())
+}
+
+func (i StorageInsightConfig) ToStorageInsightConfigOutputWithContext(ctx context.Context) StorageInsightConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightConfigOutput)
+}
+
+type StorageInsightConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageInsightConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsightConfigOutput)(nil)).Elem()
+}
+
+func (o StorageInsightConfigOutput) ToStorageInsightConfigOutput() StorageInsightConfigOutput {
+	return o
+}
+
+func (o StorageInsightConfigOutput) ToStorageInsightConfigOutputWithContext(ctx context.Context) StorageInsightConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageInsightConfigOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200201preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,7 +23,7 @@ type PrivateAtlase struct {
 	Properties PrivateAtlasPropertiesResponseOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -74,7 +75,7 @@ type privateAtlaseState struct {
 	Properties *PrivateAtlasPropertiesResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -87,7 +88,7 @@ type PrivateAtlaseState struct {
 	Properties PrivateAtlasPropertiesResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -124,4 +125,43 @@ type PrivateAtlaseArgs struct {
 
 func (PrivateAtlaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateAtlaseArgs)(nil)).Elem()
+}
+
+type PrivateAtlaseInput interface {
+	pulumi.Input
+
+	ToPrivateAtlaseOutput() PrivateAtlaseOutput
+	ToPrivateAtlaseOutputWithContext(ctx context.Context) PrivateAtlaseOutput
+}
+
+func (PrivateAtlase) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateAtlase)(nil)).Elem()
+}
+
+func (i PrivateAtlase) ToPrivateAtlaseOutput() PrivateAtlaseOutput {
+	return i.ToPrivateAtlaseOutputWithContext(context.Background())
+}
+
+func (i PrivateAtlase) ToPrivateAtlaseOutputWithContext(ctx context.Context) PrivateAtlaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateAtlaseOutput)
+}
+
+type PrivateAtlaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateAtlaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateAtlaseOutput)(nil)).Elem()
+}
+
+func (o PrivateAtlaseOutput) ToPrivateAtlaseOutput() PrivateAtlaseOutput {
+	return o
+}
+
+func (o PrivateAtlaseOutput) ToPrivateAtlaseOutputWithContext(ctx context.Context) PrivateAtlaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateAtlaseOutput{})
 }

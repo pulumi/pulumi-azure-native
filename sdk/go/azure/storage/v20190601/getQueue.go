@@ -32,6 +32,6 @@ type LookupQueueResult struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

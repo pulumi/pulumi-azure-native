@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -26,7 +27,7 @@ type HybridUseBenefit struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Hybrid use benefit SKU
 	Sku SkuResponseOutput `pulumi:"sku"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -88,7 +89,7 @@ type hybridUseBenefitState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Hybrid use benefit SKU
 	Sku *SkuResponse `pulumi:"sku"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -105,7 +106,7 @@ type HybridUseBenefitState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Hybrid use benefit SKU
 	Sku SkuResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -134,4 +135,43 @@ type HybridUseBenefitArgs struct {
 
 func (HybridUseBenefitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hybridUseBenefitArgs)(nil)).Elem()
+}
+
+type HybridUseBenefitInput interface {
+	pulumi.Input
+
+	ToHybridUseBenefitOutput() HybridUseBenefitOutput
+	ToHybridUseBenefitOutputWithContext(ctx context.Context) HybridUseBenefitOutput
+}
+
+func (HybridUseBenefit) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridUseBenefit)(nil)).Elem()
+}
+
+func (i HybridUseBenefit) ToHybridUseBenefitOutput() HybridUseBenefitOutput {
+	return i.ToHybridUseBenefitOutputWithContext(context.Background())
+}
+
+func (i HybridUseBenefit) ToHybridUseBenefitOutputWithContext(ctx context.Context) HybridUseBenefitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridUseBenefitOutput)
+}
+
+type HybridUseBenefitOutput struct {
+	*pulumi.OutputState
+}
+
+func (HybridUseBenefitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridUseBenefitOutput)(nil)).Elem()
+}
+
+func (o HybridUseBenefitOutput) ToHybridUseBenefitOutput() HybridUseBenefitOutput {
+	return o
+}
+
+func (o HybridUseBenefitOutput) ToHybridUseBenefitOutputWithContext(ctx context.Context) HybridUseBenefitOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HybridUseBenefitOutput{})
 }

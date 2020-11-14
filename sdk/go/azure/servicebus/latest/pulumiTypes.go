@@ -1174,6 +1174,442 @@ func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRules struct {
+	// The IP Filter Action
+	Action *string `pulumi:"action"`
+	// IP Mask
+	IpMask *string `pulumi:"ipMask"`
+}
+
+// NWRuleSetIpRulesInput is an input type that accepts NWRuleSetIpRulesArgs and NWRuleSetIpRulesOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesInput` via:
+//
+//          NWRuleSetIpRulesArgs{...}
+type NWRuleSetIpRulesInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesOutput() NWRuleSetIpRulesOutput
+	ToNWRuleSetIpRulesOutputWithContext(context.Context) NWRuleSetIpRulesOutput
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesArgs struct {
+	// The IP Filter Action
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// IP Mask
+	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
+}
+
+func (NWRuleSetIpRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRules)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesArgs) ToNWRuleSetIpRulesOutput() NWRuleSetIpRulesOutput {
+	return i.ToNWRuleSetIpRulesOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesArgs) ToNWRuleSetIpRulesOutputWithContext(ctx context.Context) NWRuleSetIpRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesOutput)
+}
+
+// NWRuleSetIpRulesArrayInput is an input type that accepts NWRuleSetIpRulesArray and NWRuleSetIpRulesArrayOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesArrayInput` via:
+//
+//          NWRuleSetIpRulesArray{ NWRuleSetIpRulesArgs{...} }
+type NWRuleSetIpRulesArrayInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesArrayOutput() NWRuleSetIpRulesArrayOutput
+	ToNWRuleSetIpRulesArrayOutputWithContext(context.Context) NWRuleSetIpRulesArrayOutput
+}
+
+type NWRuleSetIpRulesArray []NWRuleSetIpRulesInput
+
+func (NWRuleSetIpRulesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRules)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesArray) ToNWRuleSetIpRulesArrayOutput() NWRuleSetIpRulesArrayOutput {
+	return i.ToNWRuleSetIpRulesArrayOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesArray) ToNWRuleSetIpRulesArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesArrayOutput)
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRules)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesOutput) ToNWRuleSetIpRulesOutput() NWRuleSetIpRulesOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesOutput) ToNWRuleSetIpRulesOutputWithContext(ctx context.Context) NWRuleSetIpRulesOutput {
+	return o
+}
+
+// The IP Filter Action
+func (o NWRuleSetIpRulesOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRules) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// IP Mask
+func (o NWRuleSetIpRulesOutput) IpMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRules) *string { return v.IpMask }).(pulumi.StringPtrOutput)
+}
+
+type NWRuleSetIpRulesArrayOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRules)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesArrayOutput) ToNWRuleSetIpRulesArrayOutput() NWRuleSetIpRulesArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesArrayOutput) ToNWRuleSetIpRulesArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetIpRules {
+		return vs[0].([]NWRuleSetIpRules)[vs[1].(int)]
+	}).(NWRuleSetIpRulesOutput)
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesResponse struct {
+	// The IP Filter Action
+	Action *string `pulumi:"action"`
+	// IP Mask
+	IpMask *string `pulumi:"ipMask"`
+}
+
+// NWRuleSetIpRulesResponseInput is an input type that accepts NWRuleSetIpRulesResponseArgs and NWRuleSetIpRulesResponseOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesResponseInput` via:
+//
+//          NWRuleSetIpRulesResponseArgs{...}
+type NWRuleSetIpRulesResponseInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesResponseOutput() NWRuleSetIpRulesResponseOutput
+	ToNWRuleSetIpRulesResponseOutputWithContext(context.Context) NWRuleSetIpRulesResponseOutput
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesResponseArgs struct {
+	// The IP Filter Action
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// IP Mask
+	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
+}
+
+func (NWRuleSetIpRulesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRulesResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesResponseArgs) ToNWRuleSetIpRulesResponseOutput() NWRuleSetIpRulesResponseOutput {
+	return i.ToNWRuleSetIpRulesResponseOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesResponseArgs) ToNWRuleSetIpRulesResponseOutputWithContext(ctx context.Context) NWRuleSetIpRulesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesResponseOutput)
+}
+
+// NWRuleSetIpRulesResponseArrayInput is an input type that accepts NWRuleSetIpRulesResponseArray and NWRuleSetIpRulesResponseArrayOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesResponseArrayInput` via:
+//
+//          NWRuleSetIpRulesResponseArray{ NWRuleSetIpRulesResponseArgs{...} }
+type NWRuleSetIpRulesResponseArrayInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesResponseArrayOutput() NWRuleSetIpRulesResponseArrayOutput
+	ToNWRuleSetIpRulesResponseArrayOutputWithContext(context.Context) NWRuleSetIpRulesResponseArrayOutput
+}
+
+type NWRuleSetIpRulesResponseArray []NWRuleSetIpRulesResponseInput
+
+func (NWRuleSetIpRulesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRulesResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesResponseArray) ToNWRuleSetIpRulesResponseArrayOutput() NWRuleSetIpRulesResponseArrayOutput {
+	return i.ToNWRuleSetIpRulesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesResponseArray) ToNWRuleSetIpRulesResponseArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesResponseArrayOutput)
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesResponseOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRulesResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesResponseOutput) ToNWRuleSetIpRulesResponseOutput() NWRuleSetIpRulesResponseOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesResponseOutput) ToNWRuleSetIpRulesResponseOutputWithContext(ctx context.Context) NWRuleSetIpRulesResponseOutput {
+	return o
+}
+
+// The IP Filter Action
+func (o NWRuleSetIpRulesResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRulesResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// IP Mask
+func (o NWRuleSetIpRulesResponseOutput) IpMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRulesResponse) *string { return v.IpMask }).(pulumi.StringPtrOutput)
+}
+
+type NWRuleSetIpRulesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRulesResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesResponseArrayOutput) ToNWRuleSetIpRulesResponseArrayOutput() NWRuleSetIpRulesResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesResponseArrayOutput) ToNWRuleSetIpRulesResponseArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetIpRulesResponse {
+		return vs[0].([]NWRuleSetIpRulesResponse)[vs[1].(int)]
+	}).(NWRuleSetIpRulesResponseOutput)
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRules struct {
+	// Value that indicates whether to ignore missing VNet Service Endpoint
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// Subnet properties
+	Subnet *Subnet `pulumi:"subnet"`
+}
+
+// NWRuleSetVirtualNetworkRulesInput is an input type that accepts NWRuleSetVirtualNetworkRulesArgs and NWRuleSetVirtualNetworkRulesOutput values.
+// You can construct a concrete instance of `NWRuleSetVirtualNetworkRulesInput` via:
+//
+//          NWRuleSetVirtualNetworkRulesArgs{...}
+type NWRuleSetVirtualNetworkRulesInput interface {
+	pulumi.Input
+
+	ToNWRuleSetVirtualNetworkRulesOutput() NWRuleSetVirtualNetworkRulesOutput
+	ToNWRuleSetVirtualNetworkRulesOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesOutput
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesArgs struct {
+	// Value that indicates whether to ignore missing VNet Service Endpoint
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// Subnet properties
+	Subnet SubnetPtrInput `pulumi:"subnet"`
+}
+
+func (NWRuleSetVirtualNetworkRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetVirtualNetworkRules)(nil)).Elem()
+}
+
+func (i NWRuleSetVirtualNetworkRulesArgs) ToNWRuleSetVirtualNetworkRulesOutput() NWRuleSetVirtualNetworkRulesOutput {
+	return i.ToNWRuleSetVirtualNetworkRulesOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetVirtualNetworkRulesArgs) ToNWRuleSetVirtualNetworkRulesOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesOutput)
+}
+
+// NWRuleSetVirtualNetworkRulesArrayInput is an input type that accepts NWRuleSetVirtualNetworkRulesArray and NWRuleSetVirtualNetworkRulesArrayOutput values.
+// You can construct a concrete instance of `NWRuleSetVirtualNetworkRulesArrayInput` via:
+//
+//          NWRuleSetVirtualNetworkRulesArray{ NWRuleSetVirtualNetworkRulesArgs{...} }
+type NWRuleSetVirtualNetworkRulesArrayInput interface {
+	pulumi.Input
+
+	ToNWRuleSetVirtualNetworkRulesArrayOutput() NWRuleSetVirtualNetworkRulesArrayOutput
+	ToNWRuleSetVirtualNetworkRulesArrayOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesArrayOutput
+}
+
+type NWRuleSetVirtualNetworkRulesArray []NWRuleSetVirtualNetworkRulesInput
+
+func (NWRuleSetVirtualNetworkRulesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetVirtualNetworkRules)(nil)).Elem()
+}
+
+func (i NWRuleSetVirtualNetworkRulesArray) ToNWRuleSetVirtualNetworkRulesArrayOutput() NWRuleSetVirtualNetworkRulesArrayOutput {
+	return i.ToNWRuleSetVirtualNetworkRulesArrayOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetVirtualNetworkRulesArray) ToNWRuleSetVirtualNetworkRulesArrayOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesArrayOutput)
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetVirtualNetworkRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetVirtualNetworkRules)(nil)).Elem()
+}
+
+func (o NWRuleSetVirtualNetworkRulesOutput) ToNWRuleSetVirtualNetworkRulesOutput() NWRuleSetVirtualNetworkRulesOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesOutput) ToNWRuleSetVirtualNetworkRulesOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesOutput {
+	return o
+}
+
+// Value that indicates whether to ignore missing VNet Service Endpoint
+func (o NWRuleSetVirtualNetworkRulesOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NWRuleSetVirtualNetworkRules) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+// Subnet properties
+func (o NWRuleSetVirtualNetworkRulesOutput) Subnet() SubnetPtrOutput {
+	return o.ApplyT(func(v NWRuleSetVirtualNetworkRules) *Subnet { return v.Subnet }).(SubnetPtrOutput)
+}
+
+type NWRuleSetVirtualNetworkRulesArrayOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetVirtualNetworkRulesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetVirtualNetworkRules)(nil)).Elem()
+}
+
+func (o NWRuleSetVirtualNetworkRulesArrayOutput) ToNWRuleSetVirtualNetworkRulesArrayOutput() NWRuleSetVirtualNetworkRulesArrayOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesArrayOutput) ToNWRuleSetVirtualNetworkRulesArrayOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesArrayOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetVirtualNetworkRulesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetVirtualNetworkRules {
+		return vs[0].([]NWRuleSetVirtualNetworkRules)[vs[1].(int)]
+	}).(NWRuleSetVirtualNetworkRulesOutput)
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesResponse struct {
+	// Value that indicates whether to ignore missing VNet Service Endpoint
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// Subnet properties
+	Subnet *SubnetResponse `pulumi:"subnet"`
+}
+
+// NWRuleSetVirtualNetworkRulesResponseInput is an input type that accepts NWRuleSetVirtualNetworkRulesResponseArgs and NWRuleSetVirtualNetworkRulesResponseOutput values.
+// You can construct a concrete instance of `NWRuleSetVirtualNetworkRulesResponseInput` via:
+//
+//          NWRuleSetVirtualNetworkRulesResponseArgs{...}
+type NWRuleSetVirtualNetworkRulesResponseInput interface {
+	pulumi.Input
+
+	ToNWRuleSetVirtualNetworkRulesResponseOutput() NWRuleSetVirtualNetworkRulesResponseOutput
+	ToNWRuleSetVirtualNetworkRulesResponseOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesResponseOutput
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesResponseArgs struct {
+	// Value that indicates whether to ignore missing VNet Service Endpoint
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// Subnet properties
+	Subnet SubnetResponsePtrInput `pulumi:"subnet"`
+}
+
+func (NWRuleSetVirtualNetworkRulesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetVirtualNetworkRulesResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetVirtualNetworkRulesResponseArgs) ToNWRuleSetVirtualNetworkRulesResponseOutput() NWRuleSetVirtualNetworkRulesResponseOutput {
+	return i.ToNWRuleSetVirtualNetworkRulesResponseOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetVirtualNetworkRulesResponseArgs) ToNWRuleSetVirtualNetworkRulesResponseOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesResponseOutput)
+}
+
+// NWRuleSetVirtualNetworkRulesResponseArrayInput is an input type that accepts NWRuleSetVirtualNetworkRulesResponseArray and NWRuleSetVirtualNetworkRulesResponseArrayOutput values.
+// You can construct a concrete instance of `NWRuleSetVirtualNetworkRulesResponseArrayInput` via:
+//
+//          NWRuleSetVirtualNetworkRulesResponseArray{ NWRuleSetVirtualNetworkRulesResponseArgs{...} }
+type NWRuleSetVirtualNetworkRulesResponseArrayInput interface {
+	pulumi.Input
+
+	ToNWRuleSetVirtualNetworkRulesResponseArrayOutput() NWRuleSetVirtualNetworkRulesResponseArrayOutput
+	ToNWRuleSetVirtualNetworkRulesResponseArrayOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesResponseArrayOutput
+}
+
+type NWRuleSetVirtualNetworkRulesResponseArray []NWRuleSetVirtualNetworkRulesResponseInput
+
+func (NWRuleSetVirtualNetworkRulesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetVirtualNetworkRulesResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetVirtualNetworkRulesResponseArray) ToNWRuleSetVirtualNetworkRulesResponseArrayOutput() NWRuleSetVirtualNetworkRulesResponseArrayOutput {
+	return i.ToNWRuleSetVirtualNetworkRulesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetVirtualNetworkRulesResponseArray) ToNWRuleSetVirtualNetworkRulesResponseArrayOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesResponseArrayOutput)
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesResponseOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetVirtualNetworkRulesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetVirtualNetworkRulesResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetVirtualNetworkRulesResponseOutput) ToNWRuleSetVirtualNetworkRulesResponseOutput() NWRuleSetVirtualNetworkRulesResponseOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesResponseOutput) ToNWRuleSetVirtualNetworkRulesResponseOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesResponseOutput {
+	return o
+}
+
+// Value that indicates whether to ignore missing VNet Service Endpoint
+func (o NWRuleSetVirtualNetworkRulesResponseOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesResponse) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+// Subnet properties
+func (o NWRuleSetVirtualNetworkRulesResponseOutput) Subnet() SubnetResponsePtrOutput {
+	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesResponse) *SubnetResponse { return v.Subnet }).(SubnetResponsePtrOutput)
+}
+
+type NWRuleSetVirtualNetworkRulesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetVirtualNetworkRulesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetVirtualNetworkRulesResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetVirtualNetworkRulesResponseArrayOutput) ToNWRuleSetVirtualNetworkRulesResponseArrayOutput() NWRuleSetVirtualNetworkRulesResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesResponseArrayOutput) ToNWRuleSetVirtualNetworkRulesResponseArrayOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetVirtualNetworkRulesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetVirtualNetworkRulesResponse {
+		return vs[0].([]NWRuleSetVirtualNetworkRulesResponse)[vs[1].(int)]
+	}).(NWRuleSetVirtualNetworkRulesResponseOutput)
+}
+
 // SKU of the namespace.
 type SBSku struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
@@ -1862,6 +2298,274 @@ func (o SqlFilterResponsePtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties supplied for Subnet
+type Subnet struct {
+	// Resource ID of Virtual Network Subnet
+	Id string `pulumi:"id"`
+}
+
+// SubnetInput is an input type that accepts SubnetArgs and SubnetOutput values.
+// You can construct a concrete instance of `SubnetInput` via:
+//
+//          SubnetArgs{...}
+type SubnetInput interface {
+	pulumi.Input
+
+	ToSubnetOutput() SubnetOutput
+	ToSubnetOutputWithContext(context.Context) SubnetOutput
+}
+
+// Properties supplied for Subnet
+type SubnetArgs struct {
+	// Resource ID of Virtual Network Subnet
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SubnetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Subnet)(nil)).Elem()
+}
+
+func (i SubnetArgs) ToSubnetOutput() SubnetOutput {
+	return i.ToSubnetOutputWithContext(context.Background())
+}
+
+func (i SubnetArgs) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetOutput)
+}
+
+func (i SubnetArgs) ToSubnetPtrOutput() SubnetPtrOutput {
+	return i.ToSubnetPtrOutputWithContext(context.Background())
+}
+
+func (i SubnetArgs) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetOutput).ToSubnetPtrOutputWithContext(ctx)
+}
+
+// SubnetPtrInput is an input type that accepts SubnetArgs, SubnetPtr and SubnetPtrOutput values.
+// You can construct a concrete instance of `SubnetPtrInput` via:
+//
+//          SubnetArgs{...}
+//
+//  or:
+//
+//          nil
+type SubnetPtrInput interface {
+	pulumi.Input
+
+	ToSubnetPtrOutput() SubnetPtrOutput
+	ToSubnetPtrOutputWithContext(context.Context) SubnetPtrOutput
+}
+
+type subnetPtrType SubnetArgs
+
+func SubnetPtr(v *SubnetArgs) SubnetPtrInput {
+	return (*subnetPtrType)(v)
+}
+
+func (*subnetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Subnet)(nil)).Elem()
+}
+
+func (i *subnetPtrType) ToSubnetPtrOutput() SubnetPtrOutput {
+	return i.ToSubnetPtrOutputWithContext(context.Background())
+}
+
+func (i *subnetPtrType) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetPtrOutput)
+}
+
+// Properties supplied for Subnet
+type SubnetOutput struct{ *pulumi.OutputState }
+
+func (SubnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Subnet)(nil)).Elem()
+}
+
+func (o SubnetOutput) ToSubnetOutput() SubnetOutput {
+	return o
+}
+
+func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
+	return o
+}
+
+func (o SubnetOutput) ToSubnetPtrOutput() SubnetPtrOutput {
+	return o.ToSubnetPtrOutputWithContext(context.Background())
+}
+
+func (o SubnetOutput) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPtrOutput {
+	return o.ApplyT(func(v Subnet) *Subnet {
+		return &v
+	}).(SubnetPtrOutput)
+}
+
+// Resource ID of Virtual Network Subnet
+func (o SubnetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v Subnet) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SubnetPtrOutput struct{ *pulumi.OutputState }
+
+func (SubnetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Subnet)(nil)).Elem()
+}
+
+func (o SubnetPtrOutput) ToSubnetPtrOutput() SubnetPtrOutput {
+	return o
+}
+
+func (o SubnetPtrOutput) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPtrOutput {
+	return o
+}
+
+func (o SubnetPtrOutput) Elem() SubnetOutput {
+	return o.ApplyT(func(v *Subnet) Subnet { return *v }).(SubnetOutput)
+}
+
+// Resource ID of Virtual Network Subnet
+func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties supplied for Subnet
+type SubnetResponse struct {
+	// Resource ID of Virtual Network Subnet
+	Id string `pulumi:"id"`
+}
+
+// SubnetResponseInput is an input type that accepts SubnetResponseArgs and SubnetResponseOutput values.
+// You can construct a concrete instance of `SubnetResponseInput` via:
+//
+//          SubnetResponseArgs{...}
+type SubnetResponseInput interface {
+	pulumi.Input
+
+	ToSubnetResponseOutput() SubnetResponseOutput
+	ToSubnetResponseOutputWithContext(context.Context) SubnetResponseOutput
+}
+
+// Properties supplied for Subnet
+type SubnetResponseArgs struct {
+	// Resource ID of Virtual Network Subnet
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SubnetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetResponse)(nil)).Elem()
+}
+
+func (i SubnetResponseArgs) ToSubnetResponseOutput() SubnetResponseOutput {
+	return i.ToSubnetResponseOutputWithContext(context.Background())
+}
+
+func (i SubnetResponseArgs) ToSubnetResponseOutputWithContext(ctx context.Context) SubnetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponseOutput)
+}
+
+func (i SubnetResponseArgs) ToSubnetResponsePtrOutput() SubnetResponsePtrOutput {
+	return i.ToSubnetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SubnetResponseArgs) ToSubnetResponsePtrOutputWithContext(ctx context.Context) SubnetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponseOutput).ToSubnetResponsePtrOutputWithContext(ctx)
+}
+
+// SubnetResponsePtrInput is an input type that accepts SubnetResponseArgs, SubnetResponsePtr and SubnetResponsePtrOutput values.
+// You can construct a concrete instance of `SubnetResponsePtrInput` via:
+//
+//          SubnetResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SubnetResponsePtrInput interface {
+	pulumi.Input
+
+	ToSubnetResponsePtrOutput() SubnetResponsePtrOutput
+	ToSubnetResponsePtrOutputWithContext(context.Context) SubnetResponsePtrOutput
+}
+
+type subnetResponsePtrType SubnetResponseArgs
+
+func SubnetResponsePtr(v *SubnetResponseArgs) SubnetResponsePtrInput {
+	return (*subnetResponsePtrType)(v)
+}
+
+func (*subnetResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetResponse)(nil)).Elem()
+}
+
+func (i *subnetResponsePtrType) ToSubnetResponsePtrOutput() SubnetResponsePtrOutput {
+	return i.ToSubnetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *subnetResponsePtrType) ToSubnetResponsePtrOutputWithContext(ctx context.Context) SubnetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetResponsePtrOutput)
+}
+
+// Properties supplied for Subnet
+type SubnetResponseOutput struct{ *pulumi.OutputState }
+
+func (SubnetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetResponse)(nil)).Elem()
+}
+
+func (o SubnetResponseOutput) ToSubnetResponseOutput() SubnetResponseOutput {
+	return o
+}
+
+func (o SubnetResponseOutput) ToSubnetResponseOutputWithContext(ctx context.Context) SubnetResponseOutput {
+	return o
+}
+
+func (o SubnetResponseOutput) ToSubnetResponsePtrOutput() SubnetResponsePtrOutput {
+	return o.ToSubnetResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SubnetResponseOutput) ToSubnetResponsePtrOutputWithContext(ctx context.Context) SubnetResponsePtrOutput {
+	return o.ApplyT(func(v SubnetResponse) *SubnetResponse {
+		return &v
+	}).(SubnetResponsePtrOutput)
+}
+
+// Resource ID of Virtual Network Subnet
+func (o SubnetResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SubnetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SubnetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetResponse)(nil)).Elem()
+}
+
+func (o SubnetResponsePtrOutput) ToSubnetResponsePtrOutput() SubnetResponsePtrOutput {
+	return o
+}
+
+func (o SubnetResponsePtrOutput) ToSubnetResponsePtrOutputWithContext(ctx context.Context) SubnetResponsePtrOutput {
+	return o
+}
+
+func (o SubnetResponsePtrOutput) Elem() SubnetResponseOutput {
+	return o.ApplyT(func(v *SubnetResponse) SubnetResponse { return *v }).(SubnetResponseOutput)
+}
+
+// Resource ID of Virtual Network Subnet
+func (o SubnetResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionOutput{})
 	pulumi.RegisterOutputType(ActionPtrOutput{})
@@ -1873,6 +2577,14 @@ func init() {
 	pulumi.RegisterOutputType(CorrelationFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(MessageCountDetailsResponseOutput{})
 	pulumi.RegisterOutputType(MessageCountDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesArrayOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesResponseOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesResponseArrayOutput{})
+	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesOutput{})
+	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesArrayOutput{})
+	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesResponseOutput{})
+	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesResponseArrayOutput{})
 	pulumi.RegisterOutputType(SBSkuOutput{})
 	pulumi.RegisterOutputType(SBSkuPtrOutput{})
 	pulumi.RegisterOutputType(SBSkuResponseOutput{})
@@ -1881,4 +2593,8 @@ func init() {
 	pulumi.RegisterOutputType(SqlFilterPtrOutput{})
 	pulumi.RegisterOutputType(SqlFilterResponseOutput{})
 	pulumi.RegisterOutputType(SqlFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(SubnetOutput{})
+	pulumi.RegisterOutputType(SubnetPtrOutput{})
+	pulumi.RegisterOutputType(SubnetResponseOutput{})
+	pulumi.RegisterOutputType(SubnetResponsePtrOutput{})
 }

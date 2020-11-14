@@ -4,6 +4,7 @@
 package v20191001preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -175,4 +176,43 @@ type BillingRoleAssignmentByDepartmentArgs struct {
 
 func (BillingRoleAssignmentByDepartmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*billingRoleAssignmentByDepartmentArgs)(nil)).Elem()
+}
+
+type BillingRoleAssignmentByDepartmentInput interface {
+	pulumi.Input
+
+	ToBillingRoleAssignmentByDepartmentOutput() BillingRoleAssignmentByDepartmentOutput
+	ToBillingRoleAssignmentByDepartmentOutputWithContext(ctx context.Context) BillingRoleAssignmentByDepartmentOutput
+}
+
+func (BillingRoleAssignmentByDepartment) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingRoleAssignmentByDepartment)(nil)).Elem()
+}
+
+func (i BillingRoleAssignmentByDepartment) ToBillingRoleAssignmentByDepartmentOutput() BillingRoleAssignmentByDepartmentOutput {
+	return i.ToBillingRoleAssignmentByDepartmentOutputWithContext(context.Background())
+}
+
+func (i BillingRoleAssignmentByDepartment) ToBillingRoleAssignmentByDepartmentOutputWithContext(ctx context.Context) BillingRoleAssignmentByDepartmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingRoleAssignmentByDepartmentOutput)
+}
+
+type BillingRoleAssignmentByDepartmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (BillingRoleAssignmentByDepartmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingRoleAssignmentByDepartmentOutput)(nil)).Elem()
+}
+
+func (o BillingRoleAssignmentByDepartmentOutput) ToBillingRoleAssignmentByDepartmentOutput() BillingRoleAssignmentByDepartmentOutput {
+	return o
+}
+
+func (o BillingRoleAssignmentByDepartmentOutput) ToBillingRoleAssignmentByDepartmentOutputWithContext(ctx context.Context) BillingRoleAssignmentByDepartmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BillingRoleAssignmentByDepartmentOutput{})
 }

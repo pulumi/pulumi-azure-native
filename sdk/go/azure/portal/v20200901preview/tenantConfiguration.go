@@ -4,6 +4,7 @@
 package v20200901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -18,7 +19,7 @@ type TenantConfiguration struct {
 	EnforcePrivateMarkdownStorage pulumi.BoolPtrOutput `pulumi:"enforcePrivateMarkdownStorage"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -63,7 +64,7 @@ type tenantConfigurationState struct {
 	EnforcePrivateMarkdownStorage *bool `pulumi:"enforcePrivateMarkdownStorage"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -72,7 +73,7 @@ type TenantConfigurationState struct {
 	EnforcePrivateMarkdownStorage pulumi.BoolPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -97,4 +98,43 @@ type TenantConfigurationArgs struct {
 
 func (TenantConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tenantConfigurationArgs)(nil)).Elem()
+}
+
+type TenantConfigurationInput interface {
+	pulumi.Input
+
+	ToTenantConfigurationOutput() TenantConfigurationOutput
+	ToTenantConfigurationOutputWithContext(ctx context.Context) TenantConfigurationOutput
+}
+
+func (TenantConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantConfiguration)(nil)).Elem()
+}
+
+func (i TenantConfiguration) ToTenantConfigurationOutput() TenantConfigurationOutput {
+	return i.ToTenantConfigurationOutputWithContext(context.Background())
+}
+
+func (i TenantConfiguration) ToTenantConfigurationOutputWithContext(ctx context.Context) TenantConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantConfigurationOutput)
+}
+
+type TenantConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (TenantConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantConfigurationOutput)(nil)).Elem()
+}
+
+func (o TenantConfigurationOutput) ToTenantConfigurationOutput() TenantConfigurationOutput {
+	return o
+}
+
+func (o TenantConfigurationOutput) ToTenantConfigurationOutputWithContext(ctx context.Context) TenantConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TenantConfigurationOutput{})
 }

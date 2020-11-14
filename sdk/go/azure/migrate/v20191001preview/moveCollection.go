@@ -4,6 +4,7 @@
 package v20191001preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -128,4 +129,43 @@ type MoveCollectionArgs struct {
 
 func (MoveCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*moveCollectionArgs)(nil)).Elem()
+}
+
+type MoveCollectionInput interface {
+	pulumi.Input
+
+	ToMoveCollectionOutput() MoveCollectionOutput
+	ToMoveCollectionOutputWithContext(ctx context.Context) MoveCollectionOutput
+}
+
+func (MoveCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*MoveCollection)(nil)).Elem()
+}
+
+func (i MoveCollection) ToMoveCollectionOutput() MoveCollectionOutput {
+	return i.ToMoveCollectionOutputWithContext(context.Background())
+}
+
+func (i MoveCollection) ToMoveCollectionOutputWithContext(ctx context.Context) MoveCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionOutput)
+}
+
+type MoveCollectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (MoveCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MoveCollectionOutput)(nil)).Elem()
+}
+
+func (o MoveCollectionOutput) ToMoveCollectionOutput() MoveCollectionOutput {
+	return o
+}
+
+func (o MoveCollectionOutput) ToMoveCollectionOutputWithContext(ctx context.Context) MoveCollectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MoveCollectionOutput{})
 }

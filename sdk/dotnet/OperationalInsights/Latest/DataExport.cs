@@ -15,12 +15,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     public partial class DataExport : Pulumi.CustomResource
     {
         /// <summary>
-        /// When ‘true’, all workspace's tables are exported.
-        /// </summary>
-        [Output("allTables")]
-        public Output<bool?> AllTables { get; private set; } = null!;
-
-        /// <summary>
         /// The latest data export rule modification time.
         /// </summary>
         [Output("createdDate")]
@@ -69,7 +63,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         public Output<ImmutableArray<string>> TableNames { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -125,12 +119,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
     public sealed class DataExportArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When ‘true’, all workspace's tables are exported.
-        /// </summary>
-        [Input("allTables")]
-        public Input<bool>? AllTables { get; set; }
-
         /// <summary>
         /// The latest data export rule modification time.
         /// </summary>

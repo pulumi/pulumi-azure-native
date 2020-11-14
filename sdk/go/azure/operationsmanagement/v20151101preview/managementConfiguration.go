@@ -4,6 +4,7 @@
 package v20151101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -108,4 +109,43 @@ type ManagementConfigurationArgs struct {
 
 func (ManagementConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementConfigurationArgs)(nil)).Elem()
+}
+
+type ManagementConfigurationInput interface {
+	pulumi.Input
+
+	ToManagementConfigurationOutput() ManagementConfigurationOutput
+	ToManagementConfigurationOutputWithContext(ctx context.Context) ManagementConfigurationOutput
+}
+
+func (ManagementConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementConfiguration)(nil)).Elem()
+}
+
+func (i ManagementConfiguration) ToManagementConfigurationOutput() ManagementConfigurationOutput {
+	return i.ToManagementConfigurationOutputWithContext(context.Background())
+}
+
+func (i ManagementConfiguration) ToManagementConfigurationOutputWithContext(ctx context.Context) ManagementConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementConfigurationOutput)
+}
+
+type ManagementConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementConfigurationOutput)(nil)).Elem()
+}
+
+func (o ManagementConfigurationOutput) ToManagementConfigurationOutput() ManagementConfigurationOutput {
+	return o
+}
+
+func (o ManagementConfigurationOutput) ToManagementConfigurationOutputWithContext(ctx context.Context) ManagementConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagementConfigurationOutput{})
 }

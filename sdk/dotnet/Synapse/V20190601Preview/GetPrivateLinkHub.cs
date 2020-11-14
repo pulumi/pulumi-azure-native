@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public sealed class GetPrivateLinkHubArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the privateLinkHub
+        /// Name of the privateLinkHub
         /// </summary>
         [Input("privateLinkHubName", required: true)]
         public string PrivateLinkHubName { get; set; } = null!;
@@ -48,15 +48,19 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// List of private endpoint connections
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse> PrivateEndpointConnections;
+        /// <summary>
         /// PrivateLinkHub provisioning state
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -66,7 +70,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string name,
 
-            string provisioningState,
+            ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse> privateEndpointConnections,
+
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -74,6 +80,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         {
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;

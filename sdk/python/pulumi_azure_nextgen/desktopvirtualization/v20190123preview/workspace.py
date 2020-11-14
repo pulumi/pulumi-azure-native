@@ -70,7 +70,7 @@ class Workspace(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190924preview:Workspace"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20191210preview:Workspace"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190924preview:Workspace"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20191210preview:Workspace"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:Workspace"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201019preview:Workspace"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201102preview:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-nextgen:desktopvirtualization/v20190123preview:Workspace',
@@ -148,7 +148,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

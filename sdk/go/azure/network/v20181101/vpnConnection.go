@@ -4,6 +4,7 @@
 package v20181101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -118,6 +119,9 @@ func NewVpnConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VpnConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VpnConnection"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -277,4 +281,43 @@ type VpnConnectionArgs struct {
 
 func (VpnConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnConnectionArgs)(nil)).Elem()
+}
+
+type VpnConnectionInput interface {
+	pulumi.Input
+
+	ToVpnConnectionOutput() VpnConnectionOutput
+	ToVpnConnectionOutputWithContext(ctx context.Context) VpnConnectionOutput
+}
+
+func (VpnConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnection)(nil)).Elem()
+}
+
+func (i VpnConnection) ToVpnConnectionOutput() VpnConnectionOutput {
+	return i.ToVpnConnectionOutputWithContext(context.Background())
+}
+
+func (i VpnConnection) ToVpnConnectionOutputWithContext(ctx context.Context) VpnConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionOutput)
+}
+
+type VpnConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionOutput)(nil)).Elem()
+}
+
+func (o VpnConnectionOutput) ToVpnConnectionOutput() VpnConnectionOutput {
+	return o
+}
+
+func (o VpnConnectionOutput) ToVpnConnectionOutputWithContext(ctx context.Context) VpnConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpnConnectionOutput{})
 }

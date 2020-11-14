@@ -4,6 +4,7 @@
 package v20190901
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -90,6 +91,9 @@ func NewNatGateway(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:NatGateway"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -225,4 +229,43 @@ type NatGatewayArgs struct {
 
 func (NatGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*natGatewayArgs)(nil)).Elem()
+}
+
+type NatGatewayInput interface {
+	pulumi.Input
+
+	ToNatGatewayOutput() NatGatewayOutput
+	ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput
+}
+
+func (NatGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGateway)(nil)).Elem()
+}
+
+func (i NatGateway) ToNatGatewayOutput() NatGatewayOutput {
+	return i.ToNatGatewayOutputWithContext(context.Background())
+}
+
+func (i NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayOutput)
+}
+
+type NatGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (NatGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayOutput)(nil)).Elem()
+}
+
+func (o NatGatewayOutput) ToNatGatewayOutput() NatGatewayOutput {
+	return o
+}
+
+func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NatGatewayOutput{})
 }

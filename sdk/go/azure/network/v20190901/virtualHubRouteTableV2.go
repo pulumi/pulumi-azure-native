@@ -4,6 +4,7 @@
 package v20190901
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,9 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHubRouteTableV2"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -153,4 +157,43 @@ type VirtualHubRouteTableV2Args struct {
 
 func (VirtualHubRouteTableV2Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubRouteTableV2Args)(nil)).Elem()
+}
+
+type VirtualHubRouteTableV2Input interface {
+	pulumi.Input
+
+	ToVirtualHubRouteTableV2Output() VirtualHubRouteTableV2Output
+	ToVirtualHubRouteTableV2OutputWithContext(ctx context.Context) VirtualHubRouteTableV2Output
+}
+
+func (VirtualHubRouteTableV2) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubRouteTableV2)(nil)).Elem()
+}
+
+func (i VirtualHubRouteTableV2) ToVirtualHubRouteTableV2Output() VirtualHubRouteTableV2Output {
+	return i.ToVirtualHubRouteTableV2OutputWithContext(context.Background())
+}
+
+func (i VirtualHubRouteTableV2) ToVirtualHubRouteTableV2OutputWithContext(ctx context.Context) VirtualHubRouteTableV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableV2Output)
+}
+
+type VirtualHubRouteTableV2Output struct {
+	*pulumi.OutputState
+}
+
+func (VirtualHubRouteTableV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubRouteTableV2Output)(nil)).Elem()
+}
+
+func (o VirtualHubRouteTableV2Output) ToVirtualHubRouteTableV2Output() VirtualHubRouteTableV2Output {
+	return o
+}
+
+func (o VirtualHubRouteTableV2Output) ToVirtualHubRouteTableV2OutputWithContext(ctx context.Context) VirtualHubRouteTableV2Output {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualHubRouteTableV2Output{})
 }

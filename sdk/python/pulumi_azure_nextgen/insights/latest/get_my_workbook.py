@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetMyWorkbookResult',
@@ -19,13 +20,16 @@ class GetMyWorkbookResult:
     """
     An Application Insights private workbook definition.
     """
-    def __init__(__self__, category=None, display_name=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
+    def __init__(__self__, category=None, display_name=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -41,6 +45,9 @@ class GetMyWorkbookResult:
         if source_id and not isinstance(source_id, str):
             raise TypeError("Expected argument 'source_id' to be a str")
         pulumi.set(__self__, "source_id", source_id)
+        if storage_uri and not isinstance(storage_uri, str):
+            raise TypeError("Expected argument 'storage_uri' to be a str")
+        pulumi.set(__self__, "storage_uri", storage_uri)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -72,6 +79,14 @@ class GetMyWorkbookResult:
         The user-defined name of the private workbook.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
+        """
+        Identity used for BYOS
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -112,6 +127,14 @@ class GetMyWorkbookResult:
         Optional resourceId for a source resource.
         """
         return pulumi.get(self, "source_id")
+
+    @property
+    @pulumi.getter(name="storageUri")
+    def storage_uri(self) -> Optional[str]:
+        """
+        BYOS Storage Account URI
+        """
+        return pulumi.get(self, "storage_uri")
 
     @property
     @pulumi.getter
@@ -162,11 +185,13 @@ class AwaitableGetMyWorkbookResult(GetMyWorkbookResult):
         return GetMyWorkbookResult(
             category=self.category,
             display_name=self.display_name,
+            identity=self.identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
             serialized_data=self.serialized_data,
             source_id=self.source_id,
+            storage_uri=self.storage_uri,
             tags=self.tags,
             time_modified=self.time_modified,
             type=self.type,
@@ -195,11 +220,13 @@ def get_my_workbook(resource_group_name: Optional[str] = None,
     return AwaitableGetMyWorkbookResult(
         category=__ret__.category,
         display_name=__ret__.display_name,
+        identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
         serialized_data=__ret__.serialized_data,
         source_id=__ret__.source_id,
+        storage_uri=__ret__.storage_uri,
         tags=__ret__.tags,
         time_modified=__ret__.time_modified,
         type=__ret__.type,

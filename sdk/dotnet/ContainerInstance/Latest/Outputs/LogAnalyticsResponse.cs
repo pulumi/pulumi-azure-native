@@ -29,6 +29,10 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest.Outputs
         /// The workspace key for log analytics
         /// </summary>
         public readonly string WorkspaceKey;
+        /// <summary>
+        /// The workspace resource id for log analytics
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? WorkspaceResourceId;
 
         [OutputConstructor]
         private LogAnalyticsResponse(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest.Outputs
 
             string workspaceId,
 
-            string workspaceKey)
+            string workspaceKey,
+
+            ImmutableDictionary<string, string>? workspaceResourceId)
         {
             LogType = logType;
             Metadata = metadata;
             WorkspaceId = workspaceId;
             WorkspaceKey = workspaceKey;
+            WorkspaceResourceId = workspaceResourceId;
         }
     }
 }

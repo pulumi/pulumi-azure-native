@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -168,4 +169,43 @@ type DiskEncryptionSetArgs struct {
 
 func (DiskEncryptionSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*diskEncryptionSetArgs)(nil)).Elem()
+}
+
+type DiskEncryptionSetInput interface {
+	pulumi.Input
+
+	ToDiskEncryptionSetOutput() DiskEncryptionSetOutput
+	ToDiskEncryptionSetOutputWithContext(ctx context.Context) DiskEncryptionSetOutput
+}
+
+func (DiskEncryptionSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskEncryptionSet)(nil)).Elem()
+}
+
+func (i DiskEncryptionSet) ToDiskEncryptionSetOutput() DiskEncryptionSetOutput {
+	return i.ToDiskEncryptionSetOutputWithContext(context.Background())
+}
+
+func (i DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Context) DiskEncryptionSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetOutput)
+}
+
+type DiskEncryptionSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (DiskEncryptionSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskEncryptionSetOutput)(nil)).Elem()
+}
+
+func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutput() DiskEncryptionSetOutput {
+	return o
+}
+
+func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutputWithContext(ctx context.Context) DiskEncryptionSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DiskEncryptionSetOutput{})
 }

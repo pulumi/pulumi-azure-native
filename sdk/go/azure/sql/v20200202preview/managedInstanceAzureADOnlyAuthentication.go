@@ -4,6 +4,7 @@
 package v20200202preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -108,4 +109,43 @@ type ManagedInstanceAzureADOnlyAuthenticationArgs struct {
 
 func (ManagedInstanceAzureADOnlyAuthenticationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedInstanceAzureADOnlyAuthenticationArgs)(nil)).Elem()
+}
+
+type ManagedInstanceAzureADOnlyAuthenticationInput interface {
+	pulumi.Input
+
+	ToManagedInstanceAzureADOnlyAuthenticationOutput() ManagedInstanceAzureADOnlyAuthenticationOutput
+	ToManagedInstanceAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ManagedInstanceAzureADOnlyAuthenticationOutput
+}
+
+func (ManagedInstanceAzureADOnlyAuthentication) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthentication)(nil)).Elem()
+}
+
+func (i ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyAuthenticationOutput() ManagedInstanceAzureADOnlyAuthenticationOutput {
+	return i.ToManagedInstanceAzureADOnlyAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ManagedInstanceAzureADOnlyAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAzureADOnlyAuthenticationOutput)
+}
+
+type ManagedInstanceAzureADOnlyAuthenticationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedInstanceAzureADOnlyAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthenticationOutput)(nil)).Elem()
+}
+
+func (o ManagedInstanceAzureADOnlyAuthenticationOutput) ToManagedInstanceAzureADOnlyAuthenticationOutput() ManagedInstanceAzureADOnlyAuthenticationOutput {
+	return o
+}
+
+func (o ManagedInstanceAzureADOnlyAuthenticationOutput) ToManagedInstanceAzureADOnlyAuthenticationOutputWithContext(ctx context.Context) ManagedInstanceAzureADOnlyAuthenticationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedInstanceAzureADOnlyAuthenticationOutput{})
 }

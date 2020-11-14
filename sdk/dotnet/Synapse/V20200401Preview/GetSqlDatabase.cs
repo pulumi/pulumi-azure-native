@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status of the database.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
         /// SystemData of SqlDatabase.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -74,7 +78,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
 
             string name,
 
+            string status,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -101,6 +107,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
             Location = location;
             MaxSizeBytes = maxSizeBytes;
             Name = name;
+            Status = status;
             SystemData = systemData;
             Tags = tags;
             Type = type;

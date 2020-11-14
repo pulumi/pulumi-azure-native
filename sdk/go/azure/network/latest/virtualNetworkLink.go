@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,4 +164,43 @@ type VirtualNetworkLinkArgs struct {
 
 func (VirtualNetworkLinkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkLinkArgs)(nil)).Elem()
+}
+
+type VirtualNetworkLinkInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkLinkOutput() VirtualNetworkLinkOutput
+	ToVirtualNetworkLinkOutputWithContext(ctx context.Context) VirtualNetworkLinkOutput
+}
+
+func (VirtualNetworkLink) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkLink)(nil)).Elem()
+}
+
+func (i VirtualNetworkLink) ToVirtualNetworkLinkOutput() VirtualNetworkLinkOutput {
+	return i.ToVirtualNetworkLinkOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkLink) ToVirtualNetworkLinkOutputWithContext(ctx context.Context) VirtualNetworkLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkLinkOutput)
+}
+
+type VirtualNetworkLinkOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkLinkOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkLinkOutput) ToVirtualNetworkLinkOutput() VirtualNetworkLinkOutput {
+	return o
+}
+
+func (o VirtualNetworkLinkOutput) ToVirtualNetworkLinkOutputWithContext(ctx context.Context) VirtualNetworkLinkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkLinkOutput{})
 }

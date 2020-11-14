@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'ClusterSkuResponse',
@@ -20,6 +21,7 @@ __all__ = [
     'StorageAccountResponse',
     'StorageInsightStatusResponse',
     'TagResponse',
+    'UserIdentityPropertiesResponse',
     'UserInfoResponse',
     'WorkspaceCappingResponse',
     'WorkspaceSkuResponse',
@@ -71,16 +73,20 @@ class IdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str):
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
         """
         Identity for the resource.
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
-        :param str type: The identity type.
+        :param str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        :param Mapping[str, 'UserIdentityPropertiesResponseArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -102,9 +108,17 @@ class IdentityResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The identity type.
+        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -343,12 +357,14 @@ class KeyVaultPropertiesResponse(dict):
     def __init__(__self__, *,
                  key_name: Optional[str] = None,
                  key_vault_uri: Optional[str] = None,
-                 key_version: Optional[str] = None):
+                 key_version: Optional[str] = None,
+                 rsa_key_size: Optional[int] = None):
         """
         The key vault properties.
         :param str key_name: The name of the key associated with the Log Analytics cluster.
         :param str key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
         :param str key_version: The version of the key associated with the Log Analytics cluster.
+        :param int rsa_key_size: Selected key minimum required key size.
         """
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
@@ -356,6 +372,8 @@ class KeyVaultPropertiesResponse(dict):
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+        if rsa_key_size is not None:
+            pulumi.set(__self__, "rsa_key_size", rsa_key_size)
 
     @property
     @pulumi.getter(name="keyName")
@@ -380,6 +398,14 @@ class KeyVaultPropertiesResponse(dict):
         The version of the key associated with the Log Analytics cluster.
         """
         return pulumi.get(self, "key_version")
+
+    @property
+    @pulumi.getter(name="rsaKeySize")
+    def rsa_key_size(self) -> Optional[int]:
+        """
+        Selected key minimum required key size.
+        """
+        return pulumi.get(self, "rsa_key_size")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -527,6 +553,42 @@ class TagResponse(dict):
         The tag value.
         """
         return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserIdentityPropertiesResponse(dict):
+    """
+    User assigned identity properties.
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties.
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

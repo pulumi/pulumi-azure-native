@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetMyWorkbookResult> {
@@ -44,6 +43,10 @@ export interface GetMyWorkbookResult {
      */
     readonly displayName: string;
     /**
+     * Identity used for BYOS
+     */
+    readonly identity?: outputs.insights.latest.ManagedIdentityResponse;
+    /**
      * The kind of workbook. Choices are user and shared.
      */
     readonly kind?: string;
@@ -63,6 +66,10 @@ export interface GetMyWorkbookResult {
      * Optional resourceId for a source resource.
      */
     readonly sourceId?: string;
+    /**
+     * BYOS Storage Account URI
+     */
+    readonly storageUri?: string;
     /**
      * Resource tags
      */

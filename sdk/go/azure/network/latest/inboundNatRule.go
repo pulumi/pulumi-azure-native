@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -133,6 +134,9 @@ func NewInboundNatRule(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:InboundNatRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:InboundNatRule"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -272,4 +276,43 @@ type InboundNatRuleArgs struct {
 
 func (InboundNatRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*inboundNatRuleArgs)(nil)).Elem()
+}
+
+type InboundNatRuleInput interface {
+	pulumi.Input
+
+	ToInboundNatRuleOutput() InboundNatRuleOutput
+	ToInboundNatRuleOutputWithContext(ctx context.Context) InboundNatRuleOutput
+}
+
+func (InboundNatRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundNatRule)(nil)).Elem()
+}
+
+func (i InboundNatRule) ToInboundNatRuleOutput() InboundNatRuleOutput {
+	return i.ToInboundNatRuleOutputWithContext(context.Background())
+}
+
+func (i InboundNatRule) ToInboundNatRuleOutputWithContext(ctx context.Context) InboundNatRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundNatRuleOutput)
+}
+
+type InboundNatRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (InboundNatRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundNatRuleOutput)(nil)).Elem()
+}
+
+func (o InboundNatRuleOutput) ToInboundNatRuleOutput() InboundNatRuleOutput {
+	return o
+}
+
+func (o InboundNatRuleOutput) ToInboundNatRuleOutputWithContext(ctx context.Context) InboundNatRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InboundNatRuleOutput{})
 }

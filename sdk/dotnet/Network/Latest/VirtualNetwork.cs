@@ -57,6 +57,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The extended location of the virtual network.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// Array of IpAllocation which reference this VNET.
         /// </summary>
         [Output("ipAllocations")]
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -226,6 +233,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("enableVmProtection")]
         public Input<bool>? EnableVmProtection { get; set; }
+
+        /// <summary>
+        /// The extended location of the virtual network.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// Resource ID.

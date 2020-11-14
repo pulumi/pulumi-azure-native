@@ -4,6 +4,7 @@
 package v20200401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -91,6 +92,9 @@ func NewPrivateLinkService(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:PrivateLinkService"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -238,4 +242,43 @@ type PrivateLinkServiceArgs struct {
 
 func (PrivateLinkServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkServiceArgs)(nil)).Elem()
+}
+
+type PrivateLinkServiceInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceOutput() PrivateLinkServiceOutput
+	ToPrivateLinkServiceOutputWithContext(ctx context.Context) PrivateLinkServiceOutput
+}
+
+func (PrivateLinkService) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkService)(nil)).Elem()
+}
+
+func (i PrivateLinkService) ToPrivateLinkServiceOutput() PrivateLinkServiceOutput {
+	return i.ToPrivateLinkServiceOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkService) ToPrivateLinkServiceOutputWithContext(ctx context.Context) PrivateLinkServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceOutput)
+}
+
+type PrivateLinkServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrivateLinkServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceOutput)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceOutput) ToPrivateLinkServiceOutput() PrivateLinkServiceOutput {
+	return o
+}
+
+func (o PrivateLinkServiceOutput) ToPrivateLinkServiceOutputWithContext(ctx context.Context) PrivateLinkServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrivateLinkServiceOutput{})
 }

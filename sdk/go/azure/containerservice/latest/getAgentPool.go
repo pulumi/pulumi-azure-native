@@ -35,6 +35,10 @@ type LookupAgentPoolResult struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
+	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	LinuxOSConfig *LinuxOSConfigResponse `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount *int `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.
@@ -59,6 +63,8 @@ type LookupAgentPoolResult struct {
 	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
+	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	PodSubnetID *string `pulumi:"podSubnetID"`
 	// Describes whether the Agent Pool is Running or Stopped
 	PowerState PowerStateResponse `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -79,6 +85,6 @@ type LookupAgentPoolResult struct {
 	UpgradeSettings *AgentPoolUpgradeSettingsResponse `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize *string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
+	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }

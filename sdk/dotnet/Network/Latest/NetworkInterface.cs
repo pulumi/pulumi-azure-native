@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The extended location of the network interface.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// A list of references to linked BareMetal resources.
         /// </summary>
         [Output("hostedWorkloads")]
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkInterface"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -226,6 +233,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("enableIPForwarding")]
         public Input<bool>? EnableIPForwarding { get; set; }
+
+        /// <summary>
+        /// The extended location of the network interface.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// Resource ID.

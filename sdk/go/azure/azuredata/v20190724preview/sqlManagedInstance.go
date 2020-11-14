@@ -4,6 +4,7 @@
 package v20190724preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -183,4 +184,43 @@ type SqlManagedInstanceArgs struct {
 
 func (SqlManagedInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlManagedInstanceArgs)(nil)).Elem()
+}
+
+type SqlManagedInstanceInput interface {
+	pulumi.Input
+
+	ToSqlManagedInstanceOutput() SqlManagedInstanceOutput
+	ToSqlManagedInstanceOutputWithContext(ctx context.Context) SqlManagedInstanceOutput
+}
+
+func (SqlManagedInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlManagedInstance)(nil)).Elem()
+}
+
+func (i SqlManagedInstance) ToSqlManagedInstanceOutput() SqlManagedInstanceOutput {
+	return i.ToSqlManagedInstanceOutputWithContext(context.Background())
+}
+
+func (i SqlManagedInstance) ToSqlManagedInstanceOutputWithContext(ctx context.Context) SqlManagedInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceOutput)
+}
+
+type SqlManagedInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlManagedInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlManagedInstanceOutput)(nil)).Elem()
+}
+
+func (o SqlManagedInstanceOutput) ToSqlManagedInstanceOutput() SqlManagedInstanceOutput {
+	return o
+}
+
+func (o SqlManagedInstanceOutput) ToSqlManagedInstanceOutputWithContext(ctx context.Context) SqlManagedInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlManagedInstanceOutput{})
 }

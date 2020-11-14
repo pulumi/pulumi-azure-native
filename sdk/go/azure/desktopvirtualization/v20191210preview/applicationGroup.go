@@ -4,6 +4,7 @@
 package v20191210preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -28,7 +29,7 @@ type ApplicationGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Workspace arm path of ApplicationGroup.
 	WorkspaceArmPath pulumi.StringOutput `pulumi:"workspaceArmPath"`
@@ -64,6 +65,12 @@ func NewApplicationGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:ApplicationGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -103,7 +110,7 @@ type applicationGroupState struct {
 	Name *string `pulumi:"name"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Workspace arm path of ApplicationGroup.
 	WorkspaceArmPath *string `pulumi:"workspaceArmPath"`
@@ -124,7 +131,7 @@ type ApplicationGroupState struct {
 	Name pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Workspace arm path of ApplicationGroup.
 	WorkspaceArmPath pulumi.StringPtrInput
@@ -175,4 +182,43 @@ type ApplicationGroupArgs struct {
 
 func (ApplicationGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationGroupArgs)(nil)).Elem()
+}
+
+type ApplicationGroupInput interface {
+	pulumi.Input
+
+	ToApplicationGroupOutput() ApplicationGroupOutput
+	ToApplicationGroupOutputWithContext(ctx context.Context) ApplicationGroupOutput
+}
+
+func (ApplicationGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGroup)(nil)).Elem()
+}
+
+func (i ApplicationGroup) ToApplicationGroupOutput() ApplicationGroupOutput {
+	return i.ToApplicationGroupOutputWithContext(context.Background())
+}
+
+func (i ApplicationGroup) ToApplicationGroupOutputWithContext(ctx context.Context) ApplicationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGroupOutput)
+}
+
+type ApplicationGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGroupOutput)(nil)).Elem()
+}
+
+func (o ApplicationGroupOutput) ToApplicationGroupOutput() ApplicationGroupOutput {
+	return o
+}
+
+func (o ApplicationGroupOutput) ToApplicationGroupOutputWithContext(ctx context.Context) ApplicationGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationGroupOutput{})
 }

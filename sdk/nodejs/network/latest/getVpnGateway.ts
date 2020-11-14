@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
@@ -51,6 +50,10 @@ export interface GetVpnGatewayResult {
      * List of all IPs configured on the gateway.
      */
     readonly ipConfigurations: outputs.network.latest.VpnGatewayIpConfigurationResponse[];
+    /**
+     * Enable Routing Preference property for the Public IP Interface of the VpnGateway.
+     */
+    readonly isRoutingPreferenceInternet?: boolean;
     /**
      * Resource location.
      */

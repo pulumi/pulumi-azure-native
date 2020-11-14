@@ -23,6 +23,7 @@ class DatadogOrganizationPropertiesArgs:
                  linking_auth_code: Optional[pulumi.Input[str]] = None,
                  linking_client_id: Optional[pulumi.Input[str]] = None):
         """
+        Datadog organization properties
         :param pulumi.Input[str] enterprise_app_id: The Id of the Enterprise App used for Single sign on.
         :param pulumi.Input[str] linking_auth_code: The auth code used to linking to an existing datadog organization.
         :param pulumi.Input[str] linking_client_id: The client_id from an existing in exchange for an auth token to link organization.
@@ -75,12 +76,18 @@ class DatadogOrganizationPropertiesArgs:
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Identity type
+        """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identity type
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -98,8 +105,10 @@ class MonitorPropertiesArgs:
                  user_info: Optional[pulumi.Input['UserInfoArgs']] = None):
         """
         Properties specific to the monitor resource.
+        :param pulumi.Input['DatadogOrganizationPropertiesArgs'] datadog_organization_properties: Datadog organization properties
         :param pulumi.Input[str] marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         :param pulumi.Input[str] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
+        :param pulumi.Input['UserInfoArgs'] user_info: User info
         """
         if datadog_organization_properties is not None:
             pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
@@ -115,6 +124,9 @@ class MonitorPropertiesArgs:
     @property
     @pulumi.getter(name="datadogOrganizationProperties")
     def datadog_organization_properties(self) -> Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']]:
+        """
+        Datadog organization properties
+        """
         return pulumi.get(self, "datadog_organization_properties")
 
     @datadog_organization_properties.setter
@@ -157,6 +169,9 @@ class MonitorPropertiesArgs:
     @property
     @pulumi.getter(name="userInfo")
     def user_info(self) -> Optional[pulumi.Input['UserInfoArgs']]:
+        """
+        User info
+        """
         return pulumi.get(self, "user_info")
 
     @user_info.setter
@@ -193,6 +208,7 @@ class UserInfoArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  phone_number: Optional[pulumi.Input[str]] = None):
         """
+        User info
         :param pulumi.Input[str] email_address: Email of the user used by Datadog for contacting them if needed
         :param pulumi.Input[str] name: Name of the user
         :param pulumi.Input[str] phone_number: Phone number of the user used by Datadog for contacting them if needed

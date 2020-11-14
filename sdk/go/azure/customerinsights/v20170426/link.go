@@ -4,6 +4,7 @@
 package v20170426
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -237,4 +238,43 @@ type LinkArgs struct {
 
 func (LinkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkArgs)(nil)).Elem()
+}
+
+type LinkInput interface {
+	pulumi.Input
+
+	ToLinkOutput() LinkOutput
+	ToLinkOutputWithContext(ctx context.Context) LinkOutput
+}
+
+func (Link) ElementType() reflect.Type {
+	return reflect.TypeOf((*Link)(nil)).Elem()
+}
+
+func (i Link) ToLinkOutput() LinkOutput {
+	return i.ToLinkOutputWithContext(context.Background())
+}
+
+func (i Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOutput)
+}
+
+type LinkOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkOutput)(nil)).Elem()
+}
+
+func (o LinkOutput) ToLinkOutput() LinkOutput {
+	return o
+}
+
+func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkOutput{})
 }

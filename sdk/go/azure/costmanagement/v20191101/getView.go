@@ -29,8 +29,12 @@ type LookupViewResult struct {
 	Chart *string `pulumi:"chart"`
 	// Date the user created this view.
 	CreatedOn string `pulumi:"createdOn"`
+	// Selected currency.
+	Currency string `pulumi:"currency"`
 	// Has definition for data in this report config.
 	Dataset *ReportConfigDatasetResponse `pulumi:"dataset"`
+	// Selected date range for viewing cost in.
+	DateRange string `pulumi:"dateRange"`
 	// User input name of the view. Required.
 	DisplayName *string `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.

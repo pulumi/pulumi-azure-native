@@ -585,7 +585,7 @@ class ErrorAdditionalInfoResponse(dict):
 @pulumi.output_type
 class ErrorResponseResponse(dict):
     """
-    The resource management error response.
+    Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
     """
     def __init__(__self__, *,
                  additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
@@ -594,7 +594,7 @@ class ErrorResponseResponse(dict):
                  message: str,
                  target: str):
         """
-        The resource management error response.
+        Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
         :param Sequence['ErrorAdditionalInfoResponseArgs'] additional_info: The error additional info.
         :param str code: The error code.
         :param Sequence['ErrorResponseResponseArgs'] details: The error details.

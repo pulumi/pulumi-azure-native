@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
@@ -61,6 +60,14 @@ export interface GetFirewallPolicyResult {
      */
     readonly firewalls: outputs.network.latest.SubResourceResponse[];
     /**
+     * The identity of the firewall policy.
+     */
+    readonly identity?: outputs.network.latest.ManagedServiceIdentityResponse;
+    /**
+     * The configuration for Intrusion detection.
+     */
+    readonly intrusionDetection?: outputs.network.latest.FirewallPolicyIntrusionDetectionResponse;
+    /**
      * Resource location.
      */
     readonly location?: string;
@@ -77,6 +84,10 @@ export interface GetFirewallPolicyResult {
      */
     readonly ruleCollectionGroups: outputs.network.latest.SubResourceResponse[];
     /**
+     * The Firewall Policy SKU.
+     */
+    readonly sku?: outputs.network.latest.FirewallPolicySkuResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -88,6 +99,10 @@ export interface GetFirewallPolicyResult {
      * ThreatIntel Whitelist for Firewall Policy.
      */
     readonly threatIntelWhitelist?: outputs.network.latest.FirewallPolicyThreatIntelWhitelistResponse;
+    /**
+     * TLS Configuration definition.
+     */
+    readonly transportSecurity?: outputs.network.latest.FirewallPolicyTransportSecurityResponse;
     /**
      * Resource type.
      */

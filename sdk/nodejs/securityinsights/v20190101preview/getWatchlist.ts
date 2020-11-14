@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistResult> {
@@ -46,13 +45,17 @@ export interface GetWatchlistArgs {
  */
 export interface GetWatchlistResult {
     /**
-     * Describes a user that created the watchlist
+     * The content type of the raw content. Example : text/csv or text/tsv 
      */
-    readonly createdBy?: outputs.securityinsights.v20190101preview.UserInfoResponse;
+    readonly contentType?: string;
     /**
      * The time the watchlist was created
      */
-    readonly createdTimeUtc?: string;
+    readonly created?: string;
+    /**
+     * Describes a user that created the watchlist
+     */
+    readonly createdBy?: outputs.securityinsights.v20190101preview.UserInfoResponse;
     /**
      * The default duration of a watchlist (in ISO 8601 duration format)
      */
@@ -70,31 +73,35 @@ export interface GetWatchlistResult {
      */
     readonly etag?: string;
     /**
+     * A flag that indicates if the watchlist is deleted or not
+     */
+    readonly isDeleted?: boolean;
+    /**
      * List of labels relevant to this watchlist
      */
     readonly labels?: string[];
-    /**
-     * The last time the watchlist was updated
-     */
-    readonly lastUpdatedTimeUtc?: string;
     /**
      * Azure resource name
      */
     readonly name: string;
     /**
-     * The notes of the watchlist
+     * The number of lines in a csv/tsv content to skip before the header
      */
-    readonly notes?: string;
+    readonly numberOfLinesToSkip?: number;
     /**
      * The provider of the watchlist
      */
     readonly provider: string;
     /**
+     * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+     */
+    readonly rawContent?: string;
+    /**
      * The source of the watchlist
      */
     readonly source: string;
     /**
-     * The tenantId where the watchlist belongs to.
+     * The tenantId where the watchlist belongs to
      */
     readonly tenantId?: string;
     /**
@@ -102,19 +109,23 @@ export interface GetWatchlistResult {
      */
     readonly type: string;
     /**
+     * The last time the watchlist was updated
+     */
+    readonly updated?: string;
+    /**
      * Describes a user that updated the watchlist
      */
     readonly updatedBy?: outputs.securityinsights.v20190101preview.UserInfoResponse;
     /**
-     * List of watchlist items.
+     * The alias of the watchlist
      */
-    readonly watchlistItems?: outputs.securityinsights.v20190101preview.WatchlistItemResponse[];
+    readonly watchlistAlias?: string;
+    /**
+     * The id (a Guid) of the watchlist
+     */
+    readonly watchlistId?: string;
     /**
      * The type of the watchlist
      */
     readonly watchlistType?: string;
-    /**
-     * The workspaceId where the watchlist belongs to.
-     */
-    readonly workspaceId?: string;
 }

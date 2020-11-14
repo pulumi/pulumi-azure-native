@@ -4,6 +4,7 @@
 package v20180101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -169,4 +170,43 @@ type ApiIssueCommentArgs struct {
 
 func (ApiIssueCommentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIssueCommentArgs)(nil)).Elem()
+}
+
+type ApiIssueCommentInput interface {
+	pulumi.Input
+
+	ToApiIssueCommentOutput() ApiIssueCommentOutput
+	ToApiIssueCommentOutputWithContext(ctx context.Context) ApiIssueCommentOutput
+}
+
+func (ApiIssueComment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueComment)(nil)).Elem()
+}
+
+func (i ApiIssueComment) ToApiIssueCommentOutput() ApiIssueCommentOutput {
+	return i.ToApiIssueCommentOutputWithContext(context.Background())
+}
+
+func (i ApiIssueComment) ToApiIssueCommentOutputWithContext(ctx context.Context) ApiIssueCommentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueCommentOutput)
+}
+
+type ApiIssueCommentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiIssueCommentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueCommentOutput)(nil)).Elem()
+}
+
+func (o ApiIssueCommentOutput) ToApiIssueCommentOutput() ApiIssueCommentOutput {
+	return o
+}
+
+func (o ApiIssueCommentOutput) ToApiIssueCommentOutputWithContext(ctx context.Context) ApiIssueCommentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiIssueCommentOutput{})
 }

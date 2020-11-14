@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -36,6 +35,10 @@ export class DomainService extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainService.__pulumiType;
     }
 
+    /**
+     * Deployment Id
+     */
+    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
     /**
      * List of Domain Controller IP Address
      */
@@ -140,6 +143,7 @@ export class DomainService extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["deploymentId"] = undefined /*out*/;
             inputs["domainControllerIpAddress"] = undefined /*out*/;
             inputs["healthAlerts"] = undefined /*out*/;
             inputs["healthLastEvaluated"] = undefined /*out*/;
@@ -151,6 +155,7 @@ export class DomainService extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vnetSiteId"] = undefined /*out*/;
         } else {
+            inputs["deploymentId"] = undefined /*out*/;
             inputs["domainControllerIpAddress"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["domainSecuritySettings"] = undefined /*out*/;

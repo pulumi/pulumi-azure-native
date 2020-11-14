@@ -11,6 +11,8 @@ from . import outputs
 
 __all__ = [
     'AgentPoolUpgradeSettingsResponse',
+    'CloudErrorBodyResponse',
+    'CloudErrorResponse',
     'ContainerServiceAgentPoolProfileResponse',
     'ContainerServiceCustomProfileResponse',
     'ContainerServiceDiagnosticsProfileResponse',
@@ -24,17 +26,24 @@ __all__ = [
     'ContainerServiceVMDiagnosticsResponse',
     'ContainerServiceWindowsProfileResponse',
     'CredentialResultResponseResult',
+    'KubeletConfigResponse',
+    'LinuxOSConfigResponse',
     'ManagedClusterAADProfileResponse',
     'ManagedClusterAPIServerAccessProfileResponse',
     'ManagedClusterAddonProfileResponse',
     'ManagedClusterAddonProfileResponseIdentity',
     'ManagedClusterAgentPoolProfileResponse',
+    'ManagedClusterAutoUpgradeProfileResponse',
     'ManagedClusterIdentityResponse',
     'ManagedClusterIdentityResponseUserAssignedIdentities',
     'ManagedClusterLoadBalancerProfileResponse',
     'ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs',
     'ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes',
     'ManagedClusterLoadBalancerProfileResponseOutboundIPs',
+    'ManagedClusterPodIdentityExceptionResponse',
+    'ManagedClusterPodIdentityProfileResponse',
+    'ManagedClusterPodIdentityResponse',
+    'ManagedClusterPodIdentityResponseProvisioningInfo',
     'ManagedClusterPropertiesResponseAutoScalerProfile',
     'ManagedClusterPropertiesResponseIdentityProfile',
     'ManagedClusterSKUResponse',
@@ -52,6 +61,8 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'PurchasePlanResponse',
     'ResourceReferenceResponse',
+    'SysctlConfigResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -75,6 +86,94 @@ class AgentPoolUpgradeSettingsResponse(dict):
         Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
         """
         return pulumi.get(self, "max_surge")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CloudErrorBodyResponse(dict):
+    """
+    An error response from the Container service.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 details: Optional[Sequence['outputs.CloudErrorBodyResponse']] = None,
+                 message: Optional[str] = None,
+                 target: Optional[str] = None):
+        """
+        An error response from the Container service.
+        :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+        :param Sequence['CloudErrorBodyResponseArgs'] details: A list of additional details about the error.
+        :param str message: A message describing the error, intended to be suitable for display in a user interface.
+        :param str target: The target of the particular error. For example, the name of the property in error.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[Sequence['outputs.CloudErrorBodyResponse']]:
+        """
+        A list of additional details about the error.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        A message describing the error, intended to be suitable for display in a user interface.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The target of the particular error. For example, the name of the property in error.
+        """
+        return pulumi.get(self, "target")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CloudErrorResponse(dict):
+    """
+    An error response from the Container service.
+    """
+    def __init__(__self__, *,
+                 error: Optional['outputs.CloudErrorBodyResponse'] = None):
+        """
+        An error response from the Container service.
+        :param 'CloudErrorBodyResponseArgs' error: Details about the error.
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.CloudErrorBodyResponse']:
+        """
+        Details about the error.
+        """
+        return pulumi.get(self, "error")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -630,6 +729,178 @@ class CredentialResultResponseResult(dict):
 
 
 @pulumi.output_type
+class KubeletConfigResponse(dict):
+    """
+    Kubelet configurations of agent nodes.
+    """
+    def __init__(__self__, *,
+                 allowed_unsafe_sysctls: Optional[Sequence[str]] = None,
+                 cpu_cfs_quota: Optional[bool] = None,
+                 cpu_cfs_quota_period: Optional[str] = None,
+                 cpu_manager_policy: Optional[str] = None,
+                 fail_swap_on: Optional[bool] = None,
+                 image_gc_high_threshold: Optional[int] = None,
+                 image_gc_low_threshold: Optional[int] = None,
+                 topology_manager_policy: Optional[str] = None):
+        """
+        Kubelet configurations of agent nodes.
+        :param Sequence[str] allowed_unsafe_sysctls: Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+        :param bool cpu_cfs_quota: Enable CPU CFS quota enforcement for containers that specify CPU limits.
+        :param str cpu_cfs_quota_period: Sets CPU CFS quota period value.
+        :param str cpu_manager_policy: CPU Manager policy to use.
+        :param bool fail_swap_on: If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+        :param int image_gc_high_threshold: The percent of disk usage after which image garbage collection is always run.
+        :param int image_gc_low_threshold: The percent of disk usage before which image garbage collection is never run.
+        :param str topology_manager_policy: Topology Manager policy to use.
+        """
+        if allowed_unsafe_sysctls is not None:
+            pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
+        if cpu_cfs_quota is not None:
+            pulumi.set(__self__, "cpu_cfs_quota", cpu_cfs_quota)
+        if cpu_cfs_quota_period is not None:
+            pulumi.set(__self__, "cpu_cfs_quota_period", cpu_cfs_quota_period)
+        if cpu_manager_policy is not None:
+            pulumi.set(__self__, "cpu_manager_policy", cpu_manager_policy)
+        if fail_swap_on is not None:
+            pulumi.set(__self__, "fail_swap_on", fail_swap_on)
+        if image_gc_high_threshold is not None:
+            pulumi.set(__self__, "image_gc_high_threshold", image_gc_high_threshold)
+        if image_gc_low_threshold is not None:
+            pulumi.set(__self__, "image_gc_low_threshold", image_gc_low_threshold)
+        if topology_manager_policy is not None:
+            pulumi.set(__self__, "topology_manager_policy", topology_manager_policy)
+
+    @property
+    @pulumi.getter(name="allowedUnsafeSysctls")
+    def allowed_unsafe_sysctls(self) -> Optional[Sequence[str]]:
+        """
+        Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+        """
+        return pulumi.get(self, "allowed_unsafe_sysctls")
+
+    @property
+    @pulumi.getter(name="cpuCfsQuota")
+    def cpu_cfs_quota(self) -> Optional[bool]:
+        """
+        Enable CPU CFS quota enforcement for containers that specify CPU limits.
+        """
+        return pulumi.get(self, "cpu_cfs_quota")
+
+    @property
+    @pulumi.getter(name="cpuCfsQuotaPeriod")
+    def cpu_cfs_quota_period(self) -> Optional[str]:
+        """
+        Sets CPU CFS quota period value.
+        """
+        return pulumi.get(self, "cpu_cfs_quota_period")
+
+    @property
+    @pulumi.getter(name="cpuManagerPolicy")
+    def cpu_manager_policy(self) -> Optional[str]:
+        """
+        CPU Manager policy to use.
+        """
+        return pulumi.get(self, "cpu_manager_policy")
+
+    @property
+    @pulumi.getter(name="failSwapOn")
+    def fail_swap_on(self) -> Optional[bool]:
+        """
+        If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+        """
+        return pulumi.get(self, "fail_swap_on")
+
+    @property
+    @pulumi.getter(name="imageGcHighThreshold")
+    def image_gc_high_threshold(self) -> Optional[int]:
+        """
+        The percent of disk usage after which image garbage collection is always run.
+        """
+        return pulumi.get(self, "image_gc_high_threshold")
+
+    @property
+    @pulumi.getter(name="imageGcLowThreshold")
+    def image_gc_low_threshold(self) -> Optional[int]:
+        """
+        The percent of disk usage before which image garbage collection is never run.
+        """
+        return pulumi.get(self, "image_gc_low_threshold")
+
+    @property
+    @pulumi.getter(name="topologyManagerPolicy")
+    def topology_manager_policy(self) -> Optional[str]:
+        """
+        Topology Manager policy to use.
+        """
+        return pulumi.get(self, "topology_manager_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LinuxOSConfigResponse(dict):
+    """
+    OS configurations of Linux agent nodes.
+    """
+    def __init__(__self__, *,
+                 swap_file_size_mb: Optional[int] = None,
+                 sysctls: Optional['outputs.SysctlConfigResponse'] = None,
+                 transparent_huge_page_defrag: Optional[str] = None,
+                 transparent_huge_page_enabled: Optional[str] = None):
+        """
+        OS configurations of Linux agent nodes.
+        :param int swap_file_size_mb: SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+        :param 'SysctlConfigResponseArgs' sysctls: Sysctl settings for Linux agent nodes.
+        :param str transparent_huge_page_defrag: Transparent Huge Page defrag configuration.
+        :param str transparent_huge_page_enabled: Transparent Huge Page enabled configuration.
+        """
+        if swap_file_size_mb is not None:
+            pulumi.set(__self__, "swap_file_size_mb", swap_file_size_mb)
+        if sysctls is not None:
+            pulumi.set(__self__, "sysctls", sysctls)
+        if transparent_huge_page_defrag is not None:
+            pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
+        if transparent_huge_page_enabled is not None:
+            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
+
+    @property
+    @pulumi.getter(name="swapFileSizeMB")
+    def swap_file_size_mb(self) -> Optional[int]:
+        """
+        SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+        """
+        return pulumi.get(self, "swap_file_size_mb")
+
+    @property
+    @pulumi.getter
+    def sysctls(self) -> Optional['outputs.SysctlConfigResponse']:
+        """
+        Sysctl settings for Linux agent nodes.
+        """
+        return pulumi.get(self, "sysctls")
+
+    @property
+    @pulumi.getter(name="transparentHugePageDefrag")
+    def transparent_huge_page_defrag(self) -> Optional[str]:
+        """
+        Transparent Huge Page defrag configuration.
+        """
+        return pulumi.get(self, "transparent_huge_page_defrag")
+
+    @property
+    @pulumi.getter(name="transparentHugePageEnabled")
+    def transparent_huge_page_enabled(self) -> Optional[str]:
+        """
+        Transparent Huge Page enabled configuration.
+        """
+        return pulumi.get(self, "transparent_huge_page_enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ManagedClusterAADProfileResponse(dict):
     """
     AADProfile specifies attributes for Azure Active Directory integration.
@@ -734,16 +1005,20 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
     """
     def __init__(__self__, *,
                  authorized_ip_ranges: Optional[Sequence[str]] = None,
-                 enable_private_cluster: Optional[bool] = None):
+                 enable_private_cluster: Optional[bool] = None,
+                 private_dns_zone: Optional[str] = None):
         """
         Access profile for managed cluster API server.
         :param Sequence[str] authorized_ip_ranges: Authorized IP Ranges to kubernetes API server.
         :param bool enable_private_cluster: Whether to create the cluster as a private cluster or not.
+        :param str private_dns_zone: Private dns zone mode for private cluster. 
         """
         if authorized_ip_ranges is not None:
             pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
         if enable_private_cluster is not None:
             pulumi.set(__self__, "enable_private_cluster", enable_private_cluster)
+        if private_dns_zone is not None:
+            pulumi.set(__self__, "private_dns_zone", private_dns_zone)
 
     @property
     @pulumi.getter(name="authorizedIPRanges")
@@ -760,6 +1035,14 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
         Whether to create the cluster as a private cluster or not.
         """
         return pulumi.get(self, "enable_private_cluster")
+
+    @property
+    @pulumi.getter(name="privateDNSZone")
+    def private_dns_zone(self) -> Optional[str]:
+        """
+        Private dns zone mode for private cluster. 
+        """
+        return pulumi.get(self, "private_dns_zone")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -877,6 +1160,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  count: Optional[int] = None,
                  enable_auto_scaling: Optional[bool] = None,
                  enable_node_public_ip: Optional[bool] = None,
+                 kubelet_config: Optional['outputs.KubeletConfigResponse'] = None,
+                 linux_os_config: Optional['outputs.LinuxOSConfigResponse'] = None,
                  max_count: Optional[int] = None,
                  max_pods: Optional[int] = None,
                  min_count: Optional[int] = None,
@@ -887,6 +1172,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  os_disk_size_gb: Optional[int] = None,
                  os_disk_type: Optional[str] = None,
                  os_type: Optional[str] = None,
+                 pod_subnet_id: Optional[str] = None,
                  proximity_placement_group_id: Optional[str] = None,
                  scale_set_eviction_policy: Optional[str] = None,
                  scale_set_priority: Optional[str] = None,
@@ -906,6 +1192,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param bool enable_auto_scaling: Whether to enable auto-scaler
         :param bool enable_node_public_ip: Enable public IP for nodes
+        :param 'KubeletConfigResponseArgs' kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
+        :param 'LinuxOSConfigResponseArgs' linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
         :param int max_count: Maximum number of nodes for auto-scaling
         :param int max_pods: Maximum number of pods that can run on a node.
         :param int min_count: Minimum number of nodes for auto-scaling
@@ -916,6 +1204,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param int os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param str os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param str pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
         :param str proximity_placement_group_id: The ID for Proximity Placement Group.
         :param str scale_set_eviction_policy: ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
         :param str scale_set_priority: ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
@@ -924,7 +1213,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param str type: AgentPoolType represents types of an agent pool
         :param 'AgentPoolUpgradeSettingsResponseArgs' upgrade_settings: Settings for upgrading the agentpool
         :param str vm_size: Size of agent VMs.
-        :param str vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
+        :param str vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "node_image_version", node_image_version)
@@ -938,6 +1227,10 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if kubelet_config is not None:
+            pulumi.set(__self__, "kubelet_config", kubelet_config)
+        if linux_os_config is not None:
+            pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count is not None:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
@@ -958,6 +1251,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "os_disk_type", os_disk_type)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if pod_subnet_id is not None:
+            pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if scale_set_eviction_policy is not None:
@@ -1042,6 +1337,22 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "enable_node_public_ip")
 
     @property
+    @pulumi.getter(name="kubeletConfig")
+    def kubelet_config(self) -> Optional['outputs.KubeletConfigResponse']:
+        """
+        KubeletConfig specifies the configuration of kubelet on agent nodes.
+        """
+        return pulumi.get(self, "kubelet_config")
+
+    @property
+    @pulumi.getter(name="linuxOSConfig")
+    def linux_os_config(self) -> Optional['outputs.LinuxOSConfigResponse']:
+        """
+        LinuxOSConfig specifies the OS configuration of linux agent nodes.
+        """
+        return pulumi.get(self, "linux_os_config")
+
+    @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[int]:
         """
@@ -1122,6 +1433,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "os_type")
 
     @property
+    @pulumi.getter(name="podSubnetID")
+    def pod_subnet_id(self) -> Optional[str]:
+        """
+        Pod SubnetID specifies the VNet's subnet identifier for pods.
+        """
+        return pulumi.get(self, "pod_subnet_id")
+
+    @property
     @pulumi.getter(name="proximityPlacementGroupID")
     def proximity_placement_group_id(self) -> Optional[str]:
         """
@@ -1189,9 +1508,35 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="vnetSubnetID")
     def vnet_subnet_id(self) -> Optional[str]:
         """
-        VNet SubnetID specifies the VNet's subnet identifier.
+        VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
         return pulumi.get(self, "vnet_subnet_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedClusterAutoUpgradeProfileResponse(dict):
+    """
+    Auto upgrade profile for a managed cluster.
+    """
+    def __init__(__self__, *,
+                 upgrade_channel: Optional[str] = None):
+        """
+        Auto upgrade profile for a managed cluster.
+        :param str upgrade_channel: upgrade channel for auto upgrade.
+        """
+        if upgrade_channel is not None:
+            pulumi.set(__self__, "upgrade_channel", upgrade_channel)
+
+    @property
+    @pulumi.getter(name="upgradeChannel")
+    def upgrade_channel(self) -> Optional[str]:
+        """
+        upgrade channel for auto upgrade.
+        """
+        return pulumi.get(self, "upgrade_channel")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1448,6 +1793,178 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPs(dict):
         A list of public IP resources.
         """
         return pulumi.get(self, "public_ips")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedClusterPodIdentityExceptionResponse(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 namespace: str,
+                 pod_labels: Mapping[str, str]):
+        """
+        :param str name: Name of the pod identity exception.
+        :param str namespace: Namespace of the pod identity exception.
+        :param Mapping[str, str] pod_labels: Pod labels to match.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "pod_labels", pod_labels)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the pod identity exception.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        """
+        Namespace of the pod identity exception.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="podLabels")
+    def pod_labels(self) -> Mapping[str, str]:
+        """
+        Pod labels to match.
+        """
+        return pulumi.get(self, "pod_labels")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedClusterPodIdentityProfileResponse(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 user_assigned_identities: Optional[Sequence['outputs.ManagedClusterPodIdentityResponse']] = None,
+                 user_assigned_identity_exceptions: Optional[Sequence['outputs.ManagedClusterPodIdentityExceptionResponse']] = None):
+        """
+        :param bool enabled: Whether the pod identity addon is enabled.
+        :param Sequence['ManagedClusterPodIdentityResponseArgs'] user_assigned_identities: User assigned pod identity settings.
+        :param Sequence['ManagedClusterPodIdentityExceptionResponseArgs'] user_assigned_identity_exceptions: User assigned pod identity exception settings.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+        if user_assigned_identity_exceptions is not None:
+            pulumi.set(__self__, "user_assigned_identity_exceptions", user_assigned_identity_exceptions)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether the pod identity addon is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Sequence['outputs.ManagedClusterPodIdentityResponse']]:
+        """
+        User assigned pod identity settings.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityExceptions")
+    def user_assigned_identity_exceptions(self) -> Optional[Sequence['outputs.ManagedClusterPodIdentityExceptionResponse']]:
+        """
+        User assigned pod identity exception settings.
+        """
+        return pulumi.get(self, "user_assigned_identity_exceptions")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedClusterPodIdentityResponse(dict):
+    def __init__(__self__, *,
+                 identity: 'outputs.UserAssignedIdentityResponse',
+                 name: str,
+                 namespace: str,
+                 provisioning_info: 'outputs.ManagedClusterPodIdentityResponseProvisioningInfo',
+                 provisioning_state: str):
+        """
+        :param 'UserAssignedIdentityResponseArgs' identity: Information of the user assigned identity.
+        :param str name: Name of the pod identity.
+        :param str namespace: Namespace of the pod identity.
+        :param str provisioning_state: The current provisioning state of the pod identity.
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "provisioning_info", provisioning_info)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> 'outputs.UserAssignedIdentityResponse':
+        """
+        Information of the user assigned identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the pod identity.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        """
+        Namespace of the pod identity.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="provisioningInfo")
+    def provisioning_info(self) -> 'outputs.ManagedClusterPodIdentityResponseProvisioningInfo':
+        return pulumi.get(self, "provisioning_info")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current provisioning state of the pod identity.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedClusterPodIdentityResponseProvisioningInfo(dict):
+    def __init__(__self__, *,
+                 error: Optional['outputs.CloudErrorResponse'] = None):
+        """
+        :param 'CloudErrorResponseArgs' error: Pod identity assignment error (if any).
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.CloudErrorResponse']:
+        """
+        Pod identity assignment error (if any).
+        """
+        return pulumi.get(self, "error")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2324,6 +2841,402 @@ class ResourceReferenceResponse(dict):
         The fully qualified Azure resource id.
         """
         return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SysctlConfigResponse(dict):
+    """
+    Sysctl settings for Linux agent nodes.
+    """
+    def __init__(__self__, *,
+                 fs_aio_max_nr: Optional[int] = None,
+                 fs_file_max: Optional[int] = None,
+                 fs_inotify_max_user_watches: Optional[int] = None,
+                 fs_nr_open: Optional[int] = None,
+                 kernel_threads_max: Optional[int] = None,
+                 net_core_netdev_max_backlog: Optional[int] = None,
+                 net_core_optmem_max: Optional[int] = None,
+                 net_core_rmem_max: Optional[int] = None,
+                 net_core_somaxconn: Optional[int] = None,
+                 net_core_wmem_max: Optional[int] = None,
+                 net_ipv4_ip_local_port_range: Optional[str] = None,
+                 net_ipv4_neigh_default_gc_thresh1: Optional[int] = None,
+                 net_ipv4_neigh_default_gc_thresh2: Optional[int] = None,
+                 net_ipv4_neigh_default_gc_thresh3: Optional[int] = None,
+                 net_ipv4_tcp_fin_timeout: Optional[int] = None,
+                 net_ipv4_tcp_keepalive_probes: Optional[int] = None,
+                 net_ipv4_tcp_keepalive_time: Optional[int] = None,
+                 net_ipv4_tcp_max_syn_backlog: Optional[int] = None,
+                 net_ipv4_tcp_max_tw_buckets: Optional[int] = None,
+                 net_ipv4_tcp_rmem: Optional[int] = None,
+                 net_ipv4_tcp_tw_reuse: Optional[bool] = None,
+                 net_ipv4_tcp_wmem: Optional[int] = None,
+                 net_ipv4_tcpkeepalive_intvl: Optional[int] = None,
+                 net_netfilter_nf_conntrack_buckets: Optional[int] = None,
+                 net_netfilter_nf_conntrack_max: Optional[int] = None,
+                 vm_max_map_count: Optional[int] = None,
+                 vm_swappiness: Optional[int] = None,
+                 vm_vfs_cache_pressure: Optional[int] = None):
+        """
+        Sysctl settings for Linux agent nodes.
+        :param int fs_aio_max_nr: Sysctl setting fs.aio-max-nr.
+        :param int fs_file_max: Sysctl setting fs.file-max.
+        :param int fs_inotify_max_user_watches: Sysctl setting fs.inotify.max_user_watches.
+        :param int fs_nr_open: Sysctl setting fs.nr_open.
+        :param int kernel_threads_max: Sysctl setting kernel.threads-max.
+        :param int net_core_netdev_max_backlog: Sysctl setting net.core.netdev_max_backlog.
+        :param int net_core_optmem_max: Sysctl setting net.core.optmem_max.
+        :param int net_core_rmem_max: Sysctl setting net.core.rmem_max.
+        :param int net_core_somaxconn: Sysctl setting net.core.somaxconn.
+        :param int net_core_wmem_max: Sysctl setting net.core.wmem_max.
+        :param str net_ipv4_ip_local_port_range: Sysctl setting net.ipv4.ip_local_port_range.
+        :param int net_ipv4_neigh_default_gc_thresh1: Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+        :param int net_ipv4_neigh_default_gc_thresh2: Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+        :param int net_ipv4_neigh_default_gc_thresh3: Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+        :param int net_ipv4_tcp_fin_timeout: Sysctl setting net.ipv4.tcp_fin_timeout.
+        :param int net_ipv4_tcp_keepalive_probes: Sysctl setting net.ipv4.tcp_keepalive_probes.
+        :param int net_ipv4_tcp_keepalive_time: Sysctl setting net.ipv4.tcp_keepalive_time.
+        :param int net_ipv4_tcp_max_syn_backlog: Sysctl setting net.ipv4.tcp_max_syn_backlog.
+        :param int net_ipv4_tcp_max_tw_buckets: Sysctl setting net.ipv4.tcp_max_tw_buckets.
+        :param int net_ipv4_tcp_rmem: Sysctl setting net.ipv4.tcp_rmem.
+        :param bool net_ipv4_tcp_tw_reuse: Sysctl setting net.ipv4.tcp_tw_reuse.
+        :param int net_ipv4_tcp_wmem: Sysctl setting net.ipv4.tcp_wmem.
+        :param int net_ipv4_tcpkeepalive_intvl: Sysctl setting net.ipv4.tcp_keepalive_intvl.
+        :param int net_netfilter_nf_conntrack_buckets: Sysctl setting net.netfilter.nf_conntrack_buckets.
+        :param int net_netfilter_nf_conntrack_max: Sysctl setting net.netfilter.nf_conntrack_max.
+        :param int vm_max_map_count: Sysctl setting vm.max_map_count.
+        :param int vm_swappiness: Sysctl setting vm.swappiness.
+        :param int vm_vfs_cache_pressure: Sysctl setting vm.vfs_cache_pressure.
+        """
+        if fs_aio_max_nr is not None:
+            pulumi.set(__self__, "fs_aio_max_nr", fs_aio_max_nr)
+        if fs_file_max is not None:
+            pulumi.set(__self__, "fs_file_max", fs_file_max)
+        if fs_inotify_max_user_watches is not None:
+            pulumi.set(__self__, "fs_inotify_max_user_watches", fs_inotify_max_user_watches)
+        if fs_nr_open is not None:
+            pulumi.set(__self__, "fs_nr_open", fs_nr_open)
+        if kernel_threads_max is not None:
+            pulumi.set(__self__, "kernel_threads_max", kernel_threads_max)
+        if net_core_netdev_max_backlog is not None:
+            pulumi.set(__self__, "net_core_netdev_max_backlog", net_core_netdev_max_backlog)
+        if net_core_optmem_max is not None:
+            pulumi.set(__self__, "net_core_optmem_max", net_core_optmem_max)
+        if net_core_rmem_max is not None:
+            pulumi.set(__self__, "net_core_rmem_max", net_core_rmem_max)
+        if net_core_somaxconn is not None:
+            pulumi.set(__self__, "net_core_somaxconn", net_core_somaxconn)
+        if net_core_wmem_max is not None:
+            pulumi.set(__self__, "net_core_wmem_max", net_core_wmem_max)
+        if net_ipv4_ip_local_port_range is not None:
+            pulumi.set(__self__, "net_ipv4_ip_local_port_range", net_ipv4_ip_local_port_range)
+        if net_ipv4_neigh_default_gc_thresh1 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh1", net_ipv4_neigh_default_gc_thresh1)
+        if net_ipv4_neigh_default_gc_thresh2 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh2", net_ipv4_neigh_default_gc_thresh2)
+        if net_ipv4_neigh_default_gc_thresh3 is not None:
+            pulumi.set(__self__, "net_ipv4_neigh_default_gc_thresh3", net_ipv4_neigh_default_gc_thresh3)
+        if net_ipv4_tcp_fin_timeout is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_fin_timeout", net_ipv4_tcp_fin_timeout)
+        if net_ipv4_tcp_keepalive_probes is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_keepalive_probes", net_ipv4_tcp_keepalive_probes)
+        if net_ipv4_tcp_keepalive_time is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_keepalive_time", net_ipv4_tcp_keepalive_time)
+        if net_ipv4_tcp_max_syn_backlog is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_max_syn_backlog", net_ipv4_tcp_max_syn_backlog)
+        if net_ipv4_tcp_max_tw_buckets is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_max_tw_buckets", net_ipv4_tcp_max_tw_buckets)
+        if net_ipv4_tcp_rmem is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_rmem", net_ipv4_tcp_rmem)
+        if net_ipv4_tcp_tw_reuse is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_tw_reuse", net_ipv4_tcp_tw_reuse)
+        if net_ipv4_tcp_wmem is not None:
+            pulumi.set(__self__, "net_ipv4_tcp_wmem", net_ipv4_tcp_wmem)
+        if net_ipv4_tcpkeepalive_intvl is not None:
+            pulumi.set(__self__, "net_ipv4_tcpkeepalive_intvl", net_ipv4_tcpkeepalive_intvl)
+        if net_netfilter_nf_conntrack_buckets is not None:
+            pulumi.set(__self__, "net_netfilter_nf_conntrack_buckets", net_netfilter_nf_conntrack_buckets)
+        if net_netfilter_nf_conntrack_max is not None:
+            pulumi.set(__self__, "net_netfilter_nf_conntrack_max", net_netfilter_nf_conntrack_max)
+        if vm_max_map_count is not None:
+            pulumi.set(__self__, "vm_max_map_count", vm_max_map_count)
+        if vm_swappiness is not None:
+            pulumi.set(__self__, "vm_swappiness", vm_swappiness)
+        if vm_vfs_cache_pressure is not None:
+            pulumi.set(__self__, "vm_vfs_cache_pressure", vm_vfs_cache_pressure)
+
+    @property
+    @pulumi.getter(name="fsAioMaxNr")
+    def fs_aio_max_nr(self) -> Optional[int]:
+        """
+        Sysctl setting fs.aio-max-nr.
+        """
+        return pulumi.get(self, "fs_aio_max_nr")
+
+    @property
+    @pulumi.getter(name="fsFileMax")
+    def fs_file_max(self) -> Optional[int]:
+        """
+        Sysctl setting fs.file-max.
+        """
+        return pulumi.get(self, "fs_file_max")
+
+    @property
+    @pulumi.getter(name="fsInotifyMaxUserWatches")
+    def fs_inotify_max_user_watches(self) -> Optional[int]:
+        """
+        Sysctl setting fs.inotify.max_user_watches.
+        """
+        return pulumi.get(self, "fs_inotify_max_user_watches")
+
+    @property
+    @pulumi.getter(name="fsNrOpen")
+    def fs_nr_open(self) -> Optional[int]:
+        """
+        Sysctl setting fs.nr_open.
+        """
+        return pulumi.get(self, "fs_nr_open")
+
+    @property
+    @pulumi.getter(name="kernelThreadsMax")
+    def kernel_threads_max(self) -> Optional[int]:
+        """
+        Sysctl setting kernel.threads-max.
+        """
+        return pulumi.get(self, "kernel_threads_max")
+
+    @property
+    @pulumi.getter(name="netCoreNetdevMaxBacklog")
+    def net_core_netdev_max_backlog(self) -> Optional[int]:
+        """
+        Sysctl setting net.core.netdev_max_backlog.
+        """
+        return pulumi.get(self, "net_core_netdev_max_backlog")
+
+    @property
+    @pulumi.getter(name="netCoreOptmemMax")
+    def net_core_optmem_max(self) -> Optional[int]:
+        """
+        Sysctl setting net.core.optmem_max.
+        """
+        return pulumi.get(self, "net_core_optmem_max")
+
+    @property
+    @pulumi.getter(name="netCoreRmemMax")
+    def net_core_rmem_max(self) -> Optional[int]:
+        """
+        Sysctl setting net.core.rmem_max.
+        """
+        return pulumi.get(self, "net_core_rmem_max")
+
+    @property
+    @pulumi.getter(name="netCoreSomaxconn")
+    def net_core_somaxconn(self) -> Optional[int]:
+        """
+        Sysctl setting net.core.somaxconn.
+        """
+        return pulumi.get(self, "net_core_somaxconn")
+
+    @property
+    @pulumi.getter(name="netCoreWmemMax")
+    def net_core_wmem_max(self) -> Optional[int]:
+        """
+        Sysctl setting net.core.wmem_max.
+        """
+        return pulumi.get(self, "net_core_wmem_max")
+
+    @property
+    @pulumi.getter(name="netIpv4IpLocalPortRange")
+    def net_ipv4_ip_local_port_range(self) -> Optional[str]:
+        """
+        Sysctl setting net.ipv4.ip_local_port_range.
+        """
+        return pulumi.get(self, "net_ipv4_ip_local_port_range")
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh1")
+    def net_ipv4_neigh_default_gc_thresh1(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh1")
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh2")
+    def net_ipv4_neigh_default_gc_thresh2(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh2")
+
+    @property
+    @pulumi.getter(name="netIpv4NeighDefaultGcThresh3")
+    def net_ipv4_neigh_default_gc_thresh3(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+        """
+        return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh3")
+
+    @property
+    @pulumi.getter(name="netIpv4TcpFinTimeout")
+    def net_ipv4_tcp_fin_timeout(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.tcp_fin_timeout.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_fin_timeout")
+
+    @property
+    @pulumi.getter(name="netIpv4TcpKeepaliveProbes")
+    def net_ipv4_tcp_keepalive_probes(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_probes.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_keepalive_probes")
+
+    @property
+    @pulumi.getter(name="netIpv4TcpKeepaliveTime")
+    def net_ipv4_tcp_keepalive_time(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_time.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_keepalive_time")
+
+    @property
+    @pulumi.getter(name="netIpv4TcpMaxSynBacklog")
+    def net_ipv4_tcp_max_syn_backlog(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.tcp_max_syn_backlog.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_max_syn_backlog")
+
+    @property
+    @pulumi.getter(name="netIpv4TcpMaxTwBuckets")
+    def net_ipv4_tcp_max_tw_buckets(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.tcp_max_tw_buckets.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_max_tw_buckets")
+
+    @property
+    @pulumi.getter(name="netIpv4TcpRmem")
+    def net_ipv4_tcp_rmem(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.tcp_rmem.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_rmem")
+
+    @property
+    @pulumi.getter(name="netIpv4TcpTwReuse")
+    def net_ipv4_tcp_tw_reuse(self) -> Optional[bool]:
+        """
+        Sysctl setting net.ipv4.tcp_tw_reuse.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_tw_reuse")
+
+    @property
+    @pulumi.getter(name="netIpv4TcpWmem")
+    def net_ipv4_tcp_wmem(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.tcp_wmem.
+        """
+        return pulumi.get(self, "net_ipv4_tcp_wmem")
+
+    @property
+    @pulumi.getter(name="netIpv4TcpkeepaliveIntvl")
+    def net_ipv4_tcpkeepalive_intvl(self) -> Optional[int]:
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_intvl.
+        """
+        return pulumi.get(self, "net_ipv4_tcpkeepalive_intvl")
+
+    @property
+    @pulumi.getter(name="netNetfilterNfConntrackBuckets")
+    def net_netfilter_nf_conntrack_buckets(self) -> Optional[int]:
+        """
+        Sysctl setting net.netfilter.nf_conntrack_buckets.
+        """
+        return pulumi.get(self, "net_netfilter_nf_conntrack_buckets")
+
+    @property
+    @pulumi.getter(name="netNetfilterNfConntrackMax")
+    def net_netfilter_nf_conntrack_max(self) -> Optional[int]:
+        """
+        Sysctl setting net.netfilter.nf_conntrack_max.
+        """
+        return pulumi.get(self, "net_netfilter_nf_conntrack_max")
+
+    @property
+    @pulumi.getter(name="vmMaxMapCount")
+    def vm_max_map_count(self) -> Optional[int]:
+        """
+        Sysctl setting vm.max_map_count.
+        """
+        return pulumi.get(self, "vm_max_map_count")
+
+    @property
+    @pulumi.getter(name="vmSwappiness")
+    def vm_swappiness(self) -> Optional[int]:
+        """
+        Sysctl setting vm.swappiness.
+        """
+        return pulumi.get(self, "vm_swappiness")
+
+    @property
+    @pulumi.getter(name="vmVfsCachePressure")
+    def vm_vfs_cache_pressure(self) -> Optional[int]:
+        """
+        Sysctl setting vm.vfs_cache_pressure.
+        """
+        return pulumi.get(self, "vm_vfs_cache_pressure")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        :param str client_id: The client id of the user assigned identity.
+        :param str object_id: The object id of the user assigned identity.
+        :param str resource_id: The resource id of the user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client id of the user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object id of the user assigned identity.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The resource id of the user assigned identity.
+        """
+        return pulumi.get(self, "resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

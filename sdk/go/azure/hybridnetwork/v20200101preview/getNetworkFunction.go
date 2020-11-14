@@ -49,7 +49,7 @@ type LookupNetworkFunctionResult struct {
 	SkuType string `pulumi:"skuType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The vendor name for the network function.
 	VendorName *string `pulumi:"vendorName"`

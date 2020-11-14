@@ -20,8 +20,8 @@ from .authorization_server import *
 from .backend import *
 from .cache import *
 from .certificate import *
+from .content_item import *
 from .content_type import *
-from .content_type_content_item import *
 from .diagnostic import *
 from .email_template import *
 from .gateway import *
@@ -44,8 +44,8 @@ from .get_authorization_server import *
 from .get_backend import *
 from .get_cache import *
 from .get_certificate import *
+from .get_content_item import *
 from .get_content_type import *
-from .get_content_type_content_item import *
 from .get_diagnostic import *
 from .get_email_template import *
 from .get_gateway import *

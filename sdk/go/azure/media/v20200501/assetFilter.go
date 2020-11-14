@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,7 +23,7 @@ type AssetFilter struct {
 	PresentationTimeRange PresentationTimeRangeResponsePtrOutput `pulumi:"presentationTimeRange"`
 	// The tracks selection conditions.
 	Tracks FilterTrackSelectionResponseArrayOutput `pulumi:"tracks"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -83,7 +84,7 @@ type assetFilterState struct {
 	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
 	// The tracks selection conditions.
 	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -96,7 +97,7 @@ type AssetFilterState struct {
 	PresentationTimeRange PresentationTimeRangeResponsePtrInput
 	// The tracks selection conditions.
 	Tracks FilterTrackSelectionResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -141,4 +142,43 @@ type AssetFilterArgs struct {
 
 func (AssetFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assetFilterArgs)(nil)).Elem()
+}
+
+type AssetFilterInput interface {
+	pulumi.Input
+
+	ToAssetFilterOutput() AssetFilterOutput
+	ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput
+}
+
+func (AssetFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilter)(nil)).Elem()
+}
+
+func (i AssetFilter) ToAssetFilterOutput() AssetFilterOutput {
+	return i.ToAssetFilterOutputWithContext(context.Background())
+}
+
+func (i AssetFilter) ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterOutput)
+}
+
+type AssetFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssetFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilterOutput)(nil)).Elem()
+}
+
+func (o AssetFilterOutput) ToAssetFilterOutput() AssetFilterOutput {
+	return o
+}
+
+func (o AssetFilterOutput) ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssetFilterOutput{})
 }

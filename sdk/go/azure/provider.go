@@ -4,6 +4,7 @@
 package azure
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -21,7 +22,7 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 	if args.AuxiliaryTenantIds == nil {
-		args.AuxiliaryTenantIds = pulumi.StringArray(getEnvOrDefault("", nil, "ARM_AUXILIARY_TENANT_IDS").(string))
+		args.AuxiliaryTenantIds = pulumi.StringArray(getEnvOrDefault(pulumi.StringArray{}, parseEnvStringArray, "ARM_AUXILIARY_TENANT_IDS").(pulumi.StringArray))
 	}
 	if args.ClientCertificatePassword == nil {
 		args.ClientCertificatePassword = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_CLIENT_CERTIFICATE_PASSWORD").(string))
@@ -119,4 +120,43 @@ type ProviderArgs struct {
 
 func (ProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerArgs)(nil)).Elem()
+}
+
+type ProviderInput interface {
+	pulumi.Input
+
+	ToProviderOutput() ProviderOutput
+	ToProviderOutputWithContext(ctx context.Context) ProviderOutput
+}
+
+func (Provider) ElementType() reflect.Type {
+	return reflect.TypeOf((*Provider)(nil)).Elem()
+}
+
+func (i Provider) ToProviderOutput() ProviderOutput {
+	return i.ToProviderOutputWithContext(context.Background())
+}
+
+func (i Provider) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderOutput)
+}
+
+type ProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderOutput)(nil)).Elem()
+}
+
+func (o ProviderOutput) ToProviderOutput() ProviderOutput {
+	return o
+}
+
+func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProviderOutput{})
 }

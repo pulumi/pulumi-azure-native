@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type WebAppPublicCertificateArgs struct {
 
 func (WebAppPublicCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppPublicCertificateArgs)(nil)).Elem()
+}
+
+type WebAppPublicCertificateInput interface {
+	pulumi.Input
+
+	ToWebAppPublicCertificateOutput() WebAppPublicCertificateOutput
+	ToWebAppPublicCertificateOutputWithContext(ctx context.Context) WebAppPublicCertificateOutput
+}
+
+func (WebAppPublicCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPublicCertificate)(nil)).Elem()
+}
+
+func (i WebAppPublicCertificate) ToWebAppPublicCertificateOutput() WebAppPublicCertificateOutput {
+	return i.ToWebAppPublicCertificateOutputWithContext(context.Background())
+}
+
+func (i WebAppPublicCertificate) ToWebAppPublicCertificateOutputWithContext(ctx context.Context) WebAppPublicCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppPublicCertificateOutput)
+}
+
+type WebAppPublicCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppPublicCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPublicCertificateOutput)(nil)).Elem()
+}
+
+func (o WebAppPublicCertificateOutput) ToWebAppPublicCertificateOutput() WebAppPublicCertificateOutput {
+	return o
+}
+
+func (o WebAppPublicCertificateOutput) ToWebAppPublicCertificateOutputWithContext(ctx context.Context) WebAppPublicCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppPublicCertificateOutput{})
 }

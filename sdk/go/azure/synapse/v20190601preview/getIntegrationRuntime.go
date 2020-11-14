@@ -21,7 +21,7 @@ type LookupIntegrationRuntimeArgs struct {
 	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
+	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -33,6 +33,6 @@ type LookupIntegrationRuntimeResult struct {
 	Name string `pulumi:"name"`
 	// Integration runtime properties.
 	Properties interface{} `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

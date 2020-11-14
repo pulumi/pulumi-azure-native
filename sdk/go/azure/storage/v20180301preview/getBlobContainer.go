@@ -51,6 +51,6 @@ type LookupBlobContainerResult struct {
 	Name string `pulumi:"name"`
 	// Specifies whether data in the container may be accessed publicly and the level of access.
 	PublicAccess *string `pulumi:"publicAccess"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

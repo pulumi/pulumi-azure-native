@@ -14,7 +14,9 @@ from .get_firewall_rule import *
 from .get_server import *
 from .get_server_azure_ad_administrator import *
 from .get_server_communication_link import *
+from .get_transparent_data_encryption import *
 from .server import *
 from .server_azure_ad_administrator import *
 from .server_communication_link import *
+from .transparent_data_encryption import *
 from . import outputs

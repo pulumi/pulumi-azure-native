@@ -4,6 +4,7 @@
 package v20191101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -26,7 +27,7 @@ type ServiceUnit struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
 	TargetResourceGroup pulumi.StringOutput `pulumi:"targetResourceGroup"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -97,7 +98,7 @@ type serviceUnitState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
 	TargetResourceGroup *string `pulumi:"targetResourceGroup"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -114,7 +115,7 @@ type ServiceUnitState struct {
 	Tags pulumi.StringMapInput
 	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
 	TargetResourceGroup pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -167,4 +168,43 @@ type ServiceUnitArgs struct {
 
 func (ServiceUnitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceUnitArgs)(nil)).Elem()
+}
+
+type ServiceUnitInput interface {
+	pulumi.Input
+
+	ToServiceUnitOutput() ServiceUnitOutput
+	ToServiceUnitOutputWithContext(ctx context.Context) ServiceUnitOutput
+}
+
+func (ServiceUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceUnit)(nil)).Elem()
+}
+
+func (i ServiceUnit) ToServiceUnitOutput() ServiceUnitOutput {
+	return i.ToServiceUnitOutputWithContext(context.Background())
+}
+
+func (i ServiceUnit) ToServiceUnitOutputWithContext(ctx context.Context) ServiceUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceUnitOutput)
+}
+
+type ServiceUnitOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceUnitOutput)(nil)).Elem()
+}
+
+func (o ServiceUnitOutput) ToServiceUnitOutput() ServiceUnitOutput {
+	return o
+}
+
+func (o ServiceUnitOutput) ToServiceUnitOutputWithContext(ctx context.Context) ServiceUnitOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceUnitOutput{})
 }

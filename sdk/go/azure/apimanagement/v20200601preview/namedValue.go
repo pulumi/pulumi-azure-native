@@ -4,6 +4,7 @@
 package v20200601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -160,4 +161,43 @@ type NamedValueArgs struct {
 
 func (NamedValueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namedValueArgs)(nil)).Elem()
+}
+
+type NamedValueInput interface {
+	pulumi.Input
+
+	ToNamedValueOutput() NamedValueOutput
+	ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput
+}
+
+func (NamedValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedValue)(nil)).Elem()
+}
+
+func (i NamedValue) ToNamedValueOutput() NamedValueOutput {
+	return i.ToNamedValueOutputWithContext(context.Background())
+}
+
+func (i NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedValueOutput)
+}
+
+type NamedValueOutput struct {
+	*pulumi.OutputState
+}
+
+func (NamedValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedValueOutput)(nil)).Elem()
+}
+
+func (o NamedValueOutput) ToNamedValueOutput() NamedValueOutput {
+	return o
+}
+
+func (o NamedValueOutput) ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NamedValueOutput{})
 }

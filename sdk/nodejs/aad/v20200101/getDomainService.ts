@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
@@ -39,6 +38,10 @@ export interface GetDomainServiceResult {
      * Deployment Id
      */
     readonly deploymentId: string;
+    /**
+     * Domain Configuration Type
+     */
+    readonly domainConfigurationType?: string;
     /**
      * The name of the Azure domain that the user would like to deploy Domain Services to.
      */
@@ -79,6 +82,14 @@ export interface GetDomainServiceResult {
      * List of ReplicaSets
      */
     readonly replicaSets?: outputs.aad.v20200101.ReplicaSetResponse[];
+    /**
+     * Resource Forest Settings
+     */
+    readonly resourceForestSettings?: outputs.aad.v20200101.ResourceForestSettingsResponse;
+    /**
+     * Sku Type
+     */
+    readonly sku?: string;
     /**
      * SyncOwner ReplicaSet Id
      */

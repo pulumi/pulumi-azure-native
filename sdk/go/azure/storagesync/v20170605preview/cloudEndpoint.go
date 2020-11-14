@@ -4,6 +4,7 @@
 package v20170605preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -231,4 +232,43 @@ type CloudEndpointArgs struct {
 
 func (CloudEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudEndpointArgs)(nil)).Elem()
+}
+
+type CloudEndpointInput interface {
+	pulumi.Input
+
+	ToCloudEndpointOutput() CloudEndpointOutput
+	ToCloudEndpointOutputWithContext(ctx context.Context) CloudEndpointOutput
+}
+
+func (CloudEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudEndpoint)(nil)).Elem()
+}
+
+func (i CloudEndpoint) ToCloudEndpointOutput() CloudEndpointOutput {
+	return i.ToCloudEndpointOutputWithContext(context.Background())
+}
+
+func (i CloudEndpoint) ToCloudEndpointOutputWithContext(ctx context.Context) CloudEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointOutput)
+}
+
+type CloudEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (CloudEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudEndpointOutput)(nil)).Elem()
+}
+
+func (o CloudEndpointOutput) ToCloudEndpointOutput() CloudEndpointOutput {
+	return o
+}
+
+func (o CloudEndpointOutput) ToCloudEndpointOutputWithContext(ctx context.Context) CloudEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CloudEndpointOutput{})
 }

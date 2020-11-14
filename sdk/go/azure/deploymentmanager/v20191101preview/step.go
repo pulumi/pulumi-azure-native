@@ -4,6 +4,7 @@
 package v20191101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,7 +23,7 @@ type Step struct {
 	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -80,7 +81,7 @@ type stepState struct {
 	Properties interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -93,7 +94,7 @@ type StepState struct {
 	Properties pulumi.Input
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -130,4 +131,43 @@ type StepArgs struct {
 
 func (StepArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stepArgs)(nil)).Elem()
+}
+
+type StepInput interface {
+	pulumi.Input
+
+	ToStepOutput() StepOutput
+	ToStepOutputWithContext(ctx context.Context) StepOutput
+}
+
+func (Step) ElementType() reflect.Type {
+	return reflect.TypeOf((*Step)(nil)).Elem()
+}
+
+func (i Step) ToStepOutput() StepOutput {
+	return i.ToStepOutputWithContext(context.Background())
+}
+
+func (i Step) ToStepOutputWithContext(ctx context.Context) StepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepOutput)
+}
+
+type StepOutput struct {
+	*pulumi.OutputState
+}
+
+func (StepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepOutput)(nil)).Elem()
+}
+
+func (o StepOutput) ToStepOutput() StepOutput {
+	return o
+}
+
+func (o StepOutput) ToStepOutputWithContext(ctx context.Context) StepOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StepOutput{})
 }

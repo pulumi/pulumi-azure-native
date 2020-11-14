@@ -4,6 +4,7 @@
 package v20200301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -56,7 +57,7 @@ type RegisteredServer struct {
 	ServiceLocation pulumi.StringPtrOutput `pulumi:"serviceLocation"`
 	// Registered Server storageSyncServiceUid
 	StorageSyncServiceUid pulumi.StringPtrOutput `pulumi:"storageSyncServiceUid"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -172,7 +173,7 @@ type registeredServerState struct {
 	ServiceLocation *string `pulumi:"serviceLocation"`
 	// Registered Server storageSyncServiceUid
 	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -219,7 +220,7 @@ type RegisteredServerState struct {
 	ServiceLocation pulumi.StringPtrInput
 	// Registered Server storageSyncServiceUid
 	StorageSyncServiceUid pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -280,4 +281,43 @@ type RegisteredServerArgs struct {
 
 func (RegisteredServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registeredServerArgs)(nil)).Elem()
+}
+
+type RegisteredServerInput interface {
+	pulumi.Input
+
+	ToRegisteredServerOutput() RegisteredServerOutput
+	ToRegisteredServerOutputWithContext(ctx context.Context) RegisteredServerOutput
+}
+
+func (RegisteredServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredServer)(nil)).Elem()
+}
+
+func (i RegisteredServer) ToRegisteredServerOutput() RegisteredServerOutput {
+	return i.ToRegisteredServerOutputWithContext(context.Background())
+}
+
+func (i RegisteredServer) ToRegisteredServerOutputWithContext(ctx context.Context) RegisteredServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegisteredServerOutput)
+}
+
+type RegisteredServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegisteredServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredServerOutput)(nil)).Elem()
+}
+
+func (o RegisteredServerOutput) ToRegisteredServerOutput() RegisteredServerOutput {
+	return o
+}
+
+func (o RegisteredServerOutput) ToRegisteredServerOutputWithContext(ctx context.Context) RegisteredServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegisteredServerOutput{})
 }

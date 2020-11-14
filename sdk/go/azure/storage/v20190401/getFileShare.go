@@ -37,6 +37,6 @@ type LookupFileShareResult struct {
 	Name string `pulumi:"name"`
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
 	ShareQuota *int `pulumi:"shareQuota"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

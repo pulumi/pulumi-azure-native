@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type ProductPolicyArgs struct {
 
 func (ProductPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*productPolicyArgs)(nil)).Elem()
+}
+
+type ProductPolicyInput interface {
+	pulumi.Input
+
+	ToProductPolicyOutput() ProductPolicyOutput
+	ToProductPolicyOutputWithContext(ctx context.Context) ProductPolicyOutput
+}
+
+func (ProductPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductPolicy)(nil)).Elem()
+}
+
+func (i ProductPolicy) ToProductPolicyOutput() ProductPolicyOutput {
+	return i.ToProductPolicyOutputWithContext(context.Background())
+}
+
+func (i ProductPolicy) ToProductPolicyOutputWithContext(ctx context.Context) ProductPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPolicyOutput)
+}
+
+type ProductPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProductPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductPolicyOutput)(nil)).Elem()
+}
+
+func (o ProductPolicyOutput) ToProductPolicyOutput() ProductPolicyOutput {
+	return o
+}
+
+func (o ProductPolicyOutput) ToProductPolicyOutputWithContext(ctx context.Context) ProductPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProductPolicyOutput{})
 }

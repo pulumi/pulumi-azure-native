@@ -89,6 +89,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualHubIpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualHubIpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

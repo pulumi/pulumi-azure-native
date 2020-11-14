@@ -35,6 +35,6 @@ type LookupServerAdministratorResult struct {
 	Sid string `pulumi:"sid"`
 	// The server Active Directory Administrator tenant id.
 	TenantId string `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

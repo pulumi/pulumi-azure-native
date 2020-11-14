@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -30,7 +31,7 @@ type Device struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -90,7 +91,7 @@ type deviceState struct {
 	Status *string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -111,7 +112,7 @@ type DeviceState struct {
 	Status pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -152,4 +153,43 @@ type DeviceArgs struct {
 
 func (DeviceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceArgs)(nil)).Elem()
+}
+
+type DeviceInput interface {
+	pulumi.Input
+
+	ToDeviceOutput() DeviceOutput
+	ToDeviceOutputWithContext(ctx context.Context) DeviceOutput
+}
+
+func (Device) ElementType() reflect.Type {
+	return reflect.TypeOf((*Device)(nil)).Elem()
+}
+
+func (i Device) ToDeviceOutput() DeviceOutput {
+	return i.ToDeviceOutputWithContext(context.Background())
+}
+
+func (i Device) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceOutput)
+}
+
+type DeviceOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceOutput)(nil)).Elem()
+}
+
+func (o DeviceOutput) ToDeviceOutput() DeviceOutput {
+	return o
+}
+
+func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeviceOutput{})
 }

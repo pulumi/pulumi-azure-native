@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -406,4 +407,43 @@ type SiteArgs struct {
 
 func (SiteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteArgs)(nil)).Elem()
+}
+
+type SiteInput interface {
+	pulumi.Input
+
+	ToSiteOutput() SiteOutput
+	ToSiteOutputWithContext(ctx context.Context) SiteOutput
+}
+
+func (Site) ElementType() reflect.Type {
+	return reflect.TypeOf((*Site)(nil)).Elem()
+}
+
+func (i Site) ToSiteOutput() SiteOutput {
+	return i.ToSiteOutputWithContext(context.Background())
+}
+
+func (i Site) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteOutput)
+}
+
+type SiteOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteOutput)(nil)).Elem()
+}
+
+func (o SiteOutput) ToSiteOutput() SiteOutput {
+	return o
+}
+
+func (o SiteOutput) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteOutput{})
 }

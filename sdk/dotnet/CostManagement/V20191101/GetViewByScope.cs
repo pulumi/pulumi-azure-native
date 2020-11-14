@@ -52,9 +52,17 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// </summary>
         public readonly string CreatedOn;
         /// <summary>
+        /// Selected currency.
+        /// </summary>
+        public readonly string Currency;
+        /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
         public readonly Outputs.ReportConfigDatasetResponse? Dataset;
+        /// <summary>
+        /// Selected date range for viewing cost in.
+        /// </summary>
+        public readonly string DateRange;
         /// <summary>
         /// User input name of the view. Required.
         /// </summary>
@@ -108,7 +116,11 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
 
             string createdOn,
 
+            string currency,
+
             Outputs.ReportConfigDatasetResponse? dataset,
+
+            string dateRange,
 
             string? displayName,
 
@@ -135,7 +147,9 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
             Accumulated = accumulated;
             Chart = chart;
             CreatedOn = createdOn;
+            Currency = currency;
             Dataset = dataset;
+            DateRange = dateRange;
             DisplayName = displayName;
             ETag = eTag;
             Kpis = kpis;

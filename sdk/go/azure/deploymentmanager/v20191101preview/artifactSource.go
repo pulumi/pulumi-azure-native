@@ -4,6 +4,7 @@
 package v20191101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -26,7 +27,7 @@ type ArtifactSource struct {
 	SourceType pulumi.StringOutput `pulumi:"sourceType"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -91,7 +92,7 @@ type artifactSourceState struct {
 	SourceType *string `pulumi:"sourceType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -108,7 +109,7 @@ type ArtifactSourceState struct {
 	SourceType pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -153,4 +154,43 @@ type ArtifactSourceArgs struct {
 
 func (ArtifactSourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*artifactSourceArgs)(nil)).Elem()
+}
+
+type ArtifactSourceInput interface {
+	pulumi.Input
+
+	ToArtifactSourceOutput() ArtifactSourceOutput
+	ToArtifactSourceOutputWithContext(ctx context.Context) ArtifactSourceOutput
+}
+
+func (ArtifactSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactSource)(nil)).Elem()
+}
+
+func (i ArtifactSource) ToArtifactSourceOutput() ArtifactSourceOutput {
+	return i.ToArtifactSourceOutputWithContext(context.Background())
+}
+
+func (i ArtifactSource) ToArtifactSourceOutputWithContext(ctx context.Context) ArtifactSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactSourceOutput)
+}
+
+type ArtifactSourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ArtifactSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactSourceOutput)(nil)).Elem()
+}
+
+func (o ArtifactSourceOutput) ToArtifactSourceOutput() ArtifactSourceOutput {
+	return o
+}
+
+func (o ArtifactSourceOutput) ToArtifactSourceOutputWithContext(ctx context.Context) ArtifactSourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ArtifactSourceOutput{})
 }

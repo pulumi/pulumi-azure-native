@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -88,6 +89,9 @@ func NewDdosCustomPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:DdosCustomPolicy"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -191,4 +195,43 @@ type DdosCustomPolicyArgs struct {
 
 func (DdosCustomPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ddosCustomPolicyArgs)(nil)).Elem()
+}
+
+type DdosCustomPolicyInput interface {
+	pulumi.Input
+
+	ToDdosCustomPolicyOutput() DdosCustomPolicyOutput
+	ToDdosCustomPolicyOutputWithContext(ctx context.Context) DdosCustomPolicyOutput
+}
+
+func (DdosCustomPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DdosCustomPolicy)(nil)).Elem()
+}
+
+func (i DdosCustomPolicy) ToDdosCustomPolicyOutput() DdosCustomPolicyOutput {
+	return i.ToDdosCustomPolicyOutputWithContext(context.Background())
+}
+
+func (i DdosCustomPolicy) ToDdosCustomPolicyOutputWithContext(ctx context.Context) DdosCustomPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DdosCustomPolicyOutput)
+}
+
+type DdosCustomPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (DdosCustomPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DdosCustomPolicyOutput)(nil)).Elem()
+}
+
+func (o DdosCustomPolicyOutput) ToDdosCustomPolicyOutput() DdosCustomPolicyOutput {
+	return o
+}
+
+func (o DdosCustomPolicyOutput) ToDdosCustomPolicyOutputWithContext(ctx context.Context) DdosCustomPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DdosCustomPolicyOutput{})
 }

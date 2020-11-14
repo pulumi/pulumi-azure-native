@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -225,4 +226,43 @@ type ViewArgs struct {
 
 func (ViewArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*viewArgs)(nil)).Elem()
+}
+
+type ViewInput interface {
+	pulumi.Input
+
+	ToViewOutput() ViewOutput
+	ToViewOutputWithContext(ctx context.Context) ViewOutput
+}
+
+func (View) ElementType() reflect.Type {
+	return reflect.TypeOf((*View)(nil)).Elem()
+}
+
+func (i View) ToViewOutput() ViewOutput {
+	return i.ToViewOutputWithContext(context.Background())
+}
+
+func (i View) ToViewOutputWithContext(ctx context.Context) ViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewOutput)
+}
+
+type ViewOutput struct {
+	*pulumi.OutputState
+}
+
+func (ViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewOutput)(nil)).Elem()
+}
+
+func (o ViewOutput) ToViewOutput() ViewOutput {
+	return o
+}
+
+func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ViewOutput{})
 }

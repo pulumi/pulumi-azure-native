@@ -4,6 +4,7 @@
 package v20180907preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -28,7 +29,7 @@ type EventHubConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The table where the data should be ingested. Optionally the table information can be added to each message.
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -98,7 +99,7 @@ type eventHubConnectionState struct {
 	Name *string `pulumi:"name"`
 	// The table where the data should be ingested. Optionally the table information can be added to each message.
 	TableName *string `pulumi:"tableName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -117,7 +118,7 @@ type EventHubConnectionState struct {
 	Name pulumi.StringPtrInput
 	// The table where the data should be ingested. Optionally the table information can be added to each message.
 	TableName pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -174,4 +175,43 @@ type EventHubConnectionArgs struct {
 
 func (EventHubConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubConnectionArgs)(nil)).Elem()
+}
+
+type EventHubConnectionInput interface {
+	pulumi.Input
+
+	ToEventHubConnectionOutput() EventHubConnectionOutput
+	ToEventHubConnectionOutputWithContext(ctx context.Context) EventHubConnectionOutput
+}
+
+func (EventHubConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubConnection)(nil)).Elem()
+}
+
+func (i EventHubConnection) ToEventHubConnectionOutput() EventHubConnectionOutput {
+	return i.ToEventHubConnectionOutputWithContext(context.Background())
+}
+
+func (i EventHubConnection) ToEventHubConnectionOutputWithContext(ctx context.Context) EventHubConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubConnectionOutput)
+}
+
+type EventHubConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHubConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubConnectionOutput)(nil)).Elem()
+}
+
+func (o EventHubConnectionOutput) ToEventHubConnectionOutput() EventHubConnectionOutput {
+	return o
+}
+
+func (o EventHubConnectionOutput) ToEventHubConnectionOutputWithContext(ctx context.Context) EventHubConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventHubConnectionOutput{})
 }

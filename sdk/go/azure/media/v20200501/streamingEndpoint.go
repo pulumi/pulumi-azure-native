@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -52,7 +53,7 @@ type StreamingEndpoint struct {
 	ScaleUnits pulumi.IntOutput `pulumi:"scaleUnits"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -155,7 +156,7 @@ type streamingEndpointState struct {
 	ScaleUnits *int `pulumi:"scaleUnits"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -198,7 +199,7 @@ type StreamingEndpointState struct {
 	ScaleUnits pulumi.IntPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -279,4 +280,43 @@ type StreamingEndpointArgs struct {
 
 func (StreamingEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamingEndpointArgs)(nil)).Elem()
+}
+
+type StreamingEndpointInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointOutput() StreamingEndpointOutput
+	ToStreamingEndpointOutputWithContext(ctx context.Context) StreamingEndpointOutput
+}
+
+func (StreamingEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpoint)(nil)).Elem()
+}
+
+func (i StreamingEndpoint) ToStreamingEndpointOutput() StreamingEndpointOutput {
+	return i.ToStreamingEndpointOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpoint) ToStreamingEndpointOutputWithContext(ctx context.Context) StreamingEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointOutput)
+}
+
+type StreamingEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamingEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointOutput)(nil)).Elem()
+}
+
+func (o StreamingEndpointOutput) ToStreamingEndpointOutput() StreamingEndpointOutput {
+	return o
+}
+
+func (o StreamingEndpointOutput) ToStreamingEndpointOutputWithContext(ctx context.Context) StreamingEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StreamingEndpointOutput{})
 }

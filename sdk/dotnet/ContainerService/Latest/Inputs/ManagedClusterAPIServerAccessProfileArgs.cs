@@ -33,6 +33,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         [Input("enablePrivateCluster")]
         public Input<bool>? EnablePrivateCluster { get; set; }
 
+        /// <summary>
+        /// Private dns zone mode for private cluster. 
+        /// </summary>
+        [Input("privateDNSZone")]
+        public Input<string>? PrivateDNSZone { get; set; }
+
         public ManagedClusterAPIServerAccessProfileArgs()
         {
         }

@@ -4,6 +4,7 @@
 package v20170801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -107,4 +108,43 @@ type WorkspaceSettingArgs struct {
 
 func (WorkspaceSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceSettingArgs)(nil)).Elem()
+}
+
+type WorkspaceSettingInput interface {
+	pulumi.Input
+
+	ToWorkspaceSettingOutput() WorkspaceSettingOutput
+	ToWorkspaceSettingOutputWithContext(ctx context.Context) WorkspaceSettingOutput
+}
+
+func (WorkspaceSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSetting)(nil)).Elem()
+}
+
+func (i WorkspaceSetting) ToWorkspaceSettingOutput() WorkspaceSettingOutput {
+	return i.ToWorkspaceSettingOutputWithContext(context.Background())
+}
+
+func (i WorkspaceSetting) ToWorkspaceSettingOutputWithContext(ctx context.Context) WorkspaceSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSettingOutput)
+}
+
+type WorkspaceSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSettingOutput)(nil)).Elem()
+}
+
+func (o WorkspaceSettingOutput) ToWorkspaceSettingOutput() WorkspaceSettingOutput {
+	return o
+}
+
+func (o WorkspaceSettingOutput) ToWorkspaceSettingOutputWithContext(ctx context.Context) WorkspaceSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkspaceSettingOutput{})
 }

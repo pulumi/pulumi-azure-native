@@ -151,6 +151,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:ExpressRoutePort"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ExpressRoutePort"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ExpressRoutePort"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ExpressRoutePort"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

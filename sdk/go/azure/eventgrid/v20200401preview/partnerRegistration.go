@@ -4,6 +4,7 @@
 package v20200401preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -277,4 +278,43 @@ type PartnerRegistrationArgs struct {
 
 func (PartnerRegistrationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*partnerRegistrationArgs)(nil)).Elem()
+}
+
+type PartnerRegistrationInput interface {
+	pulumi.Input
+
+	ToPartnerRegistrationOutput() PartnerRegistrationOutput
+	ToPartnerRegistrationOutputWithContext(ctx context.Context) PartnerRegistrationOutput
+}
+
+func (PartnerRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerRegistration)(nil)).Elem()
+}
+
+func (i PartnerRegistration) ToPartnerRegistrationOutput() PartnerRegistrationOutput {
+	return i.ToPartnerRegistrationOutputWithContext(context.Background())
+}
+
+func (i PartnerRegistration) ToPartnerRegistrationOutputWithContext(ctx context.Context) PartnerRegistrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerRegistrationOutput)
+}
+
+type PartnerRegistrationOutput struct {
+	*pulumi.OutputState
+}
+
+func (PartnerRegistrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerRegistrationOutput)(nil)).Elem()
+}
+
+func (o PartnerRegistrationOutput) ToPartnerRegistrationOutput() PartnerRegistrationOutput {
+	return o
+}
+
+func (o PartnerRegistrationOutput) ToPartnerRegistrationOutputWithContext(ctx context.Context) PartnerRegistrationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PartnerRegistrationOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190930preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -233,4 +234,43 @@ type OpenShiftManagedClusterArgs struct {
 
 func (OpenShiftManagedClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*openShiftManagedClusterArgs)(nil)).Elem()
+}
+
+type OpenShiftManagedClusterInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterOutput() OpenShiftManagedClusterOutput
+	ToOpenShiftManagedClusterOutputWithContext(ctx context.Context) OpenShiftManagedClusterOutput
+}
+
+func (OpenShiftManagedCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedCluster)(nil)).Elem()
+}
+
+func (i OpenShiftManagedCluster) ToOpenShiftManagedClusterOutput() OpenShiftManagedClusterOutput {
+	return i.ToOpenShiftManagedClusterOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedCluster) ToOpenShiftManagedClusterOutputWithContext(ctx context.Context) OpenShiftManagedClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterOutput)
+}
+
+type OpenShiftManagedClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (OpenShiftManagedClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterOutput)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterOutput) ToOpenShiftManagedClusterOutput() OpenShiftManagedClusterOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterOutput) ToOpenShiftManagedClusterOutputWithContext(ctx context.Context) OpenShiftManagedClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OpenShiftManagedClusterOutput{})
 }

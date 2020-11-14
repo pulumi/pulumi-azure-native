@@ -4,6 +4,7 @@
 package v20191101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -97,6 +98,9 @@ func NewServiceEndpointPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:ServiceEndpointPolicy"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -200,4 +204,43 @@ type ServiceEndpointPolicyArgs struct {
 
 func (ServiceEndpointPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointPolicyArgs)(nil)).Elem()
+}
+
+type ServiceEndpointPolicyInput interface {
+	pulumi.Input
+
+	ToServiceEndpointPolicyOutput() ServiceEndpointPolicyOutput
+	ToServiceEndpointPolicyOutputWithContext(ctx context.Context) ServiceEndpointPolicyOutput
+}
+
+func (ServiceEndpointPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointPolicy)(nil)).Elem()
+}
+
+func (i ServiceEndpointPolicy) ToServiceEndpointPolicyOutput() ServiceEndpointPolicyOutput {
+	return i.ToServiceEndpointPolicyOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointPolicy) ToServiceEndpointPolicyOutputWithContext(ctx context.Context) ServiceEndpointPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPolicyOutput)
+}
+
+type ServiceEndpointPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointPolicyOutput)(nil)).Elem()
+}
+
+func (o ServiceEndpointPolicyOutput) ToServiceEndpointPolicyOutput() ServiceEndpointPolicyOutput {
+	return o
+}
+
+func (o ServiceEndpointPolicyOutput) ToServiceEndpointPolicyOutputWithContext(ctx context.Context) ServiceEndpointPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceEndpointPolicyOutput{})
 }

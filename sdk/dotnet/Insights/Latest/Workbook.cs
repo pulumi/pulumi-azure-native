@@ -21,6 +21,18 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Output<string> Category { get; private set; } = null!;
 
         /// <summary>
+        /// The user-defined name (display name) of the workbook.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Identity used for BYOS
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Output("kind")]
@@ -30,10 +42,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Resource location
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -45,16 +57,16 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Output<string> SerializedData { get; private set; } = null!;
 
         /// <summary>
-        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// ResourceId for a source resource.
         /// </summary>
-        [Output("sharedTypeKind")]
-        public Output<string> SharedTypeKind { get; private set; } = null!;
+        [Output("sourceId")]
+        public Output<string?> SourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Optional resourceId for a source resource.
+        /// BYOS Storage Account URI
         /// </summary>
-        [Output("sourceResourceId")]
-        public Output<string?> SourceResourceId { get; private set; } = null!;
+        [Output("storageUri")]
+        public Output<string?> StorageUri { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -81,16 +93,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Output<string> UserId { get; private set; } = null!;
 
         /// <summary>
-        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        /// Workbook version
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
-
-        /// <summary>
-        /// Internally assigned unique id of the workbook definition.
-        /// </summary>
-        [Output("workbookId")]
-        public Output<string> WorkbookId { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Workbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180617preview:Workbook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20201020:Workbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,6 +156,18 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Input<string> Category { get; set; } = null!;
 
         /// <summary>
+        /// The user-defined name (display name) of the workbook.
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
+        /// Identity used for BYOS
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind")]
@@ -157,14 +176,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The user-defined name of the workbook.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -185,16 +198,16 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Input<string> SerializedData { get; set; } = null!;
 
         /// <summary>
-        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// ResourceId for a source resource.
         /// </summary>
-        [Input("sharedTypeKind", required: true)]
-        public Input<string> SharedTypeKind { get; set; } = null!;
+        [Input("sourceId", required: true)]
+        public Input<string> SourceId { get; set; } = null!;
 
         /// <summary>
-        /// Optional resourceId for a source resource.
+        /// BYOS Storage Account URI
         /// </summary>
-        [Input("sourceResourceId")]
-        public Input<string>? SourceResourceId { get; set; }
+        [Input("storageUri")]
+        public Input<string>? StorageUri { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -209,22 +222,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         }
 
         /// <summary>
-        /// Unique user id of the specific user that owns this workbook.
-        /// </summary>
-        [Input("userId", required: true)]
-        public Input<string> UserId { get; set; } = null!;
-
-        /// <summary>
-        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        /// Workbook version
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
-
-        /// <summary>
-        /// Internally assigned unique id of the workbook definition.
-        /// </summary>
-        [Input("workbookId", required: true)]
-        public Input<string> WorkbookId { get; set; } = null!;
 
         public WorkbookArgs()
         {

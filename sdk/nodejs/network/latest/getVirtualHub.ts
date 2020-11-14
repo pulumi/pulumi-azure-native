@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
@@ -40,6 +39,10 @@ export interface GetVirtualHubResult {
      */
     readonly addressPrefix?: string;
     /**
+     * Flag to control transit for VirtualRouter hub.
+     */
+    readonly allowBranchToBranchTraffic?: boolean;
+    /**
      * The azureFirewall associated with this VirtualHub.
      */
     readonly azureFirewall?: outputs.network.latest.SubResourceResponse;
@@ -47,10 +50,6 @@ export interface GetVirtualHubResult {
      * List of references to Bgp Connections.
      */
     readonly bgpConnections: outputs.network.latest.SubResourceResponse[];
-    /**
-     * Flag to control route propogation for VirtualRouter hub.
-     */
-    readonly enableVirtualRouterRoutePropogation?: boolean;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

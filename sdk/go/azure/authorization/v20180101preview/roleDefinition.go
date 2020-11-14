@@ -4,6 +4,7 @@
 package v20180101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -147,4 +148,43 @@ type RoleDefinitionArgs struct {
 
 func (RoleDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleDefinitionArgs)(nil)).Elem()
+}
+
+type RoleDefinitionInput interface {
+	pulumi.Input
+
+	ToRoleDefinitionOutput() RoleDefinitionOutput
+	ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput
+}
+
+func (RoleDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleDefinition)(nil)).Elem()
+}
+
+func (i RoleDefinition) ToRoleDefinitionOutput() RoleDefinitionOutput {
+	return i.ToRoleDefinitionOutputWithContext(context.Background())
+}
+
+func (i RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionOutput)
+}
+
+type RoleDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (RoleDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleDefinitionOutput)(nil)).Elem()
+}
+
+func (o RoleDefinitionOutput) ToRoleDefinitionOutput() RoleDefinitionOutput {
+	return o
+}
+
+func (o RoleDefinitionOutput) ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RoleDefinitionOutput{})
 }

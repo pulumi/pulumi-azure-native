@@ -4,6 +4,7 @@
 package v20190301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -174,4 +175,43 @@ type ApplicationTypeVersionArgs struct {
 
 func (ApplicationTypeVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationTypeVersionArgs)(nil)).Elem()
+}
+
+type ApplicationTypeVersionInput interface {
+	pulumi.Input
+
+	ToApplicationTypeVersionOutput() ApplicationTypeVersionOutput
+	ToApplicationTypeVersionOutputWithContext(ctx context.Context) ApplicationTypeVersionOutput
+}
+
+func (ApplicationTypeVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTypeVersion)(nil)).Elem()
+}
+
+func (i ApplicationTypeVersion) ToApplicationTypeVersionOutput() ApplicationTypeVersionOutput {
+	return i.ToApplicationTypeVersionOutputWithContext(context.Background())
+}
+
+func (i ApplicationTypeVersion) ToApplicationTypeVersionOutputWithContext(ctx context.Context) ApplicationTypeVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeVersionOutput)
+}
+
+type ApplicationTypeVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationTypeVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTypeVersionOutput)(nil)).Elem()
+}
+
+func (o ApplicationTypeVersionOutput) ToApplicationTypeVersionOutput() ApplicationTypeVersionOutput {
+	return o
+}
+
+func (o ApplicationTypeVersionOutput) ToApplicationTypeVersionOutputWithContext(ctx context.Context) ApplicationTypeVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationTypeVersionOutput{})
 }

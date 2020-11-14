@@ -4,6 +4,7 @@
 package v20190601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -19,7 +20,7 @@ type Queue struct {
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -75,7 +76,7 @@ type queueState struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -86,7 +87,7 @@ type QueueState struct {
 	Metadata pulumi.StringMapInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -119,4 +120,43 @@ type QueueArgs struct {
 
 func (QueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueArgs)(nil)).Elem()
+}
+
+type QueueInput interface {
+	pulumi.Input
+
+	ToQueueOutput() QueueOutput
+	ToQueueOutputWithContext(ctx context.Context) QueueOutput
+}
+
+func (Queue) ElementType() reflect.Type {
+	return reflect.TypeOf((*Queue)(nil)).Elem()
+}
+
+func (i Queue) ToQueueOutput() QueueOutput {
+	return i.ToQueueOutputWithContext(context.Background())
+}
+
+func (i Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
+}
+
+type QueueOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueOutput)(nil)).Elem()
+}
+
+func (o QueueOutput) ToQueueOutput() QueueOutput {
+	return o
+}
+
+func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueueOutput{})
 }

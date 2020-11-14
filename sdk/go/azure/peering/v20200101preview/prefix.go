@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,4 +164,43 @@ type PrefixArgs struct {
 
 func (PrefixArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*prefixArgs)(nil)).Elem()
+}
+
+type PrefixInput interface {
+	pulumi.Input
+
+	ToPrefixOutput() PrefixOutput
+	ToPrefixOutputWithContext(ctx context.Context) PrefixOutput
+}
+
+func (Prefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*Prefix)(nil)).Elem()
+}
+
+func (i Prefix) ToPrefixOutput() PrefixOutput {
+	return i.ToPrefixOutputWithContext(context.Background())
+}
+
+func (i Prefix) ToPrefixOutputWithContext(ctx context.Context) PrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixOutput)
+}
+
+type PrefixOutput struct {
+	*pulumi.OutputState
+}
+
+func (PrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixOutput)(nil)).Elem()
+}
+
+func (o PrefixOutput) ToPrefixOutput() PrefixOutput {
+	return o
+}
+
+func (o PrefixOutput) ToPrefixOutputWithContext(ctx context.Context) PrefixOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PrefixOutput{})
 }

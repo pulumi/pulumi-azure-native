@@ -4,6 +4,7 @@
 package v20191101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -20,8 +21,12 @@ type View struct {
 	Chart pulumi.StringPtrOutput `pulumi:"chart"`
 	// Date the user created this view.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
+	// Selected currency.
+	Currency pulumi.StringOutput `pulumi:"currency"`
 	// Has definition for data in this report config.
 	Dataset ReportConfigDatasetResponsePtrOutput `pulumi:"dataset"`
+	// Selected date range for viewing cost in.
+	DateRange pulumi.StringOutput `pulumi:"dateRange"`
 	// User input name of the view. Required.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -101,8 +106,12 @@ type viewState struct {
 	Chart *string `pulumi:"chart"`
 	// Date the user created this view.
 	CreatedOn *string `pulumi:"createdOn"`
+	// Selected currency.
+	Currency *string `pulumi:"currency"`
 	// Has definition for data in this report config.
 	Dataset *ReportConfigDatasetResponse `pulumi:"dataset"`
+	// Selected date range for viewing cost in.
+	DateRange *string `pulumi:"dateRange"`
 	// User input name of the view. Required.
 	DisplayName *string `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -134,8 +143,12 @@ type ViewState struct {
 	Chart pulumi.StringPtrInput
 	// Date the user created this view.
 	CreatedOn pulumi.StringPtrInput
+	// Selected currency.
+	Currency pulumi.StringPtrInput
 	// Has definition for data in this report config.
 	Dataset ReportConfigDatasetResponsePtrInput
+	// Selected date range for viewing cost in.
+	DateRange pulumi.StringPtrInput
 	// User input name of the view. Required.
 	DisplayName pulumi.StringPtrInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -225,4 +238,43 @@ type ViewArgs struct {
 
 func (ViewArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*viewArgs)(nil)).Elem()
+}
+
+type ViewInput interface {
+	pulumi.Input
+
+	ToViewOutput() ViewOutput
+	ToViewOutputWithContext(ctx context.Context) ViewOutput
+}
+
+func (View) ElementType() reflect.Type {
+	return reflect.TypeOf((*View)(nil)).Elem()
+}
+
+func (i View) ToViewOutput() ViewOutput {
+	return i.ToViewOutputWithContext(context.Background())
+}
+
+func (i View) ToViewOutputWithContext(ctx context.Context) ViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewOutput)
+}
+
+type ViewOutput struct {
+	*pulumi.OutputState
+}
+
+func (ViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewOutput)(nil)).Elem()
+}
+
+func (o ViewOutput) ToViewOutput() ViewOutput {
+	return o
+}
+
+func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ViewOutput{})
 }

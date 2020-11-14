@@ -18,6 +18,7 @@ class LoadBalancer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolArgs']]]]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]]] = None,
@@ -39,6 +40,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolArgs']]]] backend_address_pools: Collection of backend address pools used by a load balancer.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]] frontend_ip_configurations: Object representing the frontend IPs to be used for the load balancer.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]] inbound_nat_pools: Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
@@ -70,6 +72,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['backend_address_pools'] = backend_address_pools
+            __props__['extended_location'] = extended_location
             __props__['frontend_ip_configurations'] = frontend_ip_configurations
             __props__['id'] = id
             __props__['inbound_nat_pools'] = inbound_nat_pools
@@ -91,7 +94,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20150615:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160330:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20161201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170301:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20171001:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20171101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180701:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181001:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190701:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20191101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20191201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200301:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200501:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200601:LoadBalancer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20150615:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160330:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20161201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170301:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20171001:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20171101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180701:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181001:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190701:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20191101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20191201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200301:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200501:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200701:LoadBalancer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancer, __self__).__init__(
             'azure-nextgen:network/latest:LoadBalancer',
@@ -132,6 +135,14 @@ class LoadBalancer(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location of the load balancer.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")

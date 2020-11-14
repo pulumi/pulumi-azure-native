@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['PrivateStoreOffer']
 
@@ -16,9 +18,12 @@ class PrivateStoreOffer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 icon_file_uris: Optional[pulumi.Input[pulumi.InputType['OfferPropertiesIconFileUrisArgs']]] = None,
                  offer_id: Optional[pulumi.Input[str]] = None,
+                 plans: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanArgs']]]]] = None,
                  private_store_id: Optional[pulumi.Input[str]] = None,
                  specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 update_suppressed_due_idempotence: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -28,9 +33,12 @@ class PrivateStoreOffer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Identifier for purposes of race condition
+        :param pulumi.Input[pulumi.InputType['OfferPropertiesIconFileUrisArgs']] icon_file_uris: Icon File Uris
         :param pulumi.Input[str] offer_id: The offer ID to update or delete
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanArgs']]]] plans: Offer plans
         :param pulumi.Input[str] private_store_id: The store ID - must use the tenant ID
         :param pulumi.Input[Sequence[pulumi.Input[str]]] specific_plan_ids_limitation: Plan ids limitation for this offer
+        :param pulumi.Input[bool] update_suppressed_due_idempotence: Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -50,15 +58,18 @@ class PrivateStoreOffer(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
+            __props__['icon_file_uris'] = icon_file_uris
             if offer_id is None:
                 raise TypeError("Missing required property 'offer_id'")
             __props__['offer_id'] = offer_id
+            __props__['plans'] = plans
             if private_store_id is None:
                 raise TypeError("Missing required property 'private_store_id'")
             __props__['private_store_id'] = private_store_id
             __props__['specific_plan_ids_limitation'] = specific_plan_ids_limitation
-            __props__['created_by'] = None
-            __props__['created_date'] = None
+            __props__['update_suppressed_due_idempotence'] = update_suppressed_due_idempotence
+            __props__['created_at'] = None
+            __props__['modified_at'] = None
             __props__['name'] = None
             __props__['offer_display_name'] = None
             __props__['publisher_display_name'] = None
@@ -91,20 +102,12 @@ class PrivateStoreOffer(pulumi.CustomResource):
         return PrivateStoreOffer(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[str]:
         """
-        Private store offer creator name
+        Private store offer creation date
         """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
-        """
-        Private store offer created date
-        """
-        return pulumi.get(self, "created_date")
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="eTag")
@@ -113,6 +116,22 @@ class PrivateStoreOffer(pulumi.CustomResource):
         Identifier for purposes of race condition
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter(name="iconFileUris")
+    def icon_file_uris(self) -> pulumi.Output[Optional['outputs.OfferPropertiesResponseIconFileUris']]:
+        """
+        Icon File Uris
+        """
+        return pulumi.get(self, "icon_file_uris")
+
+    @property
+    @pulumi.getter(name="modifiedAt")
+    def modified_at(self) -> pulumi.Output[str]:
+        """
+        Private store offer modification date
+        """
+        return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
@@ -129,6 +148,14 @@ class PrivateStoreOffer(pulumi.CustomResource):
         It will be displayed prominently in the marketplace
         """
         return pulumi.get(self, "offer_display_name")
+
+    @property
+    @pulumi.getter
+    def plans(self) -> pulumi.Output[Optional[Sequence['outputs.PlanResponse']]]:
+        """
+        Offer plans
+        """
+        return pulumi.get(self, "plans")
 
     @property
     @pulumi.getter(name="privateStoreId")
@@ -169,6 +196,14 @@ class PrivateStoreOffer(pulumi.CustomResource):
         Offers unique id
         """
         return pulumi.get(self, "unique_offer_id")
+
+    @property
+    @pulumi.getter(name="updateSuppressedDueIdempotence")
+    def update_suppressed_due_idempotence(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+        """
+        return pulumi.get(self, "update_suppressed_due_idempotence")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

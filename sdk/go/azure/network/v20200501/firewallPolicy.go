@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -84,6 +85,9 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:FirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:FirewallPolicy"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -215,4 +219,43 @@ type FirewallPolicyArgs struct {
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallPolicyArgs)(nil)).Elem()
+}
+
+type FirewallPolicyInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyOutput() FirewallPolicyOutput
+	ToFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyOutput
+}
+
+func (FirewallPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicy)(nil)).Elem()
+}
+
+func (i FirewallPolicy) ToFirewallPolicyOutput() FirewallPolicyOutput {
+	return i.ToFirewallPolicyOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicy) ToFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyOutput)
+}
+
+type FirewallPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (FirewallPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyOutput)(nil)).Elem()
+}
+
+func (o FirewallPolicyOutput) ToFirewallPolicyOutput() FirewallPolicyOutput {
+	return o
+}
+
+func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FirewallPolicyOutput{})
 }

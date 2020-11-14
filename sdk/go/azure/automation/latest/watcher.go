@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -205,4 +206,43 @@ type WatcherArgs struct {
 
 func (WatcherArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*watcherArgs)(nil)).Elem()
+}
+
+type WatcherInput interface {
+	pulumi.Input
+
+	ToWatcherOutput() WatcherOutput
+	ToWatcherOutputWithContext(ctx context.Context) WatcherOutput
+}
+
+func (Watcher) ElementType() reflect.Type {
+	return reflect.TypeOf((*Watcher)(nil)).Elem()
+}
+
+func (i Watcher) ToWatcherOutput() WatcherOutput {
+	return i.ToWatcherOutputWithContext(context.Background())
+}
+
+func (i Watcher) ToWatcherOutputWithContext(ctx context.Context) WatcherOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WatcherOutput)
+}
+
+type WatcherOutput struct {
+	*pulumi.OutputState
+}
+
+func (WatcherOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WatcherOutput)(nil)).Elem()
+}
+
+func (o WatcherOutput) ToWatcherOutput() WatcherOutput {
+	return o
+}
+
+func (o WatcherOutput) ToWatcherOutputWithContext(ctx context.Context) WatcherOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WatcherOutput{})
 }

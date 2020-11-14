@@ -4,6 +4,7 @@
 package v20200701preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -32,7 +33,7 @@ type PolicyExemption struct {
 	PolicyDefinitionReferenceIds pulumi.StringArrayOutput `pulumi:"policyDefinitionReferenceIds"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -94,7 +95,7 @@ type policyExemptionState struct {
 	PolicyDefinitionReferenceIds []string `pulumi:"policyDefinitionReferenceIds"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -117,7 +118,7 @@ type PolicyExemptionState struct {
 	PolicyDefinitionReferenceIds pulumi.StringArrayInput
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -170,4 +171,43 @@ type PolicyExemptionArgs struct {
 
 func (PolicyExemptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyExemptionArgs)(nil)).Elem()
+}
+
+type PolicyExemptionInput interface {
+	pulumi.Input
+
+	ToPolicyExemptionOutput() PolicyExemptionOutput
+	ToPolicyExemptionOutputWithContext(ctx context.Context) PolicyExemptionOutput
+}
+
+func (PolicyExemption) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyExemption)(nil)).Elem()
+}
+
+func (i PolicyExemption) ToPolicyExemptionOutput() PolicyExemptionOutput {
+	return i.ToPolicyExemptionOutputWithContext(context.Background())
+}
+
+func (i PolicyExemption) ToPolicyExemptionOutputWithContext(ctx context.Context) PolicyExemptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyExemptionOutput)
+}
+
+type PolicyExemptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyExemptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyExemptionOutput)(nil)).Elem()
+}
+
+func (o PolicyExemptionOutput) ToPolicyExemptionOutput() PolicyExemptionOutput {
+	return o
+}
+
+func (o PolicyExemptionOutput) ToPolicyExemptionOutputWithContext(ctx context.Context) PolicyExemptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyExemptionOutput{})
 }

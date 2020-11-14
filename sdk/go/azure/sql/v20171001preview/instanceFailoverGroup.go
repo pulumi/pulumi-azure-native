@@ -4,6 +4,7 @@
 package v20171001preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -156,4 +157,43 @@ type InstanceFailoverGroupArgs struct {
 
 func (InstanceFailoverGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceFailoverGroupArgs)(nil)).Elem()
+}
+
+type InstanceFailoverGroupInput interface {
+	pulumi.Input
+
+	ToInstanceFailoverGroupOutput() InstanceFailoverGroupOutput
+	ToInstanceFailoverGroupOutputWithContext(ctx context.Context) InstanceFailoverGroupOutput
+}
+
+func (InstanceFailoverGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFailoverGroup)(nil)).Elem()
+}
+
+func (i InstanceFailoverGroup) ToInstanceFailoverGroupOutput() InstanceFailoverGroupOutput {
+	return i.ToInstanceFailoverGroupOutputWithContext(context.Background())
+}
+
+func (i InstanceFailoverGroup) ToInstanceFailoverGroupOutputWithContext(ctx context.Context) InstanceFailoverGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupOutput)
+}
+
+type InstanceFailoverGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (InstanceFailoverGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFailoverGroupOutput)(nil)).Elem()
+}
+
+func (o InstanceFailoverGroupOutput) ToInstanceFailoverGroupOutput() InstanceFailoverGroupOutput {
+	return o
+}
+
+func (o InstanceFailoverGroupOutput) ToInstanceFailoverGroupOutputWithContext(ctx context.Context) InstanceFailoverGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InstanceFailoverGroupOutput{})
 }

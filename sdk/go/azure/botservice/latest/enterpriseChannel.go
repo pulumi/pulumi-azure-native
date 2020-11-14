@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -154,4 +155,43 @@ type EnterpriseChannelArgs struct {
 
 func (EnterpriseChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*enterpriseChannelArgs)(nil)).Elem()
+}
+
+type EnterpriseChannelInput interface {
+	pulumi.Input
+
+	ToEnterpriseChannelOutput() EnterpriseChannelOutput
+	ToEnterpriseChannelOutputWithContext(ctx context.Context) EnterpriseChannelOutput
+}
+
+func (EnterpriseChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannel)(nil)).Elem()
+}
+
+func (i EnterpriseChannel) ToEnterpriseChannelOutput() EnterpriseChannelOutput {
+	return i.ToEnterpriseChannelOutputWithContext(context.Background())
+}
+
+func (i EnterpriseChannel) ToEnterpriseChannelOutputWithContext(ctx context.Context) EnterpriseChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelOutput)
+}
+
+type EnterpriseChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (EnterpriseChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannelOutput)(nil)).Elem()
+}
+
+func (o EnterpriseChannelOutput) ToEnterpriseChannelOutput() EnterpriseChannelOutput {
+	return o
+}
+
+func (o EnterpriseChannelOutput) ToEnterpriseChannelOutputWithContext(ctx context.Context) EnterpriseChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EnterpriseChannelOutput{})
 }

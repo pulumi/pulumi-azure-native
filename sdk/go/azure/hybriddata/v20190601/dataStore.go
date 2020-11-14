@@ -4,6 +4,7 @@
 package v20190601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -160,4 +161,43 @@ type DataStoreArgs struct {
 
 func (DataStoreArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataStoreArgs)(nil)).Elem()
+}
+
+type DataStoreInput interface {
+	pulumi.Input
+
+	ToDataStoreOutput() DataStoreOutput
+	ToDataStoreOutputWithContext(ctx context.Context) DataStoreOutput
+}
+
+func (DataStore) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataStore)(nil)).Elem()
+}
+
+func (i DataStore) ToDataStoreOutput() DataStoreOutput {
+	return i.ToDataStoreOutputWithContext(context.Background())
+}
+
+func (i DataStore) ToDataStoreOutputWithContext(ctx context.Context) DataStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataStoreOutput)
+}
+
+type DataStoreOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataStoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataStoreOutput)(nil)).Elem()
+}
+
+func (o DataStoreOutput) ToDataStoreOutput() DataStoreOutput {
+	return o
+}
+
+func (o DataStoreOutput) ToDataStoreOutputWithContext(ctx context.Context) DataStoreOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataStoreOutput{})
 }

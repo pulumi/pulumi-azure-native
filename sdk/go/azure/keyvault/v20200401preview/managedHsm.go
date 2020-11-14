@@ -4,6 +4,7 @@
 package v20200401preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -128,4 +129,43 @@ type ManagedHsmArgs struct {
 
 func (ManagedHsmArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedHsmArgs)(nil)).Elem()
+}
+
+type ManagedHsmInput interface {
+	pulumi.Input
+
+	ToManagedHsmOutput() ManagedHsmOutput
+	ToManagedHsmOutputWithContext(ctx context.Context) ManagedHsmOutput
+}
+
+func (ManagedHsm) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsm)(nil)).Elem()
+}
+
+func (i ManagedHsm) ToManagedHsmOutput() ManagedHsmOutput {
+	return i.ToManagedHsmOutputWithContext(context.Background())
+}
+
+func (i ManagedHsm) ToManagedHsmOutputWithContext(ctx context.Context) ManagedHsmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmOutput)
+}
+
+type ManagedHsmOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedHsmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsmOutput)(nil)).Elem()
+}
+
+func (o ManagedHsmOutput) ToManagedHsmOutput() ManagedHsmOutput {
+	return o
+}
+
+func (o ManagedHsmOutput) ToManagedHsmOutputWithContext(ctx context.Context) ManagedHsmOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedHsmOutput{})
 }

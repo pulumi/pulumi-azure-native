@@ -4,6 +4,7 @@
 package v20180701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -18,7 +19,7 @@ type SyncGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Sync group status
 	SyncGroupStatus pulumi.StringOutput `pulumi:"syncGroupStatus"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Unique Id
 	UniqueId pulumi.StringPtrOutput `pulumi:"uniqueId"`
@@ -98,7 +99,7 @@ type syncGroupState struct {
 	Name *string `pulumi:"name"`
 	// Sync group status
 	SyncGroupStatus *string `pulumi:"syncGroupStatus"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Unique Id
 	UniqueId *string `pulumi:"uniqueId"`
@@ -109,7 +110,7 @@ type SyncGroupState struct {
 	Name pulumi.StringPtrInput
 	// Sync group status
 	SyncGroupStatus pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Unique Id
 	UniqueId pulumi.StringPtrInput
@@ -140,4 +141,43 @@ type SyncGroupArgs struct {
 
 func (SyncGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*syncGroupArgs)(nil)).Elem()
+}
+
+type SyncGroupInput interface {
+	pulumi.Input
+
+	ToSyncGroupOutput() SyncGroupOutput
+	ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput
+}
+
+func (SyncGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroup)(nil)).Elem()
+}
+
+func (i SyncGroup) ToSyncGroupOutput() SyncGroupOutput {
+	return i.ToSyncGroupOutputWithContext(context.Background())
+}
+
+func (i SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
+}
+
+type SyncGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (SyncGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupOutput)(nil)).Elem()
+}
+
+func (o SyncGroupOutput) ToSyncGroupOutput() SyncGroupOutput {
+	return o
+}
+
+func (o SyncGroupOutput) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SyncGroupOutput{})
 }

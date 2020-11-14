@@ -20,10 +20,13 @@ class GetIotHubResourceResult:
     """
     The description of the IoT hub.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, etag=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -50,6 +53,14 @@ class GetIotHubResourceResult:
         The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ArmIdentityResponse']:
+        """
+        The managed identities for the IotHub.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetIotHubResourceResult(GetIotHubResourceResult):
             yield self
         return GetIotHubResourceResult(
             etag=self.etag,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -135,6 +147,7 @@ def get_iot_hub_resource(resource_group_name: Optional[str] = None,
 
     return AwaitableGetIotHubResourceResult(
         etag=__ret__.etag,
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

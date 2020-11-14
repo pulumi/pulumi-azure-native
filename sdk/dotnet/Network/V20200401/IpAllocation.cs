@@ -115,6 +115,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:IpAllocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

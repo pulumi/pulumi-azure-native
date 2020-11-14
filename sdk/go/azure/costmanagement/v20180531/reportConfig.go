@@ -4,6 +4,7 @@
 package v20180531
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -139,4 +140,43 @@ type ReportConfigArgs struct {
 
 func (ReportConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportConfigArgs)(nil)).Elem()
+}
+
+type ReportConfigInput interface {
+	pulumi.Input
+
+	ToReportConfigOutput() ReportConfigOutput
+	ToReportConfigOutputWithContext(ctx context.Context) ReportConfigOutput
+}
+
+func (ReportConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportConfig)(nil)).Elem()
+}
+
+func (i ReportConfig) ToReportConfigOutput() ReportConfigOutput {
+	return i.ToReportConfigOutputWithContext(context.Background())
+}
+
+func (i ReportConfig) ToReportConfigOutputWithContext(ctx context.Context) ReportConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigOutput)
+}
+
+type ReportConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReportConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportConfigOutput)(nil)).Elem()
+}
+
+func (o ReportConfigOutput) ToReportConfigOutput() ReportConfigOutput {
+	return o
+}
+
+func (o ReportConfigOutput) ToReportConfigOutputWithContext(ctx context.Context) ReportConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReportConfigOutput{})
 }

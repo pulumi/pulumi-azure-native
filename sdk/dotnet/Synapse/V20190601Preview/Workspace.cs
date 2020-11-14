@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<Outputs.DataLakeStorageAccountDetailsResponse?> DefaultDataLakeStorage { get; private set; } = null!;
 
         /// <summary>
+        /// The encryption details of the workspace
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionDetailsResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// Workspace level configs and feature flags
         /// </summary>
         [Output("extraProperties")]
@@ -81,6 +87,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Purview Configuration
+        /// </summary>
+        [Output("purviewConfiguration")]
+        public Output<Outputs.PurviewConfigurationResponse?> PurviewConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Login for workspace SQL active directory administrator
         /// </summary>
         [Output("sqlAdministratorLogin")]
@@ -99,7 +111,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -109,6 +121,18 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Output("virtualNetworkProfile")]
         public Output<Outputs.VirtualNetworkProfileResponse?> VirtualNetworkProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Git integration settings
+        /// </summary>
+        [Output("workspaceRepositoryConfiguration")]
+        public Output<Outputs.WorkspaceRepositoryConfigurationResponse?> WorkspaceRepositoryConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The workspace unique identifier
+        /// </summary>
+        [Output("workspaceUID")]
+        public Output<string> WorkspaceUID { get; private set; } = null!;
 
 
         /// <summary>
@@ -174,6 +198,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Input<Inputs.DataLakeStorageAccountDetailsArgs>? DefaultDataLakeStorage { get; set; }
 
         /// <summary>
+        /// The encryption details of the workspace
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionDetailsArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// Identity of the workspace
         /// </summary>
         [Input("identity")]
@@ -216,6 +246,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         }
 
         /// <summary>
+        /// Purview Configuration
+        /// </summary>
+        [Input("purviewConfiguration")]
+        public Input<Inputs.PurviewConfigurationArgs>? PurviewConfiguration { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -256,6 +292,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Git integration settings
+        /// </summary>
+        [Input("workspaceRepositoryConfiguration")]
+        public Input<Inputs.WorkspaceRepositoryConfigurationArgs>? WorkspaceRepositoryConfiguration { get; set; }
 
         public WorkspaceArgs()
         {

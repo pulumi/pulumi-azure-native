@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -137,6 +138,9 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ConnectionMonitor"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:ConnectionMonitor"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionMonitor
@@ -253,6 +257,8 @@ type connectionMonitorArgs struct {
 	Endpoints []ConnectionMonitorEndpoint `pulumi:"endpoints"`
 	// Connection monitor location.
 	Location *string `pulumi:"location"`
+	// Value indicating whether connection monitor V1 should be migrated to V2 format.
+	Migrate *string `pulumi:"migrate"`
 	// Monitoring interval in seconds.
 	MonitoringIntervalInSeconds *int `pulumi:"monitoringIntervalInSeconds"`
 	// The name of the Network Watcher resource.
@@ -285,6 +291,8 @@ type ConnectionMonitorArgs struct {
 	Endpoints ConnectionMonitorEndpointArrayInput
 	// Connection monitor location.
 	Location pulumi.StringPtrInput
+	// Value indicating whether connection monitor V1 should be migrated to V2 format.
+	Migrate pulumi.StringPtrInput
 	// Monitoring interval in seconds.
 	MonitoringIntervalInSeconds pulumi.IntPtrInput
 	// The name of the Network Watcher resource.
@@ -307,4 +315,43 @@ type ConnectionMonitorArgs struct {
 
 func (ConnectionMonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionMonitorArgs)(nil)).Elem()
+}
+
+type ConnectionMonitorInput interface {
+	pulumi.Input
+
+	ToConnectionMonitorOutput() ConnectionMonitorOutput
+	ToConnectionMonitorOutputWithContext(ctx context.Context) ConnectionMonitorOutput
+}
+
+func (ConnectionMonitor) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitor)(nil)).Elem()
+}
+
+func (i ConnectionMonitor) ToConnectionMonitorOutput() ConnectionMonitorOutput {
+	return i.ToConnectionMonitorOutputWithContext(context.Background())
+}
+
+func (i ConnectionMonitor) ToConnectionMonitorOutputWithContext(ctx context.Context) ConnectionMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorOutput)
+}
+
+type ConnectionMonitorOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectionMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitorOutput)(nil)).Elem()
+}
+
+func (o ConnectionMonitorOutput) ToConnectionMonitorOutput() ConnectionMonitorOutput {
+	return o
+}
+
+func (o ConnectionMonitorOutput) ToConnectionMonitorOutputWithContext(ctx context.Context) ConnectionMonitorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectionMonitorOutput{})
 }

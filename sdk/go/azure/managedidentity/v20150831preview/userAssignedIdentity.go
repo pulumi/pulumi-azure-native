@@ -4,6 +4,7 @@
 package v20150831preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -28,7 +29,7 @@ type UserAssignedIdentity struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The id of the tenant which the identity belongs to.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -92,7 +93,7 @@ type userAssignedIdentityState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The id of the tenant which the identity belongs to.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -111,7 +112,7 @@ type UserAssignedIdentityState struct {
 	Tags pulumi.StringMapInput
 	// The id of the tenant which the identity belongs to.
 	TenantId pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -144,4 +145,43 @@ type UserAssignedIdentityArgs struct {
 
 func (UserAssignedIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userAssignedIdentityArgs)(nil)).Elem()
+}
+
+type UserAssignedIdentityInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityOutput() UserAssignedIdentityOutput
+	ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput
+}
+
+func (UserAssignedIdentity) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
+}
+
+func (i UserAssignedIdentity) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return i.ToUserAssignedIdentityOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
+}
+
+type UserAssignedIdentityOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserAssignedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityOutput)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return o
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
 }

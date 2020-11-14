@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -133,4 +134,43 @@ type WebAppSwiftVirtualNetworkConnectionArgs struct {
 
 func (WebAppSwiftVirtualNetworkConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppSwiftVirtualNetworkConnectionArgs)(nil)).Elem()
+}
+
+type WebAppSwiftVirtualNetworkConnectionInput interface {
+	pulumi.Input
+
+	ToWebAppSwiftVirtualNetworkConnectionOutput() WebAppSwiftVirtualNetworkConnectionOutput
+	ToWebAppSwiftVirtualNetworkConnectionOutputWithContext(ctx context.Context) WebAppSwiftVirtualNetworkConnectionOutput
+}
+
+func (WebAppSwiftVirtualNetworkConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnection)(nil)).Elem()
+}
+
+func (i WebAppSwiftVirtualNetworkConnection) ToWebAppSwiftVirtualNetworkConnectionOutput() WebAppSwiftVirtualNetworkConnectionOutput {
+	return i.ToWebAppSwiftVirtualNetworkConnectionOutputWithContext(context.Background())
+}
+
+func (i WebAppSwiftVirtualNetworkConnection) ToWebAppSwiftVirtualNetworkConnectionOutputWithContext(ctx context.Context) WebAppSwiftVirtualNetworkConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSwiftVirtualNetworkConnectionOutput)
+}
+
+type WebAppSwiftVirtualNetworkConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppSwiftVirtualNetworkConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnectionOutput)(nil)).Elem()
+}
+
+func (o WebAppSwiftVirtualNetworkConnectionOutput) ToWebAppSwiftVirtualNetworkConnectionOutput() WebAppSwiftVirtualNetworkConnectionOutput {
+	return o
+}
+
+func (o WebAppSwiftVirtualNetworkConnectionOutput) ToWebAppSwiftVirtualNetworkConnectionOutputWithContext(ctx context.Context) WebAppSwiftVirtualNetworkConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppSwiftVirtualNetworkConnectionOutput{})
 }

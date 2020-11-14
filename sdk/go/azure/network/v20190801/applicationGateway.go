@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -191,6 +192,9 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:ApplicationGateway"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -486,4 +490,43 @@ type ApplicationGatewayArgs struct {
 
 func (ApplicationGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationGatewayArgs)(nil)).Elem()
+}
+
+type ApplicationGatewayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayOutput() ApplicationGatewayOutput
+	ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput
+}
+
+func (ApplicationGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGateway)(nil)).Elem()
+}
+
+func (i ApplicationGateway) ToApplicationGatewayOutput() ApplicationGatewayOutput {
+	return i.ToApplicationGatewayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGateway) ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayOutput)
+}
+
+type ApplicationGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayOutput)(nil)).Elem()
+}
+
+func (o ApplicationGatewayOutput) ToApplicationGatewayOutput() ApplicationGatewayOutput {
+	return o
+}
+
+func (o ApplicationGatewayOutput) ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationGatewayOutput{})
 }

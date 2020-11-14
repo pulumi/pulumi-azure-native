@@ -100,6 +100,12 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         public Input<string>? TranslatedAddress { get; set; }
 
         /// <summary>
+        /// The translated FQDN for this NAT rule.
+        /// </summary>
+        [Input("translatedFqdn")]
+        public Input<string>? TranslatedFqdn { get; set; }
+
+        /// <summary>
         /// The translated port for this NAT rule.
         /// </summary>
         [Input("translatedPort")]

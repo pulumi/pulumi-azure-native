@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -99,7 +98,7 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20180801:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20181001:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20181101:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190201:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190401:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190601:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190701:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190801:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190901:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20191101:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20191201:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20200301:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20200401:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20200501:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20200601:NetworkInterfaceTapConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20180801:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20181001:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20181101:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190201:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190401:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190601:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190701:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190801:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20190901:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20191101:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20191201:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20200301:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20200401:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20200501:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20200601:NetworkInterfaceTapConfiguration" }, { type: "azure-nextgen:network/v20200701:NetworkInterfaceTapConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkInterfaceTapConfiguration.__pulumiType, name, inputs, opts);
     }

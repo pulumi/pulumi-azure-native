@@ -4,6 +4,7 @@
 package v20160712preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -150,4 +151,43 @@ type SuppressionArgs struct {
 
 func (SuppressionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*suppressionArgs)(nil)).Elem()
+}
+
+type SuppressionInput interface {
+	pulumi.Input
+
+	ToSuppressionOutput() SuppressionOutput
+	ToSuppressionOutputWithContext(ctx context.Context) SuppressionOutput
+}
+
+func (Suppression) ElementType() reflect.Type {
+	return reflect.TypeOf((*Suppression)(nil)).Elem()
+}
+
+func (i Suppression) ToSuppressionOutput() SuppressionOutput {
+	return i.ToSuppressionOutputWithContext(context.Background())
+}
+
+func (i Suppression) ToSuppressionOutputWithContext(ctx context.Context) SuppressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionOutput)
+}
+
+type SuppressionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SuppressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionOutput)(nil)).Elem()
+}
+
+func (o SuppressionOutput) ToSuppressionOutput() SuppressionOutput {
+	return o
+}
+
+func (o SuppressionOutput) ToSuppressionOutputWithContext(ctx context.Context) SuppressionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SuppressionOutput{})
 }

@@ -858,6 +858,224 @@ func (o KeyVaultPropertiesResponseArrayOutput) Index(i pulumi.IntInput) KeyVault
 	}).(KeyVaultPropertiesResponseOutput)
 }
 
+// The response from the List namespace operation.
+type NWRuleSetIpRules struct {
+	// The IP Filter Action
+	Action *string `pulumi:"action"`
+	// IP Mask
+	IpMask *string `pulumi:"ipMask"`
+}
+
+// NWRuleSetIpRulesInput is an input type that accepts NWRuleSetIpRulesArgs and NWRuleSetIpRulesOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesInput` via:
+//
+//          NWRuleSetIpRulesArgs{...}
+type NWRuleSetIpRulesInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesOutput() NWRuleSetIpRulesOutput
+	ToNWRuleSetIpRulesOutputWithContext(context.Context) NWRuleSetIpRulesOutput
+}
+
+// The response from the List namespace operation.
+type NWRuleSetIpRulesArgs struct {
+	// The IP Filter Action
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// IP Mask
+	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
+}
+
+func (NWRuleSetIpRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRules)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesArgs) ToNWRuleSetIpRulesOutput() NWRuleSetIpRulesOutput {
+	return i.ToNWRuleSetIpRulesOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesArgs) ToNWRuleSetIpRulesOutputWithContext(ctx context.Context) NWRuleSetIpRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesOutput)
+}
+
+// NWRuleSetIpRulesArrayInput is an input type that accepts NWRuleSetIpRulesArray and NWRuleSetIpRulesArrayOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesArrayInput` via:
+//
+//          NWRuleSetIpRulesArray{ NWRuleSetIpRulesArgs{...} }
+type NWRuleSetIpRulesArrayInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesArrayOutput() NWRuleSetIpRulesArrayOutput
+	ToNWRuleSetIpRulesArrayOutputWithContext(context.Context) NWRuleSetIpRulesArrayOutput
+}
+
+type NWRuleSetIpRulesArray []NWRuleSetIpRulesInput
+
+func (NWRuleSetIpRulesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRules)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesArray) ToNWRuleSetIpRulesArrayOutput() NWRuleSetIpRulesArrayOutput {
+	return i.ToNWRuleSetIpRulesArrayOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesArray) ToNWRuleSetIpRulesArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesArrayOutput)
+}
+
+// The response from the List namespace operation.
+type NWRuleSetIpRulesOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRules)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesOutput) ToNWRuleSetIpRulesOutput() NWRuleSetIpRulesOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesOutput) ToNWRuleSetIpRulesOutputWithContext(ctx context.Context) NWRuleSetIpRulesOutput {
+	return o
+}
+
+// The IP Filter Action
+func (o NWRuleSetIpRulesOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRules) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// IP Mask
+func (o NWRuleSetIpRulesOutput) IpMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRules) *string { return v.IpMask }).(pulumi.StringPtrOutput)
+}
+
+type NWRuleSetIpRulesArrayOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRules)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesArrayOutput) ToNWRuleSetIpRulesArrayOutput() NWRuleSetIpRulesArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesArrayOutput) ToNWRuleSetIpRulesArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetIpRules {
+		return vs[0].([]NWRuleSetIpRules)[vs[1].(int)]
+	}).(NWRuleSetIpRulesOutput)
+}
+
+// The response from the List namespace operation.
+type NWRuleSetIpRulesResponse struct {
+	// The IP Filter Action
+	Action *string `pulumi:"action"`
+	// IP Mask
+	IpMask *string `pulumi:"ipMask"`
+}
+
+// NWRuleSetIpRulesResponseInput is an input type that accepts NWRuleSetIpRulesResponseArgs and NWRuleSetIpRulesResponseOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesResponseInput` via:
+//
+//          NWRuleSetIpRulesResponseArgs{...}
+type NWRuleSetIpRulesResponseInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesResponseOutput() NWRuleSetIpRulesResponseOutput
+	ToNWRuleSetIpRulesResponseOutputWithContext(context.Context) NWRuleSetIpRulesResponseOutput
+}
+
+// The response from the List namespace operation.
+type NWRuleSetIpRulesResponseArgs struct {
+	// The IP Filter Action
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// IP Mask
+	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
+}
+
+func (NWRuleSetIpRulesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRulesResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesResponseArgs) ToNWRuleSetIpRulesResponseOutput() NWRuleSetIpRulesResponseOutput {
+	return i.ToNWRuleSetIpRulesResponseOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesResponseArgs) ToNWRuleSetIpRulesResponseOutputWithContext(ctx context.Context) NWRuleSetIpRulesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesResponseOutput)
+}
+
+// NWRuleSetIpRulesResponseArrayInput is an input type that accepts NWRuleSetIpRulesResponseArray and NWRuleSetIpRulesResponseArrayOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesResponseArrayInput` via:
+//
+//          NWRuleSetIpRulesResponseArray{ NWRuleSetIpRulesResponseArgs{...} }
+type NWRuleSetIpRulesResponseArrayInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesResponseArrayOutput() NWRuleSetIpRulesResponseArrayOutput
+	ToNWRuleSetIpRulesResponseArrayOutputWithContext(context.Context) NWRuleSetIpRulesResponseArrayOutput
+}
+
+type NWRuleSetIpRulesResponseArray []NWRuleSetIpRulesResponseInput
+
+func (NWRuleSetIpRulesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRulesResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesResponseArray) ToNWRuleSetIpRulesResponseArrayOutput() NWRuleSetIpRulesResponseArrayOutput {
+	return i.ToNWRuleSetIpRulesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesResponseArray) ToNWRuleSetIpRulesResponseArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesResponseArrayOutput)
+}
+
+// The response from the List namespace operation.
+type NWRuleSetIpRulesResponseOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRulesResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesResponseOutput) ToNWRuleSetIpRulesResponseOutput() NWRuleSetIpRulesResponseOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesResponseOutput) ToNWRuleSetIpRulesResponseOutputWithContext(ctx context.Context) NWRuleSetIpRulesResponseOutput {
+	return o
+}
+
+// The IP Filter Action
+func (o NWRuleSetIpRulesResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRulesResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// IP Mask
+func (o NWRuleSetIpRulesResponseOutput) IpMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRulesResponse) *string { return v.IpMask }).(pulumi.StringPtrOutput)
+}
+
+type NWRuleSetIpRulesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRulesResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesResponseArrayOutput) ToNWRuleSetIpRulesResponseArrayOutput() NWRuleSetIpRulesResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesResponseArrayOutput) ToNWRuleSetIpRulesResponseArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetIpRulesResponse {
+		return vs[0].([]NWRuleSetIpRulesResponse)[vs[1].(int)]
+	}).(NWRuleSetIpRulesResponseOutput)
+}
+
 // PrivateEndpoint information.
 type PrivateEndpoint struct {
 	// The ARM identifier for Private Endpoint.
@@ -1483,6 +1701,10 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesArrayOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesResponseOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})

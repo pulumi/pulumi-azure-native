@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -457,4 +458,43 @@ type AppServiceEnvironmentArgs struct {
 
 func (AppServiceEnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*appServiceEnvironmentArgs)(nil)).Elem()
+}
+
+type AppServiceEnvironmentInput interface {
+	pulumi.Input
+
+	ToAppServiceEnvironmentOutput() AppServiceEnvironmentOutput
+	ToAppServiceEnvironmentOutputWithContext(ctx context.Context) AppServiceEnvironmentOutput
+}
+
+func (AppServiceEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceEnvironment)(nil)).Elem()
+}
+
+func (i AppServiceEnvironment) ToAppServiceEnvironmentOutput() AppServiceEnvironmentOutput {
+	return i.ToAppServiceEnvironmentOutputWithContext(context.Background())
+}
+
+func (i AppServiceEnvironment) ToAppServiceEnvironmentOutputWithContext(ctx context.Context) AppServiceEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentOutput)
+}
+
+type AppServiceEnvironmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (AppServiceEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceEnvironmentOutput)(nil)).Elem()
+}
+
+func (o AppServiceEnvironmentOutput) ToAppServiceEnvironmentOutput() AppServiceEnvironmentOutput {
+	return o
+}
+
+func (o AppServiceEnvironmentOutput) ToAppServiceEnvironmentOutputWithContext(ctx context.Context) AppServiceEnvironmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AppServiceEnvironmentOutput{})
 }

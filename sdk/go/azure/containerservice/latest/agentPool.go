@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,6 +23,10 @@ type AgentPool struct {
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrOutput `pulumi:"enableNodePublicIP"`
+	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	KubeletConfig KubeletConfigResponsePtrOutput `pulumi:"kubeletConfig"`
+	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	LinuxOSConfig LinuxOSConfigResponsePtrOutput `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntPtrOutput `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.
@@ -46,6 +51,8 @@ type AgentPool struct {
 	OsDiskType pulumi.StringPtrOutput `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
+	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	PodSubnetID pulumi.StringPtrOutput `pulumi:"podSubnetID"`
 	// Describes whether the Agent Pool is Running or Stopped
 	PowerState PowerStateResponseOutput `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -66,7 +73,7 @@ type AgentPool struct {
 	UpgradeSettings AgentPoolUpgradeSettingsResponsePtrOutput `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize pulumi.StringPtrOutput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
+	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 	VnetSubnetID pulumi.StringPtrOutput `pulumi:"vnetSubnetID"`
 }
 
@@ -125,6 +132,9 @@ func NewAgentPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200901:AgentPool"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20201101:AgentPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AgentPool
@@ -157,6 +167,10 @@ type agentPoolState struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
+	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	LinuxOSConfig *LinuxOSConfigResponse `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount *int `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.
@@ -181,6 +195,8 @@ type agentPoolState struct {
 	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
+	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	PodSubnetID *string `pulumi:"podSubnetID"`
 	// Describes whether the Agent Pool is Running or Stopped
 	PowerState *PowerStateResponse `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -201,7 +217,7 @@ type agentPoolState struct {
 	UpgradeSettings *AgentPoolUpgradeSettingsResponse `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize *string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
+	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }
 
@@ -214,6 +230,10 @@ type AgentPoolState struct {
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput
+	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	KubeletConfig KubeletConfigResponsePtrInput
+	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	LinuxOSConfig LinuxOSConfigResponsePtrInput
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntPtrInput
 	// Maximum number of pods that can run on a node.
@@ -238,6 +258,8 @@ type AgentPoolState struct {
 	OsDiskType pulumi.StringPtrInput
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput
+	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	PodSubnetID pulumi.StringPtrInput
 	// Describes whether the Agent Pool is Running or Stopped
 	PowerState PowerStateResponsePtrInput
 	// The current deployment or provisioning state, which only appears in the response.
@@ -258,7 +280,7 @@ type AgentPoolState struct {
 	UpgradeSettings AgentPoolUpgradeSettingsResponsePtrInput
 	// Size of agent VMs.
 	VmSize pulumi.StringPtrInput
-	// VNet SubnetID specifies the VNet's subnet identifier.
+	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 	VnetSubnetID pulumi.StringPtrInput
 }
 
@@ -277,6 +299,10 @@ type agentPoolArgs struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	KubeletConfig *KubeletConfig `pulumi:"kubeletConfig"`
+	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	LinuxOSConfig *LinuxOSConfig `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount *int `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.
@@ -297,6 +323,8 @@ type agentPoolArgs struct {
 	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
+	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	PodSubnetID *string `pulumi:"podSubnetID"`
 	// The ID for Proximity Placement Group.
 	ProximityPlacementGroupID *string `pulumi:"proximityPlacementGroupID"`
 	// The name of the resource group.
@@ -317,7 +345,7 @@ type agentPoolArgs struct {
 	UpgradeSettings *AgentPoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize *string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
+	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }
 
@@ -333,6 +361,10 @@ type AgentPoolArgs struct {
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput
+	// KubeletConfig specifies the configuration of kubelet on agent nodes.
+	KubeletConfig KubeletConfigPtrInput
+	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
+	LinuxOSConfig LinuxOSConfigPtrInput
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntPtrInput
 	// Maximum number of pods that can run on a node.
@@ -353,6 +385,8 @@ type AgentPoolArgs struct {
 	OsDiskType pulumi.StringPtrInput
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput
+	// Pod SubnetID specifies the VNet's subnet identifier for pods.
+	PodSubnetID pulumi.StringPtrInput
 	// The ID for Proximity Placement Group.
 	ProximityPlacementGroupID pulumi.StringPtrInput
 	// The name of the resource group.
@@ -373,10 +407,49 @@ type AgentPoolArgs struct {
 	UpgradeSettings AgentPoolUpgradeSettingsPtrInput
 	// Size of agent VMs.
 	VmSize pulumi.StringPtrInput
-	// VNet SubnetID specifies the VNet's subnet identifier.
+	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
 	VnetSubnetID pulumi.StringPtrInput
 }
 
 func (AgentPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentPoolArgs)(nil)).Elem()
+}
+
+type AgentPoolInput interface {
+	pulumi.Input
+
+	ToAgentPoolOutput() AgentPoolOutput
+	ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolOutput
+}
+
+func (AgentPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPool)(nil)).Elem()
+}
+
+func (i AgentPool) ToAgentPoolOutput() AgentPoolOutput {
+	return i.ToAgentPoolOutputWithContext(context.Background())
+}
+
+func (i AgentPool) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolOutput)
+}
+
+type AgentPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (AgentPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPoolOutput)(nil)).Elem()
+}
+
+func (o AgentPoolOutput) ToAgentPoolOutput() AgentPoolOutput {
+	return o
+}
+
+func (o AgentPoolOutput) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AgentPoolOutput{})
 }

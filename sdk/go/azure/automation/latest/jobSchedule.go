@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,4 +154,43 @@ type JobScheduleArgs struct {
 
 func (JobScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobScheduleArgs)(nil)).Elem()
+}
+
+type JobScheduleInput interface {
+	pulumi.Input
+
+	ToJobScheduleOutput() JobScheduleOutput
+	ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput
+}
+
+func (JobSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSchedule)(nil)).Elem()
+}
+
+func (i JobSchedule) ToJobScheduleOutput() JobScheduleOutput {
+	return i.ToJobScheduleOutputWithContext(context.Background())
+}
+
+func (i JobSchedule) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleOutput)
+}
+
+type JobScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobScheduleOutput)(nil)).Elem()
+}
+
+func (o JobScheduleOutput) ToJobScheduleOutput() JobScheduleOutput {
+	return o
+}
+
+func (o JobScheduleOutput) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobScheduleOutput{})
 }

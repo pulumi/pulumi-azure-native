@@ -4,6 +4,7 @@
 package v20160515
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -203,4 +204,43 @@ type FormulaArgs struct {
 
 func (FormulaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*formulaArgs)(nil)).Elem()
+}
+
+type FormulaInput interface {
+	pulumi.Input
+
+	ToFormulaOutput() FormulaOutput
+	ToFormulaOutputWithContext(ctx context.Context) FormulaOutput
+}
+
+func (Formula) ElementType() reflect.Type {
+	return reflect.TypeOf((*Formula)(nil)).Elem()
+}
+
+func (i Formula) ToFormulaOutput() FormulaOutput {
+	return i.ToFormulaOutputWithContext(context.Background())
+}
+
+func (i Formula) ToFormulaOutputWithContext(ctx context.Context) FormulaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormulaOutput)
+}
+
+type FormulaOutput struct {
+	*pulumi.OutputState
+}
+
+func (FormulaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormulaOutput)(nil)).Elem()
+}
+
+func (o FormulaOutput) ToFormulaOutput() FormulaOutput {
+	return o
+}
+
+func (o FormulaOutput) ToFormulaOutputWithContext(ctx context.Context) FormulaOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FormulaOutput{})
 }

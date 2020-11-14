@@ -4,6 +4,7 @@
 package v20181101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -243,4 +244,43 @@ type WebAppSiteExtensionSlotArgs struct {
 
 func (WebAppSiteExtensionSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppSiteExtensionSlotArgs)(nil)).Elem()
+}
+
+type WebAppSiteExtensionSlotInput interface {
+	pulumi.Input
+
+	ToWebAppSiteExtensionSlotOutput() WebAppSiteExtensionSlotOutput
+	ToWebAppSiteExtensionSlotOutputWithContext(ctx context.Context) WebAppSiteExtensionSlotOutput
+}
+
+func (WebAppSiteExtensionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSiteExtensionSlot)(nil)).Elem()
+}
+
+func (i WebAppSiteExtensionSlot) ToWebAppSiteExtensionSlotOutput() WebAppSiteExtensionSlotOutput {
+	return i.ToWebAppSiteExtensionSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppSiteExtensionSlot) ToWebAppSiteExtensionSlotOutputWithContext(ctx context.Context) WebAppSiteExtensionSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSiteExtensionSlotOutput)
+}
+
+type WebAppSiteExtensionSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppSiteExtensionSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSiteExtensionSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppSiteExtensionSlotOutput) ToWebAppSiteExtensionSlotOutput() WebAppSiteExtensionSlotOutput {
+	return o
+}
+
+func (o WebAppSiteExtensionSlotOutput) ToWebAppSiteExtensionSlotOutputWithContext(ctx context.Context) WebAppSiteExtensionSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppSiteExtensionSlotOutput{})
 }

@@ -73,6 +73,7 @@ class SqlDatabase(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['database_guid'] = None
             __props__['name'] = None
+            __props__['status'] = None
             __props__['system_data'] = None
             __props__['type'] = None
         super(SqlDatabase, __self__).__init__(
@@ -140,6 +141,14 @@ class SqlDatabase(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[str]:
+        """
+        Status of the database.
+        """
+        return pulumi.get(self, "status")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
@@ -159,7 +168,7 @@ class SqlDatabase(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

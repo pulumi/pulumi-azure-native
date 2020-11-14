@@ -10,6 +10,15 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
+func TestAccApiTs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "api"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccAppServiceTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -52,6 +61,24 @@ func TestImportTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "import"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestPostgresTs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "postgres"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestMessagingTs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "messaging"),
 		})
 
 	integration.ProgramTest(t, &test)

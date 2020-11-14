@@ -4,6 +4,7 @@
 package v20180501preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -196,4 +197,43 @@ type EventSubscriptionArgs struct {
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSubscriptionArgs)(nil)).Elem()
+}
+
+type EventSubscriptionInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionOutput() EventSubscriptionOutput
+	ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput
+}
+
+func (EventSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscription)(nil)).Elem()
+}
+
+func (i EventSubscription) ToEventSubscriptionOutput() EventSubscriptionOutput {
+	return i.ToEventSubscriptionOutputWithContext(context.Background())
+}
+
+func (i EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionOutput)
+}
+
+type EventSubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionOutput)(nil)).Elem()
+}
+
+func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOutput {
+	return o
+}
+
+func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventSubscriptionOutput{})
 }

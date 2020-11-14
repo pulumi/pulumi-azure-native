@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -113,7 +112,7 @@ export class BastionHost extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:BastionHost" }, { type: "azure-nextgen:network/v20190401:BastionHost" }, { type: "azure-nextgen:network/v20190701:BastionHost" }, { type: "azure-nextgen:network/v20190801:BastionHost" }, { type: "azure-nextgen:network/v20190901:BastionHost" }, { type: "azure-nextgen:network/v20191101:BastionHost" }, { type: "azure-nextgen:network/v20191201:BastionHost" }, { type: "azure-nextgen:network/v20200301:BastionHost" }, { type: "azure-nextgen:network/v20200401:BastionHost" }, { type: "azure-nextgen:network/v20200501:BastionHost" }, { type: "azure-nextgen:network/v20200601:BastionHost" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:BastionHost" }, { type: "azure-nextgen:network/v20190401:BastionHost" }, { type: "azure-nextgen:network/v20190701:BastionHost" }, { type: "azure-nextgen:network/v20190801:BastionHost" }, { type: "azure-nextgen:network/v20190901:BastionHost" }, { type: "azure-nextgen:network/v20191101:BastionHost" }, { type: "azure-nextgen:network/v20191201:BastionHost" }, { type: "azure-nextgen:network/v20200301:BastionHost" }, { type: "azure-nextgen:network/v20200401:BastionHost" }, { type: "azure-nextgen:network/v20200501:BastionHost" }, { type: "azure-nextgen:network/v20200601:BastionHost" }, { type: "azure-nextgen:network/v20200701:BastionHost" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BastionHost.__pulumiType, name, inputs, opts);
     }

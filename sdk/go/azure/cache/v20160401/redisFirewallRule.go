@@ -4,6 +4,7 @@
 package v20160401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -142,4 +143,43 @@ type RedisFirewallRuleArgs struct {
 
 func (RedisFirewallRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*redisFirewallRuleArgs)(nil)).Elem()
+}
+
+type RedisFirewallRuleInput interface {
+	pulumi.Input
+
+	ToRedisFirewallRuleOutput() RedisFirewallRuleOutput
+	ToRedisFirewallRuleOutputWithContext(ctx context.Context) RedisFirewallRuleOutput
+}
+
+func (RedisFirewallRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisFirewallRule)(nil)).Elem()
+}
+
+func (i RedisFirewallRule) ToRedisFirewallRuleOutput() RedisFirewallRuleOutput {
+	return i.ToRedisFirewallRuleOutputWithContext(context.Background())
+}
+
+func (i RedisFirewallRule) ToRedisFirewallRuleOutputWithContext(ctx context.Context) RedisFirewallRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisFirewallRuleOutput)
+}
+
+type RedisFirewallRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (RedisFirewallRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisFirewallRuleOutput)(nil)).Elem()
+}
+
+func (o RedisFirewallRuleOutput) ToRedisFirewallRuleOutput() RedisFirewallRuleOutput {
+	return o
+}
+
+func (o RedisFirewallRuleOutput) ToRedisFirewallRuleOutputWithContext(ctx context.Context) RedisFirewallRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RedisFirewallRuleOutput{})
 }

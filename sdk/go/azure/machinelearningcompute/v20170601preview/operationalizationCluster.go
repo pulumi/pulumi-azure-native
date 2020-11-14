@@ -4,6 +4,7 @@
 package v20170601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -211,4 +212,43 @@ type OperationalizationClusterArgs struct {
 
 func (OperationalizationClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*operationalizationClusterArgs)(nil)).Elem()
+}
+
+type OperationalizationClusterInput interface {
+	pulumi.Input
+
+	ToOperationalizationClusterOutput() OperationalizationClusterOutput
+	ToOperationalizationClusterOutputWithContext(ctx context.Context) OperationalizationClusterOutput
+}
+
+func (OperationalizationCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationalizationCluster)(nil)).Elem()
+}
+
+func (i OperationalizationCluster) ToOperationalizationClusterOutput() OperationalizationClusterOutput {
+	return i.ToOperationalizationClusterOutputWithContext(context.Background())
+}
+
+func (i OperationalizationCluster) ToOperationalizationClusterOutputWithContext(ctx context.Context) OperationalizationClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OperationalizationClusterOutput)
+}
+
+type OperationalizationClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (OperationalizationClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationalizationClusterOutput)(nil)).Elem()
+}
+
+func (o OperationalizationClusterOutput) ToOperationalizationClusterOutput() OperationalizationClusterOutput {
+	return o
+}
+
+func (o OperationalizationClusterOutput) ToOperationalizationClusterOutputWithContext(ctx context.Context) OperationalizationClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OperationalizationClusterOutput{})
 }

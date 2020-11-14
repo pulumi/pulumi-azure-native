@@ -4,6 +4,7 @@
 package v20200501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -28,7 +29,7 @@ type StreamingPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configurations of NoEncryption
 	NoEncryption NoEncryptionResponsePtrOutput `pulumi:"noEncryption"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -98,7 +99,7 @@ type streamingPolicyState struct {
 	Name *string `pulumi:"name"`
 	// Configurations of NoEncryption
 	NoEncryption *NoEncryptionResponse `pulumi:"noEncryption"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -117,7 +118,7 @@ type StreamingPolicyState struct {
 	Name pulumi.StringPtrInput
 	// Configurations of NoEncryption
 	NoEncryption NoEncryptionResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -166,4 +167,43 @@ type StreamingPolicyArgs struct {
 
 func (StreamingPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamingPolicyArgs)(nil)).Elem()
+}
+
+type StreamingPolicyInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyOutput() StreamingPolicyOutput
+	ToStreamingPolicyOutputWithContext(ctx context.Context) StreamingPolicyOutput
+}
+
+func (StreamingPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicy)(nil)).Elem()
+}
+
+func (i StreamingPolicy) ToStreamingPolicyOutput() StreamingPolicyOutput {
+	return i.ToStreamingPolicyOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicy) ToStreamingPolicyOutputWithContext(ctx context.Context) StreamingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyOutput)
+}
+
+type StreamingPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyOutput)(nil)).Elem()
+}
+
+func (o StreamingPolicyOutput) ToStreamingPolicyOutput() StreamingPolicyOutput {
+	return o
+}
+
+func (o StreamingPolicyOutput) ToStreamingPolicyOutputWithContext(ctx context.Context) StreamingPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StreamingPolicyOutput{})
 }

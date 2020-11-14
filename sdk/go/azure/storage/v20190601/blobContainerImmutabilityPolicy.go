@@ -4,6 +4,7 @@
 package v20190601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -24,7 +25,7 @@ type BlobContainerImmutabilityPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 	State pulumi.StringOutput `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -102,7 +103,7 @@ type blobContainerImmutabilityPolicyState struct {
 	Name *string `pulumi:"name"`
 	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 	State *string `pulumi:"state"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -117,7 +118,7 @@ type BlobContainerImmutabilityPolicyState struct {
 	Name pulumi.StringPtrInput
 	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
 	State pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -158,4 +159,43 @@ type BlobContainerImmutabilityPolicyArgs struct {
 
 func (BlobContainerImmutabilityPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*blobContainerImmutabilityPolicyArgs)(nil)).Elem()
+}
+
+type BlobContainerImmutabilityPolicyInput interface {
+	pulumi.Input
+
+	ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput
+	ToBlobContainerImmutabilityPolicyOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyOutput
+}
+
+func (BlobContainerImmutabilityPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerImmutabilityPolicy)(nil)).Elem()
+}
+
+func (i BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput {
+	return i.ToBlobContainerImmutabilityPolicyOutputWithContext(context.Background())
+}
+
+func (i BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerImmutabilityPolicyOutput)
+}
+
+type BlobContainerImmutabilityPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (BlobContainerImmutabilityPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerImmutabilityPolicyOutput)(nil)).Elem()
+}
+
+func (o BlobContainerImmutabilityPolicyOutput) ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput {
+	return o
+}
+
+func (o BlobContainerImmutabilityPolicyOutput) ToBlobContainerImmutabilityPolicyOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BlobContainerImmutabilityPolicyOutput{})
 }

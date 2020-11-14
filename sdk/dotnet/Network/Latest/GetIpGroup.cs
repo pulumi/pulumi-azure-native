@@ -50,7 +50,11 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// List of references to Azure resources that this IpGroups is associated with.
+        /// List of references to Firewall Policies resources that this IpGroups is associated with.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> FirewallPolicies;
+        /// <summary>
+        /// List of references to Firewall resources that this IpGroups is associated with.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> Firewalls;
         /// <summary>
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         private GetIpGroupResult(
             string etag,
 
+            ImmutableArray<Outputs.SubResourceResponse> firewallPolicies,
+
             ImmutableArray<Outputs.SubResourceResponse> firewalls,
 
             ImmutableArray<string> ipAddresses,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             string type)
         {
             Etag = etag;
+            FirewallPolicies = firewallPolicies;
             Firewalls = firewalls;
             IpAddresses = ipAddresses;
             Location = location;

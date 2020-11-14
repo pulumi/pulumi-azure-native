@@ -4,6 +4,7 @@
 package v20190907
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -28,7 +29,7 @@ type AttachedDatabaseConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioned state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -110,7 +111,7 @@ type attachedDatabaseConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// The provisioned state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -129,7 +130,7 @@ type AttachedDatabaseConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// The provisioned state of the resource.
 	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -174,4 +175,43 @@ type AttachedDatabaseConfigurationArgs struct {
 
 func (AttachedDatabaseConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*attachedDatabaseConfigurationArgs)(nil)).Elem()
+}
+
+type AttachedDatabaseConfigurationInput interface {
+	pulumi.Input
+
+	ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput
+	ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput
+}
+
+func (AttachedDatabaseConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil)).Elem()
+}
+
+func (i AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {
+	return i.ToAttachedDatabaseConfigurationOutputWithContext(context.Background())
+}
+
+func (i AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationOutput)
+}
+
+type AttachedDatabaseConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (AttachedDatabaseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttachedDatabaseConfigurationOutput)(nil)).Elem()
+}
+
+func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AttachedDatabaseConfigurationOutput{})
 }

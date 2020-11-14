@@ -4,6 +4,7 @@
 package v20191001preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -100,4 +101,43 @@ type SubscriptionAliasArgs struct {
 
 func (SubscriptionAliasArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionAliasArgs)(nil)).Elem()
+}
+
+type SubscriptionAliasInput interface {
+	pulumi.Input
+
+	ToSubscriptionAliasOutput() SubscriptionAliasOutput
+	ToSubscriptionAliasOutputWithContext(ctx context.Context) SubscriptionAliasOutput
+}
+
+func (SubscriptionAlias) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionAlias)(nil)).Elem()
+}
+
+func (i SubscriptionAlias) ToSubscriptionAliasOutput() SubscriptionAliasOutput {
+	return i.ToSubscriptionAliasOutputWithContext(context.Background())
+}
+
+func (i SubscriptionAlias) ToSubscriptionAliasOutputWithContext(ctx context.Context) SubscriptionAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionAliasOutput)
+}
+
+type SubscriptionAliasOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubscriptionAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionAliasOutput)(nil)).Elem()
+}
+
+func (o SubscriptionAliasOutput) ToSubscriptionAliasOutput() SubscriptionAliasOutput {
+	return o
+}
+
+func (o SubscriptionAliasOutput) ToSubscriptionAliasOutputWithContext(ctx context.Context) SubscriptionAliasOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubscriptionAliasOutput{})
 }

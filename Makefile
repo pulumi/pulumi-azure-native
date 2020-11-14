@@ -88,8 +88,7 @@ generate_dotnet::
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
-		echo "${VERSION:v%=%}" >version.txt && \
-		echo "${DOTNET_VERSION}" >version.txt && \
+		echo "azure-nextgen\n${DOTNET_VERSION}" >version.txt && \
 		dotnet build /p:Version=${DOTNET_VERSION}
 
 generate_go::

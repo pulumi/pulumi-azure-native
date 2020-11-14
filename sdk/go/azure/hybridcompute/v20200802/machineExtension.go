@@ -4,6 +4,7 @@
 package v20200802
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,7 +35,7 @@ type MachineExtension struct {
 	Settings pulumi.AnyOutput `pulumi:"settings"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the version of the script handler.
 	TypeHandlerVersion pulumi.StringPtrOutput `pulumi:"typeHandlerVersion"`
@@ -118,7 +119,7 @@ type machineExtensionState struct {
 	Settings interface{} `pulumi:"settings"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
@@ -145,7 +146,7 @@ type MachineExtensionState struct {
 	Settings pulumi.Input
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Specifies the version of the script handler.
 	TypeHandlerVersion pulumi.StringPtrInput
@@ -212,4 +213,43 @@ type MachineExtensionArgs struct {
 
 func (MachineExtensionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*machineExtensionArgs)(nil)).Elem()
+}
+
+type MachineExtensionInput interface {
+	pulumi.Input
+
+	ToMachineExtensionOutput() MachineExtensionOutput
+	ToMachineExtensionOutputWithContext(ctx context.Context) MachineExtensionOutput
+}
+
+func (MachineExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtension)(nil)).Elem()
+}
+
+func (i MachineExtension) ToMachineExtensionOutput() MachineExtensionOutput {
+	return i.ToMachineExtensionOutputWithContext(context.Background())
+}
+
+func (i MachineExtension) ToMachineExtensionOutputWithContext(ctx context.Context) MachineExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionOutput)
+}
+
+type MachineExtensionOutput struct {
+	*pulumi.OutputState
+}
+
+func (MachineExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionOutput)(nil)).Elem()
+}
+
+func (o MachineExtensionOutput) ToMachineExtensionOutput() MachineExtensionOutput {
+	return o
+}
+
+func (o MachineExtensionOutput) ToMachineExtensionOutputWithContext(ctx context.Context) MachineExtensionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MachineExtensionOutput{})
 }

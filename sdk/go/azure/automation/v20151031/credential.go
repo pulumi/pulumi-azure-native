@@ -4,6 +4,7 @@
 package v20151031
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -150,4 +151,43 @@ type CredentialArgs struct {
 
 func (CredentialArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*credentialArgs)(nil)).Elem()
+}
+
+type CredentialInput interface {
+	pulumi.Input
+
+	ToCredentialOutput() CredentialOutput
+	ToCredentialOutputWithContext(ctx context.Context) CredentialOutput
+}
+
+func (Credential) ElementType() reflect.Type {
+	return reflect.TypeOf((*Credential)(nil)).Elem()
+}
+
+func (i Credential) ToCredentialOutput() CredentialOutput {
+	return i.ToCredentialOutputWithContext(context.Background())
+}
+
+func (i Credential) ToCredentialOutputWithContext(ctx context.Context) CredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialOutput)
+}
+
+type CredentialOutput struct {
+	*pulumi.OutputState
+}
+
+func (CredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialOutput)(nil)).Elem()
+}
+
+func (o CredentialOutput) ToCredentialOutput() CredentialOutput {
+	return o
+}
+
+func (o CredentialOutput) ToCredentialOutputWithContext(ctx context.Context) CredentialOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CredentialOutput{})
 }

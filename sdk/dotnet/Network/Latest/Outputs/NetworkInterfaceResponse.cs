@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The extended location of the network interface.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// A list of references to linked BareMetal resources.
         /// </summary>
         public readonly ImmutableArray<string> HostedWorkloads;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
 
             string etag,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             ImmutableArray<string> hostedWorkloads,
 
             string? id,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
             EnableIPForwarding = enableIPForwarding;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             HostedWorkloads = hostedWorkloads;
             Id = id;
             IpConfigurations = ipConfigurations;

@@ -15,22 +15,28 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
     public partial class PrivateStoreOffer : Pulumi.CustomResource
     {
         /// <summary>
-        /// Private store offer creator name
+        /// Private store offer creation date
         /// </summary>
-        [Output("createdBy")]
-        public Output<string> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// Private store offer created date
-        /// </summary>
-        [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// Identifier for purposes of race condition
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
+
+        /// <summary>
+        /// Icon File Uris
+        /// </summary>
+        [Output("iconFileUris")]
+        public Output<Outputs.OfferPropertiesResponseIconFileUris?> IconFileUris { get; private set; } = null!;
+
+        /// <summary>
+        /// Private store offer modification date
+        /// </summary>
+        [Output("modifiedAt")]
+        public Output<string> ModifiedAt { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -43,6 +49,12 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// </summary>
         [Output("offerDisplayName")]
         public Output<string> OfferDisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Offer plans
+        /// </summary>
+        [Output("plans")]
+        public Output<ImmutableArray<Outputs.PlanResponse>> Plans { get; private set; } = null!;
 
         /// <summary>
         /// Private store unique id
@@ -73,6 +85,12 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// </summary>
         [Output("uniqueOfferId")]
         public Output<string> UniqueOfferId { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+        /// </summary>
+        [Output("updateSuppressedDueIdempotence")]
+        public Output<bool?> UpdateSuppressedDueIdempotence { get; private set; } = null!;
 
 
         /// <summary>
@@ -130,10 +148,28 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         public Input<string>? ETag { get; set; }
 
         /// <summary>
+        /// Icon File Uris
+        /// </summary>
+        [Input("iconFileUris")]
+        public Input<Inputs.OfferPropertiesIconFileUrisArgs>? IconFileUris { get; set; }
+
+        /// <summary>
         /// The offer ID to update or delete
         /// </summary>
         [Input("offerId", required: true)]
         public Input<string> OfferId { get; set; } = null!;
+
+        [Input("plans")]
+        private InputList<Inputs.PlanArgs>? _plans;
+
+        /// <summary>
+        /// Offer plans
+        /// </summary>
+        public InputList<Inputs.PlanArgs> Plans
+        {
+            get => _plans ?? (_plans = new InputList<Inputs.PlanArgs>());
+            set => _plans = value;
+        }
 
         /// <summary>
         /// The store ID - must use the tenant ID
@@ -152,6 +188,12 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
             get => _specificPlanIdsLimitation ?? (_specificPlanIdsLimitation = new InputList<string>());
             set => _specificPlanIdsLimitation = value;
         }
+
+        /// <summary>
+        /// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+        /// </summary>
+        [Input("updateSuppressedDueIdempotence")]
+        public Input<bool>? UpdateSuppressedDueIdempotence { get; set; }
 
         public PrivateStoreOfferArgs()
         {

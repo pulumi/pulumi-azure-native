@@ -22,6 +22,12 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
+        /// Reference to the frontend ip address configuration defined in regional loadbalancer.
+        /// </summary>
+        [Input("loadBalancerFrontendIPConfiguration")]
+        public Input<Inputs.SubResourceArgs>? LoadBalancerFrontendIPConfiguration { get; set; }
+
+        /// <summary>
         /// Name of the backend address.
         /// </summary>
         [Input("name")]

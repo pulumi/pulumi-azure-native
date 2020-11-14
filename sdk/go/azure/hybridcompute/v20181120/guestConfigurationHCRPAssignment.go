@@ -4,6 +4,7 @@
 package v20181120
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -128,4 +129,43 @@ type GuestConfigurationHCRPAssignmentArgs struct {
 
 func (GuestConfigurationHCRPAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*guestConfigurationHCRPAssignmentArgs)(nil)).Elem()
+}
+
+type GuestConfigurationHCRPAssignmentInput interface {
+	pulumi.Input
+
+	ToGuestConfigurationHCRPAssignmentOutput() GuestConfigurationHCRPAssignmentOutput
+	ToGuestConfigurationHCRPAssignmentOutputWithContext(ctx context.Context) GuestConfigurationHCRPAssignmentOutput
+}
+
+func (GuestConfigurationHCRPAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationHCRPAssignment)(nil)).Elem()
+}
+
+func (i GuestConfigurationHCRPAssignment) ToGuestConfigurationHCRPAssignmentOutput() GuestConfigurationHCRPAssignmentOutput {
+	return i.ToGuestConfigurationHCRPAssignmentOutputWithContext(context.Background())
+}
+
+func (i GuestConfigurationHCRPAssignment) ToGuestConfigurationHCRPAssignmentOutputWithContext(ctx context.Context) GuestConfigurationHCRPAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationHCRPAssignmentOutput)
+}
+
+type GuestConfigurationHCRPAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (GuestConfigurationHCRPAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationHCRPAssignmentOutput)(nil)).Elem()
+}
+
+func (o GuestConfigurationHCRPAssignmentOutput) ToGuestConfigurationHCRPAssignmentOutput() GuestConfigurationHCRPAssignmentOutput {
+	return o
+}
+
+func (o GuestConfigurationHCRPAssignmentOutput) ToGuestConfigurationHCRPAssignmentOutputWithContext(ctx context.Context) GuestConfigurationHCRPAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GuestConfigurationHCRPAssignmentOutput{})
 }

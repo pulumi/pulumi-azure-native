@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,7 +23,7 @@ type IpFirewallRule struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The start IP address of the firewall rule. Must be IPv4 format
 	StartIpAddress pulumi.StringPtrOutput `pulumi:"startIpAddress"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -71,7 +72,7 @@ type ipFirewallRuleState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The start IP address of the firewall rule. Must be IPv4 format
 	StartIpAddress *string `pulumi:"startIpAddress"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -84,7 +85,7 @@ type IpFirewallRuleState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The start IP address of the firewall rule. Must be IPv4 format
 	StartIpAddress pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -121,4 +122,43 @@ type IpFirewallRuleArgs struct {
 
 func (IpFirewallRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipFirewallRuleArgs)(nil)).Elem()
+}
+
+type IpFirewallRuleInput interface {
+	pulumi.Input
+
+	ToIpFirewallRuleOutput() IpFirewallRuleOutput
+	ToIpFirewallRuleOutputWithContext(ctx context.Context) IpFirewallRuleOutput
+}
+
+func (IpFirewallRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpFirewallRule)(nil)).Elem()
+}
+
+func (i IpFirewallRule) ToIpFirewallRuleOutput() IpFirewallRuleOutput {
+	return i.ToIpFirewallRuleOutputWithContext(context.Background())
+}
+
+func (i IpFirewallRule) ToIpFirewallRuleOutputWithContext(ctx context.Context) IpFirewallRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpFirewallRuleOutput)
+}
+
+type IpFirewallRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (IpFirewallRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpFirewallRuleOutput)(nil)).Elem()
+}
+
+func (o IpFirewallRuleOutput) ToIpFirewallRuleOutput() IpFirewallRuleOutput {
+	return o
+}
+
+func (o IpFirewallRuleOutput) ToIpFirewallRuleOutputWithContext(ctx context.Context) IpFirewallRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IpFirewallRuleOutput{})
 }

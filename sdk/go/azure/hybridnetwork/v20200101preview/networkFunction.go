@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,7 +39,7 @@ type NetworkFunction struct {
 	SkuType pulumi.StringOutput `pulumi:"skuType"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The vendor name for the network function.
 	VendorName pulumi.StringPtrOutput `pulumi:"vendorName"`
@@ -107,7 +108,7 @@ type networkFunctionState struct {
 	SkuType *string `pulumi:"skuType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The vendor name for the network function.
 	VendorName *string `pulumi:"vendorName"`
@@ -140,7 +141,7 @@ type NetworkFunctionState struct {
 	SkuType pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The vendor name for the network function.
 	VendorName pulumi.StringPtrInput
@@ -201,4 +202,43 @@ type NetworkFunctionArgs struct {
 
 func (NetworkFunctionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkFunctionArgs)(nil)).Elem()
+}
+
+type NetworkFunctionInput interface {
+	pulumi.Input
+
+	ToNetworkFunctionOutput() NetworkFunctionOutput
+	ToNetworkFunctionOutputWithContext(ctx context.Context) NetworkFunctionOutput
+}
+
+func (NetworkFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunction)(nil)).Elem()
+}
+
+func (i NetworkFunction) ToNetworkFunctionOutput() NetworkFunctionOutput {
+	return i.ToNetworkFunctionOutputWithContext(context.Background())
+}
+
+func (i NetworkFunction) ToNetworkFunctionOutputWithContext(ctx context.Context) NetworkFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionOutput)
+}
+
+type NetworkFunctionOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunctionOutput)(nil)).Elem()
+}
+
+func (o NetworkFunctionOutput) ToNetworkFunctionOutput() NetworkFunctionOutput {
+	return o
+}
+
+func (o NetworkFunctionOutput) ToNetworkFunctionOutputWithContext(ctx context.Context) NetworkFunctionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkFunctionOutput{})
 }

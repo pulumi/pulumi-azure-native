@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupResult> {
@@ -45,7 +44,11 @@ export interface GetIpGroupResult {
      */
     readonly etag: string;
     /**
-     * List of references to Azure resources that this IpGroups is associated with.
+     * List of references to Firewall Policies resources that this IpGroups is associated with.
+     */
+    readonly firewallPolicies: outputs.network.latest.SubResourceResponse[];
+    /**
+     * List of references to Firewall resources that this IpGroups is associated with.
      */
     readonly firewalls: outputs.network.latest.SubResourceResponse[];
     /**

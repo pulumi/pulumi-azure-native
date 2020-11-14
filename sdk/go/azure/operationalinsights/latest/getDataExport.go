@@ -27,8 +27,6 @@ type LookupDataExportArgs struct {
 
 // The top level data export resource container.
 type LookupDataExportResult struct {
-	// When ‘true’, all workspace's tables are exported.
-	AllTables *bool `pulumi:"allTables"`
 	// The latest data export rule modification time.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The data export rule ID.
@@ -45,6 +43,6 @@ type LookupDataExportResult struct {
 	ResourceId string `pulumi:"resourceId"`
 	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
 	TableNames []string `pulumi:"tableNames"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

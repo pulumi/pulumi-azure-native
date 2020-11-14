@@ -4,6 +4,7 @@
 package v20200301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -170,4 +171,43 @@ type StorageTargetArgs struct {
 
 func (StorageTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageTargetArgs)(nil)).Elem()
+}
+
+type StorageTargetInput interface {
+	pulumi.Input
+
+	ToStorageTargetOutput() StorageTargetOutput
+	ToStorageTargetOutputWithContext(ctx context.Context) StorageTargetOutput
+}
+
+func (StorageTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageTarget)(nil)).Elem()
+}
+
+func (i StorageTarget) ToStorageTargetOutput() StorageTargetOutput {
+	return i.ToStorageTargetOutputWithContext(context.Background())
+}
+
+func (i StorageTarget) ToStorageTargetOutputWithContext(ctx context.Context) StorageTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageTargetOutput)
+}
+
+type StorageTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageTargetOutput)(nil)).Elem()
+}
+
+func (o StorageTargetOutput) ToStorageTargetOutput() StorageTargetOutput {
+	return o
+}
+
+func (o StorageTargetOutput) ToStorageTargetOutputWithContext(ctx context.Context) StorageTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageTargetOutput{})
 }

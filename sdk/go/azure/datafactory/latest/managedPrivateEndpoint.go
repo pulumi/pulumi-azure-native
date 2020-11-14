@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type ManagedPrivateEndpointArgs struct {
 
 func (ManagedPrivateEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedPrivateEndpointArgs)(nil)).Elem()
+}
+
+type ManagedPrivateEndpointInput interface {
+	pulumi.Input
+
+	ToManagedPrivateEndpointOutput() ManagedPrivateEndpointOutput
+	ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput
+}
+
+func (ManagedPrivateEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrivateEndpoint)(nil)).Elem()
+}
+
+func (i ManagedPrivateEndpoint) ToManagedPrivateEndpointOutput() ManagedPrivateEndpointOutput {
+	return i.ToManagedPrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i ManagedPrivateEndpoint) ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointOutput)
+}
+
+type ManagedPrivateEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedPrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrivateEndpointOutput)(nil)).Elem()
+}
+
+func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutput() ManagedPrivateEndpointOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedPrivateEndpointOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -164,4 +165,43 @@ type WebAppRelayServiceConnectionSlotArgs struct {
 
 func (WebAppRelayServiceConnectionSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppRelayServiceConnectionSlotArgs)(nil)).Elem()
+}
+
+type WebAppRelayServiceConnectionSlotInput interface {
+	pulumi.Input
+
+	ToWebAppRelayServiceConnectionSlotOutput() WebAppRelayServiceConnectionSlotOutput
+	ToWebAppRelayServiceConnectionSlotOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionSlotOutput
+}
+
+func (WebAppRelayServiceConnectionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppRelayServiceConnectionSlot)(nil)).Elem()
+}
+
+func (i WebAppRelayServiceConnectionSlot) ToWebAppRelayServiceConnectionSlotOutput() WebAppRelayServiceConnectionSlotOutput {
+	return i.ToWebAppRelayServiceConnectionSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppRelayServiceConnectionSlot) ToWebAppRelayServiceConnectionSlotOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppRelayServiceConnectionSlotOutput)
+}
+
+type WebAppRelayServiceConnectionSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppRelayServiceConnectionSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppRelayServiceConnectionSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppRelayServiceConnectionSlotOutput) ToWebAppRelayServiceConnectionSlotOutput() WebAppRelayServiceConnectionSlotOutput {
+	return o
+}
+
+func (o WebAppRelayServiceConnectionSlotOutput) ToWebAppRelayServiceConnectionSlotOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppRelayServiceConnectionSlotOutput{})
 }

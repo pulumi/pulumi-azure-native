@@ -4,6 +4,7 @@
 package v20190515
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -26,7 +27,7 @@ type Database struct {
 	SoftDeletePeriod pulumi.StringPtrOutput `pulumi:"softDeletePeriod"`
 	// The statistics of the database.
 	Statistics DatabaseStatisticsResponseOutput `pulumi:"statistics"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -109,7 +110,7 @@ type databaseState struct {
 	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
 	// The statistics of the database.
 	Statistics *DatabaseStatisticsResponse `pulumi:"statistics"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -126,7 +127,7 @@ type DatabaseState struct {
 	SoftDeletePeriod pulumi.StringPtrInput
 	// The statistics of the database.
 	Statistics DatabaseStatisticsResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -167,4 +168,43 @@ type DatabaseArgs struct {
 
 func (DatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseArgs)(nil)).Elem()
+}
+
+type DatabaseInput interface {
+	pulumi.Input
+
+	ToDatabaseOutput() DatabaseOutput
+	ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput
+}
+
+func (Database) ElementType() reflect.Type {
+	return reflect.TypeOf((*Database)(nil)).Elem()
+}
+
+func (i Database) ToDatabaseOutput() DatabaseOutput {
+	return i.ToDatabaseOutputWithContext(context.Background())
+}
+
+func (i Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
+}
+
+type DatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseOutput)(nil)).Elem()
+}
+
+func (o DatabaseOutput) ToDatabaseOutput() DatabaseOutput {
+	return o
+}
+
+func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatabaseOutput{})
 }

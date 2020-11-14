@@ -116,6 +116,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PacketCapture"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

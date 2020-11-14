@@ -4,6 +4,7 @@
 package v20200301preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -30,7 +31,7 @@ type DataExport struct {
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
 	TableNames pulumi.StringArrayOutput `pulumi:"tableNames"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -102,7 +103,7 @@ type dataExportState struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
 	TableNames []string `pulumi:"tableNames"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -123,7 +124,7 @@ type DataExportState struct {
 	ResourceId pulumi.StringPtrInput
 	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
 	TableNames pulumi.StringArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -180,4 +181,43 @@ type DataExportArgs struct {
 
 func (DataExportArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataExportArgs)(nil)).Elem()
+}
+
+type DataExportInput interface {
+	pulumi.Input
+
+	ToDataExportOutput() DataExportOutput
+	ToDataExportOutputWithContext(ctx context.Context) DataExportOutput
+}
+
+func (DataExport) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExport)(nil)).Elem()
+}
+
+func (i DataExport) ToDataExportOutput() DataExportOutput {
+	return i.ToDataExportOutputWithContext(context.Background())
+}
+
+func (i DataExport) ToDataExportOutputWithContext(ctx context.Context) DataExportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataExportOutput)
+}
+
+type DataExportOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataExportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExportOutput)(nil)).Elem()
+}
+
+func (o DataExportOutput) ToDataExportOutput() DataExportOutput {
+	return o
+}
+
+func (o DataExportOutput) ToDataExportOutputWithContext(ctx context.Context) DataExportOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataExportOutput{})
 }

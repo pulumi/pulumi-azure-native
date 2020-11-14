@@ -4,6 +4,7 @@
 package v20191212
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,4 +154,43 @@ type CassandraResourceCassandraKeyspaceArgs struct {
 
 func (CassandraResourceCassandraKeyspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cassandraResourceCassandraKeyspaceArgs)(nil)).Elem()
+}
+
+type CassandraResourceCassandraKeyspaceInput interface {
+	pulumi.Input
+
+	ToCassandraResourceCassandraKeyspaceOutput() CassandraResourceCassandraKeyspaceOutput
+	ToCassandraResourceCassandraKeyspaceOutputWithContext(ctx context.Context) CassandraResourceCassandraKeyspaceOutput
+}
+
+func (CassandraResourceCassandraKeyspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraResourceCassandraKeyspace)(nil)).Elem()
+}
+
+func (i CassandraResourceCassandraKeyspace) ToCassandraResourceCassandraKeyspaceOutput() CassandraResourceCassandraKeyspaceOutput {
+	return i.ToCassandraResourceCassandraKeyspaceOutputWithContext(context.Background())
+}
+
+func (i CassandraResourceCassandraKeyspace) ToCassandraResourceCassandraKeyspaceOutputWithContext(ctx context.Context) CassandraResourceCassandraKeyspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraKeyspaceOutput)
+}
+
+type CassandraResourceCassandraKeyspaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (CassandraResourceCassandraKeyspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraResourceCassandraKeyspaceOutput)(nil)).Elem()
+}
+
+func (o CassandraResourceCassandraKeyspaceOutput) ToCassandraResourceCassandraKeyspaceOutput() CassandraResourceCassandraKeyspaceOutput {
+	return o
+}
+
+func (o CassandraResourceCassandraKeyspaceOutput) ToCassandraResourceCassandraKeyspaceOutputWithContext(ctx context.Context) CassandraResourceCassandraKeyspaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CassandraResourceCassandraKeyspaceOutput{})
 }

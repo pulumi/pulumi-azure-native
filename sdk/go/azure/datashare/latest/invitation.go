@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -187,4 +188,43 @@ type InvitationArgs struct {
 
 func (InvitationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*invitationArgs)(nil)).Elem()
+}
+
+type InvitationInput interface {
+	pulumi.Input
+
+	ToInvitationOutput() InvitationOutput
+	ToInvitationOutputWithContext(ctx context.Context) InvitationOutput
+}
+
+func (Invitation) ElementType() reflect.Type {
+	return reflect.TypeOf((*Invitation)(nil)).Elem()
+}
+
+func (i Invitation) ToInvitationOutput() InvitationOutput {
+	return i.ToInvitationOutputWithContext(context.Background())
+}
+
+func (i Invitation) ToInvitationOutputWithContext(ctx context.Context) InvitationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvitationOutput)
+}
+
+type InvitationOutput struct {
+	*pulumi.OutputState
+}
+
+func (InvitationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvitationOutput)(nil)).Elem()
+}
+
+func (o InvitationOutput) ToInvitationOutput() InvitationOutput {
+	return o
+}
+
+func (o InvitationOutput) ToInvitationOutputWithContext(ctx context.Context) InvitationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InvitationOutput{})
 }

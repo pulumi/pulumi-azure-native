@@ -73,7 +73,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -100,7 +100,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name

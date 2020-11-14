@@ -4,6 +4,7 @@
 package v20150501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -165,4 +166,43 @@ type AnalyticsItemArgs struct {
 
 func (AnalyticsItemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsItemArgs)(nil)).Elem()
+}
+
+type AnalyticsItemInput interface {
+	pulumi.Input
+
+	ToAnalyticsItemOutput() AnalyticsItemOutput
+	ToAnalyticsItemOutputWithContext(ctx context.Context) AnalyticsItemOutput
+}
+
+func (AnalyticsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsItem)(nil)).Elem()
+}
+
+func (i AnalyticsItem) ToAnalyticsItemOutput() AnalyticsItemOutput {
+	return i.ToAnalyticsItemOutputWithContext(context.Background())
+}
+
+func (i AnalyticsItem) ToAnalyticsItemOutputWithContext(ctx context.Context) AnalyticsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemOutput)
+}
+
+type AnalyticsItemOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyticsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsItemOutput)(nil)).Elem()
+}
+
+func (o AnalyticsItemOutput) ToAnalyticsItemOutput() AnalyticsItemOutput {
+	return o
+}
+
+func (o AnalyticsItemOutput) ToAnalyticsItemOutputWithContext(ctx context.Context) AnalyticsItemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AnalyticsItemOutput{})
 }

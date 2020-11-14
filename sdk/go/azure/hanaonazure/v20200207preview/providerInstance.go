@@ -4,6 +4,7 @@
 package v20200207preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,7 +23,7 @@ type ProviderInstance struct {
 	Properties pulumi.StringOutput `pulumi:"properties"`
 	// State of provisioning of the provider instance
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -71,7 +72,7 @@ type providerInstanceState struct {
 	Properties *string `pulumi:"properties"`
 	// State of provisioning of the provider instance
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -84,7 +85,7 @@ type ProviderInstanceState struct {
 	Properties pulumi.StringPtrInput
 	// State of provisioning of the provider instance
 	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -125,4 +126,43 @@ type ProviderInstanceArgs struct {
 
 func (ProviderInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerInstanceArgs)(nil)).Elem()
+}
+
+type ProviderInstanceInput interface {
+	pulumi.Input
+
+	ToProviderInstanceOutput() ProviderInstanceOutput
+	ToProviderInstanceOutputWithContext(ctx context.Context) ProviderInstanceOutput
+}
+
+func (ProviderInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderInstance)(nil)).Elem()
+}
+
+func (i ProviderInstance) ToProviderInstanceOutput() ProviderInstanceOutput {
+	return i.ToProviderInstanceOutputWithContext(context.Background())
+}
+
+func (i ProviderInstance) ToProviderInstanceOutputWithContext(ctx context.Context) ProviderInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderInstanceOutput)
+}
+
+type ProviderInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProviderInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderInstanceOutput)(nil)).Elem()
+}
+
+func (o ProviderInstanceOutput) ToProviderInstanceOutput() ProviderInstanceOutput {
+	return o
+}
+
+func (o ProviderInstanceOutput) ToProviderInstanceOutputWithContext(ctx context.Context) ProviderInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProviderInstanceOutput{})
 }

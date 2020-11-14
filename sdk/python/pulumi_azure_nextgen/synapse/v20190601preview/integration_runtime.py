@@ -32,7 +32,7 @@ class IntegrationRuntime(pulumi.CustomResource):
         :param pulumi.Input[str] integration_runtime_name: Integration runtime name
         :param pulumi.Input[Union[pulumi.InputType['ManagedIntegrationRuntimeArgs'], pulumi.InputType['SelfHostedIntegrationRuntimeArgs']]] properties: Integration runtime properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -118,7 +118,7 @@ class IntegrationRuntime(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

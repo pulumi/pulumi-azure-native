@@ -4,6 +4,7 @@
 package v20180401
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -85,4 +86,43 @@ type TrafficManagerUserMetricsKeyArgs struct {
 
 func (TrafficManagerUserMetricsKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficManagerUserMetricsKeyArgs)(nil)).Elem()
+}
+
+type TrafficManagerUserMetricsKeyInput interface {
+	pulumi.Input
+
+	ToTrafficManagerUserMetricsKeyOutput() TrafficManagerUserMetricsKeyOutput
+	ToTrafficManagerUserMetricsKeyOutputWithContext(ctx context.Context) TrafficManagerUserMetricsKeyOutput
+}
+
+func (TrafficManagerUserMetricsKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerUserMetricsKey)(nil)).Elem()
+}
+
+func (i TrafficManagerUserMetricsKey) ToTrafficManagerUserMetricsKeyOutput() TrafficManagerUserMetricsKeyOutput {
+	return i.ToTrafficManagerUserMetricsKeyOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerUserMetricsKey) ToTrafficManagerUserMetricsKeyOutputWithContext(ctx context.Context) TrafficManagerUserMetricsKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerUserMetricsKeyOutput)
+}
+
+type TrafficManagerUserMetricsKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (TrafficManagerUserMetricsKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerUserMetricsKeyOutput)(nil)).Elem()
+}
+
+func (o TrafficManagerUserMetricsKeyOutput) ToTrafficManagerUserMetricsKeyOutput() TrafficManagerUserMetricsKeyOutput {
+	return o
+}
+
+func (o TrafficManagerUserMetricsKeyOutput) ToTrafficManagerUserMetricsKeyOutputWithContext(ctx context.Context) TrafficManagerUserMetricsKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TrafficManagerUserMetricsKeyOutput{})
 }

@@ -4,6 +4,7 @@
 package v20200101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,7 +35,7 @@ type ConnectedCluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Number of nodes present in the connected cluster resource
 	TotalNodeCount pulumi.IntOutput `pulumi:"totalNodeCount"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -104,7 +105,7 @@ type connectedClusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Number of nodes present in the connected cluster resource
 	TotalNodeCount *int `pulumi:"totalNodeCount"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -129,7 +130,7 @@ type ConnectedClusterState struct {
 	Tags pulumi.StringMapInput
 	// Number of nodes present in the connected cluster resource
 	TotalNodeCount pulumi.IntPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -178,4 +179,43 @@ type ConnectedClusterArgs struct {
 
 func (ConnectedClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectedClusterArgs)(nil)).Elem()
+}
+
+type ConnectedClusterInput interface {
+	pulumi.Input
+
+	ToConnectedClusterOutput() ConnectedClusterOutput
+	ToConnectedClusterOutputWithContext(ctx context.Context) ConnectedClusterOutput
+}
+
+func (ConnectedCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedCluster)(nil)).Elem()
+}
+
+func (i ConnectedCluster) ToConnectedClusterOutput() ConnectedClusterOutput {
+	return i.ToConnectedClusterOutputWithContext(context.Background())
+}
+
+func (i ConnectedCluster) ToConnectedClusterOutputWithContext(ctx context.Context) ConnectedClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterOutput)
+}
+
+type ConnectedClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectedClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedClusterOutput)(nil)).Elem()
+}
+
+func (o ConnectedClusterOutput) ToConnectedClusterOutput() ConnectedClusterOutput {
+	return o
+}
+
+func (o ConnectedClusterOutput) ToConnectedClusterOutputWithContext(ctx context.Context) ConnectedClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectedClusterOutput{})
 }

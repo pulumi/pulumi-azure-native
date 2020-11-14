@@ -7,10 +7,12 @@ from .cluster import *
 from .get_cluster import *
 from .get_namespace import *
 from .get_namespace_ip_filter_rule import *
+from .get_namespace_network_rule_set import *
 from .get_namespace_virtual_network_rule import *
 from .get_private_endpoint_connection import *
 from .namespace import *
 from .namespace_ip_filter_rule import *
+from .namespace_network_rule_set import *
 from .namespace_virtual_network_rule import *
 from .private_endpoint_connection import *
 from ._inputs import *

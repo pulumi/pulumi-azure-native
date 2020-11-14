@@ -25,6 +25,10 @@ namespace Pulumi.AzureNextGen.AVS.Latest.Outputs
         /// The hosts
         /// </summary>
         public readonly ImmutableArray<string> Hosts;
+        /// <summary>
+        /// The state of the cluster provisioning
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private ManagementClusterResponse(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureNextGen.AVS.Latest.Outputs
 
             int clusterSize,
 
-            ImmutableArray<string> hosts)
+            ImmutableArray<string> hosts,
+
+            string provisioningState)
         {
             ClusterId = clusterId;
             ClusterSize = clusterSize;
             Hosts = hosts;
+            ProvisioningState = provisioningState;
         }
     }
 }

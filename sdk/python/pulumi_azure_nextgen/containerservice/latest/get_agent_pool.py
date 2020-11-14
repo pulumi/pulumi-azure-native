@@ -20,7 +20,7 @@ class GetAgentPoolResult:
     """
     Agent Pool.
     """
-    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_node_public_ip=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_node_public_ip=None, kubelet_config=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -33,6 +33,12 @@ class GetAgentPoolResult:
         if enable_node_public_ip and not isinstance(enable_node_public_ip, bool):
             raise TypeError("Expected argument 'enable_node_public_ip' to be a bool")
         pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if kubelet_config and not isinstance(kubelet_config, dict):
+            raise TypeError("Expected argument 'kubelet_config' to be a dict")
+        pulumi.set(__self__, "kubelet_config", kubelet_config)
+        if linux_os_config and not isinstance(linux_os_config, dict):
+            raise TypeError("Expected argument 'linux_os_config' to be a dict")
+        pulumi.set(__self__, "linux_os_config", linux_os_config)
         if max_count and not isinstance(max_count, int):
             raise TypeError("Expected argument 'max_count' to be a int")
         pulumi.set(__self__, "max_count", max_count)
@@ -69,6 +75,9 @@ class GetAgentPoolResult:
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
         pulumi.set(__self__, "os_type", os_type)
+        if pod_subnet_id and not isinstance(pod_subnet_id, str):
+            raise TypeError("Expected argument 'pod_subnet_id' to be a str")
+        pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if power_state and not isinstance(power_state, dict):
             raise TypeError("Expected argument 'power_state' to be a dict")
         pulumi.set(__self__, "power_state", power_state)
@@ -134,6 +143,22 @@ class GetAgentPoolResult:
         Enable public IP for nodes
         """
         return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="kubeletConfig")
+    def kubelet_config(self) -> Optional['outputs.KubeletConfigResponse']:
+        """
+        KubeletConfig specifies the configuration of kubelet on agent nodes.
+        """
+        return pulumi.get(self, "kubelet_config")
+
+    @property
+    @pulumi.getter(name="linuxOSConfig")
+    def linux_os_config(self) -> Optional['outputs.LinuxOSConfigResponse']:
+        """
+        LinuxOSConfig specifies the OS configuration of linux agent nodes.
+        """
+        return pulumi.get(self, "linux_os_config")
 
     @property
     @pulumi.getter(name="maxCount")
@@ -232,6 +257,14 @@ class GetAgentPoolResult:
         return pulumi.get(self, "os_type")
 
     @property
+    @pulumi.getter(name="podSubnetID")
+    def pod_subnet_id(self) -> Optional[str]:
+        """
+        Pod SubnetID specifies the VNet's subnet identifier for pods.
+        """
+        return pulumi.get(self, "pod_subnet_id")
+
+    @property
     @pulumi.getter(name="powerState")
     def power_state(self) -> 'outputs.PowerStateResponse':
         """
@@ -315,7 +348,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="vnetSubnetID")
     def vnet_subnet_id(self) -> Optional[str]:
         """
-        VNet SubnetID specifies the VNet's subnet identifier.
+        VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
         return pulumi.get(self, "vnet_subnet_id")
 
@@ -330,6 +363,8 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             count=self.count,
             enable_auto_scaling=self.enable_auto_scaling,
             enable_node_public_ip=self.enable_node_public_ip,
+            kubelet_config=self.kubelet_config,
+            linux_os_config=self.linux_os_config,
             max_count=self.max_count,
             max_pods=self.max_pods,
             min_count=self.min_count,
@@ -342,6 +377,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             os_disk_size_gb=self.os_disk_size_gb,
             os_disk_type=self.os_disk_type,
             os_type=self.os_type,
+            pod_subnet_id=self.pod_subnet_id,
             power_state=self.power_state,
             provisioning_state=self.provisioning_state,
             proximity_placement_group_id=self.proximity_placement_group_id,
@@ -381,6 +417,8 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         count=__ret__.count,
         enable_auto_scaling=__ret__.enable_auto_scaling,
         enable_node_public_ip=__ret__.enable_node_public_ip,
+        kubelet_config=__ret__.kubelet_config,
+        linux_os_config=__ret__.linux_os_config,
         max_count=__ret__.max_count,
         max_pods=__ret__.max_pods,
         min_count=__ret__.min_count,
@@ -393,6 +431,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         os_disk_size_gb=__ret__.os_disk_size_gb,
         os_disk_type=__ret__.os_disk_type,
         os_type=__ret__.os_type,
+        pod_subnet_id=__ret__.pod_subnet_id,
         power_state=__ret__.power_state,
         provisioning_state=__ret__.provisioning_state,
         proximity_placement_group_id=__ret__.proximity_placement_group_id,

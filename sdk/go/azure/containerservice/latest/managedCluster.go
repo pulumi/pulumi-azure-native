@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -24,6 +25,8 @@ type ManagedCluster struct {
 	ApiServerAccessProfile ManagedClusterAPIServerAccessProfileResponsePtrOutput `pulumi:"apiServerAccessProfile"`
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput `pulumi:"autoScalerProfile"`
+	// Profile of auto upgrade configuration.
+	AutoUpgradeProfile ManagedClusterAutoUpgradeProfileResponsePtrOutput `pulumi:"autoUpgradeProfile"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID pulumi.StringPtrOutput `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -52,6 +55,8 @@ type ManagedCluster struct {
 	NetworkProfile ContainerServiceNetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup pulumi.StringPtrOutput `pulumi:"nodeResourceGroup"`
+	// Profile of managed cluster pod identity.
+	PodIdentityProfile ManagedClusterPodIdentityProfileResponsePtrOutput `pulumi:"podIdentityProfile"`
 	// Represents the Power State of the cluster
 	PowerState PowerStateResponseOutput `pulumi:"powerState"`
 	// FQDN of private cluster.
@@ -134,6 +139,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200901:ManagedCluster"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20201101:ManagedCluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedCluster
@@ -168,6 +176,8 @@ type managedClusterState struct {
 	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfileResponse `pulumi:"apiServerAccessProfile"`
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile *ManagedClusterPropertiesResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
+	// Profile of auto upgrade configuration.
+	AutoUpgradeProfile *ManagedClusterAutoUpgradeProfileResponse `pulumi:"autoUpgradeProfile"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -196,6 +206,8 @@ type managedClusterState struct {
 	NetworkProfile *ContainerServiceNetworkProfileResponse `pulumi:"networkProfile"`
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// Profile of managed cluster pod identity.
+	PodIdentityProfile *ManagedClusterPodIdentityProfileResponse `pulumi:"podIdentityProfile"`
 	// Represents the Power State of the cluster
 	PowerState *PowerStateResponse `pulumi:"powerState"`
 	// FQDN of private cluster.
@@ -225,6 +237,8 @@ type ManagedClusterState struct {
 	ApiServerAccessProfile ManagedClusterAPIServerAccessProfileResponsePtrInput
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile ManagedClusterPropertiesResponseAutoScalerProfilePtrInput
+	// Profile of auto upgrade configuration.
+	AutoUpgradeProfile ManagedClusterAutoUpgradeProfileResponsePtrInput
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster.
@@ -253,6 +267,8 @@ type ManagedClusterState struct {
 	NetworkProfile ContainerServiceNetworkProfileResponsePtrInput
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup pulumi.StringPtrInput
+	// Profile of managed cluster pod identity.
+	PodIdentityProfile ManagedClusterPodIdentityProfileResponsePtrInput
 	// Represents the Power State of the cluster
 	PowerState PowerStateResponsePtrInput
 	// FQDN of private cluster.
@@ -286,6 +302,8 @@ type managedClusterArgs struct {
 	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfile `pulumi:"apiServerAccessProfile"`
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile *ManagedClusterPropertiesAutoScalerProfile `pulumi:"autoScalerProfile"`
+	// Profile of auto upgrade configuration.
+	AutoUpgradeProfile *ManagedClusterAutoUpgradeProfile `pulumi:"autoUpgradeProfile"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -308,6 +326,8 @@ type managedClusterArgs struct {
 	NetworkProfile *ContainerServiceNetworkProfile `pulumi:"networkProfile"`
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// Profile of managed cluster pod identity.
+	PodIdentityProfile *ManagedClusterPodIdentityProfile `pulumi:"podIdentityProfile"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
@@ -334,6 +354,8 @@ type ManagedClusterArgs struct {
 	ApiServerAccessProfile ManagedClusterAPIServerAccessProfilePtrInput
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile ManagedClusterPropertiesAutoScalerProfilePtrInput
+	// Profile of auto upgrade configuration.
+	AutoUpgradeProfile ManagedClusterAutoUpgradeProfilePtrInput
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster.
@@ -356,6 +378,8 @@ type ManagedClusterArgs struct {
 	NetworkProfile ContainerServiceNetworkProfilePtrInput
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup pulumi.StringPtrInput
+	// Profile of managed cluster pod identity.
+	PodIdentityProfile ManagedClusterPodIdentityProfilePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the managed cluster resource.
@@ -372,4 +396,43 @@ type ManagedClusterArgs struct {
 
 func (ManagedClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedClusterArgs)(nil)).Elem()
+}
+
+type ManagedClusterInput interface {
+	pulumi.Input
+
+	ToManagedClusterOutput() ManagedClusterOutput
+	ToManagedClusterOutputWithContext(ctx context.Context) ManagedClusterOutput
+}
+
+func (ManagedCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedCluster)(nil)).Elem()
+}
+
+func (i ManagedCluster) ToManagedClusterOutput() ManagedClusterOutput {
+	return i.ToManagedClusterOutputWithContext(context.Background())
+}
+
+func (i ManagedCluster) ToManagedClusterOutputWithContext(ctx context.Context) ManagedClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterOutput)
+}
+
+type ManagedClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterOutput)(nil)).Elem()
+}
+
+func (o ManagedClusterOutput) ToManagedClusterOutput() ManagedClusterOutput {
+	return o
+}
+
+func (o ManagedClusterOutput) ToManagedClusterOutputWithContext(ctx context.Context) ManagedClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedClusterOutput{})
 }

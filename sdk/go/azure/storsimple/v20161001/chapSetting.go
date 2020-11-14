@@ -4,6 +4,7 @@
 package v20161001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -121,4 +122,43 @@ type ChapSettingArgs struct {
 
 func (ChapSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*chapSettingArgs)(nil)).Elem()
+}
+
+type ChapSettingInput interface {
+	pulumi.Input
+
+	ToChapSettingOutput() ChapSettingOutput
+	ToChapSettingOutputWithContext(ctx context.Context) ChapSettingOutput
+}
+
+func (ChapSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChapSetting)(nil)).Elem()
+}
+
+func (i ChapSetting) ToChapSettingOutput() ChapSettingOutput {
+	return i.ToChapSettingOutputWithContext(context.Background())
+}
+
+func (i ChapSetting) ToChapSettingOutputWithContext(ctx context.Context) ChapSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChapSettingOutput)
+}
+
+type ChapSettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (ChapSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChapSettingOutput)(nil)).Elem()
+}
+
+func (o ChapSettingOutput) ToChapSettingOutput() ChapSettingOutput {
+	return o
+}
+
+func (o ChapSettingOutput) ToChapSettingOutputWithContext(ctx context.Context) ChapSettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ChapSettingOutput{})
 }

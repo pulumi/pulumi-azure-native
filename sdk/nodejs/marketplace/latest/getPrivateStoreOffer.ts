@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getPrivateStoreOffer(args: GetPrivateStoreOfferArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreOfferResult> {
@@ -36,17 +35,21 @@ export interface GetPrivateStoreOfferArgs {
  */
 export interface GetPrivateStoreOfferResult {
     /**
-     * Private store offer creator name
+     * Private store offer creation date
      */
-    readonly createdBy: string;
-    /**
-     * Private store offer created date
-     */
-    readonly createdDate: string;
+    readonly createdAt: string;
     /**
      * Identifier for purposes of race condition
      */
     readonly eTag?: string;
+    /**
+     * Icon File Uris
+     */
+    readonly iconFileUris?: outputs.marketplace.latest.OfferPropertiesResponseIconFileUris;
+    /**
+     * Private store offer modification date
+     */
+    readonly modifiedAt: string;
     /**
      * The name of the resource.
      */
@@ -55,6 +58,10 @@ export interface GetPrivateStoreOfferResult {
      * It will be displayed prominently in the marketplace
      */
     readonly offerDisplayName: string;
+    /**
+     * Offer plans
+     */
+    readonly plans?: outputs.marketplace.latest.PlanResponse[];
     /**
      * Private store unique id
      */
@@ -75,4 +82,8 @@ export interface GetPrivateStoreOfferResult {
      * Offers unique id
      */
     readonly uniqueOfferId: string;
+    /**
+     * Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+     */
+    readonly updateSuppressedDueIdempotence?: boolean;
 }

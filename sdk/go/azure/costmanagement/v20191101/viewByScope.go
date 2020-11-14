@@ -4,6 +4,7 @@
 package v20191101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -20,8 +21,12 @@ type ViewByScope struct {
 	Chart pulumi.StringPtrOutput `pulumi:"chart"`
 	// Date the user created this view.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
+	// Selected currency.
+	Currency pulumi.StringOutput `pulumi:"currency"`
 	// Has definition for data in this report config.
 	Dataset ReportConfigDatasetResponsePtrOutput `pulumi:"dataset"`
+	// Selected date range for viewing cost in.
+	DateRange pulumi.StringOutput `pulumi:"dateRange"`
 	// User input name of the view. Required.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -104,8 +109,12 @@ type viewByScopeState struct {
 	Chart *string `pulumi:"chart"`
 	// Date the user created this view.
 	CreatedOn *string `pulumi:"createdOn"`
+	// Selected currency.
+	Currency *string `pulumi:"currency"`
 	// Has definition for data in this report config.
 	Dataset *ReportConfigDatasetResponse `pulumi:"dataset"`
+	// Selected date range for viewing cost in.
+	DateRange *string `pulumi:"dateRange"`
 	// User input name of the view. Required.
 	DisplayName *string `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -137,8 +146,12 @@ type ViewByScopeState struct {
 	Chart pulumi.StringPtrInput
 	// Date the user created this view.
 	CreatedOn pulumi.StringPtrInput
+	// Selected currency.
+	Currency pulumi.StringPtrInput
 	// Has definition for data in this report config.
 	Dataset ReportConfigDatasetResponsePtrInput
+	// Selected date range for viewing cost in.
+	DateRange pulumi.StringPtrInput
 	// User input name of the view. Required.
 	DisplayName pulumi.StringPtrInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -228,4 +241,43 @@ type ViewByScopeArgs struct {
 
 func (ViewByScopeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*viewByScopeArgs)(nil)).Elem()
+}
+
+type ViewByScopeInput interface {
+	pulumi.Input
+
+	ToViewByScopeOutput() ViewByScopeOutput
+	ToViewByScopeOutputWithContext(ctx context.Context) ViewByScopeOutput
+}
+
+func (ViewByScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewByScope)(nil)).Elem()
+}
+
+func (i ViewByScope) ToViewByScopeOutput() ViewByScopeOutput {
+	return i.ToViewByScopeOutputWithContext(context.Background())
+}
+
+func (i ViewByScope) ToViewByScopeOutputWithContext(ctx context.Context) ViewByScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewByScopeOutput)
+}
+
+type ViewByScopeOutput struct {
+	*pulumi.OutputState
+}
+
+func (ViewByScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewByScopeOutput)(nil)).Elem()
+}
+
+func (o ViewByScopeOutput) ToViewByScopeOutput() ViewByScopeOutput {
+	return o
+}
+
+func (o ViewByScopeOutput) ToViewByScopeOutputWithContext(ctx context.Context) ViewByScopeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ViewByScopeOutput{})
 }

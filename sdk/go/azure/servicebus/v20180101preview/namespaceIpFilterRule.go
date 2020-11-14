@@ -4,6 +4,7 @@
 package v20180101preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -125,4 +126,43 @@ type NamespaceIpFilterRuleArgs struct {
 
 func (NamespaceIpFilterRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceIpFilterRuleArgs)(nil)).Elem()
+}
+
+type NamespaceIpFilterRuleInput interface {
+	pulumi.Input
+
+	ToNamespaceIpFilterRuleOutput() NamespaceIpFilterRuleOutput
+	ToNamespaceIpFilterRuleOutputWithContext(ctx context.Context) NamespaceIpFilterRuleOutput
+}
+
+func (NamespaceIpFilterRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceIpFilterRule)(nil)).Elem()
+}
+
+func (i NamespaceIpFilterRule) ToNamespaceIpFilterRuleOutput() NamespaceIpFilterRuleOutput {
+	return i.ToNamespaceIpFilterRuleOutputWithContext(context.Background())
+}
+
+func (i NamespaceIpFilterRule) ToNamespaceIpFilterRuleOutputWithContext(ctx context.Context) NamespaceIpFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIpFilterRuleOutput)
+}
+
+type NamespaceIpFilterRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (NamespaceIpFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceIpFilterRuleOutput)(nil)).Elem()
+}
+
+func (o NamespaceIpFilterRuleOutput) ToNamespaceIpFilterRuleOutput() NamespaceIpFilterRuleOutput {
+	return o
+}
+
+func (o NamespaceIpFilterRuleOutput) ToNamespaceIpFilterRuleOutputWithContext(ctx context.Context) NamespaceIpFilterRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NamespaceIpFilterRuleOutput{})
 }

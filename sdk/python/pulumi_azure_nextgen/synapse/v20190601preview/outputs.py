@@ -14,7 +14,9 @@ __all__ = [
     'AutoScalePropertiesResponse',
     'CmdkeySetupResponse',
     'ComponentSetupResponse',
+    'CustomerManagedKeyDetailsResponse',
     'DataLakeStorageAccountDetailsResponse',
+    'EncryptionDetailsResponse',
     'EntityReferenceResponse',
     'EnvironmentVariableSetupResponse',
     'IntegrationRuntimeComputePropertiesResponse',
@@ -24,7 +26,6 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoResponse',
     'IntegrationRuntimeSsisPropertiesResponse',
     'IntegrationRuntimeVNetPropertiesResponse',
-    'LibraryInfoResponse',
     'LibraryRequirementsResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
     'LinkedIntegrationRuntimeRbacAuthorizationResponse',
@@ -36,9 +37,11 @@ __all__ = [
     'ManagedIntegrationRuntimeResponse',
     'ManagedIntegrationRuntimeStatusResponseResult',
     'ManagedVirtualNetworkSettingsResponse',
+    'PrivateEndpointConnectionForPrivateLinkHubBasicResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'PurviewConfigurationResponse',
     'SecureStringResponse',
     'SelfHostedIntegrationRuntimeNodeResponseResult',
     'SelfHostedIntegrationRuntimeResponse',
@@ -54,6 +57,8 @@ __all__ = [
     'SsisVariableResponseResult',
     'VirtualNetworkProfileResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
+    'WorkspaceKeyDetailsResponse',
+    'WorkspaceRepositoryConfigurationResponse',
 ]
 
 @pulumi.output_type
@@ -251,6 +256,43 @@ class ComponentSetupResponse(dict):
 
 
 @pulumi.output_type
+class CustomerManagedKeyDetailsResponse(dict):
+    """
+    Details of the customer managed key associated with the workspace
+    """
+    def __init__(__self__, *,
+                 status: str,
+                 key: Optional['outputs.WorkspaceKeyDetailsResponse'] = None):
+        """
+        Details of the customer managed key associated with the workspace
+        :param str status: The customer managed key status on the workspace
+        :param 'WorkspaceKeyDetailsResponseArgs' key: The key object of the workspace
+        """
+        pulumi.set(__self__, "status", status)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The customer managed key status on the workspace
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional['outputs.WorkspaceKeyDetailsResponse']:
+        """
+        The key object of the workspace
+        """
+        return pulumi.get(self, "key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class DataLakeStorageAccountDetailsResponse(dict):
     """
     Details of the data lake storage account associated with the workspace
@@ -283,6 +325,43 @@ class DataLakeStorageAccountDetailsResponse(dict):
         Filesystem name
         """
         return pulumi.get(self, "filesystem")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionDetailsResponse(dict):
+    """
+    Details of the encryption associated with the workspace
+    """
+    def __init__(__self__, *,
+                 double_encryption_enabled: bool,
+                 cmk: Optional['outputs.CustomerManagedKeyDetailsResponse'] = None):
+        """
+        Details of the encryption associated with the workspace
+        :param bool double_encryption_enabled: Double Encryption enabled
+        :param 'CustomerManagedKeyDetailsResponseArgs' cmk: Customer Managed Key Details
+        """
+        pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
+        if cmk is not None:
+            pulumi.set(__self__, "cmk", cmk)
+
+    @property
+    @pulumi.getter(name="doubleEncryptionEnabled")
+    def double_encryption_enabled(self) -> bool:
+        """
+        Double Encryption enabled
+        """
+        return pulumi.get(self, "double_encryption_enabled")
+
+    @property
+    @pulumi.getter
+    def cmk(self) -> Optional['outputs.CustomerManagedKeyDetailsResponse']:
+        """
+        Customer Managed Key Details
+        """
+        return pulumi.get(self, "cmk")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -790,80 +869,6 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
         The ID of the VNet that this integration runtime will join.
         """
         return pulumi.get(self, "v_net_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class LibraryInfoResponse(dict):
-    """
-    Library/package information of a Big Data pool powered by Apache Spark
-    """
-    def __init__(__self__, *,
-                 container_name: Optional[str] = None,
-                 name: Optional[str] = None,
-                 path: Optional[str] = None,
-                 type: Optional[str] = None,
-                 uploaded_timestamp: Optional[str] = None):
-        """
-        Library/package information of a Big Data pool powered by Apache Spark
-        :param str container_name: Storage blob container name.
-        :param str name: Name of the library.
-        :param str path: Storage blob path of library.
-        :param str type: Type of the library.
-        :param str uploaded_timestamp: The last update time of the library.
-        """
-        if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if uploaded_timestamp is not None:
-            pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
-
-    @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[str]:
-        """
-        Storage blob container name.
-        """
-        return pulumi.get(self, "container_name")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the library.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def path(self) -> Optional[str]:
-        """
-        Storage blob path of library.
-        """
-        return pulumi.get(self, "path")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Type of the library.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uploadedTimestamp")
-    def uploaded_timestamp(self) -> Optional[str]:
-        """
-        The last update time of the library.
-        """
-        return pulumi.get(self, "uploaded_timestamp")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1492,6 +1497,66 @@ class ManagedVirtualNetworkSettingsResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionForPrivateLinkHubBasicResponse(dict):
+    """
+    Private Endpoint Connection For Private Link Hub - Basic
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        Private Endpoint Connection For Private Link Hub - Basic
+        :param str id: identifier
+        :param str provisioning_state: Provisioning state of the private endpoint connection.
+        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        Connection state of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     A private endpoint connection
@@ -1505,10 +1570,10 @@ class PrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         A private endpoint connection
-        :param str id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
         :param str provisioning_state: Provisioning state of the private endpoint connection.
-        :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint which the connection belongs to.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
@@ -1525,7 +1590,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -1549,7 +1614,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -1642,6 +1707,32 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         The private link service connection status.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PurviewConfigurationResponse(dict):
+    """
+    Purview Configuration
+    """
+    def __init__(__self__, *,
+                 purview_resource_id: Optional[str] = None):
+        """
+        Purview Configuration
+        :param str purview_resource_id: Purview Resource ID
+        """
+        if purview_resource_id is not None:
+            pulumi.set(__self__, "purview_resource_id", purview_resource_id)
+
+    @property
+    @pulumi.getter(name="purviewResourceId")
+    def purview_resource_id(self) -> Optional[str]:
+        """
+        Purview Resource ID
+        """
+        return pulumi.get(self, "purview_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1905,7 +1996,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         Self-hosted integration runtime.
         :param str type: Type of integration runtime.
         :param str description: Integration runtime description.
-        :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponseArgs', 'LinkedIntegrationRuntimeRbacAuthorizationResponseArgs'] linked_info: The base definition of a linked integration runtime.
+        :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponseArgs', 'LinkedIntegrationRuntimeRbacAuthorizationResponseArgs'] linked_info: Linked integration runtime type from data factory
         """
         pulumi.set(__self__, "type", 'SelfHosted')
         if description is not None:
@@ -1933,7 +2024,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
     @pulumi.getter(name="linkedInfo")
     def linked_info(self) -> Optional[Any]:
         """
-        The base definition of a linked integration runtime.
+        Linked integration runtime type from data factory
         """
         return pulumi.get(self, "linked_info")
 
@@ -1955,6 +2046,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
                  internal_channel_encryption: str,
                  latest_version: str,
                  local_time_zone_offset: str,
+                 node_communication_channel_encryption_mode: str,
                  pushed_version: str,
                  scheduled_update_date: str,
                  service_urls: Sequence[str],
@@ -1976,6 +2068,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         :param str internal_channel_encryption: It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
         :param str latest_version: The latest version on download center.
         :param str local_time_zone_offset: The local time zone offset in hours.
+        :param str node_communication_channel_encryption_mode: The node communication Channel encryption mode
         :param str pushed_version: The version that the integration runtime is going to update to.
         :param str scheduled_update_date: The date at which the integration runtime will be scheduled to update, in ISO8601 format.
         :param Sequence[str] service_urls: The URLs for the services used in integration runtime backend service.
@@ -1996,6 +2089,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         pulumi.set(__self__, "internal_channel_encryption", internal_channel_encryption)
         pulumi.set(__self__, "latest_version", latest_version)
         pulumi.set(__self__, "local_time_zone_offset", local_time_zone_offset)
+        pulumi.set(__self__, "node_communication_channel_encryption_mode", node_communication_channel_encryption_mode)
         pulumi.set(__self__, "pushed_version", pushed_version)
         pulumi.set(__self__, "scheduled_update_date", scheduled_update_date)
         pulumi.set(__self__, "service_urls", service_urls)
@@ -2073,6 +2167,14 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         The local time zone offset in hours.
         """
         return pulumi.get(self, "local_time_zone_offset")
+
+    @property
+    @pulumi.getter(name="nodeCommunicationChannelEncryptionMode")
+    def node_communication_channel_encryption_mode(self) -> str:
+        """
+        The node communication Channel encryption mode
+        """
+        return pulumi.get(self, "node_communication_channel_encryption_mode")
 
     @property
     @pulumi.getter(name="pushedVersion")
@@ -2970,6 +3072,142 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
         Recurring scans state.
         """
         return pulumi.get(self, "is_enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WorkspaceKeyDetailsResponse(dict):
+    """
+    Details of the customer managed key associated with the workspace
+    """
+    def __init__(__self__, *,
+                 key_vault_url: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Details of the customer managed key associated with the workspace
+        :param str key_vault_url: Workspace Key sub-resource key vault url
+        :param str name: Workspace Key sub-resource name
+        """
+        if key_vault_url is not None:
+            pulumi.set(__self__, "key_vault_url", key_vault_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="keyVaultUrl")
+    def key_vault_url(self) -> Optional[str]:
+        """
+        Workspace Key sub-resource key vault url
+        """
+        return pulumi.get(self, "key_vault_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Workspace Key sub-resource name
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WorkspaceRepositoryConfigurationResponse(dict):
+    """
+    Git integration settings
+    """
+    def __init__(__self__, *,
+                 account_name: Optional[str] = None,
+                 collaboration_branch: Optional[str] = None,
+                 host_name: Optional[str] = None,
+                 project_name: Optional[str] = None,
+                 repository_name: Optional[str] = None,
+                 root_folder: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Git integration settings
+        :param str account_name: Account name
+        :param str collaboration_branch: Collaboration branch
+        :param str host_name: GitHub Enterprise host name. For example: https://github.mydomain.com
+        :param str project_name: VSTS project name
+        :param str repository_name: Repository name
+        :param str root_folder: Root folder to use in the repository
+        :param str type: Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if collaboration_branch is not None:
+            pulumi.set(__self__, "collaboration_branch", collaboration_branch)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if root_folder is not None:
+            pulumi.set(__self__, "root_folder", root_folder)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        """
+        Account name
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="collaborationBranch")
+    def collaboration_branch(self) -> Optional[str]:
+        """
+        Collaboration branch
+        """
+        return pulumi.get(self, "collaboration_branch")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[str]:
+        """
+        GitHub Enterprise host name. For example: https://github.mydomain.com
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[str]:
+        """
+        VSTS project name
+        """
+        return pulumi.get(self, "project_name")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[str]:
+        """
+        Repository name
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter(name="rootFolder")
+    def root_folder(self) -> Optional[str]:
+        """
+        Root folder to use in the repository
+        """
+        return pulumi.get(self, "root_folder")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

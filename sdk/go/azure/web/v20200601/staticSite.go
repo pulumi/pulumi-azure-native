@@ -4,6 +4,7 @@
 package v20200601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -192,4 +193,43 @@ type StaticSiteArgs struct {
 
 func (StaticSiteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticSiteArgs)(nil)).Elem()
+}
+
+type StaticSiteInput interface {
+	pulumi.Input
+
+	ToStaticSiteOutput() StaticSiteOutput
+	ToStaticSiteOutputWithContext(ctx context.Context) StaticSiteOutput
+}
+
+func (StaticSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSite)(nil)).Elem()
+}
+
+func (i StaticSite) ToStaticSiteOutput() StaticSiteOutput {
+	return i.ToStaticSiteOutputWithContext(context.Background())
+}
+
+func (i StaticSite) ToStaticSiteOutputWithContext(ctx context.Context) StaticSiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteOutput)
+}
+
+type StaticSiteOutput struct {
+	*pulumi.OutputState
+}
+
+func (StaticSiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteOutput)(nil)).Elem()
+}
+
+func (o StaticSiteOutput) ToStaticSiteOutput() StaticSiteOutput {
+	return o
+}
+
+func (o StaticSiteOutput) ToStaticSiteOutputWithContext(ctx context.Context) StaticSiteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StaticSiteOutput{})
 }

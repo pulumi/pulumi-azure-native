@@ -69,7 +69,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -102,6 +102,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20201001:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

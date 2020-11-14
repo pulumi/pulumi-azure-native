@@ -4,6 +4,7 @@
 package v20200901
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -252,4 +253,43 @@ type BatchAccountArgs struct {
 
 func (BatchAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*batchAccountArgs)(nil)).Elem()
+}
+
+type BatchAccountInput interface {
+	pulumi.Input
+
+	ToBatchAccountOutput() BatchAccountOutput
+	ToBatchAccountOutputWithContext(ctx context.Context) BatchAccountOutput
+}
+
+func (BatchAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchAccount)(nil)).Elem()
+}
+
+func (i BatchAccount) ToBatchAccountOutput() BatchAccountOutput {
+	return i.ToBatchAccountOutputWithContext(context.Background())
+}
+
+func (i BatchAccount) ToBatchAccountOutputWithContext(ctx context.Context) BatchAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountOutput)
+}
+
+type BatchAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (BatchAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchAccountOutput)(nil)).Elem()
+}
+
+func (o BatchAccountOutput) ToBatchAccountOutput() BatchAccountOutput {
+	return o
+}
+
+func (o BatchAccountOutput) ToBatchAccountOutputWithContext(ctx context.Context) BatchAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BatchAccountOutput{})
 }

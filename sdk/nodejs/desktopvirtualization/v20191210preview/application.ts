@@ -79,7 +79,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly showInPortal!: pulumi.Output<boolean | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -141,7 +141,7 @@ export class Application extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization/v20190123preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization/v20190123preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:Application" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Application.__pulumiType, name, inputs, opts);
     }

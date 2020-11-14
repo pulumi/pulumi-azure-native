@@ -20,7 +20,7 @@ class GetOuContainerResult:
     """
     Resource for OuContainer.
     """
-    def __init__(__self__, accounts=None, container_id=None, deployment_id=None, domain_name=None, etag=None, location=None, name=None, provisioning_state=None, service_status=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, accounts=None, container_id=None, deployment_id=None, distinguished_name=None, domain_name=None, etag=None, location=None, name=None, provisioning_state=None, service_status=None, tags=None, tenant_id=None, type=None):
         if accounts and not isinstance(accounts, list):
             raise TypeError("Expected argument 'accounts' to be a list")
         pulumi.set(__self__, "accounts", accounts)
@@ -30,6 +30,9 @@ class GetOuContainerResult:
         if deployment_id and not isinstance(deployment_id, str):
             raise TypeError("Expected argument 'deployment_id' to be a str")
         pulumi.set(__self__, "deployment_id", deployment_id)
+        if distinguished_name and not isinstance(distinguished_name, str):
+            raise TypeError("Expected argument 'distinguished_name' to be a str")
+        pulumi.set(__self__, "distinguished_name", distinguished_name)
         if domain_name and not isinstance(domain_name, str):
             raise TypeError("Expected argument 'domain_name' to be a str")
         pulumi.set(__self__, "domain_name", domain_name)
@@ -81,6 +84,14 @@ class GetOuContainerResult:
         The Deployment id
         """
         return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="distinguishedName")
+    def distinguished_name(self) -> str:
+        """
+        Distinguished Name of OuContainer instance
+        """
+        return pulumi.get(self, "distinguished_name")
 
     @property
     @pulumi.getter(name="domainName")
@@ -164,6 +175,7 @@ class AwaitableGetOuContainerResult(GetOuContainerResult):
             accounts=self.accounts,
             container_id=self.container_id,
             deployment_id=self.deployment_id,
+            distinguished_name=self.distinguished_name,
             domain_name=self.domain_name,
             etag=self.etag,
             location=self.location,
@@ -200,6 +212,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
         accounts=__ret__.accounts,
         container_id=__ret__.container_id,
         deployment_id=__ret__.deployment_id,
+        distinguished_name=__ret__.distinguished_name,
         domain_name=__ret__.domain_name,
         etag=__ret__.etag,
         location=__ret__.location,

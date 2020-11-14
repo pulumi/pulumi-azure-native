@@ -4,6 +4,7 @@
 package v20180601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -260,4 +261,43 @@ type ManagedDatabaseArgs struct {
 
 func (ManagedDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedDatabaseArgs)(nil)).Elem()
+}
+
+type ManagedDatabaseInput interface {
+	pulumi.Input
+
+	ToManagedDatabaseOutput() ManagedDatabaseOutput
+	ToManagedDatabaseOutputWithContext(ctx context.Context) ManagedDatabaseOutput
+}
+
+func (ManagedDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDatabase)(nil)).Elem()
+}
+
+func (i ManagedDatabase) ToManagedDatabaseOutput() ManagedDatabaseOutput {
+	return i.ToManagedDatabaseOutputWithContext(context.Background())
+}
+
+func (i ManagedDatabase) ToManagedDatabaseOutputWithContext(ctx context.Context) ManagedDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseOutput)
+}
+
+type ManagedDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDatabaseOutput)(nil)).Elem()
+}
+
+func (o ManagedDatabaseOutput) ToManagedDatabaseOutput() ManagedDatabaseOutput {
+	return o
+}
+
+func (o ManagedDatabaseOutput) ToManagedDatabaseOutputWithContext(ctx context.Context) ManagedDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedDatabaseOutput{})
 }

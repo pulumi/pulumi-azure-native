@@ -4,6 +4,7 @@
 package v20190501
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type IntegrationServiceEnvironmentArgs struct {
 
 func (IntegrationServiceEnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationServiceEnvironmentArgs)(nil)).Elem()
+}
+
+type IntegrationServiceEnvironmentInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentOutput() IntegrationServiceEnvironmentOutput
+	ToIntegrationServiceEnvironmentOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentOutput
+}
+
+func (IntegrationServiceEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironment)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironment) ToIntegrationServiceEnvironmentOutput() IntegrationServiceEnvironmentOutput {
+	return i.ToIntegrationServiceEnvironmentOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironment) ToIntegrationServiceEnvironmentOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentOutput)
+}
+
+type IntegrationServiceEnvironmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationServiceEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentOutput)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentOutput) ToIntegrationServiceEnvironmentOutput() IntegrationServiceEnvironmentOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentOutput) ToIntegrationServiceEnvironmentOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentOutput{})
 }

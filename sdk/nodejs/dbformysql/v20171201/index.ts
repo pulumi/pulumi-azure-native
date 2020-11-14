@@ -2,8 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./configuration";
 export * from "./database";
 export * from "./firewallRule";
+export * from "./getConfiguration";
 export * from "./getDatabase";
 export * from "./getFirewallRule";
 export * from "./getServer";

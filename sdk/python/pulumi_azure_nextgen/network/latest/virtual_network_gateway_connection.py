@@ -18,6 +18,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_mode: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
                  connection_type: Optional[pulumi.Input[str]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -47,6 +48,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorizationKey.
+        :param pulumi.Input[str] connection_mode: The connection mode for this connection.
         :param pulumi.Input[str] connection_protocol: Connection protocol used for this connection.
         :param pulumi.Input[str] connection_type: Gateway connection type.
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds.
@@ -86,6 +88,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorization_key'] = authorization_key
+            __props__['connection_mode'] = connection_mode
             __props__['connection_protocol'] = connection_protocol
             if connection_type is None:
                 raise TypeError("Missing required property 'connection_type'")
@@ -123,7 +126,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['resource_guid'] = None
             __props__['tunnel_connection_status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150615:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20160330:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20160601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20160901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20161201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20171001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20171101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkGatewayConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150615:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20160330:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20160601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20160901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20161201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20171001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20171101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualNetworkGatewayConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkGatewayConnection, __self__).__init__(
             'azure-nextgen:network/latest:VirtualNetworkGatewayConnection',
@@ -156,6 +159,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         The authorizationKey.
         """
         return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The connection mode for this connection.
+        """
+        return pulumi.get(self, "connection_mode")
 
     @property
     @pulumi.getter(name="connectionProtocol")

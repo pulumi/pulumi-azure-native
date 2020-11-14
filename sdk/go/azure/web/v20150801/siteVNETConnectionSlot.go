@@ -4,6 +4,7 @@
 package v20150801
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -229,4 +230,43 @@ type SiteVNETConnectionSlotArgs struct {
 
 func (SiteVNETConnectionSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*siteVNETConnectionSlotArgs)(nil)).Elem()
+}
+
+type SiteVNETConnectionSlotInput interface {
+	pulumi.Input
+
+	ToSiteVNETConnectionSlotOutput() SiteVNETConnectionSlotOutput
+	ToSiteVNETConnectionSlotOutputWithContext(ctx context.Context) SiteVNETConnectionSlotOutput
+}
+
+func (SiteVNETConnectionSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteVNETConnectionSlot)(nil)).Elem()
+}
+
+func (i SiteVNETConnectionSlot) ToSiteVNETConnectionSlotOutput() SiteVNETConnectionSlotOutput {
+	return i.ToSiteVNETConnectionSlotOutputWithContext(context.Background())
+}
+
+func (i SiteVNETConnectionSlot) ToSiteVNETConnectionSlotOutputWithContext(ctx context.Context) SiteVNETConnectionSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteVNETConnectionSlotOutput)
+}
+
+type SiteVNETConnectionSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (SiteVNETConnectionSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteVNETConnectionSlotOutput)(nil)).Elem()
+}
+
+func (o SiteVNETConnectionSlotOutput) ToSiteVNETConnectionSlotOutput() SiteVNETConnectionSlotOutput {
+	return o
+}
+
+func (o SiteVNETConnectionSlotOutput) ToSiteVNETConnectionSlotOutputWithContext(ctx context.Context) SiteVNETConnectionSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SiteVNETConnectionSlotOutput{})
 }

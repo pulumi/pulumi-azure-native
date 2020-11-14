@@ -4,6 +4,7 @@
 package v20180701
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,7 +35,7 @@ type ServerEndpoint struct {
 	SyncStatus pulumi.AnyOutput `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays pulumi.IntPtrOutput `pulumi:"tierFilesOlderThanDays"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
 	VolumeFreeSpacePercent pulumi.IntPtrOutput `pulumi:"volumeFreeSpacePercent"`
@@ -133,7 +134,7 @@ type serverEndpointState struct {
 	SyncStatus interface{} `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
 	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
@@ -160,7 +161,7 @@ type ServerEndpointState struct {
 	SyncStatus pulumi.Input
 	// Tier files older than days.
 	TierFilesOlderThanDays pulumi.IntPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
 	VolumeFreeSpacePercent pulumi.IntPtrInput
@@ -219,4 +220,43 @@ type ServerEndpointArgs struct {
 
 func (ServerEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverEndpointArgs)(nil)).Elem()
+}
+
+type ServerEndpointInput interface {
+	pulumi.Input
+
+	ToServerEndpointOutput() ServerEndpointOutput
+	ToServerEndpointOutputWithContext(ctx context.Context) ServerEndpointOutput
+}
+
+func (ServerEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpoint)(nil)).Elem()
+}
+
+func (i ServerEndpoint) ToServerEndpointOutput() ServerEndpointOutput {
+	return i.ToServerEndpointOutputWithContext(context.Background())
+}
+
+func (i ServerEndpoint) ToServerEndpointOutputWithContext(ctx context.Context) ServerEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointOutput)
+}
+
+type ServerEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointOutput)(nil)).Elem()
+}
+
+func (o ServerEndpointOutput) ToServerEndpointOutput() ServerEndpointOutput {
+	return o
+}
+
+func (o ServerEndpointOutput) ToServerEndpointOutputWithContext(ctx context.Context) ServerEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerEndpointOutput{})
 }

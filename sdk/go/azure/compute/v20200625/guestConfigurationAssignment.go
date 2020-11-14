@@ -4,6 +4,7 @@
 package v20200625
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -131,4 +132,43 @@ type GuestConfigurationAssignmentArgs struct {
 
 func (GuestConfigurationAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*guestConfigurationAssignmentArgs)(nil)).Elem()
+}
+
+type GuestConfigurationAssignmentInput interface {
+	pulumi.Input
+
+	ToGuestConfigurationAssignmentOutput() GuestConfigurationAssignmentOutput
+	ToGuestConfigurationAssignmentOutputWithContext(ctx context.Context) GuestConfigurationAssignmentOutput
+}
+
+func (GuestConfigurationAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationAssignment)(nil)).Elem()
+}
+
+func (i GuestConfigurationAssignment) ToGuestConfigurationAssignmentOutput() GuestConfigurationAssignmentOutput {
+	return i.ToGuestConfigurationAssignmentOutputWithContext(context.Background())
+}
+
+func (i GuestConfigurationAssignment) ToGuestConfigurationAssignmentOutputWithContext(ctx context.Context) GuestConfigurationAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentOutput)
+}
+
+type GuestConfigurationAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (GuestConfigurationAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationAssignmentOutput)(nil)).Elem()
+}
+
+func (o GuestConfigurationAssignmentOutput) ToGuestConfigurationAssignmentOutput() GuestConfigurationAssignmentOutput {
+	return o
+}
+
+func (o GuestConfigurationAssignmentOutput) ToGuestConfigurationAssignmentOutputWithContext(ctx context.Context) GuestConfigurationAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GuestConfigurationAssignmentOutput{})
 }

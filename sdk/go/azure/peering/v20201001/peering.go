@@ -4,6 +4,7 @@
 package v20201001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -191,4 +192,43 @@ type PeeringArgs struct {
 
 func (PeeringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*peeringArgs)(nil)).Elem()
+}
+
+type PeeringInput interface {
+	pulumi.Input
+
+	ToPeeringOutput() PeeringOutput
+	ToPeeringOutputWithContext(ctx context.Context) PeeringOutput
+}
+
+func (Peering) ElementType() reflect.Type {
+	return reflect.TypeOf((*Peering)(nil)).Elem()
+}
+
+func (i Peering) ToPeeringOutput() PeeringOutput {
+	return i.ToPeeringOutputWithContext(context.Background())
+}
+
+func (i Peering) ToPeeringOutputWithContext(ctx context.Context) PeeringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringOutput)
+}
+
+type PeeringOutput struct {
+	*pulumi.OutputState
+}
+
+func (PeeringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringOutput)(nil)).Elem()
+}
+
+func (o PeeringOutput) ToPeeringOutput() PeeringOutput {
+	return o
+}
+
+func (o PeeringOutput) ToPeeringOutputWithContext(ctx context.Context) PeeringOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PeeringOutput{})
 }

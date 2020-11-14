@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -57,6 +56,10 @@ export class SqlDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Status of the database.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
      * SystemData of SqlDatabase.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.synapse.v20200401preview.SystemDataResponse>;
@@ -65,7 +68,7 @@ export class SqlDatabase extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -100,6 +103,7 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["databaseGuid"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -108,6 +112,7 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["maxSizeBytes"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

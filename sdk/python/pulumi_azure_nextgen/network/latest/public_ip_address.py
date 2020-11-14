@@ -19,6 +19,7 @@ class PublicIPAddress(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ddos_settings: Optional[pulumi.Input[pulumi.InputType['DdosSettingsArgs']]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,7 @@ class PublicIPAddress(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DdosSettingsArgs']] ddos_settings: The DDoS protection custom policy associated with the public IP address.
         :param pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']] dns_settings: The FQDN of the DNS record associated with the public IP address.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the public ip address.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param pulumi.Input[str] ip_address: The IP address associated with the public IP address resource.
@@ -75,6 +77,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
             __props__['ddos_settings'] = ddos_settings
             __props__['dns_settings'] = dns_settings
+            __props__['extended_location'] = extended_location
             __props__['id'] = id
             __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
             __props__['ip_address'] = ip_address
@@ -98,7 +101,7 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20150615:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160330:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20161201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170301:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20171001:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20171101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPAddress")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20150615:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160330:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20161201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170301:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20171001:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20171101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PublicIPAddress")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PublicIPAddress, __self__).__init__(
             'azure-nextgen:network/latest:PublicIPAddress',
@@ -147,6 +150,14 @@ class PublicIPAddress(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location of the public ip address.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")

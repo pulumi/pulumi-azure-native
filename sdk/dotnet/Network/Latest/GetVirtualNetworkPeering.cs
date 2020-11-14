@@ -70,11 +70,15 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string? PeeringState;
         /// <summary>
+        /// The peering sync status of the virtual network peering.
+        /// </summary>
+        public readonly string? PeeringSyncLevel;
+        /// <summary>
         /// The provisioning state of the virtual network peering resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The reference to the remote virtual network address space.
+        /// The reference to the address space peered with the remote virtual network.
         /// </summary>
         public readonly Outputs.AddressSpaceResponse? RemoteAddressSpace;
         /// <summary>
@@ -85,6 +89,14 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         /// </summary>
         public readonly Outputs.SubResourceResponse? RemoteVirtualNetwork;
+        /// <summary>
+        /// The reference to the current address space of the remote virtual network.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponse? RemoteVirtualNetworkAddressSpace;
+        /// <summary>
+        /// Provided when user wants to sync the peering with address space on the remote virtual network after the address space is updated.
+        /// </summary>
+        public readonly bool? SyncRemoteAddressSpace;
         /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         /// </summary>
@@ -104,6 +116,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string? peeringState,
 
+            string? peeringSyncLevel,
+
             string provisioningState,
 
             Outputs.AddressSpaceResponse? remoteAddressSpace,
@@ -111,6 +125,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
             Outputs.VirtualNetworkBgpCommunitiesResponse? remoteBgpCommunities,
 
             Outputs.SubResourceResponse? remoteVirtualNetwork,
+
+            Outputs.AddressSpaceResponse? remoteVirtualNetworkAddressSpace,
+
+            bool? syncRemoteAddressSpace,
 
             bool? useRemoteGateways)
         {
@@ -120,10 +138,13 @@ namespace Pulumi.AzureNextGen.Network.Latest
             Etag = etag;
             Name = name;
             PeeringState = peeringState;
+            PeeringSyncLevel = peeringSyncLevel;
             ProvisioningState = provisioningState;
             RemoteAddressSpace = remoteAddressSpace;
             RemoteBgpCommunities = remoteBgpCommunities;
             RemoteVirtualNetwork = remoteVirtualNetwork;
+            RemoteVirtualNetworkAddressSpace = remoteVirtualNetworkAddressSpace;
+            SyncRemoteAddressSpace = syncRemoteAddressSpace;
             UseRemoteGateways = useRemoteGateways;
         }
     }

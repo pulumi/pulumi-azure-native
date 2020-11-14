@@ -4,6 +4,7 @@
 package v20151031
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -149,4 +150,43 @@ type ConnectionTypeArgs struct {
 
 func (ConnectionTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionTypeArgs)(nil)).Elem()
+}
+
+type ConnectionTypeInput interface {
+	pulumi.Input
+
+	ToConnectionTypeOutput() ConnectionTypeOutput
+	ToConnectionTypeOutputWithContext(ctx context.Context) ConnectionTypeOutput
+}
+
+func (ConnectionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionType)(nil)).Elem()
+}
+
+func (i ConnectionType) ToConnectionTypeOutput() ConnectionTypeOutput {
+	return i.ToConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i ConnectionType) ToConnectionTypeOutputWithContext(ctx context.Context) ConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeOutput)
+}
+
+type ConnectionTypeOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeOutput)(nil)).Elem()
+}
+
+func (o ConnectionTypeOutput) ToConnectionTypeOutput() ConnectionTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeOutput) ToConnectionTypeOutputWithContext(ctx context.Context) ConnectionTypeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectionTypeOutput{})
 }

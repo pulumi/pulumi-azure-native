@@ -4,6 +4,7 @@
 package v20161001
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -121,4 +122,43 @@ type BackupScheduleGroupArgs struct {
 
 func (BackupScheduleGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupScheduleGroupArgs)(nil)).Elem()
+}
+
+type BackupScheduleGroupInput interface {
+	pulumi.Input
+
+	ToBackupScheduleGroupOutput() BackupScheduleGroupOutput
+	ToBackupScheduleGroupOutputWithContext(ctx context.Context) BackupScheduleGroupOutput
+}
+
+func (BackupScheduleGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupScheduleGroup)(nil)).Elem()
+}
+
+func (i BackupScheduleGroup) ToBackupScheduleGroupOutput() BackupScheduleGroupOutput {
+	return i.ToBackupScheduleGroupOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleGroup) ToBackupScheduleGroupOutputWithContext(ctx context.Context) BackupScheduleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleGroupOutput)
+}
+
+type BackupScheduleGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (BackupScheduleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupScheduleGroupOutput)(nil)).Elem()
+}
+
+func (o BackupScheduleGroupOutput) ToBackupScheduleGroupOutput() BackupScheduleGroupOutput {
+	return o
+}
+
+func (o BackupScheduleGroupOutput) ToBackupScheduleGroupOutputWithContext(ctx context.Context) BackupScheduleGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BackupScheduleGroupOutput{})
 }

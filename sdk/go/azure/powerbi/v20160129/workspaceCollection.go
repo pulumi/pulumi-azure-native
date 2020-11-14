@@ -4,6 +4,7 @@
 package v20160129
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -119,4 +120,43 @@ type WorkspaceCollectionArgs struct {
 
 func (WorkspaceCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceCollectionArgs)(nil)).Elem()
+}
+
+type WorkspaceCollectionInput interface {
+	pulumi.Input
+
+	ToWorkspaceCollectionOutput() WorkspaceCollectionOutput
+	ToWorkspaceCollectionOutputWithContext(ctx context.Context) WorkspaceCollectionOutput
+}
+
+func (WorkspaceCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCollection)(nil)).Elem()
+}
+
+func (i WorkspaceCollection) ToWorkspaceCollectionOutput() WorkspaceCollectionOutput {
+	return i.ToWorkspaceCollectionOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCollection) ToWorkspaceCollectionOutputWithContext(ctx context.Context) WorkspaceCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCollectionOutput)
+}
+
+type WorkspaceCollectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCollectionOutput)(nil)).Elem()
+}
+
+func (o WorkspaceCollectionOutput) ToWorkspaceCollectionOutput() WorkspaceCollectionOutput {
+	return o
+}
+
+func (o WorkspaceCollectionOutput) ToWorkspaceCollectionOutputWithContext(ctx context.Context) WorkspaceCollectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkspaceCollectionOutput{})
 }

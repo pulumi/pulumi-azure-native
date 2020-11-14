@@ -4,6 +4,7 @@
 package v20200801preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,7 +43,9 @@ type FileShare struct {
 	ShareQuota pulumi.IntPtrOutput `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes pulumi.IntOutput `pulumi:"shareUsageBytes"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+	SnapshotTime pulumi.StringOutput `pulumi:"snapshotTime"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version of the share.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -125,7 +128,9 @@ type fileShareState struct {
 	ShareQuota *int `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes *int `pulumi:"shareUsageBytes"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+	SnapshotTime *string `pulumi:"snapshotTime"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The version of the share.
 	Version *string `pulumi:"version"`
@@ -160,7 +165,9 @@ type FileShareState struct {
 	ShareQuota pulumi.IntPtrInput
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes pulumi.IntPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+	SnapshotTime pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The version of the share.
 	Version pulumi.StringPtrInput
@@ -177,6 +184,8 @@ type fileShareArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
 	EnabledProtocols *string `pulumi:"enabledProtocols"`
+	// Optional, used to create a snapshot.
+	Expand *string `pulumi:"expand"`
 	// A name-value pair to associate with the share as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -197,6 +206,8 @@ type FileShareArgs struct {
 	AccountName pulumi.StringInput
 	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
 	EnabledProtocols pulumi.StringPtrInput
+	// Optional, used to create a snapshot.
+	Expand pulumi.StringPtrInput
 	// A name-value pair to associate with the share as metadata.
 	Metadata pulumi.StringMapInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -211,4 +222,43 @@ type FileShareArgs struct {
 
 func (FileShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileShareArgs)(nil)).Elem()
+}
+
+type FileShareInput interface {
+	pulumi.Input
+
+	ToFileShareOutput() FileShareOutput
+	ToFileShareOutputWithContext(ctx context.Context) FileShareOutput
+}
+
+func (FileShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileShare)(nil)).Elem()
+}
+
+func (i FileShare) ToFileShareOutput() FileShareOutput {
+	return i.ToFileShareOutputWithContext(context.Background())
+}
+
+func (i FileShare) ToFileShareOutputWithContext(ctx context.Context) FileShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileShareOutput)
+}
+
+type FileShareOutput struct {
+	*pulumi.OutputState
+}
+
+func (FileShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileShareOutput)(nil)).Elem()
+}
+
+func (o FileShareOutput) ToFileShareOutput() FileShareOutput {
+	return o
+}
+
+func (o FileShareOutput) ToFileShareOutputWithContext(ctx context.Context) FileShareOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FileShareOutput{})
 }

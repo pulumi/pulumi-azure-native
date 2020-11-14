@@ -33,6 +33,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The extended location of the public ip address.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// The idle timeout of the public IP address.
         /// </summary>
         [Output("idleTimeoutInMinutes")]
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PublicIPAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PublicIPAddress"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -214,6 +221,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         [Input("dnsSettings")]
         public Input<Inputs.PublicIPAddressDnsSettingsArgs>? DnsSettings { get; set; }
+
+        /// <summary>
+        /// The extended location of the public ip address.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// Resource ID.

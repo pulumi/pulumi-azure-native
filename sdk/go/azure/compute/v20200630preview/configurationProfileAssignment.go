@@ -4,6 +4,7 @@
 package v20200630preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -18,7 +19,7 @@ type ConfigurationProfileAssignment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the configuration profile assignment.
 	Properties ConfigurationProfileAssignmentPropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -63,7 +64,7 @@ type configurationProfileAssignmentState struct {
 	Name *string `pulumi:"name"`
 	// Properties of the configuration profile assignment.
 	Properties *ConfigurationProfileAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -72,7 +73,7 @@ type ConfigurationProfileAssignmentState struct {
 	Name pulumi.StringPtrInput
 	// Properties of the configuration profile assignment.
 	Properties ConfigurationProfileAssignmentPropertiesResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -105,4 +106,43 @@ type ConfigurationProfileAssignmentArgs struct {
 
 func (ConfigurationProfileAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationProfileAssignmentArgs)(nil)).Elem()
+}
+
+type ConfigurationProfileAssignmentInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput
+	ToConfigurationProfileAssignmentOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentOutput
+}
+
+func (ConfigurationProfileAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignment)(nil)).Elem()
+}
+
+func (i ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput {
+	return i.ToConfigurationProfileAssignmentOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentOutput)
+}
+
+type ConfigurationProfileAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationProfileAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignmentOutput)(nil)).Elem()
+}
+
+func (o ConfigurationProfileAssignmentOutput) ToConfigurationProfileAssignmentOutput() ConfigurationProfileAssignmentOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentOutput) ToConfigurationProfileAssignmentOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationProfileAssignmentOutput{})
 }

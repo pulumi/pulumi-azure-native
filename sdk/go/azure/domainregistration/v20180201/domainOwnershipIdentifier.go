@@ -4,6 +4,7 @@
 package v20180201
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -130,4 +131,43 @@ type DomainOwnershipIdentifierArgs struct {
 
 func (DomainOwnershipIdentifierArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainOwnershipIdentifierArgs)(nil)).Elem()
+}
+
+type DomainOwnershipIdentifierInput interface {
+	pulumi.Input
+
+	ToDomainOwnershipIdentifierOutput() DomainOwnershipIdentifierOutput
+	ToDomainOwnershipIdentifierOutputWithContext(ctx context.Context) DomainOwnershipIdentifierOutput
+}
+
+func (DomainOwnershipIdentifier) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOwnershipIdentifier)(nil)).Elem()
+}
+
+func (i DomainOwnershipIdentifier) ToDomainOwnershipIdentifierOutput() DomainOwnershipIdentifierOutput {
+	return i.ToDomainOwnershipIdentifierOutputWithContext(context.Background())
+}
+
+func (i DomainOwnershipIdentifier) ToDomainOwnershipIdentifierOutputWithContext(ctx context.Context) DomainOwnershipIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOwnershipIdentifierOutput)
+}
+
+type DomainOwnershipIdentifierOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainOwnershipIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOwnershipIdentifierOutput)(nil)).Elem()
+}
+
+func (o DomainOwnershipIdentifierOutput) ToDomainOwnershipIdentifierOutput() DomainOwnershipIdentifierOutput {
+	return o
+}
+
+func (o DomainOwnershipIdentifierOutput) ToDomainOwnershipIdentifierOutputWithContext(ctx context.Context) DomainOwnershipIdentifierOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainOwnershipIdentifierOutput{})
 }

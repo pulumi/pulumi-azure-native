@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,9 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:CustomIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:CustomIPPrefix"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -172,4 +176,43 @@ type CustomIPPrefixArgs struct {
 
 func (CustomIPPrefixArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customIPPrefixArgs)(nil)).Elem()
+}
+
+type CustomIPPrefixInput interface {
+	pulumi.Input
+
+	ToCustomIPPrefixOutput() CustomIPPrefixOutput
+	ToCustomIPPrefixOutputWithContext(ctx context.Context) CustomIPPrefixOutput
+}
+
+func (CustomIPPrefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomIPPrefix)(nil)).Elem()
+}
+
+func (i CustomIPPrefix) ToCustomIPPrefixOutput() CustomIPPrefixOutput {
+	return i.ToCustomIPPrefixOutputWithContext(context.Background())
+}
+
+func (i CustomIPPrefix) ToCustomIPPrefixOutputWithContext(ctx context.Context) CustomIPPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomIPPrefixOutput)
+}
+
+type CustomIPPrefixOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomIPPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomIPPrefixOutput)(nil)).Elem()
+}
+
+func (o CustomIPPrefixOutput) ToCustomIPPrefixOutput() CustomIPPrefixOutput {
+	return o
+}
+
+func (o CustomIPPrefixOutput) ToCustomIPPrefixOutputWithContext(ctx context.Context) CustomIPPrefixOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomIPPrefixOutput{})
 }

@@ -4,6 +4,7 @@
 package v20190601preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -171,4 +172,43 @@ type WorkloadGroupArgs struct {
 
 func (WorkloadGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadGroupArgs)(nil)).Elem()
+}
+
+type WorkloadGroupInput interface {
+	pulumi.Input
+
+	ToWorkloadGroupOutput() WorkloadGroupOutput
+	ToWorkloadGroupOutputWithContext(ctx context.Context) WorkloadGroupOutput
+}
+
+func (WorkloadGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadGroup)(nil)).Elem()
+}
+
+func (i WorkloadGroup) ToWorkloadGroupOutput() WorkloadGroupOutput {
+	return i.ToWorkloadGroupOutputWithContext(context.Background())
+}
+
+func (i WorkloadGroup) ToWorkloadGroupOutputWithContext(ctx context.Context) WorkloadGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadGroupOutput)
+}
+
+type WorkloadGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkloadGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadGroupOutput)(nil)).Elem()
+}
+
+func (o WorkloadGroupOutput) ToWorkloadGroupOutput() WorkloadGroupOutput {
+	return o
+}
+
+func (o WorkloadGroupOutput) ToWorkloadGroupOutputWithContext(ctx context.Context) WorkloadGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkloadGroupOutput{})
 }

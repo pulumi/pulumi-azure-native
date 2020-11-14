@@ -4,6 +4,7 @@
 package v20200207preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,7 +37,7 @@ type SapMonitor struct {
 	SapMonitorCollectorVersion pulumi.StringOutput `pulumi:"sapMonitorCollectorVersion"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -105,7 +106,7 @@ type sapMonitorState struct {
 	SapMonitorCollectorVersion *string `pulumi:"sapMonitorCollectorVersion"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -132,7 +133,7 @@ type SapMonitorState struct {
 	SapMonitorCollectorVersion pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -185,4 +186,43 @@ type SapMonitorArgs struct {
 
 func (SapMonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sapMonitorArgs)(nil)).Elem()
+}
+
+type SapMonitorInput interface {
+	pulumi.Input
+
+	ToSapMonitorOutput() SapMonitorOutput
+	ToSapMonitorOutputWithContext(ctx context.Context) SapMonitorOutput
+}
+
+func (SapMonitor) ElementType() reflect.Type {
+	return reflect.TypeOf((*SapMonitor)(nil)).Elem()
+}
+
+func (i SapMonitor) ToSapMonitorOutput() SapMonitorOutput {
+	return i.ToSapMonitorOutputWithContext(context.Background())
+}
+
+func (i SapMonitor) ToSapMonitorOutputWithContext(ctx context.Context) SapMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SapMonitorOutput)
+}
+
+type SapMonitorOutput struct {
+	*pulumi.OutputState
+}
+
+func (SapMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SapMonitorOutput)(nil)).Elem()
+}
+
+func (o SapMonitorOutput) ToSapMonitorOutput() SapMonitorOutput {
+	return o
+}
+
+func (o SapMonitorOutput) ToSapMonitorOutputWithContext(ctx context.Context) SapMonitorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SapMonitorOutput{})
 }

@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -48,6 +49,9 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -139,4 +143,43 @@ type DisasterRecoveryConfigArgs struct {
 
 func (DisasterRecoveryConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*disasterRecoveryConfigArgs)(nil)).Elem()
+}
+
+type DisasterRecoveryConfigInput interface {
+	pulumi.Input
+
+	ToDisasterRecoveryConfigOutput() DisasterRecoveryConfigOutput
+	ToDisasterRecoveryConfigOutputWithContext(ctx context.Context) DisasterRecoveryConfigOutput
+}
+
+func (DisasterRecoveryConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfig)(nil)).Elem()
+}
+
+func (i DisasterRecoveryConfig) ToDisasterRecoveryConfigOutput() DisasterRecoveryConfigOutput {
+	return i.ToDisasterRecoveryConfigOutputWithContext(context.Background())
+}
+
+func (i DisasterRecoveryConfig) ToDisasterRecoveryConfigOutputWithContext(ctx context.Context) DisasterRecoveryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigOutput)
+}
+
+type DisasterRecoveryConfigOutput struct {
+	*pulumi.OutputState
+}
+
+func (DisasterRecoveryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfigOutput)(nil)).Elem()
+}
+
+func (o DisasterRecoveryConfigOutput) ToDisasterRecoveryConfigOutput() DisasterRecoveryConfigOutput {
+	return o
+}
+
+func (o DisasterRecoveryConfigOutput) ToDisasterRecoveryConfigOutputWithContext(ctx context.Context) DisasterRecoveryConfigOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DisasterRecoveryConfigOutput{})
 }

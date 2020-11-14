@@ -4,6 +4,7 @@
 package v20180901preview
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -159,4 +160,43 @@ type GraphQueryArgs struct {
 
 func (GraphQueryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphQueryArgs)(nil)).Elem()
+}
+
+type GraphQueryInput interface {
+	pulumi.Input
+
+	ToGraphQueryOutput() GraphQueryOutput
+	ToGraphQueryOutputWithContext(ctx context.Context) GraphQueryOutput
+}
+
+func (GraphQuery) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQuery)(nil)).Elem()
+}
+
+func (i GraphQuery) ToGraphQueryOutput() GraphQueryOutput {
+	return i.ToGraphQueryOutputWithContext(context.Background())
+}
+
+func (i GraphQuery) ToGraphQueryOutputWithContext(ctx context.Context) GraphQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQueryOutput)
+}
+
+type GraphQueryOutput struct {
+	*pulumi.OutputState
+}
+
+func (GraphQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQueryOutput)(nil)).Elem()
+}
+
+func (o GraphQueryOutput) ToGraphQueryOutput() GraphQueryOutput {
+	return o
+}
+
+func (o GraphQueryOutput) ToGraphQueryOutputWithContext(ctx context.Context) GraphQueryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GraphQueryOutput{})
 }

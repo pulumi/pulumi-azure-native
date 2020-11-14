@@ -4,6 +4,7 @@
 package v20181101
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -473,4 +474,43 @@ type WebAppSlotArgs struct {
 
 func (WebAppSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppSlotArgs)(nil)).Elem()
+}
+
+type WebAppSlotInput interface {
+	pulumi.Input
+
+	ToWebAppSlotOutput() WebAppSlotOutput
+	ToWebAppSlotOutputWithContext(ctx context.Context) WebAppSlotOutput
+}
+
+func (WebAppSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSlot)(nil)).Elem()
+}
+
+func (i WebAppSlot) ToWebAppSlotOutput() WebAppSlotOutput {
+	return i.ToWebAppSlotOutputWithContext(context.Background())
+}
+
+func (i WebAppSlot) ToWebAppSlotOutputWithContext(ctx context.Context) WebAppSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSlotOutput)
+}
+
+type WebAppSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSlotOutput)(nil)).Elem()
+}
+
+func (o WebAppSlotOutput) ToWebAppSlotOutput() WebAppSlotOutput {
+	return o
+}
+
+func (o WebAppSlotOutput) ToWebAppSlotOutputWithContext(ctx context.Context) WebAppSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppSlotOutput{})
 }

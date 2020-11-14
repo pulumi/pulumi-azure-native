@@ -4,6 +4,7 @@
 package v20160601
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,4 +154,43 @@ type ProtectionPolicyArgs struct {
 
 func (ProtectionPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionPolicyArgs)(nil)).Elem()
+}
+
+type ProtectionPolicyInput interface {
+	pulumi.Input
+
+	ToProtectionPolicyOutput() ProtectionPolicyOutput
+	ToProtectionPolicyOutputWithContext(ctx context.Context) ProtectionPolicyOutput
+}
+
+func (ProtectionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionPolicy)(nil)).Elem()
+}
+
+func (i ProtectionPolicy) ToProtectionPolicyOutput() ProtectionPolicyOutput {
+	return i.ToProtectionPolicyOutputWithContext(context.Background())
+}
+
+func (i ProtectionPolicy) ToProtectionPolicyOutputWithContext(ctx context.Context) ProtectionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyOutput)
+}
+
+type ProtectionPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionPolicyOutput)(nil)).Elem()
+}
+
+func (o ProtectionPolicyOutput) ToProtectionPolicyOutput() ProtectionPolicyOutput {
+	return o
+}
+
+func (o ProtectionPolicyOutput) ToProtectionPolicyOutputWithContext(ctx context.Context) ProtectionPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProtectionPolicyOutput{})
 }

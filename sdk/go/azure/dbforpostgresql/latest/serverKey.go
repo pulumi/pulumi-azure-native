@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -22,7 +23,7 @@ type ServerKey struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The key type like 'AzureKeyVault'.
 	ServerKeyType pulumi.StringOutput `pulumi:"serverKeyType"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The URI of the key.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
@@ -85,7 +86,7 @@ type serverKeyState struct {
 	Name *string `pulumi:"name"`
 	// The key type like 'AzureKeyVault'.
 	ServerKeyType *string `pulumi:"serverKeyType"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The URI of the key.
 	Uri *string `pulumi:"uri"`
@@ -100,7 +101,7 @@ type ServerKeyState struct {
 	Name pulumi.StringPtrInput
 	// The key type like 'AzureKeyVault'.
 	ServerKeyType pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The URI of the key.
 	Uri pulumi.StringPtrInput
@@ -139,4 +140,43 @@ type ServerKeyArgs struct {
 
 func (ServerKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverKeyArgs)(nil)).Elem()
+}
+
+type ServerKeyInput interface {
+	pulumi.Input
+
+	ToServerKeyOutput() ServerKeyOutput
+	ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput
+}
+
+func (ServerKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerKey)(nil)).Elem()
+}
+
+func (i ServerKey) ToServerKeyOutput() ServerKeyOutput {
+	return i.ToServerKeyOutputWithContext(context.Background())
+}
+
+func (i ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyOutput)
+}
+
+type ServerKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerKeyOutput)(nil)).Elem()
+}
+
+func (o ServerKeyOutput) ToServerKeyOutput() ServerKeyOutput {
+	return o
+}
+
+func (o ServerKeyOutput) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerKeyOutput{})
 }

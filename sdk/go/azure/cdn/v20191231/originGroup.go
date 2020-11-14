@@ -4,6 +4,7 @@
 package v20191231
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -169,4 +170,43 @@ type OriginGroupArgs struct {
 
 func (OriginGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*originGroupArgs)(nil)).Elem()
+}
+
+type OriginGroupInput interface {
+	pulumi.Input
+
+	ToOriginGroupOutput() OriginGroupOutput
+	ToOriginGroupOutputWithContext(ctx context.Context) OriginGroupOutput
+}
+
+func (OriginGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroup)(nil)).Elem()
+}
+
+func (i OriginGroup) ToOriginGroupOutput() OriginGroupOutput {
+	return i.ToOriginGroupOutputWithContext(context.Background())
+}
+
+func (i OriginGroup) ToOriginGroupOutputWithContext(ctx context.Context) OriginGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOutput)
+}
+
+type OriginGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (OriginGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOutput)(nil)).Elem()
+}
+
+func (o OriginGroupOutput) ToOriginGroupOutput() OriginGroupOutput {
+	return o
+}
+
+func (o OriginGroupOutput) ToOriginGroupOutputWithContext(ctx context.Context) OriginGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OriginGroupOutput{})
 }

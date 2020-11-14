@@ -4,6 +4,7 @@
 package latest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -283,4 +284,43 @@ type StreamingJobArgs struct {
 
 func (StreamingJobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamingJobArgs)(nil)).Elem()
+}
+
+type StreamingJobInput interface {
+	pulumi.Input
+
+	ToStreamingJobOutput() StreamingJobOutput
+	ToStreamingJobOutputWithContext(ctx context.Context) StreamingJobOutput
+}
+
+func (StreamingJob) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingJob)(nil)).Elem()
+}
+
+func (i StreamingJob) ToStreamingJobOutput() StreamingJobOutput {
+	return i.ToStreamingJobOutputWithContext(context.Background())
+}
+
+func (i StreamingJob) ToStreamingJobOutputWithContext(ctx context.Context) StreamingJobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingJobOutput)
+}
+
+type StreamingJobOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamingJobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingJobOutput)(nil)).Elem()
+}
+
+func (o StreamingJobOutput) ToStreamingJobOutput() StreamingJobOutput {
+	return o
+}
+
+func (o StreamingJobOutput) ToStreamingJobOutputWithContext(ctx context.Context) StreamingJobOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StreamingJobOutput{})
 }

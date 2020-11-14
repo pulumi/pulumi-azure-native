@@ -970,6 +970,293 @@ func (o ComponentSetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentSetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetails struct {
+	// The key object of the workspace
+	Key *WorkspaceKeyDetails `pulumi:"key"`
+}
+
+// CustomerManagedKeyDetailsInput is an input type that accepts CustomerManagedKeyDetailsArgs and CustomerManagedKeyDetailsOutput values.
+// You can construct a concrete instance of `CustomerManagedKeyDetailsInput` via:
+//
+//          CustomerManagedKeyDetailsArgs{...}
+type CustomerManagedKeyDetailsInput interface {
+	pulumi.Input
+
+	ToCustomerManagedKeyDetailsOutput() CustomerManagedKeyDetailsOutput
+	ToCustomerManagedKeyDetailsOutputWithContext(context.Context) CustomerManagedKeyDetailsOutput
+}
+
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetailsArgs struct {
+	// The key object of the workspace
+	Key WorkspaceKeyDetailsPtrInput `pulumi:"key"`
+}
+
+func (CustomerManagedKeyDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKeyDetails)(nil)).Elem()
+}
+
+func (i CustomerManagedKeyDetailsArgs) ToCustomerManagedKeyDetailsOutput() CustomerManagedKeyDetailsOutput {
+	return i.ToCustomerManagedKeyDetailsOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedKeyDetailsArgs) ToCustomerManagedKeyDetailsOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsOutput)
+}
+
+func (i CustomerManagedKeyDetailsArgs) ToCustomerManagedKeyDetailsPtrOutput() CustomerManagedKeyDetailsPtrOutput {
+	return i.ToCustomerManagedKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedKeyDetailsArgs) ToCustomerManagedKeyDetailsPtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsOutput).ToCustomerManagedKeyDetailsPtrOutputWithContext(ctx)
+}
+
+// CustomerManagedKeyDetailsPtrInput is an input type that accepts CustomerManagedKeyDetailsArgs, CustomerManagedKeyDetailsPtr and CustomerManagedKeyDetailsPtrOutput values.
+// You can construct a concrete instance of `CustomerManagedKeyDetailsPtrInput` via:
+//
+//          CustomerManagedKeyDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type CustomerManagedKeyDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCustomerManagedKeyDetailsPtrOutput() CustomerManagedKeyDetailsPtrOutput
+	ToCustomerManagedKeyDetailsPtrOutputWithContext(context.Context) CustomerManagedKeyDetailsPtrOutput
+}
+
+type customerManagedKeyDetailsPtrType CustomerManagedKeyDetailsArgs
+
+func CustomerManagedKeyDetailsPtr(v *CustomerManagedKeyDetailsArgs) CustomerManagedKeyDetailsPtrInput {
+	return (*customerManagedKeyDetailsPtrType)(v)
+}
+
+func (*customerManagedKeyDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerManagedKeyDetails)(nil)).Elem()
+}
+
+func (i *customerManagedKeyDetailsPtrType) ToCustomerManagedKeyDetailsPtrOutput() CustomerManagedKeyDetailsPtrOutput {
+	return i.ToCustomerManagedKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *customerManagedKeyDetailsPtrType) ToCustomerManagedKeyDetailsPtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsPtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetailsOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedKeyDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKeyDetails)(nil)).Elem()
+}
+
+func (o CustomerManagedKeyDetailsOutput) ToCustomerManagedKeyDetailsOutput() CustomerManagedKeyDetailsOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsOutput) ToCustomerManagedKeyDetailsOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsOutput) ToCustomerManagedKeyDetailsPtrOutput() CustomerManagedKeyDetailsPtrOutput {
+	return o.ToCustomerManagedKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CustomerManagedKeyDetailsOutput) ToCustomerManagedKeyDetailsPtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsPtrOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetails) *CustomerManagedKeyDetails {
+		return &v
+	}).(CustomerManagedKeyDetailsPtrOutput)
+}
+
+// The key object of the workspace
+func (o CustomerManagedKeyDetailsOutput) Key() WorkspaceKeyDetailsPtrOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetails) *WorkspaceKeyDetails { return v.Key }).(WorkspaceKeyDetailsPtrOutput)
+}
+
+type CustomerManagedKeyDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedKeyDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerManagedKeyDetails)(nil)).Elem()
+}
+
+func (o CustomerManagedKeyDetailsPtrOutput) ToCustomerManagedKeyDetailsPtrOutput() CustomerManagedKeyDetailsPtrOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsPtrOutput) ToCustomerManagedKeyDetailsPtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsPtrOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsPtrOutput) Elem() CustomerManagedKeyDetailsOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetails) CustomerManagedKeyDetails { return *v }).(CustomerManagedKeyDetailsOutput)
+}
+
+// The key object of the workspace
+func (o CustomerManagedKeyDetailsPtrOutput) Key() WorkspaceKeyDetailsPtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetails) *WorkspaceKeyDetails {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(WorkspaceKeyDetailsPtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetailsResponse struct {
+	// The key object of the workspace
+	Key *WorkspaceKeyDetailsResponse `pulumi:"key"`
+	// The customer managed key status on the workspace
+	Status string `pulumi:"status"`
+}
+
+// CustomerManagedKeyDetailsResponseInput is an input type that accepts CustomerManagedKeyDetailsResponseArgs and CustomerManagedKeyDetailsResponseOutput values.
+// You can construct a concrete instance of `CustomerManagedKeyDetailsResponseInput` via:
+//
+//          CustomerManagedKeyDetailsResponseArgs{...}
+type CustomerManagedKeyDetailsResponseInput interface {
+	pulumi.Input
+
+	ToCustomerManagedKeyDetailsResponseOutput() CustomerManagedKeyDetailsResponseOutput
+	ToCustomerManagedKeyDetailsResponseOutputWithContext(context.Context) CustomerManagedKeyDetailsResponseOutput
+}
+
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetailsResponseArgs struct {
+	// The key object of the workspace
+	Key WorkspaceKeyDetailsResponsePtrInput `pulumi:"key"`
+	// The customer managed key status on the workspace
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (CustomerManagedKeyDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKeyDetailsResponse)(nil)).Elem()
+}
+
+func (i CustomerManagedKeyDetailsResponseArgs) ToCustomerManagedKeyDetailsResponseOutput() CustomerManagedKeyDetailsResponseOutput {
+	return i.ToCustomerManagedKeyDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedKeyDetailsResponseArgs) ToCustomerManagedKeyDetailsResponseOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsResponseOutput)
+}
+
+func (i CustomerManagedKeyDetailsResponseArgs) ToCustomerManagedKeyDetailsResponsePtrOutput() CustomerManagedKeyDetailsResponsePtrOutput {
+	return i.ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedKeyDetailsResponseArgs) ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsResponseOutput).ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// CustomerManagedKeyDetailsResponsePtrInput is an input type that accepts CustomerManagedKeyDetailsResponseArgs, CustomerManagedKeyDetailsResponsePtr and CustomerManagedKeyDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `CustomerManagedKeyDetailsResponsePtrInput` via:
+//
+//          CustomerManagedKeyDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CustomerManagedKeyDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToCustomerManagedKeyDetailsResponsePtrOutput() CustomerManagedKeyDetailsResponsePtrOutput
+	ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(context.Context) CustomerManagedKeyDetailsResponsePtrOutput
+}
+
+type customerManagedKeyDetailsResponsePtrType CustomerManagedKeyDetailsResponseArgs
+
+func CustomerManagedKeyDetailsResponsePtr(v *CustomerManagedKeyDetailsResponseArgs) CustomerManagedKeyDetailsResponsePtrInput {
+	return (*customerManagedKeyDetailsResponsePtrType)(v)
+}
+
+func (*customerManagedKeyDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerManagedKeyDetailsResponse)(nil)).Elem()
+}
+
+func (i *customerManagedKeyDetailsResponsePtrType) ToCustomerManagedKeyDetailsResponsePtrOutput() CustomerManagedKeyDetailsResponsePtrOutput {
+	return i.ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *customerManagedKeyDetailsResponsePtrType) ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyDetailsResponsePtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type CustomerManagedKeyDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedKeyDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKeyDetailsResponse)(nil)).Elem()
+}
+
+func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResponseOutput() CustomerManagedKeyDetailsResponseOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResponseOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponseOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResponsePtrOutput() CustomerManagedKeyDetailsResponsePtrOutput {
+	return o.ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetailsResponse) *CustomerManagedKeyDetailsResponse {
+		return &v
+	}).(CustomerManagedKeyDetailsResponsePtrOutput)
+}
+
+// The key object of the workspace
+func (o CustomerManagedKeyDetailsResponseOutput) Key() WorkspaceKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetailsResponse) *WorkspaceKeyDetailsResponse { return v.Key }).(WorkspaceKeyDetailsResponsePtrOutput)
+}
+
+// The customer managed key status on the workspace
+func (o CustomerManagedKeyDetailsResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerManagedKeyDetailsResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type CustomerManagedKeyDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedKeyDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerManagedKeyDetailsResponse)(nil)).Elem()
+}
+
+func (o CustomerManagedKeyDetailsResponsePtrOutput) ToCustomerManagedKeyDetailsResponsePtrOutput() CustomerManagedKeyDetailsResponsePtrOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsResponsePtrOutput) ToCustomerManagedKeyDetailsResponsePtrOutputWithContext(ctx context.Context) CustomerManagedKeyDetailsResponsePtrOutput {
+	return o
+}
+
+func (o CustomerManagedKeyDetailsResponsePtrOutput) Elem() CustomerManagedKeyDetailsResponseOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetailsResponse) CustomerManagedKeyDetailsResponse { return *v }).(CustomerManagedKeyDetailsResponseOutput)
+}
+
+// The key object of the workspace
+func (o CustomerManagedKeyDetailsResponsePtrOutput) Key() WorkspaceKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetailsResponse) *WorkspaceKeyDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(WorkspaceKeyDetailsResponsePtrOutput)
+}
+
+// The customer managed key status on the workspace
+func (o CustomerManagedKeyDetailsResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKeyDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details of the data lake storage account associated with the workspace
 type DataLakeStorageAccountDetails struct {
 	// Account URL
@@ -1274,6 +1561,293 @@ func (o DataLakeStorageAccountDetailsResponsePtrOutput) Filesystem() pulumi.Stri
 		}
 		return v.Filesystem
 	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetails struct {
+	// Customer Managed Key Details
+	Cmk *CustomerManagedKeyDetails `pulumi:"cmk"`
+}
+
+// EncryptionDetailsInput is an input type that accepts EncryptionDetailsArgs and EncryptionDetailsOutput values.
+// You can construct a concrete instance of `EncryptionDetailsInput` via:
+//
+//          EncryptionDetailsArgs{...}
+type EncryptionDetailsInput interface {
+	pulumi.Input
+
+	ToEncryptionDetailsOutput() EncryptionDetailsOutput
+	ToEncryptionDetailsOutputWithContext(context.Context) EncryptionDetailsOutput
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetailsArgs struct {
+	// Customer Managed Key Details
+	Cmk CustomerManagedKeyDetailsPtrInput `pulumi:"cmk"`
+}
+
+func (EncryptionDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionDetails)(nil)).Elem()
+}
+
+func (i EncryptionDetailsArgs) ToEncryptionDetailsOutput() EncryptionDetailsOutput {
+	return i.ToEncryptionDetailsOutputWithContext(context.Background())
+}
+
+func (i EncryptionDetailsArgs) ToEncryptionDetailsOutputWithContext(ctx context.Context) EncryptionDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsOutput)
+}
+
+func (i EncryptionDetailsArgs) ToEncryptionDetailsPtrOutput() EncryptionDetailsPtrOutput {
+	return i.ToEncryptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionDetailsArgs) ToEncryptionDetailsPtrOutputWithContext(ctx context.Context) EncryptionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsOutput).ToEncryptionDetailsPtrOutputWithContext(ctx)
+}
+
+// EncryptionDetailsPtrInput is an input type that accepts EncryptionDetailsArgs, EncryptionDetailsPtr and EncryptionDetailsPtrOutput values.
+// You can construct a concrete instance of `EncryptionDetailsPtrInput` via:
+//
+//          EncryptionDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionDetailsPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionDetailsPtrOutput() EncryptionDetailsPtrOutput
+	ToEncryptionDetailsPtrOutputWithContext(context.Context) EncryptionDetailsPtrOutput
+}
+
+type encryptionDetailsPtrType EncryptionDetailsArgs
+
+func EncryptionDetailsPtr(v *EncryptionDetailsArgs) EncryptionDetailsPtrInput {
+	return (*encryptionDetailsPtrType)(v)
+}
+
+func (*encryptionDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionDetails)(nil)).Elem()
+}
+
+func (i *encryptionDetailsPtrType) ToEncryptionDetailsPtrOutput() EncryptionDetailsPtrOutput {
+	return i.ToEncryptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionDetailsPtrType) ToEncryptionDetailsPtrOutputWithContext(ctx context.Context) EncryptionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsPtrOutput)
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetailsOutput struct{ *pulumi.OutputState }
+
+func (EncryptionDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionDetails)(nil)).Elem()
+}
+
+func (o EncryptionDetailsOutput) ToEncryptionDetailsOutput() EncryptionDetailsOutput {
+	return o
+}
+
+func (o EncryptionDetailsOutput) ToEncryptionDetailsOutputWithContext(ctx context.Context) EncryptionDetailsOutput {
+	return o
+}
+
+func (o EncryptionDetailsOutput) ToEncryptionDetailsPtrOutput() EncryptionDetailsPtrOutput {
+	return o.ToEncryptionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionDetailsOutput) ToEncryptionDetailsPtrOutputWithContext(ctx context.Context) EncryptionDetailsPtrOutput {
+	return o.ApplyT(func(v EncryptionDetails) *EncryptionDetails {
+		return &v
+	}).(EncryptionDetailsPtrOutput)
+}
+
+// Customer Managed Key Details
+func (o EncryptionDetailsOutput) Cmk() CustomerManagedKeyDetailsPtrOutput {
+	return o.ApplyT(func(v EncryptionDetails) *CustomerManagedKeyDetails { return v.Cmk }).(CustomerManagedKeyDetailsPtrOutput)
+}
+
+type EncryptionDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionDetails)(nil)).Elem()
+}
+
+func (o EncryptionDetailsPtrOutput) ToEncryptionDetailsPtrOutput() EncryptionDetailsPtrOutput {
+	return o
+}
+
+func (o EncryptionDetailsPtrOutput) ToEncryptionDetailsPtrOutputWithContext(ctx context.Context) EncryptionDetailsPtrOutput {
+	return o
+}
+
+func (o EncryptionDetailsPtrOutput) Elem() EncryptionDetailsOutput {
+	return o.ApplyT(func(v *EncryptionDetails) EncryptionDetails { return *v }).(EncryptionDetailsOutput)
+}
+
+// Customer Managed Key Details
+func (o EncryptionDetailsPtrOutput) Cmk() CustomerManagedKeyDetailsPtrOutput {
+	return o.ApplyT(func(v *EncryptionDetails) *CustomerManagedKeyDetails {
+		if v == nil {
+			return nil
+		}
+		return v.Cmk
+	}).(CustomerManagedKeyDetailsPtrOutput)
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetailsResponse struct {
+	// Customer Managed Key Details
+	Cmk *CustomerManagedKeyDetailsResponse `pulumi:"cmk"`
+	// Double Encryption enabled
+	DoubleEncryptionEnabled bool `pulumi:"doubleEncryptionEnabled"`
+}
+
+// EncryptionDetailsResponseInput is an input type that accepts EncryptionDetailsResponseArgs and EncryptionDetailsResponseOutput values.
+// You can construct a concrete instance of `EncryptionDetailsResponseInput` via:
+//
+//          EncryptionDetailsResponseArgs{...}
+type EncryptionDetailsResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionDetailsResponseOutput() EncryptionDetailsResponseOutput
+	ToEncryptionDetailsResponseOutputWithContext(context.Context) EncryptionDetailsResponseOutput
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetailsResponseArgs struct {
+	// Customer Managed Key Details
+	Cmk CustomerManagedKeyDetailsResponsePtrInput `pulumi:"cmk"`
+	// Double Encryption enabled
+	DoubleEncryptionEnabled pulumi.BoolInput `pulumi:"doubleEncryptionEnabled"`
+}
+
+func (EncryptionDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionDetailsResponse)(nil)).Elem()
+}
+
+func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponseOutput() EncryptionDetailsResponseOutput {
+	return i.ToEncryptionDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponseOutputWithContext(ctx context.Context) EncryptionDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponseOutput)
+}
+
+func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput {
+	return i.ToEncryptionDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponseOutput).ToEncryptionDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionDetailsResponsePtrInput is an input type that accepts EncryptionDetailsResponseArgs, EncryptionDetailsResponsePtr and EncryptionDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionDetailsResponsePtrInput` via:
+//
+//          EncryptionDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput
+	ToEncryptionDetailsResponsePtrOutputWithContext(context.Context) EncryptionDetailsResponsePtrOutput
+}
+
+type encryptionDetailsResponsePtrType EncryptionDetailsResponseArgs
+
+func EncryptionDetailsResponsePtr(v *EncryptionDetailsResponseArgs) EncryptionDetailsResponsePtrInput {
+	return (*encryptionDetailsResponsePtrType)(v)
+}
+
+func (*encryptionDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionDetailsResponse)(nil)).Elem()
+}
+
+func (i *encryptionDetailsResponsePtrType) ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput {
+	return i.ToEncryptionDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionDetailsResponsePtrType) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponsePtrOutput)
+}
+
+// Details of the encryption associated with the workspace
+type EncryptionDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionDetailsResponse)(nil)).Elem()
+}
+
+func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponseOutput() EncryptionDetailsResponseOutput {
+	return o
+}
+
+func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponseOutputWithContext(ctx context.Context) EncryptionDetailsResponseOutput {
+	return o
+}
+
+func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput {
+	return o.ToEncryptionDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionDetailsResponse) *EncryptionDetailsResponse {
+		return &v
+	}).(EncryptionDetailsResponsePtrOutput)
+}
+
+// Customer Managed Key Details
+func (o EncryptionDetailsResponseOutput) Cmk() CustomerManagedKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionDetailsResponse) *CustomerManagedKeyDetailsResponse { return v.Cmk }).(CustomerManagedKeyDetailsResponsePtrOutput)
+}
+
+// Double Encryption enabled
+func (o EncryptionDetailsResponseOutput) DoubleEncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v EncryptionDetailsResponse) bool { return v.DoubleEncryptionEnabled }).(pulumi.BoolOutput)
+}
+
+type EncryptionDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionDetailsResponse)(nil)).Elem()
+}
+
+func (o EncryptionDetailsResponsePtrOutput) ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionDetailsResponsePtrOutput) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionDetailsResponsePtrOutput) Elem() EncryptionDetailsResponseOutput {
+	return o.ApplyT(func(v *EncryptionDetailsResponse) EncryptionDetailsResponse { return *v }).(EncryptionDetailsResponseOutput)
+}
+
+// Customer Managed Key Details
+func (o EncryptionDetailsResponsePtrOutput) Cmk() CustomerManagedKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionDetailsResponse) *CustomerManagedKeyDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Cmk
+	}).(CustomerManagedKeyDetailsResponsePtrOutput)
+}
+
+// Double Encryption enabled
+func (o EncryptionDetailsResponsePtrOutput) DoubleEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EncryptionDetailsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DoubleEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The entity reference.
@@ -4394,278 +4968,6 @@ func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) VNetId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Library/package information of a Big Data pool powered by Apache Spark
-type LibraryInfo struct {
-	// Storage blob container name.
-	ContainerName *string `pulumi:"containerName"`
-	// Name of the library.
-	Name *string `pulumi:"name"`
-	// Storage blob path of library.
-	Path *string `pulumi:"path"`
-	// Type of the library.
-	Type *string `pulumi:"type"`
-	// The last update time of the library.
-	UploadedTimestamp *string `pulumi:"uploadedTimestamp"`
-}
-
-// LibraryInfoInput is an input type that accepts LibraryInfoArgs and LibraryInfoOutput values.
-// You can construct a concrete instance of `LibraryInfoInput` via:
-//
-//          LibraryInfoArgs{...}
-type LibraryInfoInput interface {
-	pulumi.Input
-
-	ToLibraryInfoOutput() LibraryInfoOutput
-	ToLibraryInfoOutputWithContext(context.Context) LibraryInfoOutput
-}
-
-// Library/package information of a Big Data pool powered by Apache Spark
-type LibraryInfoArgs struct {
-	// Storage blob container name.
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Name of the library.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Storage blob path of library.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Type of the library.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The last update time of the library.
-	UploadedTimestamp pulumi.StringPtrInput `pulumi:"uploadedTimestamp"`
-}
-
-func (LibraryInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LibraryInfo)(nil)).Elem()
-}
-
-func (i LibraryInfoArgs) ToLibraryInfoOutput() LibraryInfoOutput {
-	return i.ToLibraryInfoOutputWithContext(context.Background())
-}
-
-func (i LibraryInfoArgs) ToLibraryInfoOutputWithContext(ctx context.Context) LibraryInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoOutput)
-}
-
-// LibraryInfoArrayInput is an input type that accepts LibraryInfoArray and LibraryInfoArrayOutput values.
-// You can construct a concrete instance of `LibraryInfoArrayInput` via:
-//
-//          LibraryInfoArray{ LibraryInfoArgs{...} }
-type LibraryInfoArrayInput interface {
-	pulumi.Input
-
-	ToLibraryInfoArrayOutput() LibraryInfoArrayOutput
-	ToLibraryInfoArrayOutputWithContext(context.Context) LibraryInfoArrayOutput
-}
-
-type LibraryInfoArray []LibraryInfoInput
-
-func (LibraryInfoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LibraryInfo)(nil)).Elem()
-}
-
-func (i LibraryInfoArray) ToLibraryInfoArrayOutput() LibraryInfoArrayOutput {
-	return i.ToLibraryInfoArrayOutputWithContext(context.Background())
-}
-
-func (i LibraryInfoArray) ToLibraryInfoArrayOutputWithContext(ctx context.Context) LibraryInfoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoArrayOutput)
-}
-
-// Library/package information of a Big Data pool powered by Apache Spark
-type LibraryInfoOutput struct{ *pulumi.OutputState }
-
-func (LibraryInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LibraryInfo)(nil)).Elem()
-}
-
-func (o LibraryInfoOutput) ToLibraryInfoOutput() LibraryInfoOutput {
-	return o
-}
-
-func (o LibraryInfoOutput) ToLibraryInfoOutputWithContext(ctx context.Context) LibraryInfoOutput {
-	return o
-}
-
-// Storage blob container name.
-func (o LibraryInfoOutput) ContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LibraryInfo) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
-}
-
-// Name of the library.
-func (o LibraryInfoOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LibraryInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Storage blob path of library.
-func (o LibraryInfoOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LibraryInfo) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// Type of the library.
-func (o LibraryInfoOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LibraryInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// The last update time of the library.
-func (o LibraryInfoOutput) UploadedTimestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LibraryInfo) *string { return v.UploadedTimestamp }).(pulumi.StringPtrOutput)
-}
-
-type LibraryInfoArrayOutput struct{ *pulumi.OutputState }
-
-func (LibraryInfoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LibraryInfo)(nil)).Elem()
-}
-
-func (o LibraryInfoArrayOutput) ToLibraryInfoArrayOutput() LibraryInfoArrayOutput {
-	return o
-}
-
-func (o LibraryInfoArrayOutput) ToLibraryInfoArrayOutputWithContext(ctx context.Context) LibraryInfoArrayOutput {
-	return o
-}
-
-func (o LibraryInfoArrayOutput) Index(i pulumi.IntInput) LibraryInfoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LibraryInfo {
-		return vs[0].([]LibraryInfo)[vs[1].(int)]
-	}).(LibraryInfoOutput)
-}
-
-// Library/package information of a Big Data pool powered by Apache Spark
-type LibraryInfoResponse struct {
-	// Storage blob container name.
-	ContainerName *string `pulumi:"containerName"`
-	// Name of the library.
-	Name *string `pulumi:"name"`
-	// Storage blob path of library.
-	Path *string `pulumi:"path"`
-	// Type of the library.
-	Type *string `pulumi:"type"`
-	// The last update time of the library.
-	UploadedTimestamp *string `pulumi:"uploadedTimestamp"`
-}
-
-// LibraryInfoResponseInput is an input type that accepts LibraryInfoResponseArgs and LibraryInfoResponseOutput values.
-// You can construct a concrete instance of `LibraryInfoResponseInput` via:
-//
-//          LibraryInfoResponseArgs{...}
-type LibraryInfoResponseInput interface {
-	pulumi.Input
-
-	ToLibraryInfoResponseOutput() LibraryInfoResponseOutput
-	ToLibraryInfoResponseOutputWithContext(context.Context) LibraryInfoResponseOutput
-}
-
-// Library/package information of a Big Data pool powered by Apache Spark
-type LibraryInfoResponseArgs struct {
-	// Storage blob container name.
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Name of the library.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Storage blob path of library.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Type of the library.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The last update time of the library.
-	UploadedTimestamp pulumi.StringPtrInput `pulumi:"uploadedTimestamp"`
-}
-
-func (LibraryInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LibraryInfoResponse)(nil)).Elem()
-}
-
-func (i LibraryInfoResponseArgs) ToLibraryInfoResponseOutput() LibraryInfoResponseOutput {
-	return i.ToLibraryInfoResponseOutputWithContext(context.Background())
-}
-
-func (i LibraryInfoResponseArgs) ToLibraryInfoResponseOutputWithContext(ctx context.Context) LibraryInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoResponseOutput)
-}
-
-// LibraryInfoResponseArrayInput is an input type that accepts LibraryInfoResponseArray and LibraryInfoResponseArrayOutput values.
-// You can construct a concrete instance of `LibraryInfoResponseArrayInput` via:
-//
-//          LibraryInfoResponseArray{ LibraryInfoResponseArgs{...} }
-type LibraryInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToLibraryInfoResponseArrayOutput() LibraryInfoResponseArrayOutput
-	ToLibraryInfoResponseArrayOutputWithContext(context.Context) LibraryInfoResponseArrayOutput
-}
-
-type LibraryInfoResponseArray []LibraryInfoResponseInput
-
-func (LibraryInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LibraryInfoResponse)(nil)).Elem()
-}
-
-func (i LibraryInfoResponseArray) ToLibraryInfoResponseArrayOutput() LibraryInfoResponseArrayOutput {
-	return i.ToLibraryInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LibraryInfoResponseArray) ToLibraryInfoResponseArrayOutputWithContext(ctx context.Context) LibraryInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoResponseArrayOutput)
-}
-
-// Library/package information of a Big Data pool powered by Apache Spark
-type LibraryInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (LibraryInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LibraryInfoResponse)(nil)).Elem()
-}
-
-func (o LibraryInfoResponseOutput) ToLibraryInfoResponseOutput() LibraryInfoResponseOutput {
-	return o
-}
-
-func (o LibraryInfoResponseOutput) ToLibraryInfoResponseOutputWithContext(ctx context.Context) LibraryInfoResponseOutput {
-	return o
-}
-
-// Storage blob container name.
-func (o LibraryInfoResponseOutput) ContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
-}
-
-// Name of the library.
-func (o LibraryInfoResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Storage blob path of library.
-func (o LibraryInfoResponseOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// Type of the library.
-func (o LibraryInfoResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// The last update time of the library.
-func (o LibraryInfoResponseOutput) UploadedTimestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.UploadedTimestamp }).(pulumi.StringPtrOutput)
-}
-
-type LibraryInfoResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (LibraryInfoResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LibraryInfoResponse)(nil)).Elem()
-}
-
-func (o LibraryInfoResponseArrayOutput) ToLibraryInfoResponseArrayOutput() LibraryInfoResponseArrayOutput {
-	return o
-}
-
-func (o LibraryInfoResponseArrayOutput) ToLibraryInfoResponseArrayOutputWithContext(ctx context.Context) LibraryInfoResponseArrayOutput {
-	return o
-}
-
-func (o LibraryInfoResponseArrayOutput) Index(i pulumi.IntInput) LibraryInfoResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LibraryInfoResponse {
-		return vs[0].([]LibraryInfoResponse)[vs[1].(int)]
-	}).(LibraryInfoResponseOutput)
-}
-
 // Library requirements for a Big Data pool powered by Apache Spark
 type LibraryRequirements struct {
 	// The library requirements.
@@ -6774,9 +7076,140 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 	}).(PrivateEndpointConnectionTypeOutput)
 }
 
+// Private Endpoint Connection For Private Link Hub - Basic
+type PrivateEndpointConnectionForPrivateLinkHubBasicResponse struct {
+	// identifier
+	Id string `pulumi:"id"`
+	// The private endpoint which the connection belongs to.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Connection state of the private endpoint connection.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// PrivateEndpointConnectionForPrivateLinkHubBasicResponseInput is an input type that accepts PrivateEndpointConnectionForPrivateLinkHubBasicResponseArgs and PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionForPrivateLinkHubBasicResponseInput` via:
+//
+//          PrivateEndpointConnectionForPrivateLinkHubBasicResponseArgs{...}
+type PrivateEndpointConnectionForPrivateLinkHubBasicResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput() PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput
+	ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseOutputWithContext(context.Context) PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput
+}
+
+// Private Endpoint Connection For Private Link Hub - Basic
+type PrivateEndpointConnectionForPrivateLinkHubBasicResponseArgs struct {
+	// identifier
+	Id pulumi.StringInput `pulumi:"id"`
+	// The private endpoint which the connection belongs to.
+	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
+	// Connection state of the private endpoint connection.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (PrivateEndpointConnectionForPrivateLinkHubBasicResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionForPrivateLinkHubBasicResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionForPrivateLinkHubBasicResponseArgs) ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput() PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput {
+	return i.ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionForPrivateLinkHubBasicResponseArgs) ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput)
+}
+
+// PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayInput is an input type that accepts PrivateEndpointConnectionForPrivateLinkHubBasicResponseArray and PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionForPrivateLinkHubBasicResponseArray{ PrivateEndpointConnectionForPrivateLinkHubBasicResponseArgs{...} }
+type PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput() PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput
+	ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput
+}
+
+type PrivateEndpointConnectionForPrivateLinkHubBasicResponseArray []PrivateEndpointConnectionForPrivateLinkHubBasicResponseInput
+
+func (PrivateEndpointConnectionForPrivateLinkHubBasicResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionForPrivateLinkHubBasicResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionForPrivateLinkHubBasicResponseArray) ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput() PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionForPrivateLinkHubBasicResponseArray) ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput)
+}
+
+// Private Endpoint Connection For Private Link Hub - Basic
+type PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionForPrivateLinkHubBasicResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput) ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput() PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput) ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput {
+	return o
+}
+
+// identifier
+func (o PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionForPrivateLinkHubBasicResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The private endpoint which the connection belongs to.
+func (o PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionForPrivateLinkHubBasicResponse) *PrivateEndpointResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointResponsePtrOutput)
+}
+
+// Connection state of the private endpoint connection.
+func (o PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionForPrivateLinkHubBasicResponse) *PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// Provisioning state of the private endpoint connection.
+func (o PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionForPrivateLinkHubBasicResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionForPrivateLinkHubBasicResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput) ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput() PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput) ToPrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionForPrivateLinkHubBasicResponse {
+		return vs[0].([]PrivateEndpointConnectionForPrivateLinkHubBasicResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput)
+}
+
 // A private endpoint connection
 type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
@@ -6786,7 +7219,7 @@ type PrivateEndpointConnectionResponse struct {
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the private endpoint connection.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
 
@@ -6803,7 +7236,7 @@ type PrivateEndpointConnectionResponseInput interface {
 
 // A private endpoint connection
 type PrivateEndpointConnectionResponseArgs struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of the resource
 	Name pulumi.StringInput `pulumi:"name"`
@@ -6813,7 +7246,7 @@ type PrivateEndpointConnectionResponseArgs struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the private endpoint connection.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6869,7 +7302,7 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -6896,7 +7329,7 @@ func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.Stri
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7382,6 +7815,274 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Purview Configuration
+type PurviewConfiguration struct {
+	// Purview Resource ID
+	PurviewResourceId *string `pulumi:"purviewResourceId"`
+}
+
+// PurviewConfigurationInput is an input type that accepts PurviewConfigurationArgs and PurviewConfigurationOutput values.
+// You can construct a concrete instance of `PurviewConfigurationInput` via:
+//
+//          PurviewConfigurationArgs{...}
+type PurviewConfigurationInput interface {
+	pulumi.Input
+
+	ToPurviewConfigurationOutput() PurviewConfigurationOutput
+	ToPurviewConfigurationOutputWithContext(context.Context) PurviewConfigurationOutput
+}
+
+// Purview Configuration
+type PurviewConfigurationArgs struct {
+	// Purview Resource ID
+	PurviewResourceId pulumi.StringPtrInput `pulumi:"purviewResourceId"`
+}
+
+func (PurviewConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfiguration)(nil)).Elem()
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationOutput() PurviewConfigurationOutput {
+	return i.ToPurviewConfigurationOutputWithContext(context.Background())
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationOutputWithContext(ctx context.Context) PurviewConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationOutput)
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return i.ToPurviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationOutput).ToPurviewConfigurationPtrOutputWithContext(ctx)
+}
+
+// PurviewConfigurationPtrInput is an input type that accepts PurviewConfigurationArgs, PurviewConfigurationPtr and PurviewConfigurationPtrOutput values.
+// You can construct a concrete instance of `PurviewConfigurationPtrInput` via:
+//
+//          PurviewConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type PurviewConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput
+	ToPurviewConfigurationPtrOutputWithContext(context.Context) PurviewConfigurationPtrOutput
+}
+
+type purviewConfigurationPtrType PurviewConfigurationArgs
+
+func PurviewConfigurationPtr(v *PurviewConfigurationArgs) PurviewConfigurationPtrInput {
+	return (*purviewConfigurationPtrType)(v)
+}
+
+func (*purviewConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfiguration)(nil)).Elem()
+}
+
+func (i *purviewConfigurationPtrType) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return i.ToPurviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *purviewConfigurationPtrType) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationPtrOutput)
+}
+
+// Purview Configuration
+type PurviewConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfiguration)(nil)).Elem()
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationOutput() PurviewConfigurationOutput {
+	return o
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationOutputWithContext(ctx context.Context) PurviewConfigurationOutput {
+	return o
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return o.ToPurviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return o.ApplyT(func(v PurviewConfiguration) *PurviewConfiguration {
+		return &v
+	}).(PurviewConfigurationPtrOutput)
+}
+
+// Purview Resource ID
+func (o PurviewConfigurationOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurviewConfiguration) *string { return v.PurviewResourceId }).(pulumi.StringPtrOutput)
+}
+
+type PurviewConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfiguration)(nil)).Elem()
+}
+
+func (o PurviewConfigurationPtrOutput) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationPtrOutput) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationPtrOutput) Elem() PurviewConfigurationOutput {
+	return o.ApplyT(func(v *PurviewConfiguration) PurviewConfiguration { return *v }).(PurviewConfigurationOutput)
+}
+
+// Purview Resource ID
+func (o PurviewConfigurationPtrOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurviewConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PurviewResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Purview Configuration
+type PurviewConfigurationResponse struct {
+	// Purview Resource ID
+	PurviewResourceId *string `pulumi:"purviewResourceId"`
+}
+
+// PurviewConfigurationResponseInput is an input type that accepts PurviewConfigurationResponseArgs and PurviewConfigurationResponseOutput values.
+// You can construct a concrete instance of `PurviewConfigurationResponseInput` via:
+//
+//          PurviewConfigurationResponseArgs{...}
+type PurviewConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToPurviewConfigurationResponseOutput() PurviewConfigurationResponseOutput
+	ToPurviewConfigurationResponseOutputWithContext(context.Context) PurviewConfigurationResponseOutput
+}
+
+// Purview Configuration
+type PurviewConfigurationResponseArgs struct {
+	// Purview Resource ID
+	PurviewResourceId pulumi.StringPtrInput `pulumi:"purviewResourceId"`
+}
+
+func (PurviewConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfigurationResponse)(nil)).Elem()
+}
+
+func (i PurviewConfigurationResponseArgs) ToPurviewConfigurationResponseOutput() PurviewConfigurationResponseOutput {
+	return i.ToPurviewConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i PurviewConfigurationResponseArgs) ToPurviewConfigurationResponseOutputWithContext(ctx context.Context) PurviewConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationResponseOutput)
+}
+
+func (i PurviewConfigurationResponseArgs) ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput {
+	return i.ToPurviewConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PurviewConfigurationResponseArgs) ToPurviewConfigurationResponsePtrOutputWithContext(ctx context.Context) PurviewConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationResponseOutput).ToPurviewConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// PurviewConfigurationResponsePtrInput is an input type that accepts PurviewConfigurationResponseArgs, PurviewConfigurationResponsePtr and PurviewConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `PurviewConfigurationResponsePtrInput` via:
+//
+//          PurviewConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PurviewConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput
+	ToPurviewConfigurationResponsePtrOutputWithContext(context.Context) PurviewConfigurationResponsePtrOutput
+}
+
+type purviewConfigurationResponsePtrType PurviewConfigurationResponseArgs
+
+func PurviewConfigurationResponsePtr(v *PurviewConfigurationResponseArgs) PurviewConfigurationResponsePtrInput {
+	return (*purviewConfigurationResponsePtrType)(v)
+}
+
+func (*purviewConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfigurationResponse)(nil)).Elem()
+}
+
+func (i *purviewConfigurationResponsePtrType) ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput {
+	return i.ToPurviewConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *purviewConfigurationResponsePtrType) ToPurviewConfigurationResponsePtrOutputWithContext(ctx context.Context) PurviewConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationResponsePtrOutput)
+}
+
+// Purview Configuration
+type PurviewConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfigurationResponse)(nil)).Elem()
+}
+
+func (o PurviewConfigurationResponseOutput) ToPurviewConfigurationResponseOutput() PurviewConfigurationResponseOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponseOutput) ToPurviewConfigurationResponseOutputWithContext(ctx context.Context) PurviewConfigurationResponseOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponseOutput) ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput {
+	return o.ToPurviewConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PurviewConfigurationResponseOutput) ToPurviewConfigurationResponsePtrOutputWithContext(ctx context.Context) PurviewConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v PurviewConfigurationResponse) *PurviewConfigurationResponse {
+		return &v
+	}).(PurviewConfigurationResponsePtrOutput)
+}
+
+// Purview Resource ID
+func (o PurviewConfigurationResponseOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurviewConfigurationResponse) *string { return v.PurviewResourceId }).(pulumi.StringPtrOutput)
+}
+
+type PurviewConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfigurationResponse)(nil)).Elem()
+}
+
+func (o PurviewConfigurationResponsePtrOutput) ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponsePtrOutput) ToPurviewConfigurationResponsePtrOutputWithContext(ctx context.Context) PurviewConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponsePtrOutput) Elem() PurviewConfigurationResponseOutput {
+	return o.ApplyT(func(v *PurviewConfigurationResponse) PurviewConfigurationResponse { return *v }).(PurviewConfigurationResponseOutput)
+}
+
+// Purview Resource ID
+func (o PurviewConfigurationResponsePtrOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurviewConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PurviewResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureString struct {
 	// Type of the secret.
@@ -7692,7 +8393,7 @@ func (o SecureStringResponsePtrOutput) Value() pulumi.StringPtrOutput {
 type SelfHostedIntegrationRuntime struct {
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
-	// The base definition of a linked integration runtime.
+	// Linked integration runtime type from data factory
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
 	// Type of integration runtime.
 	Type string `pulumi:"type"`
@@ -7713,7 +8414,7 @@ type SelfHostedIntegrationRuntimeInput interface {
 type SelfHostedIntegrationRuntimeArgs struct {
 	// Integration runtime description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The base definition of a linked integration runtime.
+	// Linked integration runtime type from data factory
 	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
 	// Type of integration runtime.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -7751,7 +8452,7 @@ func (o SelfHostedIntegrationRuntimeOutput) Description() pulumi.StringPtrOutput
 	return o.ApplyT(func(v SelfHostedIntegrationRuntime) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The base definition of a linked integration runtime.
+// Linked integration runtime type from data factory
 func (o SelfHostedIntegrationRuntimeOutput) LinkedInfo() pulumi.AnyOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntime) interface{} { return v.LinkedInfo }).(pulumi.AnyOutput)
 }
@@ -8018,7 +8719,7 @@ func (o SelfHostedIntegrationRuntimeNodeResponseArrayOutput) Index(i pulumi.IntI
 type SelfHostedIntegrationRuntimeResponse struct {
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
-	// The base definition of a linked integration runtime.
+	// Linked integration runtime type from data factory
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
 	// Type of integration runtime.
 	Type string `pulumi:"type"`
@@ -8039,7 +8740,7 @@ type SelfHostedIntegrationRuntimeResponseInput interface {
 type SelfHostedIntegrationRuntimeResponseArgs struct {
 	// Integration runtime description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The base definition of a linked integration runtime.
+	// Linked integration runtime type from data factory
 	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
 	// Type of integration runtime.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -8077,7 +8778,7 @@ func (o SelfHostedIntegrationRuntimeResponseOutput) Description() pulumi.StringP
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The base definition of a linked integration runtime.
+// Linked integration runtime type from data factory
 func (o SelfHostedIntegrationRuntimeResponseOutput) LinkedInfo() pulumi.AnyOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeResponse) interface{} { return v.LinkedInfo }).(pulumi.AnyOutput)
 }
@@ -8107,6 +8808,8 @@ type SelfHostedIntegrationRuntimeStatusResponse struct {
 	Links []LinkedIntegrationRuntimeResponse `pulumi:"links"`
 	// The local time zone offset in hours.
 	LocalTimeZoneOffset string `pulumi:"localTimeZoneOffset"`
+	// The node communication Channel encryption mode
+	NodeCommunicationChannelEncryptionMode string `pulumi:"nodeCommunicationChannelEncryptionMode"`
 	// The list of nodes for this integration runtime.
 	Nodes []SelfHostedIntegrationRuntimeNodeResponse `pulumi:"nodes"`
 	// The version that the integration runtime is going to update to.
@@ -8160,6 +8863,8 @@ type SelfHostedIntegrationRuntimeStatusResponseArgs struct {
 	Links LinkedIntegrationRuntimeResponseArrayInput `pulumi:"links"`
 	// The local time zone offset in hours.
 	LocalTimeZoneOffset pulumi.StringInput `pulumi:"localTimeZoneOffset"`
+	// The node communication Channel encryption mode
+	NodeCommunicationChannelEncryptionMode pulumi.StringInput `pulumi:"nodeCommunicationChannelEncryptionMode"`
 	// The list of nodes for this integration runtime.
 	Nodes SelfHostedIntegrationRuntimeNodeResponseArrayInput `pulumi:"nodes"`
 	// The version that the integration runtime is going to update to.
@@ -8252,6 +8957,13 @@ func (o SelfHostedIntegrationRuntimeStatusResponseOutput) Links() LinkedIntegrat
 // The local time zone offset in hours.
 func (o SelfHostedIntegrationRuntimeStatusResponseOutput) LocalTimeZoneOffset() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.LocalTimeZoneOffset }).(pulumi.StringOutput)
+}
+
+// The node communication Channel encryption mode
+func (o SelfHostedIntegrationRuntimeStatusResponseOutput) NodeCommunicationChannelEncryptionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string {
+		return v.NodeCommunicationChannelEncryptionMode
+	}).(pulumi.StringOutput)
 }
 
 // The list of nodes for this integration runtime.
@@ -10366,6 +11078,808 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) IsEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetails struct {
+	// Workspace Key sub-resource key vault url
+	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
+	// Workspace Key sub-resource name
+	Name *string `pulumi:"name"`
+}
+
+// WorkspaceKeyDetailsInput is an input type that accepts WorkspaceKeyDetailsArgs and WorkspaceKeyDetailsOutput values.
+// You can construct a concrete instance of `WorkspaceKeyDetailsInput` via:
+//
+//          WorkspaceKeyDetailsArgs{...}
+type WorkspaceKeyDetailsInput interface {
+	pulumi.Input
+
+	ToWorkspaceKeyDetailsOutput() WorkspaceKeyDetailsOutput
+	ToWorkspaceKeyDetailsOutputWithContext(context.Context) WorkspaceKeyDetailsOutput
+}
+
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetailsArgs struct {
+	// Workspace Key sub-resource key vault url
+	KeyVaultUrl pulumi.StringPtrInput `pulumi:"keyVaultUrl"`
+	// Workspace Key sub-resource name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (WorkspaceKeyDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceKeyDetails)(nil)).Elem()
+}
+
+func (i WorkspaceKeyDetailsArgs) ToWorkspaceKeyDetailsOutput() WorkspaceKeyDetailsOutput {
+	return i.ToWorkspaceKeyDetailsOutputWithContext(context.Background())
+}
+
+func (i WorkspaceKeyDetailsArgs) ToWorkspaceKeyDetailsOutputWithContext(ctx context.Context) WorkspaceKeyDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsOutput)
+}
+
+func (i WorkspaceKeyDetailsArgs) ToWorkspaceKeyDetailsPtrOutput() WorkspaceKeyDetailsPtrOutput {
+	return i.ToWorkspaceKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceKeyDetailsArgs) ToWorkspaceKeyDetailsPtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsOutput).ToWorkspaceKeyDetailsPtrOutputWithContext(ctx)
+}
+
+// WorkspaceKeyDetailsPtrInput is an input type that accepts WorkspaceKeyDetailsArgs, WorkspaceKeyDetailsPtr and WorkspaceKeyDetailsPtrOutput values.
+// You can construct a concrete instance of `WorkspaceKeyDetailsPtrInput` via:
+//
+//          WorkspaceKeyDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceKeyDetailsPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceKeyDetailsPtrOutput() WorkspaceKeyDetailsPtrOutput
+	ToWorkspaceKeyDetailsPtrOutputWithContext(context.Context) WorkspaceKeyDetailsPtrOutput
+}
+
+type workspaceKeyDetailsPtrType WorkspaceKeyDetailsArgs
+
+func WorkspaceKeyDetailsPtr(v *WorkspaceKeyDetailsArgs) WorkspaceKeyDetailsPtrInput {
+	return (*workspaceKeyDetailsPtrType)(v)
+}
+
+func (*workspaceKeyDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceKeyDetails)(nil)).Elem()
+}
+
+func (i *workspaceKeyDetailsPtrType) ToWorkspaceKeyDetailsPtrOutput() WorkspaceKeyDetailsPtrOutput {
+	return i.ToWorkspaceKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceKeyDetailsPtrType) ToWorkspaceKeyDetailsPtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsPtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetailsOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceKeyDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceKeyDetails)(nil)).Elem()
+}
+
+func (o WorkspaceKeyDetailsOutput) ToWorkspaceKeyDetailsOutput() WorkspaceKeyDetailsOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsOutput) ToWorkspaceKeyDetailsOutputWithContext(ctx context.Context) WorkspaceKeyDetailsOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsOutput) ToWorkspaceKeyDetailsPtrOutput() WorkspaceKeyDetailsPtrOutput {
+	return o.ToWorkspaceKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceKeyDetailsOutput) ToWorkspaceKeyDetailsPtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsPtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetails) *WorkspaceKeyDetails {
+		return &v
+	}).(WorkspaceKeyDetailsPtrOutput)
+}
+
+// Workspace Key sub-resource key vault url
+func (o WorkspaceKeyDetailsOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetails) *string { return v.KeyVaultUrl }).(pulumi.StringPtrOutput)
+}
+
+// Workspace Key sub-resource name
+func (o WorkspaceKeyDetailsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceKeyDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceKeyDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceKeyDetails)(nil)).Elem()
+}
+
+func (o WorkspaceKeyDetailsPtrOutput) ToWorkspaceKeyDetailsPtrOutput() WorkspaceKeyDetailsPtrOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsPtrOutput) ToWorkspaceKeyDetailsPtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsPtrOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsPtrOutput) Elem() WorkspaceKeyDetailsOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetails) WorkspaceKeyDetails { return *v }).(WorkspaceKeyDetailsOutput)
+}
+
+// Workspace Key sub-resource key vault url
+func (o WorkspaceKeyDetailsPtrOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Workspace Key sub-resource name
+func (o WorkspaceKeyDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetailsResponse struct {
+	// Workspace Key sub-resource key vault url
+	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
+	// Workspace Key sub-resource name
+	Name *string `pulumi:"name"`
+}
+
+// WorkspaceKeyDetailsResponseInput is an input type that accepts WorkspaceKeyDetailsResponseArgs and WorkspaceKeyDetailsResponseOutput values.
+// You can construct a concrete instance of `WorkspaceKeyDetailsResponseInput` via:
+//
+//          WorkspaceKeyDetailsResponseArgs{...}
+type WorkspaceKeyDetailsResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceKeyDetailsResponseOutput() WorkspaceKeyDetailsResponseOutput
+	ToWorkspaceKeyDetailsResponseOutputWithContext(context.Context) WorkspaceKeyDetailsResponseOutput
+}
+
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetailsResponseArgs struct {
+	// Workspace Key sub-resource key vault url
+	KeyVaultUrl pulumi.StringPtrInput `pulumi:"keyVaultUrl"`
+	// Workspace Key sub-resource name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (WorkspaceKeyDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceKeyDetailsResponse)(nil)).Elem()
+}
+
+func (i WorkspaceKeyDetailsResponseArgs) ToWorkspaceKeyDetailsResponseOutput() WorkspaceKeyDetailsResponseOutput {
+	return i.ToWorkspaceKeyDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceKeyDetailsResponseArgs) ToWorkspaceKeyDetailsResponseOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsResponseOutput)
+}
+
+func (i WorkspaceKeyDetailsResponseArgs) ToWorkspaceKeyDetailsResponsePtrOutput() WorkspaceKeyDetailsResponsePtrOutput {
+	return i.ToWorkspaceKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceKeyDetailsResponseArgs) ToWorkspaceKeyDetailsResponsePtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsResponseOutput).ToWorkspaceKeyDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceKeyDetailsResponsePtrInput is an input type that accepts WorkspaceKeyDetailsResponseArgs, WorkspaceKeyDetailsResponsePtr and WorkspaceKeyDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceKeyDetailsResponsePtrInput` via:
+//
+//          WorkspaceKeyDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceKeyDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceKeyDetailsResponsePtrOutput() WorkspaceKeyDetailsResponsePtrOutput
+	ToWorkspaceKeyDetailsResponsePtrOutputWithContext(context.Context) WorkspaceKeyDetailsResponsePtrOutput
+}
+
+type workspaceKeyDetailsResponsePtrType WorkspaceKeyDetailsResponseArgs
+
+func WorkspaceKeyDetailsResponsePtr(v *WorkspaceKeyDetailsResponseArgs) WorkspaceKeyDetailsResponsePtrInput {
+	return (*workspaceKeyDetailsResponsePtrType)(v)
+}
+
+func (*workspaceKeyDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceKeyDetailsResponse)(nil)).Elem()
+}
+
+func (i *workspaceKeyDetailsResponsePtrType) ToWorkspaceKeyDetailsResponsePtrOutput() WorkspaceKeyDetailsResponsePtrOutput {
+	return i.ToWorkspaceKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceKeyDetailsResponsePtrType) ToWorkspaceKeyDetailsResponsePtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyDetailsResponsePtrOutput)
+}
+
+// Details of the customer managed key associated with the workspace
+type WorkspaceKeyDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceKeyDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceKeyDetailsResponse)(nil)).Elem()
+}
+
+func (o WorkspaceKeyDetailsResponseOutput) ToWorkspaceKeyDetailsResponseOutput() WorkspaceKeyDetailsResponseOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsResponseOutput) ToWorkspaceKeyDetailsResponseOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponseOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsResponseOutput) ToWorkspaceKeyDetailsResponsePtrOutput() WorkspaceKeyDetailsResponsePtrOutput {
+	return o.ToWorkspaceKeyDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceKeyDetailsResponseOutput) ToWorkspaceKeyDetailsResponsePtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetailsResponse) *WorkspaceKeyDetailsResponse {
+		return &v
+	}).(WorkspaceKeyDetailsResponsePtrOutput)
+}
+
+// Workspace Key sub-resource key vault url
+func (o WorkspaceKeyDetailsResponseOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetailsResponse) *string { return v.KeyVaultUrl }).(pulumi.StringPtrOutput)
+}
+
+// Workspace Key sub-resource name
+func (o WorkspaceKeyDetailsResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceKeyDetailsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceKeyDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceKeyDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceKeyDetailsResponse)(nil)).Elem()
+}
+
+func (o WorkspaceKeyDetailsResponsePtrOutput) ToWorkspaceKeyDetailsResponsePtrOutput() WorkspaceKeyDetailsResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsResponsePtrOutput) ToWorkspaceKeyDetailsResponsePtrOutputWithContext(ctx context.Context) WorkspaceKeyDetailsResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceKeyDetailsResponsePtrOutput) Elem() WorkspaceKeyDetailsResponseOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetailsResponse) WorkspaceKeyDetailsResponse { return *v }).(WorkspaceKeyDetailsResponseOutput)
+}
+
+// Workspace Key sub-resource key vault url
+func (o WorkspaceKeyDetailsResponsePtrOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Workspace Key sub-resource name
+func (o WorkspaceKeyDetailsResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceKeyDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfiguration struct {
+	// Account name
+	AccountName *string `pulumi:"accountName"`
+	// Collaboration branch
+	CollaborationBranch *string `pulumi:"collaborationBranch"`
+	// GitHub Enterprise host name. For example: https://github.mydomain.com
+	HostName *string `pulumi:"hostName"`
+	// VSTS project name
+	ProjectName *string `pulumi:"projectName"`
+	// Repository name
+	RepositoryName *string `pulumi:"repositoryName"`
+	// Root folder to use in the repository
+	RootFolder *string `pulumi:"rootFolder"`
+	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+	Type *string `pulumi:"type"`
+}
+
+// WorkspaceRepositoryConfigurationInput is an input type that accepts WorkspaceRepositoryConfigurationArgs and WorkspaceRepositoryConfigurationOutput values.
+// You can construct a concrete instance of `WorkspaceRepositoryConfigurationInput` via:
+//
+//          WorkspaceRepositoryConfigurationArgs{...}
+type WorkspaceRepositoryConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkspaceRepositoryConfigurationOutput() WorkspaceRepositoryConfigurationOutput
+	ToWorkspaceRepositoryConfigurationOutputWithContext(context.Context) WorkspaceRepositoryConfigurationOutput
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfigurationArgs struct {
+	// Account name
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Collaboration branch
+	CollaborationBranch pulumi.StringPtrInput `pulumi:"collaborationBranch"`
+	// GitHub Enterprise host name. For example: https://github.mydomain.com
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// VSTS project name
+	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
+	// Repository name
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+	// Root folder to use in the repository
+	RootFolder pulumi.StringPtrInput `pulumi:"rootFolder"`
+	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkspaceRepositoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceRepositoryConfiguration)(nil)).Elem()
+}
+
+func (i WorkspaceRepositoryConfigurationArgs) ToWorkspaceRepositoryConfigurationOutput() WorkspaceRepositoryConfigurationOutput {
+	return i.ToWorkspaceRepositoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkspaceRepositoryConfigurationArgs) ToWorkspaceRepositoryConfigurationOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationOutput)
+}
+
+func (i WorkspaceRepositoryConfigurationArgs) ToWorkspaceRepositoryConfigurationPtrOutput() WorkspaceRepositoryConfigurationPtrOutput {
+	return i.ToWorkspaceRepositoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceRepositoryConfigurationArgs) ToWorkspaceRepositoryConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationOutput).ToWorkspaceRepositoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkspaceRepositoryConfigurationPtrInput is an input type that accepts WorkspaceRepositoryConfigurationArgs, WorkspaceRepositoryConfigurationPtr and WorkspaceRepositoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkspaceRepositoryConfigurationPtrInput` via:
+//
+//          WorkspaceRepositoryConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceRepositoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceRepositoryConfigurationPtrOutput() WorkspaceRepositoryConfigurationPtrOutput
+	ToWorkspaceRepositoryConfigurationPtrOutputWithContext(context.Context) WorkspaceRepositoryConfigurationPtrOutput
+}
+
+type workspaceRepositoryConfigurationPtrType WorkspaceRepositoryConfigurationArgs
+
+func WorkspaceRepositoryConfigurationPtr(v *WorkspaceRepositoryConfigurationArgs) WorkspaceRepositoryConfigurationPtrInput {
+	return (*workspaceRepositoryConfigurationPtrType)(v)
+}
+
+func (*workspaceRepositoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceRepositoryConfiguration)(nil)).Elem()
+}
+
+func (i *workspaceRepositoryConfigurationPtrType) ToWorkspaceRepositoryConfigurationPtrOutput() WorkspaceRepositoryConfigurationPtrOutput {
+	return i.ToWorkspaceRepositoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceRepositoryConfigurationPtrType) ToWorkspaceRepositoryConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationPtrOutput)
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceRepositoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceRepositoryConfiguration)(nil)).Elem()
+}
+
+func (o WorkspaceRepositoryConfigurationOutput) ToWorkspaceRepositoryConfigurationOutput() WorkspaceRepositoryConfigurationOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationOutput) ToWorkspaceRepositoryConfigurationOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationOutput) ToWorkspaceRepositoryConfigurationPtrOutput() WorkspaceRepositoryConfigurationPtrOutput {
+	return o.ToWorkspaceRepositoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceRepositoryConfigurationOutput) ToWorkspaceRepositoryConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *WorkspaceRepositoryConfiguration {
+		return &v
+	}).(WorkspaceRepositoryConfigurationPtrOutput)
+}
+
+// Account name
+func (o WorkspaceRepositoryConfigurationOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Collaboration branch
+func (o WorkspaceRepositoryConfigurationOutput) CollaborationBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.CollaborationBranch }).(pulumi.StringPtrOutput)
+}
+
+// GitHub Enterprise host name. For example: https://github.mydomain.com
+func (o WorkspaceRepositoryConfigurationOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// VSTS project name
+func (o WorkspaceRepositoryConfigurationOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
+}
+
+// Repository name
+func (o WorkspaceRepositoryConfigurationOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+// Root folder to use in the repository
+func (o WorkspaceRepositoryConfigurationOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.RootFolder }).(pulumi.StringPtrOutput)
+}
+
+// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+func (o WorkspaceRepositoryConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceRepositoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceRepositoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceRepositoryConfiguration)(nil)).Elem()
+}
+
+func (o WorkspaceRepositoryConfigurationPtrOutput) ToWorkspaceRepositoryConfigurationPtrOutput() WorkspaceRepositoryConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationPtrOutput) ToWorkspaceRepositoryConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationPtrOutput) Elem() WorkspaceRepositoryConfigurationOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) WorkspaceRepositoryConfiguration { return *v }).(WorkspaceRepositoryConfigurationOutput)
+}
+
+// Account name
+func (o WorkspaceRepositoryConfigurationPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Collaboration branch
+func (o WorkspaceRepositoryConfigurationPtrOutput) CollaborationBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CollaborationBranch
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub Enterprise host name. For example: https://github.mydomain.com
+func (o WorkspaceRepositoryConfigurationPtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostName
+	}).(pulumi.StringPtrOutput)
+}
+
+// VSTS project name
+func (o WorkspaceRepositoryConfigurationPtrOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Repository name
+func (o WorkspaceRepositoryConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Root folder to use in the repository
+func (o WorkspaceRepositoryConfigurationPtrOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootFolder
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+func (o WorkspaceRepositoryConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfigurationResponse struct {
+	// Account name
+	AccountName *string `pulumi:"accountName"`
+	// Collaboration branch
+	CollaborationBranch *string `pulumi:"collaborationBranch"`
+	// GitHub Enterprise host name. For example: https://github.mydomain.com
+	HostName *string `pulumi:"hostName"`
+	// VSTS project name
+	ProjectName *string `pulumi:"projectName"`
+	// Repository name
+	RepositoryName *string `pulumi:"repositoryName"`
+	// Root folder to use in the repository
+	RootFolder *string `pulumi:"rootFolder"`
+	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+	Type *string `pulumi:"type"`
+}
+
+// WorkspaceRepositoryConfigurationResponseInput is an input type that accepts WorkspaceRepositoryConfigurationResponseArgs and WorkspaceRepositoryConfigurationResponseOutput values.
+// You can construct a concrete instance of `WorkspaceRepositoryConfigurationResponseInput` via:
+//
+//          WorkspaceRepositoryConfigurationResponseArgs{...}
+type WorkspaceRepositoryConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceRepositoryConfigurationResponseOutput() WorkspaceRepositoryConfigurationResponseOutput
+	ToWorkspaceRepositoryConfigurationResponseOutputWithContext(context.Context) WorkspaceRepositoryConfigurationResponseOutput
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfigurationResponseArgs struct {
+	// Account name
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Collaboration branch
+	CollaborationBranch pulumi.StringPtrInput `pulumi:"collaborationBranch"`
+	// GitHub Enterprise host name. For example: https://github.mydomain.com
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// VSTS project name
+	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
+	// Repository name
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+	// Root folder to use in the repository
+	RootFolder pulumi.StringPtrInput `pulumi:"rootFolder"`
+	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkspaceRepositoryConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceRepositoryConfigurationResponse)(nil)).Elem()
+}
+
+func (i WorkspaceRepositoryConfigurationResponseArgs) ToWorkspaceRepositoryConfigurationResponseOutput() WorkspaceRepositoryConfigurationResponseOutput {
+	return i.ToWorkspaceRepositoryConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceRepositoryConfigurationResponseArgs) ToWorkspaceRepositoryConfigurationResponseOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationResponseOutput)
+}
+
+func (i WorkspaceRepositoryConfigurationResponseArgs) ToWorkspaceRepositoryConfigurationResponsePtrOutput() WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return i.ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceRepositoryConfigurationResponseArgs) ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationResponseOutput).ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceRepositoryConfigurationResponsePtrInput is an input type that accepts WorkspaceRepositoryConfigurationResponseArgs, WorkspaceRepositoryConfigurationResponsePtr and WorkspaceRepositoryConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceRepositoryConfigurationResponsePtrInput` via:
+//
+//          WorkspaceRepositoryConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceRepositoryConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceRepositoryConfigurationResponsePtrOutput() WorkspaceRepositoryConfigurationResponsePtrOutput
+	ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(context.Context) WorkspaceRepositoryConfigurationResponsePtrOutput
+}
+
+type workspaceRepositoryConfigurationResponsePtrType WorkspaceRepositoryConfigurationResponseArgs
+
+func WorkspaceRepositoryConfigurationResponsePtr(v *WorkspaceRepositoryConfigurationResponseArgs) WorkspaceRepositoryConfigurationResponsePtrInput {
+	return (*workspaceRepositoryConfigurationResponsePtrType)(v)
+}
+
+func (*workspaceRepositoryConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceRepositoryConfigurationResponse)(nil)).Elem()
+}
+
+func (i *workspaceRepositoryConfigurationResponsePtrType) ToWorkspaceRepositoryConfigurationResponsePtrOutput() WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return i.ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceRepositoryConfigurationResponsePtrType) ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRepositoryConfigurationResponsePtrOutput)
+}
+
+// Git integration settings
+type WorkspaceRepositoryConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceRepositoryConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceRepositoryConfigurationResponse)(nil)).Elem()
+}
+
+func (o WorkspaceRepositoryConfigurationResponseOutput) ToWorkspaceRepositoryConfigurationResponseOutput() WorkspaceRepositoryConfigurationResponseOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationResponseOutput) ToWorkspaceRepositoryConfigurationResponseOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponseOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationResponseOutput) ToWorkspaceRepositoryConfigurationResponsePtrOutput() WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return o.ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceRepositoryConfigurationResponseOutput) ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *WorkspaceRepositoryConfigurationResponse {
+		return &v
+	}).(WorkspaceRepositoryConfigurationResponsePtrOutput)
+}
+
+// Account name
+func (o WorkspaceRepositoryConfigurationResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Collaboration branch
+func (o WorkspaceRepositoryConfigurationResponseOutput) CollaborationBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.CollaborationBranch }).(pulumi.StringPtrOutput)
+}
+
+// GitHub Enterprise host name. For example: https://github.mydomain.com
+func (o WorkspaceRepositoryConfigurationResponseOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// VSTS project name
+func (o WorkspaceRepositoryConfigurationResponseOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
+}
+
+// Repository name
+func (o WorkspaceRepositoryConfigurationResponseOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+// Root folder to use in the repository
+func (o WorkspaceRepositoryConfigurationResponseOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.RootFolder }).(pulumi.StringPtrOutput)
+}
+
+// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+func (o WorkspaceRepositoryConfigurationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceRepositoryConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceRepositoryConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceRepositoryConfigurationResponse)(nil)).Elem()
+}
+
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) ToWorkspaceRepositoryConfigurationResponsePtrOutput() WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) ToWorkspaceRepositoryConfigurationResponsePtrOutputWithContext(ctx context.Context) WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) Elem() WorkspaceRepositoryConfigurationResponseOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) WorkspaceRepositoryConfigurationResponse { return *v }).(WorkspaceRepositoryConfigurationResponseOutput)
+}
+
+// Account name
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Collaboration branch
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) CollaborationBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CollaborationBranch
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub Enterprise host name. For example: https://github.mydomain.com
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostName
+	}).(pulumi.StringPtrOutput)
+}
+
+// VSTS project name
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Repository name
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Root folder to use in the repository
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootFolder
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutoPausePropertiesOutput{})
 	pulumi.RegisterOutputType(AutoPausePropertiesPtrOutput{})
@@ -10379,10 +11893,18 @@ func init() {
 	pulumi.RegisterOutputType(CmdkeySetupResponseOutput{})
 	pulumi.RegisterOutputType(ComponentSetupOutput{})
 	pulumi.RegisterOutputType(ComponentSetupResponseOutput{})
+	pulumi.RegisterOutputType(CustomerManagedKeyDetailsOutput{})
+	pulumi.RegisterOutputType(CustomerManagedKeyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CustomerManagedKeyDetailsResponseOutput{})
+	pulumi.RegisterOutputType(CustomerManagedKeyDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionDetailsOutput{})
+	pulumi.RegisterOutputType(EncryptionDetailsPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionDetailsResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EntityReferenceOutput{})
 	pulumi.RegisterOutputType(EntityReferencePtrOutput{})
 	pulumi.RegisterOutputType(EntityReferenceResponseOutput{})
@@ -10417,10 +11939,6 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LibraryInfoOutput{})
-	pulumi.RegisterOutputType(LibraryInfoArrayOutput{})
-	pulumi.RegisterOutputType(LibraryInfoResponseOutput{})
-	pulumi.RegisterOutputType(LibraryInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsResponseOutput{})
@@ -10449,6 +11967,8 @@ func init() {
 	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
@@ -10457,6 +11977,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(SecureStringOutput{})
 	pulumi.RegisterOutputType(SecureStringPtrOutput{})
 	pulumi.RegisterOutputType(SecureStringResponseOutput{})
@@ -10492,4 +12016,12 @@ func init() {
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceKeyDetailsOutput{})
+	pulumi.RegisterOutputType(WorkspaceKeyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceKeyDetailsResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceKeyDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceRepositoryConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkspaceRepositoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceRepositoryConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceRepositoryConfigurationResponsePtrOutput{})
 }

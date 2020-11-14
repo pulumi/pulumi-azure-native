@@ -31,6 +31,6 @@ type LookupTableResult struct {
 	Name string `pulumi:"name"`
 	// Table name under the specified account
 	TableName string `pulumi:"tableName"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

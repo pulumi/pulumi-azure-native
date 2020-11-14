@@ -4,6 +4,7 @@
 package v20200301
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -163,4 +164,43 @@ type MongoDBResourceMongoDBCollectionArgs struct {
 
 func (MongoDBResourceMongoDBCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoDBResourceMongoDBCollectionArgs)(nil)).Elem()
+}
+
+type MongoDBResourceMongoDBCollectionInput interface {
+	pulumi.Input
+
+	ToMongoDBResourceMongoDBCollectionOutput() MongoDBResourceMongoDBCollectionOutput
+	ToMongoDBResourceMongoDBCollectionOutputWithContext(ctx context.Context) MongoDBResourceMongoDBCollectionOutput
+}
+
+func (MongoDBResourceMongoDBCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBResourceMongoDBCollection)(nil)).Elem()
+}
+
+func (i MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOutput() MongoDBResourceMongoDBCollectionOutput {
+	return i.ToMongoDBResourceMongoDBCollectionOutputWithContext(context.Background())
+}
+
+func (i MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOutputWithContext(ctx context.Context) MongoDBResourceMongoDBCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBCollectionOutput)
+}
+
+type MongoDBResourceMongoDBCollectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (MongoDBResourceMongoDBCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBResourceMongoDBCollectionOutput)(nil)).Elem()
+}
+
+func (o MongoDBResourceMongoDBCollectionOutput) ToMongoDBResourceMongoDBCollectionOutput() MongoDBResourceMongoDBCollectionOutput {
+	return o
+}
+
+func (o MongoDBResourceMongoDBCollectionOutput) ToMongoDBResourceMongoDBCollectionOutputWithContext(ctx context.Context) MongoDBResourceMongoDBCollectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MongoDBResourceMongoDBCollectionOutput{})
 }
