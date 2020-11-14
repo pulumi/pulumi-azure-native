@@ -5,6 +5,7 @@ import * as compute from "@pulumi/azure-nextgen/compute/latest";
 // TODO change to latest when https://github.com/Azure/azure-rest-api-specs/issues/11634 is fixed
 import * as containerinstance from "@pulumi/azure-nextgen/containerinstance/v20191201";
 import * as eventgrid from "@pulumi/azure-nextgen/eventgrid/latest";
+import * as managedidentity from "@pulumi/azure-nextgen/managedidentity/latest";
 import * as network from "@pulumi/azure-nextgen/network/latest";
 import * as resources from "@pulumi/azure-nextgen/resources/latest";
 import * as storage from "@pulumi/azure-nextgen/storage/latest";
@@ -223,3 +224,9 @@ const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, 
     storage.listStorageAccountKeys({ resourceGroupName, accountName }));
 
 export const primaryStorageKey = storageAccountKeys.keys[0].value;
+
+const exampleIdentity = new managedidentity.UserAssignedIdentity("uai", {
+    resourceGroupName: resourceGroup.name,
+    location: resourceGroup.location,
+    resourceName: randomString.result,
+});
