@@ -122,11 +122,16 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 		return nil, errors.Wrap(err, "building auth config")
 	}
 
-	env, err := azure.EnvironmentFromName(authConfig.Environment)
+	envName := authConfig.Environment
+	if envName == "" {
+		envName = "public"
+	}
+
+	env, err := azure.EnvironmentFromName(envName)
 	if err != nil {
-		env, err = azure.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", authConfig.Environment))
+		env, err = azure.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", envName))
 		if err != nil {
-			return nil, errors.Wrapf(err, "environment %q was not found", authConfig.Environment)
+			return nil, errors.Wrapf(err, "environment %q was not found", envName)
 		}
 	}
 	k.environment = env
