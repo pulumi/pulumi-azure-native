@@ -21,6 +21,18 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
+        /// <summary>
+        /// User Assigned Identities
+        /// </summary>
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
+
         public ResourceIdentityArgs()
         {
         }

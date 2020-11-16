@@ -18,6 +18,14 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview.Inputs
         [Input("identityType")]
         public Input<string>? IdentityType { get; set; }
 
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
+
         public ArmIdentityArgs()
         {
         }
