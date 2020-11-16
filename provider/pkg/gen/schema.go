@@ -1134,9 +1134,11 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			return nil, err
 		}
 
-		// Don't generate a type definition for a typed dictionary with empty value type.
+		// Use a generic 'object' value type for a dictionary with empty value type.
 		if additionalProperties == nil {
-			return nil, nil
+			additionalProperties = &pschema.TypeSpec{
+				Ref: "pulumi.json#/Any",
+			}
 		}
 
 		return &pschema.TypeSpec{
