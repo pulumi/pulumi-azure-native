@@ -6130,6 +6130,8 @@ func (o PreferencesResponsePtrOutput) TransportPreferences() TransportPreference
 type ResourceIdentity struct {
 	// Identity type
 	Type *string `pulumi:"type"`
+	// User Assigned Identities
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
@@ -6147,6 +6149,8 @@ type ResourceIdentityInput interface {
 type ResourceIdentityArgs struct {
 	// Identity type
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// User Assigned Identities
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ResourceIdentityArgs) ElementType() reflect.Type {
@@ -6232,6 +6236,11 @@ func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// User Assigned Identities
+func (o ResourceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v ResourceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
 type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
@@ -6258,6 +6267,16 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// User Assigned Identities
+func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *ResourceIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
 }
 
 // Msi identity details of the resource
