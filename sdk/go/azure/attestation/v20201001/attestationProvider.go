@@ -56,7 +56,7 @@ func NewAttestationProvider(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:attestation/latest:AttestationProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:attestation/v20180901:AttestationProvider"),
+			Type: pulumi.String("azure-nextgen:attestation/v20180901preview:AttestationProvider"),
 		},
 	})
 	opts = append(opts, aliases)

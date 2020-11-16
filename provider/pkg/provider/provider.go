@@ -122,11 +122,16 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 		return nil, errors.Wrap(err, "building auth config")
 	}
 
-	env, err := azure.EnvironmentFromName(authConfig.Environment)
+	envName := authConfig.Environment
+	if envName == "" {
+		envName = "public"
+	}
+
+	env, err := azure.EnvironmentFromName(envName)
 	if err != nil {
-		env, err = azure.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", authConfig.Environment))
+		env, err = azure.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", envName))
 		if err != nil {
-			return nil, errors.Wrapf(err, "environment %q was not found", authConfig.Environment)
+			return nil, errors.Wrapf(err, "environment %q was not found", envName)
 		}
 	}
 	k.environment = env
@@ -602,7 +607,7 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 	}
 
 	// Submit the `PUT` against the ARM endpoint
-	response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams)
+	response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
 	if err != nil {
 		return nil, err
 	}
@@ -776,7 +781,7 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 		return nil, err
 	}
 
-	response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams)
+	response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
 	if err != nil {
 		return nil, err
 	}
@@ -821,14 +826,14 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 				requestBody := k.converter.SdkPropertiesToRequestBody(param.Body.Properties, res.DefaultBody)
 
 				queryParams := map[string]interface{}{"api-version": res.APIVersion}
-				_, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams)
+				_, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams, res.PutAsyncStyle)
 				if err != nil {
 					return nil, err
 				}
 			}
 		}
 	default:
-		err := k.azureDelete(ctx, id, res.APIVersion)
+		err := k.azureDelete(ctx, id, res.APIVersion, res.DeleteAsyncStyle)
 		if err != nil {
 			return nil, errors.Wrapf(err, "deleting %s", label)
 		}
@@ -862,7 +867,8 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	ctx context.Context,
 	id string,
 	bodyProps map[string]interface{},
-	queryParameters map[string]interface{}) (map[string]interface{}, error) {
+	queryParameters map[string]interface{},
+	asyncStyle string) (map[string]interface{}, error) {
 
 	preparer := autorest.CreatePreparer(
 		autorest.AsContentType("application/json; charset=utf-8"),
@@ -884,24 +890,28 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	if err != nil {
 		return nil, err
 	}
-	// Some APIs are explicitly marked `x-ms-long-running-operation` and possibly we should only do the
-	// Future+WaitForCompletion+GetResult steps in that case. Though in general it appears to be safe to do these
-	// always.
-	future, err := azure.NewFutureFromResponse(resp)
-	if err != nil {
-		return nil, err
+
+	// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
+	// Future+WaitForCompletion+GetResult steps in that case.
+	if asyncStyle != "" {
+		// Ignore the style value for now, let go-autorest handle the headers.
+		future, err := azure.NewFutureFromResponse(resp)
+		if err != nil {
+			return nil, err
+		}
+		err = future.WaitForCompletionRef(ctx, k.client)
+		if err != nil {
+			return nil, err
+		}
+		resp, err = future.GetResult(k.client)
+		if err != nil {
+			return nil, err
+		}
 	}
-	err = future.WaitForCompletionRef(ctx, k.client)
-	if err != nil {
-		return nil, err
-	}
-	res, err := future.GetResult(k.client)
-	if err != nil {
-		return nil, err
-	}
+
 	var outputs map[string]interface{}
 	err = autorest.Respond(
-		res,
+		resp,
 		k.client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
 		autorest.ByUnmarshallingJSON(&outputs),
@@ -912,7 +922,7 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	return outputs, nil
 }
 
-func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVersion string) error {
+func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVersion string, asyncStyle string) error {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
@@ -933,21 +943,27 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 	if err != nil {
 		return err
 	}
-	future, err := azure.NewFutureFromResponse(resp)
-	if err != nil {
-		return err
+
+	// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
+	// Future+WaitForCompletion+GetResult steps in that case.
+	if asyncStyle != "" {
+		future, err := azure.NewFutureFromResponse(resp)
+		if err != nil {
+			return err
+		}
+		err = future.WaitForCompletionRef(ctx, k.client)
+		if err != nil {
+			return err
+		}
+		resp, err = future.GetResult(k.client)
+		if err != nil {
+			return err
+		}
 	}
-	err = future.WaitForCompletionRef(ctx, k.client)
-	if err != nil {
-		return err
-	}
-	res, err := future.GetResult(k.client)
-	if err != nil {
-		return err
-	}
+
 	var result map[string]interface{}
 	err = autorest.Respond(
-		res,
+		resp,
 		k.client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound),
 		autorest.ByUnmarshallingJSON(&result),
@@ -1178,7 +1194,10 @@ func (k *azureNextGenProvider) getAuthConfig() (*authentication.Config, error) {
 	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
 	if auxTenantsString != "" {
-		auxTenants = strings.Split(auxTenantsString, ",")
+		err := json.Unmarshal([]byte(auxTenantsString), &auxTenants)
+		if err != nil {
+			return nil, errors.Wrapf(err, "failed to unmarshal '%s' as Auxiliary Tenants", auxTenantsString)
+		}
 	}
 	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
 	builder := &authentication.Builder{

@@ -66,6 +66,12 @@ type AzureAPIResource struct {
 	// - DefaultBody applies to all singletons but also some non-singleton resources that can be
 	//   deleted despite being created automatically.
 	DefaultBody map[string]interface{} `json:"defaultBody"`
+	// For long-running operations, defines the style of the Asynchronous Operation, see
+	// https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
+	// Possible values: nil (not async), "azure-async-operation", "location", "original-uri", see
+	// https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
+	PutAsyncStyle string `json:"putAsyncStyle,omitempty"`
+	DeleteAsyncStyle string `json:"deleteAsyncStyle,omitempty"`
 }
 
 // AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.

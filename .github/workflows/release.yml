@@ -8,7 +8,6 @@ env:
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-  ARM_ENVIRONMENT: public
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GO111MODULE: "on"
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -363,7 +362,7 @@ jobs:
       - name: Uncompress SDK folder
         run: tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{ github.workspace}}/sdk/${{ matrix.language}}
       - name: Update path
-        run: echo ::add-path::${{ github.workspace }}/bin
+        run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
       - name: Install Node deps
         run:  yarn global add typescript
       - name: Install Python deps
