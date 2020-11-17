@@ -34,16 +34,16 @@ const endpointResource = new azure_nextgen.cdn.v20190415.Endpoint("endpointResou
                 actions: [{
                     name: "UrlRewrite",
                     parameters: {
-                        "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters",
                         destination: "/mobile",
+                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters",
                         sourcePattern: "/standard",
                     },
                 }],
                 conditions: [{
                     name: "IsDevice",
                     parameters: {
-                        "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters",
                         matchValues: ["Mobile"],
+                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters",
                         operator: "Equal",
                     },
                 }],
@@ -54,16 +54,16 @@ const endpointResource = new azure_nextgen.cdn.v20190415.Endpoint("endpointResou
                 actions: [{
                     name: "UrlRedirect",
                     parameters: {
-                        "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters",
                         destinationProtocol: "Https",
+                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters",
                         redirectType: "Found",
                     },
                 }],
                 conditions: [{
                     name: "RequestScheme",
                     parameters: {
-                        "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters",
                         matchValues: ["HTTP"],
+                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters",
                         operator: "Equal",
                     },
                 }],

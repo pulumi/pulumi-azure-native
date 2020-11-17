@@ -3,10 +3,10 @@ package test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/magiconair/properties/assert"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/arm2pulumi"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"io/ioutil"
 	"os"
@@ -82,7 +82,7 @@ func TestTemplateCoverage(t *testing.T) {
 			rendered, _, err := renderer.RenderPrograms(body, langs)
 			require.NoError(t, err)
 			for i, lang := range langs {
-				assert.Equal(t, rendered[lang], expected[i], match)
+				assert.Equal(t, expected[i], rendered[lang], match)
 			}
 		})
 

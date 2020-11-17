@@ -11,10 +11,16 @@ import (
 
 var stripScopeRegex = regexp.MustCompile(`.*providers/`)
 
+var isLatestRegex = regexp.MustCompile(`azure-nextgen:.*/latest:.*`)
+
 func newResourceTokenConverter(metadata *provider.AzureAPIMetadata) *resourceTokenConverter {
 	stableResourceTypeToTokenWrapperSet := map[string]map[string]tokenWrapper{}
 	previewResourceTypeToTokenWrapperSet := map[string]map[string]tokenWrapper{}
 	for k, v := range metadata.Resources {
+		if isLatestRegex.MatchString(k) {
+			continue // Skip latest since metadata will also contain the versioned variant anyway.
+			// This helps with keeping the output deterministic.
+		}
 		armResourceType := parseArmResourceType(v.Path)
 		if armResourceType == "" {
 			continue
