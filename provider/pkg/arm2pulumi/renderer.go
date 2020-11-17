@@ -30,6 +30,31 @@ type Renderer struct {
 	metadata *provider.AzureAPIMetadata
 }
 
+type renderOptions struct {
+	disableResourceLinking bool
+}
+
+// RenderOption applies a specific optional render option
+type RenderOption interface {
+	apply(*renderOptions)
+}
+
+type optFunc func(*renderOptions)
+
+func (o optFunc) apply(options *renderOptions) {
+	o(options)
+}
+
+// DisableResourceLinking instructs the renderer to avoid dereference linking between resources. By default,
+// the renderer will perform link analysis. However, some ARM templates result in dependency cycles which
+// can't be resolved. Enabling this RenderOption allows partially valid output to be generated in templates
+// that contain reference cycles.
+func DisableResourceLinking() RenderOption {
+	return optFunc(func(o *renderOptions) {
+		o.disableResourceLinking = true
+	})
+}
+
 // NewRenderer creates a new Renderer which can be used to
 // generate Pulumi programs from ARM templates.
 func NewRenderer(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata) *Renderer {
@@ -66,8 +91,7 @@ func (r *Renderer) RenderIR(files map[string]string) (*model.Body, map[string][]
 //
 // The return type is a *model.Body along with diagnostic information
 // grouped by template element name.
-func (r *Renderer) RenderIRFromReader(reader io.Reader) (*model.Body, map[string][]Diagnostic, error) {
-
+func (r *Renderer) RenderIRFromReader(reader io.Reader, options ...RenderOption) (*model.Body, map[string][]Diagnostic, error) {
 	buf := new(strings.Builder)
 	if _, err := io.Copy(buf, reader); err != nil {
 		return nil, nil, err
@@ -76,7 +100,7 @@ func (r *Renderer) RenderIRFromReader(reader io.Reader) (*model.Body, map[string
 	if err != nil {
 		return nil, nil, err
 	}
-	return renderTemplate(r.pkgSpec, r.metadata, map[string]*jsonx.Node{"azure-deploy.json": root})
+	return renderTemplate(r.pkgSpec, r.metadata, map[string]*jsonx.Node{"azure-deploy.json": root}, options...)
 }
 
 // RenderFileIR generates an intermediate representation from template body
@@ -86,7 +110,7 @@ func (r *Renderer) RenderIRFromReader(reader io.Reader) (*model.Body, map[string
 // The return type is a *model.Body along with diagnostic information
 // grouped by template element name. If there are fatal errors processing
 // the template, an error is returned.
-func (r *Renderer) RenderFileIR(path string) (*model.Body, map[string][]Diagnostic, error) {
+func (r *Renderer) RenderFileIR(path string, options ...RenderOption) (*model.Body, map[string][]Diagnostic, error) {
 
 	fileInfo, err := os.Stat(path)
 	if err != nil {
@@ -126,7 +150,7 @@ func (r *Renderer) RenderFileIR(path string) (*model.Body, map[string][]Diagnost
 
 	}
 
-	return renderTemplate(r.pkgSpec, r.metadata, parseTrees)
+	return renderTemplate(r.pkgSpec, r.metadata, parseTrees, options...)
 }
 
 // renderTemplate renders a parsed ARM template to a PCL program body.
@@ -137,11 +161,13 @@ func renderTemplate(
 	pkgSpec *schema.PackageSpec,
 	metadata *provider.AzureAPIMetadata,
 	templates map[string]*jsonx.Node,
+	options ...RenderOption,
 ) (*model.Body, map[string][]Diagnostic, error) {
 	if len(templates) == 0 {
 		return &model.Body{}, nil, nil
 	}
-	templ := NewTemplateElements()
+
+	templ := NewTemplateElements(options...)
 
 	for _, root := range templates {
 		rootValue := jsonx.NodeValue(*root).(map[string]interface{})
@@ -216,11 +242,7 @@ func renderTemplate(
 		}
 	}
 
-	if err := templ.EvaluateExpressions(true); err != nil {
-		return nil, nil, err
-	}
-
-	if err := templ.EvaluateExpressions(false); err != nil {
+	if err := templ.EvaluateExpressions(); err != nil {
 		return nil, nil, err
 	}
 

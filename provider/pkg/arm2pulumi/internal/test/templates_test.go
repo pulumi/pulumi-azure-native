@@ -16,7 +16,9 @@ import (
 
 var testdataPath = filepath.Join("../testdata", "*/", "*.json")
 
-// var testdataPath = filepath.Join("../testdata", "*/", "sqldb-auditing.json")
+var renderOptionsOverride = map[string][]arm2pulumi.RenderOption{
+	"../testdata/armexport/rancher.json": {arm2pulumi.DisableResourceLinking()},
+}
 
 func loadMetadata(t *testing.T) *provider.AzureAPIMetadata {
 	bytes, err := ioutil.ReadFile("../../../../cmd/pulumi-resource-azure-nextgen/metadata.json")
@@ -37,15 +39,15 @@ func loadSchema(t *testing.T) *schema.PackageSpec {
 func TestTemplateCoverage(t *testing.T) {
 	matches, err := filepath.Glob(testdataPath)
 	require.NoError(t, err)
-
 	renderer := arm2pulumi.NewRenderer(loadSchema(t), loadMetadata(t))
 	for _, match := range matches {
 		t.Run(match, func(t *testing.T) {
-			body, diags, err := renderer.RenderFileIR(match)
+
+			body, diags, err := renderer.RenderFileIR(match, renderOptionsOverride[match]...)
 			if err != nil {
 				t.Logf("%+v", err)
 			}
-			require.NoError(t, err)
+			require.NoError(t, err, "%+v", err)
 			for k, v := range diags {
 				t.Logf("Diagnostics for %s", k)
 				for _, diag := range v {

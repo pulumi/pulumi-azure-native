@@ -56,7 +56,7 @@ func topoSort(
 		return order, nil
 	}
 	if seen {
-		return nil, fmt.Errorf("detected cycle at element %s", e.Name())
+		return nil, fmt.Errorf("detected cycle at %s", e.Name())
 	}
 	visited[e] = false // Mark as visited (but not committed)
 	var sorted []*dependencyTracking

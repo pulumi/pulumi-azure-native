@@ -249,12 +249,17 @@ func (o *output) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
 	}}, nil
 }
 
-func NewTemplateElements() *TemplateElements {
+func NewTemplateElements(options ...RenderOption) *TemplateElements {
+	renderOpts := renderOptions{}
+	for _, o := range options {
+		o.apply(&renderOpts)
+	}
 	return &TemplateElements{
 		elements:       map[string]*dependencyTracking{},
 		canonicalNames: map[string]string{},
 		diagnostics:    map[string][]Diagnostic{},
 		resourceIdMap:  map[string]resourceIdTargetEntry{},
+		renderOptions:  renderOpts,
 	}
 }
 
@@ -265,6 +270,7 @@ type TemplateElements struct {
 	canonicalNames map[string]string
 	diagnostics    map[string][]Diagnostic
 	resourceIdMap  map[string]resourceIdTargetEntry
+	renderOptions  renderOptions
 }
 
 type resourceIdTargetEntry struct {
@@ -291,21 +297,33 @@ func (t *TemplateElements) recordCanonicalizedName(name string) string {
 	return cName
 }
 
-// EvaluateExpressions evaluates template expressions. By default, it tries
-// to evaluate all templates if preliminaryPhase is true, it will skip resolving
-// evaluating templates with certain functions. This is required for instance,
-// with functions like reference. Since we may add additional elements due to
-// template evaluation and the order of evaluation is random, we wait to perform
-// referential evaluations till after all other evaluations are complete.
-func (t *TemplateElements) EvaluateExpressions(preliminaryPhase bool) error {
+// EvaluateExpressions evaluates template expressions.
+func (t *TemplateElements) EvaluateExpressions() error {
+	// Initially we will skip resolving templates with certain functions. This is required with functions
+	// like reference, resourceId etc. where we may add additional elements due to template evaluation
+	// and since the order of evaluation is random.
 	for name, el := range t.elements {
 		args := el.TemplateElement.Args()
 		var err error
-		if preliminaryPhase {
-			args, err = t.evalTemplateExpressions(el, args, "", "reference", "resourceId")
-		} else {
-			args, err = t.evalTemplateExpressions(el, args, "")
+		args, err = t.evalTemplateExpressions(el, args, "", "reference", "resourceId")
+		if err != nil {
+			return fmt.Errorf("failed to evaluate template expression for %s: %w", name, err)
 		}
+		el.SetArgs(args)
+	}
+
+	var funcs []string
+	if t.renderOptions.disableResourceLinking == true {
+		funcs = append(funcs, "resourceId")
+	}
+
+	// At this point each element should be loaded into memory with auxiliary entries as needed.
+	// All supported template functions are fair game here. However, if resource linking is disabled,
+	// resourceId template function is continued to be ignored.
+	for name, el := range t.elements {
+		args := el.TemplateElement.Args()
+		var err error
+		args, err = t.evalTemplateExpressions(el, args, "", funcs...)
 		if err != nil {
 			return fmt.Errorf("failed to evaluate template expression for %s: %w", name, err)
 		}
@@ -610,6 +628,10 @@ func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *provi
 				t.addDiagnostic(*diag)
 			}
 		}
+	}
+
+	if t.renderOptions.disableResourceLinking == true {
+		return nil
 	}
 
 	// Linking may rely on properties derived from introspection so we do another
