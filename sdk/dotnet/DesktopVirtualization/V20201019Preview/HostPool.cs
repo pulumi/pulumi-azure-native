@@ -176,6 +176,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20200921preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201102preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201110preview:HostPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func ListRedisEnterpriseDatabaseKeys(ctx *pulumi.Context, args *ListRedisEnterpriseDatabaseKeysArgs, opts ...pulumi.InvokeOption) (*ListRedisEnterpriseDatabaseKeysResult, error) {
-	var rv ListRedisEnterpriseDatabaseKeysResult
-	err := ctx.Invoke("azure-nextgen:cache/v20201001preview:listRedisEnterpriseDatabaseKeys", args, &rv, opts...)
+func ListDatabaseKeys(ctx *pulumi.Context, args *ListDatabaseKeysArgs, opts ...pulumi.InvokeOption) (*ListDatabaseKeysResult, error) {
+	var rv ListDatabaseKeysResult
+	err := ctx.Invoke("azure-nextgen:cache/v20201001preview:listDatabaseKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type ListRedisEnterpriseDatabaseKeysArgs struct {
+type ListDatabaseKeysArgs struct {
 	// The name of the RedisEnterprise cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the database.
@@ -26,7 +26,7 @@ type ListRedisEnterpriseDatabaseKeysArgs struct {
 }
 
 // The secret access keys used for authenticating connections to redis
-type ListRedisEnterpriseDatabaseKeysResult struct {
+type ListDatabaseKeysResult struct {
 	// The current primary key that clients can use to authenticate
 	PrimaryKey string `pulumi:"primaryKey"`
 	// The current secondary key that clients can use to authenticate

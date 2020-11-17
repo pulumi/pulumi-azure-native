@@ -86,6 +86,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20200921preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201019preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201110preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

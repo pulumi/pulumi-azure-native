@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Indicates whether customer managed storage is mandatory for query management.
+        /// </summary>
+        public readonly bool? ForceQueryCmk;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
             string? eTag,
 
+            bool? forceQueryCmk,
+
             string location,
 
             string name,
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         {
             CustomerId = customerId;
             ETag = eTag;
+            ForceQueryCmk = forceQueryCmk;
             Location = location;
             Name = name;
             PrivateLinkScopedResources = privateLinkScopedResources;

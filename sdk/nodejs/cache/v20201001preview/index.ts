@@ -6,6 +6,6 @@ export * from "./database";
 export * from "./getDatabase";
 export * from "./getPrivateEndpointConnection";
 export * from "./getRedisEnterprise";
-export * from "./listRedisEnterpriseDatabaseKeys";
+export * from "./listDatabaseKeys";
 export * from "./privateEndpointConnection";
 export * from "./redisEnterprise";

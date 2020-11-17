@@ -22,6 +22,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest.Inputs
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
+        /// Selected key minimum required size.
+        /// </summary>
+        [Input("keyRsaSize")]
+        public Input<int>? KeyRsaSize { get; set; }
+
+        /// <summary>
         /// The Key Vault uri which holds they key associated with the Log Analytics cluster.
         /// </summary>
         [Input("keyVaultUri")]
@@ -32,12 +38,6 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest.Inputs
         /// </summary>
         [Input("keyVersion")]
         public Input<string>? KeyVersion { get; set; }
-
-        /// <summary>
-        /// Selected key minimum required key size.
-        /// </summary>
-        [Input("rsaKeySize")]
-        public Input<int>? RsaKeySize { get; set; }
 
         public KeyVaultPropertiesArgs()
         {

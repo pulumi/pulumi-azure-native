@@ -2,5 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./deployment";
+export * from "./deploymentAtScope";
+export * from "./deploymentAtSubscriptionScope";
+export * from "./deploymentAtTenantScope";
 export * from "./deploymentScript";
+export * from "./getDeployment";
+export * from "./getDeploymentAtScope";
+export * from "./getDeploymentAtSubscriptionScope";
+export * from "./getDeploymentAtTenantScope";
 export * from "./getDeploymentScript";
+export * from "./getResource";
+export * from "./getResourceGroup";
+export * from "./getTagAtScope";
+export * from "./resource";
+export * from "./resourceGroup";
+export * from "./tagAtScope";

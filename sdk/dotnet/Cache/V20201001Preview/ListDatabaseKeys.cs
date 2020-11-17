@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cache.V20201001Preview
 {
-    public static class ListRedisEnterpriseDatabaseKeys
+    public static class ListDatabaseKeys
     {
-        public static Task<ListRedisEnterpriseDatabaseKeysResult> InvokeAsync(ListRedisEnterpriseDatabaseKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRedisEnterpriseDatabaseKeysResult>("azure-nextgen:cache/v20201001preview:listRedisEnterpriseDatabaseKeys", args ?? new ListRedisEnterpriseDatabaseKeysArgs(), options.WithVersion());
+        public static Task<ListDatabaseKeysResult> InvokeAsync(ListDatabaseKeysArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseKeysResult>("azure-nextgen:cache/v20201001preview:listDatabaseKeys", args ?? new ListDatabaseKeysArgs(), options.WithVersion());
     }
 
 
-    public sealed class ListRedisEnterpriseDatabaseKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListDatabaseKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -36,14 +36,14 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public ListRedisEnterpriseDatabaseKeysArgs()
+        public ListDatabaseKeysArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class ListRedisEnterpriseDatabaseKeysResult
+    public sealed class ListDatabaseKeysResult
     {
         /// <summary>
         /// The current primary key that clients can use to authenticate
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         public readonly string SecondaryKey;
 
         [OutputConstructor]
-        private ListRedisEnterpriseDatabaseKeysResult(
+        private ListDatabaseKeysResult(
             string primaryKey,
 
             string secondaryKey)

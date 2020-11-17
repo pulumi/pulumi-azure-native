@@ -28,7 +28,13 @@ namespace Pulumi.AzureNextGen.Resources.Latest.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+        /// The query string (for example, a SAS token) to be used with the templateLink URI.
+        /// </summary>
+        [Input("queryString")]
+        public Input<string>? QueryString { get; set; }
+
+        /// <summary>
+        /// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
         /// </summary>
         [Input("relativePath")]
         public Input<string>? RelativePath { get; set; }

@@ -5,5 +5,7 @@
 # Export this package's modules as members:
 from .cluster import *
 from .get_cluster import *
+from .get_workspace import *
+from .workspace import *
 from ._inputs import *
 from . import outputs

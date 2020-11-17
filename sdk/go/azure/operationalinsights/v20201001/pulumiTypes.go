@@ -664,12 +664,12 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityProperti
 type KeyVaultProperties struct {
 	// The name of the key associated with the Log Analytics cluster.
 	KeyName *string `pulumi:"keyName"`
+	// Selected key minimum required size.
+	KeyRsaSize *int `pulumi:"keyRsaSize"`
 	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion *string `pulumi:"keyVersion"`
-	// Selected key minimum required key size.
-	RsaKeySize *int `pulumi:"rsaKeySize"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -687,12 +687,12 @@ type KeyVaultPropertiesInput interface {
 type KeyVaultPropertiesArgs struct {
 	// The name of the key associated with the Log Analytics cluster.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// Selected key minimum required size.
+	KeyRsaSize pulumi.IntPtrInput `pulumi:"keyRsaSize"`
 	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// Selected key minimum required key size.
-	RsaKeySize pulumi.IntPtrInput `pulumi:"rsaKeySize"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -778,6 +778,11 @@ func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required size.
+func (o KeyVaultPropertiesOutput) KeyRsaSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *int { return v.KeyRsaSize }).(pulumi.IntPtrOutput)
+}
+
 // The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
@@ -786,11 +791,6 @@ func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
 // The version of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
-}
-
-// Selected key minimum required key size.
-func (o KeyVaultPropertiesOutput) RsaKeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *int { return v.RsaKeySize }).(pulumi.IntPtrOutput)
 }
 
 type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -821,6 +821,16 @@ func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required size.
+func (o KeyVaultPropertiesPtrOutput) KeyRsaSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeyRsaSize
+	}).(pulumi.IntPtrOutput)
+}
+
 // The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
@@ -841,26 +851,16 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Selected key minimum required key size.
-func (o KeyVaultPropertiesPtrOutput) RsaKeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RsaKeySize
-	}).(pulumi.IntPtrOutput)
-}
-
 // The key vault properties.
 type KeyVaultPropertiesResponse struct {
 	// The name of the key associated with the Log Analytics cluster.
 	KeyName *string `pulumi:"keyName"`
+	// Selected key minimum required size.
+	KeyRsaSize *int `pulumi:"keyRsaSize"`
 	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion *string `pulumi:"keyVersion"`
-	// Selected key minimum required key size.
-	RsaKeySize *int `pulumi:"rsaKeySize"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -878,12 +878,12 @@ type KeyVaultPropertiesResponseInput interface {
 type KeyVaultPropertiesResponseArgs struct {
 	// The name of the key associated with the Log Analytics cluster.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// Selected key minimum required size.
+	KeyRsaSize pulumi.IntPtrInput `pulumi:"keyRsaSize"`
 	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// Selected key minimum required key size.
-	RsaKeySize pulumi.IntPtrInput `pulumi:"rsaKeySize"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -969,6 +969,11 @@ func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required size.
+func (o KeyVaultPropertiesResponseOutput) KeyRsaSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *int { return v.KeyRsaSize }).(pulumi.IntPtrOutput)
+}
+
 // The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
@@ -977,11 +982,6 @@ func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 // The version of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
-}
-
-// Selected key minimum required key size.
-func (o KeyVaultPropertiesResponseOutput) RsaKeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *int { return v.RsaKeySize }).(pulumi.IntPtrOutput)
 }
 
 type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1012,6 +1012,16 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required size.
+func (o KeyVaultPropertiesResponsePtrOutput) KeyRsaSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeyRsaSize
+	}).(pulumi.IntPtrOutput)
+}
+
 // The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
@@ -1032,14 +1042,113 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Selected key minimum required key size.
-func (o KeyVaultPropertiesResponsePtrOutput) RsaKeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RsaKeySize
-	}).(pulumi.IntPtrOutput)
+// The private link scope resource reference.
+type PrivateLinkScopedResourceResponse struct {
+	// The full resource Id of the private link scope resource.
+	ResourceId *string `pulumi:"resourceId"`
+	// The private link scope unique Identifier.
+	ScopeId *string `pulumi:"scopeId"`
+}
+
+// PrivateLinkScopedResourceResponseInput is an input type that accepts PrivateLinkScopedResourceResponseArgs and PrivateLinkScopedResourceResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkScopedResourceResponseInput` via:
+//
+//          PrivateLinkScopedResourceResponseArgs{...}
+type PrivateLinkScopedResourceResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkScopedResourceResponseOutput() PrivateLinkScopedResourceResponseOutput
+	ToPrivateLinkScopedResourceResponseOutputWithContext(context.Context) PrivateLinkScopedResourceResponseOutput
+}
+
+// The private link scope resource reference.
+type PrivateLinkScopedResourceResponseArgs struct {
+	// The full resource Id of the private link scope resource.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The private link scope unique Identifier.
+	ScopeId pulumi.StringPtrInput `pulumi:"scopeId"`
+}
+
+func (PrivateLinkScopedResourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResourceResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkScopedResourceResponseArgs) ToPrivateLinkScopedResourceResponseOutput() PrivateLinkScopedResourceResponseOutput {
+	return i.ToPrivateLinkScopedResourceResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkScopedResourceResponseArgs) ToPrivateLinkScopedResourceResponseOutputWithContext(ctx context.Context) PrivateLinkScopedResourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceResponseOutput)
+}
+
+// PrivateLinkScopedResourceResponseArrayInput is an input type that accepts PrivateLinkScopedResourceResponseArray and PrivateLinkScopedResourceResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateLinkScopedResourceResponseArrayInput` via:
+//
+//          PrivateLinkScopedResourceResponseArray{ PrivateLinkScopedResourceResponseArgs{...} }
+type PrivateLinkScopedResourceResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkScopedResourceResponseArrayOutput() PrivateLinkScopedResourceResponseArrayOutput
+	ToPrivateLinkScopedResourceResponseArrayOutputWithContext(context.Context) PrivateLinkScopedResourceResponseArrayOutput
+}
+
+type PrivateLinkScopedResourceResponseArray []PrivateLinkScopedResourceResponseInput
+
+func (PrivateLinkScopedResourceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkScopedResourceResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkScopedResourceResponseArray) ToPrivateLinkScopedResourceResponseArrayOutput() PrivateLinkScopedResourceResponseArrayOutput {
+	return i.ToPrivateLinkScopedResourceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkScopedResourceResponseArray) ToPrivateLinkScopedResourceResponseArrayOutputWithContext(ctx context.Context) PrivateLinkScopedResourceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceResponseArrayOutput)
+}
+
+// The private link scope resource reference.
+type PrivateLinkScopedResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkScopedResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResourceResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkScopedResourceResponseOutput) ToPrivateLinkScopedResourceResponseOutput() PrivateLinkScopedResourceResponseOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceResponseOutput) ToPrivateLinkScopedResourceResponseOutputWithContext(ctx context.Context) PrivateLinkScopedResourceResponseOutput {
+	return o
+}
+
+// The full resource Id of the private link scope resource.
+func (o PrivateLinkScopedResourceResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkScopedResourceResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The private link scope unique Identifier.
+func (o PrivateLinkScopedResourceResponseOutput) ScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkScopedResourceResponse) *string { return v.ScopeId }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkScopedResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkScopedResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkScopedResourceResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkScopedResourceResponseArrayOutput) ToPrivateLinkScopedResourceResponseArrayOutput() PrivateLinkScopedResourceResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceResponseArrayOutput) ToPrivateLinkScopedResourceResponseArrayOutputWithContext(ctx context.Context) PrivateLinkScopedResourceResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceResponseArrayOutput) Index(i pulumi.IntInput) PrivateLinkScopedResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkScopedResourceResponse {
+		return vs[0].([]PrivateLinkScopedResourceResponse)[vs[1].(int)]
+	}).(PrivateLinkScopedResourceResponseOutput)
 }
 
 // User assigned identity properties.
@@ -1151,6 +1260,656 @@ func (o UserIdentityPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) 
 	}).(UserIdentityPropertiesResponseOutput)
 }
 
+// The daily volume cap for ingestion.
+type WorkspaceCapping struct {
+	// The workspace daily quota for ingestion.
+	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
+}
+
+// WorkspaceCappingInput is an input type that accepts WorkspaceCappingArgs and WorkspaceCappingOutput values.
+// You can construct a concrete instance of `WorkspaceCappingInput` via:
+//
+//          WorkspaceCappingArgs{...}
+type WorkspaceCappingInput interface {
+	pulumi.Input
+
+	ToWorkspaceCappingOutput() WorkspaceCappingOutput
+	ToWorkspaceCappingOutputWithContext(context.Context) WorkspaceCappingOutput
+}
+
+// The daily volume cap for ingestion.
+type WorkspaceCappingArgs struct {
+	// The workspace daily quota for ingestion.
+	DailyQuotaGb pulumi.Float64PtrInput `pulumi:"dailyQuotaGb"`
+}
+
+func (WorkspaceCappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCapping)(nil)).Elem()
+}
+
+func (i WorkspaceCappingArgs) ToWorkspaceCappingOutput() WorkspaceCappingOutput {
+	return i.ToWorkspaceCappingOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCappingArgs) ToWorkspaceCappingOutputWithContext(ctx context.Context) WorkspaceCappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCappingOutput)
+}
+
+func (i WorkspaceCappingArgs) ToWorkspaceCappingPtrOutput() WorkspaceCappingPtrOutput {
+	return i.ToWorkspaceCappingPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCappingArgs) ToWorkspaceCappingPtrOutputWithContext(ctx context.Context) WorkspaceCappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCappingOutput).ToWorkspaceCappingPtrOutputWithContext(ctx)
+}
+
+// WorkspaceCappingPtrInput is an input type that accepts WorkspaceCappingArgs, WorkspaceCappingPtr and WorkspaceCappingPtrOutput values.
+// You can construct a concrete instance of `WorkspaceCappingPtrInput` via:
+//
+//          WorkspaceCappingArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceCappingPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceCappingPtrOutput() WorkspaceCappingPtrOutput
+	ToWorkspaceCappingPtrOutputWithContext(context.Context) WorkspaceCappingPtrOutput
+}
+
+type workspaceCappingPtrType WorkspaceCappingArgs
+
+func WorkspaceCappingPtr(v *WorkspaceCappingArgs) WorkspaceCappingPtrInput {
+	return (*workspaceCappingPtrType)(v)
+}
+
+func (*workspaceCappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCapping)(nil)).Elem()
+}
+
+func (i *workspaceCappingPtrType) ToWorkspaceCappingPtrOutput() WorkspaceCappingPtrOutput {
+	return i.ToWorkspaceCappingPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceCappingPtrType) ToWorkspaceCappingPtrOutputWithContext(ctx context.Context) WorkspaceCappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCappingPtrOutput)
+}
+
+// The daily volume cap for ingestion.
+type WorkspaceCappingOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCapping)(nil)).Elem()
+}
+
+func (o WorkspaceCappingOutput) ToWorkspaceCappingOutput() WorkspaceCappingOutput {
+	return o
+}
+
+func (o WorkspaceCappingOutput) ToWorkspaceCappingOutputWithContext(ctx context.Context) WorkspaceCappingOutput {
+	return o
+}
+
+func (o WorkspaceCappingOutput) ToWorkspaceCappingPtrOutput() WorkspaceCappingPtrOutput {
+	return o.ToWorkspaceCappingPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceCappingOutput) ToWorkspaceCappingPtrOutputWithContext(ctx context.Context) WorkspaceCappingPtrOutput {
+	return o.ApplyT(func(v WorkspaceCapping) *WorkspaceCapping {
+		return &v
+	}).(WorkspaceCappingPtrOutput)
+}
+
+// The workspace daily quota for ingestion.
+func (o WorkspaceCappingOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v WorkspaceCapping) *float64 { return v.DailyQuotaGb }).(pulumi.Float64PtrOutput)
+}
+
+type WorkspaceCappingPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCapping)(nil)).Elem()
+}
+
+func (o WorkspaceCappingPtrOutput) ToWorkspaceCappingPtrOutput() WorkspaceCappingPtrOutput {
+	return o
+}
+
+func (o WorkspaceCappingPtrOutput) ToWorkspaceCappingPtrOutputWithContext(ctx context.Context) WorkspaceCappingPtrOutput {
+	return o
+}
+
+func (o WorkspaceCappingPtrOutput) Elem() WorkspaceCappingOutput {
+	return o.ApplyT(func(v *WorkspaceCapping) WorkspaceCapping { return *v }).(WorkspaceCappingOutput)
+}
+
+// The workspace daily quota for ingestion.
+func (o WorkspaceCappingPtrOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkspaceCapping) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DailyQuotaGb
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The daily volume cap for ingestion.
+type WorkspaceCappingResponse struct {
+	// The workspace daily quota for ingestion.
+	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
+	// The status of data ingestion for this workspace.
+	DataIngestionStatus string `pulumi:"dataIngestionStatus"`
+	// The time when the quota will be rest.
+	QuotaNextResetTime string `pulumi:"quotaNextResetTime"`
+}
+
+// WorkspaceCappingResponseInput is an input type that accepts WorkspaceCappingResponseArgs and WorkspaceCappingResponseOutput values.
+// You can construct a concrete instance of `WorkspaceCappingResponseInput` via:
+//
+//          WorkspaceCappingResponseArgs{...}
+type WorkspaceCappingResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceCappingResponseOutput() WorkspaceCappingResponseOutput
+	ToWorkspaceCappingResponseOutputWithContext(context.Context) WorkspaceCappingResponseOutput
+}
+
+// The daily volume cap for ingestion.
+type WorkspaceCappingResponseArgs struct {
+	// The workspace daily quota for ingestion.
+	DailyQuotaGb pulumi.Float64PtrInput `pulumi:"dailyQuotaGb"`
+	// The status of data ingestion for this workspace.
+	DataIngestionStatus pulumi.StringInput `pulumi:"dataIngestionStatus"`
+	// The time when the quota will be rest.
+	QuotaNextResetTime pulumi.StringInput `pulumi:"quotaNextResetTime"`
+}
+
+func (WorkspaceCappingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCappingResponse)(nil)).Elem()
+}
+
+func (i WorkspaceCappingResponseArgs) ToWorkspaceCappingResponseOutput() WorkspaceCappingResponseOutput {
+	return i.ToWorkspaceCappingResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCappingResponseArgs) ToWorkspaceCappingResponseOutputWithContext(ctx context.Context) WorkspaceCappingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCappingResponseOutput)
+}
+
+func (i WorkspaceCappingResponseArgs) ToWorkspaceCappingResponsePtrOutput() WorkspaceCappingResponsePtrOutput {
+	return i.ToWorkspaceCappingResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCappingResponseArgs) ToWorkspaceCappingResponsePtrOutputWithContext(ctx context.Context) WorkspaceCappingResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCappingResponseOutput).ToWorkspaceCappingResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceCappingResponsePtrInput is an input type that accepts WorkspaceCappingResponseArgs, WorkspaceCappingResponsePtr and WorkspaceCappingResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceCappingResponsePtrInput` via:
+//
+//          WorkspaceCappingResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceCappingResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceCappingResponsePtrOutput() WorkspaceCappingResponsePtrOutput
+	ToWorkspaceCappingResponsePtrOutputWithContext(context.Context) WorkspaceCappingResponsePtrOutput
+}
+
+type workspaceCappingResponsePtrType WorkspaceCappingResponseArgs
+
+func WorkspaceCappingResponsePtr(v *WorkspaceCappingResponseArgs) WorkspaceCappingResponsePtrInput {
+	return (*workspaceCappingResponsePtrType)(v)
+}
+
+func (*workspaceCappingResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCappingResponse)(nil)).Elem()
+}
+
+func (i *workspaceCappingResponsePtrType) ToWorkspaceCappingResponsePtrOutput() WorkspaceCappingResponsePtrOutput {
+	return i.ToWorkspaceCappingResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceCappingResponsePtrType) ToWorkspaceCappingResponsePtrOutputWithContext(ctx context.Context) WorkspaceCappingResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCappingResponsePtrOutput)
+}
+
+// The daily volume cap for ingestion.
+type WorkspaceCappingResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCappingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCappingResponse)(nil)).Elem()
+}
+
+func (o WorkspaceCappingResponseOutput) ToWorkspaceCappingResponseOutput() WorkspaceCappingResponseOutput {
+	return o
+}
+
+func (o WorkspaceCappingResponseOutput) ToWorkspaceCappingResponseOutputWithContext(ctx context.Context) WorkspaceCappingResponseOutput {
+	return o
+}
+
+func (o WorkspaceCappingResponseOutput) ToWorkspaceCappingResponsePtrOutput() WorkspaceCappingResponsePtrOutput {
+	return o.ToWorkspaceCappingResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceCappingResponseOutput) ToWorkspaceCappingResponsePtrOutputWithContext(ctx context.Context) WorkspaceCappingResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCappingResponse) *WorkspaceCappingResponse {
+		return &v
+	}).(WorkspaceCappingResponsePtrOutput)
+}
+
+// The workspace daily quota for ingestion.
+func (o WorkspaceCappingResponseOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v WorkspaceCappingResponse) *float64 { return v.DailyQuotaGb }).(pulumi.Float64PtrOutput)
+}
+
+// The status of data ingestion for this workspace.
+func (o WorkspaceCappingResponseOutput) DataIngestionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceCappingResponse) string { return v.DataIngestionStatus }).(pulumi.StringOutput)
+}
+
+// The time when the quota will be rest.
+func (o WorkspaceCappingResponseOutput) QuotaNextResetTime() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceCappingResponse) string { return v.QuotaNextResetTime }).(pulumi.StringOutput)
+}
+
+type WorkspaceCappingResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCappingResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCappingResponse)(nil)).Elem()
+}
+
+func (o WorkspaceCappingResponsePtrOutput) ToWorkspaceCappingResponsePtrOutput() WorkspaceCappingResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceCappingResponsePtrOutput) ToWorkspaceCappingResponsePtrOutputWithContext(ctx context.Context) WorkspaceCappingResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceCappingResponsePtrOutput) Elem() WorkspaceCappingResponseOutput {
+	return o.ApplyT(func(v *WorkspaceCappingResponse) WorkspaceCappingResponse { return *v }).(WorkspaceCappingResponseOutput)
+}
+
+// The workspace daily quota for ingestion.
+func (o WorkspaceCappingResponsePtrOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkspaceCappingResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DailyQuotaGb
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The status of data ingestion for this workspace.
+func (o WorkspaceCappingResponsePtrOutput) DataIngestionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCappingResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataIngestionStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time when the quota will be rest.
+func (o WorkspaceCappingResponsePtrOutput) QuotaNextResetTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCappingResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QuotaNextResetTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SKU (tier) of a workspace.
+type WorkspaceSku struct {
+	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+	CapacityReservationLevel *int `pulumi:"capacityReservationLevel"`
+	// The name of the SKU.
+	Name string `pulumi:"name"`
+}
+
+// WorkspaceSkuInput is an input type that accepts WorkspaceSkuArgs and WorkspaceSkuOutput values.
+// You can construct a concrete instance of `WorkspaceSkuInput` via:
+//
+//          WorkspaceSkuArgs{...}
+type WorkspaceSkuInput interface {
+	pulumi.Input
+
+	ToWorkspaceSkuOutput() WorkspaceSkuOutput
+	ToWorkspaceSkuOutputWithContext(context.Context) WorkspaceSkuOutput
+}
+
+// The SKU (tier) of a workspace.
+type WorkspaceSkuArgs struct {
+	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+	CapacityReservationLevel pulumi.IntPtrInput `pulumi:"capacityReservationLevel"`
+	// The name of the SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (WorkspaceSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSku)(nil)).Elem()
+}
+
+func (i WorkspaceSkuArgs) ToWorkspaceSkuOutput() WorkspaceSkuOutput {
+	return i.ToWorkspaceSkuOutputWithContext(context.Background())
+}
+
+func (i WorkspaceSkuArgs) ToWorkspaceSkuOutputWithContext(ctx context.Context) WorkspaceSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSkuOutput)
+}
+
+func (i WorkspaceSkuArgs) ToWorkspaceSkuPtrOutput() WorkspaceSkuPtrOutput {
+	return i.ToWorkspaceSkuPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceSkuArgs) ToWorkspaceSkuPtrOutputWithContext(ctx context.Context) WorkspaceSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSkuOutput).ToWorkspaceSkuPtrOutputWithContext(ctx)
+}
+
+// WorkspaceSkuPtrInput is an input type that accepts WorkspaceSkuArgs, WorkspaceSkuPtr and WorkspaceSkuPtrOutput values.
+// You can construct a concrete instance of `WorkspaceSkuPtrInput` via:
+//
+//          WorkspaceSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceSkuPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceSkuPtrOutput() WorkspaceSkuPtrOutput
+	ToWorkspaceSkuPtrOutputWithContext(context.Context) WorkspaceSkuPtrOutput
+}
+
+type workspaceSkuPtrType WorkspaceSkuArgs
+
+func WorkspaceSkuPtr(v *WorkspaceSkuArgs) WorkspaceSkuPtrInput {
+	return (*workspaceSkuPtrType)(v)
+}
+
+func (*workspaceSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceSku)(nil)).Elem()
+}
+
+func (i *workspaceSkuPtrType) ToWorkspaceSkuPtrOutput() WorkspaceSkuPtrOutput {
+	return i.ToWorkspaceSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceSkuPtrType) ToWorkspaceSkuPtrOutputWithContext(ctx context.Context) WorkspaceSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSkuPtrOutput)
+}
+
+// The SKU (tier) of a workspace.
+type WorkspaceSkuOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSku)(nil)).Elem()
+}
+
+func (o WorkspaceSkuOutput) ToWorkspaceSkuOutput() WorkspaceSkuOutput {
+	return o
+}
+
+func (o WorkspaceSkuOutput) ToWorkspaceSkuOutputWithContext(ctx context.Context) WorkspaceSkuOutput {
+	return o
+}
+
+func (o WorkspaceSkuOutput) ToWorkspaceSkuPtrOutput() WorkspaceSkuPtrOutput {
+	return o.ToWorkspaceSkuPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceSkuOutput) ToWorkspaceSkuPtrOutputWithContext(ctx context.Context) WorkspaceSkuPtrOutput {
+	return o.ApplyT(func(v WorkspaceSku) *WorkspaceSku {
+		return &v
+	}).(WorkspaceSkuPtrOutput)
+}
+
+// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+func (o WorkspaceSkuOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceSku) *int { return v.CapacityReservationLevel }).(pulumi.IntPtrOutput)
+}
+
+// The name of the SKU.
+func (o WorkspaceSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type WorkspaceSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceSku)(nil)).Elem()
+}
+
+func (o WorkspaceSkuPtrOutput) ToWorkspaceSkuPtrOutput() WorkspaceSkuPtrOutput {
+	return o
+}
+
+func (o WorkspaceSkuPtrOutput) ToWorkspaceSkuPtrOutputWithContext(ctx context.Context) WorkspaceSkuPtrOutput {
+	return o
+}
+
+func (o WorkspaceSkuPtrOutput) Elem() WorkspaceSkuOutput {
+	return o.ApplyT(func(v *WorkspaceSku) WorkspaceSku { return *v }).(WorkspaceSkuOutput)
+}
+
+// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+func (o WorkspaceSkuPtrOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the SKU.
+func (o WorkspaceSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SKU (tier) of a workspace.
+type WorkspaceSkuResponse struct {
+	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+	CapacityReservationLevel *int `pulumi:"capacityReservationLevel"`
+	// The last time when the sku was updated.
+	LastSkuUpdate string `pulumi:"lastSkuUpdate"`
+	// The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
+	MaxCapacityReservationLevel int `pulumi:"maxCapacityReservationLevel"`
+	// The name of the SKU.
+	Name string `pulumi:"name"`
+}
+
+// WorkspaceSkuResponseInput is an input type that accepts WorkspaceSkuResponseArgs and WorkspaceSkuResponseOutput values.
+// You can construct a concrete instance of `WorkspaceSkuResponseInput` via:
+//
+//          WorkspaceSkuResponseArgs{...}
+type WorkspaceSkuResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceSkuResponseOutput() WorkspaceSkuResponseOutput
+	ToWorkspaceSkuResponseOutputWithContext(context.Context) WorkspaceSkuResponseOutput
+}
+
+// The SKU (tier) of a workspace.
+type WorkspaceSkuResponseArgs struct {
+	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+	CapacityReservationLevel pulumi.IntPtrInput `pulumi:"capacityReservationLevel"`
+	// The last time when the sku was updated.
+	LastSkuUpdate pulumi.StringInput `pulumi:"lastSkuUpdate"`
+	// The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
+	MaxCapacityReservationLevel pulumi.IntInput `pulumi:"maxCapacityReservationLevel"`
+	// The name of the SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (WorkspaceSkuResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSkuResponse)(nil)).Elem()
+}
+
+func (i WorkspaceSkuResponseArgs) ToWorkspaceSkuResponseOutput() WorkspaceSkuResponseOutput {
+	return i.ToWorkspaceSkuResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceSkuResponseArgs) ToWorkspaceSkuResponseOutputWithContext(ctx context.Context) WorkspaceSkuResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSkuResponseOutput)
+}
+
+func (i WorkspaceSkuResponseArgs) ToWorkspaceSkuResponsePtrOutput() WorkspaceSkuResponsePtrOutput {
+	return i.ToWorkspaceSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceSkuResponseArgs) ToWorkspaceSkuResponsePtrOutputWithContext(ctx context.Context) WorkspaceSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSkuResponseOutput).ToWorkspaceSkuResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceSkuResponsePtrInput is an input type that accepts WorkspaceSkuResponseArgs, WorkspaceSkuResponsePtr and WorkspaceSkuResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceSkuResponsePtrInput` via:
+//
+//          WorkspaceSkuResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceSkuResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceSkuResponsePtrOutput() WorkspaceSkuResponsePtrOutput
+	ToWorkspaceSkuResponsePtrOutputWithContext(context.Context) WorkspaceSkuResponsePtrOutput
+}
+
+type workspaceSkuResponsePtrType WorkspaceSkuResponseArgs
+
+func WorkspaceSkuResponsePtr(v *WorkspaceSkuResponseArgs) WorkspaceSkuResponsePtrInput {
+	return (*workspaceSkuResponsePtrType)(v)
+}
+
+func (*workspaceSkuResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceSkuResponse)(nil)).Elem()
+}
+
+func (i *workspaceSkuResponsePtrType) ToWorkspaceSkuResponsePtrOutput() WorkspaceSkuResponsePtrOutput {
+	return i.ToWorkspaceSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceSkuResponsePtrType) ToWorkspaceSkuResponsePtrOutputWithContext(ctx context.Context) WorkspaceSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSkuResponsePtrOutput)
+}
+
+// The SKU (tier) of a workspace.
+type WorkspaceSkuResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceSkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSkuResponse)(nil)).Elem()
+}
+
+func (o WorkspaceSkuResponseOutput) ToWorkspaceSkuResponseOutput() WorkspaceSkuResponseOutput {
+	return o
+}
+
+func (o WorkspaceSkuResponseOutput) ToWorkspaceSkuResponseOutputWithContext(ctx context.Context) WorkspaceSkuResponseOutput {
+	return o
+}
+
+func (o WorkspaceSkuResponseOutput) ToWorkspaceSkuResponsePtrOutput() WorkspaceSkuResponsePtrOutput {
+	return o.ToWorkspaceSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceSkuResponseOutput) ToWorkspaceSkuResponsePtrOutputWithContext(ctx context.Context) WorkspaceSkuResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceSkuResponse) *WorkspaceSkuResponse {
+		return &v
+	}).(WorkspaceSkuResponsePtrOutput)
+}
+
+// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+func (o WorkspaceSkuResponseOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceSkuResponse) *int { return v.CapacityReservationLevel }).(pulumi.IntPtrOutput)
+}
+
+// The last time when the sku was updated.
+func (o WorkspaceSkuResponseOutput) LastSkuUpdate() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceSkuResponse) string { return v.LastSkuUpdate }).(pulumi.StringOutput)
+}
+
+// The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
+func (o WorkspaceSkuResponseOutput) MaxCapacityReservationLevel() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkspaceSkuResponse) int { return v.MaxCapacityReservationLevel }).(pulumi.IntOutput)
+}
+
+// The name of the SKU.
+func (o WorkspaceSkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type WorkspaceSkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceSkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceSkuResponse)(nil)).Elem()
+}
+
+func (o WorkspaceSkuResponsePtrOutput) ToWorkspaceSkuResponsePtrOutput() WorkspaceSkuResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceSkuResponsePtrOutput) ToWorkspaceSkuResponsePtrOutputWithContext(ctx context.Context) WorkspaceSkuResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceSkuResponsePtrOutput) Elem() WorkspaceSkuResponseOutput {
+	return o.ApplyT(func(v *WorkspaceSkuResponse) WorkspaceSkuResponse { return *v }).(WorkspaceSkuResponseOutput)
+}
+
+// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+func (o WorkspaceSkuResponsePtrOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// The last time when the sku was updated.
+func (o WorkspaceSkuResponsePtrOutput) LastSkuUpdate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastSkuUpdate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
+func (o WorkspaceSkuResponsePtrOutput) MaxCapacityReservationLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxCapacityReservationLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the SKU.
+func (o WorkspaceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterSkuOutput{})
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
@@ -1164,6 +1923,16 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserIdentityPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserIdentityPropertiesResponseMapOutput{})
+	pulumi.RegisterOutputType(WorkspaceCappingOutput{})
+	pulumi.RegisterOutputType(WorkspaceCappingPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceCappingResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceCappingResponsePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceSkuOutput{})
+	pulumi.RegisterOutputType(WorkspaceSkuPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceSkuResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceSkuResponsePtrOutput{})
 }

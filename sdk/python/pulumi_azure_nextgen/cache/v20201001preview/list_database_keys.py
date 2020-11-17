@@ -9,13 +9,13 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'ListRedisEnterpriseDatabaseKeysResult',
-    'AwaitableListRedisEnterpriseDatabaseKeysResult',
-    'list_redis_enterprise_database_keys',
+    'ListDatabaseKeysResult',
+    'AwaitableListDatabaseKeysResult',
+    'list_database_keys',
 ]
 
 @pulumi.output_type
-class ListRedisEnterpriseDatabaseKeysResult:
+class ListDatabaseKeysResult:
     """
     The secret access keys used for authenticating connections to redis
     """
@@ -44,20 +44,20 @@ class ListRedisEnterpriseDatabaseKeysResult:
         return pulumi.get(self, "secondary_key")
 
 
-class AwaitableListRedisEnterpriseDatabaseKeysResult(ListRedisEnterpriseDatabaseKeysResult):
+class AwaitableListDatabaseKeysResult(ListDatabaseKeysResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListRedisEnterpriseDatabaseKeysResult(
+        return ListDatabaseKeysResult(
             primary_key=self.primary_key,
             secondary_key=self.secondary_key)
 
 
-def list_redis_enterprise_database_keys(cluster_name: Optional[str] = None,
-                                        database_name: Optional[str] = None,
-                                        resource_group_name: Optional[str] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRedisEnterpriseDatabaseKeysResult:
+def list_database_keys(cluster_name: Optional[str] = None,
+                       database_name: Optional[str] = None,
+                       resource_group_name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseKeysResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,8 +73,8 @@ def list_redis_enterprise_database_keys(cluster_name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-nextgen:cache/v20201001preview:listRedisEnterpriseDatabaseKeys', __args__, opts=opts, typ=ListRedisEnterpriseDatabaseKeysResult).value
+    __ret__ = pulumi.runtime.invoke('azure-nextgen:cache/v20201001preview:listDatabaseKeys', __args__, opts=opts, typ=ListDatabaseKeysResult).value
 
-    return AwaitableListRedisEnterpriseDatabaseKeysResult(
+    return AwaitableListDatabaseKeysResult(
         primary_key=__ret__.primary_key,
         secondary_key=__ret__.secondary_key)

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
-export function listRedisEnterpriseDatabaseKeys(args: ListRedisEnterpriseDatabaseKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRedisEnterpriseDatabaseKeysResult> {
+export function listDatabaseKeys(args: ListDatabaseKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseKeysResult> {
     if (!opts) {
         opts = {}
     }
@@ -13,14 +13,14 @@ export function listRedisEnterpriseDatabaseKeys(args: ListRedisEnterpriseDatabas
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache/v20201001preview:listRedisEnterpriseDatabaseKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:cache/v20201001preview:listDatabaseKeys", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface ListRedisEnterpriseDatabaseKeysArgs {
+export interface ListDatabaseKeysArgs {
     /**
      * The name of the RedisEnterprise cluster.
      */
@@ -38,7 +38,7 @@ export interface ListRedisEnterpriseDatabaseKeysArgs {
 /**
  * The secret access keys used for authenticating connections to redis
  */
-export interface ListRedisEnterpriseDatabaseKeysResult {
+export interface ListDatabaseKeysResult {
     /**
      * The current primary key that clients can use to authenticate
      */

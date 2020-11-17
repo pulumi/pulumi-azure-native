@@ -78,7 +78,7 @@ class ApplicationGroup(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['workspace_arm_path'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190123preview:ApplicationGroup"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190924preview:ApplicationGroup"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20191210preview:ApplicationGroup"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190123preview:ApplicationGroup"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190924preview:ApplicationGroup"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20191210preview:ApplicationGroup"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201110preview:ApplicationGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationGroup, __self__).__init__(
             'azure-nextgen:desktopvirtualization/v20201019preview:ApplicationGroup',
