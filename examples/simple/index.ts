@@ -40,6 +40,12 @@ const staticSite = new web.StaticSite("staticsite", {
     name: randomString.result,
 });
 
+const userIdentity = new managedidentity.UserAssignedIdentity("uai", {
+    resourceGroupName: resourceGroup.name,
+    location: resourceGroup.location,
+    resourceName: randomString.result,
+});
+
 const container = new containerinstance.ContainerGroup("containergroup", {
     resourceGroupName: resourceGroup.name,
     containerGroupName: randomString.result,
@@ -55,6 +61,14 @@ const container = new containerinstance.ContainerGroup("containergroup", {
             },
         },
     }],
+    identity: {
+        type: "UserAssigned",
+        userAssignedIdentities: userIdentity.id.apply(id => {
+            const dict: { [key: string] : object } = {};
+            dict[id] = {};
+            return dict;
+        }),
+    },
 });
 
 const vnet = new network.VirtualNetwork("vnet", {
@@ -224,9 +238,3 @@ const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, 
     storage.listStorageAccountKeys({ resourceGroupName, accountName }));
 
 export const primaryStorageKey = storageAccountKeys.keys[0].value;
-
-const exampleIdentity = new managedidentity.UserAssignedIdentity("uai", {
-    resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
-    resourceName: randomString.result,
-});
