@@ -22,11 +22,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The query string (for example, a SAS token) to be used with the templateLink URI.
-        /// </summary>
-        public readonly string? QueryString;
-        /// <summary>
-        /// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+        /// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
         /// </summary>
         public readonly string? RelativePath;
         /// <summary>
@@ -40,15 +36,12 @@ namespace Pulumi.AzureNextGen.Resources.Latest.Outputs
 
             string? id,
 
-            string? queryString,
-
             string? relativePath,
 
             string? uri)
         {
             ContentVersion = contentVersion;
             Id = id;
-            QueryString = queryString;
             RelativePath = relativePath;
             Uri = uri;
         }

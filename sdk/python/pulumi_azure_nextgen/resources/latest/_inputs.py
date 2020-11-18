@@ -13,14 +13,12 @@ __all__ = [
     'DeploymentPropertiesArgs',
     'ExpressionEvaluationOptionsArgs',
     'IdentityArgs',
-    'ManagedServiceIdentityArgs',
     'OnErrorDeploymentArgs',
     'ParametersLinkArgs',
     'PlanArgs',
     'SkuArgs',
     'TagsArgs',
     'TemplateLinkArgs',
-    'UserAssignedIdentityArgs',
 ]
 
 @pulumi.input_type
@@ -243,46 +241,6 @@ class IdentityArgs:
 
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
-        pulumi.set(self, "user_assigned_identities", value)
-
-
-@pulumi.input_type
-class ManagedServiceIdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
-        """
-        Managed identity generic object.
-        :param pulumi.Input[str] type: Type of the managed identity.
-        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of the managed identity.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
-        """
-        The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -582,23 +540,19 @@ class TemplateLinkArgs:
     def __init__(__self__, *,
                  content_version: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 query_string: Optional[pulumi.Input[str]] = None,
                  relative_path: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         Entity representing the reference to the template.
         :param pulumi.Input[str] content_version: If included, must match the ContentVersion in the template.
         :param pulumi.Input[str] id: The resource id of a Template Spec. Use either the id or uri property, but not both.
-        :param pulumi.Input[str] query_string: The query string (for example, a SAS token) to be used with the templateLink URI.
-        :param pulumi.Input[str] relative_path: The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+        :param pulumi.Input[str] relative_path: Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
         :param pulumi.Input[str] uri: The URI of the template to deploy. Use either the uri or id property, but not both.
         """
         if content_version is not None:
             pulumi.set(__self__, "content_version", content_version)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
         if relative_path is not None:
             pulumi.set(__self__, "relative_path", relative_path)
         if uri is not None:
@@ -629,22 +583,10 @@ class TemplateLinkArgs:
         pulumi.set(self, "id", value)
 
     @property
-    @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[pulumi.Input[str]]:
-        """
-        The query string (for example, a SAS token) to be used with the templateLink URI.
-        """
-        return pulumi.get(self, "query_string")
-
-    @query_string.setter
-    def query_string(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "query_string", value)
-
-    @property
     @pulumi.getter(name="relativePath")
     def relative_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+        Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
         """
         return pulumi.get(self, "relative_path")
 
@@ -663,45 +605,5 @@ class TemplateLinkArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
-
-
-@pulumi.input_type
-class UserAssignedIdentityArgs:
-    def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[str]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None):
-        """
-        User-assigned managed identity.
-        :param pulumi.Input[str] client_id: Client App Id associated with this identity.
-        :param pulumi.Input[str] principal_id: Azure Active Directory principal ID associated with this identity.
-        """
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Client App Id associated with this identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "client_id", value)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure Active Directory principal ID associated with this identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "principal_id", value)
 
 
