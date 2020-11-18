@@ -49,7 +49,7 @@ func TestFindingLatestResourceVersions(t *testing.T) {
 		"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v2"),
 	}
 
-	actual := calculateLatestVersions(versionMap, false /* invokes */, false /* preview */)
+	actual := calculateLatestVersions("test", versionMap, false /* invokes */, false /* preview */)
 	assert.Equal(t, actual, expected)
 }
 

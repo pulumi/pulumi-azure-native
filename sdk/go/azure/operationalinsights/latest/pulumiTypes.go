@@ -1847,12 +1847,12 @@ func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtr
 type KeyVaultProperties struct {
 	// The name of the key associated with the Log Analytics cluster.
 	KeyName *string `pulumi:"keyName"`
+	// Selected key minimum required size.
+	KeyRsaSize *int `pulumi:"keyRsaSize"`
 	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion *string `pulumi:"keyVersion"`
-	// Selected key minimum required key size.
-	RsaKeySize *int `pulumi:"rsaKeySize"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -1870,12 +1870,12 @@ type KeyVaultPropertiesInput interface {
 type KeyVaultPropertiesArgs struct {
 	// The name of the key associated with the Log Analytics cluster.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// Selected key minimum required size.
+	KeyRsaSize pulumi.IntPtrInput `pulumi:"keyRsaSize"`
 	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// Selected key minimum required key size.
-	RsaKeySize pulumi.IntPtrInput `pulumi:"rsaKeySize"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -1961,6 +1961,11 @@ func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required size.
+func (o KeyVaultPropertiesOutput) KeyRsaSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *int { return v.KeyRsaSize }).(pulumi.IntPtrOutput)
+}
+
 // The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
@@ -1969,11 +1974,6 @@ func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
 // The version of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
-}
-
-// Selected key minimum required key size.
-func (o KeyVaultPropertiesOutput) RsaKeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *int { return v.RsaKeySize }).(pulumi.IntPtrOutput)
 }
 
 type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2004,6 +2004,16 @@ func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required size.
+func (o KeyVaultPropertiesPtrOutput) KeyRsaSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeyRsaSize
+	}).(pulumi.IntPtrOutput)
+}
+
 // The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
@@ -2024,26 +2034,16 @@ func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Selected key minimum required key size.
-func (o KeyVaultPropertiesPtrOutput) RsaKeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RsaKeySize
-	}).(pulumi.IntPtrOutput)
-}
-
 // The key vault properties.
 type KeyVaultPropertiesResponse struct {
 	// The name of the key associated with the Log Analytics cluster.
 	KeyName *string `pulumi:"keyName"`
+	// Selected key minimum required size.
+	KeyRsaSize *int `pulumi:"keyRsaSize"`
 	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion *string `pulumi:"keyVersion"`
-	// Selected key minimum required key size.
-	RsaKeySize *int `pulumi:"rsaKeySize"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -2061,12 +2061,12 @@ type KeyVaultPropertiesResponseInput interface {
 type KeyVaultPropertiesResponseArgs struct {
 	// The name of the key associated with the Log Analytics cluster.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// Selected key minimum required size.
+	KeyRsaSize pulumi.IntPtrInput `pulumi:"keyRsaSize"`
 	// The Key Vault uri which holds they key associated with the Log Analytics cluster.
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of the key associated with the Log Analytics cluster.
 	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
-	// Selected key minimum required key size.
-	RsaKeySize pulumi.IntPtrInput `pulumi:"rsaKeySize"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2152,6 +2152,11 @@ func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required size.
+func (o KeyVaultPropertiesResponseOutput) KeyRsaSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *int { return v.KeyRsaSize }).(pulumi.IntPtrOutput)
+}
+
 // The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
@@ -2160,11 +2165,6 @@ func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 // The version of the key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
-}
-
-// Selected key minimum required key size.
-func (o KeyVaultPropertiesResponseOutput) RsaKeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *int { return v.RsaKeySize }).(pulumi.IntPtrOutput)
 }
 
 type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2195,6 +2195,16 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Selected key minimum required size.
+func (o KeyVaultPropertiesResponsePtrOutput) KeyRsaSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeyRsaSize
+	}).(pulumi.IntPtrOutput)
+}
+
 // The Key Vault uri which holds they key associated with the Log Analytics cluster.
 func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
@@ -2213,16 +2223,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 		}
 		return v.KeyVersion
 	}).(pulumi.StringPtrOutput)
-}
-
-// Selected key minimum required key size.
-func (o KeyVaultPropertiesResponsePtrOutput) RsaKeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RsaKeySize
-	}).(pulumi.IntPtrOutput)
 }
 
 // The private link scope resource reference.

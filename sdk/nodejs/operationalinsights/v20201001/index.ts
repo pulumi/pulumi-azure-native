@@ -4,3 +4,5 @@
 // Export members:
 export * from "./cluster";
 export * from "./getCluster";
+export * from "./getWorkspace";
+export * from "./workspace";

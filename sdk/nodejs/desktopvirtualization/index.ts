@@ -8,6 +8,7 @@ import * as v20191210preview from "./v20191210preview";
 import * as v20200921preview from "./v20200921preview";
 import * as v20201019preview from "./v20201019preview";
 import * as v20201102preview from "./v20201102preview";
+import * as v20201110preview from "./v20201110preview";
 
 export {
     v20190123preview,
@@ -16,4 +17,5 @@ export {
     v20200921preview,
     v20201019preview,
     v20201102preview,
+    v20201110preview,
 };

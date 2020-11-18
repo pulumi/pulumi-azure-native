@@ -120,6 +120,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20201001:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

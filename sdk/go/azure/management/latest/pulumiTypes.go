@@ -6014,7 +6014,9 @@ type TemplateLink struct {
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The resource id of a Template Spec. Use either the id or uri property, but not both.
 	Id *string `pulumi:"id"`
-	// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+	// The query string (for example, a SAS token) to be used with the templateLink URI.
+	QueryString *string `pulumi:"queryString"`
+	// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 	RelativePath *string `pulumi:"relativePath"`
 	// The URI of the template to deploy. Use either the uri or id property, but not both.
 	Uri *string `pulumi:"uri"`
@@ -6037,7 +6039,9 @@ type TemplateLinkArgs struct {
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The resource id of a Template Spec. Use either the id or uri property, but not both.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+	// The query string (for example, a SAS token) to be used with the templateLink URI.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
 	// The URI of the template to deploy. Use either the uri or id property, but not both.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -6131,7 +6135,12 @@ func (o TemplateLinkOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLink) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+// The query string (for example, a SAS token) to be used with the templateLink URI.
+func (o TemplateLinkOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateLink) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 func (o TemplateLinkOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLink) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
 }
@@ -6179,7 +6188,17 @@ func (o TemplateLinkPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+// The query string (for example, a SAS token) to be used with the templateLink URI.
+func (o TemplateLinkPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLink) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 func (o TemplateLinkPtrOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateLink) *string {
 		if v == nil {
@@ -6205,7 +6224,9 @@ type TemplateLinkResponse struct {
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The resource id of a Template Spec. Use either the id or uri property, but not both.
 	Id *string `pulumi:"id"`
-	// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+	// The query string (for example, a SAS token) to be used with the templateLink URI.
+	QueryString *string `pulumi:"queryString"`
+	// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 	RelativePath *string `pulumi:"relativePath"`
 	// The URI of the template to deploy. Use either the uri or id property, but not both.
 	Uri *string `pulumi:"uri"`
@@ -6228,7 +6249,9 @@ type TemplateLinkResponseArgs struct {
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The resource id of a Template Spec. Use either the id or uri property, but not both.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+	// The query string (for example, a SAS token) to be used with the templateLink URI.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
 	// The URI of the template to deploy. Use either the uri or id property, but not both.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -6322,7 +6345,12 @@ func (o TemplateLinkResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLinkResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+// The query string (for example, a SAS token) to be used with the templateLink URI.
+func (o TemplateLinkResponseOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateLinkResponse) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 func (o TemplateLinkResponseOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLinkResponse) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
 }
@@ -6370,7 +6398,17 @@ func (o TemplateLinkResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+// The query string (for example, a SAS token) to be used with the templateLink URI.
+func (o TemplateLinkResponsePtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLinkResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 func (o TemplateLinkResponsePtrOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateLinkResponse) *string {
 		if v == nil {

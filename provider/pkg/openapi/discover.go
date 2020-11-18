@@ -60,10 +60,10 @@ func AllVersions() AzureProviders {
 		}
 	}
 
-	for _, versionMap := range providers {
+	for providerName, versionMap := range providers {
 		// Add a `latest` (stable) version for each resource and invoke.
-		latestResources := calculateLatestVersions(versionMap, false /* invokes */, false /* preview */)
-		latestInvokes := calculateLatestVersions(versionMap, true /* invokes */, false /* preview */)
+		latestResources := calculateLatestVersions(providerName, versionMap, false /* invokes */, false /* preview */)
+		latestInvokes := calculateLatestVersions(providerName, versionMap, true /* invokes */, false /* preview */)
 		versionMap["latest"] = VersionResources{
 			Resources: latestResources,
 			Invokes:   latestInvokes,
@@ -114,7 +114,7 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 			return &version
 		}
 
-		previewResources := calculateLatestVersions(allVersionMap, false /* invokes */, true /* preview */)
+		previewResources := calculateLatestVersions(providerName, allVersionMap, false /* invokes */, true /* preview */)
 		for resourceName, resource := range previewResources {
 			if _, ok := latest.Resources[resourceName]; ok {
 				continue
@@ -126,7 +126,7 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 			}
 		}
 
-		previewInvokes := calculateLatestVersions(allVersionMap, true /* invokes */, true /* preview */)
+		previewInvokes := calculateLatestVersions(providerName, allVersionMap, true /* invokes */, true /* preview */)
 		for invokeName, invoke := range previewInvokes {
 			if _, ok := latest.Invokes[invokeName]; ok {
 				continue
@@ -235,7 +235,7 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
 // provider. The result is a map from a resource type name to resource specs.
-func calculateLatestVersions(versionMap ProviderVersions, invokes,
+func calculateLatestVersions(provider string, versionMap ProviderVersions, invokes,
 	preview bool) (latestResources map[string]*ResourceSpec) {
 	var versions []string
 	for version := range versionMap {
@@ -248,6 +248,12 @@ func calculateLatestVersions(versionMap ProviderVersions, invokes,
 	pathTypeNames := map[string]string{}
 	latestResources = map[string]*ResourceSpec{}
 	for _, version := range versions {
+		if provider == "Resources" && version == "v20201001" {
+			// Temporary workaround for a API that's not yet deployed.
+			// Remove when https://github.com/Azure/azure-rest-api-specs/issues/11711 is fixed.
+			continue
+		}
+
 		items := versionMap[version]
 		resources := items.Resources
 		if invokes {
