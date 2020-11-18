@@ -39,6 +39,10 @@ export interface GetPrivateZoneResult {
      */
     readonly etag?: string;
     /**
+     * Private zone internal Id
+     */
+    readonly internalId: string;
+    /**
      * The Azure Region where the resource lives
      */
     readonly location?: string;

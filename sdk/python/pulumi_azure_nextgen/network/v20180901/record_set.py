@@ -100,7 +100,7 @@ class RecordSet(pulumi.CustomResource):
             __props__['is_auto_registered'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:RecordSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20200101:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20200601:RecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RecordSet, __self__).__init__(
             'azure-nextgen:network/v20180901:RecordSet',

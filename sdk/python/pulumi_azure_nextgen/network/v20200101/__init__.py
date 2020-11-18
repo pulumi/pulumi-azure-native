@@ -5,7 +5,13 @@
 # Export this package's modules as members:
 from .front_door import *
 from .get_front_door import *
+from .get_private_zone import *
+from .get_record_set import *
 from .get_rules_engine import *
+from .get_virtual_network_link import *
+from .private_zone import *
+from .record_set import *
 from .rules_engine import *
+from .virtual_network_link import *
 from ._inputs import *
 from . import outputs

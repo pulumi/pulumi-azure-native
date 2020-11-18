@@ -161,7 +161,7 @@ export class RecordSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180901:RecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180901:RecordSet" }, { type: "azure-nextgen:network/v20200101:RecordSet" }, { type: "azure-nextgen:network/v20200601:RecordSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RecordSet.__pulumiType, name, inputs, opts);
     }

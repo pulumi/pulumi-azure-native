@@ -69,6 +69,12 @@ func NewRecordSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180901:RecordSet"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200101:RecordSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200601:RecordSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RecordSet

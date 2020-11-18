@@ -57,6 +57,12 @@ func NewPrivateZone(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:PrivateZone"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200101:PrivateZone"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateZone"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateZone

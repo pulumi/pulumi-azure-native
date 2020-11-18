@@ -23,6 +23,8 @@ type RecordSet struct {
 	CnameRecord CnameRecordResponsePtrOutput `pulumi:"cnameRecord"`
 	// The etag of the record set.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Fully qualified domain name of the record set.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The metadata attached to the record set.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The list of MX records in the record set.
@@ -111,6 +113,8 @@ type recordSetState struct {
 	CnameRecord *CnameRecordResponse `pulumi:"cnameRecord"`
 	// The etag of the record set.
 	Etag *string `pulumi:"etag"`
+	// Fully qualified domain name of the record set.
+	Fqdn *string `pulumi:"fqdn"`
 	// The metadata attached to the record set.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The list of MX records in the record set.
@@ -142,6 +146,8 @@ type RecordSetState struct {
 	CnameRecord CnameRecordResponsePtrInput
 	// The etag of the record set.
 	Etag pulumi.StringPtrInput
+	// Fully qualified domain name of the record set.
+	Fqdn pulumi.StringPtrInput
 	// The metadata attached to the record set.
 	Metadata pulumi.StringMapInput
 	// The list of MX records in the record set.

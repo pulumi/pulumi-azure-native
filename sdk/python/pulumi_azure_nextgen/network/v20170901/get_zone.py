@@ -19,7 +19,7 @@ class GetZoneResult:
     """
     Describes a DNS zone.
     """
-    def __init__(__self__, etag=None, location=None, max_number_of_record_sets=None, name=None, name_servers=None, number_of_record_sets=None, tags=None, type=None):
+    def __init__(__self__, etag=None, location=None, max_number_of_record_sets=None, max_number_of_records_per_record_set=None, name=None, name_servers=None, number_of_record_sets=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -29,6 +29,9 @@ class GetZoneResult:
         if max_number_of_record_sets and not isinstance(max_number_of_record_sets, int):
             raise TypeError("Expected argument 'max_number_of_record_sets' to be a int")
         pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
+        if max_number_of_records_per_record_set and not isinstance(max_number_of_records_per_record_set, int):
+            raise TypeError("Expected argument 'max_number_of_records_per_record_set' to be a int")
+        pulumi.set(__self__, "max_number_of_records_per_record_set", max_number_of_records_per_record_set)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -68,6 +71,14 @@ class GetZoneResult:
         The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
         return pulumi.get(self, "max_number_of_record_sets")
+
+    @property
+    @pulumi.getter(name="maxNumberOfRecordsPerRecordSet")
+    def max_number_of_records_per_record_set(self) -> int:
+        """
+        The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        """
+        return pulumi.get(self, "max_number_of_records_per_record_set")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetZoneResult(GetZoneResult):
             etag=self.etag,
             location=self.location,
             max_number_of_record_sets=self.max_number_of_record_sets,
+            max_number_of_records_per_record_set=self.max_number_of_records_per_record_set,
             name=self.name,
             name_servers=self.name_servers,
             number_of_record_sets=self.number_of_record_sets,
@@ -148,6 +160,7 @@ def get_zone(resource_group_name: Optional[str] = None,
         etag=__ret__.etag,
         location=__ret__.location,
         max_number_of_record_sets=__ret__.max_number_of_record_sets,
+        max_number_of_records_per_record_set=__ret__.max_number_of_records_per_record_set,
         name=__ret__.name,
         name_servers=__ret__.name_servers,
         number_of_record_sets=__ret__.number_of_record_sets,

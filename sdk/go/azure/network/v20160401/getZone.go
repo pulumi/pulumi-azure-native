@@ -31,6 +31,8 @@ type LookupZoneResult struct {
 	Location string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
+	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordsPerRecordSet int `pulumi:"maxNumberOfRecordsPerRecordSet"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.

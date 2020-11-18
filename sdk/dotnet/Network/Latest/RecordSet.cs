@@ -130,6 +130,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:RecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

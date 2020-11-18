@@ -4,5 +4,11 @@
 // Export members:
 export * from "./frontDoor";
 export * from "./getFrontDoor";
+export * from "./getPrivateZone";
+export * from "./getRecordSet";
 export * from "./getRulesEngine";
+export * from "./getVirtualNetworkLink";
+export * from "./privateZone";
+export * from "./recordSet";
 export * from "./rulesEngine";
+export * from "./virtualNetworkLink";

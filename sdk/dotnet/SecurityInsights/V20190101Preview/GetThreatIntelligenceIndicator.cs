@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
     public sealed class GetThreatIntelligenceIndicatorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Threat Intelligence Identifier
+        /// Threat intelligence indicator name field.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

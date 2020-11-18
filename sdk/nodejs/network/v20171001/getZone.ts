@@ -47,6 +47,10 @@ export interface GetZoneResult {
      */
     readonly maxNumberOfRecordSets: number;
     /**
+     * The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+     */
+    readonly maxNumberOfRecordsPerRecordSet: number;
+    /**
      * The name of the resource
      */
     readonly name: string;

@@ -71,8 +71,10 @@ from .get_private_dns_zone_group import *
 from .get_private_endpoint import *
 from .get_private_link_service import *
 from .get_private_link_service_private_endpoint_connection import *
+from .get_private_zone import *
 from .get_public_ip_address import *
 from .get_public_ip_prefix import *
+from .get_record_set import *
 from .get_route import *
 from .get_route_filter import *
 from .get_route_filter_rule import *
@@ -95,6 +97,7 @@ from .get_virtual_network_gateway_connection import *
 from .get_virtual_network_gateway_learned_routes import *
 from .get_virtual_network_gateway_vpnclient_connection_health import *
 from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
+from .get_virtual_network_link import *
 from .get_virtual_network_peering import *
 from .get_virtual_network_tap import *
 from .get_virtual_router import *
@@ -126,8 +129,10 @@ from .private_dns_zone_group import *
 from .private_endpoint import *
 from .private_link_service import *
 from .private_link_service_private_endpoint_connection import *
+from .private_zone import *
 from .public_ip_address import *
 from .public_ip_prefix import *
+from .record_set import *
 from .route import *
 from .route_filter import *
 from .route_filter_rule import *
@@ -145,6 +150,7 @@ from .virtual_hub_route_table_v2 import *
 from .virtual_network import *
 from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *
+from .virtual_network_link import *
 from .virtual_network_peering import *
 from .virtual_network_tap import *
 from .virtual_router import *

@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Private zone internal Id
+        /// </summary>
+        [Output("internalId")]
+        public Output<string> InternalId { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         [Output("location")]
@@ -112,6 +118,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateZone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Private zone internal Id
+        /// </summary>
+        public readonly string InternalId;
+        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         public readonly string? Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         private GetPrivateZoneResult(
             string? etag,
 
+            string internalId,
+
             string? location,
 
             int maxNumberOfRecordSets,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             string type)
         {
             Etag = etag;
+            InternalId = internalId;
             Location = location;
             MaxNumberOfRecordSets = maxNumberOfRecordSets;
             MaxNumberOfVirtualNetworkLinks = maxNumberOfVirtualNetworkLinks;

@@ -33,6 +33,12 @@ namespace Pulumi.AzureNextGen.Network.V20170901
         public Output<int> MaxNumberOfRecordSets { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        [Output("maxNumberOfRecordsPerRecordSet")]
+        public Output<int> MaxNumberOfRecordsPerRecordSet { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]

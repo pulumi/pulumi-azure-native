@@ -39,6 +39,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string?> DefaultSparkLogFolder { get; private set; } = null!;
 
         /// <summary>
+        /// Whether library requirements changed.
+        /// </summary>
+        [Output("haveLibraryRequirementsChanged")]
+        public Output<bool?> HaveLibraryRequirementsChanged { get; private set; } = null!;
+
+        /// <summary>
         /// Whether compute isolation is required or not.
         /// </summary>
         [Output("isComputeIsolationEnabled")]
@@ -85,6 +91,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Output("provisioningState")]
         public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether session level packages enabled.
+        /// </summary>
+        [Output("sessionLevelPackagesEnabled")]
+        public Output<bool?> SessionLevelPackagesEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Spark configuration file to specify additional properties
@@ -198,6 +210,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Input<bool>? Force { get; set; }
 
         /// <summary>
+        /// Whether library requirements changed.
+        /// </summary>
+        [Input("haveLibraryRequirementsChanged")]
+        public Input<bool>? HaveLibraryRequirementsChanged { get; set; }
+
+        /// <summary>
         /// Whether compute isolation is required or not.
         /// </summary>
         [Input("isComputeIsolationEnabled")]
@@ -244,6 +262,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Whether session level packages enabled.
+        /// </summary>
+        [Input("sessionLevelPackagesEnabled")]
+        public Input<bool>? SessionLevelPackagesEnabled { get; set; }
 
         /// <summary>
         /// Spark configuration file to specify additional properties
