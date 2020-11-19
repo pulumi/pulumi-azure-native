@@ -98,6 +98,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Outputs
         /// </summary>
         public readonly string? Status;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The task against which run was scheduled.
         /// </summary>
         public readonly string? Task;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Outputs
 
             string? status,
 
+            Outputs.SystemDataResponse systemData,
+
             string? task,
 
             Outputs.TimerTriggerDescriptorResponse? timerTrigger,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Outputs
             SourceTrigger = sourceTrigger;
             StartTime = startTime;
             Status = status;
+            SystemData = systemData;
             Task = task;
             TimerTrigger = timerTrigger;
             Type = type;

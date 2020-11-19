@@ -806,6 +806,8 @@ type CognitiveServicesAccountPropertiesResponse struct {
 	Capabilities []SkuCapabilityResponse `pulumi:"capabilities"`
 	// Optional subdomain name used for token-based authentication.
 	CustomSubDomainName *string `pulumi:"customSubDomainName"`
+	// Gets the date of cognitive services account creation.
+	DateCreated string `pulumi:"dateCreated"`
 	// The encryption properties for this resource.
 	Encryption *EncryptionResponse `pulumi:"encryption"`
 	// Endpoint of the created account.
@@ -843,6 +845,8 @@ type CognitiveServicesAccountPropertiesResponseArgs struct {
 	Capabilities SkuCapabilityResponseArrayInput `pulumi:"capabilities"`
 	// Optional subdomain name used for token-based authentication.
 	CustomSubDomainName pulumi.StringPtrInput `pulumi:"customSubDomainName"`
+	// Gets the date of cognitive services account creation.
+	DateCreated pulumi.StringInput `pulumi:"dateCreated"`
 	// The encryption properties for this resource.
 	Encryption EncryptionResponsePtrInput `pulumi:"encryption"`
 	// Endpoint of the created account.
@@ -956,6 +960,11 @@ func (o CognitiveServicesAccountPropertiesResponseOutput) CustomSubDomainName() 
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) *string { return v.CustomSubDomainName }).(pulumi.StringPtrOutput)
 }
 
+// Gets the date of cognitive services account creation.
+func (o CognitiveServicesAccountPropertiesResponseOutput) DateCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) string { return v.DateCreated }).(pulumi.StringOutput)
+}
+
 // The encryption properties for this resource.
 func (o CognitiveServicesAccountPropertiesResponseOutput) Encryption() EncryptionResponsePtrOutput {
 	return o.ApplyT(func(v CognitiveServicesAccountPropertiesResponse) *EncryptionResponse { return v.Encryption }).(EncryptionResponsePtrOutput)
@@ -1047,6 +1056,16 @@ func (o CognitiveServicesAccountPropertiesResponsePtrOutput) CustomSubDomainName
 			return nil
 		}
 		return v.CustomSubDomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets the date of cognitive services account creation.
+func (o CognitiveServicesAccountPropertiesResponsePtrOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccountPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DateCreated
 	}).(pulumi.StringPtrOutput)
 }
 

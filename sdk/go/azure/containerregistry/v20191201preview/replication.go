@@ -25,6 +25,8 @@ type Replication struct {
 	RegionEndpointEnabled pulumi.BoolPtrOutput `pulumi:"regionEndpointEnabled"`
 	// The status of the replication at the time the operation was called.
 	Status StatusResponseOutput `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -96,6 +98,8 @@ type replicationState struct {
 	RegionEndpointEnabled *bool `pulumi:"regionEndpointEnabled"`
 	// The status of the replication at the time the operation was called.
 	Status *StatusResponse `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -113,6 +117,8 @@ type ReplicationState struct {
 	RegionEndpointEnabled pulumi.BoolPtrInput
 	// The status of the replication at the time the operation was called.
 	Status StatusResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.

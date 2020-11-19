@@ -60,6 +60,10 @@ export class ImportPipeline extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.containerregistry.v20191201preview.ImportPipelineSourcePropertiesResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.v20191201preview.SystemDataResponse>;
+    /**
      * The properties that describe the trigger of the import pipeline.
      */
     public readonly trigger!: pulumi.Output<outputs.containerregistry.v20191201preview.PipelineTriggerPropertiesResponse | undefined>;
@@ -100,6 +104,7 @@ export class ImportPipeline extends pulumi.CustomResource {
             inputs["trigger"] = args ? args.trigger : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["identity"] = undefined /*out*/;
@@ -108,6 +113,7 @@ export class ImportPipeline extends pulumi.CustomResource {
             inputs["options"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["trigger"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

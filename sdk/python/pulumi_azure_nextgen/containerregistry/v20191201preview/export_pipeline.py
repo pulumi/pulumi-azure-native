@@ -74,6 +74,7 @@ class ExportPipeline(pulumi.CustomResource):
             __props__['target'] = target
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         super(ExportPipeline, __self__).__init__(
             'azure-nextgen:containerregistry/v20191201preview:ExportPipeline',
@@ -138,6 +139,14 @@ class ExportPipeline(pulumi.CustomResource):
         The provisioning state of the pipeline at the time the operation was called.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

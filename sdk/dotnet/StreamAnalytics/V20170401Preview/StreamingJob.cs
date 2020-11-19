@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
         /// </summary>
         [Output("contentStoragePolicy")]
-        public Output<string> ContentStoragePolicy { get; private set; } = null!;
+        public Output<string?> ContentStoragePolicy { get; private set; } = null!;
 
         /// <summary>
         /// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
@@ -249,6 +249,12 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// </summary>
         [Input("compatibilityLevel")]
         public Input<string>? CompatibilityLevel { get; set; }
+
+        /// <summary>
+        /// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+        /// </summary>
+        [Input("contentStoragePolicy")]
+        public Input<string>? ContentStoragePolicy { get; set; }
 
         /// <summary>
         /// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.

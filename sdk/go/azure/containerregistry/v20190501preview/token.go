@@ -27,6 +27,8 @@ type Token struct {
 	ScopeMapId pulumi.StringPtrOutput `pulumi:"scopeMapId"`
 	// The status of the token example enabled or disabled.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -80,6 +82,8 @@ type tokenState struct {
 	ScopeMapId *string `pulumi:"scopeMapId"`
 	// The status of the token example enabled or disabled.
 	Status *string `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -97,6 +101,8 @@ type TokenState struct {
 	ScopeMapId pulumi.StringPtrInput
 	// The status of the token example enabled or disabled.
 	Status pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

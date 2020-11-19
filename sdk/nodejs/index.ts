@@ -138,6 +138,7 @@ import * as sql from "./sql";
 import * as sqlvirtualmachine from "./sqlvirtualmachine";
 import * as storage from "./storage";
 import * as storagecache from "./storagecache";
+import * as storagepool from "./storagepool";
 import * as storagesync from "./storagesync";
 import * as storsimple from "./storsimple";
 import * as streamanalytics from "./streamanalytics";
@@ -286,6 +287,7 @@ export {
     sqlvirtualmachine,
     storage,
     storagecache,
+    storagepool,
     storagesync,
     storsimple,
     streamanalytics,

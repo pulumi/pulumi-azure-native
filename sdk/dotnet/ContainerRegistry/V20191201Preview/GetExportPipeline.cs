@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The target properties of the export pipeline.
         /// </summary>
         public readonly Outputs.ExportPipelineTargetPropertiesResponse Target;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             Outputs.ExportPipelineTargetPropertiesResponse target,
 
             string type)
@@ -95,6 +101,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
             Name = name;
             Options = options;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Target = target;
             Type = type;
         }

@@ -98,6 +98,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// </summary>
         public readonly Union<Outputs.DockerBuildStepResponse, Union<Outputs.EncodedTaskStepResponse, Outputs.FileTaskStepResponse>>? Step;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 
             Union<Outputs.DockerBuildStepResponse, Union<Outputs.EncodedTaskStepResponse, Outputs.FileTaskStepResponse>>? step,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             int? timeout,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
             ProvisioningState = provisioningState;
             Status = status;
             Step = step;
+            SystemData = systemData;
             Tags = tags;
             Timeout = timeout;
             Trigger = trigger;

@@ -65,6 +65,10 @@ export class TaskRun extends pulumi.CustomResource {
      */
     public /*out*/ readonly runResult!: pulumi.Output<outputs.containerregistry.v20190601preview.RunResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.v20190601preview.SystemDataResponse>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class TaskRun extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["runResult"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["forceUpdateTag"] = undefined /*out*/;
@@ -107,6 +112,7 @@ export class TaskRun extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["runRequest"] = undefined /*out*/;
             inputs["runResult"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

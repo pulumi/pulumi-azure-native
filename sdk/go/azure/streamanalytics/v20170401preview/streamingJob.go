@@ -20,7 +20,7 @@ type StreamingJob struct {
 	// Controls certain runtime behaviors of the streaming job.
 	CompatibilityLevel pulumi.StringPtrOutput `pulumi:"compatibilityLevel"`
 	// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
-	ContentStoragePolicy pulumi.StringOutput `pulumi:"contentStoragePolicy"`
+	ContentStoragePolicy pulumi.StringPtrOutput `pulumi:"contentStoragePolicy"`
 	// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
@@ -248,6 +248,8 @@ type streamingJobArgs struct {
 	Cluster *ClusterInfo `pulumi:"cluster"`
 	// Controls certain runtime behaviors of the streaming job.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
+	// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+	ContentStoragePolicy *string `pulumi:"contentStoragePolicy"`
 	// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
 	DataLocale *string `pulumi:"dataLocale"`
 	// The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
@@ -296,6 +298,8 @@ type StreamingJobArgs struct {
 	Cluster ClusterInfoPtrInput
 	// Controls certain runtime behaviors of the streaming job.
 	CompatibilityLevel pulumi.StringPtrInput
+	// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+	ContentStoragePolicy pulumi.StringPtrInput
 	// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
 	DataLocale pulumi.StringPtrInput
 	// The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.

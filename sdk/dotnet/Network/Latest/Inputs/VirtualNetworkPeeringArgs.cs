@@ -52,13 +52,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         public Input<string>? PeeringState { get; set; }
 
         /// <summary>
-        /// The peering sync status of the virtual network peering.
-        /// </summary>
-        [Input("peeringSyncLevel")]
-        public Input<string>? PeeringSyncLevel { get; set; }
-
-        /// <summary>
-        /// The reference to the address space peered with the remote virtual network.
+        /// The reference to the remote virtual network address space.
         /// </summary>
         [Input("remoteAddressSpace")]
         public Input<Inputs.AddressSpaceArgs>? RemoteAddressSpace { get; set; }
@@ -74,18 +68,6 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// </summary>
         [Input("remoteVirtualNetwork")]
         public Input<Inputs.SubResourceArgs>? RemoteVirtualNetwork { get; set; }
-
-        /// <summary>
-        /// The reference to the current address space of the remote virtual network.
-        /// </summary>
-        [Input("remoteVirtualNetworkAddressSpace")]
-        public Input<Inputs.AddressSpaceArgs>? RemoteVirtualNetworkAddressSpace { get; set; }
-
-        /// <summary>
-        /// Provided when user wants to sync the peering with address space on the remote virtual network after the address space is updated.
-        /// </summary>
-        [Input("syncRemoteAddressSpace")]
-        public Input<bool>? SyncRemoteAddressSpace { get; set; }
 
         /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.

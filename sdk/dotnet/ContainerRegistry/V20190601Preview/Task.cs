@@ -94,6 +94,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         public Output<Union<Outputs.DockerBuildStepResponse, Union<Outputs.EncodedTaskStepResponse, Outputs.FileTaskStepResponse>>?> Step { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         [Output("tags")]

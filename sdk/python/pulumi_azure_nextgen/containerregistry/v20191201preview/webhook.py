@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['Webhook']
 
@@ -85,6 +86,7 @@ class Webhook(pulumi.CustomResource):
             __props__['webhook_name'] = webhook_name
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/latest:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20170601preview:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20171001:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501:Webhook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -159,6 +161,14 @@ class Webhook(pulumi.CustomResource):
         The status of the webhook at the time the operation was called.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

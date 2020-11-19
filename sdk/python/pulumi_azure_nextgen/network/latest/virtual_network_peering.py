@@ -23,13 +23,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[str]] = None,
-                 peering_sync_level: Optional[pulumi.Input[str]] = None,
                  remote_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
                  remote_bgp_communities: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkBgpCommunitiesArgs']]] = None,
                  remote_virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 remote_virtual_network_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sync_remote_address_space: Optional[pulumi.Input[bool]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_peering_name: Optional[pulumi.Input[str]] = None,
@@ -47,13 +44,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] peering_state: The status of the virtual network peering.
-        :param pulumi.Input[str] peering_sync_level: The peering sync status of the virtual network peering.
-        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] remote_address_space: The reference to the address space peered with the remote virtual network.
+        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] remote_address_space: The reference to the remote virtual network address space.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkBgpCommunitiesArgs']] remote_bgp_communities: The reference to the remote virtual network's Bgp Communities.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
-        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] remote_virtual_network_address_space: The reference to the current address space of the remote virtual network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[bool] sync_remote_address_space: Provided when user wants to sync the peering with address space on the remote virtual network after the address space is updated.
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[str] virtual_network_peering_name: The name of the peering.
@@ -81,15 +75,12 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             __props__['id'] = id
             __props__['name'] = name
             __props__['peering_state'] = peering_state
-            __props__['peering_sync_level'] = peering_sync_level
             __props__['remote_address_space'] = remote_address_space
             __props__['remote_bgp_communities'] = remote_bgp_communities
             __props__['remote_virtual_network'] = remote_virtual_network
-            __props__['remote_virtual_network_address_space'] = remote_virtual_network_address_space
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['sync_remote_address_space'] = sync_remote_address_space
             __props__['use_remote_gateways'] = use_remote_gateways
             if virtual_network_name is None:
                 raise TypeError("Missing required property 'virtual_network_name'")
@@ -174,14 +165,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         return pulumi.get(self, "peering_state")
 
     @property
-    @pulumi.getter(name="peeringSyncLevel")
-    def peering_sync_level(self) -> pulumi.Output[Optional[str]]:
-        """
-        The peering sync status of the virtual network peering.
-        """
-        return pulumi.get(self, "peering_sync_level")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
@@ -193,7 +176,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     @pulumi.getter(name="remoteAddressSpace")
     def remote_address_space(self) -> pulumi.Output[Optional['outputs.AddressSpaceResponse']]:
         """
-        The reference to the address space peered with the remote virtual network.
+        The reference to the remote virtual network address space.
         """
         return pulumi.get(self, "remote_address_space")
 
@@ -212,22 +195,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         """
         return pulumi.get(self, "remote_virtual_network")
-
-    @property
-    @pulumi.getter(name="remoteVirtualNetworkAddressSpace")
-    def remote_virtual_network_address_space(self) -> pulumi.Output[Optional['outputs.AddressSpaceResponse']]:
-        """
-        The reference to the current address space of the remote virtual network.
-        """
-        return pulumi.get(self, "remote_virtual_network_address_space")
-
-    @property
-    @pulumi.getter(name="syncRemoteAddressSpace")
-    def sync_remote_address_space(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Provided when user wants to sync the peering with address space on the remote virtual network after the address space is updated.
-        """
-        return pulumi.get(self, "sync_remote_address_space")
 
     @property
     @pulumi.getter(name="useRemoteGateways")

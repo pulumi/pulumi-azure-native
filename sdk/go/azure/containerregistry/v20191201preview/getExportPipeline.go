@@ -37,6 +37,8 @@ type LookupExportPipelineResult struct {
 	Options []string `pulumi:"options"`
 	// The provisioning state of the pipeline at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The target properties of the export pipeline.
 	Target ExportPipelineTargetPropertiesResponse `pulumi:"target"`
 	// The type of the resource.

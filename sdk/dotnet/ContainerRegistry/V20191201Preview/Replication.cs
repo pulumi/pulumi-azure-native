@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         public Output<Outputs.StatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         [Output("tags")]

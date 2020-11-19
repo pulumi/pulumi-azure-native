@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// </summary>
         public readonly Outputs.ImportPipelineSourcePropertiesResponse Source;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The properties that describe the trigger of the import pipeline.
         /// </summary>
         public readonly Outputs.PipelineTriggerPropertiesResponse? Trigger;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             Outputs.ImportPipelineSourcePropertiesResponse source,
 
+            Outputs.SystemDataResponse systemData,
+
             Outputs.PipelineTriggerPropertiesResponse? trigger,
 
             string type)
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
             Options = options;
             ProvisioningState = provisioningState;
             Source = source;
+            SystemData = systemData;
             Trigger = trigger;
             Type = type;
         }

@@ -32,7 +32,7 @@ type LookupStreamingJobResult struct {
 	// Controls certain runtime behaviors of the streaming job.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
-	ContentStoragePolicy string `pulumi:"contentStoragePolicy"`
+	ContentStoragePolicy *string `pulumi:"contentStoragePolicy"`
 	// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
 	CreatedDate string `pulumi:"createdDate"`
 	// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.

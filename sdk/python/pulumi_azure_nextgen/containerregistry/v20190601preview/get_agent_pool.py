@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetAgentPoolResult',
@@ -20,7 +21,7 @@ class GetAgentPoolResult:
     The agentpool that has the ARM resource and properties. 
     The agentpool will have all information to create an agent pool.
     """
-    def __init__(__self__, count=None, location=None, name=None, os=None, provisioning_state=None, tags=None, tier=None, type=None, virtual_network_subnet_resource_id=None):
+    def __init__(__self__, count=None, location=None, name=None, os=None, provisioning_state=None, system_data=None, tags=None, tier=None, type=None, virtual_network_subnet_resource_id=None):
         if count and not isinstance(count, int):
             raise TypeError("Expected argument 'count' to be a int")
         pulumi.set(__self__, "count", count)
@@ -36,6 +37,9 @@ class GetAgentPoolResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -90,6 +94,14 @@ class GetAgentPoolResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -133,6 +145,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             name=self.name,
             os=self.os,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             tier=self.tier,
             type=self.type,
@@ -166,6 +179,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         name=__ret__.name,
         os=__ret__.os,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         tier=__ret__.tier,
         type=__ret__.type,

@@ -42,6 +42,8 @@ type LookupTaskRunResult struct {
 	RunRequest interface{} `pulumi:"runRequest"`
 	// The result of this task run
 	RunResult RunResponse `pulumi:"runResult"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

@@ -25,6 +25,8 @@ type PipelineRun struct {
 	Request PipelineRunRequestResponsePtrOutput `pulumi:"request"`
 	// The response of a pipeline run.
 	Response PipelineRunResponseResponseOutput `pulumi:"response"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -76,6 +78,8 @@ type pipelineRunState struct {
 	Request *PipelineRunRequestResponse `pulumi:"request"`
 	// The response of a pipeline run.
 	Response *PipelineRunResponseResponse `pulumi:"response"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -91,6 +95,8 @@ type PipelineRunState struct {
 	Request PipelineRunRequestResponsePtrInput
 	// The response of a pipeline run.
 	Response PipelineRunResponseResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

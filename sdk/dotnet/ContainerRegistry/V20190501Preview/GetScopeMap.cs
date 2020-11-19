@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Actions = actions;
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
             Description = description;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

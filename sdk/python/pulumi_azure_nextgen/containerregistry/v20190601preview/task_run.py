@@ -74,6 +74,7 @@ class TaskRun(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['run_result'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         super(TaskRun, __self__).__init__(
             'azure-nextgen:containerregistry/v20190601preview:TaskRun',
@@ -154,6 +155,14 @@ class TaskRun(pulumi.CustomResource):
         The result of this task run
         """
         return pulumi.get(self, "run_result")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
