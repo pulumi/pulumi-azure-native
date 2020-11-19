@@ -61,6 +61,10 @@ export interface GetRecordSetResult {
      */
     readonly etag?: string;
     /**
+     * Fully qualified domain name of the record set.
+     */
+    readonly fqdn: string;
+    /**
      * The metadata attached to the record set.
      */
     readonly metadata?: {[key: string]: string};

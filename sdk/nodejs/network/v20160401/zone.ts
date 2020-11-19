@@ -47,6 +47,10 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly maxNumberOfRecordSets!: pulumi.Output<number | undefined>;
     /**
+     * The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+     */
+    public /*out*/ readonly maxNumberOfRecordsPerRecordSet!: pulumi.Output<number>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["maxNumberOfRecordsPerRecordSet"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["nameServers"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -100,6 +105,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maxNumberOfRecordSets"] = undefined /*out*/;
+            inputs["maxNumberOfRecordsPerRecordSet"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["nameServers"] = undefined /*out*/;
             inputs["numberOfRecordSets"] = undefined /*out*/;

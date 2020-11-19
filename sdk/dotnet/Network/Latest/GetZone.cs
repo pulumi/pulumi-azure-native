@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly int MaxNumberOfRecordSets;
         /// <summary>
+        /// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        public readonly int MaxNumberOfRecordsPerRecordSet;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             int maxNumberOfRecordSets,
 
+            int maxNumberOfRecordsPerRecordSet,
+
             string name,
 
             ImmutableArray<string> nameServers,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             Etag = etag;
             Location = location;
             MaxNumberOfRecordSets = maxNumberOfRecordSets;
+            MaxNumberOfRecordsPerRecordSet = maxNumberOfRecordsPerRecordSet;
             Name = name;
             NameServers = nameServers;
             NumberOfRecordSets = numberOfRecordSets;

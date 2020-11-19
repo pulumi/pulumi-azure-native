@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Threat intelligence resource.
+// Threat intelligence information object.
 type ThreatIntelligenceIndicator struct {
 	pulumi.CustomResourceState
 
@@ -124,7 +124,7 @@ type threatIntelligenceIndicatorArgs struct {
 	LastUpdatedTimeUtc *string `pulumi:"lastUpdatedTimeUtc"`
 	// Modified by
 	Modified *string `pulumi:"modified"`
-	// Threat Intelligence Identifier
+	// Threat intelligence indicator name field.
 	Name string `pulumi:"name"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
@@ -182,7 +182,7 @@ type ThreatIntelligenceIndicatorArgs struct {
 	LastUpdatedTimeUtc pulumi.StringPtrInput
 	// Modified by
 	Modified pulumi.StringPtrInput
-	// Threat Intelligence Identifier
+	// Threat intelligence indicator name field.
 	Name pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput

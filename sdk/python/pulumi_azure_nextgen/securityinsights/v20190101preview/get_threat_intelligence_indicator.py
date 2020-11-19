@@ -17,7 +17,7 @@ __all__ = [
 @pulumi.output_type
 class GetThreatIntelligenceIndicatorResult:
     """
-    Threat intelligence resource.
+    Threat intelligence information object.
     """
     def __init__(__self__, etag=None, kind=None, name=None, type=None):
         if etag and not isinstance(etag, str):
@@ -86,7 +86,7 @@ def get_threat_intelligence_indicator(name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Threat Intelligence Identifier
+    :param str name: Threat intelligence indicator name field.
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.

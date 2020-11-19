@@ -74,6 +74,7 @@ class Zone(pulumi.CustomResource):
             __props__['zone_name'] = zone_name
             __props__['zone_type'] = zone_type
             __props__['max_number_of_record_sets'] = None
+            __props__['max_number_of_records_per_record_set'] = None
             __props__['name'] = None
             __props__['name_servers'] = None
             __props__['number_of_record_sets'] = None
@@ -127,6 +128,14 @@ class Zone(pulumi.CustomResource):
         The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
         return pulumi.get(self, "max_number_of_record_sets")
+
+    @property
+    @pulumi.getter(name="maxNumberOfRecordsPerRecordSet")
+    def max_number_of_records_per_record_set(self) -> pulumi.Output[int]:
+        """
+        The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        """
+        return pulumi.get(self, "max_number_of_records_per_record_set")
 
     @property
     @pulumi.getter

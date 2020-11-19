@@ -23,7 +23,7 @@ export function getThreatIntelligenceIndicator(args: GetThreatIntelligenceIndica
 
 export interface GetThreatIntelligenceIndicatorArgs {
     /**
-     * Threat Intelligence Identifier
+     * Threat intelligence indicator name field.
      */
     readonly name: string;
     /**
@@ -41,7 +41,7 @@ export interface GetThreatIntelligenceIndicatorArgs {
 }
 
 /**
- * Threat intelligence resource.
+ * Threat intelligence information object.
  */
 export interface GetThreatIntelligenceIndicatorResult {
     /**

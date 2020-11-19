@@ -47,7 +47,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Threat intelligence resource.
+        Threat intelligence information object.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -66,7 +66,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Labels  of threat intelligence entity
         :param pulumi.Input[str] last_updated_time_utc: Last updated time in UTC
         :param pulumi.Input[str] modified: Modified by
-        :param pulumi.Input[str] name: Threat Intelligence Identifier
+        :param pulumi.Input[str] name: Threat intelligence indicator name field.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] pattern: Pattern of a threat intelligence entity
         :param pulumi.Input[str] pattern_type: Pattern type of a threat intelligence entity

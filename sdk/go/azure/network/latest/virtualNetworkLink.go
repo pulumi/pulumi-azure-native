@@ -54,6 +54,12 @@ func NewVirtualNetworkLink(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180901:VirtualNetworkLink"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200101:VirtualNetworkLink"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualNetworkLink"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkLink

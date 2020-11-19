@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Threat intelligence resource.
+ * Threat intelligence information object.
  */
 export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
     /**
@@ -187,7 +187,7 @@ export interface ThreatIntelligenceIndicatorArgs {
      */
     readonly modified?: pulumi.Input<string>;
     /**
-     * Threat Intelligence Identifier
+     * Threat intelligence indicator name field.
      */
     readonly name: pulumi.Input<string>;
     /**

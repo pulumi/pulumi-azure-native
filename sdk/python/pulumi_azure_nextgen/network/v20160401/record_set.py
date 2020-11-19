@@ -108,6 +108,7 @@ class RecordSet(pulumi.CustomResource):
             if zone_name is None:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
+            __props__['fqdn'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150504preview:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20170901:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20171001:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20180301preview:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20180501:RecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RecordSet, __self__).__init__(
@@ -165,6 +166,14 @@ class RecordSet(pulumi.CustomResource):
         The etag of the record set.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> pulumi.Output[str]:
+        """
+        Fully qualified domain name of the record set.
+        """
+        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter

@@ -52,6 +52,10 @@ export class BigDataPool extends pulumi.CustomResource {
      */
     public readonly defaultSparkLogFolder!: pulumi.Output<string | undefined>;
     /**
+     * Whether library requirements changed.
+     */
+    public readonly haveLibraryRequirementsChanged!: pulumi.Output<boolean | undefined>;
+    /**
      * Whether compute isolation is required or not.
      */
     public readonly isComputeIsolationEnabled!: pulumi.Output<boolean | undefined>;
@@ -83,6 +87,10 @@ export class BigDataPool extends pulumi.CustomResource {
      * The state of the Big Data pool.
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Whether session level packages enabled.
+     */
+    public readonly sessionLevelPackagesEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Spark configuration file to specify additional properties
      */
@@ -132,6 +140,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["creationDate"] = args ? args.creationDate : undefined;
             inputs["defaultSparkLogFolder"] = args ? args.defaultSparkLogFolder : undefined;
             inputs["force"] = args ? args.force : undefined;
+            inputs["haveLibraryRequirementsChanged"] = args ? args.haveLibraryRequirementsChanged : undefined;
             inputs["isComputeIsolationEnabled"] = args ? args.isComputeIsolationEnabled : undefined;
             inputs["libraryRequirements"] = args ? args.libraryRequirements : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -140,6 +149,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["nodeSizeFamily"] = args ? args.nodeSizeFamily : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sessionLevelPackagesEnabled"] = args ? args.sessionLevelPackagesEnabled : undefined;
             inputs["sparkConfigProperties"] = args ? args.sparkConfigProperties : undefined;
             inputs["sparkEventsFolder"] = args ? args.sparkEventsFolder : undefined;
             inputs["sparkVersion"] = args ? args.sparkVersion : undefined;
@@ -152,6 +162,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["autoScale"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["defaultSparkLogFolder"] = undefined /*out*/;
+            inputs["haveLibraryRequirementsChanged"] = undefined /*out*/;
             inputs["isComputeIsolationEnabled"] = undefined /*out*/;
             inputs["libraryRequirements"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -160,6 +171,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["nodeSize"] = undefined /*out*/;
             inputs["nodeSizeFamily"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["sessionLevelPackagesEnabled"] = undefined /*out*/;
             inputs["sparkConfigProperties"] = undefined /*out*/;
             inputs["sparkEventsFolder"] = undefined /*out*/;
             inputs["sparkVersion"] = undefined /*out*/;
@@ -206,6 +218,10 @@ export interface BigDataPoolArgs {
      */
     readonly force?: pulumi.Input<boolean>;
     /**
+     * Whether library requirements changed.
+     */
+    readonly haveLibraryRequirementsChanged?: pulumi.Input<boolean>;
+    /**
      * Whether compute isolation is required or not.
      */
     readonly isComputeIsolationEnabled?: pulumi.Input<boolean>;
@@ -237,6 +253,10 @@ export interface BigDataPoolArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Whether session level packages enabled.
+     */
+    readonly sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
     /**
      * Spark configuration file to specify additional properties
      */

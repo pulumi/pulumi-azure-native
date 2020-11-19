@@ -56,6 +56,10 @@ export interface GetBigDataPoolResult {
      */
     readonly defaultSparkLogFolder?: string;
     /**
+     * Whether library requirements changed.
+     */
+    readonly haveLibraryRequirementsChanged?: boolean;
+    /**
      * Whether compute isolation is required or not.
      */
     readonly isComputeIsolationEnabled?: boolean;
@@ -87,6 +91,10 @@ export interface GetBigDataPoolResult {
      * The state of the Big Data pool.
      */
     readonly provisioningState?: string;
+    /**
+     * Whether session level packages enabled.
+     */
+    readonly sessionLevelPackagesEnabled?: boolean;
     /**
      * Spark configuration file to specify additional properties
      */

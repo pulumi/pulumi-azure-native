@@ -94,6 +94,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
