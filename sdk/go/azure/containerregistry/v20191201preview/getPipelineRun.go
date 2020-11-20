@@ -37,6 +37,8 @@ type LookupPipelineRunResult struct {
 	Request *PipelineRunRequestResponse `pulumi:"request"`
 	// The response of a pipeline run.
 	Response PipelineRunResponseResponse `pulumi:"response"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

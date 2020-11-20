@@ -43,6 +43,7 @@ __all__ = [
     'SourceResponseResult',
     'StatusResponse',
     'StorageAccountPropertiesResponse',
+    'SystemDataResponse',
     'TargetResponseResult',
     'TrustPolicyResponse',
     'UserIdentityPropertiesResponse',
@@ -604,19 +605,41 @@ class ImportPipelineSourcePropertiesResponse(dict):
 @pulumi.output_type
 class KeyVaultPropertiesResponse(dict):
     def __init__(__self__, *,
+                 key_rotation_enabled: bool,
+                 last_key_rotation_timestamp: str,
                  versioned_key_identifier: str,
                  identity: Optional[str] = None,
                  key_identifier: Optional[str] = None):
         """
+        :param bool key_rotation_enabled: Auto key rotation status for a CMK enabled registry.
+        :param str last_key_rotation_timestamp: Timestamp of the last successful key rotation.
         :param str versioned_key_identifier: The fully qualified key identifier that includes the version of the key that is actually used for encryption.
         :param str identity: The client id of the identity which will be used to access key vault.
         :param str key_identifier: Key vault uri to access the encryption key.
         """
+        pulumi.set(__self__, "key_rotation_enabled", key_rotation_enabled)
+        pulumi.set(__self__, "last_key_rotation_timestamp", last_key_rotation_timestamp)
         pulumi.set(__self__, "versioned_key_identifier", versioned_key_identifier)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if key_identifier is not None:
             pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter(name="keyRotationEnabled")
+    def key_rotation_enabled(self) -> bool:
+        """
+        Auto key rotation status for a CMK enabled registry.
+        """
+        return pulumi.get(self, "key_rotation_enabled")
+
+    @property
+    @pulumi.getter(name="lastKeyRotationTimestamp")
+    def last_key_rotation_timestamp(self) -> str:
+        """
+        Timestamp of the last successful key rotation.
+        """
+        return pulumi.get(self, "last_key_rotation_timestamp")
 
     @property
     @pulumi.getter(name="versionedKeyIdentifier")
@@ -1123,6 +1146,7 @@ class PrivateEndpointConnectionResponse(dict):
                  id: str,
                  name: str,
                  provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
@@ -1131,6 +1155,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param str id: The resource ID.
         :param str name: The name of the resource.
         :param str provisioning_state: The provisioning state of private endpoint connection resource.
+        :param 'SystemDataResponseArgs' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource.
         :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private endpoint.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -1138,6 +1163,7 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -1167,6 +1193,14 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state of private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -1613,6 +1647,92 @@ class StorageAccountPropertiesResponse(dict):
         The resource ID of the storage account.
         """
         return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource modification (UTC).
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource modification (UTC).
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

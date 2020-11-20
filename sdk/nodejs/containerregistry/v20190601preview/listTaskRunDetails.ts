@@ -69,6 +69,10 @@ export interface ListTaskRunDetailsResult {
      */
     readonly runResult: outputs.containerregistry.v20190601preview.RunResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.v20190601preview.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;

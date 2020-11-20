@@ -64,6 +64,10 @@ export interface GetWebhookResult {
      */
     readonly status?: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.v20191201preview.SystemDataResponse;
+    /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};

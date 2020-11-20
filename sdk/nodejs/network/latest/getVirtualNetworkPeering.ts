@@ -64,15 +64,11 @@ export interface GetVirtualNetworkPeeringResult {
      */
     readonly peeringState?: string;
     /**
-     * The peering sync status of the virtual network peering.
-     */
-    readonly peeringSyncLevel?: string;
-    /**
      * The provisioning state of the virtual network peering resource.
      */
     readonly provisioningState: string;
     /**
-     * The reference to the address space peered with the remote virtual network.
+     * The reference to the remote virtual network address space.
      */
     readonly remoteAddressSpace?: outputs.network.latest.AddressSpaceResponse;
     /**
@@ -83,14 +79,6 @@ export interface GetVirtualNetworkPeeringResult {
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
     readonly remoteVirtualNetwork?: outputs.network.latest.SubResourceResponse;
-    /**
-     * The reference to the current address space of the remote virtual network.
-     */
-    readonly remoteVirtualNetworkAddressSpace?: outputs.network.latest.AddressSpaceResponse;
-    /**
-     * Provided when user wants to sync the peering with address space on the remote virtual network after the address space is updated.
-     */
-    readonly syncRemoteAddressSpace?: boolean;
     /**
      * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
      */

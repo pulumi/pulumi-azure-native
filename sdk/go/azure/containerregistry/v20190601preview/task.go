@@ -42,6 +42,8 @@ type Task struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The properties of a task step.
 	Step pulumi.AnyOutput `pulumi:"step"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Run timeout in seconds.
@@ -130,6 +132,8 @@ type taskState struct {
 	Status *string `pulumi:"status"`
 	// The properties of a task step.
 	Step interface{} `pulumi:"step"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Run timeout in seconds.
@@ -167,6 +171,8 @@ type TaskState struct {
 	Status pulumi.StringPtrInput
 	// The properties of a task step.
 	Step pulumi.Input
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// Run timeout in seconds.

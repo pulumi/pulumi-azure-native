@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// </summary>
         public readonly Outputs.StatusResponse Status;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             Outputs.StatusResponse status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -95,6 +101,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
             ProvisioningState = provisioningState;
             RegionEndpointEnabled = regionEndpointEnabled;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

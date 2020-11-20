@@ -39,6 +39,8 @@ type LookupTokenResult struct {
 	ScopeMapId *string `pulumi:"scopeMapId"`
 	// The status of the token example enabled or disabled.
 	Status *string `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

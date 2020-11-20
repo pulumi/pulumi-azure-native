@@ -56,6 +56,10 @@ export class PipelineRun extends pulumi.CustomResource {
      */
     public /*out*/ readonly response!: pulumi.Output<outputs.containerregistry.v20191201preview.PipelineRunResponseResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.v20191201preview.SystemDataResponse>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -87,6 +91,7 @@ export class PipelineRun extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["response"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["forceUpdateTag"] = undefined /*out*/;
@@ -94,6 +99,7 @@ export class PipelineRun extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["request"] = undefined /*out*/;
             inputs["response"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

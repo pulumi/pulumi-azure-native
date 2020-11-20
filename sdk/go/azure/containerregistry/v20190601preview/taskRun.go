@@ -30,6 +30,8 @@ type TaskRun struct {
 	RunRequest pulumi.AnyOutput `pulumi:"runRequest"`
 	// The result of this task run
 	RunResult RunResponseOutput `pulumi:"runResult"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -85,6 +87,8 @@ type taskRunState struct {
 	RunRequest interface{} `pulumi:"runRequest"`
 	// The result of this task run
 	RunResult *RunResponse `pulumi:"runResult"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -104,6 +108,8 @@ type TaskRunState struct {
 	RunRequest pulumi.Input
 	// The result of this task run
 	RunResult RunResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

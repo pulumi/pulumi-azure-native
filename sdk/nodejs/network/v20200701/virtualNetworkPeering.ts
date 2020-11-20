@@ -60,15 +60,11 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      */
     public readonly peeringState!: pulumi.Output<string | undefined>;
     /**
-     * The peering sync status of the virtual network peering.
-     */
-    public readonly peeringSyncLevel!: pulumi.Output<string | undefined>;
-    /**
      * The provisioning state of the virtual network peering resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The reference to the address space peered with the remote virtual network.
+     * The reference to the remote virtual network address space.
      */
     public readonly remoteAddressSpace!: pulumi.Output<outputs.network.v20200701.AddressSpaceResponse | undefined>;
     /**
@@ -79,14 +75,6 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
     public readonly remoteVirtualNetwork!: pulumi.Output<outputs.network.v20200701.SubResourceResponse | undefined>;
-    /**
-     * The reference to the current address space of the remote virtual network.
-     */
-    public readonly remoteVirtualNetworkAddressSpace!: pulumi.Output<outputs.network.v20200701.AddressSpaceResponse | undefined>;
-    /**
-     * Provided when user wants to sync the peering with address space on the remote virtual network after the address space is updated.
-     */
-    public readonly syncRemoteAddressSpace!: pulumi.Output<boolean | undefined>;
     /**
      * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
      */
@@ -117,13 +105,10 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["peeringState"] = args ? args.peeringState : undefined;
-            inputs["peeringSyncLevel"] = args ? args.peeringSyncLevel : undefined;
             inputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
             inputs["remoteBgpCommunities"] = args ? args.remoteBgpCommunities : undefined;
             inputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
-            inputs["remoteVirtualNetworkAddressSpace"] = args ? args.remoteVirtualNetworkAddressSpace : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["syncRemoteAddressSpace"] = args ? args.syncRemoteAddressSpace : undefined;
             inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
@@ -136,13 +121,10 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["peeringState"] = undefined /*out*/;
-            inputs["peeringSyncLevel"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["remoteAddressSpace"] = undefined /*out*/;
             inputs["remoteBgpCommunities"] = undefined /*out*/;
             inputs["remoteVirtualNetwork"] = undefined /*out*/;
-            inputs["remoteVirtualNetworkAddressSpace"] = undefined /*out*/;
-            inputs["syncRemoteAddressSpace"] = undefined /*out*/;
             inputs["useRemoteGateways"] = undefined /*out*/;
         }
         if (!opts) {
@@ -187,11 +169,7 @@ export interface VirtualNetworkPeeringArgs {
      */
     readonly peeringState?: pulumi.Input<string>;
     /**
-     * The peering sync status of the virtual network peering.
-     */
-    readonly peeringSyncLevel?: pulumi.Input<string>;
-    /**
-     * The reference to the address space peered with the remote virtual network.
+     * The reference to the remote virtual network address space.
      */
     readonly remoteAddressSpace?: pulumi.Input<inputs.network.v20200701.AddressSpace>;
     /**
@@ -203,17 +181,9 @@ export interface VirtualNetworkPeeringArgs {
      */
     readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20200701.SubResource>;
     /**
-     * The reference to the current address space of the remote virtual network.
-     */
-    readonly remoteVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.v20200701.AddressSpace>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Provided when user wants to sync the peering with address space on the remote virtual network after the address space is updated.
-     */
-    readonly syncRemoteAddressSpace?: pulumi.Input<boolean>;
     /**
      * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
      */

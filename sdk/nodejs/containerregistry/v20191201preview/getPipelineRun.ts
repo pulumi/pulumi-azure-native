@@ -60,6 +60,10 @@ export interface GetPipelineRunResult {
      */
     readonly response: outputs.containerregistry.v20191201preview.PipelineRunResponseResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.v20191201preview.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;

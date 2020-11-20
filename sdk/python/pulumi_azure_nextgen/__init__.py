@@ -140,6 +140,7 @@ from . import (
     sqlvirtualmachine,
     storage,
     storagecache,
+    storagepool,
     storagesync,
     storsimple,
     streamanalytics,

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['AgentPool']
 
@@ -79,6 +80,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['virtual_network_subnet_resource_id'] = virtual_network_subnet_resource_id
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         super(AgentPool, __self__).__init__(
             'azure-nextgen:containerregistry/v20190601preview:AgentPool',
@@ -143,6 +145,14 @@ class AgentPool(pulumi.CustomResource):
         The provisioning state of this agent pool
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

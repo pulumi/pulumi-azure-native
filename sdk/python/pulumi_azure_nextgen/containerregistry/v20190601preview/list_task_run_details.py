@@ -21,7 +21,7 @@ class ListTaskRunDetailsResult:
     The task run that has the ARM resource and properties. 
     The task run will have the information of request and result of a run.
     """
-    def __init__(__self__, force_update_tag=None, identity=None, location=None, name=None, provisioning_state=None, run_request=None, run_result=None, type=None):
+    def __init__(__self__, force_update_tag=None, identity=None, location=None, name=None, provisioning_state=None, run_request=None, run_result=None, system_data=None, type=None):
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
@@ -43,6 +43,9 @@ class ListTaskRunDetailsResult:
         if run_result and not isinstance(run_result, dict):
             raise TypeError("Expected argument 'run_result' to be a dict")
         pulumi.set(__self__, "run_result", run_result)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -104,6 +107,14 @@ class ListTaskRunDetailsResult:
         return pulumi.get(self, "run_result")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -125,6 +136,7 @@ class AwaitableListTaskRunDetailsResult(ListTaskRunDetailsResult):
             provisioning_state=self.provisioning_state,
             run_request=self.run_request,
             run_result=self.run_result,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -157,4 +169,5 @@ def list_task_run_details(registry_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         run_request=__ret__.run_request,
         run_result=__ret__.run_result,
+        system_data=__ret__.system_data,
         type=__ret__.type)

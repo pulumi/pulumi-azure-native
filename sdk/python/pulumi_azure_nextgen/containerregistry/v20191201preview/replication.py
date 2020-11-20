@@ -71,6 +71,7 @@ class Replication(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['status'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/latest:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20170601preview:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20171001:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501:Replication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -137,6 +138,14 @@ class Replication(pulumi.CustomResource):
         The status of the replication at the time the operation was called.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

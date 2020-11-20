@@ -21,7 +21,7 @@ class ListTaskDetailsResult:
     The task that has the ARM resource and task properties. 
     The task will have all information to schedule a run against it.
     """
-    def __init__(__self__, agent_configuration=None, agent_pool_name=None, creation_date=None, credentials=None, identity=None, is_system_task=None, location=None, log_template=None, name=None, platform=None, provisioning_state=None, status=None, step=None, tags=None, timeout=None, trigger=None, type=None):
+    def __init__(__self__, agent_configuration=None, agent_pool_name=None, creation_date=None, credentials=None, identity=None, is_system_task=None, location=None, log_template=None, name=None, platform=None, provisioning_state=None, status=None, step=None, system_data=None, tags=None, timeout=None, trigger=None, type=None):
         if agent_configuration and not isinstance(agent_configuration, dict):
             raise TypeError("Expected argument 'agent_configuration' to be a dict")
         pulumi.set(__self__, "agent_configuration", agent_configuration)
@@ -61,6 +61,9 @@ class ListTaskDetailsResult:
         if step and not isinstance(step, dict):
             raise TypeError("Expected argument 'step' to be a dict")
         pulumi.set(__self__, "step", step)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -179,6 +182,14 @@ class ListTaskDetailsResult:
         return pulumi.get(self, "step")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -230,6 +241,7 @@ class AwaitableListTaskDetailsResult(ListTaskDetailsResult):
             provisioning_state=self.provisioning_state,
             status=self.status,
             step=self.step,
+            system_data=self.system_data,
             tags=self.tags,
             timeout=self.timeout,
             trigger=self.trigger,
@@ -271,6 +283,7 @@ def list_task_details(registry_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         status=__ret__.status,
         step=__ret__.step,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         timeout=__ret__.timeout,
         trigger=__ret__.trigger,

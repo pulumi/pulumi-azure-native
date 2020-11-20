@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Outputs
         /// </summary>
         public readonly string? CustomSubDomainName;
         /// <summary>
+        /// Gets the date of cognitive services account creation.
+        /// </summary>
+        public readonly string DateCreated;
+        /// <summary>
         /// The encryption properties for this resource.
         /// </summary>
         public readonly Outputs.EncryptionResponse? Encryption;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Outputs
 
             string? customSubDomainName,
 
+            string dateCreated,
+
             Outputs.EncryptionResponse? encryption,
 
             string endpoint,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Outputs
             ApiProperties = apiProperties;
             Capabilities = capabilities;
             CustomSubDomainName = customSubDomainName;
+            DateCreated = dateCreated;
             Encryption = encryption;
             Endpoint = endpoint;
             InternalId = internalId;

@@ -60,6 +60,10 @@ export interface GetExportPipelineResult {
      */
     readonly provisioningState: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.v20191201preview.SystemDataResponse;
+    /**
      * The target properties of the export pipeline.
      */
     readonly target: outputs.containerregistry.v20191201preview.ExportPipelineTargetPropertiesResponse;

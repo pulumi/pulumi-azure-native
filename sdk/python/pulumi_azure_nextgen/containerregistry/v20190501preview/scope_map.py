@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['ScopeMap']
 
@@ -69,6 +70,7 @@ class ScopeMap(pulumi.CustomResource):
             __props__['creation_date'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         super(ScopeMap, __self__).__init__(
             'azure-nextgen:containerregistry/v20190501preview:ScopeMap',
@@ -135,6 +137,14 @@ class ScopeMap(pulumi.CustomResource):
         Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

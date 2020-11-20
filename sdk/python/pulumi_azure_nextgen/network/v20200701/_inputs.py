@@ -14066,12 +14066,9 @@ class VirtualNetworkPeeringArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[str]] = None,
-                 peering_sync_level: Optional[pulumi.Input[str]] = None,
                  remote_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
                  remote_bgp_communities: Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']] = None,
                  remote_virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 remote_virtual_network_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
-                 sync_remote_address_space: Optional[pulumi.Input[bool]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None):
         """
         Peerings in a virtual network resource.
@@ -14081,12 +14078,9 @@ class VirtualNetworkPeeringArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] peering_state: The status of the virtual network peering.
-        :param pulumi.Input[str] peering_sync_level: The peering sync status of the virtual network peering.
-        :param pulumi.Input['AddressSpaceArgs'] remote_address_space: The reference to the address space peered with the remote virtual network.
+        :param pulumi.Input['AddressSpaceArgs'] remote_address_space: The reference to the remote virtual network address space.
         :param pulumi.Input['VirtualNetworkBgpCommunitiesArgs'] remote_bgp_communities: The reference to the remote virtual network's Bgp Communities.
         :param pulumi.Input['SubResourceArgs'] remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
-        :param pulumi.Input['AddressSpaceArgs'] remote_virtual_network_address_space: The reference to the current address space of the remote virtual network.
-        :param pulumi.Input[bool] sync_remote_address_space: Provided when user wants to sync the peering with address space on the remote virtual network after the address space is updated.
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
         if allow_forwarded_traffic is not None:
@@ -14101,18 +14095,12 @@ class VirtualNetworkPeeringArgs:
             pulumi.set(__self__, "name", name)
         if peering_state is not None:
             pulumi.set(__self__, "peering_state", peering_state)
-        if peering_sync_level is not None:
-            pulumi.set(__self__, "peering_sync_level", peering_sync_level)
         if remote_address_space is not None:
             pulumi.set(__self__, "remote_address_space", remote_address_space)
         if remote_bgp_communities is not None:
             pulumi.set(__self__, "remote_bgp_communities", remote_bgp_communities)
         if remote_virtual_network is not None:
             pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
-        if remote_virtual_network_address_space is not None:
-            pulumi.set(__self__, "remote_virtual_network_address_space", remote_virtual_network_address_space)
-        if sync_remote_address_space is not None:
-            pulumi.set(__self__, "sync_remote_address_space", sync_remote_address_space)
         if use_remote_gateways is not None:
             pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
 
@@ -14189,22 +14177,10 @@ class VirtualNetworkPeeringArgs:
         pulumi.set(self, "peering_state", value)
 
     @property
-    @pulumi.getter(name="peeringSyncLevel")
-    def peering_sync_level(self) -> Optional[pulumi.Input[str]]:
-        """
-        The peering sync status of the virtual network peering.
-        """
-        return pulumi.get(self, "peering_sync_level")
-
-    @peering_sync_level.setter
-    def peering_sync_level(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "peering_sync_level", value)
-
-    @property
     @pulumi.getter(name="remoteAddressSpace")
     def remote_address_space(self) -> Optional[pulumi.Input['AddressSpaceArgs']]:
         """
-        The reference to the address space peered with the remote virtual network.
+        The reference to the remote virtual network address space.
         """
         return pulumi.get(self, "remote_address_space")
 
@@ -14235,30 +14211,6 @@ class VirtualNetworkPeeringArgs:
     @remote_virtual_network.setter
     def remote_virtual_network(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "remote_virtual_network", value)
-
-    @property
-    @pulumi.getter(name="remoteVirtualNetworkAddressSpace")
-    def remote_virtual_network_address_space(self) -> Optional[pulumi.Input['AddressSpaceArgs']]:
-        """
-        The reference to the current address space of the remote virtual network.
-        """
-        return pulumi.get(self, "remote_virtual_network_address_space")
-
-    @remote_virtual_network_address_space.setter
-    def remote_virtual_network_address_space(self, value: Optional[pulumi.Input['AddressSpaceArgs']]):
-        pulumi.set(self, "remote_virtual_network_address_space", value)
-
-    @property
-    @pulumi.getter(name="syncRemoteAddressSpace")
-    def sync_remote_address_space(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Provided when user wants to sync the peering with address space on the remote virtual network after the address space is updated.
-        """
-        return pulumi.get(self, "sync_remote_address_space")
-
-    @sync_remote_address_space.setter
-    def sync_remote_address_space(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "sync_remote_address_space", value)
 
     @property
     @pulumi.getter(name="useRemoteGateways")

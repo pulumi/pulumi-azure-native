@@ -22,6 +22,14 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Outputs
         /// </summary>
         public readonly string? KeyIdentifier;
         /// <summary>
+        /// Auto key rotation status for a CMK enabled registry.
+        /// </summary>
+        public readonly bool KeyRotationEnabled;
+        /// <summary>
+        /// Timestamp of the last successful key rotation.
+        /// </summary>
+        public readonly string LastKeyRotationTimestamp;
+        /// <summary>
         /// The fully qualified key identifier that includes the version of the key that is actually used for encryption.
         /// </summary>
         public readonly string VersionedKeyIdentifier;
@@ -32,10 +40,16 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Outputs
 
             string? keyIdentifier,
 
+            bool keyRotationEnabled,
+
+            string lastKeyRotationTimestamp,
+
             string versionedKeyIdentifier)
         {
             Identity = identity;
             KeyIdentifier = keyIdentifier;
+            KeyRotationEnabled = keyRotationEnabled;
+            LastKeyRotationTimestamp = lastKeyRotationTimestamp;
             VersionedKeyIdentifier = versionedKeyIdentifier;
         }
     }

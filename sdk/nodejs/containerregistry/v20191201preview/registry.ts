@@ -104,6 +104,10 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly storageAccount!: pulumi.Output<outputs.containerregistry.v20191201preview.StorageAccountPropertiesResponse | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.v20191201preview.SystemDataResponse>;
+    /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -154,6 +158,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["adminUserEnabled"] = undefined /*out*/;
@@ -173,6 +178,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["storageAccount"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
