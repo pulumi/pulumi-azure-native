@@ -46,7 +46,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Indicates whether customer managed storage is mandatory for query management.
      */
-    public readonly forceQueryCmk!: pulumi.Output<boolean | undefined>;
+    public readonly forceCmkForQuery!: pulumi.Output<boolean | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -112,7 +112,7 @@ export class Workspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["forceQueryCmk"] = args ? args.forceQueryCmk : undefined;
+            inputs["forceCmkForQuery"] = args ? args.forceCmkForQuery : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
@@ -130,7 +130,7 @@ export class Workspace extends pulumi.CustomResource {
         } else {
             inputs["customerId"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
-            inputs["forceQueryCmk"] = undefined /*out*/;
+            inputs["forceCmkForQuery"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
@@ -167,7 +167,7 @@ export interface WorkspaceArgs {
     /**
      * Indicates whether customer managed storage is mandatory for query management.
      */
-    readonly forceQueryCmk?: pulumi.Input<boolean>;
+    readonly forceCmkForQuery?: pulumi.Input<boolean>;
     /**
      * The geo-location where the resource lives
      */

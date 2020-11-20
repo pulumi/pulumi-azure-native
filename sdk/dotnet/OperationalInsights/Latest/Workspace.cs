@@ -29,8 +29,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// <summary>
         /// Indicates whether customer managed storage is mandatory for query management.
         /// </summary>
-        [Output("forceQueryCmk")]
-        public Output<bool?> ForceQueryCmk { get; private set; } = null!;
+        [Output("forceCmkForQuery")]
+        public Output<bool?> ForceCmkForQuery { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -159,8 +159,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// <summary>
         /// Indicates whether customer managed storage is mandatory for query management.
         /// </summary>
-        [Input("forceQueryCmk")]
-        public Input<bool>? ForceQueryCmk { get; set; }
+        [Input("forceCmkForQuery")]
+        public Input<bool>? ForceCmkForQuery { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

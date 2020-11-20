@@ -20,7 +20,7 @@ type Workspace struct {
 	// The ETag of the workspace.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
 	// Indicates whether customer managed storage is mandatory for query management.
-	ForceQueryCmk pulumi.BoolPtrOutput `pulumi:"forceQueryCmk"`
+	ForceCmkForQuery pulumi.BoolPtrOutput `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
@@ -102,7 +102,7 @@ type workspaceState struct {
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
 	// Indicates whether customer managed storage is mandatory for query management.
-	ForceQueryCmk *bool `pulumi:"forceQueryCmk"`
+	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
@@ -133,7 +133,7 @@ type WorkspaceState struct {
 	// The ETag of the workspace.
 	ETag pulumi.StringPtrInput
 	// Indicates whether customer managed storage is mandatory for query management.
-	ForceQueryCmk pulumi.BoolPtrInput
+	ForceCmkForQuery pulumi.BoolPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
@@ -166,7 +166,7 @@ type workspaceArgs struct {
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
 	// Indicates whether customer managed storage is mandatory for query management.
-	ForceQueryCmk *bool `pulumi:"forceQueryCmk"`
+	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The provisioning state of the workspace.
@@ -194,7 +194,7 @@ type WorkspaceArgs struct {
 	// The ETag of the workspace.
 	ETag pulumi.StringPtrInput
 	// Indicates whether customer managed storage is mandatory for query management.
-	ForceQueryCmk pulumi.BoolPtrInput
+	ForceCmkForQuery pulumi.BoolPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The provisioning state of the workspace.
