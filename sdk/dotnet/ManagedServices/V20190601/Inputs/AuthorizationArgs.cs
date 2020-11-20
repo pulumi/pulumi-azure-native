@@ -15,11 +15,29 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20190601.Inputs
     /// </summary>
     public sealed class AuthorizationArgs : Pulumi.ResourceArgs
     {
+        [Input("delegatedRoleDefinitionIds")]
+        private InputList<string>? _delegatedRoleDefinitionIds;
+
+        /// <summary>
+        /// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+        /// </summary>
+        public InputList<string> DelegatedRoleDefinitionIds
+        {
+            get => _delegatedRoleDefinitionIds ?? (_delegatedRoleDefinitionIds = new InputList<string>());
+            set => _delegatedRoleDefinitionIds = value;
+        }
+
         /// <summary>
         /// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
+
+        /// <summary>
+        /// Display name of the principal Id.
+        /// </summary>
+        [Input("principalIdDisplayName")]
+        public Input<string>? PrincipalIdDisplayName { get; set; }
 
         /// <summary>
         /// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.

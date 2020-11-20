@@ -14,9 +14,17 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20180601Preview.Outputs
     public sealed class AuthorizationResponse
     {
         /// <summary>
+        /// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+        /// </summary>
+        public readonly ImmutableArray<string> DelegatedRoleDefinitionIds;
+        /// <summary>
         /// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
         /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// Display name of the principal Id.
+        /// </summary>
+        public readonly string? PrincipalIdDisplayName;
         /// <summary>
         /// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
         /// </summary>
@@ -24,11 +32,17 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20180601Preview.Outputs
 
         [OutputConstructor]
         private AuthorizationResponse(
+            ImmutableArray<string> delegatedRoleDefinitionIds,
+
             string principalId,
+
+            string? principalIdDisplayName,
 
             string roleDefinitionId)
         {
+            DelegatedRoleDefinitionIds = delegatedRoleDefinitionIds;
             PrincipalId = principalId;
+            PrincipalIdDisplayName = principalIdDisplayName;
             RoleDefinitionId = roleDefinitionId;
         }
     }
