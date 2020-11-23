@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,6 +44,10 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
+     * The identity associated with this account
+     */
+    public readonly identity!: pulumi.Output<outputs.mixedreality.v20190228preview.IdentityResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -78,6 +83,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             if (!args || args.spatialAnchorsAccountName === undefined) {
                 throw new Error("Missing required property 'spatialAnchorsAccountName'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["spatialAnchorsAccountName"] = args ? args.spatialAnchorsAccountName : undefined;
@@ -89,6 +95,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
         } else {
             inputs["accountDomain"] = undefined /*out*/;
             inputs["accountId"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -111,6 +118,10 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
  * The set of arguments for constructing a SpatialAnchorsAccount resource.
  */
 export interface SpatialAnchorsAccountArgs {
+    /**
+     * The identity associated with this account
+     */
+    readonly identity?: pulumi.Input<inputs.mixedreality.v20190228preview.Identity>;
     /**
      * The geo-location where the resource lives
      */
