@@ -10,6 +10,388 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+type DeliveryPackageInformation struct {
+	// The name of the carrier that is used to ship the import or export drives.
+	CarrierName string `pulumi:"carrierName"`
+	// The number of drives included in the package.
+	DriveCount *int `pulumi:"driveCount"`
+	// The date when the package is shipped.
+	ShipDate *string `pulumi:"shipDate"`
+	// The tracking number of the package.
+	TrackingNumber string `pulumi:"trackingNumber"`
+}
+
+// DeliveryPackageInformationInput is an input type that accepts DeliveryPackageInformationArgs and DeliveryPackageInformationOutput values.
+// You can construct a concrete instance of `DeliveryPackageInformationInput` via:
+//
+//          DeliveryPackageInformationArgs{...}
+type DeliveryPackageInformationInput interface {
+	pulumi.Input
+
+	ToDeliveryPackageInformationOutput() DeliveryPackageInformationOutput
+	ToDeliveryPackageInformationOutputWithContext(context.Context) DeliveryPackageInformationOutput
+}
+
+// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+type DeliveryPackageInformationArgs struct {
+	// The name of the carrier that is used to ship the import or export drives.
+	CarrierName pulumi.StringInput `pulumi:"carrierName"`
+	// The number of drives included in the package.
+	DriveCount pulumi.IntPtrInput `pulumi:"driveCount"`
+	// The date when the package is shipped.
+	ShipDate pulumi.StringPtrInput `pulumi:"shipDate"`
+	// The tracking number of the package.
+	TrackingNumber pulumi.StringInput `pulumi:"trackingNumber"`
+}
+
+func (DeliveryPackageInformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryPackageInformation)(nil)).Elem()
+}
+
+func (i DeliveryPackageInformationArgs) ToDeliveryPackageInformationOutput() DeliveryPackageInformationOutput {
+	return i.ToDeliveryPackageInformationOutputWithContext(context.Background())
+}
+
+func (i DeliveryPackageInformationArgs) ToDeliveryPackageInformationOutputWithContext(ctx context.Context) DeliveryPackageInformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryPackageInformationOutput)
+}
+
+func (i DeliveryPackageInformationArgs) ToDeliveryPackageInformationPtrOutput() DeliveryPackageInformationPtrOutput {
+	return i.ToDeliveryPackageInformationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryPackageInformationArgs) ToDeliveryPackageInformationPtrOutputWithContext(ctx context.Context) DeliveryPackageInformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryPackageInformationOutput).ToDeliveryPackageInformationPtrOutputWithContext(ctx)
+}
+
+// DeliveryPackageInformationPtrInput is an input type that accepts DeliveryPackageInformationArgs, DeliveryPackageInformationPtr and DeliveryPackageInformationPtrOutput values.
+// You can construct a concrete instance of `DeliveryPackageInformationPtrInput` via:
+//
+//          DeliveryPackageInformationArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryPackageInformationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryPackageInformationPtrOutput() DeliveryPackageInformationPtrOutput
+	ToDeliveryPackageInformationPtrOutputWithContext(context.Context) DeliveryPackageInformationPtrOutput
+}
+
+type deliveryPackageInformationPtrType DeliveryPackageInformationArgs
+
+func DeliveryPackageInformationPtr(v *DeliveryPackageInformationArgs) DeliveryPackageInformationPtrInput {
+	return (*deliveryPackageInformationPtrType)(v)
+}
+
+func (*deliveryPackageInformationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryPackageInformation)(nil)).Elem()
+}
+
+func (i *deliveryPackageInformationPtrType) ToDeliveryPackageInformationPtrOutput() DeliveryPackageInformationPtrOutput {
+	return i.ToDeliveryPackageInformationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryPackageInformationPtrType) ToDeliveryPackageInformationPtrOutputWithContext(ctx context.Context) DeliveryPackageInformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryPackageInformationPtrOutput)
+}
+
+// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+type DeliveryPackageInformationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryPackageInformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryPackageInformation)(nil)).Elem()
+}
+
+func (o DeliveryPackageInformationOutput) ToDeliveryPackageInformationOutput() DeliveryPackageInformationOutput {
+	return o
+}
+
+func (o DeliveryPackageInformationOutput) ToDeliveryPackageInformationOutputWithContext(ctx context.Context) DeliveryPackageInformationOutput {
+	return o
+}
+
+func (o DeliveryPackageInformationOutput) ToDeliveryPackageInformationPtrOutput() DeliveryPackageInformationPtrOutput {
+	return o.ToDeliveryPackageInformationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryPackageInformationOutput) ToDeliveryPackageInformationPtrOutputWithContext(ctx context.Context) DeliveryPackageInformationPtrOutput {
+	return o.ApplyT(func(v DeliveryPackageInformation) *DeliveryPackageInformation {
+		return &v
+	}).(DeliveryPackageInformationPtrOutput)
+}
+
+// The name of the carrier that is used to ship the import or export drives.
+func (o DeliveryPackageInformationOutput) CarrierName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryPackageInformation) string { return v.CarrierName }).(pulumi.StringOutput)
+}
+
+// The number of drives included in the package.
+func (o DeliveryPackageInformationOutput) DriveCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryPackageInformation) *int { return v.DriveCount }).(pulumi.IntPtrOutput)
+}
+
+// The date when the package is shipped.
+func (o DeliveryPackageInformationOutput) ShipDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryPackageInformation) *string { return v.ShipDate }).(pulumi.StringPtrOutput)
+}
+
+// The tracking number of the package.
+func (o DeliveryPackageInformationOutput) TrackingNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryPackageInformation) string { return v.TrackingNumber }).(pulumi.StringOutput)
+}
+
+type DeliveryPackageInformationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryPackageInformationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryPackageInformation)(nil)).Elem()
+}
+
+func (o DeliveryPackageInformationPtrOutput) ToDeliveryPackageInformationPtrOutput() DeliveryPackageInformationPtrOutput {
+	return o
+}
+
+func (o DeliveryPackageInformationPtrOutput) ToDeliveryPackageInformationPtrOutputWithContext(ctx context.Context) DeliveryPackageInformationPtrOutput {
+	return o
+}
+
+func (o DeliveryPackageInformationPtrOutput) Elem() DeliveryPackageInformationOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformation) DeliveryPackageInformation { return *v }).(DeliveryPackageInformationOutput)
+}
+
+// The name of the carrier that is used to ship the import or export drives.
+func (o DeliveryPackageInformationPtrOutput) CarrierName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CarrierName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of drives included in the package.
+func (o DeliveryPackageInformationPtrOutput) DriveCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DriveCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The date when the package is shipped.
+func (o DeliveryPackageInformationPtrOutput) ShipDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShipDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tracking number of the package.
+func (o DeliveryPackageInformationPtrOutput) TrackingNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrackingNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+type DeliveryPackageInformationResponse struct {
+	// The name of the carrier that is used to ship the import or export drives.
+	CarrierName string `pulumi:"carrierName"`
+	// The number of drives included in the package.
+	DriveCount *int `pulumi:"driveCount"`
+	// The date when the package is shipped.
+	ShipDate *string `pulumi:"shipDate"`
+	// The tracking number of the package.
+	TrackingNumber string `pulumi:"trackingNumber"`
+}
+
+// DeliveryPackageInformationResponseInput is an input type that accepts DeliveryPackageInformationResponseArgs and DeliveryPackageInformationResponseOutput values.
+// You can construct a concrete instance of `DeliveryPackageInformationResponseInput` via:
+//
+//          DeliveryPackageInformationResponseArgs{...}
+type DeliveryPackageInformationResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryPackageInformationResponseOutput() DeliveryPackageInformationResponseOutput
+	ToDeliveryPackageInformationResponseOutputWithContext(context.Context) DeliveryPackageInformationResponseOutput
+}
+
+// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+type DeliveryPackageInformationResponseArgs struct {
+	// The name of the carrier that is used to ship the import or export drives.
+	CarrierName pulumi.StringInput `pulumi:"carrierName"`
+	// The number of drives included in the package.
+	DriveCount pulumi.IntPtrInput `pulumi:"driveCount"`
+	// The date when the package is shipped.
+	ShipDate pulumi.StringPtrInput `pulumi:"shipDate"`
+	// The tracking number of the package.
+	TrackingNumber pulumi.StringInput `pulumi:"trackingNumber"`
+}
+
+func (DeliveryPackageInformationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryPackageInformationResponse)(nil)).Elem()
+}
+
+func (i DeliveryPackageInformationResponseArgs) ToDeliveryPackageInformationResponseOutput() DeliveryPackageInformationResponseOutput {
+	return i.ToDeliveryPackageInformationResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryPackageInformationResponseArgs) ToDeliveryPackageInformationResponseOutputWithContext(ctx context.Context) DeliveryPackageInformationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryPackageInformationResponseOutput)
+}
+
+func (i DeliveryPackageInformationResponseArgs) ToDeliveryPackageInformationResponsePtrOutput() DeliveryPackageInformationResponsePtrOutput {
+	return i.ToDeliveryPackageInformationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryPackageInformationResponseArgs) ToDeliveryPackageInformationResponsePtrOutputWithContext(ctx context.Context) DeliveryPackageInformationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryPackageInformationResponseOutput).ToDeliveryPackageInformationResponsePtrOutputWithContext(ctx)
+}
+
+// DeliveryPackageInformationResponsePtrInput is an input type that accepts DeliveryPackageInformationResponseArgs, DeliveryPackageInformationResponsePtr and DeliveryPackageInformationResponsePtrOutput values.
+// You can construct a concrete instance of `DeliveryPackageInformationResponsePtrInput` via:
+//
+//          DeliveryPackageInformationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryPackageInformationResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeliveryPackageInformationResponsePtrOutput() DeliveryPackageInformationResponsePtrOutput
+	ToDeliveryPackageInformationResponsePtrOutputWithContext(context.Context) DeliveryPackageInformationResponsePtrOutput
+}
+
+type deliveryPackageInformationResponsePtrType DeliveryPackageInformationResponseArgs
+
+func DeliveryPackageInformationResponsePtr(v *DeliveryPackageInformationResponseArgs) DeliveryPackageInformationResponsePtrInput {
+	return (*deliveryPackageInformationResponsePtrType)(v)
+}
+
+func (*deliveryPackageInformationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryPackageInformationResponse)(nil)).Elem()
+}
+
+func (i *deliveryPackageInformationResponsePtrType) ToDeliveryPackageInformationResponsePtrOutput() DeliveryPackageInformationResponsePtrOutput {
+	return i.ToDeliveryPackageInformationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryPackageInformationResponsePtrType) ToDeliveryPackageInformationResponsePtrOutputWithContext(ctx context.Context) DeliveryPackageInformationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryPackageInformationResponsePtrOutput)
+}
+
+// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+type DeliveryPackageInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryPackageInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryPackageInformationResponse)(nil)).Elem()
+}
+
+func (o DeliveryPackageInformationResponseOutput) ToDeliveryPackageInformationResponseOutput() DeliveryPackageInformationResponseOutput {
+	return o
+}
+
+func (o DeliveryPackageInformationResponseOutput) ToDeliveryPackageInformationResponseOutputWithContext(ctx context.Context) DeliveryPackageInformationResponseOutput {
+	return o
+}
+
+func (o DeliveryPackageInformationResponseOutput) ToDeliveryPackageInformationResponsePtrOutput() DeliveryPackageInformationResponsePtrOutput {
+	return o.ToDeliveryPackageInformationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryPackageInformationResponseOutput) ToDeliveryPackageInformationResponsePtrOutputWithContext(ctx context.Context) DeliveryPackageInformationResponsePtrOutput {
+	return o.ApplyT(func(v DeliveryPackageInformationResponse) *DeliveryPackageInformationResponse {
+		return &v
+	}).(DeliveryPackageInformationResponsePtrOutput)
+}
+
+// The name of the carrier that is used to ship the import or export drives.
+func (o DeliveryPackageInformationResponseOutput) CarrierName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryPackageInformationResponse) string { return v.CarrierName }).(pulumi.StringOutput)
+}
+
+// The number of drives included in the package.
+func (o DeliveryPackageInformationResponseOutput) DriveCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryPackageInformationResponse) *int { return v.DriveCount }).(pulumi.IntPtrOutput)
+}
+
+// The date when the package is shipped.
+func (o DeliveryPackageInformationResponseOutput) ShipDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryPackageInformationResponse) *string { return v.ShipDate }).(pulumi.StringPtrOutput)
+}
+
+// The tracking number of the package.
+func (o DeliveryPackageInformationResponseOutput) TrackingNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryPackageInformationResponse) string { return v.TrackingNumber }).(pulumi.StringOutput)
+}
+
+type DeliveryPackageInformationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryPackageInformationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryPackageInformationResponse)(nil)).Elem()
+}
+
+func (o DeliveryPackageInformationResponsePtrOutput) ToDeliveryPackageInformationResponsePtrOutput() DeliveryPackageInformationResponsePtrOutput {
+	return o
+}
+
+func (o DeliveryPackageInformationResponsePtrOutput) ToDeliveryPackageInformationResponsePtrOutputWithContext(ctx context.Context) DeliveryPackageInformationResponsePtrOutput {
+	return o
+}
+
+func (o DeliveryPackageInformationResponsePtrOutput) Elem() DeliveryPackageInformationResponseOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformationResponse) DeliveryPackageInformationResponse { return *v }).(DeliveryPackageInformationResponseOutput)
+}
+
+// The name of the carrier that is used to ship the import or export drives.
+func (o DeliveryPackageInformationResponsePtrOutput) CarrierName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CarrierName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of drives included in the package.
+func (o DeliveryPackageInformationResponsePtrOutput) DriveCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DriveCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The date when the package is shipped.
+func (o DeliveryPackageInformationResponsePtrOutput) ShipDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShipDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tracking number of the package.
+func (o DeliveryPackageInformationResponsePtrOutput) TrackingNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryPackageInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrackingNumber
+	}).(pulumi.StringPtrOutput)
+}
+
 // BitLocker recovery key or password to the specified drive
 type DriveBitLockerKeyResponse struct {
 	// BitLocker recovery key or password
@@ -1384,7 +1766,7 @@ type JobDetails struct {
 	// Indicates whether a request has been submitted to cancel the job.
 	CancelRequested *bool `pulumi:"cancelRequested"`
 	// Contains information about the package being shipped by the customer to the Microsoft data center.
-	DeliveryPackage *PackageInformation `pulumi:"deliveryPackage"`
+	DeliveryPackage *DeliveryPackageInformation `pulumi:"deliveryPackage"`
 	// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
 	DiagnosticsPath *string `pulumi:"diagnosticsPath"`
 	// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
@@ -1435,7 +1817,7 @@ type JobDetailsArgs struct {
 	// Indicates whether a request has been submitted to cancel the job.
 	CancelRequested pulumi.BoolPtrInput `pulumi:"cancelRequested"`
 	// Contains information about the package being shipped by the customer to the Microsoft data center.
-	DeliveryPackage PackageInformationPtrInput `pulumi:"deliveryPackage"`
+	DeliveryPackage DeliveryPackageInformationPtrInput `pulumi:"deliveryPackage"`
 	// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
 	DiagnosticsPath pulumi.StringPtrInput `pulumi:"diagnosticsPath"`
 	// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
@@ -1557,8 +1939,8 @@ func (o JobDetailsOutput) CancelRequested() pulumi.BoolPtrOutput {
 }
 
 // Contains information about the package being shipped by the customer to the Microsoft data center.
-func (o JobDetailsOutput) DeliveryPackage() PackageInformationPtrOutput {
-	return o.ApplyT(func(v JobDetails) *PackageInformation { return v.DeliveryPackage }).(PackageInformationPtrOutput)
+func (o JobDetailsOutput) DeliveryPackage() DeliveryPackageInformationPtrOutput {
+	return o.ApplyT(func(v JobDetails) *DeliveryPackageInformation { return v.DeliveryPackage }).(DeliveryPackageInformationPtrOutput)
 }
 
 // The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
@@ -1675,13 +2057,13 @@ func (o JobDetailsPtrOutput) CancelRequested() pulumi.BoolPtrOutput {
 }
 
 // Contains information about the package being shipped by the customer to the Microsoft data center.
-func (o JobDetailsPtrOutput) DeliveryPackage() PackageInformationPtrOutput {
-	return o.ApplyT(func(v *JobDetails) *PackageInformation {
+func (o JobDetailsPtrOutput) DeliveryPackage() DeliveryPackageInformationPtrOutput {
+	return o.ApplyT(func(v *JobDetails) *DeliveryPackageInformation {
 		if v == nil {
 			return nil
 		}
 		return v.DeliveryPackage
-	}).(PackageInformationPtrOutput)
+	}).(DeliveryPackageInformationPtrOutput)
 }
 
 // The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
@@ -1841,7 +2223,7 @@ type JobDetailsResponse struct {
 	// Indicates whether a request has been submitted to cancel the job.
 	CancelRequested *bool `pulumi:"cancelRequested"`
 	// Contains information about the package being shipped by the customer to the Microsoft data center.
-	DeliveryPackage *PackageInformationResponse `pulumi:"deliveryPackage"`
+	DeliveryPackage *DeliveryPackageInformationResponse `pulumi:"deliveryPackage"`
 	// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
 	DiagnosticsPath *string `pulumi:"diagnosticsPath"`
 	// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
@@ -1892,7 +2274,7 @@ type JobDetailsResponseArgs struct {
 	// Indicates whether a request has been submitted to cancel the job.
 	CancelRequested pulumi.BoolPtrInput `pulumi:"cancelRequested"`
 	// Contains information about the package being shipped by the customer to the Microsoft data center.
-	DeliveryPackage PackageInformationResponsePtrInput `pulumi:"deliveryPackage"`
+	DeliveryPackage DeliveryPackageInformationResponsePtrInput `pulumi:"deliveryPackage"`
 	// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
 	DiagnosticsPath pulumi.StringPtrInput `pulumi:"diagnosticsPath"`
 	// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
@@ -2014,8 +2396,8 @@ func (o JobDetailsResponseOutput) CancelRequested() pulumi.BoolPtrOutput {
 }
 
 // Contains information about the package being shipped by the customer to the Microsoft data center.
-func (o JobDetailsResponseOutput) DeliveryPackage() PackageInformationResponsePtrOutput {
-	return o.ApplyT(func(v JobDetailsResponse) *PackageInformationResponse { return v.DeliveryPackage }).(PackageInformationResponsePtrOutput)
+func (o JobDetailsResponseOutput) DeliveryPackage() DeliveryPackageInformationResponsePtrOutput {
+	return o.ApplyT(func(v JobDetailsResponse) *DeliveryPackageInformationResponse { return v.DeliveryPackage }).(DeliveryPackageInformationResponsePtrOutput)
 }
 
 // The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
@@ -2132,13 +2514,13 @@ func (o JobDetailsResponsePtrOutput) CancelRequested() pulumi.BoolPtrOutput {
 }
 
 // Contains information about the package being shipped by the customer to the Microsoft data center.
-func (o JobDetailsResponsePtrOutput) DeliveryPackage() PackageInformationResponsePtrOutput {
-	return o.ApplyT(func(v *JobDetailsResponse) *PackageInformationResponse {
+func (o JobDetailsResponsePtrOutput) DeliveryPackage() DeliveryPackageInformationResponsePtrOutput {
+	return o.ApplyT(func(v *JobDetailsResponse) *DeliveryPackageInformationResponse {
 		if v == nil {
 			return nil
 		}
 		return v.DeliveryPackage
-	}).(PackageInformationResponsePtrOutput)
+	}).(DeliveryPackageInformationResponsePtrOutput)
 }
 
 // The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
@@ -4105,6 +4487,10 @@ func (o ShippingInformationResponsePtrOutput) StreetAddress2() pulumi.StringPtrO
 }
 
 func init() {
+	pulumi.RegisterOutputType(DeliveryPackageInformationOutput{})
+	pulumi.RegisterOutputType(DeliveryPackageInformationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryPackageInformationResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryPackageInformationResponsePtrOutput{})
 	pulumi.RegisterOutputType(DriveBitLockerKeyResponseOutput{})
 	pulumi.RegisterOutputType(DriveBitLockerKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(DriveStatusOutput{})

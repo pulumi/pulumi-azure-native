@@ -10,6 +10,8 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'AssociatedWorkspaceResponse',
+    'CapacityReservationPropertiesResponse',
     'ClusterSkuResponse',
     'IdentityResponse',
     'KeyVaultPropertiesResponse',
@@ -18,6 +20,111 @@ __all__ = [
     'WorkspaceCappingResponse',
     'WorkspaceSkuResponse',
 ]
+
+@pulumi.output_type
+class AssociatedWorkspaceResponse(dict):
+    """
+    The list of Log Analytics workspaces associated with the cluster.
+    """
+    def __init__(__self__, *,
+                 associate_date: str,
+                 resource_id: str,
+                 workspace_id: str,
+                 workspace_name: str):
+        """
+        The list of Log Analytics workspaces associated with the cluster.
+        :param str associate_date: The time of workspace association.
+        :param str resource_id: The ResourceId id the assigned workspace.
+        :param str workspace_id: The id of the assigned workspace.
+        :param str workspace_name: The name id the assigned workspace.
+        """
+        pulumi.set(__self__, "associate_date", associate_date)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+
+    @property
+    @pulumi.getter(name="associateDate")
+    def associate_date(self) -> str:
+        """
+        The time of workspace association.
+        """
+        return pulumi.get(self, "associate_date")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The ResourceId id the assigned workspace.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        The id of the assigned workspace.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> str:
+        """
+        The name id the assigned workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CapacityReservationPropertiesResponse(dict):
+    """
+    The Capacity Reservation properties.
+    """
+    def __init__(__self__, *,
+                 last_sku_update: str,
+                 max_capacity: int,
+                 min_capacity: int):
+        """
+        The Capacity Reservation properties.
+        :param str last_sku_update: The last time Sku was updated.
+        :param int max_capacity: Maximum CapacityReservation value in GB.
+        :param int min_capacity: Minimum CapacityReservation value in GB.
+        """
+        pulumi.set(__self__, "last_sku_update", last_sku_update)
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @property
+    @pulumi.getter(name="lastSkuUpdate")
+    def last_sku_update(self) -> str:
+        """
+        The last time Sku was updated.
+        """
+        return pulumi.get(self, "last_sku_update")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> int:
+        """
+        Maximum CapacityReservation value in GB.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> int:
+        """
+        Minimum CapacityReservation value in GB.
+        """
+        return pulumi.get(self, "min_capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class ClusterSkuResponse(dict):

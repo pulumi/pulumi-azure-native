@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.NamespaceJunctionResponse> Junctions;
         /// <summary>
+        /// Region name string.
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
         /// Name of the Storage Target.
         /// </summary>
         public readonly string Name;
@@ -65,6 +69,10 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
         public readonly string? ProvisioningState;
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Type of the Storage Target.
         /// </summary>
@@ -84,11 +92,15 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
 
             ImmutableArray<Outputs.NamespaceJunctionResponse> junctions,
 
+            string location,
+
             string name,
 
             Outputs.Nfs3TargetResponse? nfs3,
 
             string? provisioningState,
+
+            Outputs.SystemDataResponse systemData,
 
             string targetType,
 
@@ -98,9 +110,11 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         {
             Clfs = clfs;
             Junctions = junctions;
+            Location = location;
             Name = name;
             Nfs3 = nfs3;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             TargetType = targetType;
             Type = type;
             Unknown = unknown;

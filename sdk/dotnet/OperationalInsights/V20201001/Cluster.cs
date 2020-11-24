@@ -15,16 +15,34 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// The list of Log Analytics workspaces associated with the cluster
+        /// </summary>
+        [Output("associatedWorkspaces")]
+        public Output<ImmutableArray<Outputs.AssociatedWorkspaceResponse>> AssociatedWorkspaces { get; private set; } = null!;
+
+        /// <summary>
         /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
         /// </summary>
         [Output("billingType")]
         public Output<string?> BillingType { get; private set; } = null!;
 
         /// <summary>
+        /// Additional properties for capacity reservation
+        /// </summary>
+        [Output("capacityReservationProperties")]
+        public Output<Outputs.CapacityReservationPropertiesResponse?> CapacityReservationProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The ID associated with the cluster.
         /// </summary>
         [Output("clusterId")]
         public Output<string> ClusterId { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster creation time
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the resource.
@@ -49,6 +67,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
         /// </summary>
         [Output("keyVaultProperties")]
         public Output<Outputs.KeyVaultPropertiesResponse?> KeyVaultProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// The last time the cluster was updated.
+        /// </summary>
+        [Output("lastModifiedDate")]
+        public Output<string> LastModifiedDate { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

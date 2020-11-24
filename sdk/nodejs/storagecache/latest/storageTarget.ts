@@ -44,6 +44,10 @@ export class StorageTarget extends pulumi.CustomResource {
      */
     public readonly junctions!: pulumi.Output<outputs.storagecache.latest.NamespaceJunctionResponse[] | undefined>;
     /**
+     * Region name string.
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
      * Name of the Storage Target.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -55,6 +59,10 @@ export class StorageTarget extends pulumi.CustomResource {
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagecache.latest.SystemDataResponse>;
     /**
      * Type of the Storage Target.
      */
@@ -99,14 +107,18 @@ export class StorageTarget extends pulumi.CustomResource {
             inputs["storageTargetName"] = args ? args.storageTargetName : undefined;
             inputs["targetType"] = args ? args.targetType : undefined;
             inputs["unknown"] = args ? args.unknown : undefined;
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["clfs"] = undefined /*out*/;
             inputs["junctions"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["nfs3"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["targetType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["unknown"] = undefined /*out*/;

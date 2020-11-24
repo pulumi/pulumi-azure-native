@@ -25,10 +25,16 @@ type LookupClusterArgs struct {
 
 // The top level Log Analytics cluster resource container.
 type LookupClusterResult struct {
+	// The list of Log Analytics workspaces associated with the cluster
+	AssociatedWorkspaces []AssociatedWorkspaceResponse `pulumi:"associatedWorkspaces"`
 	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
 	BillingType *string `pulumi:"billingType"`
+	// Additional properties for capacity reservation
+	CapacityReservationProperties *CapacityReservationPropertiesResponse `pulumi:"capacityReservationProperties"`
 	// The ID associated with the cluster.
 	ClusterId string `pulumi:"clusterId"`
+	// The cluster creation time
+	CreatedDate string `pulumi:"createdDate"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
@@ -37,6 +43,8 @@ type LookupClusterResult struct {
 	IsDoubleEncryptionEnabled *bool `pulumi:"isDoubleEncryptionEnabled"`
 	// The associated key properties.
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// The last time the cluster was updated.
+	LastModifiedDate string `pulumi:"lastModifiedDate"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

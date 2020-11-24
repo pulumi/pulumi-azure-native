@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         public Output<ImmutableArray<Outputs.NamespaceJunctionResponse>> Junctions { get; private set; } = null!;
 
         /// <summary>
+        /// Region name string.
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the Storage Target.
         /// </summary>
         [Output("name")]
@@ -43,6 +49,12 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         /// </summary>
         [Output("provisioningState")]
         public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Type of the Storage Target.

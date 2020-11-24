@@ -36,13 +36,25 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * The list of Log Analytics workspaces associated with the cluster
+     */
+    public /*out*/ readonly associatedWorkspaces!: pulumi.Output<outputs.operationalinsights.v20201001.AssociatedWorkspaceResponse[] | undefined>;
+    /**
      * Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
      */
     public readonly billingType!: pulumi.Output<string | undefined>;
     /**
+     * Additional properties for capacity reservation
+     */
+    public /*out*/ readonly capacityReservationProperties!: pulumi.Output<outputs.operationalinsights.v20201001.CapacityReservationPropertiesResponse | undefined>;
+    /**
      * The ID associated with the cluster.
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    /**
+     * The cluster creation time
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * The identity of the resource.
      */
@@ -59,6 +71,10 @@ export class Cluster extends pulumi.CustomResource {
      * The associated key properties.
      */
     public readonly keyVaultProperties!: pulumi.Output<outputs.operationalinsights.v20201001.KeyVaultPropertiesResponse | undefined>;
+    /**
+     * The last time the cluster was updated.
+     */
+    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -113,17 +129,25 @@ export class Cluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["associatedWorkspaces"] = undefined /*out*/;
+            inputs["capacityReservationProperties"] = undefined /*out*/;
             inputs["clusterId"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["lastModifiedDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["associatedWorkspaces"] = undefined /*out*/;
             inputs["billingType"] = undefined /*out*/;
+            inputs["capacityReservationProperties"] = undefined /*out*/;
             inputs["clusterId"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["isAvailabilityZonesEnabled"] = undefined /*out*/;
             inputs["isDoubleEncryptionEnabled"] = undefined /*out*/;
             inputs["keyVaultProperties"] = undefined /*out*/;
+            inputs["lastModifiedDate"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;

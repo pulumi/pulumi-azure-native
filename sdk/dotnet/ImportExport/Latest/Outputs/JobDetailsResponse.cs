@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest.Outputs
         /// <summary>
         /// Contains information about the package being shipped by the customer to the Microsoft data center. 
         /// </summary>
-        public readonly Outputs.PackageInformationResponse? DeliveryPackage;
+        public readonly Outputs.DeliveryPackageInformationResponse? DeliveryPackage;
         /// <summary>
         /// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest.Outputs
 
             bool? cancelRequested,
 
-            Outputs.PackageInformationResponse? deliveryPackage,
+            Outputs.DeliveryPackageInformationResponse? deliveryPackage,
 
             string? diagnosticsPath,
 

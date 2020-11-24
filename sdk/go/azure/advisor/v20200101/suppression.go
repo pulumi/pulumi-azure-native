@@ -15,6 +15,8 @@ import (
 type Suppression struct {
 	pulumi.CustomResourceState
 
+	// Gets or sets the expiration time stamp.
+	ExpirationTimeStamp pulumi.StringOutput `pulumi:"expirationTimeStamp"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The GUID of the suppression.
@@ -77,6 +79,8 @@ func GetSuppression(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Suppression resources.
 type suppressionState struct {
+	// Gets or sets the expiration time stamp.
+	ExpirationTimeStamp *string `pulumi:"expirationTimeStamp"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// The GUID of the suppression.
@@ -88,6 +92,8 @@ type suppressionState struct {
 }
 
 type SuppressionState struct {
+	// Gets or sets the expiration time stamp.
+	ExpirationTimeStamp pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// The GUID of the suppression.

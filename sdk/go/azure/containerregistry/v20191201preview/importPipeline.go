@@ -53,6 +53,12 @@ func NewImportPipeline(ctx *pulumi.Context,
 	if args == nil {
 		args = &ImportPipelineArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ImportPipeline"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ImportPipeline
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20191201preview:ImportPipeline", name, args, &resource, opts...)
 	if err != nil {

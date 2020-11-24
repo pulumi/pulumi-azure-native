@@ -86,6 +86,7 @@ class Cache(pulumi.CustomResource):
             __props__['health'] = None
             __props__['mount_addresses'] = None
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
             __props__['upgrade_status'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagecache/v20190801preview:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20191101:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20200301:Cache")])
@@ -209,6 +210,14 @@ class Cache(pulumi.CustomResource):
         Subnet used for the Cache.
         """
         return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

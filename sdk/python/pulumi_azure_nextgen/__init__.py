@@ -78,6 +78,7 @@ from . import (
     hanaonazure,
     hardwaresecuritymodules,
     hdinsight,
+    healthbot,
     healthcareapis,
     hybridcompute,
     hybriddata,

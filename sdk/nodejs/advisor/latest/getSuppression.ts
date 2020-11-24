@@ -40,6 +40,10 @@ export interface GetSuppressionArgs {
  */
 export interface GetSuppressionResult {
     /**
+     * Gets or sets the expiration time stamp.
+     */
+    readonly expirationTimeStamp: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

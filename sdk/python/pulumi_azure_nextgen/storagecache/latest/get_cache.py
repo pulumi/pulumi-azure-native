@@ -20,7 +20,7 @@ class GetCacheResult:
     """
     A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
-    def __init__(__self__, cache_size_gb=None, encryption_settings=None, health=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, provisioning_state=None, security_settings=None, sku=None, subnet=None, tags=None, type=None, upgrade_status=None):
+    def __init__(__self__, cache_size_gb=None, encryption_settings=None, health=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, provisioning_state=None, security_settings=None, sku=None, subnet=None, system_data=None, tags=None, type=None, upgrade_status=None):
         if cache_size_gb and not isinstance(cache_size_gb, int):
             raise TypeError("Expected argument 'cache_size_gb' to be a int")
         pulumi.set(__self__, "cache_size_gb", cache_size_gb)
@@ -57,6 +57,9 @@ class GetCacheResult:
         if subnet and not isinstance(subnet, str):
             raise TypeError("Expected argument 'subnet' to be a str")
         pulumi.set(__self__, "subnet", subnet)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -164,6 +167,14 @@ class GetCacheResult:
         return pulumi.get(self, "subnet")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         """
@@ -206,6 +217,7 @@ class AwaitableGetCacheResult(GetCacheResult):
             security_settings=self.security_settings,
             sku=self.sku,
             subnet=self.subnet,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             upgrade_status=self.upgrade_status)
@@ -242,6 +254,7 @@ def get_cache(cache_name: Optional[str] = None,
         security_settings=__ret__.security_settings,
         sku=__ret__.sku,
         subnet=__ret__.subnet,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         upgrade_status=__ret__.upgrade_status)

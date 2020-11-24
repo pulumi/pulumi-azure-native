@@ -40,13 +40,25 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// The list of Log Analytics workspaces associated with the cluster
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AssociatedWorkspaceResponse> AssociatedWorkspaces;
+        /// <summary>
         /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
         /// </summary>
         public readonly string? BillingType;
         /// <summary>
+        /// Additional properties for capacity reservation
+        /// </summary>
+        public readonly Outputs.CapacityReservationPropertiesResponse? CapacityReservationProperties;
+        /// <summary>
         /// The ID associated with the cluster.
         /// </summary>
         public readonly string ClusterId;
+        /// <summary>
+        /// The cluster creation time
+        /// </summary>
+        public readonly string CreatedDate;
         /// <summary>
         /// The identity of the resource.
         /// </summary>
@@ -63,6 +75,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// The associated key properties.
         /// </summary>
         public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
+        /// <summary>
+        /// The last time the cluster was updated.
+        /// </summary>
+        public readonly string LastModifiedDate;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -90,9 +106,15 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
         [OutputConstructor]
         private GetClusterResult(
+            ImmutableArray<Outputs.AssociatedWorkspaceResponse> associatedWorkspaces,
+
             string? billingType,
 
+            Outputs.CapacityReservationPropertiesResponse? capacityReservationProperties,
+
             string clusterId,
+
+            string createdDate,
 
             Outputs.IdentityResponse? identity,
 
@@ -101,6 +123,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
             bool? isDoubleEncryptionEnabled,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
+
+            string lastModifiedDate,
 
             string location,
 
@@ -114,12 +138,16 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
             string type)
         {
+            AssociatedWorkspaces = associatedWorkspaces;
             BillingType = billingType;
+            CapacityReservationProperties = capacityReservationProperties;
             ClusterId = clusterId;
+            CreatedDate = createdDate;
             Identity = identity;
             IsAvailabilityZonesEnabled = isAvailabilityZonesEnabled;
             IsDoubleEncryptionEnabled = isDoubleEncryptionEnabled;
             KeyVaultProperties = keyVaultProperties;
+            LastModifiedDate = lastModifiedDate;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

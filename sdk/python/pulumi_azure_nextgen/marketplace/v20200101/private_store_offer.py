@@ -18,7 +18,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 icon_file_uris: Optional[pulumi.Input[pulumi.InputType['OfferPropertiesIconFileUrisArgs']]] = None,
+                 icon_file_uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  offer_id: Optional[pulumi.Input[str]] = None,
                  plans: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanArgs']]]]] = None,
                  private_store_id: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Identifier for purposes of race condition
-        :param pulumi.Input[pulumi.InputType['OfferPropertiesIconFileUrisArgs']] icon_file_uris: Icon File Uris
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] icon_file_uris: Icon File Uris
         :param pulumi.Input[str] offer_id: The offer ID to update or delete
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanArgs']]]] plans: Offer plans
         :param pulumi.Input[str] private_store_id: The store ID - must use the tenant ID
@@ -119,7 +119,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iconFileUris")
-    def icon_file_uris(self) -> pulumi.Output[Optional['outputs.OfferPropertiesResponseIconFileUris']]:
+    def icon_file_uris(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Icon File Uris
         """

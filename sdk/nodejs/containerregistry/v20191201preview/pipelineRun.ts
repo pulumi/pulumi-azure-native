@@ -109,6 +109,8 @@ export class PipelineRun extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20201101preview:PipelineRun" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PipelineRun.__pulumiType, name, inputs, opts);
     }
 }
