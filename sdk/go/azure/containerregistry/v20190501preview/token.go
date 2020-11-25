@@ -48,6 +48,12 @@ func NewToken(ctx *pulumi.Context,
 	if args == nil {
 		args = &TokenArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Token"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Token
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190501preview:Token", name, args, &resource, opts...)
 	if err != nil {

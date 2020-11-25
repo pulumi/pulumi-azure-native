@@ -10,6 +10,305 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The list of Log Analytics workspaces associated with the cluster.
+type AssociatedWorkspaceResponse struct {
+	// The time of workspace association.
+	AssociateDate string `pulumi:"associateDate"`
+	// The ResourceId id the assigned workspace.
+	ResourceId string `pulumi:"resourceId"`
+	// The id of the assigned workspace.
+	WorkspaceId string `pulumi:"workspaceId"`
+	// The name id the assigned workspace.
+	WorkspaceName string `pulumi:"workspaceName"`
+}
+
+// AssociatedWorkspaceResponseInput is an input type that accepts AssociatedWorkspaceResponseArgs and AssociatedWorkspaceResponseOutput values.
+// You can construct a concrete instance of `AssociatedWorkspaceResponseInput` via:
+//
+//          AssociatedWorkspaceResponseArgs{...}
+type AssociatedWorkspaceResponseInput interface {
+	pulumi.Input
+
+	ToAssociatedWorkspaceResponseOutput() AssociatedWorkspaceResponseOutput
+	ToAssociatedWorkspaceResponseOutputWithContext(context.Context) AssociatedWorkspaceResponseOutput
+}
+
+// The list of Log Analytics workspaces associated with the cluster.
+type AssociatedWorkspaceResponseArgs struct {
+	// The time of workspace association.
+	AssociateDate pulumi.StringInput `pulumi:"associateDate"`
+	// The ResourceId id the assigned workspace.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The id of the assigned workspace.
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	// The name id the assigned workspace.
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (AssociatedWorkspaceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociatedWorkspaceResponse)(nil)).Elem()
+}
+
+func (i AssociatedWorkspaceResponseArgs) ToAssociatedWorkspaceResponseOutput() AssociatedWorkspaceResponseOutput {
+	return i.ToAssociatedWorkspaceResponseOutputWithContext(context.Background())
+}
+
+func (i AssociatedWorkspaceResponseArgs) ToAssociatedWorkspaceResponseOutputWithContext(ctx context.Context) AssociatedWorkspaceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociatedWorkspaceResponseOutput)
+}
+
+// AssociatedWorkspaceResponseArrayInput is an input type that accepts AssociatedWorkspaceResponseArray and AssociatedWorkspaceResponseArrayOutput values.
+// You can construct a concrete instance of `AssociatedWorkspaceResponseArrayInput` via:
+//
+//          AssociatedWorkspaceResponseArray{ AssociatedWorkspaceResponseArgs{...} }
+type AssociatedWorkspaceResponseArrayInput interface {
+	pulumi.Input
+
+	ToAssociatedWorkspaceResponseArrayOutput() AssociatedWorkspaceResponseArrayOutput
+	ToAssociatedWorkspaceResponseArrayOutputWithContext(context.Context) AssociatedWorkspaceResponseArrayOutput
+}
+
+type AssociatedWorkspaceResponseArray []AssociatedWorkspaceResponseInput
+
+func (AssociatedWorkspaceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociatedWorkspaceResponse)(nil)).Elem()
+}
+
+func (i AssociatedWorkspaceResponseArray) ToAssociatedWorkspaceResponseArrayOutput() AssociatedWorkspaceResponseArrayOutput {
+	return i.ToAssociatedWorkspaceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AssociatedWorkspaceResponseArray) ToAssociatedWorkspaceResponseArrayOutputWithContext(ctx context.Context) AssociatedWorkspaceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociatedWorkspaceResponseArrayOutput)
+}
+
+// The list of Log Analytics workspaces associated with the cluster.
+type AssociatedWorkspaceResponseOutput struct{ *pulumi.OutputState }
+
+func (AssociatedWorkspaceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociatedWorkspaceResponse)(nil)).Elem()
+}
+
+func (o AssociatedWorkspaceResponseOutput) ToAssociatedWorkspaceResponseOutput() AssociatedWorkspaceResponseOutput {
+	return o
+}
+
+func (o AssociatedWorkspaceResponseOutput) ToAssociatedWorkspaceResponseOutputWithContext(ctx context.Context) AssociatedWorkspaceResponseOutput {
+	return o
+}
+
+// The time of workspace association.
+func (o AssociatedWorkspaceResponseOutput) AssociateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociatedWorkspaceResponse) string { return v.AssociateDate }).(pulumi.StringOutput)
+}
+
+// The ResourceId id the assigned workspace.
+func (o AssociatedWorkspaceResponseOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociatedWorkspaceResponse) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The id of the assigned workspace.
+func (o AssociatedWorkspaceResponseOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociatedWorkspaceResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// The name id the assigned workspace.
+func (o AssociatedWorkspaceResponseOutput) WorkspaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociatedWorkspaceResponse) string { return v.WorkspaceName }).(pulumi.StringOutput)
+}
+
+type AssociatedWorkspaceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AssociatedWorkspaceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociatedWorkspaceResponse)(nil)).Elem()
+}
+
+func (o AssociatedWorkspaceResponseArrayOutput) ToAssociatedWorkspaceResponseArrayOutput() AssociatedWorkspaceResponseArrayOutput {
+	return o
+}
+
+func (o AssociatedWorkspaceResponseArrayOutput) ToAssociatedWorkspaceResponseArrayOutputWithContext(ctx context.Context) AssociatedWorkspaceResponseArrayOutput {
+	return o
+}
+
+func (o AssociatedWorkspaceResponseArrayOutput) Index(i pulumi.IntInput) AssociatedWorkspaceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssociatedWorkspaceResponse {
+		return vs[0].([]AssociatedWorkspaceResponse)[vs[1].(int)]
+	}).(AssociatedWorkspaceResponseOutput)
+}
+
+// The Capacity Reservation properties.
+type CapacityReservationPropertiesResponse struct {
+	// The last time Sku was updated.
+	LastSkuUpdate string `pulumi:"lastSkuUpdate"`
+	// Maximum CapacityReservation value in GB.
+	MaxCapacity int `pulumi:"maxCapacity"`
+	// Minimum CapacityReservation value in GB.
+	MinCapacity int `pulumi:"minCapacity"`
+}
+
+// CapacityReservationPropertiesResponseInput is an input type that accepts CapacityReservationPropertiesResponseArgs and CapacityReservationPropertiesResponseOutput values.
+// You can construct a concrete instance of `CapacityReservationPropertiesResponseInput` via:
+//
+//          CapacityReservationPropertiesResponseArgs{...}
+type CapacityReservationPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToCapacityReservationPropertiesResponseOutput() CapacityReservationPropertiesResponseOutput
+	ToCapacityReservationPropertiesResponseOutputWithContext(context.Context) CapacityReservationPropertiesResponseOutput
+}
+
+// The Capacity Reservation properties.
+type CapacityReservationPropertiesResponseArgs struct {
+	// The last time Sku was updated.
+	LastSkuUpdate pulumi.StringInput `pulumi:"lastSkuUpdate"`
+	// Maximum CapacityReservation value in GB.
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	// Minimum CapacityReservation value in GB.
+	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
+}
+
+func (CapacityReservationPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationPropertiesResponse)(nil)).Elem()
+}
+
+func (i CapacityReservationPropertiesResponseArgs) ToCapacityReservationPropertiesResponseOutput() CapacityReservationPropertiesResponseOutput {
+	return i.ToCapacityReservationPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationPropertiesResponseArgs) ToCapacityReservationPropertiesResponseOutputWithContext(ctx context.Context) CapacityReservationPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationPropertiesResponseOutput)
+}
+
+func (i CapacityReservationPropertiesResponseArgs) ToCapacityReservationPropertiesResponsePtrOutput() CapacityReservationPropertiesResponsePtrOutput {
+	return i.ToCapacityReservationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationPropertiesResponseArgs) ToCapacityReservationPropertiesResponsePtrOutputWithContext(ctx context.Context) CapacityReservationPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationPropertiesResponseOutput).ToCapacityReservationPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// CapacityReservationPropertiesResponsePtrInput is an input type that accepts CapacityReservationPropertiesResponseArgs, CapacityReservationPropertiesResponsePtr and CapacityReservationPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `CapacityReservationPropertiesResponsePtrInput` via:
+//
+//          CapacityReservationPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CapacityReservationPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToCapacityReservationPropertiesResponsePtrOutput() CapacityReservationPropertiesResponsePtrOutput
+	ToCapacityReservationPropertiesResponsePtrOutputWithContext(context.Context) CapacityReservationPropertiesResponsePtrOutput
+}
+
+type capacityReservationPropertiesResponsePtrType CapacityReservationPropertiesResponseArgs
+
+func CapacityReservationPropertiesResponsePtr(v *CapacityReservationPropertiesResponseArgs) CapacityReservationPropertiesResponsePtrInput {
+	return (*capacityReservationPropertiesResponsePtrType)(v)
+}
+
+func (*capacityReservationPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationPropertiesResponse)(nil)).Elem()
+}
+
+func (i *capacityReservationPropertiesResponsePtrType) ToCapacityReservationPropertiesResponsePtrOutput() CapacityReservationPropertiesResponsePtrOutput {
+	return i.ToCapacityReservationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *capacityReservationPropertiesResponsePtrType) ToCapacityReservationPropertiesResponsePtrOutputWithContext(ctx context.Context) CapacityReservationPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationPropertiesResponsePtrOutput)
+}
+
+// The Capacity Reservation properties.
+type CapacityReservationPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationPropertiesResponse)(nil)).Elem()
+}
+
+func (o CapacityReservationPropertiesResponseOutput) ToCapacityReservationPropertiesResponseOutput() CapacityReservationPropertiesResponseOutput {
+	return o
+}
+
+func (o CapacityReservationPropertiesResponseOutput) ToCapacityReservationPropertiesResponseOutputWithContext(ctx context.Context) CapacityReservationPropertiesResponseOutput {
+	return o
+}
+
+func (o CapacityReservationPropertiesResponseOutput) ToCapacityReservationPropertiesResponsePtrOutput() CapacityReservationPropertiesResponsePtrOutput {
+	return o.ToCapacityReservationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationPropertiesResponseOutput) ToCapacityReservationPropertiesResponsePtrOutputWithContext(ctx context.Context) CapacityReservationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v CapacityReservationPropertiesResponse) *CapacityReservationPropertiesResponse {
+		return &v
+	}).(CapacityReservationPropertiesResponsePtrOutput)
+}
+
+// The last time Sku was updated.
+func (o CapacityReservationPropertiesResponseOutput) LastSkuUpdate() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityReservationPropertiesResponse) string { return v.LastSkuUpdate }).(pulumi.StringOutput)
+}
+
+// Maximum CapacityReservation value in GB.
+func (o CapacityReservationPropertiesResponseOutput) MaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityReservationPropertiesResponse) int { return v.MaxCapacity }).(pulumi.IntOutput)
+}
+
+// Minimum CapacityReservation value in GB.
+func (o CapacityReservationPropertiesResponseOutput) MinCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityReservationPropertiesResponse) int { return v.MinCapacity }).(pulumi.IntOutput)
+}
+
+type CapacityReservationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationPropertiesResponse)(nil)).Elem()
+}
+
+func (o CapacityReservationPropertiesResponsePtrOutput) ToCapacityReservationPropertiesResponsePtrOutput() CapacityReservationPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CapacityReservationPropertiesResponsePtrOutput) ToCapacityReservationPropertiesResponsePtrOutputWithContext(ctx context.Context) CapacityReservationPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CapacityReservationPropertiesResponsePtrOutput) Elem() CapacityReservationPropertiesResponseOutput {
+	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) CapacityReservationPropertiesResponse { return *v }).(CapacityReservationPropertiesResponseOutput)
+}
+
+// The last time Sku was updated.
+func (o CapacityReservationPropertiesResponsePtrOutput) LastSkuUpdate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastSkuUpdate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum CapacityReservation value in GB.
+func (o CapacityReservationPropertiesResponsePtrOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum CapacityReservation value in GB.
+func (o CapacityReservationPropertiesResponsePtrOutput) MinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
 // The cluster sku definition.
 type ClusterSku struct {
 	// The capacity value
@@ -1911,6 +2210,10 @@ func (o WorkspaceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AssociatedWorkspaceResponseOutput{})
+	pulumi.RegisterOutputType(AssociatedWorkspaceResponseArrayOutput{})
+	pulumi.RegisterOutputType(CapacityReservationPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(CapacityReservationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuOutput{})
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuResponseOutput{})

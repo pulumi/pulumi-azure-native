@@ -35,13 +35,25 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * The list of Log Analytics workspaces associated with the cluster
+     */
+    readonly associatedWorkspaces?: outputs.operationalinsights.v20201001.AssociatedWorkspaceResponse[];
+    /**
      * Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
      */
     readonly billingType?: string;
     /**
+     * Additional properties for capacity reservation
+     */
+    readonly capacityReservationProperties?: outputs.operationalinsights.v20201001.CapacityReservationPropertiesResponse;
+    /**
      * The ID associated with the cluster.
      */
     readonly clusterId: string;
+    /**
+     * The cluster creation time
+     */
+    readonly createdDate: string;
     /**
      * The identity of the resource.
      */
@@ -58,6 +70,10 @@ export interface GetClusterResult {
      * The associated key properties.
      */
     readonly keyVaultProperties?: outputs.operationalinsights.v20201001.KeyVaultPropertiesResponse;
+    /**
+     * The last time the cluster was updated.
+     */
+    readonly lastModifiedDate: string;
     /**
      * The geo-location where the resource lives
      */

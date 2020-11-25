@@ -49,6 +49,8 @@ type LookupCacheResult struct {
 	Sku *CacheResponseSku `pulumi:"sku"`
 	// Subnet used for the Cache.
 	Subnet *string `pulumi:"subnet"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// ARM tags as name/value pairs.
 	Tags interface{} `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache

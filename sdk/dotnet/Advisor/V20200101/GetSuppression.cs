@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Advisor.V20200101
     public sealed class GetSuppressionResult
     {
         /// <summary>
+        /// Gets or sets the expiration time stamp.
+        /// </summary>
+        public readonly string ExpirationTimeStamp;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.Advisor.V20200101
 
         [OutputConstructor]
         private GetSuppressionResult(
+            string expirationTimeStamp,
+
             string name,
 
             string? suppressionId,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Advisor.V20200101
 
             string type)
         {
+            ExpirationTimeStamp = expirationTimeStamp;
             Name = name;
             SuppressionId = suppressionId;
             Ttl = ttl;

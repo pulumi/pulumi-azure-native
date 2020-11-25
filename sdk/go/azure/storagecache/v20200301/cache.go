@@ -39,6 +39,8 @@ type Cache struct {
 	Sku CacheResponseSkuPtrOutput `pulumi:"sku"`
 	// Subnet used for the Cache.
 	Subnet pulumi.StringPtrOutput `pulumi:"subnet"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// ARM tags as name/value pairs.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
@@ -117,6 +119,8 @@ type cacheState struct {
 	Sku *CacheResponseSku `pulumi:"sku"`
 	// Subnet used for the Cache.
 	Subnet *string `pulumi:"subnet"`
+	// The system meta data relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// ARM tags as name/value pairs.
 	Tags interface{} `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
@@ -150,6 +154,8 @@ type CacheState struct {
 	Sku CacheResponseSkuPtrInput
 	// Subnet used for the Cache.
 	Subnet pulumi.StringPtrInput
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// ARM tags as name/value pairs.
 	Tags pulumi.Input
 	// Type of the Cache; Microsoft.StorageCache/Cache

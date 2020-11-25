@@ -114,6 +114,8 @@ export class ScopeMap extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20201101preview:ScopeMap" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScopeMap.__pulumiType, name, inputs, opts);
     }
 }

@@ -9,47 +9,8 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'OfferPropertiesResponseIconFileUris',
     'PlanResponse',
 ]
-
-@pulumi.output_type
-class OfferPropertiesResponseIconFileUris(dict):
-    """
-    Icon File Uris
-    """
-    def __init__(__self__, *,
-                 icon_kind: Optional[str] = None,
-                 uri: Optional[str] = None):
-        """
-        Icon File Uris
-        :param str icon_kind: Icon size
-        :param str uri: Icon uri
-        """
-        if icon_kind is not None:
-            pulumi.set(__self__, "icon_kind", icon_kind)
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter(name="iconKind")
-    def icon_kind(self) -> Optional[str]:
-        """
-        Icon size
-        """
-        return pulumi.get(self, "icon_kind")
-
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[str]:
-        """
-        Icon uri
-        """
-        return pulumi.get(self, "uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PlanResponse(dict):

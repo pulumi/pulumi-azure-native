@@ -62,6 +62,7 @@ class Suppression(pulumi.CustomResource):
             __props__['resource_uri'] = resource_uri
             __props__['suppression_id'] = suppression_id
             __props__['ttl'] = ttl
+            __props__['expiration_time_stamp'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:advisor/latest:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170419:Suppression")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -88,6 +89,14 @@ class Suppression(pulumi.CustomResource):
         __props__ = dict()
 
         return Suppression(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="expirationTimeStamp")
+    def expiration_time_stamp(self) -> pulumi.Output[str]:
+        """
+        Gets or sets the expiration time stamp.
+        """
+        return pulumi.get(self, "expiration_time_stamp")
 
     @property
     @pulumi.getter

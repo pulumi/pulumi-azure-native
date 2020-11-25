@@ -78,7 +78,9 @@ class StorageTarget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_type'")
             __props__['target_type'] = target_type
             __props__['unknown'] = unknown
+            __props__['location'] = None
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagecache/v20190801preview:StorageTarget"), pulumi.Alias(type_="azure-nextgen:storagecache/v20191101:StorageTarget"), pulumi.Alias(type_="azure-nextgen:storagecache/v20200301:StorageTarget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -124,6 +126,14 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        Region name string.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Name of the Storage Target.
@@ -145,6 +155,14 @@ class StorageTarget(pulumi.CustomResource):
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="targetType")

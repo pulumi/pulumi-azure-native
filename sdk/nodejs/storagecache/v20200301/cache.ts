@@ -84,6 +84,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly subnet!: pulumi.Output<string | undefined>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagecache.v20200301.SystemDataResponse>;
+    /**
      * ARM tags as name/value pairs.
      */
     public readonly tags!: pulumi.Output<any | undefined>;
@@ -127,6 +131,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["health"] = undefined /*out*/;
             inputs["mountAddresses"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["upgradeStatus"] = undefined /*out*/;
         } else {
@@ -142,6 +147,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["securitySettings"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["subnet"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["upgradeStatus"] = undefined /*out*/;

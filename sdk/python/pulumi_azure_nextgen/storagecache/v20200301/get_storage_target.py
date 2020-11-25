@@ -20,13 +20,16 @@ class GetStorageTargetResult:
     """
     Type of the Storage Target.
     """
-    def __init__(__self__, clfs=None, junctions=None, name=None, nfs3=None, provisioning_state=None, target_type=None, type=None, unknown=None):
+    def __init__(__self__, clfs=None, junctions=None, location=None, name=None, nfs3=None, provisioning_state=None, system_data=None, target_type=None, type=None, unknown=None):
         if clfs and not isinstance(clfs, dict):
             raise TypeError("Expected argument 'clfs' to be a dict")
         pulumi.set(__self__, "clfs", clfs)
         if junctions and not isinstance(junctions, list):
             raise TypeError("Expected argument 'junctions' to be a list")
         pulumi.set(__self__, "junctions", junctions)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -36,6 +39,9 @@ class GetStorageTargetResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if target_type and not isinstance(target_type, str):
             raise TypeError("Expected argument 'target_type' to be a str")
         pulumi.set(__self__, "target_type", target_type)
@@ -64,6 +70,14 @@ class GetStorageTargetResult:
 
     @property
     @pulumi.getter
+    def location(self) -> str:
+        """
+        Region name string.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Name of the Storage Target.
@@ -85,6 +99,14 @@ class GetStorageTargetResult:
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="targetType")
@@ -119,9 +141,11 @@ class AwaitableGetStorageTargetResult(GetStorageTargetResult):
         return GetStorageTargetResult(
             clfs=self.clfs,
             junctions=self.junctions,
+            location=self.location,
             name=self.name,
             nfs3=self.nfs3,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             target_type=self.target_type,
             type=self.type,
             unknown=self.unknown)
@@ -151,9 +175,11 @@ def get_storage_target(cache_name: Optional[str] = None,
     return AwaitableGetStorageTargetResult(
         clfs=__ret__.clfs,
         junctions=__ret__.junctions,
+        location=__ret__.location,
         name=__ret__.name,
         nfs3=__ret__.nfs3,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         target_type=__ret__.target_type,
         type=__ret__.type,
         unknown=__ret__.unknown)

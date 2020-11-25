@@ -35,6 +35,10 @@ export class Suppression extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the expiration time stamp.
+     */
+    public /*out*/ readonly expirationTimeStamp!: pulumi.Output<string>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
@@ -75,8 +79,10 @@ export class Suppression extends pulumi.CustomResource {
             inputs["resourceUri"] = args ? args.resourceUri : undefined;
             inputs["suppressionId"] = args ? args.suppressionId : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
+            inputs["expirationTimeStamp"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["expirationTimeStamp"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["suppressionId"] = undefined /*out*/;
             inputs["ttl"] = undefined /*out*/;

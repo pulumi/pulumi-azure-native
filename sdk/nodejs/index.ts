@@ -76,6 +76,7 @@ import * as eventhub from "./eventhub";
 import * as hanaonazure from "./hanaonazure";
 import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
 import * as hdinsight from "./hdinsight";
+import * as healthbot from "./healthbot";
 import * as healthcareapis from "./healthcareapis";
 import * as hybridcompute from "./hybridcompute";
 import * as hybriddata from "./hybriddata";
@@ -225,6 +226,7 @@ export {
     hanaonazure,
     hardwaresecuritymodules,
     hdinsight,
+    healthbot,
     healthcareapis,
     hybridcompute,
     hybriddata,

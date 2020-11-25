@@ -51,6 +51,12 @@ func NewScopeMap(ctx *pulumi.Context,
 	if args == nil {
 		args = &ScopeMapArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ScopeMap"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ScopeMap
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190501preview:ScopeMap", name, args, &resource, opts...)
 	if err != nil {

@@ -87,6 +87,12 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         public Output<string?> Subnet { get; private set; } = null!;
 
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// ARM tags as name/value pairs.
         /// </summary>
         [Output("tags")]

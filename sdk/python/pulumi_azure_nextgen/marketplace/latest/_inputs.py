@@ -9,49 +9,8 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'OfferPropertiesIconFileUrisArgs',
     'PlanArgs',
 ]
-
-@pulumi.input_type
-class OfferPropertiesIconFileUrisArgs:
-    def __init__(__self__, *,
-                 icon_kind: Optional[pulumi.Input[str]] = None,
-                 uri: Optional[pulumi.Input[str]] = None):
-        """
-        Icon File Uris
-        :param pulumi.Input[str] icon_kind: Icon size
-        :param pulumi.Input[str] uri: Icon uri
-        """
-        if icon_kind is not None:
-            pulumi.set(__self__, "icon_kind", icon_kind)
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter(name="iconKind")
-    def icon_kind(self) -> Optional[pulumi.Input[str]]:
-        """
-        Icon size
-        """
-        return pulumi.get(self, "icon_kind")
-
-    @icon_kind.setter
-    def icon_kind(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "icon_kind", value)
-
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Icon uri
-        """
-        return pulumi.get(self, "uri")
-
-    @uri.setter
-    def uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "uri", value)
-
 
 @pulumi.input_type
 class PlanArgs:

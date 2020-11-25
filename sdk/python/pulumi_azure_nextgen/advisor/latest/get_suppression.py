@@ -19,7 +19,10 @@ class GetSuppressionResult:
     """
     The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     """
-    def __init__(__self__, name=None, suppression_id=None, ttl=None, type=None):
+    def __init__(__self__, expiration_time_stamp=None, name=None, suppression_id=None, ttl=None, type=None):
+        if expiration_time_stamp and not isinstance(expiration_time_stamp, str):
+            raise TypeError("Expected argument 'expiration_time_stamp' to be a str")
+        pulumi.set(__self__, "expiration_time_stamp", expiration_time_stamp)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -32,6 +35,14 @@ class GetSuppressionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="expirationTimeStamp")
+    def expiration_time_stamp(self) -> str:
+        """
+        Gets or sets the expiration time stamp.
+        """
+        return pulumi.get(self, "expiration_time_stamp")
 
     @property
     @pulumi.getter
@@ -72,6 +83,7 @@ class AwaitableGetSuppressionResult(GetSuppressionResult):
         if False:
             yield self
         return GetSuppressionResult(
+            expiration_time_stamp=self.expiration_time_stamp,
             name=self.name,
             suppression_id=self.suppression_id,
             ttl=self.ttl,
@@ -100,6 +112,7 @@ def get_suppression(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:advisor/latest:getSuppression', __args__, opts=opts, typ=GetSuppressionResult).value
 
     return AwaitableGetSuppressionResult(
+        expiration_time_stamp=__ret__.expiration_time_stamp,
         name=__ret__.name,
         suppression_id=__ret__.suppression_id,
         ttl=__ret__.ttl,

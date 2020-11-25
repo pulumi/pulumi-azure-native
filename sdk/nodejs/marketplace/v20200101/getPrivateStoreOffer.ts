@@ -45,7 +45,7 @@ export interface GetPrivateStoreOfferResult {
     /**
      * Icon File Uris
      */
-    readonly iconFileUris?: outputs.marketplace.v20200101.OfferPropertiesResponseIconFileUris;
+    readonly iconFileUris?: {[key: string]: string};
     /**
      * Private store offer modification date
      */
