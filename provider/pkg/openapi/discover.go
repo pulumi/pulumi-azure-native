@@ -100,7 +100,7 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 
 		findVersion := func(resource *ResourceSpec) *VersionResources {
 			apiVersion := "v" + strings.ReplaceAll(resource.Swagger.Info.Version, "-", "")
-			if !strings.Contains(apiVersion, "preview") || strings.Contains(apiVersion, "privatepreview") {
+			if !IsPreview(apiVersion) || strings.Contains(apiVersion, "privatepreview") {
 				return nil
 			}
 			version, ok := versions[apiVersion]
@@ -142,6 +142,12 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 	}
 
 	return singleVersion
+}
+
+// IsPreview returns true for API versions that aren't considered stable.
+func IsPreview(apiVersion string) bool {
+	lower := strings.ToLower(apiVersion)
+	return strings.Contains(lower, "preview") || strings.Contains(lower, "beta")
 }
 
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
@@ -239,7 +245,7 @@ func calculateLatestVersions(provider string, versionMap ProviderVersions, invok
 	preview bool) (latestResources map[string]*ResourceSpec) {
 	var versions []string
 	for version := range versionMap {
-		if preview || !strings.Contains(version, "preview") {
+		if preview || !IsPreview(version) {
 			versions = append(versions, version)
 		}
 	}
