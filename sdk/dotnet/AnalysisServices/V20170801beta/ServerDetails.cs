@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AnalysisServices.V20170801beta
+namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
 {
     /// <summary>
     /// Represents an instance of an Analysis Services resource.

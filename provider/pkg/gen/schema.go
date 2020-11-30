@@ -229,7 +229,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		Invokes:   map[string]provider.AzureAPIInvoke{},
 	}
 
-	csharpVersionReplacer := strings.NewReplacer("privatepreview", "PrivatePreview", "preview", "Preview")
+	csharpVersionReplacer := strings.NewReplacer("privatepreview", "PrivatePreview", "preview", "Preview", "beta", "Beta")
 	csharpNamespaces := map[string]string{
 		"azure-nextgen": "AzureNextGen",
 	}

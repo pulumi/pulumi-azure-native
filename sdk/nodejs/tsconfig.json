@@ -9806,7 +9806,7 @@
         "securityinsights/v20190101preview/getBookmark.ts",
         "securityinsights/v20190101preview/getBookmarkRelation.ts",
         "securityinsights/v20190101preview/getDataConnector.ts",
-        "securityinsights/v20190101preview/getEntitiesGetTimelinelist.ts",
+        "securityinsights/v20190101preview/getEntitiesGetTimeline.ts",
         "securityinsights/v20190101preview/getIncident.ts",
         "securityinsights/v20190101preview/getIncidentComment.ts",
         "securityinsights/v20190101preview/getIncidentRelation.ts",
