@@ -14,11 +14,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class MonthlyRetentionScheduleResponse
     {
         /// <summary>
-        /// Retention duration of the retention policy.
+        /// Retention duration of retention Policy.
         /// </summary>
         public readonly Outputs.RetentionDurationResponse? RetentionDuration;
         /// <summary>
-        /// Daily retention format for the monthly retention policy.
+        /// Daily retention format for monthly retention policy.
         /// </summary>
         public readonly Outputs.DailyRetentionFormatResponse? RetentionScheduleDaily;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// </summary>
         public readonly string? RetentionScheduleFormatType;
         /// <summary>
-        /// Weekly retention format for the monthly retention policy.
+        /// Weekly retention format for monthly retention policy.
         /// </summary>
         public readonly Outputs.WeeklyRetentionFormatResponse? RetentionScheduleWeekly;
         /// <summary>
-        /// Retention times of the retention policy.
+        /// Retention times of retention policy.
         /// </summary>
         public readonly ImmutableArray<string> RetentionTimes;
 

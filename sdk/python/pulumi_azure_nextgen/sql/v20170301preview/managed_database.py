@@ -101,7 +101,7 @@ class ManagedDatabase(pulumi.CustomResource):
             __props__['name'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20180601preview:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ManagedDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20180601preview:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ManagedDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedDatabase, __self__).__init__(
             'azure-nextgen:sql/v20170301preview:ManagedDatabase',

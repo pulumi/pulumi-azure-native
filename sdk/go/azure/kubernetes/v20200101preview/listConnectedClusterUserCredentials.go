@@ -19,6 +19,8 @@ func ListConnectedClusterUserCredentials(ctx *pulumi.Context, args *ListConnecte
 type ListConnectedClusterUserCredentialsArgs struct {
 	// The mode of client authentication.
 	AuthenticationMethod string `pulumi:"authenticationMethod"`
+	// Parameter to indicate whether the request is for client side proxy or not
+	ClientProxy *bool `pulumi:"clientProxy"`
 	// The name of the Kubernetes cluster on which get is called.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the resource group. The name is case insensitive.
@@ -29,6 +31,8 @@ type ListConnectedClusterUserCredentialsArgs struct {
 
 // The list of credential result response.
 type ListConnectedClusterUserCredentialsResult struct {
+	// Contains the REP (rendezvous endpoint) and “Sender” access token.
+	HybridConnectionConfig HybridConnectionConfigResponse `pulumi:"hybridConnectionConfig"`
 	// Base64-encoded Kubernetes configuration file.
 	Kubeconfigs []CredentialResultResponse `pulumi:"kubeconfigs"`
 }

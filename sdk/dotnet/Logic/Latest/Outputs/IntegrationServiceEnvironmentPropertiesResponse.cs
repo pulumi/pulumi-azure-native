@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
     public sealed class IntegrationServiceEnvironmentPropertiesResponse
     {
         /// <summary>
+        /// The encryption configuration.
+        /// </summary>
+        public readonly Outputs.IntegrationServiceEnvironmenEncryptionConfigurationResponse? EncryptionConfiguration;
+        /// <summary>
         /// The endpoints configuration.
         /// </summary>
         public readonly Outputs.FlowEndpointsConfigurationResponse? EndpointsConfiguration;
@@ -36,6 +40,8 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
 
         [OutputConstructor]
         private IntegrationServiceEnvironmentPropertiesResponse(
+            Outputs.IntegrationServiceEnvironmenEncryptionConfigurationResponse? encryptionConfiguration,
+
             Outputs.FlowEndpointsConfigurationResponse? endpointsConfiguration,
 
             string? integrationServiceEnvironmentId,
@@ -46,6 +52,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Outputs
 
             string? state)
         {
+            EncryptionConfiguration = encryptionConfiguration;
             EndpointsConfiguration = endpointsConfiguration;
             IntegrationServiceEnvironmentId = integrationServiceEnvironmentId;
             NetworkConfiguration = networkConfiguration;

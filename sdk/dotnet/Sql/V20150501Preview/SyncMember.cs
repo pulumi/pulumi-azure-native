@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:SyncMember"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:SyncMember"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

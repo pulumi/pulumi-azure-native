@@ -51,8 +51,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         /// Backup is VMAppContainer
         /// </summary>
-        [Input("containerType")]
-        public Input<string>? ContainerType { get; set; }
+        [Input("containerType", required: true)]
+        public Input<string> ContainerType { get; set; } = null!;
 
         /// <summary>
         /// Additional information for this container

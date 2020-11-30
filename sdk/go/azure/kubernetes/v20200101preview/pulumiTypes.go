@@ -824,6 +824,88 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	}).(CredentialResultResponseOutput)
 }
 
+// Contains the REP (rendezvous endpoint) and “Sender” access token.
+type HybridConnectionConfigResponse struct {
+	// Timestamp when this token will be expired.
+	ExpirationTime int `pulumi:"expirationTime"`
+	// Name of the connection
+	HybridConnectionName string `pulumi:"hybridConnectionName"`
+	// Name of the relay.
+	Relay string `pulumi:"relay"`
+	// Sender access token
+	Token string `pulumi:"token"`
+}
+
+// HybridConnectionConfigResponseInput is an input type that accepts HybridConnectionConfigResponseArgs and HybridConnectionConfigResponseOutput values.
+// You can construct a concrete instance of `HybridConnectionConfigResponseInput` via:
+//
+//          HybridConnectionConfigResponseArgs{...}
+type HybridConnectionConfigResponseInput interface {
+	pulumi.Input
+
+	ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput
+	ToHybridConnectionConfigResponseOutputWithContext(context.Context) HybridConnectionConfigResponseOutput
+}
+
+// Contains the REP (rendezvous endpoint) and “Sender” access token.
+type HybridConnectionConfigResponseArgs struct {
+	// Timestamp when this token will be expired.
+	ExpirationTime pulumi.IntInput `pulumi:"expirationTime"`
+	// Name of the connection
+	HybridConnectionName pulumi.StringInput `pulumi:"hybridConnectionName"`
+	// Name of the relay.
+	Relay pulumi.StringInput `pulumi:"relay"`
+	// Sender access token
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (HybridConnectionConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionConfigResponse)(nil)).Elem()
+}
+
+func (i HybridConnectionConfigResponseArgs) ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput {
+	return i.ToHybridConnectionConfigResponseOutputWithContext(context.Background())
+}
+
+func (i HybridConnectionConfigResponseArgs) ToHybridConnectionConfigResponseOutputWithContext(ctx context.Context) HybridConnectionConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionConfigResponseOutput)
+}
+
+// Contains the REP (rendezvous endpoint) and “Sender” access token.
+type HybridConnectionConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (HybridConnectionConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionConfigResponse)(nil)).Elem()
+}
+
+func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOutput() HybridConnectionConfigResponseOutput {
+	return o
+}
+
+func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOutputWithContext(ctx context.Context) HybridConnectionConfigResponseOutput {
+	return o
+}
+
+// Timestamp when this token will be expired.
+func (o HybridConnectionConfigResponseOutput) ExpirationTime() pulumi.IntOutput {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) int { return v.ExpirationTime }).(pulumi.IntOutput)
+}
+
+// Name of the connection
+func (o HybridConnectionConfigResponseOutput) HybridConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.HybridConnectionName }).(pulumi.StringOutput)
+}
+
+// Name of the relay.
+func (o HybridConnectionConfigResponseOutput) Relay() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Relay }).(pulumi.StringOutput)
+}
+
+// Sender access token
+func (o HybridConnectionConfigResponseOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Token }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AuthenticationDetailsValueOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterAADProfileOutput{})
@@ -836,4 +918,5 @@ func init() {
 	pulumi.RegisterOutputType(ConnectedClusterIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
+	pulumi.RegisterOutputType(HybridConnectionConfigResponseOutput{})
 }

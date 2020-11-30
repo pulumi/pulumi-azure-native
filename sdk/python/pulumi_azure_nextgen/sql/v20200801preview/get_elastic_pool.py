@@ -97,7 +97,7 @@ class GetElasticPoolResult:
     @pulumi.getter(name="maintenanceConfigurationId")
     def maintenance_configuration_id(self) -> Optional[str]:
         """
-        Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+        Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 

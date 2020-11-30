@@ -14,21 +14,21 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class AzureSqlProtectionPolicyResponse
     {
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        public readonly string? BackupManagementType;
+        public readonly string BackupManagementType;
         /// <summary>
-        /// The number of items associated with this policy.
+        /// Number of items associated with this policy.
         /// </summary>
         public readonly int? ProtectedItemsCount;
         /// <summary>
-        /// The retention policy details.
+        /// Retention policy details.
         /// </summary>
         public readonly Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? RetentionPolicy;
 
         [OutputConstructor]
         private AzureSqlProtectionPolicyResponse(
-            string? backupManagementType,
+            string backupManagementType,
 
             int? protectedItemsCount,
 

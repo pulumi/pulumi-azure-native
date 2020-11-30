@@ -41,6 +41,12 @@ func NewManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedInstanceAzureADOnlyAuthenticationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedInstanceAzureADOnlyAuthentication
 	err := ctx.RegisterResource("azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication", name, args, &resource, opts...)
 	if err != nil {

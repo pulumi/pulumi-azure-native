@@ -120,7 +120,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly longTermRetentionBackupResourceId!: pulumi.Output<string | undefined>;
     /**
-     * Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+     * Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
      */
     public readonly maintenanceConfigurationId!: pulumi.Output<string | undefined>;
     /**
@@ -210,7 +210,7 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+     * The storage account type used to store backups for this database.
      */
     public readonly storageAccountType!: pulumi.Output<string | undefined>;
     /**
@@ -409,7 +409,7 @@ export interface DatabaseArgs {
      */
     readonly longTermRetentionBackupResourceId?: pulumi.Input<string>;
     /**
-     * Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+     * Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
      */
     readonly maintenanceConfigurationId?: pulumi.Input<string>;
     /**
@@ -479,7 +479,7 @@ export interface DatabaseArgs {
      */
     readonly sourceDatabaseId?: pulumi.Input<string>;
     /**
-     * The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+     * The storage account type used to store backups for this database.
      */
     readonly storageAccountType?: pulumi.Input<string>;
     /**

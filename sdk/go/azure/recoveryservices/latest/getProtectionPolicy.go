@@ -17,26 +17,26 @@ func LookupProtectionPolicy(ctx *pulumi.Context, args *LookupProtectionPolicyArg
 }
 
 type LookupProtectionPolicyArgs struct {
-	// The backup policy name used in this GET operation.
+	// Backup policy information to be fetched.
 	PolicyName string `pulumi:"policyName"`
-	// The name of the resource group associated with the Recovery Services vault.
+	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Recovery Services vault.
+	// The name of the recovery services vault.
 	VaultName string `pulumi:"vaultName"`
 }
 
-// The base class for backup policy. Workload-specific backup policies are derived from this class.
+// Base class for backup policy. Workload-specific backup policies are derived from this class.
 type LookupProtectionPolicyResult struct {
 	// Optional ETag.
 	ETag *string `pulumi:"eTag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name associated with the resource.
-	Name *string `pulumi:"name"`
-	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
+	Name string `pulumi:"name"`
+	// ProtectionPolicyResource properties
 	Properties interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }

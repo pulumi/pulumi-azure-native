@@ -14,29 +14,29 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class SimpleSchedulePolicyResponse
     {
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        public readonly string? SchedulePolicyType;
+        public readonly string SchedulePolicyType;
         /// <summary>
-        /// This list is the days of the week when the schedule runs.
+        /// List of days of week this schedule has to be run.
         /// </summary>
         public readonly ImmutableArray<string> ScheduleRunDays;
         /// <summary>
-        /// Defines the frequency interval (daily or weekly) for the schedule policy.
+        /// Frequency of the schedule operation of this policy.
         /// </summary>
         public readonly string? ScheduleRunFrequency;
         /// <summary>
-        /// List of times, during a day, when the schedule runs.
+        /// List of times of day this schedule has to be run.
         /// </summary>
         public readonly ImmutableArray<string> ScheduleRunTimes;
         /// <summary>
-        /// The number of times per week the schedule runs.
+        /// At every number weeks this schedule has to be run.
         /// </summary>
         public readonly int? ScheduleWeeklyFrequency;
 
         [OutputConstructor]
         private SimpleSchedulePolicyResponse(
-            string? schedulePolicyType,
+            string schedulePolicyType,
 
             ImmutableArray<string> scheduleRunDays,
 

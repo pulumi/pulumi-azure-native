@@ -11,33 +11,33 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
 {
 
     /// <summary>
-    /// The backup policy for the file or folder container.
+    /// Mab container-specific backup policy.
     /// </summary>
     public sealed class MabProtectionPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        [Input("backupManagementType")]
-        public Input<string>? BackupManagementType { get; set; }
+        [Input("backupManagementType", required: true)]
+        public Input<string> BackupManagementType { get; set; } = null!;
 
         /// <summary>
-        /// The number of items associated with this policy.
+        /// Number of items associated with this policy.
         /// </summary>
         [Input("protectedItemsCount")]
         public Input<int>? ProtectedItemsCount { get; set; }
 
         /// <summary>
-        /// The details specified in the Retention policy.
+        /// Retention policy details.
         /// </summary>
         [Input("retentionPolicy")]
         public InputUnion<Inputs.LongTermRetentionPolicyArgs, Inputs.SimpleRetentionPolicyArgs>? RetentionPolicy { get; set; }
 
         /// <summary>
-        /// The schedule specified in the backup policy.
+        /// Backup schedule of backup policy.
         /// </summary>
         [Input("schedulePolicy")]
-        public InputUnion<Inputs.LongTermSchedulePolicyArgs, Inputs.SimpleSchedulePolicyArgs>? SchedulePolicy { get; set; }
+        public InputUnion<Inputs.LogSchedulePolicyArgs, InputUnion<Inputs.LongTermSchedulePolicyArgs, Inputs.SimpleSchedulePolicyArgs>>? SchedulePolicy { get; set; }
 
         public MabProtectionPolicyArgs()
         {

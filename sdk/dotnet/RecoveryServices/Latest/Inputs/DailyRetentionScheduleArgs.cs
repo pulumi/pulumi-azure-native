@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     public sealed class DailyRetentionScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The retention duration of retention policy.
+        /// Retention duration of retention Policy.
         /// </summary>
         [Input("retentionDuration")]
         public Input<Inputs.RetentionDurationArgs>? RetentionDuration { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         private InputList<string>? _retentionTimes;
 
         /// <summary>
-        /// The retention times of retention policy.
+        /// Retention times of retention policy.
         /// </summary>
         public InputList<string> RetentionTimes
         {

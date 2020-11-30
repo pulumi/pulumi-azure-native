@@ -51,6 +51,9 @@ func NewProtectionContainer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20161201:ProtectionContainer"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:ProtectionContainer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ProtectionContainer

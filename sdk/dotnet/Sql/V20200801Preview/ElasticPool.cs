@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+        /// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         /// </summary>
         [Output("maintenanceConfigurationId")]
         public Output<string?> MaintenanceConfigurationId { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+        /// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         /// </summary>
         [Input("maintenanceConfigurationId")]
         public Input<string>? MaintenanceConfigurationId { get; set; }

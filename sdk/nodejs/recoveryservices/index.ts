@@ -12,6 +12,7 @@ import * as v20180710 from "./v20180710";
 import * as v20190513 from "./v20190513";
 import * as v20190615 from "./v20190615";
 import * as v20200202 from "./v20200202";
+import * as v20201001 from "./v20201001";
 
 export {
     latest,
@@ -24,4 +25,5 @@ export {
     v20190513,
     v20190615,
     v20200202,
+    v20201001,
 };

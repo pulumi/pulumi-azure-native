@@ -13,7 +13,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     [OutputType]
     public sealed class DayResponse
     {
+        /// <summary>
+        /// Date of the month
+        /// </summary>
         public readonly int? Date;
+        /// <summary>
+        /// Whether Date is last date of month
+        /// </summary>
         public readonly bool? IsLast;
 
         [OutputConstructor]

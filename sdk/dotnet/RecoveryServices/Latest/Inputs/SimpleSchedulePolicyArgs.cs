@@ -16,16 +16,16 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     public sealed class SimpleSchedulePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        [Input("schedulePolicyType")]
-        public Input<string>? SchedulePolicyType { get; set; }
+        [Input("schedulePolicyType", required: true)]
+        public Input<string> SchedulePolicyType { get; set; } = null!;
 
         [Input("scheduleRunDays")]
         private InputList<string>? _scheduleRunDays;
 
         /// <summary>
-        /// This list is the days of the week when the schedule runs.
+        /// List of days of week this schedule has to be run.
         /// </summary>
         public InputList<string> ScheduleRunDays
         {
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         }
 
         /// <summary>
-        /// Defines the frequency interval (daily or weekly) for the schedule policy.
+        /// Frequency of the schedule operation of this policy.
         /// </summary>
         [Input("scheduleRunFrequency")]
         public Input<string>? ScheduleRunFrequency { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         private InputList<string>? _scheduleRunTimes;
 
         /// <summary>
-        /// List of times, during a day, when the schedule runs.
+        /// List of times of day this schedule has to be run.
         /// </summary>
         public InputList<string> ScheduleRunTimes
         {
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         }
 
         /// <summary>
-        /// The number of times per week the schedule runs.
+        /// At every number weeks this schedule has to be run.
         /// </summary>
         [Input("scheduleWeeklyFrequency")]
         public Input<int>? ScheduleWeeklyFrequency { get; set; }

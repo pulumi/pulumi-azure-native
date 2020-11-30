@@ -14,23 +14,23 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class LongTermRetentionPolicyResponse
     {
         /// <summary>
-        /// Daily retention schedule of the backup policy.
+        /// Daily retention schedule of the protection policy.
         /// </summary>
         public readonly Outputs.DailyRetentionScheduleResponse? DailySchedule;
         /// <summary>
-        /// Monthly retention schedule of the backup policy.
+        /// Monthly retention schedule of the protection policy.
         /// </summary>
         public readonly Outputs.MonthlyRetentionScheduleResponse? MonthlySchedule;
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        public readonly string? RetentionPolicyType;
+        public readonly string RetentionPolicyType;
         /// <summary>
-        /// Weekly retention schedule of the backup policy.
+        /// Weekly retention schedule of the protection policy.
         /// </summary>
         public readonly Outputs.WeeklyRetentionScheduleResponse? WeeklySchedule;
         /// <summary>
-        /// Yearly retention schedule of the backup policy.
+        /// Yearly retention schedule of the protection policy.
         /// </summary>
         public readonly Outputs.YearlyRetentionScheduleResponse? YearlySchedule;
 
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
 
             Outputs.MonthlyRetentionScheduleResponse? monthlySchedule,
 
-            string? retentionPolicyType,
+            string retentionPolicyType,
 
             Outputs.WeeklyRetentionScheduleResponse? weeklySchedule,
 

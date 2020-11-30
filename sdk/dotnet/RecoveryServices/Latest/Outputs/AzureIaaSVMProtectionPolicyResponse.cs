@@ -14,36 +14,54 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class AzureIaaSVMProtectionPolicyResponse
     {
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        public readonly string? BackupManagementType;
+        public readonly string BackupManagementType;
+        public readonly Outputs.InstantRPAdditionalDetailsResponse? InstantRPDetails;
         /// <summary>
-        /// The number of items associated with this policy.
+        /// Instant RP retention policy range in days
+        /// </summary>
+        public readonly int? InstantRpRetentionRangeInDays;
+        /// <summary>
+        /// Number of items associated with this policy.
         /// </summary>
         public readonly int? ProtectedItemsCount;
         /// <summary>
-        /// The retention policy with the details on backup copy retention ranges.
+        /// Retention policy with the details on backup copy retention ranges.
         /// </summary>
         public readonly Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? RetentionPolicy;
         /// <summary>
-        /// The backup schedule specified as part of backup policy.
+        /// Backup schedule specified as part of backup policy.
         /// </summary>
-        public readonly Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>? SchedulePolicy;
+        public readonly Union<Outputs.LogSchedulePolicyResponse, Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>>? SchedulePolicy;
+        /// <summary>
+        /// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        /// </summary>
+        public readonly string? TimeZone;
 
         [OutputConstructor]
         private AzureIaaSVMProtectionPolicyResponse(
-            string? backupManagementType,
+            string backupManagementType,
+
+            Outputs.InstantRPAdditionalDetailsResponse? instantRPDetails,
+
+            int? instantRpRetentionRangeInDays,
 
             int? protectedItemsCount,
 
             Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? retentionPolicy,
 
-            Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>? schedulePolicy)
+            Union<Outputs.LogSchedulePolicyResponse, Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>>? schedulePolicy,
+
+            string? timeZone)
         {
             BackupManagementType = backupManagementType;
+            InstantRPDetails = instantRPDetails;
+            InstantRpRetentionRangeInDays = instantRpRetentionRangeInDays;
             ProtectedItemsCount = protectedItemsCount;
             RetentionPolicy = retentionPolicy;
             SchedulePolicy = schedulePolicy;
+            TimeZone = timeZone;
         }
     }
 }

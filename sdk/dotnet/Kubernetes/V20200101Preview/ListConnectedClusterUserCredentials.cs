@@ -25,6 +25,12 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         public string AuthenticationMethod { get; set; } = null!;
 
         /// <summary>
+        /// Parameter to indicate whether the request is for client side proxy or not
+        /// </summary>
+        [Input("clientProxy")]
+        public bool? ClientProxy { get; set; }
+
+        /// <summary>
         /// The name of the Kubernetes cluster on which get is called.
         /// </summary>
         [Input("clusterName", required: true)]
@@ -52,13 +58,21 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
     public sealed class ListConnectedClusterUserCredentialsResult
     {
         /// <summary>
+        /// Contains the REP (rendezvous endpoint) and “Sender” access token.
+        /// </summary>
+        public readonly Outputs.HybridConnectionConfigResponseResult HybridConnectionConfig;
+        /// <summary>
         /// Base64-encoded Kubernetes configuration file.
         /// </summary>
         public readonly ImmutableArray<Outputs.CredentialResultResponseResult> Kubeconfigs;
 
         [OutputConstructor]
-        private ListConnectedClusterUserCredentialsResult(ImmutableArray<Outputs.CredentialResultResponseResult> kubeconfigs)
+        private ListConnectedClusterUserCredentialsResult(
+            Outputs.HybridConnectionConfigResponseResult hybridConnectionConfig,
+
+            ImmutableArray<Outputs.CredentialResultResponseResult> kubeconfigs)
         {
+            HybridConnectionConfig = hybridConnectionConfig;
             Kubeconfigs = kubeconfigs;
         }
     }

@@ -82,6 +82,8 @@ class FailoverGroup(pulumi.CustomResource):
             __props__['replication_role'] = None
             __props__['replication_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:FailoverGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FailoverGroup, __self__).__init__(
             'azure-nextgen:sql/v20150501preview:FailoverGroup',
             resource_name,

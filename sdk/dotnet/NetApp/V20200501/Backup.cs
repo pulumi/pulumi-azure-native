@@ -90,6 +90,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Backup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Backup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

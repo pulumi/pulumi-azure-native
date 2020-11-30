@@ -81,6 +81,8 @@ class InstancePool(pulumi.CustomResource):
             __props__['v_cores'] = v_cores
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:InstancePool")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InstancePool, __self__).__init__(
             'azure-nextgen:sql/v20180601preview:InstancePool',
             resource_name,

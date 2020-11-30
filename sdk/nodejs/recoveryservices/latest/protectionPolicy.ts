@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * The base class for backup policy. Workload-specific backup policies are derived from this class.
+ * Base class for backup policy. Workload-specific backup policies are derived from this class.
  */
 export class ProtectionPolicy extends pulumi.CustomResource {
     /**
@@ -46,11 +46,11 @@ export class ProtectionPolicy extends pulumi.CustomResource {
     /**
      * Resource name associated with the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The base class for a backup policy. Workload-specific backup policies are derived from this class.
+     * ProtectionPolicyResource properties
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.latest.AzureIaaSVMProtectionPolicyResponse | outputs.recoveryservices.latest.AzureSqlProtectionPolicyResponse | outputs.recoveryservices.latest.MabProtectionPolicyResponse>;
+    public readonly properties!: pulumi.Output<outputs.recoveryservices.latest.AzureFileShareProtectionPolicyResponse | outputs.recoveryservices.latest.AzureIaaSVMProtectionPolicyResponse | outputs.recoveryservices.latest.AzureSqlProtectionPolicyResponse | outputs.recoveryservices.latest.AzureVmWorkloadProtectionPolicyResponse | outputs.recoveryservices.latest.GenericProtectionPolicyResponse | outputs.recoveryservices.latest.MabProtectionPolicyResponse>;
     /**
      * Resource tags.
      */
@@ -58,7 +58,7 @@ export class ProtectionPolicy extends pulumi.CustomResource {
     /**
      * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a ProtectionPolicy resource with the given unique name, arguments, and options.
@@ -80,15 +80,14 @@ export class ProtectionPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["policyName"] = args ? args.policyName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         } else {
             inputs["eTag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -104,7 +103,7 @@ export class ProtectionPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160601:ProtectionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160601:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionPolicy.__pulumiType, name, inputs, opts);
     }
@@ -119,27 +118,19 @@ export interface ProtectionPolicyArgs {
      */
     readonly eTag?: pulumi.Input<string>;
     /**
-     * Resource ID represents the complete path to the resource.
-     */
-    readonly id?: pulumi.Input<string>;
-    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Resource name associated with the resource.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
-     * The backup policy to be created.
+     * Backup policy to be created.
      */
     readonly policyName: pulumi.Input<string>;
     /**
-     * The base class for a backup policy. Workload-specific backup policies are derived from this class.
+     * ProtectionPolicyResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.latest.AzureIaaSVMProtectionPolicy | inputs.recoveryservices.latest.AzureSqlProtectionPolicy | inputs.recoveryservices.latest.MabProtectionPolicy>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.latest.AzureFileShareProtectionPolicy | inputs.recoveryservices.latest.AzureIaaSVMProtectionPolicy | inputs.recoveryservices.latest.AzureSqlProtectionPolicy | inputs.recoveryservices.latest.AzureVmWorkloadProtectionPolicy | inputs.recoveryservices.latest.GenericProtectionPolicy | inputs.recoveryservices.latest.MabProtectionPolicy>;
     /**
-     * The name of the resource group associated with the Recovery Services vault.
+     * The name of the resource group where the recovery services vault is present.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
@@ -147,11 +138,7 @@ export interface ProtectionPolicyArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-     */
-    readonly type?: pulumi.Input<string>;
-    /**
-     * The name of the Recovery Services vault.
+     * The name of the recovery services vault.
      */
     readonly vaultName: pulumi.Input<string>;
 }

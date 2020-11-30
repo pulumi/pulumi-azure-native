@@ -18,33 +18,27 @@ class ProtectionPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureIaaSVMProtectionPolicyArgs'], pulumi.InputType['AzureSqlProtectionPolicyArgs'], pulumi.InputType['MabProtectionPolicyArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureFileShareProtectionPolicyArgs'], pulumi.InputType['AzureIaaSVMProtectionPolicyArgs'], pulumi.InputType['AzureSqlProtectionPolicyArgs'], pulumi.InputType['AzureVmWorkloadProtectionPolicyArgs'], pulumi.InputType['GenericProtectionPolicyArgs'], pulumi.InputType['MabProtectionPolicyArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        The base class for backup policy. Workload-specific backup policies are derived from this class.
+        Base class for backup policy. Workload-specific backup policies are derived from this class.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
-        :param pulumi.Input[str] id: Resource ID represents the complete path to the resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name associated with the resource.
-        :param pulumi.Input[str] policy_name: The backup policy to be created.
-        :param pulumi.Input[Union[pulumi.InputType['AzureIaaSVMProtectionPolicyArgs'], pulumi.InputType['AzureSqlProtectionPolicyArgs'], pulumi.InputType['MabProtectionPolicyArgs']]] properties: The base class for a backup policy. Workload-specific backup policies are derived from this class.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group associated with the Recovery Services vault.
+        :param pulumi.Input[str] policy_name: Backup policy to be created.
+        :param pulumi.Input[Union[pulumi.InputType['AzureFileShareProtectionPolicyArgs'], pulumi.InputType['AzureIaaSVMProtectionPolicyArgs'], pulumi.InputType['AzureSqlProtectionPolicyArgs'], pulumi.InputType['AzureVmWorkloadProtectionPolicyArgs'], pulumi.InputType['GenericProtectionPolicyArgs'], pulumi.InputType['MabProtectionPolicyArgs']]] properties: ProtectionPolicyResource properties
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-        :param pulumi.Input[str] vault_name: The name of the Recovery Services vault.
+        :param pulumi.Input[str] vault_name: The name of the recovery services vault.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,9 +58,7 @@ class ProtectionPolicy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
-            __props__['id'] = id
             __props__['location'] = location
-            __props__['name'] = name
             if policy_name is None:
                 raise TypeError("Missing required property 'policy_name'")
             __props__['policy_name'] = policy_name
@@ -75,11 +67,12 @@ class ProtectionPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['type'] = type
             if vault_name is None:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160601:ProtectionPolicy")])
+            __props__['name'] = None
+            __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160601:ProtectionPolicy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:ProtectionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProtectionPolicy, __self__).__init__(
             'azure-nextgen:recoveryservices/latest:ProtectionPolicy',
@@ -123,7 +116,7 @@ class ProtectionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name associated with the resource.
         """
@@ -133,7 +126,7 @@ class ProtectionPolicy(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output[Any]:
         """
-        The base class for a backup policy. Workload-specific backup policies are derived from this class.
+        ProtectionPolicyResource properties
         """
         return pulumi.get(self, "properties")
 
@@ -147,7 +140,7 @@ class ProtectionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[str]]:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """

@@ -15,9 +15,15 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     /// </summary>
     public sealed class DayArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Date of the month
+        /// </summary>
         [Input("date")]
         public Input<int>? Date { get; set; }
 
+        /// <summary>
+        /// Whether Date is last date of month
+        /// </summary>
         [Input("isLast")]
         public Input<bool>? IsLast { get; set; }
 

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         private InputList<string>? _daysOfTheWeek;
 
         /// <summary>
-        /// List of the days of the week for the weekly retention policy.
+        /// List of days of week for weekly retention policy.
         /// </summary>
         public InputList<string> DaysOfTheWeek
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         }
 
         /// <summary>
-        /// Retention duration of retention policy.
+        /// Retention duration of retention Policy.
         /// </summary>
         [Input("retentionDuration")]
         public Input<Inputs.RetentionDurationArgs>? RetentionDuration { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         private InputList<string>? _retentionTimes;
 
         /// <summary>
-        /// Retention times of the retention policy.
+        /// Retention times of retention policy.
         /// </summary>
         public InputList<string> RetentionTimes
         {

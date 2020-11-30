@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         private InputList<string>? _weeksOfTheMonth;
 
         /// <summary>
-        /// List of weeks of the month.
+        /// List of weeks of month.
         /// </summary>
         public InputList<string> WeeksOfTheMonth
         {

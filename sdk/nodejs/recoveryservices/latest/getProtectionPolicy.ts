@@ -22,21 +22,21 @@ export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi
 
 export interface GetProtectionPolicyArgs {
     /**
-     * The backup policy name used in this GET operation.
+     * Backup policy information to be fetched.
      */
     readonly policyName: string;
     /**
-     * The name of the resource group associated with the Recovery Services vault.
+     * The name of the resource group where the recovery services vault is present.
      */
     readonly resourceGroupName: string;
     /**
-     * The name of the Recovery Services vault.
+     * The name of the recovery services vault.
      */
     readonly vaultName: string;
 }
 
 /**
- * The base class for backup policy. Workload-specific backup policies are derived from this class.
+ * Base class for backup policy. Workload-specific backup policies are derived from this class.
  */
 export interface GetProtectionPolicyResult {
     /**
@@ -50,11 +50,11 @@ export interface GetProtectionPolicyResult {
     /**
      * Resource name associated with the resource.
      */
-    readonly name?: string;
+    readonly name: string;
     /**
-     * The base class for a backup policy. Workload-specific backup policies are derived from this class.
+     * ProtectionPolicyResource properties
      */
-    readonly properties: outputs.recoveryservices.latest.AzureIaaSVMProtectionPolicyResponse | outputs.recoveryservices.latest.AzureSqlProtectionPolicyResponse | outputs.recoveryservices.latest.MabProtectionPolicyResponse;
+    readonly properties: outputs.recoveryservices.latest.AzureFileShareProtectionPolicyResponse | outputs.recoveryservices.latest.AzureIaaSVMProtectionPolicyResponse | outputs.recoveryservices.latest.AzureSqlProtectionPolicyResponse | outputs.recoveryservices.latest.AzureVmWorkloadProtectionPolicyResponse | outputs.recoveryservices.latest.GenericProtectionPolicyResponse | outputs.recoveryservices.latest.MabProtectionPolicyResponse;
     /**
      * Resource tags.
      */
@@ -62,5 +62,5 @@ export interface GetProtectionPolicyResult {
     /**
      * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */
-    readonly type?: string;
+    readonly type: string;
 }

@@ -120,11 +120,13 @@ import * as portal from "./portal";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
+import * as providerhub from "./providerhub";
 import * as recoveryservices from "./recoveryservices";
 import * as redhatopenshift from "./redhatopenshift";
 import * as relay from "./relay";
 import * as resourcegraph from "./resourcegraph";
 import * as resources from "./resources";
+import * as saas from "./saas";
 import * as scheduler from "./scheduler";
 import * as search from "./search";
 import * as security from "./security";
@@ -270,11 +272,13 @@ export {
     powerbi,
     powerbidedicated,
     powerplatform,
+    providerhub,
     recoveryservices,
     redhatopenshift,
     relay,
     resourcegraph,
     resources,
+    saas,
     scheduler,
     search,
     security,

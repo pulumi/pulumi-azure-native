@@ -79,7 +79,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
-        :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+        :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         :param pulumi.Input[int] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
         :param pulumi.Input[str] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
@@ -104,7 +104,7 @@ class Database(pulumi.CustomResource):
                ````
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the database was deleted.
         :param pulumi.Input[str] source_database_id: The resource identifier of the source database associated with create operation of this database.
-        :param pulumi.Input[str] storage_account_type: The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        :param pulumi.Input[str] storage_account_type: The storage account type used to store backups for this database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
@@ -359,7 +359,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceConfigurationId")
     def maintenance_configuration_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+        Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 
@@ -529,7 +529,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        The storage account type used to store backups for this database.
         """
         return pulumi.get(self, "storage_account_type")
 

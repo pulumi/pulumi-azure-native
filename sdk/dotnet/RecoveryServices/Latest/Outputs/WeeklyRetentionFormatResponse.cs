@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DaysOfTheWeek;
         /// <summary>
-        /// List of weeks of the month.
+        /// List of weeks of month.
         /// </summary>
         public readonly ImmutableArray<string> WeeksOfTheMonth;
 

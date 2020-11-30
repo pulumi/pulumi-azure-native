@@ -11,18 +11,18 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
 {
 
     /// <summary>
-    /// The monthly retention schedule.
+    /// Monthly retention schedule.
     /// </summary>
     public sealed class MonthlyRetentionScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Retention duration of the retention policy.
+        /// Retention duration of retention Policy.
         /// </summary>
         [Input("retentionDuration")]
         public Input<Inputs.RetentionDurationArgs>? RetentionDuration { get; set; }
 
         /// <summary>
-        /// Daily retention format for the monthly retention policy.
+        /// Daily retention format for monthly retention policy.
         /// </summary>
         [Input("retentionScheduleDaily")]
         public Input<Inputs.DailyRetentionFormatArgs>? RetentionScheduleDaily { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         public Input<string>? RetentionScheduleFormatType { get; set; }
 
         /// <summary>
-        /// Weekly retention format for the monthly retention policy.
+        /// Weekly retention format for monthly retention policy.
         /// </summary>
         [Input("retentionScheduleWeekly")]
         public Input<Inputs.WeeklyRetentionFormatArgs>? RetentionScheduleWeekly { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         private InputList<string>? _retentionTimes;
 
         /// <summary>
-        /// Retention times of the retention policy.
+        /// Retention times of retention policy.
         /// </summary>
         public InputList<string> RetentionTimes
         {
