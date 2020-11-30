@@ -15,6 +15,7 @@ export function listConnectedClusterUserCredentials(args: ListConnectedClusterUs
     }
     return pulumi.runtime.invoke("azure-nextgen:kubernetes/v20200101preview:listConnectedClusterUserCredentials", {
         "authenticationMethod": args.authenticationMethod,
+        "clientProxy": args.clientProxy,
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
         "value": args.value,
@@ -26,6 +27,10 @@ export interface ListConnectedClusterUserCredentialsArgs {
      * The mode of client authentication.
      */
     readonly authenticationMethod: string;
+    /**
+     * Parameter to indicate whether the request is for client side proxy or not
+     */
+    readonly clientProxy?: boolean;
     /**
      * The name of the Kubernetes cluster on which get is called.
      */
@@ -44,6 +49,10 @@ export interface ListConnectedClusterUserCredentialsArgs {
  * The list of credential result response.
  */
 export interface ListConnectedClusterUserCredentialsResult {
+    /**
+     * Contains the REP (rendezvous endpoint) and “Sender” access token.
+     */
+    readonly hybridConnectionConfig: outputs.kubernetes.v20200101preview.HybridConnectionConfigResponse;
     /**
      * Base64-encoded Kubernetes configuration file.
      */

@@ -11,15 +11,15 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
 {
 
     /// <summary>
-    /// Long-term policy schedule.
+    /// Long term policy schedule.
     /// </summary>
     public sealed class LongTermSchedulePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        [Input("schedulePolicyType")]
-        public Input<string>? SchedulePolicyType { get; set; }
+        [Input("schedulePolicyType", required: true)]
+        public Input<string> SchedulePolicyType { get; set; } = null!;
 
         public LongTermSchedulePolicyArgs()
         {

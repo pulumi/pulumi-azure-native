@@ -48,6 +48,12 @@ func NewSyncAgent(ctx *pulumi.Context,
 	if args == nil {
 		args = &SyncAgentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:SyncAgent"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SyncAgent
 	err := ctx.RegisterResource("azure-nextgen:sql/v20150501preview:SyncAgent", name, args, &resource, opts...)
 	if err != nil {

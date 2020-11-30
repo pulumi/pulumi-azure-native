@@ -46,6 +46,12 @@ func NewServerTrustGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerTrustGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerTrustGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerTrustGroup
 	err := ctx.RegisterResource("azure-nextgen:sql/v20200202preview:ServerTrustGroup", name, args, &resource, opts...)
 	if err != nil {

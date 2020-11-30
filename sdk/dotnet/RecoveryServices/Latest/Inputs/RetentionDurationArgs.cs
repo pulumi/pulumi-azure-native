@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     public sealed class RetentionDurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
-        ///    For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
+        /// Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+        /// For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
         /// <summary>
-        /// The retention duration type of the retention policy.
+        /// Retention duration type of retention policy.
         /// </summary>
         [Input("durationType")]
         public Input<string>? DurationType { get; set; }

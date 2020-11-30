@@ -52,6 +52,12 @@ func NewJobAgent(ctx *pulumi.Context,
 	if args == nil {
 		args = &JobAgentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:JobAgent"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource JobAgent
 	err := ctx.RegisterResource("azure-nextgen:sql/v20170301preview:JobAgent", name, args, &resource, opts...)
 	if err != nil {

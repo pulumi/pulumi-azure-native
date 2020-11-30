@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
     public sealed class IntegrationServiceEnvironmentPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The encryption configuration.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.IntegrationServiceEnvironmenEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// The endpoints configuration.
         /// </summary>
         [Input("endpointsConfiguration")]

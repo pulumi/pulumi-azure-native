@@ -14,11 +14,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class DailyRetentionScheduleResponse
     {
         /// <summary>
-        /// The retention duration of retention policy.
+        /// Retention duration of retention Policy.
         /// </summary>
         public readonly Outputs.RetentionDurationResponse? RetentionDuration;
         /// <summary>
-        /// The retention times of retention policy.
+        /// Retention times of retention policy.
         /// </summary>
         public readonly ImmutableArray<string> RetentionTimes;
 

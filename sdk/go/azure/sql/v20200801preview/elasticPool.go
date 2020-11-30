@@ -23,7 +23,7 @@ type ElasticPool struct {
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
 	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
@@ -105,7 +105,7 @@ type elasticPoolState struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
 	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
@@ -136,7 +136,7 @@ type ElasticPoolState struct {
 	LicenseType pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId pulumi.StringPtrInput
 	// The storage limit for the database elastic pool in bytes.
 	MaxSizeBytes pulumi.IntPtrInput
@@ -169,7 +169,7 @@ type elasticPoolArgs struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
 	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
@@ -197,7 +197,7 @@ type ElasticPoolArgs struct {
 	LicenseType pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId pulumi.StringPtrInput
 	// The storage limit for the database elastic pool in bytes.
 	MaxSizeBytes pulumi.IntPtrInput

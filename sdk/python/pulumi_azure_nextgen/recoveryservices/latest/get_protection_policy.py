@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetProtectionPolicyResult:
     """
-    The base class for backup policy. Workload-specific backup policies are derived from this class.
+    Base class for backup policy. Workload-specific backup policies are derived from this class.
     """
     def __init__(__self__, e_tag=None, location=None, name=None, properties=None, tags=None, type=None):
         if e_tag and not isinstance(e_tag, str):
@@ -58,7 +58,7 @@ class GetProtectionPolicyResult:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
         Resource name associated with the resource.
         """
@@ -68,7 +68,7 @@ class GetProtectionPolicyResult:
     @pulumi.getter
     def properties(self) -> Any:
         """
-        The base class for a backup policy. Workload-specific backup policies are derived from this class.
+        ProtectionPolicyResource properties
         """
         return pulumi.get(self, "properties")
 
@@ -82,7 +82,7 @@ class GetProtectionPolicyResult:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         """
         Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """
@@ -110,9 +110,9 @@ def get_protection_policy(policy_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str policy_name: The backup policy name used in this GET operation.
-    :param str resource_group_name: The name of the resource group associated with the Recovery Services vault.
-    :param str vault_name: The name of the Recovery Services vault.
+    :param str policy_name: Backup policy information to be fetched.
+    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str vault_name: The name of the recovery services vault.
     """
     __args__ = dict()
     __args__['policyName'] = policy_name

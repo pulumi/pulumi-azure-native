@@ -23,7 +23,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         /// Backup is VMAppContainer
         /// </summary>
-        public readonly string? ContainerType;
+        public readonly string ContainerType;
         /// <summary>
         /// Friendly name of the container.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         private IaaSVMContainerResponse(
             string? backupManagementType,
 
-            string? containerType,
+            string containerType,
 
             string? friendlyName,
 

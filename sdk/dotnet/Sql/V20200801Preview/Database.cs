@@ -133,7 +133,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         public Output<string?> LongTermRetentionBackupResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+        /// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         /// </summary>
         [Output("maintenanceConfigurationId")]
         public Output<string?> MaintenanceConfigurationId { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        /// The storage account type used to store backups for this database.
         /// </summary>
         [Output("storageAccountType")]
         public Output<string?> StorageAccountType { get; private set; } = null!;
@@ -416,7 +416,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         public Input<string>? LongTermRetentionBackupResourceId { get; set; }
 
         /// <summary>
-        /// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+        /// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         /// </summary>
         [Input("maintenanceConfigurationId")]
         public Input<string>? MaintenanceConfigurationId { get; set; }
@@ -516,7 +516,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         public Input<string>? SourceDatabaseId { get; set; }
 
         /// <summary>
-        /// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        /// The storage account type used to store backups for this database.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }

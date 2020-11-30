@@ -53,6 +53,12 @@ func NewServerKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerKeyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerKey"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerKey
 	err := ctx.RegisterResource("azure-nextgen:sql/v20150501preview:ServerKey", name, args, &resource, opts...)
 	if err != nil {

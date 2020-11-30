@@ -11,24 +11,24 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
 {
 
     /// <summary>
-    ///  The Azure SQL workload-specific backup policy.
+    /// Azure SQL workload-specific backup policy.
     /// </summary>
     public sealed class AzureSqlProtectionPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        [Input("backupManagementType")]
-        public Input<string>? BackupManagementType { get; set; }
+        [Input("backupManagementType", required: true)]
+        public Input<string> BackupManagementType { get; set; } = null!;
 
         /// <summary>
-        /// The number of items associated with this policy.
+        /// Number of items associated with this policy.
         /// </summary>
         [Input("protectedItemsCount")]
         public Input<int>? ProtectedItemsCount { get; set; }
 
         /// <summary>
-        /// The retention policy details.
+        /// Retention policy details.
         /// </summary>
         [Input("retentionPolicy")]
         public InputUnion<Inputs.LongTermRetentionPolicyArgs, Inputs.SimpleRetentionPolicyArgs>? RetentionPolicy { get; set; }

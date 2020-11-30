@@ -85,6 +85,10 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:WorkloadClassifier"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

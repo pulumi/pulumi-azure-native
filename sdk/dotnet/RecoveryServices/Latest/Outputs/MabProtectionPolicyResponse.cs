@@ -14,31 +14,31 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class MabProtectionPolicyResponse
     {
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        public readonly string? BackupManagementType;
+        public readonly string BackupManagementType;
         /// <summary>
-        /// The number of items associated with this policy.
+        /// Number of items associated with this policy.
         /// </summary>
         public readonly int? ProtectedItemsCount;
         /// <summary>
-        /// The details specified in the Retention policy.
+        /// Retention policy details.
         /// </summary>
         public readonly Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? RetentionPolicy;
         /// <summary>
-        /// The schedule specified in the backup policy.
+        /// Backup schedule of backup policy.
         /// </summary>
-        public readonly Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>? SchedulePolicy;
+        public readonly Union<Outputs.LogSchedulePolicyResponse, Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>>? SchedulePolicy;
 
         [OutputConstructor]
         private MabProtectionPolicyResponse(
-            string? backupManagementType,
+            string backupManagementType,
 
             int? protectedItemsCount,
 
             Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? retentionPolicy,
 
-            Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>? schedulePolicy)
+            Union<Outputs.LogSchedulePolicyResponse, Union<Outputs.LongTermSchedulePolicyResponse, Outputs.SimpleSchedulePolicyResponse>>? schedulePolicy)
         {
             BackupManagementType = backupManagementType;
             ProtectedItemsCount = protectedItemsCount;

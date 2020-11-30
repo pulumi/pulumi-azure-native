@@ -19,6 +19,7 @@ __all__ = [
     'AgentDetailsResponse',
     'AgentDiskDetailsResponse',
     'AzureFabricSpecificDetailsResponse',
+    'AzureFileShareProtectionPolicyResponse',
     'AzureFileshareProtectedItemExtendedInfoResponse',
     'AzureFileshareProtectedItemResponse',
     'AzureIaaSVMHealthDetailsResponse',
@@ -37,6 +38,7 @@ __all__ = [
     'AzureVmDiskDetailsResponse',
     'AzureVmWorkloadProtectedItemExtendedInfoResponse',
     'AzureVmWorkloadProtectedItemResponse',
+    'AzureVmWorkloadProtectionPolicyResponse',
     'AzureWorkloadContainerExtendedInfoResponse',
     'AzureWorkloadContainerResponse',
     'ContainerIdentityInfoResponse',
@@ -61,6 +63,7 @@ __all__ = [
     'GenericContainerExtendedInfoResponse',
     'GenericContainerResponse',
     'GenericProtectedItemResponse',
+    'GenericProtectionPolicyResponse',
     'HealthErrorResponse',
     'HyperVReplicaAzurePolicyDetailsResponse',
     'HyperVReplicaAzureReplicationDetailsResponse',
@@ -97,7 +100,9 @@ __all__ = [
     'InputEndpointResponse',
     'InquiryInfoResponse',
     'InquiryValidationResponse',
+    'InstantRPAdditionalDetailsResponse',
     'KPIResourceHealthDetailsResponse',
+    'LogSchedulePolicyResponse',
     'LongTermRetentionPolicyResponse',
     'LongTermSchedulePolicyResponse',
     'MABContainerHealthDetailsResponse',
@@ -140,10 +145,12 @@ __all__ = [
     'RetentionDurationResponse',
     'RetentionVolumeResponse',
     'RunAsAccountResponse',
+    'SettingsResponse',
     'SimpleRetentionPolicyResponse',
     'SimpleSchedulePolicyResponse',
     'SkuResponse',
     'StorageClassificationMappingPropertiesResponse',
+    'SubProtectionPolicyResponse',
     'UpgradeDetailsResponse',
     'VCenterPropertiesResponse',
     'VMNicDetailsResponse',
@@ -1641,6 +1648,91 @@ class AzureFabricSpecificDetailsResponse(dict):
 
 
 @pulumi.output_type
+class AzureFileShareProtectionPolicyResponse(dict):
+    """
+    AzureStorage backup policy.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: str,
+                 protected_items_count: Optional[int] = None,
+                 retention_policy: Optional[Any] = None,
+                 schedule_policy: Optional[Any] = None,
+                 time_zone: Optional[str] = None,
+                 work_load_type: Optional[str] = None):
+        """
+        AzureStorage backup policy.
+        :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param int protected_items_count: Number of items associated with this policy.
+        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        :param str work_load_type: Type of workload for the backup management
+        """
+        pulumi.set(__self__, "backup_management_type", 'AzureStorage')
+        if protected_items_count is not None:
+            pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if schedule_policy is not None:
+            pulumi.set(__self__, "schedule_policy", schedule_policy)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+        if work_load_type is not None:
+            pulumi.set(__self__, "work_load_type", work_load_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="protectedItemsCount")
+    def protected_items_count(self) -> Optional[int]:
+        """
+        Number of items associated with this policy.
+        """
+        return pulumi.get(self, "protected_items_count")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[Any]:
+        """
+        Retention policy with the details on backup copy retention ranges.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="schedulePolicy")
+    def schedule_policy(self) -> Optional[Any]:
+        """
+        Backup schedule specified as part of backup policy.
+        """
+        return pulumi.get(self, "schedule_policy")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+        return pulumi.get(self, "time_zone")
+
+    @property
+    @pulumi.getter(name="workLoadType")
+    def work_load_type(self) -> Optional[str]:
+        """
+        Type of workload for the backup management
+        """
+        return pulumi.get(self, "work_load_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class AzureFileshareProtectedItemExtendedInfoResponse(dict):
     """
     Additional information about Azure File Share backup item.
@@ -2413,42 +2505,65 @@ class AzureIaaSVMProtectedItemResponse(dict):
 @pulumi.output_type
 class AzureIaaSVMProtectionPolicyResponse(dict):
     """
-    Azure VM (also known as IaaS VM) workload-specific backup policy.
+    IaaS VM workload-specific backup policy.
     """
     def __init__(__self__, *,
-                 backup_management_type: Optional[str] = None,
+                 backup_management_type: str,
+                 instant_rp_details: Optional['outputs.InstantRPAdditionalDetailsResponse'] = None,
+                 instant_rp_retention_range_in_days: Optional[int] = None,
                  protected_items_count: Optional[int] = None,
                  retention_policy: Optional[Any] = None,
-                 schedule_policy: Optional[Any] = None):
+                 schedule_policy: Optional[Any] = None,
+                 time_zone: Optional[str] = None):
         """
-        Azure VM (also known as IaaS VM) workload-specific backup policy.
-        :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param int protected_items_count: The number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The retention policy with the details on backup copy retention ranges.
-        :param Union['LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: The backup schedule specified as part of backup policy.
+        IaaS VM workload-specific backup policy.
+        :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param int instant_rp_retention_range_in_days: Instant RP retention policy range in days
+        :param int protected_items_count: Number of items associated with this policy.
+        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         """
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", 'AzureIaasVM')
+        pulumi.set(__self__, "backup_management_type", 'AzureIaasVM')
+        if instant_rp_details is not None:
+            pulumi.set(__self__, "instant_rp_details", instant_rp_details)
+        if instant_rp_retention_range_in_days is not None:
+            pulumi.set(__self__, "instant_rp_retention_range_in_days", instant_rp_retention_range_in_days)
         if protected_items_count is not None:
             pulumi.set(__self__, "protected_items_count", protected_items_count)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if schedule_policy is not None:
             pulumi.set(__self__, "schedule_policy", schedule_policy)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    def backup_management_type(self) -> str:
         """
-        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         """
         return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="instantRPDetails")
+    def instant_rp_details(self) -> Optional['outputs.InstantRPAdditionalDetailsResponse']:
+        return pulumi.get(self, "instant_rp_details")
+
+    @property
+    @pulumi.getter(name="instantRpRetentionRangeInDays")
+    def instant_rp_retention_range_in_days(self) -> Optional[int]:
+        """
+        Instant RP retention policy range in days
+        """
+        return pulumi.get(self, "instant_rp_retention_range_in_days")
 
     @property
     @pulumi.getter(name="protectedItemsCount")
     def protected_items_count(self) -> Optional[int]:
         """
-        The number of items associated with this policy.
+        Number of items associated with this policy.
         """
         return pulumi.get(self, "protected_items_count")
 
@@ -2456,7 +2571,7 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> Optional[Any]:
         """
-        The retention policy with the details on backup copy retention ranges.
+        Retention policy with the details on backup copy retention ranges.
         """
         return pulumi.get(self, "retention_policy")
 
@@ -2464,9 +2579,17 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
     @pulumi.getter(name="schedulePolicy")
     def schedule_policy(self) -> Optional[Any]:
         """
-        The backup schedule specified as part of backup policy.
+        Backup schedule specified as part of backup policy.
         """
         return pulumi.get(self, "schedule_policy")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+        return pulumi.get(self, "time_zone")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2662,26 +2785,25 @@ class AzureSqlContainerResponse(dict):
     Azure Sql workload-specific container.
     """
     def __init__(__self__, *,
+                 container_type: str,
                  backup_management_type: Optional[str] = None,
-                 container_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
                  registration_status: Optional[str] = None):
         """
         Azure Sql workload-specific container.
-        :param str backup_management_type: Type of backup management for the container.
         :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+        :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
+        pulumi.set(__self__, "container_type", 'AzureSqlContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
-        if container_type is not None:
-            pulumi.set(__self__, "container_type", 'AzureSqlContainer')
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
@@ -2690,16 +2812,8 @@ class AzureSqlContainerResponse(dict):
             pulumi.set(__self__, "registration_status", registration_status)
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
-        """
-        Type of backup management for the container.
-        """
-        return pulumi.get(self, "backup_management_type")
-
-    @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> Optional[str]:
+    def container_type(self) -> str:
         """
         Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
@@ -2707,6 +2821,14 @@ class AzureSqlContainerResponse(dict):
         Backup is VMAppContainer
         """
         return pulumi.get(self, "container_type")
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -3006,20 +3128,19 @@ class AzureSqlProtectedItemResponse(dict):
 @pulumi.output_type
 class AzureSqlProtectionPolicyResponse(dict):
     """
-     The Azure SQL workload-specific backup policy.
+    Azure SQL workload-specific backup policy.
     """
     def __init__(__self__, *,
-                 backup_management_type: Optional[str] = None,
+                 backup_management_type: str,
                  protected_items_count: Optional[int] = None,
                  retention_policy: Optional[Any] = None):
         """
-         The Azure SQL workload-specific backup policy.
-        :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param int protected_items_count: The number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The retention policy details.
+        Azure SQL workload-specific backup policy.
+        :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param int protected_items_count: Number of items associated with this policy.
+        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy details.
         """
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", 'AzureSql')
+        pulumi.set(__self__, "backup_management_type", 'AzureSql')
         if protected_items_count is not None:
             pulumi.set(__self__, "protected_items_count", protected_items_count)
         if retention_policy is not None:
@@ -3027,9 +3148,9 @@ class AzureSqlProtectionPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    def backup_management_type(self) -> str:
         """
-        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -3037,7 +3158,7 @@ class AzureSqlProtectionPolicyResponse(dict):
     @pulumi.getter(name="protectedItemsCount")
     def protected_items_count(self) -> Optional[int]:
         """
-        The number of items associated with this policy.
+        Number of items associated with this policy.
         """
         return pulumi.get(self, "protected_items_count")
 
@@ -3045,7 +3166,7 @@ class AzureSqlProtectionPolicyResponse(dict):
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> Optional[Any]:
         """
-        The retention policy details.
+        Retention policy details.
         """
         return pulumi.get(self, "retention_policy")
 
@@ -3059,8 +3180,8 @@ class AzureStorageContainerResponse(dict):
     Azure Storage Account workload-specific container.
     """
     def __init__(__self__, *,
+                 container_type: str,
                  backup_management_type: Optional[str] = None,
-                 container_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
                  protected_item_count: Optional[int] = None,
@@ -3070,11 +3191,11 @@ class AzureStorageContainerResponse(dict):
                  storage_account_version: Optional[str] = None):
         """
         Azure Storage Account workload-specific container.
-        :param str backup_management_type: Type of backup management for the container.
         :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+        :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param int protected_item_count: Number of items backed up in this container.
@@ -3083,10 +3204,9 @@ class AzureStorageContainerResponse(dict):
         :param str source_resource_id: Fully qualified ARM url.
         :param str storage_account_version: Storage account version.
         """
+        pulumi.set(__self__, "container_type", 'StorageContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
-        if container_type is not None:
-            pulumi.set(__self__, "container_type", 'StorageContainer')
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
@@ -3103,16 +3223,8 @@ class AzureStorageContainerResponse(dict):
             pulumi.set(__self__, "storage_account_version", storage_account_version)
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
-        """
-        Type of backup management for the container.
-        """
-        return pulumi.get(self, "backup_management_type")
-
-    @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> Optional[str]:
+    def container_type(self) -> str:
         """
         Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
@@ -3120,6 +3232,14 @@ class AzureStorageContainerResponse(dict):
         Backup is VMAppContainer
         """
         return pulumi.get(self, "container_type")
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -3778,6 +3898,91 @@ class AzureVmWorkloadProtectedItemResponse(dict):
 
 
 @pulumi.output_type
+class AzureVmWorkloadProtectionPolicyResponse(dict):
+    """
+    Azure VM (Mercury) workload-specific backup policy.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: str,
+                 make_policy_consistent: Optional[bool] = None,
+                 protected_items_count: Optional[int] = None,
+                 settings: Optional['outputs.SettingsResponse'] = None,
+                 sub_protection_policy: Optional[Sequence['outputs.SubProtectionPolicyResponse']] = None,
+                 work_load_type: Optional[str] = None):
+        """
+        Azure VM (Mercury) workload-specific backup policy.
+        :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param bool make_policy_consistent: Fix the policy inconsistency
+        :param int protected_items_count: Number of items associated with this policy.
+        :param 'SettingsResponseArgs' settings: Common settings for the backup management
+        :param Sequence['SubProtectionPolicyResponseArgs'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
+        :param str work_load_type: Type of workload for the backup management
+        """
+        pulumi.set(__self__, "backup_management_type", 'AzureWorkload')
+        if make_policy_consistent is not None:
+            pulumi.set(__self__, "make_policy_consistent", make_policy_consistent)
+        if protected_items_count is not None:
+            pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+        if sub_protection_policy is not None:
+            pulumi.set(__self__, "sub_protection_policy", sub_protection_policy)
+        if work_load_type is not None:
+            pulumi.set(__self__, "work_load_type", work_load_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="makePolicyConsistent")
+    def make_policy_consistent(self) -> Optional[bool]:
+        """
+        Fix the policy inconsistency
+        """
+        return pulumi.get(self, "make_policy_consistent")
+
+    @property
+    @pulumi.getter(name="protectedItemsCount")
+    def protected_items_count(self) -> Optional[int]:
+        """
+        Number of items associated with this policy.
+        """
+        return pulumi.get(self, "protected_items_count")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.SettingsResponse']:
+        """
+        Common settings for the backup management
+        """
+        return pulumi.get(self, "settings")
+
+    @property
+    @pulumi.getter(name="subProtectionPolicy")
+    def sub_protection_policy(self) -> Optional[Sequence['outputs.SubProtectionPolicyResponse']]:
+        """
+        List of sub-protection policies which includes schedule and retention
+        """
+        return pulumi.get(self, "sub_protection_policy")
+
+    @property
+    @pulumi.getter(name="workLoadType")
+    def work_load_type(self) -> Optional[str]:
+        """
+        Type of workload for the backup management
+        """
+        return pulumi.get(self, "work_load_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class AzureWorkloadContainerExtendedInfoResponse(dict):
     """
     Extended information of the container.
@@ -3833,8 +4038,8 @@ class AzureWorkloadContainerResponse(dict):
     Container for the workloads running inside Azure Compute or Classic Compute.
     """
     def __init__(__self__, *,
+                 container_type: str,
                  backup_management_type: Optional[str] = None,
-                 container_type: Optional[str] = None,
                  extended_info: Optional['outputs.AzureWorkloadContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
@@ -3845,11 +4050,11 @@ class AzureWorkloadContainerResponse(dict):
                  workload_type: Optional[str] = None):
         """
         Container for the workloads running inside Azure Compute or Classic Compute.
-        :param str backup_management_type: Type of backup management for the container.
         :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+        :param str backup_management_type: Type of backup management for the container.
         :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -3859,10 +4064,9 @@ class AzureWorkloadContainerResponse(dict):
         :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
         :param str workload_type: Workload type for which registration was sent.
         """
+        pulumi.set(__self__, "container_type", 'AzureWorkloadContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
-        if container_type is not None:
-            pulumi.set(__self__, "container_type", 'AzureWorkloadContainer')
         if extended_info is not None:
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
@@ -3881,16 +4085,8 @@ class AzureWorkloadContainerResponse(dict):
             pulumi.set(__self__, "workload_type", workload_type)
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
-        """
-        Type of backup management for the container.
-        """
-        return pulumi.get(self, "backup_management_type")
-
-    @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> Optional[str]:
+    def container_type(self) -> str:
         """
         Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
@@ -3898,6 +4094,14 @@ class AzureWorkloadContainerResponse(dict):
         Backup is VMAppContainer
         """
         return pulumi.get(self, "container_type")
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="extendedInfo")
@@ -4602,8 +4806,8 @@ class DailyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[str]] = None):
         """
         Daily retention schedule.
-        :param 'RetentionDurationResponseArgs' retention_duration: The retention duration of retention policy.
-        :param Sequence[str] retention_times: The retention times of retention policy.
+        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
+        :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if retention_duration is not None:
             pulumi.set(__self__, "retention_duration", retention_duration)
@@ -4614,7 +4818,7 @@ class DailyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionDuration")
     def retention_duration(self) -> Optional['outputs.RetentionDurationResponse']:
         """
-        The retention duration of retention policy.
+        Retention duration of retention Policy.
         """
         return pulumi.get(self, "retention_duration")
 
@@ -4622,7 +4826,7 @@ class DailyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionTimes")
     def retention_times(self) -> Optional[Sequence[str]]:
         """
-        The retention times of retention policy.
+        Retention times of retention policy.
         """
         return pulumi.get(self, "retention_times")
 
@@ -4714,6 +4918,8 @@ class DayResponse(dict):
                  is_last: Optional[bool] = None):
         """
         Day of the week.
+        :param int date: Date of the month
+        :param bool is_last: Whether Date is last date of month
         """
         if date is not None:
             pulumi.set(__self__, "date", date)
@@ -4723,11 +4929,17 @@ class DayResponse(dict):
     @property
     @pulumi.getter
     def date(self) -> Optional[int]:
+        """
+        Date of the month
+        """
         return pulumi.get(self, "date")
 
     @property
     @pulumi.getter(name="isLast")
     def is_last(self) -> Optional[bool]:
+        """
+        Whether Date is last date of month
+        """
         return pulumi.get(self, "is_last")
 
     def _translate_property(self, prop):
@@ -4888,10 +5100,10 @@ class DpmContainerResponse(dict):
     DPM workload-specific protection container.
     """
     def __init__(__self__, *,
+                 container_type: str,
                  backup_management_type: Optional[str] = None,
                  can_re_register: Optional[bool] = None,
                  container_id: Optional[str] = None,
-                 container_type: Optional[str] = None,
                  dpm_agent_version: Optional[str] = None,
                  dpm_servers: Optional[Sequence[str]] = None,
                  extended_info: Optional['outputs.DPMContainerExtendedInfoResponse'] = None,
@@ -4903,13 +5115,13 @@ class DpmContainerResponse(dict):
                  upgrade_available: Optional[bool] = None):
         """
         DPM workload-specific protection container.
-        :param str backup_management_type: Type of backup management for the container.
-        :param bool can_re_register: Specifies whether the container is re-registrable.
-        :param str container_id: ID of container.
         :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+        :param str backup_management_type: Type of backup management for the container.
+        :param bool can_re_register: Specifies whether the container is re-registrable.
+        :param str container_id: ID of container.
         :param str dpm_agent_version: Backup engine Agent version
         :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
         :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
@@ -4920,14 +5132,13 @@ class DpmContainerResponse(dict):
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param bool upgrade_available: To check if upgrade available
         """
+        pulumi.set(__self__, "container_type", 'DPMContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if can_re_register is not None:
             pulumi.set(__self__, "can_re_register", can_re_register)
         if container_id is not None:
             pulumi.set(__self__, "container_id", container_id)
-        if container_type is not None:
-            pulumi.set(__self__, "container_type", 'DPMContainer')
         if dpm_agent_version is not None:
             pulumi.set(__self__, "dpm_agent_version", dpm_agent_version)
         if dpm_servers is not None:
@@ -4946,6 +5157,17 @@ class DpmContainerResponse(dict):
             pulumi.set(__self__, "registration_status", registration_status)
         if upgrade_available is not None:
             pulumi.set(__self__, "upgrade_available", upgrade_available)
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> str:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        """
+        return pulumi.get(self, "container_type")
 
     @property
     @pulumi.getter(name="backupManagementType")
@@ -4970,17 +5192,6 @@ class DpmContainerResponse(dict):
         ID of container.
         """
         return pulumi.get(self, "container_id")
-
-    @property
-    @pulumi.getter(name="containerType")
-    def container_type(self) -> Optional[str]:
-        """
-        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
-        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
-        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
-        Backup is VMAppContainer
-        """
-        return pulumi.get(self, "container_type")
 
     @property
     @pulumi.getter(name="dpmAgentVersion")
@@ -5427,8 +5638,8 @@ class GenericContainerResponse(dict):
     Base class for generic container of backup items
     """
     def __init__(__self__, *,
+                 container_type: str,
                  backup_management_type: Optional[str] = None,
-                 container_type: Optional[str] = None,
                  extended_information: Optional['outputs.GenericContainerExtendedInfoResponse'] = None,
                  fabric_name: Optional[str] = None,
                  friendly_name: Optional[str] = None,
@@ -5436,21 +5647,20 @@ class GenericContainerResponse(dict):
                  registration_status: Optional[str] = None):
         """
         Base class for generic container of backup items
-        :param str backup_management_type: Type of backup management for the container.
         :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+        :param str backup_management_type: Type of backup management for the container.
         :param 'GenericContainerExtendedInfoResponseArgs' extended_information: Extended information (not returned in List container API calls)
         :param str fabric_name: Name of the container's fabric
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
+        pulumi.set(__self__, "container_type", 'GenericContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
-        if container_type is not None:
-            pulumi.set(__self__, "container_type", 'GenericContainer')
         if extended_information is not None:
             pulumi.set(__self__, "extended_information", extended_information)
         if fabric_name is not None:
@@ -5463,16 +5673,8 @@ class GenericContainerResponse(dict):
             pulumi.set(__self__, "registration_status", registration_status)
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
-        """
-        Type of backup management for the container.
-        """
-        return pulumi.get(self, "backup_management_type")
-
-    @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> Optional[str]:
+    def container_type(self) -> str:
         """
         Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
@@ -5480,6 +5682,14 @@ class GenericContainerResponse(dict):
         Backup is VMAppContainer
         """
         return pulumi.get(self, "container_type")
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="extendedInformation")
@@ -5773,6 +5983,79 @@ class GenericProtectedItemResponse(dict):
         Type of workload this item represents.
         """
         return pulumi.get(self, "workload_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GenericProtectionPolicyResponse(dict):
+    """
+    Azure VM (Mercury) workload-specific backup policy.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: str,
+                 fabric_name: Optional[str] = None,
+                 protected_items_count: Optional[int] = None,
+                 sub_protection_policy: Optional[Sequence['outputs.SubProtectionPolicyResponse']] = None,
+                 time_zone: Optional[str] = None):
+        """
+        Azure VM (Mercury) workload-specific backup policy.
+        :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param str fabric_name: Name of this policy's fabric.
+        :param int protected_items_count: Number of items associated with this policy.
+        :param Sequence['SubProtectionPolicyResponseArgs'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
+        :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+        pulumi.set(__self__, "backup_management_type", 'GenericProtectionPolicy')
+        if fabric_name is not None:
+            pulumi.set(__self__, "fabric_name", fabric_name)
+        if protected_items_count is not None:
+            pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if sub_protection_policy is not None:
+            pulumi.set(__self__, "sub_protection_policy", sub_protection_policy)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="fabricName")
+    def fabric_name(self) -> Optional[str]:
+        """
+        Name of this policy's fabric.
+        """
+        return pulumi.get(self, "fabric_name")
+
+    @property
+    @pulumi.getter(name="protectedItemsCount")
+    def protected_items_count(self) -> Optional[int]:
+        """
+        Number of items associated with this policy.
+        """
+        return pulumi.get(self, "protected_items_count")
+
+    @property
+    @pulumi.getter(name="subProtectionPolicy")
+    def sub_protection_policy(self) -> Optional[Sequence['outputs.SubProtectionPolicyResponse']]:
+        """
+        List of sub-protection policies which includes schedule and retention
+        """
+        return pulumi.get(self, "sub_protection_policy")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+        return pulumi.get(self, "time_zone")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -7261,8 +7544,8 @@ class IaaSVMContainerResponse(dict):
     IaaS VM workload-specific container.
     """
     def __init__(__self__, *,
+                 container_type: str,
                  backup_management_type: Optional[str] = None,
-                 container_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
                  registration_status: Optional[str] = None,
@@ -7271,11 +7554,11 @@ class IaaSVMContainerResponse(dict):
                  virtual_machine_version: Optional[str] = None):
         """
         IaaS VM workload-specific container.
-        :param str backup_management_type: Type of backup management for the container.
         :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
+        :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
@@ -7283,10 +7566,9 @@ class IaaSVMContainerResponse(dict):
         :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
         :param str virtual_machine_version: Specifies whether the container represents a Classic or an Azure Resource Manager VM.
         """
+        pulumi.set(__self__, "container_type", 'IaaSVMContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
-        if container_type is not None:
-            pulumi.set(__self__, "container_type", 'IaaSVMContainer')
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
@@ -7301,16 +7583,8 @@ class IaaSVMContainerResponse(dict):
             pulumi.set(__self__, "virtual_machine_version", virtual_machine_version)
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
-        """
-        Type of backup management for the container.
-        """
-        return pulumi.get(self, "backup_management_type")
-
-    @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> Optional[str]:
+    def container_type(self) -> str:
         """
         Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
@@ -7318,6 +7592,14 @@ class IaaSVMContainerResponse(dict):
         Backup is VMAppContainer
         """
         return pulumi.get(self, "container_type")
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the container.
+        """
+        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -11026,6 +11308,30 @@ class InquiryValidationResponse(dict):
 
 
 @pulumi.output_type
+class InstantRPAdditionalDetailsResponse(dict):
+    def __init__(__self__, *,
+                 azure_backup_rg_name_prefix: Optional[str] = None,
+                 azure_backup_rg_name_suffix: Optional[str] = None):
+        if azure_backup_rg_name_prefix is not None:
+            pulumi.set(__self__, "azure_backup_rg_name_prefix", azure_backup_rg_name_prefix)
+        if azure_backup_rg_name_suffix is not None:
+            pulumi.set(__self__, "azure_backup_rg_name_suffix", azure_backup_rg_name_suffix)
+
+    @property
+    @pulumi.getter(name="azureBackupRGNamePrefix")
+    def azure_backup_rg_name_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "azure_backup_rg_name_prefix")
+
+    @property
+    @pulumi.getter(name="azureBackupRGNameSuffix")
+    def azure_backup_rg_name_suffix(self) -> Optional[str]:
+        return pulumi.get(self, "azure_backup_rg_name_suffix")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class KPIResourceHealthDetailsResponse(dict):
     """
     KPI Resource Health Details
@@ -11064,40 +11370,84 @@ class KPIResourceHealthDetailsResponse(dict):
 
 
 @pulumi.output_type
-class LongTermRetentionPolicyResponse(dict):
+class LogSchedulePolicyResponse(dict):
     """
-    Long-term retention policy.
+    Log policy schedule.
     """
     def __init__(__self__, *,
+                 schedule_policy_type: str,
+                 schedule_frequency_in_mins: Optional[int] = None):
+        """
+        Log policy schedule.
+        :param str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param int schedule_frequency_in_mins: Frequency of the log schedule operation of this policy in minutes.
+        """
+        pulumi.set(__self__, "schedule_policy_type", 'LogSchedulePolicy')
+        if schedule_frequency_in_mins is not None:
+            pulumi.set(__self__, "schedule_frequency_in_mins", schedule_frequency_in_mins)
+
+    @property
+    @pulumi.getter(name="schedulePolicyType")
+    def schedule_policy_type(self) -> str:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "schedule_policy_type")
+
+    @property
+    @pulumi.getter(name="scheduleFrequencyInMins")
+    def schedule_frequency_in_mins(self) -> Optional[int]:
+        """
+        Frequency of the log schedule operation of this policy in minutes.
+        """
+        return pulumi.get(self, "schedule_frequency_in_mins")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LongTermRetentionPolicyResponse(dict):
+    """
+    Long term retention policy.
+    """
+    def __init__(__self__, *,
+                 retention_policy_type: str,
                  daily_schedule: Optional['outputs.DailyRetentionScheduleResponse'] = None,
                  monthly_schedule: Optional['outputs.MonthlyRetentionScheduleResponse'] = None,
-                 retention_policy_type: Optional[str] = None,
                  weekly_schedule: Optional['outputs.WeeklyRetentionScheduleResponse'] = None,
                  yearly_schedule: Optional['outputs.YearlyRetentionScheduleResponse'] = None):
         """
-        Long-term retention policy.
-        :param 'DailyRetentionScheduleResponseArgs' daily_schedule: Daily retention schedule of the backup policy.
-        :param 'MonthlyRetentionScheduleResponseArgs' monthly_schedule: Monthly retention schedule of the backup policy.
-        :param str retention_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param 'WeeklyRetentionScheduleResponseArgs' weekly_schedule: Weekly retention schedule of the backup policy.
-        :param 'YearlyRetentionScheduleResponseArgs' yearly_schedule: Yearly retention schedule of the backup policy.
+        Long term retention policy.
+        :param str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param 'DailyRetentionScheduleResponseArgs' daily_schedule: Daily retention schedule of the protection policy.
+        :param 'MonthlyRetentionScheduleResponseArgs' monthly_schedule: Monthly retention schedule of the protection policy.
+        :param 'WeeklyRetentionScheduleResponseArgs' weekly_schedule: Weekly retention schedule of the protection policy.
+        :param 'YearlyRetentionScheduleResponseArgs' yearly_schedule: Yearly retention schedule of the protection policy.
         """
+        pulumi.set(__self__, "retention_policy_type", 'LongTermRetentionPolicy')
         if daily_schedule is not None:
             pulumi.set(__self__, "daily_schedule", daily_schedule)
         if monthly_schedule is not None:
             pulumi.set(__self__, "monthly_schedule", monthly_schedule)
-        if retention_policy_type is not None:
-            pulumi.set(__self__, "retention_policy_type", 'LongTermRetentionPolicy')
         if weekly_schedule is not None:
             pulumi.set(__self__, "weekly_schedule", weekly_schedule)
         if yearly_schedule is not None:
             pulumi.set(__self__, "yearly_schedule", yearly_schedule)
 
     @property
+    @pulumi.getter(name="retentionPolicyType")
+    def retention_policy_type(self) -> str:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "retention_policy_type")
+
+    @property
     @pulumi.getter(name="dailySchedule")
     def daily_schedule(self) -> Optional['outputs.DailyRetentionScheduleResponse']:
         """
-        Daily retention schedule of the backup policy.
+        Daily retention schedule of the protection policy.
         """
         return pulumi.get(self, "daily_schedule")
 
@@ -11105,23 +11455,15 @@ class LongTermRetentionPolicyResponse(dict):
     @pulumi.getter(name="monthlySchedule")
     def monthly_schedule(self) -> Optional['outputs.MonthlyRetentionScheduleResponse']:
         """
-        Monthly retention schedule of the backup policy.
+        Monthly retention schedule of the protection policy.
         """
         return pulumi.get(self, "monthly_schedule")
-
-    @property
-    @pulumi.getter(name="retentionPolicyType")
-    def retention_policy_type(self) -> Optional[str]:
-        """
-        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        """
-        return pulumi.get(self, "retention_policy_type")
 
     @property
     @pulumi.getter(name="weeklySchedule")
     def weekly_schedule(self) -> Optional['outputs.WeeklyRetentionScheduleResponse']:
         """
-        Weekly retention schedule of the backup policy.
+        Weekly retention schedule of the protection policy.
         """
         return pulumi.get(self, "weekly_schedule")
 
@@ -11129,7 +11471,7 @@ class LongTermRetentionPolicyResponse(dict):
     @pulumi.getter(name="yearlySchedule")
     def yearly_schedule(self) -> Optional['outputs.YearlyRetentionScheduleResponse']:
         """
-        Yearly retention schedule of the backup policy.
+        Yearly retention schedule of the protection policy.
         """
         return pulumi.get(self, "yearly_schedule")
 
@@ -11140,22 +11482,21 @@ class LongTermRetentionPolicyResponse(dict):
 @pulumi.output_type
 class LongTermSchedulePolicyResponse(dict):
     """
-    Long-term policy schedule.
+    Long term policy schedule.
     """
     def __init__(__self__, *,
-                 schedule_policy_type: Optional[str] = None):
+                 schedule_policy_type: str):
         """
-        Long-term policy schedule.
-        :param str schedule_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Long term policy schedule.
+        :param str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         """
-        if schedule_policy_type is not None:
-            pulumi.set(__self__, "schedule_policy_type", 'LongTermSchedulePolicy')
+        pulumi.set(__self__, "schedule_policy_type", 'LongTermSchedulePolicy')
 
     @property
     @pulumi.getter(name="schedulePolicyType")
-    def schedule_policy_type(self) -> Optional[str]:
+    def schedule_policy_type(self) -> str:
         """
-        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         """
         return pulumi.get(self, "schedule_policy_type")
 
@@ -11305,12 +11646,12 @@ class MabContainerResponse(dict):
     Container with items backed up using MAB backup engine.
     """
     def __init__(__self__, *,
+                 container_type: str,
                  agent_version: Optional[str] = None,
                  backup_management_type: Optional[str] = None,
                  can_re_register: Optional[bool] = None,
                  container_health_state: Optional[str] = None,
                  container_id: Optional[int] = None,
-                 container_type: Optional[str] = None,
                  extended_info: Optional['outputs.MabContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
@@ -11319,15 +11660,15 @@ class MabContainerResponse(dict):
                  registration_status: Optional[str] = None):
         """
         Container with items backed up using MAB backup engine.
+        :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+               Backup is VMAppContainer
         :param str agent_version: Agent version of this container.
         :param str backup_management_type: Type of backup management for the container.
         :param bool can_re_register: Can the container be registered one more time.
         :param str container_health_state: Health state of mab container.
         :param int container_id: ContainerID represents the container.
-        :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
-               Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
-               Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
-               Backup is VMAppContainer
         :param 'MabContainerExtendedInfoResponseArgs' extended_info: Additional information for this container
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -11335,6 +11676,7 @@ class MabContainerResponse(dict):
         :param int protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
+        pulumi.set(__self__, "container_type", 'Windows')
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
         if backup_management_type is not None:
@@ -11345,8 +11687,6 @@ class MabContainerResponse(dict):
             pulumi.set(__self__, "container_health_state", container_health_state)
         if container_id is not None:
             pulumi.set(__self__, "container_id", container_id)
-        if container_type is not None:
-            pulumi.set(__self__, "container_type", 'Windows')
         if extended_info is not None:
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
@@ -11359,6 +11699,17 @@ class MabContainerResponse(dict):
             pulumi.set(__self__, "protected_item_count", protected_item_count)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> str:
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        """
+        return pulumi.get(self, "container_type")
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -11399,17 +11750,6 @@ class MabContainerResponse(dict):
         ContainerID represents the container.
         """
         return pulumi.get(self, "container_id")
-
-    @property
-    @pulumi.getter(name="containerType")
-    def container_type(self) -> Optional[str]:
-        """
-        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
-        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
-        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
-        Backup is VMAppContainer
-        """
-        return pulumi.get(self, "container_type")
 
     @property
     @pulumi.getter(name="extendedInfo")
@@ -11781,22 +12121,21 @@ class MabFileFolderProtectedItemResponse(dict):
 @pulumi.output_type
 class MabProtectionPolicyResponse(dict):
     """
-    The backup policy for the file or folder container.
+    Mab container-specific backup policy.
     """
     def __init__(__self__, *,
-                 backup_management_type: Optional[str] = None,
+                 backup_management_type: str,
                  protected_items_count: Optional[int] = None,
                  retention_policy: Optional[Any] = None,
                  schedule_policy: Optional[Any] = None):
         """
-        The backup policy for the file or folder container.
-        :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param int protected_items_count: The number of items associated with this policy.
-        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The details specified in the Retention policy.
-        :param Union['LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: The schedule specified in the backup policy.
+        Mab container-specific backup policy.
+        :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param int protected_items_count: Number of items associated with this policy.
+        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy details.
+        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule of backup policy.
         """
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", 'MAB')
+        pulumi.set(__self__, "backup_management_type", 'MAB')
         if protected_items_count is not None:
             pulumi.set(__self__, "protected_items_count", protected_items_count)
         if retention_policy is not None:
@@ -11806,9 +12145,9 @@ class MabProtectionPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    def backup_management_type(self) -> str:
         """
-        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         """
         return pulumi.get(self, "backup_management_type")
 
@@ -11816,7 +12155,7 @@ class MabProtectionPolicyResponse(dict):
     @pulumi.getter(name="protectedItemsCount")
     def protected_items_count(self) -> Optional[int]:
         """
-        The number of items associated with this policy.
+        Number of items associated with this policy.
         """
         return pulumi.get(self, "protected_items_count")
 
@@ -11824,7 +12163,7 @@ class MabProtectionPolicyResponse(dict):
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> Optional[Any]:
         """
-        The details specified in the Retention policy.
+        Retention policy details.
         """
         return pulumi.get(self, "retention_policy")
 
@@ -11832,7 +12171,7 @@ class MabProtectionPolicyResponse(dict):
     @pulumi.getter(name="schedulePolicy")
     def schedule_policy(self) -> Optional[Any]:
         """
-        The schedule specified in the backup policy.
+        Backup schedule of backup policy.
         """
         return pulumi.get(self, "schedule_policy")
 
@@ -12281,7 +12620,7 @@ class MobilityServiceUpdateResponse(dict):
 @pulumi.output_type
 class MonthlyRetentionScheduleResponse(dict):
     """
-    The monthly retention schedule.
+    Monthly retention schedule.
     """
     def __init__(__self__, *,
                  retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
@@ -12290,12 +12629,12 @@ class MonthlyRetentionScheduleResponse(dict):
                  retention_schedule_weekly: Optional['outputs.WeeklyRetentionFormatResponse'] = None,
                  retention_times: Optional[Sequence[str]] = None):
         """
-        The monthly retention schedule.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the retention policy.
-        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for the monthly retention policy.
+        Monthly retention schedule.
+        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
+        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for monthly retention policy.
         :param str retention_schedule_format_type: Retention schedule format type for monthly retention policy.
-        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for the monthly retention policy.
-        :param Sequence[str] retention_times: Retention times of the retention policy.
+        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for monthly retention policy.
+        :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if retention_duration is not None:
             pulumi.set(__self__, "retention_duration", retention_duration)
@@ -12312,7 +12651,7 @@ class MonthlyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionDuration")
     def retention_duration(self) -> Optional['outputs.RetentionDurationResponse']:
         """
-        Retention duration of the retention policy.
+        Retention duration of retention Policy.
         """
         return pulumi.get(self, "retention_duration")
 
@@ -12320,7 +12659,7 @@ class MonthlyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionScheduleDaily")
     def retention_schedule_daily(self) -> Optional['outputs.DailyRetentionFormatResponse']:
         """
-        Daily retention format for the monthly retention policy.
+        Daily retention format for monthly retention policy.
         """
         return pulumi.get(self, "retention_schedule_daily")
 
@@ -12336,7 +12675,7 @@ class MonthlyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionScheduleWeekly")
     def retention_schedule_weekly(self) -> Optional['outputs.WeeklyRetentionFormatResponse']:
         """
-        Weekly retention format for the monthly retention policy.
+        Weekly retention format for monthly retention policy.
         """
         return pulumi.get(self, "retention_schedule_weekly")
 
@@ -12344,7 +12683,7 @@ class MonthlyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionTimes")
     def retention_times(self) -> Optional[Sequence[str]]:
         """
-        Retention times of the retention policy.
+        Retention times of retention policy.
         """
         return pulumi.get(self, "retention_times")
 
@@ -15183,9 +15522,9 @@ class RetentionDurationResponse(dict):
                  duration_type: Optional[str] = None):
         """
         Retention duration.
-        :param int count: Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
-                  For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
-        :param str duration_type: The retention duration type of the retention policy.
+        :param int count: Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+               For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
+        :param str duration_type: Retention duration type of retention policy.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -15196,8 +15535,8 @@ class RetentionDurationResponse(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
-           For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
+        Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+        For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
         """
         return pulumi.get(self, "count")
 
@@ -15205,7 +15544,7 @@ class RetentionDurationResponse(dict):
     @pulumi.getter(name="durationType")
     def duration_type(self) -> Optional[str]:
         """
-        The retention duration type of the retention policy.
+        Retention duration type of retention policy.
         """
         return pulumi.get(self, "duration_type")
 
@@ -15314,22 +15653,81 @@ class RunAsAccountResponse(dict):
 
 
 @pulumi.output_type
+class SettingsResponse(dict):
+    """
+    Common settings field for backup management
+    """
+    def __init__(__self__, *,
+                 is_compression: Optional[bool] = None,
+                 issqlcompression: Optional[bool] = None,
+                 time_zone: Optional[str] = None):
+        """
+        Common settings field for backup management
+        :param bool is_compression: Workload compression flag. This has been added so that 'isSqlCompression'
+               will be deprecated once clients upgrade to consider this flag.
+        :param bool issqlcompression: SQL compression flag
+        :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+        if is_compression is not None:
+            pulumi.set(__self__, "is_compression", is_compression)
+        if issqlcompression is not None:
+            pulumi.set(__self__, "issqlcompression", issqlcompression)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="isCompression")
+    def is_compression(self) -> Optional[bool]:
+        """
+        Workload compression flag. This has been added so that 'isSqlCompression'
+        will be deprecated once clients upgrade to consider this flag.
+        """
+        return pulumi.get(self, "is_compression")
+
+    @property
+    @pulumi.getter
+    def issqlcompression(self) -> Optional[bool]:
+        """
+        SQL compression flag
+        """
+        return pulumi.get(self, "issqlcompression")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+        return pulumi.get(self, "time_zone")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SimpleRetentionPolicyResponse(dict):
     """
     Simple policy retention.
     """
     def __init__(__self__, *,
-                 retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
-                 retention_policy_type: Optional[str] = None):
+                 retention_policy_type: str,
+                 retention_duration: Optional['outputs.RetentionDurationResponse'] = None):
         """
         Simple policy retention.
+        :param str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the protection policy.
-        :param str retention_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
         """
+        pulumi.set(__self__, "retention_policy_type", 'SimpleRetentionPolicy')
         if retention_duration is not None:
             pulumi.set(__self__, "retention_duration", retention_duration)
-        if retention_policy_type is not None:
-            pulumi.set(__self__, "retention_policy_type", 'SimpleRetentionPolicy')
+
+    @property
+    @pulumi.getter(name="retentionPolicyType")
+    def retention_policy_type(self) -> str:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "retention_policy_type")
 
     @property
     @pulumi.getter(name="retentionDuration")
@@ -15338,14 +15736,6 @@ class SimpleRetentionPolicyResponse(dict):
         Retention duration of the protection policy.
         """
         return pulumi.get(self, "retention_duration")
-
-    @property
-    @pulumi.getter(name="retentionPolicyType")
-    def retention_policy_type(self) -> Optional[str]:
-        """
-        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        """
-        return pulumi.get(self, "retention_policy_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -15357,21 +15747,20 @@ class SimpleSchedulePolicyResponse(dict):
     Simple policy schedule.
     """
     def __init__(__self__, *,
-                 schedule_policy_type: Optional[str] = None,
+                 schedule_policy_type: str,
                  schedule_run_days: Optional[Sequence[str]] = None,
                  schedule_run_frequency: Optional[str] = None,
                  schedule_run_times: Optional[Sequence[str]] = None,
                  schedule_weekly_frequency: Optional[int] = None):
         """
         Simple policy schedule.
-        :param str schedule_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param Sequence[str] schedule_run_days: This list is the days of the week when the schedule runs.
-        :param str schedule_run_frequency: Defines the frequency interval (daily or weekly) for the schedule policy.
-        :param Sequence[str] schedule_run_times: List of times, during a day, when the schedule runs.
-        :param int schedule_weekly_frequency: The number of times per week the schedule runs.
+        :param str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param Sequence[str] schedule_run_days: List of days of week this schedule has to be run.
+        :param str schedule_run_frequency: Frequency of the schedule operation of this policy.
+        :param Sequence[str] schedule_run_times: List of times of day this schedule has to be run.
+        :param int schedule_weekly_frequency: At every number weeks this schedule has to be run.
         """
-        if schedule_policy_type is not None:
-            pulumi.set(__self__, "schedule_policy_type", 'SimpleSchedulePolicy')
+        pulumi.set(__self__, "schedule_policy_type", 'SimpleSchedulePolicy')
         if schedule_run_days is not None:
             pulumi.set(__self__, "schedule_run_days", schedule_run_days)
         if schedule_run_frequency is not None:
@@ -15383,9 +15772,9 @@ class SimpleSchedulePolicyResponse(dict):
 
     @property
     @pulumi.getter(name="schedulePolicyType")
-    def schedule_policy_type(self) -> Optional[str]:
+    def schedule_policy_type(self) -> str:
         """
-        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         """
         return pulumi.get(self, "schedule_policy_type")
 
@@ -15393,7 +15782,7 @@ class SimpleSchedulePolicyResponse(dict):
     @pulumi.getter(name="scheduleRunDays")
     def schedule_run_days(self) -> Optional[Sequence[str]]:
         """
-        This list is the days of the week when the schedule runs.
+        List of days of week this schedule has to be run.
         """
         return pulumi.get(self, "schedule_run_days")
 
@@ -15401,7 +15790,7 @@ class SimpleSchedulePolicyResponse(dict):
     @pulumi.getter(name="scheduleRunFrequency")
     def schedule_run_frequency(self) -> Optional[str]:
         """
-        Defines the frequency interval (daily or weekly) for the schedule policy.
+        Frequency of the schedule operation of this policy.
         """
         return pulumi.get(self, "schedule_run_frequency")
 
@@ -15409,7 +15798,7 @@ class SimpleSchedulePolicyResponse(dict):
     @pulumi.getter(name="scheduleRunTimes")
     def schedule_run_times(self) -> Optional[Sequence[str]]:
         """
-        List of times, during a day, when the schedule runs.
+        List of times of day this schedule has to be run.
         """
         return pulumi.get(self, "schedule_run_times")
 
@@ -15417,7 +15806,7 @@ class SimpleSchedulePolicyResponse(dict):
     @pulumi.getter(name="scheduleWeeklyFrequency")
     def schedule_weekly_frequency(self) -> Optional[int]:
         """
-        The number of times per week the schedule runs.
+        At every number weeks this schedule has to be run.
         """
         return pulumi.get(self, "schedule_weekly_frequency")
 
@@ -15471,6 +15860,56 @@ class StorageClassificationMappingPropertiesResponse(dict):
         Target storage object Id.
         """
         return pulumi.get(self, "target_storage_classification_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SubProtectionPolicyResponse(dict):
+    """
+    Sub-protection policy which includes schedule and retention
+    """
+    def __init__(__self__, *,
+                 policy_type: Optional[str] = None,
+                 retention_policy: Optional[Any] = None,
+                 schedule_policy: Optional[Any] = None):
+        """
+        Sub-protection policy which includes schedule and retention
+        :param str policy_type: Type of backup policy type
+        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: Retention policy with the details on backup copy retention ranges.
+        :param Union['LogSchedulePolicyResponseArgs', 'LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: Backup schedule specified as part of backup policy.
+        """
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if schedule_policy is not None:
+            pulumi.set(__self__, "schedule_policy", schedule_policy)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[str]:
+        """
+        Type of backup policy type
+        """
+        return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[Any]:
+        """
+        Retention policy with the details on backup copy retention ranges.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="schedulePolicy")
+    def schedule_policy(self) -> Optional[Any]:
+        """
+        Backup schedule specified as part of backup policy.
+        """
+        return pulumi.get(self, "schedule_policy")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -17362,7 +17801,7 @@ class WeeklyRetentionFormatResponse(dict):
         """
         Weekly retention format.
         :param Sequence[str] days_of_the_week: List of days of the week.
-        :param Sequence[str] weeks_of_the_month: List of weeks of the month.
+        :param Sequence[str] weeks_of_the_month: List of weeks of month.
         """
         if days_of_the_week is not None:
             pulumi.set(__self__, "days_of_the_week", days_of_the_week)
@@ -17381,7 +17820,7 @@ class WeeklyRetentionFormatResponse(dict):
     @pulumi.getter(name="weeksOfTheMonth")
     def weeks_of_the_month(self) -> Optional[Sequence[str]]:
         """
-        List of weeks of the month.
+        List of weeks of month.
         """
         return pulumi.get(self, "weeks_of_the_month")
 
@@ -17400,9 +17839,9 @@ class WeeklyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[str]] = None):
         """
         Weekly retention schedule.
-        :param Sequence[str] days_of_the_week: List of the days of the week for the weekly retention policy.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention policy.
-        :param Sequence[str] retention_times: Retention times of the retention policy.
+        :param Sequence[str] days_of_the_week: List of days of week for weekly retention policy.
+        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
+        :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if days_of_the_week is not None:
             pulumi.set(__self__, "days_of_the_week", days_of_the_week)
@@ -17415,7 +17854,7 @@ class WeeklyRetentionScheduleResponse(dict):
     @pulumi.getter(name="daysOfTheWeek")
     def days_of_the_week(self) -> Optional[Sequence[str]]:
         """
-        List of the days of the week for the weekly retention policy.
+        List of days of week for weekly retention policy.
         """
         return pulumi.get(self, "days_of_the_week")
 
@@ -17423,7 +17862,7 @@ class WeeklyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionDuration")
     def retention_duration(self) -> Optional['outputs.RetentionDurationResponse']:
         """
-        Retention duration of retention policy.
+        Retention duration of retention Policy.
         """
         return pulumi.get(self, "retention_duration")
 
@@ -17431,7 +17870,7 @@ class WeeklyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionTimes")
     def retention_times(self) -> Optional[Sequence[str]]:
         """
-        Retention times of the retention policy.
+        Retention times of retention policy.
         """
         return pulumi.get(self, "retention_times")
 
@@ -17503,12 +17942,12 @@ class YearlyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[str]] = None):
         """
         Yearly retention schedule.
-        :param Sequence[str] months_of_year: List of the months of year for the yearly retention policy.
-        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration for the retention policy.
-        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for the yearly retention policy.
-        :param str retention_schedule_format_type: Retention schedule format for the yearly retention policy.
-        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for the yearly retention policy.
-        :param Sequence[str] retention_times: Retention times for the retention policy.
+        :param Sequence[str] months_of_year: List of months of year of yearly retention policy.
+        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention Policy.
+        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for yearly retention policy.
+        :param str retention_schedule_format_type: Retention schedule format for yearly retention policy.
+        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for yearly retention policy.
+        :param Sequence[str] retention_times: Retention times of retention policy.
         """
         if months_of_year is not None:
             pulumi.set(__self__, "months_of_year", months_of_year)
@@ -17527,7 +17966,7 @@ class YearlyRetentionScheduleResponse(dict):
     @pulumi.getter(name="monthsOfYear")
     def months_of_year(self) -> Optional[Sequence[str]]:
         """
-        List of the months of year for the yearly retention policy.
+        List of months of year of yearly retention policy.
         """
         return pulumi.get(self, "months_of_year")
 
@@ -17535,7 +17974,7 @@ class YearlyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionDuration")
     def retention_duration(self) -> Optional['outputs.RetentionDurationResponse']:
         """
-        Retention duration for the retention policy.
+        Retention duration of retention Policy.
         """
         return pulumi.get(self, "retention_duration")
 
@@ -17543,7 +17982,7 @@ class YearlyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionScheduleDaily")
     def retention_schedule_daily(self) -> Optional['outputs.DailyRetentionFormatResponse']:
         """
-        Daily retention format for the yearly retention policy.
+        Daily retention format for yearly retention policy.
         """
         return pulumi.get(self, "retention_schedule_daily")
 
@@ -17551,7 +17990,7 @@ class YearlyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionScheduleFormatType")
     def retention_schedule_format_type(self) -> Optional[str]:
         """
-        Retention schedule format for the yearly retention policy.
+        Retention schedule format for yearly retention policy.
         """
         return pulumi.get(self, "retention_schedule_format_type")
 
@@ -17559,7 +17998,7 @@ class YearlyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionScheduleWeekly")
     def retention_schedule_weekly(self) -> Optional['outputs.WeeklyRetentionFormatResponse']:
         """
-        Weekly retention format for the yearly retention policy.
+        Weekly retention format for yearly retention policy.
         """
         return pulumi.get(self, "retention_schedule_weekly")
 
@@ -17567,7 +18006,7 @@ class YearlyRetentionScheduleResponse(dict):
     @pulumi.getter(name="retentionTimes")
     def retention_times(self) -> Optional[Sequence[str]]:
         """
-        Retention times for the retention policy.
+        Retention times of retention policy.
         """
         return pulumi.get(self, "retention_times")
 

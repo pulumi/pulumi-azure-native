@@ -156,6 +156,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:ManagedDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ManagedDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

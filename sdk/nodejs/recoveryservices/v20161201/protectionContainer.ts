@@ -107,7 +107,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:ProtectionContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionContainer.__pulumiType, name, inputs, opts);
     }

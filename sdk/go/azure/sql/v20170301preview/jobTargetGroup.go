@@ -44,6 +44,12 @@ func NewJobTargetGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &JobTargetGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:JobTargetGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource JobTargetGroup
 	err := ctx.RegisterResource("azure-nextgen:sql/v20170301preview:JobTargetGroup", name, args, &resource, opts...)
 	if err != nil {

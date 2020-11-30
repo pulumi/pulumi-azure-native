@@ -52,7 +52,7 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+     * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
      */
     public readonly maintenanceConfigurationId!: pulumi.Output<string | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface ElasticPoolArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+     * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
      */
     readonly maintenanceConfigurationId?: pulumi.Input<string>;
     /**

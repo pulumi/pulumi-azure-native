@@ -48,21 +48,45 @@ export class ConnectedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly agentVersion!: pulumi.Output<string>;
     /**
+     * Represents the connectivity status of the connected cluster.
+     */
+    public readonly connectivityStatus!: pulumi.Output<string | undefined>;
+    /**
+     * The Kubernetes distribution running on this connected cluster.
+     */
+    public readonly distribution!: pulumi.Output<string | undefined>;
+    /**
      * The identity of the connected cluster.
      */
     public readonly identity!: pulumi.Output<outputs.kubernetes.v20200101preview.ConnectedClusterIdentityResponse>;
+    /**
+     * The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+     */
+    public readonly infrastructure!: pulumi.Output<string | undefined>;
     /**
      * The Kubernetes version of the connected cluster resource
      */
     public /*out*/ readonly kubernetesVersion!: pulumi.Output<string>;
     /**
+     * Time representing the last instance when heart beat was received from the cluster
+     */
+    public /*out*/ readonly lastConnectivityTime!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Expiration time of the managed identity certificate
+     */
+    public /*out*/ readonly managedIdentityCertificateExpirationTime!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Connected cluster offering
+     */
+    public /*out*/ readonly offering!: pulumi.Output<string>;
     /**
      * Provisioning state of the connected cluster resource.
      */
@@ -71,6 +95,10 @@ export class ConnectedCluster extends pulumi.CustomResource {
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Number of CPU cores present in the connected cluster resource
+     */
+    public /*out*/ readonly totalCoreCount!: pulumi.Output<number>;
     /**
      * Number of nodes present in the connected cluster resource
      */
@@ -111,26 +139,40 @@ export class ConnectedCluster extends pulumi.CustomResource {
             inputs["aadProfile"] = args ? args.aadProfile : undefined;
             inputs["agentPublicKeyCertificate"] = args ? args.agentPublicKeyCertificate : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["connectivityStatus"] = args ? args.connectivityStatus : undefined;
+            inputs["distribution"] = args ? args.distribution : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["infrastructure"] = args ? args.infrastructure : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["agentVersion"] = undefined /*out*/;
             inputs["kubernetesVersion"] = undefined /*out*/;
+            inputs["lastConnectivityTime"] = undefined /*out*/;
+            inputs["managedIdentityCertificateExpirationTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["offering"] = undefined /*out*/;
+            inputs["totalCoreCount"] = undefined /*out*/;
             inputs["totalNodeCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["aadProfile"] = undefined /*out*/;
             inputs["agentPublicKeyCertificate"] = undefined /*out*/;
             inputs["agentVersion"] = undefined /*out*/;
+            inputs["connectivityStatus"] = undefined /*out*/;
+            inputs["distribution"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
+            inputs["infrastructure"] = undefined /*out*/;
             inputs["kubernetesVersion"] = undefined /*out*/;
+            inputs["lastConnectivityTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["managedIdentityCertificateExpirationTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["offering"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["totalCoreCount"] = undefined /*out*/;
             inputs["totalNodeCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -162,9 +204,21 @@ export interface ConnectedClusterArgs {
      */
     readonly clusterName: pulumi.Input<string>;
     /**
+     * Represents the connectivity status of the connected cluster.
+     */
+    readonly connectivityStatus?: pulumi.Input<string>;
+    /**
+     * The Kubernetes distribution running on this connected cluster.
+     */
+    readonly distribution?: pulumi.Input<string>;
+    /**
      * The identity of the connected cluster.
      */
     readonly identity: pulumi.Input<inputs.kubernetes.v20200101preview.ConnectedClusterIdentity>;
+    /**
+     * The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+     */
+    readonly infrastructure?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
