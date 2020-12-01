@@ -2,7 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getKey";
 export * from "./getPrivateEndpointConnection";
+export * from "./getSecret";
 export * from "./getVault";
+export * from "./key";
 export * from "./privateEndpointConnection";
+export * from "./secret";
 export * from "./vault";
