@@ -12,11 +12,14 @@ from . import outputs
 __all__ = [
     'AccessPolicyEntryResponse',
     'IPRuleResponse',
+    'KeyAttributesResponse',
     'NetworkRuleSetResponse',
     'PermissionsResponse',
     'PrivateEndpointConnectionItemResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'SecretAttributesResponse',
+    'SecretPropertiesResponse',
     'SkuResponse',
     'VaultPropertiesResponse',
     'VirtualNetworkRuleResponse',
@@ -101,6 +104,89 @@ class IPRuleResponse(dict):
         An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
         return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyAttributesResponse(dict):
+    """
+    The attributes of the key.
+    """
+    def __init__(__self__, *,
+                 created: int,
+                 recovery_level: str,
+                 updated: int,
+                 enabled: Optional[bool] = None,
+                 expires: Optional[int] = None,
+                 not_before: Optional[int] = None):
+        """
+        The attributes of the key.
+        :param int created: Creation time in seconds since 1970-01-01T00:00:00Z.
+        :param str recovery_level: The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
+        :param int updated: Last updated time in seconds since 1970-01-01T00:00:00Z.
+        :param bool enabled: Determines whether or not the object is enabled.
+        :param int expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
+        :param int not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+        pulumi.set(__self__, "created", created)
+        pulumi.set(__self__, "recovery_level", recovery_level)
+        pulumi.set(__self__, "updated", updated)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if expires is not None:
+            pulumi.set(__self__, "expires", expires)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
+
+    @property
+    @pulumi.getter
+    def created(self) -> int:
+        """
+        Creation time in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="recoveryLevel")
+    def recovery_level(self) -> str:
+        """
+        The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
+        """
+        return pulumi.get(self, "recovery_level")
+
+    @property
+    @pulumi.getter
+    def updated(self) -> int:
+        """
+        Last updated time in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "updated")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Determines whether or not the object is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def expires(self) -> Optional[int]:
+        """
+        Expiry date in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "expires")
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[int]:
+        """
+        Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "not_before")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -349,6 +435,150 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecretAttributesResponse(dict):
+    """
+    The secret management attributes.
+    """
+    def __init__(__self__, *,
+                 created: int,
+                 updated: int,
+                 enabled: Optional[bool] = None,
+                 expires: Optional[int] = None,
+                 not_before: Optional[int] = None):
+        """
+        The secret management attributes.
+        :param int created: Creation time in seconds since 1970-01-01T00:00:00Z.
+        :param int updated: Last updated time in seconds since 1970-01-01T00:00:00Z.
+        :param bool enabled: Determines whether the object is enabled.
+        :param int expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
+        :param int not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+        pulumi.set(__self__, "created", created)
+        pulumi.set(__self__, "updated", updated)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if expires is not None:
+            pulumi.set(__self__, "expires", expires)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
+
+    @property
+    @pulumi.getter
+    def created(self) -> int:
+        """
+        Creation time in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def updated(self) -> int:
+        """
+        Last updated time in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "updated")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Determines whether the object is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def expires(self) -> Optional[int]:
+        """
+        Expiry date in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "expires")
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[int]:
+        """
+        Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "not_before")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecretPropertiesResponse(dict):
+    """
+    Properties of the secret
+    """
+    def __init__(__self__, *,
+                 secret_uri: str,
+                 secret_uri_with_version: str,
+                 attributes: Optional['outputs.SecretAttributesResponse'] = None,
+                 content_type: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Properties of the secret
+        :param str secret_uri: The URI to retrieve the current version of the secret.
+        :param str secret_uri_with_version: The URI to retrieve the specific version of the secret.
+        :param 'SecretAttributesResponseArgs' attributes: The attributes of the secret.
+        :param str content_type: The content type of the secret.
+        :param str value: The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+        """
+        pulumi.set(__self__, "secret_uri", secret_uri)
+        pulumi.set(__self__, "secret_uri_with_version", secret_uri_with_version)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="secretUri")
+    def secret_uri(self) -> str:
+        """
+        The URI to retrieve the current version of the secret.
+        """
+        return pulumi.get(self, "secret_uri")
+
+    @property
+    @pulumi.getter(name="secretUriWithVersion")
+    def secret_uri_with_version(self) -> str:
+        """
+        The URI to retrieve the specific version of the secret.
+        """
+        return pulumi.get(self, "secret_uri_with_version")
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional['outputs.SecretAttributesResponse']:
+        """
+        The attributes of the secret.
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        The content type of the secret.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
