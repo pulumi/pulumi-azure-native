@@ -464,6 +464,613 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 	}).(IPRuleResponseOutput)
 }
 
+// The attributes of the key.
+type KeyAttributes struct {
+	// Determines whether or not the object is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Expiry date in seconds since 1970-01-01T00:00:00Z.
+	Expires *int `pulumi:"expires"`
+	// Not before date in seconds since 1970-01-01T00:00:00Z.
+	NotBefore *int `pulumi:"notBefore"`
+}
+
+// KeyAttributesInput is an input type that accepts KeyAttributesArgs and KeyAttributesOutput values.
+// You can construct a concrete instance of `KeyAttributesInput` via:
+//
+//          KeyAttributesArgs{...}
+type KeyAttributesInput interface {
+	pulumi.Input
+
+	ToKeyAttributesOutput() KeyAttributesOutput
+	ToKeyAttributesOutputWithContext(context.Context) KeyAttributesOutput
+}
+
+// The attributes of the key.
+type KeyAttributesArgs struct {
+	// Determines whether or not the object is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Expiry date in seconds since 1970-01-01T00:00:00Z.
+	Expires pulumi.IntPtrInput `pulumi:"expires"`
+	// Not before date in seconds since 1970-01-01T00:00:00Z.
+	NotBefore pulumi.IntPtrInput `pulumi:"notBefore"`
+}
+
+func (KeyAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyAttributes)(nil)).Elem()
+}
+
+func (i KeyAttributesArgs) ToKeyAttributesOutput() KeyAttributesOutput {
+	return i.ToKeyAttributesOutputWithContext(context.Background())
+}
+
+func (i KeyAttributesArgs) ToKeyAttributesOutputWithContext(ctx context.Context) KeyAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyAttributesOutput)
+}
+
+func (i KeyAttributesArgs) ToKeyAttributesPtrOutput() KeyAttributesPtrOutput {
+	return i.ToKeyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyAttributesArgs) ToKeyAttributesPtrOutputWithContext(ctx context.Context) KeyAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyAttributesOutput).ToKeyAttributesPtrOutputWithContext(ctx)
+}
+
+// KeyAttributesPtrInput is an input type that accepts KeyAttributesArgs, KeyAttributesPtr and KeyAttributesPtrOutput values.
+// You can construct a concrete instance of `KeyAttributesPtrInput` via:
+//
+//          KeyAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyAttributesPtrInput interface {
+	pulumi.Input
+
+	ToKeyAttributesPtrOutput() KeyAttributesPtrOutput
+	ToKeyAttributesPtrOutputWithContext(context.Context) KeyAttributesPtrOutput
+}
+
+type keyAttributesPtrType KeyAttributesArgs
+
+func KeyAttributesPtr(v *KeyAttributesArgs) KeyAttributesPtrInput {
+	return (*keyAttributesPtrType)(v)
+}
+
+func (*keyAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyAttributes)(nil)).Elem()
+}
+
+func (i *keyAttributesPtrType) ToKeyAttributesPtrOutput() KeyAttributesPtrOutput {
+	return i.ToKeyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyAttributesPtrType) ToKeyAttributesPtrOutputWithContext(ctx context.Context) KeyAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyAttributesPtrOutput)
+}
+
+// The attributes of the key.
+type KeyAttributesOutput struct{ *pulumi.OutputState }
+
+func (KeyAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyAttributes)(nil)).Elem()
+}
+
+func (o KeyAttributesOutput) ToKeyAttributesOutput() KeyAttributesOutput {
+	return o
+}
+
+func (o KeyAttributesOutput) ToKeyAttributesOutputWithContext(ctx context.Context) KeyAttributesOutput {
+	return o
+}
+
+func (o KeyAttributesOutput) ToKeyAttributesPtrOutput() KeyAttributesPtrOutput {
+	return o.ToKeyAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyAttributesOutput) ToKeyAttributesPtrOutputWithContext(ctx context.Context) KeyAttributesPtrOutput {
+	return o.ApplyT(func(v KeyAttributes) *KeyAttributes {
+		return &v
+	}).(KeyAttributesPtrOutput)
+}
+
+// Determines whether or not the object is enabled.
+func (o KeyAttributesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyAttributes) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Expiry date in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesOutput) Expires() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyAttributes) *int { return v.Expires }).(pulumi.IntPtrOutput)
+}
+
+// Not before date in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesOutput) NotBefore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyAttributes) *int { return v.NotBefore }).(pulumi.IntPtrOutput)
+}
+
+type KeyAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyAttributes)(nil)).Elem()
+}
+
+func (o KeyAttributesPtrOutput) ToKeyAttributesPtrOutput() KeyAttributesPtrOutput {
+	return o
+}
+
+func (o KeyAttributesPtrOutput) ToKeyAttributesPtrOutputWithContext(ctx context.Context) KeyAttributesPtrOutput {
+	return o
+}
+
+func (o KeyAttributesPtrOutput) Elem() KeyAttributesOutput {
+	return o.ApplyT(func(v *KeyAttributes) KeyAttributes { return *v }).(KeyAttributesOutput)
+}
+
+// Determines whether or not the object is enabled.
+func (o KeyAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KeyAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Expiry date in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesPtrOutput) Expires() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Expires
+	}).(pulumi.IntPtrOutput)
+}
+
+// Not before date in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesPtrOutput) NotBefore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NotBefore
+	}).(pulumi.IntPtrOutput)
+}
+
+// The attributes of the key.
+type KeyAttributesResponse struct {
+	// Creation time in seconds since 1970-01-01T00:00:00Z.
+	Created int `pulumi:"created"`
+	// Determines whether or not the object is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Expiry date in seconds since 1970-01-01T00:00:00Z.
+	Expires *int `pulumi:"expires"`
+	// Not before date in seconds since 1970-01-01T00:00:00Z.
+	NotBefore *int `pulumi:"notBefore"`
+	// The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
+	RecoveryLevel string `pulumi:"recoveryLevel"`
+	// Last updated time in seconds since 1970-01-01T00:00:00Z.
+	Updated int `pulumi:"updated"`
+}
+
+// KeyAttributesResponseInput is an input type that accepts KeyAttributesResponseArgs and KeyAttributesResponseOutput values.
+// You can construct a concrete instance of `KeyAttributesResponseInput` via:
+//
+//          KeyAttributesResponseArgs{...}
+type KeyAttributesResponseInput interface {
+	pulumi.Input
+
+	ToKeyAttributesResponseOutput() KeyAttributesResponseOutput
+	ToKeyAttributesResponseOutputWithContext(context.Context) KeyAttributesResponseOutput
+}
+
+// The attributes of the key.
+type KeyAttributesResponseArgs struct {
+	// Creation time in seconds since 1970-01-01T00:00:00Z.
+	Created pulumi.IntInput `pulumi:"created"`
+	// Determines whether or not the object is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Expiry date in seconds since 1970-01-01T00:00:00Z.
+	Expires pulumi.IntPtrInput `pulumi:"expires"`
+	// Not before date in seconds since 1970-01-01T00:00:00Z.
+	NotBefore pulumi.IntPtrInput `pulumi:"notBefore"`
+	// The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
+	RecoveryLevel pulumi.StringInput `pulumi:"recoveryLevel"`
+	// Last updated time in seconds since 1970-01-01T00:00:00Z.
+	Updated pulumi.IntInput `pulumi:"updated"`
+}
+
+func (KeyAttributesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyAttributesResponse)(nil)).Elem()
+}
+
+func (i KeyAttributesResponseArgs) ToKeyAttributesResponseOutput() KeyAttributesResponseOutput {
+	return i.ToKeyAttributesResponseOutputWithContext(context.Background())
+}
+
+func (i KeyAttributesResponseArgs) ToKeyAttributesResponseOutputWithContext(ctx context.Context) KeyAttributesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyAttributesResponseOutput)
+}
+
+func (i KeyAttributesResponseArgs) ToKeyAttributesResponsePtrOutput() KeyAttributesResponsePtrOutput {
+	return i.ToKeyAttributesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyAttributesResponseArgs) ToKeyAttributesResponsePtrOutputWithContext(ctx context.Context) KeyAttributesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyAttributesResponseOutput).ToKeyAttributesResponsePtrOutputWithContext(ctx)
+}
+
+// KeyAttributesResponsePtrInput is an input type that accepts KeyAttributesResponseArgs, KeyAttributesResponsePtr and KeyAttributesResponsePtrOutput values.
+// You can construct a concrete instance of `KeyAttributesResponsePtrInput` via:
+//
+//          KeyAttributesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyAttributesResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyAttributesResponsePtrOutput() KeyAttributesResponsePtrOutput
+	ToKeyAttributesResponsePtrOutputWithContext(context.Context) KeyAttributesResponsePtrOutput
+}
+
+type keyAttributesResponsePtrType KeyAttributesResponseArgs
+
+func KeyAttributesResponsePtr(v *KeyAttributesResponseArgs) KeyAttributesResponsePtrInput {
+	return (*keyAttributesResponsePtrType)(v)
+}
+
+func (*keyAttributesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyAttributesResponse)(nil)).Elem()
+}
+
+func (i *keyAttributesResponsePtrType) ToKeyAttributesResponsePtrOutput() KeyAttributesResponsePtrOutput {
+	return i.ToKeyAttributesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyAttributesResponsePtrType) ToKeyAttributesResponsePtrOutputWithContext(ctx context.Context) KeyAttributesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyAttributesResponsePtrOutput)
+}
+
+// The attributes of the key.
+type KeyAttributesResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyAttributesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyAttributesResponse)(nil)).Elem()
+}
+
+func (o KeyAttributesResponseOutput) ToKeyAttributesResponseOutput() KeyAttributesResponseOutput {
+	return o
+}
+
+func (o KeyAttributesResponseOutput) ToKeyAttributesResponseOutputWithContext(ctx context.Context) KeyAttributesResponseOutput {
+	return o
+}
+
+func (o KeyAttributesResponseOutput) ToKeyAttributesResponsePtrOutput() KeyAttributesResponsePtrOutput {
+	return o.ToKeyAttributesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyAttributesResponseOutput) ToKeyAttributesResponsePtrOutputWithContext(ctx context.Context) KeyAttributesResponsePtrOutput {
+	return o.ApplyT(func(v KeyAttributesResponse) *KeyAttributesResponse {
+		return &v
+	}).(KeyAttributesResponsePtrOutput)
+}
+
+// Creation time in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesResponseOutput) Created() pulumi.IntOutput {
+	return o.ApplyT(func(v KeyAttributesResponse) int { return v.Created }).(pulumi.IntOutput)
+}
+
+// Determines whether or not the object is enabled.
+func (o KeyAttributesResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyAttributesResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Expiry date in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesResponseOutput) Expires() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyAttributesResponse) *int { return v.Expires }).(pulumi.IntPtrOutput)
+}
+
+// Not before date in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesResponseOutput) NotBefore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyAttributesResponse) *int { return v.NotBefore }).(pulumi.IntPtrOutput)
+}
+
+// The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
+func (o KeyAttributesResponseOutput) RecoveryLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyAttributesResponse) string { return v.RecoveryLevel }).(pulumi.StringOutput)
+}
+
+// Last updated time in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesResponseOutput) Updated() pulumi.IntOutput {
+	return o.ApplyT(func(v KeyAttributesResponse) int { return v.Updated }).(pulumi.IntOutput)
+}
+
+type KeyAttributesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyAttributesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyAttributesResponse)(nil)).Elem()
+}
+
+func (o KeyAttributesResponsePtrOutput) ToKeyAttributesResponsePtrOutput() KeyAttributesResponsePtrOutput {
+	return o
+}
+
+func (o KeyAttributesResponsePtrOutput) ToKeyAttributesResponsePtrOutputWithContext(ctx context.Context) KeyAttributesResponsePtrOutput {
+	return o
+}
+
+func (o KeyAttributesResponsePtrOutput) Elem() KeyAttributesResponseOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) KeyAttributesResponse { return *v }).(KeyAttributesResponseOutput)
+}
+
+// Creation time in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesResponsePtrOutput) Created() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Created
+	}).(pulumi.IntPtrOutput)
+}
+
+// Determines whether or not the object is enabled.
+func (o KeyAttributesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Expiry date in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesResponsePtrOutput) Expires() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Expires
+	}).(pulumi.IntPtrOutput)
+}
+
+// Not before date in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesResponsePtrOutput) NotBefore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NotBefore
+	}).(pulumi.IntPtrOutput)
+}
+
+// The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
+func (o KeyAttributesResponsePtrOutput) RecoveryLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RecoveryLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last updated time in seconds since 1970-01-01T00:00:00Z.
+func (o KeyAttributesResponsePtrOutput) Updated() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyAttributesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Updated
+	}).(pulumi.IntPtrOutput)
+}
+
+// The properties of the key.
+type KeyProperties struct {
+	// The attributes of the key.
+	Attributes *KeyAttributes `pulumi:"attributes"`
+	// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+	CurveName *string  `pulumi:"curveName"`
+	KeyOps    []string `pulumi:"keyOps"`
+	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+	KeySize *int `pulumi:"keySize"`
+	// The type of the key. For valid values, see JsonWebKeyType.
+	Kty *string `pulumi:"kty"`
+}
+
+// KeyPropertiesInput is an input type that accepts KeyPropertiesArgs and KeyPropertiesOutput values.
+// You can construct a concrete instance of `KeyPropertiesInput` via:
+//
+//          KeyPropertiesArgs{...}
+type KeyPropertiesInput interface {
+	pulumi.Input
+
+	ToKeyPropertiesOutput() KeyPropertiesOutput
+	ToKeyPropertiesOutputWithContext(context.Context) KeyPropertiesOutput
+}
+
+// The properties of the key.
+type KeyPropertiesArgs struct {
+	// The attributes of the key.
+	Attributes KeyAttributesPtrInput `pulumi:"attributes"`
+	// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+	CurveName pulumi.StringPtrInput   `pulumi:"curveName"`
+	KeyOps    pulumi.StringArrayInput `pulumi:"keyOps"`
+	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
+	// The type of the key. For valid values, see JsonWebKeyType.
+	Kty pulumi.StringPtrInput `pulumi:"kty"`
+}
+
+func (KeyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyProperties)(nil)).Elem()
+}
+
+func (i KeyPropertiesArgs) ToKeyPropertiesOutput() KeyPropertiesOutput {
+	return i.ToKeyPropertiesOutputWithContext(context.Background())
+}
+
+func (i KeyPropertiesArgs) ToKeyPropertiesOutputWithContext(ctx context.Context) KeyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesOutput)
+}
+
+func (i KeyPropertiesArgs) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
+	return i.ToKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyPropertiesArgs) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesOutput).ToKeyPropertiesPtrOutputWithContext(ctx)
+}
+
+// KeyPropertiesPtrInput is an input type that accepts KeyPropertiesArgs, KeyPropertiesPtr and KeyPropertiesPtrOutput values.
+// You can construct a concrete instance of `KeyPropertiesPtrInput` via:
+//
+//          KeyPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput
+	ToKeyPropertiesPtrOutputWithContext(context.Context) KeyPropertiesPtrOutput
+}
+
+type keyPropertiesPtrType KeyPropertiesArgs
+
+func KeyPropertiesPtr(v *KeyPropertiesArgs) KeyPropertiesPtrInput {
+	return (*keyPropertiesPtrType)(v)
+}
+
+func (*keyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyProperties)(nil)).Elem()
+}
+
+func (i *keyPropertiesPtrType) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
+	return i.ToKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyPropertiesPtrType) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesPtrOutput)
+}
+
+// The properties of the key.
+type KeyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KeyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyProperties)(nil)).Elem()
+}
+
+func (o KeyPropertiesOutput) ToKeyPropertiesOutput() KeyPropertiesOutput {
+	return o
+}
+
+func (o KeyPropertiesOutput) ToKeyPropertiesOutputWithContext(ctx context.Context) KeyPropertiesOutput {
+	return o
+}
+
+func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
+	return o.ToKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
+	return o.ApplyT(func(v KeyProperties) *KeyProperties {
+		return &v
+	}).(KeyPropertiesPtrOutput)
+}
+
+// The attributes of the key.
+func (o KeyPropertiesOutput) Attributes() KeyAttributesPtrOutput {
+	return o.ApplyT(func(v KeyProperties) *KeyAttributes { return v.Attributes }).(KeyAttributesPtrOutput)
+}
+
+// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+func (o KeyPropertiesOutput) CurveName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyProperties) *string { return v.CurveName }).(pulumi.StringPtrOutput)
+}
+
+func (o KeyPropertiesOutput) KeyOps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KeyProperties) []string { return v.KeyOps }).(pulumi.StringArrayOutput)
+}
+
+// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+func (o KeyPropertiesOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
+}
+
+// The type of the key. For valid values, see JsonWebKeyType.
+func (o KeyPropertiesOutput) Kty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyProperties) *string { return v.Kty }).(pulumi.StringPtrOutput)
+}
+
+type KeyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyProperties)(nil)).Elem()
+}
+
+func (o KeyPropertiesPtrOutput) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyPropertiesPtrOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyPropertiesPtrOutput) Elem() KeyPropertiesOutput {
+	return o.ApplyT(func(v *KeyProperties) KeyProperties { return *v }).(KeyPropertiesOutput)
+}
+
+// The attributes of the key.
+func (o KeyPropertiesPtrOutput) Attributes() KeyAttributesPtrOutput {
+	return o.ApplyT(func(v *KeyProperties) *KeyAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(KeyAttributesPtrOutput)
+}
+
+// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+func (o KeyPropertiesPtrOutput) CurveName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CurveName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KeyPropertiesPtrOutput) KeyOps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KeyProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyOps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+func (o KeyPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeySize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The type of the key. For valid values, see JsonWebKeyType.
+func (o KeyPropertiesPtrOutput) Kty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kty
+	}).(pulumi.StringPtrOutput)
+}
+
 // A set of rules governing the network accessibility of a vault.
 type NetworkRuleSet struct {
 	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
@@ -1607,6 +2214,770 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 			return nil
 		}
 		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secret management attributes.
+type SecretAttributes struct {
+	// Determines whether the object is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Expiry date in seconds since 1970-01-01T00:00:00Z.
+	Expires *int `pulumi:"expires"`
+	// Not before date in seconds since 1970-01-01T00:00:00Z.
+	NotBefore *int `pulumi:"notBefore"`
+}
+
+// SecretAttributesInput is an input type that accepts SecretAttributesArgs and SecretAttributesOutput values.
+// You can construct a concrete instance of `SecretAttributesInput` via:
+//
+//          SecretAttributesArgs{...}
+type SecretAttributesInput interface {
+	pulumi.Input
+
+	ToSecretAttributesOutput() SecretAttributesOutput
+	ToSecretAttributesOutputWithContext(context.Context) SecretAttributesOutput
+}
+
+// The secret management attributes.
+type SecretAttributesArgs struct {
+	// Determines whether the object is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Expiry date in seconds since 1970-01-01T00:00:00Z.
+	Expires pulumi.IntPtrInput `pulumi:"expires"`
+	// Not before date in seconds since 1970-01-01T00:00:00Z.
+	NotBefore pulumi.IntPtrInput `pulumi:"notBefore"`
+}
+
+func (SecretAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretAttributes)(nil)).Elem()
+}
+
+func (i SecretAttributesArgs) ToSecretAttributesOutput() SecretAttributesOutput {
+	return i.ToSecretAttributesOutputWithContext(context.Background())
+}
+
+func (i SecretAttributesArgs) ToSecretAttributesOutputWithContext(ctx context.Context) SecretAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretAttributesOutput)
+}
+
+func (i SecretAttributesArgs) ToSecretAttributesPtrOutput() SecretAttributesPtrOutput {
+	return i.ToSecretAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i SecretAttributesArgs) ToSecretAttributesPtrOutputWithContext(ctx context.Context) SecretAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretAttributesOutput).ToSecretAttributesPtrOutputWithContext(ctx)
+}
+
+// SecretAttributesPtrInput is an input type that accepts SecretAttributesArgs, SecretAttributesPtr and SecretAttributesPtrOutput values.
+// You can construct a concrete instance of `SecretAttributesPtrInput` via:
+//
+//          SecretAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type SecretAttributesPtrInput interface {
+	pulumi.Input
+
+	ToSecretAttributesPtrOutput() SecretAttributesPtrOutput
+	ToSecretAttributesPtrOutputWithContext(context.Context) SecretAttributesPtrOutput
+}
+
+type secretAttributesPtrType SecretAttributesArgs
+
+func SecretAttributesPtr(v *SecretAttributesArgs) SecretAttributesPtrInput {
+	return (*secretAttributesPtrType)(v)
+}
+
+func (*secretAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretAttributes)(nil)).Elem()
+}
+
+func (i *secretAttributesPtrType) ToSecretAttributesPtrOutput() SecretAttributesPtrOutput {
+	return i.ToSecretAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *secretAttributesPtrType) ToSecretAttributesPtrOutputWithContext(ctx context.Context) SecretAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretAttributesPtrOutput)
+}
+
+// The secret management attributes.
+type SecretAttributesOutput struct{ *pulumi.OutputState }
+
+func (SecretAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretAttributes)(nil)).Elem()
+}
+
+func (o SecretAttributesOutput) ToSecretAttributesOutput() SecretAttributesOutput {
+	return o
+}
+
+func (o SecretAttributesOutput) ToSecretAttributesOutputWithContext(ctx context.Context) SecretAttributesOutput {
+	return o
+}
+
+func (o SecretAttributesOutput) ToSecretAttributesPtrOutput() SecretAttributesPtrOutput {
+	return o.ToSecretAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o SecretAttributesOutput) ToSecretAttributesPtrOutputWithContext(ctx context.Context) SecretAttributesPtrOutput {
+	return o.ApplyT(func(v SecretAttributes) *SecretAttributes {
+		return &v
+	}).(SecretAttributesPtrOutput)
+}
+
+// Determines whether the object is enabled.
+func (o SecretAttributesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecretAttributes) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Expiry date in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesOutput) Expires() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecretAttributes) *int { return v.Expires }).(pulumi.IntPtrOutput)
+}
+
+// Not before date in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesOutput) NotBefore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecretAttributes) *int { return v.NotBefore }).(pulumi.IntPtrOutput)
+}
+
+type SecretAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (SecretAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretAttributes)(nil)).Elem()
+}
+
+func (o SecretAttributesPtrOutput) ToSecretAttributesPtrOutput() SecretAttributesPtrOutput {
+	return o
+}
+
+func (o SecretAttributesPtrOutput) ToSecretAttributesPtrOutputWithContext(ctx context.Context) SecretAttributesPtrOutput {
+	return o
+}
+
+func (o SecretAttributesPtrOutput) Elem() SecretAttributesOutput {
+	return o.ApplyT(func(v *SecretAttributes) SecretAttributes { return *v }).(SecretAttributesOutput)
+}
+
+// Determines whether the object is enabled.
+func (o SecretAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecretAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Expiry date in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesPtrOutput) Expires() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecretAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Expires
+	}).(pulumi.IntPtrOutput)
+}
+
+// Not before date in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesPtrOutput) NotBefore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecretAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NotBefore
+	}).(pulumi.IntPtrOutput)
+}
+
+// The secret management attributes.
+type SecretAttributesResponse struct {
+	// Creation time in seconds since 1970-01-01T00:00:00Z.
+	Created int `pulumi:"created"`
+	// Determines whether the object is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Expiry date in seconds since 1970-01-01T00:00:00Z.
+	Expires *int `pulumi:"expires"`
+	// Not before date in seconds since 1970-01-01T00:00:00Z.
+	NotBefore *int `pulumi:"notBefore"`
+	// Last updated time in seconds since 1970-01-01T00:00:00Z.
+	Updated int `pulumi:"updated"`
+}
+
+// SecretAttributesResponseInput is an input type that accepts SecretAttributesResponseArgs and SecretAttributesResponseOutput values.
+// You can construct a concrete instance of `SecretAttributesResponseInput` via:
+//
+//          SecretAttributesResponseArgs{...}
+type SecretAttributesResponseInput interface {
+	pulumi.Input
+
+	ToSecretAttributesResponseOutput() SecretAttributesResponseOutput
+	ToSecretAttributesResponseOutputWithContext(context.Context) SecretAttributesResponseOutput
+}
+
+// The secret management attributes.
+type SecretAttributesResponseArgs struct {
+	// Creation time in seconds since 1970-01-01T00:00:00Z.
+	Created pulumi.IntInput `pulumi:"created"`
+	// Determines whether the object is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Expiry date in seconds since 1970-01-01T00:00:00Z.
+	Expires pulumi.IntPtrInput `pulumi:"expires"`
+	// Not before date in seconds since 1970-01-01T00:00:00Z.
+	NotBefore pulumi.IntPtrInput `pulumi:"notBefore"`
+	// Last updated time in seconds since 1970-01-01T00:00:00Z.
+	Updated pulumi.IntInput `pulumi:"updated"`
+}
+
+func (SecretAttributesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretAttributesResponse)(nil)).Elem()
+}
+
+func (i SecretAttributesResponseArgs) ToSecretAttributesResponseOutput() SecretAttributesResponseOutput {
+	return i.ToSecretAttributesResponseOutputWithContext(context.Background())
+}
+
+func (i SecretAttributesResponseArgs) ToSecretAttributesResponseOutputWithContext(ctx context.Context) SecretAttributesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretAttributesResponseOutput)
+}
+
+func (i SecretAttributesResponseArgs) ToSecretAttributesResponsePtrOutput() SecretAttributesResponsePtrOutput {
+	return i.ToSecretAttributesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SecretAttributesResponseArgs) ToSecretAttributesResponsePtrOutputWithContext(ctx context.Context) SecretAttributesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretAttributesResponseOutput).ToSecretAttributesResponsePtrOutputWithContext(ctx)
+}
+
+// SecretAttributesResponsePtrInput is an input type that accepts SecretAttributesResponseArgs, SecretAttributesResponsePtr and SecretAttributesResponsePtrOutput values.
+// You can construct a concrete instance of `SecretAttributesResponsePtrInput` via:
+//
+//          SecretAttributesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SecretAttributesResponsePtrInput interface {
+	pulumi.Input
+
+	ToSecretAttributesResponsePtrOutput() SecretAttributesResponsePtrOutput
+	ToSecretAttributesResponsePtrOutputWithContext(context.Context) SecretAttributesResponsePtrOutput
+}
+
+type secretAttributesResponsePtrType SecretAttributesResponseArgs
+
+func SecretAttributesResponsePtr(v *SecretAttributesResponseArgs) SecretAttributesResponsePtrInput {
+	return (*secretAttributesResponsePtrType)(v)
+}
+
+func (*secretAttributesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretAttributesResponse)(nil)).Elem()
+}
+
+func (i *secretAttributesResponsePtrType) ToSecretAttributesResponsePtrOutput() SecretAttributesResponsePtrOutput {
+	return i.ToSecretAttributesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *secretAttributesResponsePtrType) ToSecretAttributesResponsePtrOutputWithContext(ctx context.Context) SecretAttributesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretAttributesResponsePtrOutput)
+}
+
+// The secret management attributes.
+type SecretAttributesResponseOutput struct{ *pulumi.OutputState }
+
+func (SecretAttributesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretAttributesResponse)(nil)).Elem()
+}
+
+func (o SecretAttributesResponseOutput) ToSecretAttributesResponseOutput() SecretAttributesResponseOutput {
+	return o
+}
+
+func (o SecretAttributesResponseOutput) ToSecretAttributesResponseOutputWithContext(ctx context.Context) SecretAttributesResponseOutput {
+	return o
+}
+
+func (o SecretAttributesResponseOutput) ToSecretAttributesResponsePtrOutput() SecretAttributesResponsePtrOutput {
+	return o.ToSecretAttributesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SecretAttributesResponseOutput) ToSecretAttributesResponsePtrOutputWithContext(ctx context.Context) SecretAttributesResponsePtrOutput {
+	return o.ApplyT(func(v SecretAttributesResponse) *SecretAttributesResponse {
+		return &v
+	}).(SecretAttributesResponsePtrOutput)
+}
+
+// Creation time in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesResponseOutput) Created() pulumi.IntOutput {
+	return o.ApplyT(func(v SecretAttributesResponse) int { return v.Created }).(pulumi.IntOutput)
+}
+
+// Determines whether the object is enabled.
+func (o SecretAttributesResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecretAttributesResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Expiry date in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesResponseOutput) Expires() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecretAttributesResponse) *int { return v.Expires }).(pulumi.IntPtrOutput)
+}
+
+// Not before date in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesResponseOutput) NotBefore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecretAttributesResponse) *int { return v.NotBefore }).(pulumi.IntPtrOutput)
+}
+
+// Last updated time in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesResponseOutput) Updated() pulumi.IntOutput {
+	return o.ApplyT(func(v SecretAttributesResponse) int { return v.Updated }).(pulumi.IntOutput)
+}
+
+type SecretAttributesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecretAttributesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretAttributesResponse)(nil)).Elem()
+}
+
+func (o SecretAttributesResponsePtrOutput) ToSecretAttributesResponsePtrOutput() SecretAttributesResponsePtrOutput {
+	return o
+}
+
+func (o SecretAttributesResponsePtrOutput) ToSecretAttributesResponsePtrOutputWithContext(ctx context.Context) SecretAttributesResponsePtrOutput {
+	return o
+}
+
+func (o SecretAttributesResponsePtrOutput) Elem() SecretAttributesResponseOutput {
+	return o.ApplyT(func(v *SecretAttributesResponse) SecretAttributesResponse { return *v }).(SecretAttributesResponseOutput)
+}
+
+// Creation time in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesResponsePtrOutput) Created() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecretAttributesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Created
+	}).(pulumi.IntPtrOutput)
+}
+
+// Determines whether the object is enabled.
+func (o SecretAttributesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecretAttributesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Expiry date in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesResponsePtrOutput) Expires() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecretAttributesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Expires
+	}).(pulumi.IntPtrOutput)
+}
+
+// Not before date in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesResponsePtrOutput) NotBefore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecretAttributesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NotBefore
+	}).(pulumi.IntPtrOutput)
+}
+
+// Last updated time in seconds since 1970-01-01T00:00:00Z.
+func (o SecretAttributesResponsePtrOutput) Updated() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecretAttributesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Updated
+	}).(pulumi.IntPtrOutput)
+}
+
+// Properties of the secret
+type SecretProperties struct {
+	// The attributes of the secret.
+	Attributes *SecretAttributes `pulumi:"attributes"`
+	// The content type of the secret.
+	ContentType *string `pulumi:"contentType"`
+	// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+	Value *string `pulumi:"value"`
+}
+
+// SecretPropertiesInput is an input type that accepts SecretPropertiesArgs and SecretPropertiesOutput values.
+// You can construct a concrete instance of `SecretPropertiesInput` via:
+//
+//          SecretPropertiesArgs{...}
+type SecretPropertiesInput interface {
+	pulumi.Input
+
+	ToSecretPropertiesOutput() SecretPropertiesOutput
+	ToSecretPropertiesOutputWithContext(context.Context) SecretPropertiesOutput
+}
+
+// Properties of the secret
+type SecretPropertiesArgs struct {
+	// The attributes of the secret.
+	Attributes SecretAttributesPtrInput `pulumi:"attributes"`
+	// The content type of the secret.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SecretPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretProperties)(nil)).Elem()
+}
+
+func (i SecretPropertiesArgs) ToSecretPropertiesOutput() SecretPropertiesOutput {
+	return i.ToSecretPropertiesOutputWithContext(context.Background())
+}
+
+func (i SecretPropertiesArgs) ToSecretPropertiesOutputWithContext(ctx context.Context) SecretPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesOutput)
+}
+
+func (i SecretPropertiesArgs) ToSecretPropertiesPtrOutput() SecretPropertiesPtrOutput {
+	return i.ToSecretPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SecretPropertiesArgs) ToSecretPropertiesPtrOutputWithContext(ctx context.Context) SecretPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesOutput).ToSecretPropertiesPtrOutputWithContext(ctx)
+}
+
+// SecretPropertiesPtrInput is an input type that accepts SecretPropertiesArgs, SecretPropertiesPtr and SecretPropertiesPtrOutput values.
+// You can construct a concrete instance of `SecretPropertiesPtrInput` via:
+//
+//          SecretPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SecretPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSecretPropertiesPtrOutput() SecretPropertiesPtrOutput
+	ToSecretPropertiesPtrOutputWithContext(context.Context) SecretPropertiesPtrOutput
+}
+
+type secretPropertiesPtrType SecretPropertiesArgs
+
+func SecretPropertiesPtr(v *SecretPropertiesArgs) SecretPropertiesPtrInput {
+	return (*secretPropertiesPtrType)(v)
+}
+
+func (*secretPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretProperties)(nil)).Elem()
+}
+
+func (i *secretPropertiesPtrType) ToSecretPropertiesPtrOutput() SecretPropertiesPtrOutput {
+	return i.ToSecretPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *secretPropertiesPtrType) ToSecretPropertiesPtrOutputWithContext(ctx context.Context) SecretPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesPtrOutput)
+}
+
+// Properties of the secret
+type SecretPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SecretPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretProperties)(nil)).Elem()
+}
+
+func (o SecretPropertiesOutput) ToSecretPropertiesOutput() SecretPropertiesOutput {
+	return o
+}
+
+func (o SecretPropertiesOutput) ToSecretPropertiesOutputWithContext(ctx context.Context) SecretPropertiesOutput {
+	return o
+}
+
+func (o SecretPropertiesOutput) ToSecretPropertiesPtrOutput() SecretPropertiesPtrOutput {
+	return o.ToSecretPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SecretPropertiesOutput) ToSecretPropertiesPtrOutputWithContext(ctx context.Context) SecretPropertiesPtrOutput {
+	return o.ApplyT(func(v SecretProperties) *SecretProperties {
+		return &v
+	}).(SecretPropertiesPtrOutput)
+}
+
+// The attributes of the secret.
+func (o SecretPropertiesOutput) Attributes() SecretAttributesPtrOutput {
+	return o.ApplyT(func(v SecretProperties) *SecretAttributes { return v.Attributes }).(SecretAttributesPtrOutput)
+}
+
+// The content type of the secret.
+func (o SecretPropertiesOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretProperties) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+func (o SecretPropertiesOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretProperties) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SecretPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SecretPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretProperties)(nil)).Elem()
+}
+
+func (o SecretPropertiesPtrOutput) ToSecretPropertiesPtrOutput() SecretPropertiesPtrOutput {
+	return o
+}
+
+func (o SecretPropertiesPtrOutput) ToSecretPropertiesPtrOutputWithContext(ctx context.Context) SecretPropertiesPtrOutput {
+	return o
+}
+
+func (o SecretPropertiesPtrOutput) Elem() SecretPropertiesOutput {
+	return o.ApplyT(func(v *SecretProperties) SecretProperties { return *v }).(SecretPropertiesOutput)
+}
+
+// The attributes of the secret.
+func (o SecretPropertiesPtrOutput) Attributes() SecretAttributesPtrOutput {
+	return o.ApplyT(func(v *SecretProperties) *SecretAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(SecretAttributesPtrOutput)
+}
+
+// The content type of the secret.
+func (o SecretPropertiesPtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+func (o SecretPropertiesPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the secret
+type SecretPropertiesResponse struct {
+	// The attributes of the secret.
+	Attributes *SecretAttributesResponse `pulumi:"attributes"`
+	// The content type of the secret.
+	ContentType *string `pulumi:"contentType"`
+	// The URI to retrieve the current version of the secret.
+	SecretUri string `pulumi:"secretUri"`
+	// The URI to retrieve the specific version of the secret.
+	SecretUriWithVersion string `pulumi:"secretUriWithVersion"`
+	// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+	Value *string `pulumi:"value"`
+}
+
+// SecretPropertiesResponseInput is an input type that accepts SecretPropertiesResponseArgs and SecretPropertiesResponseOutput values.
+// You can construct a concrete instance of `SecretPropertiesResponseInput` via:
+//
+//          SecretPropertiesResponseArgs{...}
+type SecretPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToSecretPropertiesResponseOutput() SecretPropertiesResponseOutput
+	ToSecretPropertiesResponseOutputWithContext(context.Context) SecretPropertiesResponseOutput
+}
+
+// Properties of the secret
+type SecretPropertiesResponseArgs struct {
+	// The attributes of the secret.
+	Attributes SecretAttributesResponsePtrInput `pulumi:"attributes"`
+	// The content type of the secret.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// The URI to retrieve the current version of the secret.
+	SecretUri pulumi.StringInput `pulumi:"secretUri"`
+	// The URI to retrieve the specific version of the secret.
+	SecretUriWithVersion pulumi.StringInput `pulumi:"secretUriWithVersion"`
+	// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SecretPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretPropertiesResponse)(nil)).Elem()
+}
+
+func (i SecretPropertiesResponseArgs) ToSecretPropertiesResponseOutput() SecretPropertiesResponseOutput {
+	return i.ToSecretPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i SecretPropertiesResponseArgs) ToSecretPropertiesResponseOutputWithContext(ctx context.Context) SecretPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesResponseOutput)
+}
+
+func (i SecretPropertiesResponseArgs) ToSecretPropertiesResponsePtrOutput() SecretPropertiesResponsePtrOutput {
+	return i.ToSecretPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SecretPropertiesResponseArgs) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesResponseOutput).ToSecretPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// SecretPropertiesResponsePtrInput is an input type that accepts SecretPropertiesResponseArgs, SecretPropertiesResponsePtr and SecretPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `SecretPropertiesResponsePtrInput` via:
+//
+//          SecretPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SecretPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToSecretPropertiesResponsePtrOutput() SecretPropertiesResponsePtrOutput
+	ToSecretPropertiesResponsePtrOutputWithContext(context.Context) SecretPropertiesResponsePtrOutput
+}
+
+type secretPropertiesResponsePtrType SecretPropertiesResponseArgs
+
+func SecretPropertiesResponsePtr(v *SecretPropertiesResponseArgs) SecretPropertiesResponsePtrInput {
+	return (*secretPropertiesResponsePtrType)(v)
+}
+
+func (*secretPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretPropertiesResponse)(nil)).Elem()
+}
+
+func (i *secretPropertiesResponsePtrType) ToSecretPropertiesResponsePtrOutput() SecretPropertiesResponsePtrOutput {
+	return i.ToSecretPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *secretPropertiesResponsePtrType) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesResponsePtrOutput)
+}
+
+// Properties of the secret
+type SecretPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SecretPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretPropertiesResponse)(nil)).Elem()
+}
+
+func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponseOutput() SecretPropertiesResponseOutput {
+	return o
+}
+
+func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponseOutputWithContext(ctx context.Context) SecretPropertiesResponseOutput {
+	return o
+}
+
+func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponsePtrOutput() SecretPropertiesResponsePtrOutput {
+	return o.ToSecretPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SecretPropertiesResponse) *SecretPropertiesResponse {
+		return &v
+	}).(SecretPropertiesResponsePtrOutput)
+}
+
+// The attributes of the secret.
+func (o SecretPropertiesResponseOutput) Attributes() SecretAttributesResponsePtrOutput {
+	return o.ApplyT(func(v SecretPropertiesResponse) *SecretAttributesResponse { return v.Attributes }).(SecretAttributesResponsePtrOutput)
+}
+
+// The content type of the secret.
+func (o SecretPropertiesResponseOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretPropertiesResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The URI to retrieve the current version of the secret.
+func (o SecretPropertiesResponseOutput) SecretUri() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretPropertiesResponse) string { return v.SecretUri }).(pulumi.StringOutput)
+}
+
+// The URI to retrieve the specific version of the secret.
+func (o SecretPropertiesResponseOutput) SecretUriWithVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretPropertiesResponse) string { return v.SecretUriWithVersion }).(pulumi.StringOutput)
+}
+
+// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+func (o SecretPropertiesResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretPropertiesResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SecretPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecretPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretPropertiesResponse)(nil)).Elem()
+}
+
+func (o SecretPropertiesResponsePtrOutput) ToSecretPropertiesResponsePtrOutput() SecretPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SecretPropertiesResponsePtrOutput) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SecretPropertiesResponsePtrOutput) Elem() SecretPropertiesResponseOutput {
+	return o.ApplyT(func(v *SecretPropertiesResponse) SecretPropertiesResponse { return *v }).(SecretPropertiesResponseOutput)
+}
+
+// The attributes of the secret.
+func (o SecretPropertiesResponsePtrOutput) Attributes() SecretAttributesResponsePtrOutput {
+	return o.ApplyT(func(v *SecretPropertiesResponse) *SecretAttributesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(SecretAttributesResponsePtrOutput)
+}
+
+// The content type of the secret.
+func (o SecretPropertiesResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI to retrieve the current version of the secret.
+func (o SecretPropertiesResponsePtrOutput) SecretUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI to retrieve the specific version of the secret.
+func (o SecretPropertiesResponsePtrOutput) SecretUriWithVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretUriWithVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+func (o SecretPropertiesResponsePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2870,6 +4241,12 @@ func init() {
 	pulumi.RegisterOutputType(IPRuleArrayOutput{})
 	pulumi.RegisterOutputType(IPRuleResponseOutput{})
 	pulumi.RegisterOutputType(IPRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyAttributesOutput{})
+	pulumi.RegisterOutputType(KeyAttributesPtrOutput{})
+	pulumi.RegisterOutputType(KeyAttributesResponseOutput{})
+	pulumi.RegisterOutputType(KeyAttributesResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyPropertiesOutput{})
+	pulumi.RegisterOutputType(KeyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
@@ -2884,6 +4261,14 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecretAttributesOutput{})
+	pulumi.RegisterOutputType(SecretAttributesPtrOutput{})
+	pulumi.RegisterOutputType(SecretAttributesResponseOutput{})
+	pulumi.RegisterOutputType(SecretAttributesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecretPropertiesOutput{})
+	pulumi.RegisterOutputType(SecretPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SecretPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SecretPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
