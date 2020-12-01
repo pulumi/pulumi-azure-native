@@ -3,6 +3,7 @@ module github.com/pulumi/pulumi-azure-nextgen-provider/provider
 go 1.13
 
 require (
+	github.com/Azure/azure-sdk-for-go v37.1.0+incompatible
 	github.com/Azure/go-autorest/autorest v0.10.0
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813

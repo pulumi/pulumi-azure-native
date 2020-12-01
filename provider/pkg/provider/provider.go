@@ -38,16 +38,17 @@ const (
 )
 
 type azureNextGenProvider struct {
-	host           *provider.HostClient
-	name           string
-	version        string
-	subscriptionID string
-	environment    azure.Environment
-	client         autorest.Client
-	resourceMap    *AzureAPIMetadata
-	config         map[string]string
-	schemaBytes    []byte
-	converter      *SdkShapeConverter
+	host            *provider.HostClient
+	name            string
+	version         string
+	subscriptionID  string
+	environment     azure.Environment
+	client          autorest.Client
+	resourceMap     *AzureAPIMetadata
+	config          map[string]string
+	schemaBytes     []byte
+	converter       *SdkShapeConverter
+	customResources map[string]*customResource
 }
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
@@ -136,14 +137,16 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 	}
 	k.environment = env
 
-	authorizer, err := k.getAuthorizationToken(authConfig)
+	tokenAuth, bearerAuth, err := k.getAuthorizers(authConfig)
 	if err != nil {
 		return nil, errors.Wrap(err, "building authorizer")
 	}
 
 	k.subscriptionID = authConfig.SubscriptionID
-	k.client.Authorizer = authorizer
+	k.client.Authorizer = tokenAuth
 	k.client.UserAgent = k.getUserAgent()
+
+	k.customResources = buildCustomResources(&env, bearerAuth, k.client.UserAgent)
 
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
@@ -818,7 +821,25 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
 
+	customRes, isCustom := k.customResources[res.Path]
+
 	switch {
+	case isCustom && customRes.delete != nil:
+		state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
+		})
+		if err != nil {
+			return nil, err
+		}
+		inputs := parseCheckpointObject(state)
+		if inputs == nil {
+			return nil, errors.Wrapf(err, "resource %s inputs are empty", label)
+		}
+		// Our hand-crafted implementation of DELETE operation.
+		err = customRes.delete(ctx, inputs)
+		if err != nil {
+			return nil, err
+		}
 	case res.Singleton:
 		// Singleton resources can't be deleted (or created), set them to the default state.
 		for _, param := range res.PutParameters {
@@ -1223,18 +1244,25 @@ func (k *azureNextGenProvider) getAuthConfig() (*authentication.Config, error) {
 	return builder.Build()
 }
 
-func (k *azureNextGenProvider) getAuthorizationToken(authConfig *authentication.Config) (autorest.Authorizer, error) {
+func (k *azureNextGenProvider) getAuthorizers(authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
+	bearerAuth autorest.Authorizer, err error) {
+	buildSender := sender.BuildSender("AzureNextGen")
 	oauthConfig, err := authConfig.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	if oauthConfig == nil {
-		return nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
+		return nil, nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
 	}
 
-	buildSender := sender.BuildSender("AzureNextGen")
-	return authConfig.GetAuthorizationToken(buildSender, oauthConfig, k.environment.ResourceManagerEndpoint)
+	tokenAuth, err = authConfig.GetAuthorizationToken(buildSender, oauthConfig, k.environment.ResourceManagerEndpoint)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	bearerAuth = authConfig.BearerAuthorizerCallback(buildSender, oauthConfig)
+	return tokenAuth, bearerAuth, nil
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.

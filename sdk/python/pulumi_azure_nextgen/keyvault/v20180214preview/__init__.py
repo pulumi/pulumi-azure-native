@@ -3,7 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_secret import *
 from .get_vault import *
+from .secret import *
 from .vault import *
 from ._inputs import *
 from . import outputs
