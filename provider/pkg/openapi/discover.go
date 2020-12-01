@@ -171,7 +171,7 @@ func swaggerLocations() ([]string, error) {
 
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
-func addAPIPath(providers AzureProviders, path string, spec *Spec) {
+func addAPIPath(providers AzureProviders, path string, swagger *Spec) {
 	prov := provider.ResourceProvider(path)
 	if prov == "" {
 		return
@@ -185,7 +185,7 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 	}
 
 	// Find (or create) the resource map with this name.
-	apiVersion := "v" + strings.ReplaceAll(spec.Info.Version, "-", "")
+	apiVersion := "v" + strings.ReplaceAll(swagger.Info.Version, "-", "")
 	version, ok := versionMap[apiVersion]
 	if !ok {
 		version = VersionResources{
@@ -195,7 +195,15 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 		versionMap[apiVersion] = version
 	}
 
-	pathItem := spec.Paths.Paths[path]
+	pathItem := swagger.Paths.Paths[path]
+
+	if ok := provider.HasCustomDelete(path); ok {
+		pathItem.Delete = &spec.Operation{
+			OperationProps: spec.OperationProps{
+				Description: "Custom implementation of this operation is available",
+			},
+		}
+	}
 
 	// Add a resource entry.
 	if pathItem.Put != nil && !pathItem.Put.Deprecated &&
@@ -208,7 +216,7 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 			version.Resources[typeName] = &ResourceSpec{
 				Path:        path,
 				PathItem:    &pathItem,
-				Swagger:     spec,
+				Swagger:     swagger,
 				DefaultBody: defaultBody,
 			}
 		}
@@ -233,7 +241,7 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 			version.Invokes[prefix+typeName] = &ResourceSpec{
 				Path:     path,
 				PathItem: &pathItem,
-				Swagger:  spec,
+				Swagger:  swagger,
 			}
 		}
 	}

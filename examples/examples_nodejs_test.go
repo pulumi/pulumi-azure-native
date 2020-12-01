@@ -38,6 +38,15 @@ func TestAccCosmosDBTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccKeyVaultTs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "keyvault"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccSimpleTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
