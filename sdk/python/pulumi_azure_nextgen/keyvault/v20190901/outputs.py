@@ -12,7 +12,6 @@ from . import outputs
 __all__ = [
     'AccessPolicyEntryResponse',
     'IPRuleResponse',
-    'KeyAttributesResponse',
     'NetworkRuleSetResponse',
     'PermissionsResponse',
     'PrivateEndpointConnectionItemResponse',
@@ -104,89 +103,6 @@ class IPRuleResponse(dict):
         An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class KeyAttributesResponse(dict):
-    """
-    The attributes of the key.
-    """
-    def __init__(__self__, *,
-                 created: int,
-                 recovery_level: str,
-                 updated: int,
-                 enabled: Optional[bool] = None,
-                 expires: Optional[int] = None,
-                 not_before: Optional[int] = None):
-        """
-        The attributes of the key.
-        :param int created: Creation time in seconds since 1970-01-01T00:00:00Z.
-        :param str recovery_level: The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
-        :param int updated: Last updated time in seconds since 1970-01-01T00:00:00Z.
-        :param bool enabled: Determines whether or not the object is enabled.
-        :param int expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
-        :param int not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
-        """
-        pulumi.set(__self__, "created", created)
-        pulumi.set(__self__, "recovery_level", recovery_level)
-        pulumi.set(__self__, "updated", updated)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if expires is not None:
-            pulumi.set(__self__, "expires", expires)
-        if not_before is not None:
-            pulumi.set(__self__, "not_before", not_before)
-
-    @property
-    @pulumi.getter
-    def created(self) -> int:
-        """
-        Creation time in seconds since 1970-01-01T00:00:00Z.
-        """
-        return pulumi.get(self, "created")
-
-    @property
-    @pulumi.getter(name="recoveryLevel")
-    def recovery_level(self) -> str:
-        """
-        The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
-        """
-        return pulumi.get(self, "recovery_level")
-
-    @property
-    @pulumi.getter
-    def updated(self) -> int:
-        """
-        Last updated time in seconds since 1970-01-01T00:00:00Z.
-        """
-        return pulumi.get(self, "updated")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Determines whether or not the object is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def expires(self) -> Optional[int]:
-        """
-        Expiry date in seconds since 1970-01-01T00:00:00Z.
-        """
-        return pulumi.get(self, "expires")
-
-    @property
-    @pulumi.getter(name="notBefore")
-    def not_before(self) -> Optional[int]:
-        """
-        Not before date in seconds since 1970-01-01T00:00:00Z.
-        """
-        return pulumi.get(self, "not_before")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
