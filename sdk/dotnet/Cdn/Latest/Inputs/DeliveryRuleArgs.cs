@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
     public sealed class DeliveryRuleArgs : Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
-        private InputList<Union<Inputs.DeliveryRuleCacheExpirationActionArgs, Union<Inputs.DeliveryRuleCacheKeyQueryStringActionArgs, Union<Inputs.DeliveryRuleRequestHeaderActionArgs, Union<Inputs.DeliveryRuleResponseHeaderActionArgs, Union<Inputs.UrlRedirectActionArgs, Union<Inputs.UrlRewriteActionArgs, Inputs.UrlSigningActionArgs>>>>>>>? _actions;
+        private InputList<Union<Inputs.DeliveryRuleCacheExpirationActionArgs, Union<Inputs.DeliveryRuleCacheKeyQueryStringActionArgs, Union<Inputs.DeliveryRuleRequestHeaderActionArgs, Union<Inputs.DeliveryRuleResponseHeaderActionArgs, Union<Inputs.OriginGroupOverrideActionArgs, Union<Inputs.UrlRedirectActionArgs, Union<Inputs.UrlRewriteActionArgs, Inputs.UrlSigningActionArgs>>>>>>>>? _actions;
 
         /// <summary>
         /// A list of actions that are executed when all the conditions of a rule are satisfied.
         /// </summary>
-        public InputList<Union<Inputs.DeliveryRuleCacheExpirationActionArgs, Union<Inputs.DeliveryRuleCacheKeyQueryStringActionArgs, Union<Inputs.DeliveryRuleRequestHeaderActionArgs, Union<Inputs.DeliveryRuleResponseHeaderActionArgs, Union<Inputs.UrlRedirectActionArgs, Union<Inputs.UrlRewriteActionArgs, Inputs.UrlSigningActionArgs>>>>>>> Actions
+        public InputList<Union<Inputs.DeliveryRuleCacheExpirationActionArgs, Union<Inputs.DeliveryRuleCacheKeyQueryStringActionArgs, Union<Inputs.DeliveryRuleRequestHeaderActionArgs, Union<Inputs.DeliveryRuleResponseHeaderActionArgs, Union<Inputs.OriginGroupOverrideActionArgs, Union<Inputs.UrlRedirectActionArgs, Union<Inputs.UrlRewriteActionArgs, Inputs.UrlSigningActionArgs>>>>>>>> Actions
         {
-            get => _actions ?? (_actions = new InputList<Union<Inputs.DeliveryRuleCacheExpirationActionArgs, Union<Inputs.DeliveryRuleCacheKeyQueryStringActionArgs, Union<Inputs.DeliveryRuleRequestHeaderActionArgs, Union<Inputs.DeliveryRuleResponseHeaderActionArgs, Union<Inputs.UrlRedirectActionArgs, Union<Inputs.UrlRewriteActionArgs, Inputs.UrlSigningActionArgs>>>>>>>());
+            get => _actions ?? (_actions = new InputList<Union<Inputs.DeliveryRuleCacheExpirationActionArgs, Union<Inputs.DeliveryRuleCacheKeyQueryStringActionArgs, Union<Inputs.DeliveryRuleRequestHeaderActionArgs, Union<Inputs.DeliveryRuleResponseHeaderActionArgs, Union<Inputs.OriginGroupOverrideActionArgs, Union<Inputs.UrlRedirectActionArgs, Union<Inputs.UrlRewriteActionArgs, Inputs.UrlSigningActionArgs>>>>>>>>());
             set => _actions = value;
         }
 

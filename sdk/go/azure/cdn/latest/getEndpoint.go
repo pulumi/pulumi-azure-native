@@ -65,6 +65,8 @@ type LookupEndpointResult struct {
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// Resource status of the endpoint.
 	ResourceState string `pulumi:"resourceState"`
+	// Read only system data
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

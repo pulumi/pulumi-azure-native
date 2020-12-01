@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
             string resourceState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string? validationData)
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
             Name = name;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
+            SystemData = systemData;
             Type = type;
             ValidationData = validationData;
         }

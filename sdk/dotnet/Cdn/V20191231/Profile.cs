@@ -92,6 +92,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

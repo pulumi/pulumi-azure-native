@@ -4150,6 +4150,124 @@ func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The provider extended location.
+type ProviderExtendedLocationResponse struct {
+	// The extended locations for the azure location.
+	ExtendedLocations []string `pulumi:"extendedLocations"`
+	// The azure location.
+	Location *string `pulumi:"location"`
+	// The extended location type.
+	Type *string `pulumi:"type"`
+}
+
+// ProviderExtendedLocationResponseInput is an input type that accepts ProviderExtendedLocationResponseArgs and ProviderExtendedLocationResponseOutput values.
+// You can construct a concrete instance of `ProviderExtendedLocationResponseInput` via:
+//
+//          ProviderExtendedLocationResponseArgs{...}
+type ProviderExtendedLocationResponseInput interface {
+	pulumi.Input
+
+	ToProviderExtendedLocationResponseOutput() ProviderExtendedLocationResponseOutput
+	ToProviderExtendedLocationResponseOutputWithContext(context.Context) ProviderExtendedLocationResponseOutput
+}
+
+// The provider extended location.
+type ProviderExtendedLocationResponseArgs struct {
+	// The extended locations for the azure location.
+	ExtendedLocations pulumi.StringArrayInput `pulumi:"extendedLocations"`
+	// The azure location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The extended location type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ProviderExtendedLocationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ProviderExtendedLocationResponseArgs) ToProviderExtendedLocationResponseOutput() ProviderExtendedLocationResponseOutput {
+	return i.ToProviderExtendedLocationResponseOutputWithContext(context.Background())
+}
+
+func (i ProviderExtendedLocationResponseArgs) ToProviderExtendedLocationResponseOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderExtendedLocationResponseOutput)
+}
+
+// ProviderExtendedLocationResponseArrayInput is an input type that accepts ProviderExtendedLocationResponseArray and ProviderExtendedLocationResponseArrayOutput values.
+// You can construct a concrete instance of `ProviderExtendedLocationResponseArrayInput` via:
+//
+//          ProviderExtendedLocationResponseArray{ ProviderExtendedLocationResponseArgs{...} }
+type ProviderExtendedLocationResponseArrayInput interface {
+	pulumi.Input
+
+	ToProviderExtendedLocationResponseArrayOutput() ProviderExtendedLocationResponseArrayOutput
+	ToProviderExtendedLocationResponseArrayOutputWithContext(context.Context) ProviderExtendedLocationResponseArrayOutput
+}
+
+type ProviderExtendedLocationResponseArray []ProviderExtendedLocationResponseInput
+
+func (ProviderExtendedLocationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ProviderExtendedLocationResponseArray) ToProviderExtendedLocationResponseArrayOutput() ProviderExtendedLocationResponseArrayOutput {
+	return i.ToProviderExtendedLocationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ProviderExtendedLocationResponseArray) ToProviderExtendedLocationResponseArrayOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderExtendedLocationResponseArrayOutput)
+}
+
+// The provider extended location.
+type ProviderExtendedLocationResponseOutput struct{ *pulumi.OutputState }
+
+func (ProviderExtendedLocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ProviderExtendedLocationResponseOutput) ToProviderExtendedLocationResponseOutput() ProviderExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ProviderExtendedLocationResponseOutput) ToProviderExtendedLocationResponseOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseOutput {
+	return o
+}
+
+// The extended locations for the azure location.
+func (o ProviderExtendedLocationResponseOutput) ExtendedLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProviderExtendedLocationResponse) []string { return v.ExtendedLocations }).(pulumi.StringArrayOutput)
+}
+
+// The azure location.
+func (o ProviderExtendedLocationResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderExtendedLocationResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The extended location type.
+func (o ProviderExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ProviderExtendedLocationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProviderExtendedLocationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ProviderExtendedLocationResponseArrayOutput) ToProviderExtendedLocationResponseArrayOutput() ProviderExtendedLocationResponseArrayOutput {
+	return o
+}
+
+func (o ProviderExtendedLocationResponseArrayOutput) ToProviderExtendedLocationResponseArrayOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseArrayOutput {
+	return o
+}
+
+func (o ProviderExtendedLocationResponseArrayOutput) Index(i pulumi.IntInput) ProviderExtendedLocationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderExtendedLocationResponse {
+		return vs[0].([]ProviderExtendedLocationResponse)[vs[1].(int)]
+	}).(ProviderExtendedLocationResponseOutput)
+}
+
 // Resource type managed by the resource provider.
 type ProviderResourceTypeResponse struct {
 	// The aliases that are supported by this resource type.
@@ -4162,6 +4280,8 @@ type ProviderResourceTypeResponse struct {
 	Capabilities *string `pulumi:"capabilities"`
 	// The default API version.
 	DefaultApiVersion string `pulumi:"defaultApiVersion"`
+	// The location mappings that are supported by this resource type.
+	LocationMappings []ProviderExtendedLocationResponse `pulumi:"locationMappings"`
 	// The collection of locations where this resource type can be created.
 	Locations []string `pulumi:"locations"`
 	// The properties.
@@ -4193,6 +4313,8 @@ type ProviderResourceTypeResponseArgs struct {
 	Capabilities pulumi.StringPtrInput `pulumi:"capabilities"`
 	// The default API version.
 	DefaultApiVersion pulumi.StringInput `pulumi:"defaultApiVersion"`
+	// The location mappings that are supported by this resource type.
+	LocationMappings ProviderExtendedLocationResponseArrayInput `pulumi:"locationMappings"`
 	// The collection of locations where this resource type can be created.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 	// The properties.
@@ -4276,6 +4398,11 @@ func (o ProviderResourceTypeResponseOutput) Capabilities() pulumi.StringPtrOutpu
 // The default API version.
 func (o ProviderResourceTypeResponseOutput) DefaultApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) string { return v.DefaultApiVersion }).(pulumi.StringOutput)
+}
+
+// The location mappings that are supported by this resource type.
+func (o ProviderResourceTypeResponseOutput) LocationMappings() ProviderExtendedLocationResponseArrayOutput {
+	return o.ApplyT(func(v ProviderResourceTypeResponse) []ProviderExtendedLocationResponse { return v.LocationMappings }).(ProviderExtendedLocationResponseArrayOutput)
 }
 
 // The collection of locations where this resource type can be created.
@@ -6317,6 +6444,8 @@ func init() {
 	pulumi.RegisterOutputType(PlanPtrOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProviderExtendedLocationResponseOutput{})
+	pulumi.RegisterOutputType(ProviderExtendedLocationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProviderResourceTypeResponseOutput{})
 	pulumi.RegisterOutputType(ProviderResourceTypeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProviderResponseOutput{})

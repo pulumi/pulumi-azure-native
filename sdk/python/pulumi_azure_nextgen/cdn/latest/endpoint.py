@@ -120,8 +120,9 @@ class Endpoint(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azure-nextgen:cdn/latest:Endpoint',
@@ -298,6 +299,14 @@ class Endpoint(pulumi.CustomResource):
         Resource status of the endpoint.
         """
         return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

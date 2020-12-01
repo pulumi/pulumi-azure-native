@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:Deployment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:Deployment"},
                 },
             };

@@ -85,8 +85,9 @@ class Policy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-nextgen:cdn/latest:Policy',
@@ -196,6 +197,14 @@ class Policy(pulumi.CustomResource):
         The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

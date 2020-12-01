@@ -103,7 +103,7 @@ export class CustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:CustomDomain" }, { type: "azure-nextgen:cdn/v20150601:CustomDomain" }, { type: "azure-nextgen:cdn/v20161002:CustomDomain" }, { type: "azure-nextgen:cdn/v20170402:CustomDomain" }, { type: "azure-nextgen:cdn/v20171012:CustomDomain" }, { type: "azure-nextgen:cdn/v20190415:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615preview:CustomDomain" }, { type: "azure-nextgen:cdn/v20191231:CustomDomain" }, { type: "azure-nextgen:cdn/v20200331:CustomDomain" }, { type: "azure-nextgen:cdn/v20200415:CustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:CustomDomain" }, { type: "azure-nextgen:cdn/v20150601:CustomDomain" }, { type: "azure-nextgen:cdn/v20161002:CustomDomain" }, { type: "azure-nextgen:cdn/v20170402:CustomDomain" }, { type: "azure-nextgen:cdn/v20171012:CustomDomain" }, { type: "azure-nextgen:cdn/v20190415:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615preview:CustomDomain" }, { type: "azure-nextgen:cdn/v20191231:CustomDomain" }, { type: "azure-nextgen:cdn/v20200331:CustomDomain" }, { type: "azure-nextgen:cdn/v20200415:CustomDomain" }, { type: "azure-nextgen:cdn/v20200901:CustomDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }

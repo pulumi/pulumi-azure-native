@@ -20,7 +20,7 @@ class GetOriginGroupResult:
     """
     Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     """
-    def __init__(__self__, health_probe_settings=None, name=None, origins=None, provisioning_state=None, resource_state=None, response_based_origin_error_detection_settings=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
+    def __init__(__self__, health_probe_settings=None, name=None, origins=None, provisioning_state=None, resource_state=None, response_based_origin_error_detection_settings=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
         if health_probe_settings and not isinstance(health_probe_settings, dict):
             raise TypeError("Expected argument 'health_probe_settings' to be a dict")
         pulumi.set(__self__, "health_probe_settings", health_probe_settings)
@@ -39,6 +39,9 @@ class GetOriginGroupResult:
         if response_based_origin_error_detection_settings and not isinstance(response_based_origin_error_detection_settings, dict):
             raise TypeError("Expected argument 'response_based_origin_error_detection_settings' to be a dict")
         pulumi.set(__self__, "response_based_origin_error_detection_settings", response_based_origin_error_detection_settings)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes and not isinstance(traffic_restoration_time_to_healed_or_new_endpoints_in_minutes, int):
             raise TypeError("Expected argument 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes' to be a int")
         pulumi.set(__self__, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
@@ -95,6 +98,14 @@ class GetOriginGroupResult:
         return pulumi.get(self, "response_based_origin_error_detection_settings")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
     def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[int]:
         """
@@ -123,6 +134,7 @@ class AwaitableGetOriginGroupResult(GetOriginGroupResult):
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
             response_based_origin_error_detection_settings=self.response_based_origin_error_detection_settings,
+            system_data=self.system_data,
             traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=self.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
             type=self.type)
 
@@ -158,5 +170,6 @@ def get_origin_group(endpoint_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
         response_based_origin_error_detection_settings=__ret__.response_based_origin_error_detection_settings,
+        system_data=__ret__.system_data,
         traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=__ret__.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
         type=__ret__.type)

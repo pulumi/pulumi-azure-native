@@ -75,6 +75,7 @@ namespace Pulumi.AzureNextGen.Management.V20191001
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20190701:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20190801:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200601:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20200801:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20201001:DeploymentAtManagementGroupScope"},
                 },
             };

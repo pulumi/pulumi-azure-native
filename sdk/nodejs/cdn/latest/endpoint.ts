@@ -112,6 +112,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
+     * Read only system data
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.latest.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -178,6 +182,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["contentTypesToCompress"] = undefined /*out*/;
@@ -199,6 +204,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["queryStringCachingBehavior"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["urlSigningKeys"] = undefined /*out*/;
@@ -211,7 +217,7 @@ export class Endpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:Endpoint" }, { type: "azure-nextgen:cdn/v20160402:Endpoint" }, { type: "azure-nextgen:cdn/v20161002:Endpoint" }, { type: "azure-nextgen:cdn/v20170402:Endpoint" }, { type: "azure-nextgen:cdn/v20171012:Endpoint" }, { type: "azure-nextgen:cdn/v20190415:Endpoint" }, { type: "azure-nextgen:cdn/v20190615:Endpoint" }, { type: "azure-nextgen:cdn/v20190615preview:Endpoint" }, { type: "azure-nextgen:cdn/v20191231:Endpoint" }, { type: "azure-nextgen:cdn/v20200331:Endpoint" }, { type: "azure-nextgen:cdn/v20200415:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:Endpoint" }, { type: "azure-nextgen:cdn/v20160402:Endpoint" }, { type: "azure-nextgen:cdn/v20161002:Endpoint" }, { type: "azure-nextgen:cdn/v20170402:Endpoint" }, { type: "azure-nextgen:cdn/v20171012:Endpoint" }, { type: "azure-nextgen:cdn/v20190415:Endpoint" }, { type: "azure-nextgen:cdn/v20190615:Endpoint" }, { type: "azure-nextgen:cdn/v20190615preview:Endpoint" }, { type: "azure-nextgen:cdn/v20191231:Endpoint" }, { type: "azure-nextgen:cdn/v20200331:Endpoint" }, { type: "azure-nextgen:cdn/v20200415:Endpoint" }, { type: "azure-nextgen:cdn/v20200901:Endpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Endpoint.__pulumiType, name, inputs, opts);
     }

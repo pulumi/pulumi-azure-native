@@ -20,7 +20,10 @@ class GetProfileResult:
     """
     CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
     """
-    def __init__(__self__, location=None, name=None, provisioning_state=None, resource_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, frontdoor_id=None, location=None, name=None, provisioning_state=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
+        if frontdoor_id and not isinstance(frontdoor_id, str):
+            raise TypeError("Expected argument 'frontdoor_id' to be a str")
+        pulumi.set(__self__, "frontdoor_id", frontdoor_id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -36,12 +39,23 @@ class GetProfileResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="frontdoorId")
+    def frontdoor_id(self) -> str:
+        """
+        The Id of the frontdoor.
+        """
+        return pulumi.get(self, "frontdoor_id")
 
     @property
     @pulumi.getter
@@ -84,6 +98,14 @@ class GetProfileResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -106,11 +128,13 @@ class AwaitableGetProfileResult(GetProfileResult):
         if False:
             yield self
         return GetProfileResult(
+            frontdoor_id=self.frontdoor_id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -134,10 +158,12 @@ def get_profile(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:cdn/latest:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
+        frontdoor_id=__ret__.frontdoor_id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

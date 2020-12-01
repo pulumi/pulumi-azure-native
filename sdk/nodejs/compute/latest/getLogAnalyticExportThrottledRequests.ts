@@ -16,9 +16,11 @@ export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExport
     return pulumi.runtime.invoke("azure-nextgen:compute/latest:getLogAnalyticExportThrottledRequests", {
         "blobContainerSasUri": args.blobContainerSasUri,
         "fromTime": args.fromTime,
+        "groupByClientApplicationId": args.groupByClientApplicationId,
         "groupByOperationName": args.groupByOperationName,
         "groupByResourceName": args.groupByResourceName,
         "groupByThrottlePolicy": args.groupByThrottlePolicy,
+        "groupByUserAgent": args.groupByUserAgent,
         "location": args.location,
         "toTime": args.toTime,
     }, opts);
@@ -34,6 +36,10 @@ export interface GetLogAnalyticExportThrottledRequestsArgs {
      */
     readonly fromTime: string;
     /**
+     * Group query result by Client Application ID.
+     */
+    readonly groupByClientApplicationId?: boolean;
+    /**
      * Group query result by Operation Name.
      */
     readonly groupByOperationName?: boolean;
@@ -45,6 +51,10 @@ export interface GetLogAnalyticExportThrottledRequestsArgs {
      * Group query result by Throttle Policy applied.
      */
     readonly groupByThrottlePolicy?: boolean;
+    /**
+     * Group query result by User Agent.
+     */
+    readonly groupByUserAgent?: boolean;
     /**
      * The location upon which virtual-machine-sizes is queried.
      */

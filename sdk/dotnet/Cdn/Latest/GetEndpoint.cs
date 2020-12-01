@@ -122,6 +122,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
             string resourceState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -205,6 +211,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
             ProvisioningState = provisioningState;
             QueryStringCachingBehavior = queryStringCachingBehavior;
             ResourceState = resourceState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UrlSigningKeys = urlSigningKeys;

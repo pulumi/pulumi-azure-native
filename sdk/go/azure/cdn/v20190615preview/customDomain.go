@@ -90,6 +90,9 @@ func NewCustomDomain(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:CustomDomain"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:cdn/v20200901:CustomDomain"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomDomain

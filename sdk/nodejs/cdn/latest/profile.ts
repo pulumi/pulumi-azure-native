@@ -36,6 +36,10 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
+     * The Id of the frontdoor.
+     */
+    public /*out*/ readonly frontdoorId!: pulumi.Output<string>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -55,6 +59,10 @@ export class Profile extends pulumi.CustomResource {
      * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
      */
     public readonly sku!: pulumi.Output<outputs.cdn.latest.SkuResponse>;
+    /**
+     * Read only system data
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.latest.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -91,16 +99,20 @@ export class Profile extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["frontdoorId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["frontdoorId"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -111,7 +123,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:Profile" }, { type: "azure-nextgen:cdn/v20160402:Profile" }, { type: "azure-nextgen:cdn/v20161002:Profile" }, { type: "azure-nextgen:cdn/v20170402:Profile" }, { type: "azure-nextgen:cdn/v20171012:Profile" }, { type: "azure-nextgen:cdn/v20190415:Profile" }, { type: "azure-nextgen:cdn/v20190615:Profile" }, { type: "azure-nextgen:cdn/v20190615preview:Profile" }, { type: "azure-nextgen:cdn/v20191231:Profile" }, { type: "azure-nextgen:cdn/v20200331:Profile" }, { type: "azure-nextgen:cdn/v20200415:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:Profile" }, { type: "azure-nextgen:cdn/v20160402:Profile" }, { type: "azure-nextgen:cdn/v20161002:Profile" }, { type: "azure-nextgen:cdn/v20170402:Profile" }, { type: "azure-nextgen:cdn/v20171012:Profile" }, { type: "azure-nextgen:cdn/v20190415:Profile" }, { type: "azure-nextgen:cdn/v20190615:Profile" }, { type: "azure-nextgen:cdn/v20190615preview:Profile" }, { type: "azure-nextgen:cdn/v20191231:Profile" }, { type: "azure-nextgen:cdn/v20200331:Profile" }, { type: "azure-nextgen:cdn/v20200415:Profile" }, { type: "azure-nextgen:cdn/v20200901:Profile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Profile.__pulumiType, name, inputs, opts);
     }

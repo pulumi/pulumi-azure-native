@@ -78,6 +78,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Policy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

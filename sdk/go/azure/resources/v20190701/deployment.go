@@ -84,6 +84,9 @@ func NewDeployment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:resources/v20200601:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-nextgen:resources/v20200801:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:Deployment"),
 		},
 	})

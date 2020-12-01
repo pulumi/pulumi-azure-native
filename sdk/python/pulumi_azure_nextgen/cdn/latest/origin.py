@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['Origin']
 
@@ -100,8 +101,9 @@ class Origin(pulumi.CustomResource):
             __props__['private_endpoint_status'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Origin")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Origin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Origin, __self__).__init__(
             'azure-nextgen:cdn/latest:Origin',
@@ -238,6 +240,14 @@ class Origin(pulumi.CustomResource):
         Resource status of the origin.
         """
         return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

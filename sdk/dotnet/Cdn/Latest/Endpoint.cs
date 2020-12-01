@@ -129,6 +129,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -188,6 +194,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

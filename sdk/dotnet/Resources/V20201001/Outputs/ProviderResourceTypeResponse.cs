@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Resources.V20201001.Outputs
         /// </summary>
         public readonly string DefaultApiVersion;
         /// <summary>
+        /// The location mappings that are supported by this resource type.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ProviderExtendedLocationResponse> LocationMappings;
+        /// <summary>
         /// The collection of locations where this resource type can be created.
         /// </summary>
         public readonly ImmutableArray<string> Locations;
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNextGen.Resources.V20201001.Outputs
 
             string defaultApiVersion,
 
+            ImmutableArray<Outputs.ProviderExtendedLocationResponse> locationMappings,
+
             ImmutableArray<string> locations,
 
             ImmutableDictionary<string, string>? properties,
@@ -69,6 +75,7 @@ namespace Pulumi.AzureNextGen.Resources.V20201001.Outputs
             ApiVersions = apiVersions;
             Capabilities = capabilities;
             DefaultApiVersion = defaultApiVersion;
+            LocationMappings = locationMappings;
             Locations = locations;
             Properties = properties;
             ResourceType = resourceType;

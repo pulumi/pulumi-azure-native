@@ -27,6 +27,7 @@ __all__ = [
     'OnErrorDeploymentExtendedResponse',
     'ParametersLinkResponse',
     'PlanResponse',
+    'ProviderExtendedLocationResponse',
     'ProviderResourceTypeResponse',
     'ProviderResponse',
     'ResourceGroupPropertiesResponse',
@@ -1033,6 +1034,56 @@ class PlanResponse(dict):
 
 
 @pulumi.output_type
+class ProviderExtendedLocationResponse(dict):
+    """
+    The provider extended location. 
+    """
+    def __init__(__self__, *,
+                 extended_locations: Optional[Sequence[str]] = None,
+                 location: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The provider extended location. 
+        :param Sequence[str] extended_locations: The extended locations for the azure location.
+        :param str location: The azure location.
+        :param str type: The extended location type.
+        """
+        if extended_locations is not None:
+            pulumi.set(__self__, "extended_locations", extended_locations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="extendedLocations")
+    def extended_locations(self) -> Optional[Sequence[str]]:
+        """
+        The extended locations for the azure location.
+        """
+        return pulumi.get(self, "extended_locations")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The azure location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The extended location type.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ProviderResourceTypeResponse(dict):
     """
     Resource type managed by the resource provider.
@@ -1043,6 +1094,7 @@ class ProviderResourceTypeResponse(dict):
                  aliases: Optional[Sequence['outputs.AliasResponse']] = None,
                  api_versions: Optional[Sequence[str]] = None,
                  capabilities: Optional[str] = None,
+                 location_mappings: Optional[Sequence['outputs.ProviderExtendedLocationResponse']] = None,
                  locations: Optional[Sequence[str]] = None,
                  properties: Optional[Mapping[str, str]] = None,
                  resource_type: Optional[str] = None):
@@ -1053,6 +1105,7 @@ class ProviderResourceTypeResponse(dict):
         :param Sequence['AliasResponseArgs'] aliases: The aliases that are supported by this resource type.
         :param Sequence[str] api_versions: The API version.
         :param str capabilities: The additional capabilities offered by this resource type.
+        :param Sequence['ProviderExtendedLocationResponseArgs'] location_mappings: The location mappings that are supported by this resource type.
         :param Sequence[str] locations: The collection of locations where this resource type can be created.
         :param Mapping[str, str] properties: The properties.
         :param str resource_type: The resource type.
@@ -1065,6 +1118,8 @@ class ProviderResourceTypeResponse(dict):
             pulumi.set(__self__, "api_versions", api_versions)
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
+        if location_mappings is not None:
+            pulumi.set(__self__, "location_mappings", location_mappings)
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
         if properties is not None:
@@ -1111,6 +1166,14 @@ class ProviderResourceTypeResponse(dict):
         The additional capabilities offered by this resource type.
         """
         return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="locationMappings")
+    def location_mappings(self) -> Optional[Sequence['outputs.ProviderExtendedLocationResponse']]:
+        """
+        The location mappings that are supported by this resource type.
+        """
+        return pulumi.get(self, "location_mappings")
 
     @property
     @pulumi.getter

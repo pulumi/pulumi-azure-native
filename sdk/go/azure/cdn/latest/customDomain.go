@@ -27,6 +27,8 @@ type CustomDomain struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource status of the custom domain.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
+	// Read only system data
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
@@ -88,6 +90,9 @@ func NewCustomDomain(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:CustomDomain"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:cdn/v20200901:CustomDomain"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomDomain
@@ -124,6 +129,8 @@ type customDomainState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource status of the custom domain.
 	ResourceState *string `pulumi:"resourceState"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
@@ -143,6 +150,8 @@ type CustomDomainState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Resource status of the custom domain.
 	ResourceState pulumi.StringPtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
