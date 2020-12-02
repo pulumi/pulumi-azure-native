@@ -31,6 +31,12 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         public string FromTime { get; set; } = null!;
 
         /// <summary>
+        /// Group query result by Client Application ID.
+        /// </summary>
+        [Input("groupByClientApplicationId")]
+        public bool? GroupByClientApplicationId { get; set; }
+
+        /// <summary>
         /// Group query result by Operation Name.
         /// </summary>
         [Input("groupByOperationName")]
@@ -47,6 +53,12 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// </summary>
         [Input("groupByThrottlePolicy")]
         public bool? GroupByThrottlePolicy { get; set; }
+
+        /// <summary>
+        /// Group query result by User Agent.
+        /// </summary>
+        [Input("groupByUserAgent")]
+        public bool? GroupByUserAgent { get; set; }
 
         /// <summary>
         /// The location upon which virtual-machine-sizes is queried.

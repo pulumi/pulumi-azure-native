@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetOriginResult',
@@ -19,7 +20,7 @@ class GetOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     """
-    def __init__(__self__, enabled=None, host_name=None, http_port=None, https_port=None, name=None, origin_host_header=None, priority=None, private_endpoint_status=None, private_link_alias=None, private_link_approval_message=None, private_link_location=None, private_link_resource_id=None, provisioning_state=None, resource_state=None, type=None, weight=None):
+    def __init__(__self__, enabled=None, host_name=None, http_port=None, https_port=None, name=None, origin_host_header=None, priority=None, private_endpoint_status=None, private_link_alias=None, private_link_approval_message=None, private_link_location=None, private_link_resource_id=None, provisioning_state=None, resource_state=None, system_data=None, type=None, weight=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -62,6 +63,9 @@ class GetOriginResult:
         if resource_state and not isinstance(resource_state, str):
             raise TypeError("Expected argument 'resource_state' to be a str")
         pulumi.set(__self__, "resource_state", resource_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -182,6 +186,14 @@ class GetOriginResult:
         return pulumi.get(self, "resource_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -218,6 +230,7 @@ class AwaitableGetOriginResult(GetOriginResult):
             private_link_resource_id=self.private_link_resource_id,
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
+            system_data=self.system_data,
             type=self.type,
             weight=self.weight)
 
@@ -261,5 +274,6 @@ def get_origin(endpoint_name: Optional[str] = None,
         private_link_resource_id=__ret__.private_link_resource_id,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         weight=__ret__.weight)

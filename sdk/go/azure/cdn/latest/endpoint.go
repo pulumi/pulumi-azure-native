@@ -53,6 +53,8 @@ type Endpoint struct {
 	QueryStringCachingBehavior pulumi.StringPtrOutput `pulumi:"queryStringCachingBehavior"`
 	// Resource status of the endpoint.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
+	// Read only system data
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -118,6 +120,9 @@ func NewEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:Endpoint"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:cdn/v20200901:Endpoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Endpoint
@@ -180,6 +185,8 @@ type endpointState struct {
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// Resource status of the endpoint.
 	ResourceState *string `pulumi:"resourceState"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -229,6 +236,8 @@ type EndpointState struct {
 	QueryStringCachingBehavior pulumi.StringPtrInput
 	// Resource status of the endpoint.
 	ResourceState pulumi.StringPtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

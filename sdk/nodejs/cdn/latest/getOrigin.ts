@@ -101,6 +101,10 @@ export interface GetOriginResult {
      */
     readonly resourceState: string;
     /**
+     * Read only system data
+     */
+    readonly systemData: outputs.cdn.latest.SystemDataResponse;
+    /**
      * Resource type.
      */
     readonly type: string;

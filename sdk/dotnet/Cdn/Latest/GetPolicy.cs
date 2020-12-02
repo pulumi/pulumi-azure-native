@@ -81,6 +81,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
             Outputs.SkuResponse sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
             RateLimitRules = rateLimitRules;
             ResourceState = resourceState;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// </summary>
         public readonly Outputs.ResponseBasedOriginErrorDetectionParametersResponse? ResponseBasedOriginErrorDetectionSettings;
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         /// </summary>
         public readonly int? TrafficRestorationTimeToHealedOrNewEndpointsInMinutes;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
             Outputs.ResponseBasedOriginErrorDetectionParametersResponse? responseBasedOriginErrorDetectionSettings,
 
+            Outputs.SystemDataResponse systemData,
+
             int? trafficRestorationTimeToHealedOrNewEndpointsInMinutes,
 
             string type)
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
             ResponseBasedOriginErrorDetectionSettings = responseBasedOriginErrorDetectionSettings;
+            SystemData = systemData;
             TrafficRestorationTimeToHealedOrNewEndpointsInMinutes = trafficRestorationTimeToHealedOrNewEndpointsInMinutes;
             Type = type;
         }

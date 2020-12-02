@@ -21,12 +21,16 @@ type GetLogAnalyticExportThrottledRequestsArgs struct {
 	BlobContainerSasUri string `pulumi:"blobContainerSasUri"`
 	// From time of the query
 	FromTime string `pulumi:"fromTime"`
+	// Group query result by Client Application ID.
+	GroupByClientApplicationId *bool `pulumi:"groupByClientApplicationId"`
 	// Group query result by Operation Name.
 	GroupByOperationName *bool `pulumi:"groupByOperationName"`
 	// Group query result by Resource Name.
 	GroupByResourceName *bool `pulumi:"groupByResourceName"`
 	// Group query result by Throttle Policy applied.
 	GroupByThrottlePolicy *bool `pulumi:"groupByThrottlePolicy"`
+	// Group query result by User Agent.
+	GroupByUserAgent *bool `pulumi:"groupByUserAgent"`
 	// The location upon which virtual-machine-sizes is queried.
 	Location string `pulumi:"location"`
 	// To time of the query

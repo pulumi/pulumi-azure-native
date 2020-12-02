@@ -80,7 +80,7 @@ export class TagAtScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20191001:TagAtScope" }, { type: "azure-nextgen:resources/v20200601:TagAtScope" }, { type: "azure-nextgen:resources/v20201001:TagAtScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20191001:TagAtScope" }, { type: "azure-nextgen:resources/v20200601:TagAtScope" }, { type: "azure-nextgen:resources/v20200801:TagAtScope" }, { type: "azure-nextgen:resources/v20201001:TagAtScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagAtScope.__pulumiType, name, inputs, opts);
     }

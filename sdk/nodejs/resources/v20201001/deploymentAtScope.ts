@@ -96,7 +96,7 @@ export class DeploymentAtScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/latest:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/latest:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20200801:DeploymentAtScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentAtScope.__pulumiType, name, inputs, opts);
     }

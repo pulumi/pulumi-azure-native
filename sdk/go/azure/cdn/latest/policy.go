@@ -36,6 +36,8 @@ type Policy struct {
 	ResourceState  pulumi.StringOutput                `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
 	Sku SkuResponseOutput `pulumi:"sku"`
+	// Read only system data
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -72,6 +74,9 @@ func NewPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:cdn/v20200901:Policy"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -118,6 +123,8 @@ type policyState struct {
 	ResourceState  *string                    `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
 	Sku *SkuResponse `pulumi:"sku"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -146,6 +153,8 @@ type PolicyState struct {
 	ResourceState  pulumi.StringPtrInput
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
 	Sku SkuResponsePtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

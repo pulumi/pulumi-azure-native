@@ -99,7 +99,7 @@ export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:management/latest:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20190501:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20190510:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20190701:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20190801:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20191001:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20201001:DeploymentAtManagementGroupScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:management/latest:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20190501:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20190510:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20190701:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20190801:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20191001:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20200801:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:management/v20201001:DeploymentAtManagementGroupScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentAtManagementGroupScope.__pulumiType, name, inputs, opts);
     }

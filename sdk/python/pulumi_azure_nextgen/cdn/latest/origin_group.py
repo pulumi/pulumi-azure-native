@@ -80,8 +80,9 @@ class OriginGroup(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20191231:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:OriginGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20191231:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:OriginGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OriginGroup, __self__).__init__(
             'azure-nextgen:cdn/latest:OriginGroup',
@@ -154,6 +155,14 @@ class OriginGroup(pulumi.CustomResource):
         The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         """
         return pulumi.get(self, "response_based_origin_error_detection_settings")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")

@@ -15,6 +15,8 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
+	// The Id of the frontdoor.
+	FrontdoorId pulumi.StringOutput `pulumi:"frontdoorId"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
@@ -25,6 +27,8 @@ type Profile struct {
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 	Sku SkuResponseOutput `pulumi:"sku"`
+	// Read only system data
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -83,6 +87,9 @@ func NewProfile(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:Profile"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:cdn/v20200901:Profile"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Profile
@@ -107,6 +114,8 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
+	// The Id of the frontdoor.
+	FrontdoorId *string `pulumi:"frontdoorId"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -117,6 +126,8 @@ type profileState struct {
 	ResourceState *string `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 	Sku *SkuResponse `pulumi:"sku"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -124,6 +135,8 @@ type profileState struct {
 }
 
 type ProfileState struct {
+	// The Id of the frontdoor.
+	FrontdoorId pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
@@ -134,6 +147,8 @@ type ProfileState struct {
 	ResourceState pulumi.StringPtrInput
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 	Sku SkuResponsePtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

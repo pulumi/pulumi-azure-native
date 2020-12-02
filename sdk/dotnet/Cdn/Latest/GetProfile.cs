@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     public sealed class GetProfileResult
     {
         /// <summary>
+        /// The Id of the frontdoor.
+        /// </summary>
+        public readonly string FrontdoorId;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -60,6 +64,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -70,6 +78,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
         [OutputConstructor]
         private GetProfileResult(
+            string frontdoorId,
+
             string location,
 
             string name,
@@ -80,15 +90,19 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
             Outputs.SkuResponse sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            FrontdoorId = frontdoorId;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

@@ -188,6 +188,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

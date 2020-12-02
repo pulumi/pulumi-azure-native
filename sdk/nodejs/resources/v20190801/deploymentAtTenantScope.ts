@@ -89,7 +89,7 @@ export class DeploymentAtTenantScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/latest:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20201001:DeploymentAtTenantScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/latest:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20200801:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20201001:DeploymentAtTenantScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentAtTenantScope.__pulumiType, name, inputs, opts);
     }

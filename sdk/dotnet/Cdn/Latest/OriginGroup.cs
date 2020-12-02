@@ -51,6 +51,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         public Output<Outputs.ResponseBasedOriginErrorDetectionParametersResponse?> ResponseBasedOriginErrorDetectionSettings { get; private set; } = null!;
 
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         /// </summary>
         [Output("trafficRestorationTimeToHealedOrNewEndpointsInMinutes")]
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:OriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:OriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:OriginGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

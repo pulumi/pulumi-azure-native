@@ -15,6 +15,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Id of the frontdoor.
+        /// </summary>
+        [Output("frontdoorId")]
+        public Output<string> FrontdoorId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -43,6 +49,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Read only system data
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -92,6 +104,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

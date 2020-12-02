@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['CustomDomain']
 
@@ -71,9 +72,10 @@ class CustomDomain(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
             __props__['validation_data'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:CustomDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:CustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomDomain, __self__).__init__(
             'azure-nextgen:cdn/latest:CustomDomain',
@@ -146,6 +148,14 @@ class CustomDomain(pulumi.CustomResource):
         Resource status of the custom domain.
         """
         return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

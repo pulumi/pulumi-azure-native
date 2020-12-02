@@ -45,9 +45,11 @@ class AwaitableGetLogAnalyticExportRequestRateByIntervalResult(GetLogAnalyticExp
 
 def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Optional[str] = None,
                                                      from_time: Optional[str] = None,
+                                                     group_by_client_application_id: Optional[bool] = None,
                                                      group_by_operation_name: Optional[bool] = None,
                                                      group_by_resource_name: Optional[bool] = None,
                                                      group_by_throttle_policy: Optional[bool] = None,
+                                                     group_by_user_agent: Optional[bool] = None,
                                                      interval_length: Optional[str] = None,
                                                      location: Optional[str] = None,
                                                      to_time: Optional[str] = None,
@@ -57,9 +59,11 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
 
     :param str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
     :param str from_time: From time of the query
+    :param bool group_by_client_application_id: Group query result by Client Application ID.
     :param bool group_by_operation_name: Group query result by Operation Name.
     :param bool group_by_resource_name: Group query result by Resource Name.
     :param bool group_by_throttle_policy: Group query result by Throttle Policy applied.
+    :param bool group_by_user_agent: Group query result by User Agent.
     :param str interval_length: Interval value in minutes used to create LogAnalytics call rate logs.
     :param str location: The location upon which virtual-machine-sizes is queried.
     :param str to_time: To time of the query
@@ -67,9 +71,11 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
     __args__ = dict()
     __args__['blobContainerSasUri'] = blob_container_sas_uri
     __args__['fromTime'] = from_time
+    __args__['groupByClientApplicationId'] = group_by_client_application_id
     __args__['groupByOperationName'] = group_by_operation_name
     __args__['groupByResourceName'] = group_by_resource_name
     __args__['groupByThrottlePolicy'] = group_by_throttle_policy
+    __args__['groupByUserAgent'] = group_by_user_agent
     __args__['intervalLength'] = interval_length
     __args__['location'] = location
     __args__['toTime'] = to_time

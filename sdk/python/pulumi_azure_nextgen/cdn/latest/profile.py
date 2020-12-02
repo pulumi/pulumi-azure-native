@@ -66,11 +66,13 @@ class Profile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['frontdoor_id'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azure-nextgen:cdn/latest:Profile',
@@ -95,6 +97,14 @@ class Profile(pulumi.CustomResource):
         __props__ = dict()
 
         return Profile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="frontdoorId")
+    def frontdoor_id(self) -> pulumi.Output[str]:
+        """
+        The Id of the frontdoor.
+        """
+        return pulumi.get(self, "frontdoor_id")
 
     @property
     @pulumi.getter
@@ -135,6 +145,14 @@ class Profile(pulumi.CustomResource):
         The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

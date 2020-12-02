@@ -69,6 +69,10 @@ export interface GetOriginGroupResult {
      */
     readonly responseBasedOriginErrorDetectionSettings?: outputs.cdn.latest.ResponseBasedOriginErrorDetectionParametersResponse;
     /**
+     * Read only system data
+     */
+    readonly systemData: outputs.cdn.latest.SystemDataResponse;
+    /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */
     readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: number;

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -91,6 +92,10 @@ export class Origin extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
+     * Read only system data
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.latest.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -143,6 +148,7 @@ export class Origin extends pulumi.CustomResource {
             inputs["privateEndpointStatus"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["enabled"] = undefined /*out*/;
@@ -159,6 +165,7 @@ export class Origin extends pulumi.CustomResource {
             inputs["privateLinkResourceId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["weight"] = undefined /*out*/;
         }
@@ -169,7 +176,7 @@ export class Origin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:Origin" }, { type: "azure-nextgen:cdn/v20160402:Origin" }, { type: "azure-nextgen:cdn/v20191231:Origin" }, { type: "azure-nextgen:cdn/v20200331:Origin" }, { type: "azure-nextgen:cdn/v20200415:Origin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:Origin" }, { type: "azure-nextgen:cdn/v20160402:Origin" }, { type: "azure-nextgen:cdn/v20191231:Origin" }, { type: "azure-nextgen:cdn/v20200331:Origin" }, { type: "azure-nextgen:cdn/v20200415:Origin" }, { type: "azure-nextgen:cdn/v20200901:Origin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Origin.__pulumiType, name, inputs, opts);
     }

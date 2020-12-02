@@ -76,6 +76,10 @@ export interface GetPolicyResult {
      */
     readonly sku: outputs.cdn.latest.SkuResponse;
     /**
+     * Read only system data
+     */
+    readonly systemData: outputs.cdn.latest.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
