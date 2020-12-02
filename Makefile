@@ -64,7 +64,7 @@ build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
-		tsc && \
+		tsc --diagnostics && \
 		cp ../../README.md package.json yarn.lock ./bin/ && \
 		cp ../SDK_LICENSE ./bin/LICENSE && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
