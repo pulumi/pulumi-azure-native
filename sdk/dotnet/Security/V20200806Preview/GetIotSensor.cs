@@ -47,15 +47,22 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Display name of the IoT zone
+        /// </summary>
+        public readonly string? Zone;
 
         [OutputConstructor]
         private GetIotSensorResult(
             string name,
 
-            string type)
+            string type,
+
+            string? zone)
         {
             Name = name;
             Type = type;
+            Zone = zone;
         }
     }
 }

@@ -17,8 +17,9 @@ class Export(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['QueryDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['ExportDefinitionArgs']]] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']]] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
                  export_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ExportScheduleArgs']]] = None,
@@ -31,8 +32,9 @@ class Export(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['QueryDefinitionArgs']] definition: Has definition for the export.
+        :param pulumi.Input[pulumi.InputType['ExportDefinitionArgs']] definition: Has definition for the export.
         :param pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']] delivery_info: Has delivery information for the export.
+        :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[str] export_name: Export Name.
         :param pulumi.Input[str] format: The format of the export being delivered.
         :param pulumi.Input[pulumi.InputType['ExportScheduleArgs']] schedule: Has schedule information for the export.
@@ -61,6 +63,7 @@ class Export(pulumi.CustomResource):
             if delivery_info is None:
                 raise TypeError("Missing required property 'delivery_info'")
             __props__['delivery_info'] = delivery_info
+            __props__['e_tag'] = e_tag
             if export_name is None:
                 raise TypeError("Missing required property 'export_name'")
             __props__['export_name'] = export_name
@@ -70,7 +73,6 @@ class Export(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['name'] = None
-            __props__['tags'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/latest:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190101:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190901:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191001:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:Export")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -100,7 +102,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> pulumi.Output['outputs.QueryDefinitionResponse']:
+    def definition(self) -> pulumi.Output['outputs.ExportDefinitionResponse']:
         """
         Has definition for the export.
         """
@@ -113,6 +115,14 @@ class Export(pulumi.CustomResource):
         Has delivery information for the export.
         """
         return pulumi.get(self, "delivery_info")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
+        """
+        eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        """
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
@@ -137,14 +147,6 @@ class Export(pulumi.CustomResource):
         Has schedule information for the export.
         """
         return pulumi.get(self, "schedule")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

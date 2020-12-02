@@ -23,10 +23,12 @@ type LookupIotSensorArgs struct {
 	Scope string `pulumi:"scope"`
 }
 
-// IoT sensor
+// IoT sensor model
 type LookupIotSensorResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Display name of the IoT zone
+	Zone *string `pulumi:"zone"`
 }

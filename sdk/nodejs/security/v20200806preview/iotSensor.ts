@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * IoT sensor
+ * IoT sensor model
  */
 export class IotSensor extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class IotSensor extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Display name of the IoT zone
+     */
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a IotSensor resource with the given unique name, arguments, and options.
@@ -61,11 +65,13 @@ export class IotSensor extends pulumi.CustomResource {
             }
             inputs["iotSensorName"] = args ? args.iotSensorName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["zone"] = args ? args.zone : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["zone"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -90,4 +96,8 @@ export interface IotSensorArgs {
      * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
      */
     readonly scope: pulumi.Input<string>;
+    /**
+     * Display name of the IoT zone
+     */
+    readonly zone?: pulumi.Input<string>;
 }

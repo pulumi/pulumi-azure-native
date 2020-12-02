@@ -17,15 +17,18 @@ __all__ = [
 @pulumi.output_type
 class GetIotSensorResult:
     """
-    IoT sensor
+    IoT sensor model
     """
-    def __init__(__self__, name=None, type=None):
+    def __init__(__self__, name=None, type=None, zone=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if zone and not isinstance(zone, str):
+            raise TypeError("Expected argument 'zone' to be a str")
+        pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -43,6 +46,14 @@ class GetIotSensorResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[str]:
+        """
+        Display name of the IoT zone
+        """
+        return pulumi.get(self, "zone")
+
 
 class AwaitableGetIotSensorResult(GetIotSensorResult):
     # pylint: disable=using-constant-test
@@ -51,7 +62,8 @@ class AwaitableGetIotSensorResult(GetIotSensorResult):
             yield self
         return GetIotSensorResult(
             name=self.name,
-            type=self.type)
+            type=self.type,
+            zone=self.zone)
 
 
 def get_iot_sensor(iot_sensor_name: Optional[str] = None,
@@ -74,4 +86,5 @@ def get_iot_sensor(iot_sensor_name: Optional[str] = None,
 
     return AwaitableGetIotSensorResult(
         name=__ret__.name,
-        type=__ret__.type)
+        type=__ret__.type,
+        zone=__ret__.zone)

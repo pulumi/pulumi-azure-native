@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Security.V20200806Preview
 {
     /// <summary>
-    /// IoT sensor
+    /// IoT sensor model
     /// </summary>
     public partial class IotSensor : Pulumi.CustomResource
     {
@@ -25,6 +25,12 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Display name of the IoT zone
+        /// </summary>
+        [Output("zone")]
+        public Output<string?> Zone { get; private set; } = null!;
 
 
         /// <summary>
@@ -82,6 +88,12 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
+
+        /// <summary>
+        /// Display name of the IoT zone
+        /// </summary>
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
 
         public IotSensorArgs()
         {

@@ -17,16 +17,18 @@ class IotSensor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  iot_sensor_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
+                 zone: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        IoT sensor
+        IoT sensor model
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] iot_sensor_name: Name of the IoT sensor
         :param pulumi.Input[str] scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
+        :param pulumi.Input[str] zone: Display name of the IoT zone
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -51,6 +53,7 @@ class IotSensor(pulumi.CustomResource):
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['zone'] = zone
             __props__['name'] = None
             __props__['type'] = None
         super(IotSensor, __self__).__init__(
@@ -92,6 +95,14 @@ class IotSensor(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Display name of the IoT zone
+        """
+        return pulumi.get(self, "zone")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

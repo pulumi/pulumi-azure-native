@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// IoT sensor
+// IoT sensor model
 type IotSensor struct {
 	pulumi.CustomResourceState
 
@@ -19,6 +19,8 @@ type IotSensor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Display name of the IoT zone
+	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
 // NewIotSensor registers a new resource with the given unique name, arguments, and options.
@@ -59,6 +61,8 @@ type iotSensorState struct {
 	Name *string `pulumi:"name"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Display name of the IoT zone
+	Zone *string `pulumi:"zone"`
 }
 
 type IotSensorState struct {
@@ -66,6 +70,8 @@ type IotSensorState struct {
 	Name pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Display name of the IoT zone
+	Zone pulumi.StringPtrInput
 }
 
 func (IotSensorState) ElementType() reflect.Type {
@@ -77,6 +83,8 @@ type iotSensorArgs struct {
 	IotSensorName string `pulumi:"iotSensorName"`
 	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
 	Scope string `pulumi:"scope"`
+	// Display name of the IoT zone
+	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a IotSensor resource.
@@ -85,6 +93,8 @@ type IotSensorArgs struct {
 	IotSensorName pulumi.StringInput
 	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
 	Scope pulumi.StringInput
+	// Display name of the IoT zone
+	Zone pulumi.StringPtrInput
 }
 
 func (IotSensorArgs) ElementType() reflect.Type {

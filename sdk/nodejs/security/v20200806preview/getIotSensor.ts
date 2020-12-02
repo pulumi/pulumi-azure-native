@@ -31,7 +31,7 @@ export interface GetIotSensorArgs {
 }
 
 /**
- * IoT sensor
+ * IoT sensor model
  */
 export interface GetIotSensorResult {
     /**
@@ -42,4 +42,8 @@ export interface GetIotSensorResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Display name of the IoT zone
+     */
+    readonly zone?: string;
 }
