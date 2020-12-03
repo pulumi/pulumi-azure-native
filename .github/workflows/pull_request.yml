@@ -58,6 +58,9 @@ jobs:
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goversion: [1.15.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2

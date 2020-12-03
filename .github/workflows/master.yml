@@ -146,6 +146,9 @@ jobs:
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goversion: [1.15.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -196,6 +199,9 @@ jobs:
     name: publish
     needs: test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goversion: [1.15.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -238,6 +244,9 @@ jobs:
     name: publish_sdk
     needs: publish
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goversion: [1.15.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
