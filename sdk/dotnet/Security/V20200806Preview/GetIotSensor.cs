@@ -40,22 +40,92 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
     public sealed class GetIotSensorResult
     {
         /// <summary>
+        /// Last connectivity time of the IoT sensor
+        /// </summary>
+        public readonly string ConnectivityTime;
+        /// <summary>
+        /// Creation time of the IoT sensor
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// Dynamic mode status of the IoT sensor
+        /// </summary>
+        public readonly bool DynamicLearning;
+        /// <summary>
+        /// Learning mode status of the IoT sensor
+        /// </summary>
+        public readonly bool LearningMode;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status of the IoT sensor
+        /// </summary>
+        public readonly string SensorStatus;
+        /// <summary>
+        /// Version of the IoT sensor
+        /// </summary>
+        public readonly string SensorVersion;
+        /// <summary>
+        /// TI Automatic mode status of the IoT sensor
+        /// </summary>
+        public readonly bool? TiAutomaticUpdates;
+        /// <summary>
+        /// TI Status of the IoT sensor
+        /// </summary>
+        public readonly string TiStatus;
+        /// <summary>
+        /// TI Version of the IoT sensor
+        /// </summary>
+        public readonly string TiVersion;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Zone of the IoT sensor
+        /// </summary>
+        public readonly string? Zone;
 
         [OutputConstructor]
         private GetIotSensorResult(
+            string connectivityTime,
+
+            string creationTime,
+
+            bool dynamicLearning,
+
+            bool learningMode,
+
             string name,
 
-            string type)
+            string sensorStatus,
+
+            string sensorVersion,
+
+            bool? tiAutomaticUpdates,
+
+            string tiStatus,
+
+            string tiVersion,
+
+            string type,
+
+            string? zone)
         {
+            ConnectivityTime = connectivityTime;
+            CreationTime = creationTime;
+            DynamicLearning = dynamicLearning;
+            LearningMode = learningMode;
             Name = name;
+            SensorStatus = sensorStatus;
+            SensorVersion = sensorVersion;
+            TiAutomaticUpdates = tiAutomaticUpdates;
+            TiStatus = tiStatus;
+            TiVersion = tiVersion;
             Type = type;
+            Zone = zone;
         }
     }
 }

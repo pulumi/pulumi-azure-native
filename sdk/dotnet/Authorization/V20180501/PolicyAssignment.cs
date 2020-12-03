@@ -122,6 +122,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190601:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190901:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200901:PolicyAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

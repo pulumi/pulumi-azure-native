@@ -516,6 +516,224 @@ func (o ManagementLockOwnerResponseArrayOutput) Index(i pulumi.IntInput) Managem
 	}).(ManagementLockOwnerResponseOutput)
 }
 
+// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+type NonComplianceMessage struct {
+	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+	Message string `pulumi:"message"`
+	// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+}
+
+// NonComplianceMessageInput is an input type that accepts NonComplianceMessageArgs and NonComplianceMessageOutput values.
+// You can construct a concrete instance of `NonComplianceMessageInput` via:
+//
+//          NonComplianceMessageArgs{...}
+type NonComplianceMessageInput interface {
+	pulumi.Input
+
+	ToNonComplianceMessageOutput() NonComplianceMessageOutput
+	ToNonComplianceMessageOutputWithContext(context.Context) NonComplianceMessageOutput
+}
+
+// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+type NonComplianceMessageArgs struct {
+	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+	Message pulumi.StringInput `pulumi:"message"`
+	// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+	PolicyDefinitionReferenceId pulumi.StringPtrInput `pulumi:"policyDefinitionReferenceId"`
+}
+
+func (NonComplianceMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NonComplianceMessage)(nil)).Elem()
+}
+
+func (i NonComplianceMessageArgs) ToNonComplianceMessageOutput() NonComplianceMessageOutput {
+	return i.ToNonComplianceMessageOutputWithContext(context.Background())
+}
+
+func (i NonComplianceMessageArgs) ToNonComplianceMessageOutputWithContext(ctx context.Context) NonComplianceMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NonComplianceMessageOutput)
+}
+
+// NonComplianceMessageArrayInput is an input type that accepts NonComplianceMessageArray and NonComplianceMessageArrayOutput values.
+// You can construct a concrete instance of `NonComplianceMessageArrayInput` via:
+//
+//          NonComplianceMessageArray{ NonComplianceMessageArgs{...} }
+type NonComplianceMessageArrayInput interface {
+	pulumi.Input
+
+	ToNonComplianceMessageArrayOutput() NonComplianceMessageArrayOutput
+	ToNonComplianceMessageArrayOutputWithContext(context.Context) NonComplianceMessageArrayOutput
+}
+
+type NonComplianceMessageArray []NonComplianceMessageInput
+
+func (NonComplianceMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NonComplianceMessage)(nil)).Elem()
+}
+
+func (i NonComplianceMessageArray) ToNonComplianceMessageArrayOutput() NonComplianceMessageArrayOutput {
+	return i.ToNonComplianceMessageArrayOutputWithContext(context.Background())
+}
+
+func (i NonComplianceMessageArray) ToNonComplianceMessageArrayOutputWithContext(ctx context.Context) NonComplianceMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NonComplianceMessageArrayOutput)
+}
+
+// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+type NonComplianceMessageOutput struct{ *pulumi.OutputState }
+
+func (NonComplianceMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NonComplianceMessage)(nil)).Elem()
+}
+
+func (o NonComplianceMessageOutput) ToNonComplianceMessageOutput() NonComplianceMessageOutput {
+	return o
+}
+
+func (o NonComplianceMessageOutput) ToNonComplianceMessageOutputWithContext(ctx context.Context) NonComplianceMessageOutput {
+	return o
+}
+
+// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+func (o NonComplianceMessageOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v NonComplianceMessage) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+func (o NonComplianceMessageOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NonComplianceMessage) *string { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
+}
+
+type NonComplianceMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (NonComplianceMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NonComplianceMessage)(nil)).Elem()
+}
+
+func (o NonComplianceMessageArrayOutput) ToNonComplianceMessageArrayOutput() NonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o NonComplianceMessageArrayOutput) ToNonComplianceMessageArrayOutputWithContext(ctx context.Context) NonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o NonComplianceMessageArrayOutput) Index(i pulumi.IntInput) NonComplianceMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NonComplianceMessage {
+		return vs[0].([]NonComplianceMessage)[vs[1].(int)]
+	}).(NonComplianceMessageOutput)
+}
+
+// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+type NonComplianceMessageResponse struct {
+	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+	Message string `pulumi:"message"`
+	// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+}
+
+// NonComplianceMessageResponseInput is an input type that accepts NonComplianceMessageResponseArgs and NonComplianceMessageResponseOutput values.
+// You can construct a concrete instance of `NonComplianceMessageResponseInput` via:
+//
+//          NonComplianceMessageResponseArgs{...}
+type NonComplianceMessageResponseInput interface {
+	pulumi.Input
+
+	ToNonComplianceMessageResponseOutput() NonComplianceMessageResponseOutput
+	ToNonComplianceMessageResponseOutputWithContext(context.Context) NonComplianceMessageResponseOutput
+}
+
+// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+type NonComplianceMessageResponseArgs struct {
+	// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+	Message pulumi.StringInput `pulumi:"message"`
+	// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+	PolicyDefinitionReferenceId pulumi.StringPtrInput `pulumi:"policyDefinitionReferenceId"`
+}
+
+func (NonComplianceMessageResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NonComplianceMessageResponse)(nil)).Elem()
+}
+
+func (i NonComplianceMessageResponseArgs) ToNonComplianceMessageResponseOutput() NonComplianceMessageResponseOutput {
+	return i.ToNonComplianceMessageResponseOutputWithContext(context.Background())
+}
+
+func (i NonComplianceMessageResponseArgs) ToNonComplianceMessageResponseOutputWithContext(ctx context.Context) NonComplianceMessageResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NonComplianceMessageResponseOutput)
+}
+
+// NonComplianceMessageResponseArrayInput is an input type that accepts NonComplianceMessageResponseArray and NonComplianceMessageResponseArrayOutput values.
+// You can construct a concrete instance of `NonComplianceMessageResponseArrayInput` via:
+//
+//          NonComplianceMessageResponseArray{ NonComplianceMessageResponseArgs{...} }
+type NonComplianceMessageResponseArrayInput interface {
+	pulumi.Input
+
+	ToNonComplianceMessageResponseArrayOutput() NonComplianceMessageResponseArrayOutput
+	ToNonComplianceMessageResponseArrayOutputWithContext(context.Context) NonComplianceMessageResponseArrayOutput
+}
+
+type NonComplianceMessageResponseArray []NonComplianceMessageResponseInput
+
+func (NonComplianceMessageResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NonComplianceMessageResponse)(nil)).Elem()
+}
+
+func (i NonComplianceMessageResponseArray) ToNonComplianceMessageResponseArrayOutput() NonComplianceMessageResponseArrayOutput {
+	return i.ToNonComplianceMessageResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NonComplianceMessageResponseArray) ToNonComplianceMessageResponseArrayOutputWithContext(ctx context.Context) NonComplianceMessageResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NonComplianceMessageResponseArrayOutput)
+}
+
+// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+type NonComplianceMessageResponseOutput struct{ *pulumi.OutputState }
+
+func (NonComplianceMessageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NonComplianceMessageResponse)(nil)).Elem()
+}
+
+func (o NonComplianceMessageResponseOutput) ToNonComplianceMessageResponseOutput() NonComplianceMessageResponseOutput {
+	return o
+}
+
+func (o NonComplianceMessageResponseOutput) ToNonComplianceMessageResponseOutputWithContext(ctx context.Context) NonComplianceMessageResponseOutput {
+	return o
+}
+
+// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+func (o NonComplianceMessageResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v NonComplianceMessageResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+func (o NonComplianceMessageResponseOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NonComplianceMessageResponse) *string { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
+}
+
+type NonComplianceMessageResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NonComplianceMessageResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NonComplianceMessageResponse)(nil)).Elem()
+}
+
+func (o NonComplianceMessageResponseArrayOutput) ToNonComplianceMessageResponseArrayOutput() NonComplianceMessageResponseArrayOutput {
+	return o
+}
+
+func (o NonComplianceMessageResponseArrayOutput) ToNonComplianceMessageResponseArrayOutputWithContext(ctx context.Context) NonComplianceMessageResponseArrayOutput {
+	return o
+}
+
+func (o NonComplianceMessageResponseArrayOutput) Index(i pulumi.IntInput) NonComplianceMessageResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NonComplianceMessageResponse {
+		return vs[0].([]NonComplianceMessageResponse)[vs[1].(int)]
+	}).(NonComplianceMessageResponseOutput)
+}
+
 // The definition of a parameter that can be provided to the policy.
 type ParameterDefinitionsValue struct {
 	// The allowed values for the parameter.
@@ -645,10 +863,14 @@ func (o ParameterDefinitionsValueMapOutput) MapIndex(k pulumi.StringInput) Param
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueMetadata struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions *bool `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description *string `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName *string `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType *string `pulumi:"strongType"`
 }
 
 // ParameterDefinitionsValueMetadataInput is an input type that accepts ParameterDefinitionsValueMetadataArgs and ParameterDefinitionsValueMetadataOutput values.
@@ -664,10 +886,14 @@ type ParameterDefinitionsValueMetadataInput interface {
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueMetadataArgs struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions pulumi.BoolPtrInput `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
 }
 
 func (ParameterDefinitionsValueMetadataArgs) ElementType() reflect.Type {
@@ -748,6 +974,11 @@ func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMeta
 	}).(ParameterDefinitionsValueMetadataPtrOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueMetadataOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *bool { return v.AssignPermissions }).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueMetadataOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -756,6 +987,11 @@ func (o ParameterDefinitionsValueMetadataOutput) Description() pulumi.StringPtrO
 // The display name for the parameter.
 func (o ParameterDefinitionsValueMetadataOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueMetadataOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
 
 type ParameterDefinitionsValueMetadataPtrOutput struct{ *pulumi.OutputState }
@@ -776,6 +1012,16 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) Elem() ParameterDefinitionsV
 	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) ParameterDefinitionsValueMetadata { return *v }).(ParameterDefinitionsValueMetadataOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueMetadataPtrOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AssignPermissions
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueMetadataPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
@@ -793,6 +1039,16 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) DisplayName() pulumi.StringP
 			return nil
 		}
 		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueMetadataPtrOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StrongType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -927,10 +1183,14 @@ func (o ParameterDefinitionsValueResponseMapOutput) MapIndex(k pulumi.StringInpu
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueResponseMetadata struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions *bool `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description *string `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName *string `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType *string `pulumi:"strongType"`
 }
 
 // ParameterDefinitionsValueResponseMetadataInput is an input type that accepts ParameterDefinitionsValueResponseMetadataArgs and ParameterDefinitionsValueResponseMetadataOutput values.
@@ -946,10 +1206,14 @@ type ParameterDefinitionsValueResponseMetadataInput interface {
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueResponseMetadataArgs struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions pulumi.BoolPtrInput `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
 }
 
 func (ParameterDefinitionsValueResponseMetadataArgs) ElementType() reflect.Type {
@@ -1030,6 +1294,11 @@ func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsV
 	}).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueResponseMetadataOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *bool { return v.AssignPermissions }).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueResponseMetadataOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -1038,6 +1307,11 @@ func (o ParameterDefinitionsValueResponseMetadataOutput) Description() pulumi.St
 // The display name for the parameter.
 func (o ParameterDefinitionsValueResponseMetadataOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueResponseMetadataOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
 
 type ParameterDefinitionsValueResponseMetadataPtrOutput struct{ *pulumi.OutputState }
@@ -1060,6 +1334,16 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Elem() ParameterDefi
 	}).(ParameterDefinitionsValueResponseMetadataOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AssignPermissions
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
@@ -1077,6 +1361,16 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) DisplayName() pulumi
 			return nil
 		}
 		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StrongType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2024,312 +2318,6 @@ func (o PolicyDefinitionReferenceResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PolicyDefinitionReferenceResponseOutput)
 }
 
-// The policy sku. This property is optional, obsolete, and will be ignored.
-type PolicySku struct {
-	// The name of the policy sku. Possible values are A0 and A1.
-	Name string `pulumi:"name"`
-	// The policy sku tier. Possible values are Free and Standard.
-	Tier *string `pulumi:"tier"`
-}
-
-// PolicySkuInput is an input type that accepts PolicySkuArgs and PolicySkuOutput values.
-// You can construct a concrete instance of `PolicySkuInput` via:
-//
-//          PolicySkuArgs{...}
-type PolicySkuInput interface {
-	pulumi.Input
-
-	ToPolicySkuOutput() PolicySkuOutput
-	ToPolicySkuOutputWithContext(context.Context) PolicySkuOutput
-}
-
-// The policy sku. This property is optional, obsolete, and will be ignored.
-type PolicySkuArgs struct {
-	// The name of the policy sku. Possible values are A0 and A1.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy sku tier. Possible values are Free and Standard.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (PolicySkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySku)(nil)).Elem()
-}
-
-func (i PolicySkuArgs) ToPolicySkuOutput() PolicySkuOutput {
-	return i.ToPolicySkuOutputWithContext(context.Background())
-}
-
-func (i PolicySkuArgs) ToPolicySkuOutputWithContext(ctx context.Context) PolicySkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuOutput)
-}
-
-func (i PolicySkuArgs) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
-	return i.ToPolicySkuPtrOutputWithContext(context.Background())
-}
-
-func (i PolicySkuArgs) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuOutput).ToPolicySkuPtrOutputWithContext(ctx)
-}
-
-// PolicySkuPtrInput is an input type that accepts PolicySkuArgs, PolicySkuPtr and PolicySkuPtrOutput values.
-// You can construct a concrete instance of `PolicySkuPtrInput` via:
-//
-//          PolicySkuArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicySkuPtrInput interface {
-	pulumi.Input
-
-	ToPolicySkuPtrOutput() PolicySkuPtrOutput
-	ToPolicySkuPtrOutputWithContext(context.Context) PolicySkuPtrOutput
-}
-
-type policySkuPtrType PolicySkuArgs
-
-func PolicySkuPtr(v *PolicySkuArgs) PolicySkuPtrInput {
-	return (*policySkuPtrType)(v)
-}
-
-func (*policySkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySku)(nil)).Elem()
-}
-
-func (i *policySkuPtrType) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
-	return i.ToPolicySkuPtrOutputWithContext(context.Background())
-}
-
-func (i *policySkuPtrType) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuPtrOutput)
-}
-
-// The policy sku. This property is optional, obsolete, and will be ignored.
-type PolicySkuOutput struct{ *pulumi.OutputState }
-
-func (PolicySkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySku)(nil)).Elem()
-}
-
-func (o PolicySkuOutput) ToPolicySkuOutput() PolicySkuOutput {
-	return o
-}
-
-func (o PolicySkuOutput) ToPolicySkuOutputWithContext(ctx context.Context) PolicySkuOutput {
-	return o
-}
-
-func (o PolicySkuOutput) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
-	return o.ToPolicySkuPtrOutputWithContext(context.Background())
-}
-
-func (o PolicySkuOutput) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
-	return o.ApplyT(func(v PolicySku) *PolicySku {
-		return &v
-	}).(PolicySkuPtrOutput)
-}
-
-// The name of the policy sku. Possible values are A0 and A1.
-func (o PolicySkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicySku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The policy sku tier. Possible values are Free and Standard.
-func (o PolicySkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicySku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type PolicySkuPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicySkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySku)(nil)).Elem()
-}
-
-func (o PolicySkuPtrOutput) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
-	return o
-}
-
-func (o PolicySkuPtrOutput) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
-	return o
-}
-
-func (o PolicySkuPtrOutput) Elem() PolicySkuOutput {
-	return o.ApplyT(func(v *PolicySku) PolicySku { return *v }).(PolicySkuOutput)
-}
-
-// The name of the policy sku. Possible values are A0 and A1.
-func (o PolicySkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The policy sku tier. Possible values are Free and Standard.
-func (o PolicySkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The policy sku. This property is optional, obsolete, and will be ignored.
-type PolicySkuResponse struct {
-	// The name of the policy sku. Possible values are A0 and A1.
-	Name string `pulumi:"name"`
-	// The policy sku tier. Possible values are Free and Standard.
-	Tier *string `pulumi:"tier"`
-}
-
-// PolicySkuResponseInput is an input type that accepts PolicySkuResponseArgs and PolicySkuResponseOutput values.
-// You can construct a concrete instance of `PolicySkuResponseInput` via:
-//
-//          PolicySkuResponseArgs{...}
-type PolicySkuResponseInput interface {
-	pulumi.Input
-
-	ToPolicySkuResponseOutput() PolicySkuResponseOutput
-	ToPolicySkuResponseOutputWithContext(context.Context) PolicySkuResponseOutput
-}
-
-// The policy sku. This property is optional, obsolete, and will be ignored.
-type PolicySkuResponseArgs struct {
-	// The name of the policy sku. Possible values are A0 and A1.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy sku tier. Possible values are Free and Standard.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (PolicySkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySkuResponse)(nil)).Elem()
-}
-
-func (i PolicySkuResponseArgs) ToPolicySkuResponseOutput() PolicySkuResponseOutput {
-	return i.ToPolicySkuResponseOutputWithContext(context.Background())
-}
-
-func (i PolicySkuResponseArgs) ToPolicySkuResponseOutputWithContext(ctx context.Context) PolicySkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuResponseOutput)
-}
-
-func (i PolicySkuResponseArgs) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
-	return i.ToPolicySkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PolicySkuResponseArgs) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuResponseOutput).ToPolicySkuResponsePtrOutputWithContext(ctx)
-}
-
-// PolicySkuResponsePtrInput is an input type that accepts PolicySkuResponseArgs, PolicySkuResponsePtr and PolicySkuResponsePtrOutput values.
-// You can construct a concrete instance of `PolicySkuResponsePtrInput` via:
-//
-//          PolicySkuResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicySkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput
-	ToPolicySkuResponsePtrOutputWithContext(context.Context) PolicySkuResponsePtrOutput
-}
-
-type policySkuResponsePtrType PolicySkuResponseArgs
-
-func PolicySkuResponsePtr(v *PolicySkuResponseArgs) PolicySkuResponsePtrInput {
-	return (*policySkuResponsePtrType)(v)
-}
-
-func (*policySkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySkuResponse)(nil)).Elem()
-}
-
-func (i *policySkuResponsePtrType) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
-	return i.ToPolicySkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *policySkuResponsePtrType) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuResponsePtrOutput)
-}
-
-// The policy sku. This property is optional, obsolete, and will be ignored.
-type PolicySkuResponseOutput struct{ *pulumi.OutputState }
-
-func (PolicySkuResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySkuResponse)(nil)).Elem()
-}
-
-func (o PolicySkuResponseOutput) ToPolicySkuResponseOutput() PolicySkuResponseOutput {
-	return o
-}
-
-func (o PolicySkuResponseOutput) ToPolicySkuResponseOutputWithContext(ctx context.Context) PolicySkuResponseOutput {
-	return o
-}
-
-func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
-	return o.ToPolicySkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
-	return o.ApplyT(func(v PolicySkuResponse) *PolicySkuResponse {
-		return &v
-	}).(PolicySkuResponsePtrOutput)
-}
-
-// The name of the policy sku. Possible values are A0 and A1.
-func (o PolicySkuResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicySkuResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The policy sku tier. Possible values are Free and Standard.
-func (o PolicySkuResponseOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicySkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type PolicySkuResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PolicySkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySkuResponse)(nil)).Elem()
-}
-
-func (o PolicySkuResponsePtrOutput) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
-	return o
-}
-
-func (o PolicySkuResponsePtrOutput) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
-	return o
-}
-
-func (o PolicySkuResponsePtrOutput) Elem() PolicySkuResponseOutput {
-	return o.ApplyT(func(v *PolicySkuResponse) PolicySkuResponse { return *v }).(PolicySkuResponseOutput)
-}
-
-// The name of the policy sku. Possible values are A0 and A1.
-func (o PolicySkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The policy sku tier. Possible values are Free and Standard.
-func (o PolicySkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
 // Role assignment properties.
 type RoleAssignmentProperties struct {
 	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
@@ -2666,6 +2654,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagementLockOwnerArrayOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerResponseOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerResponseArrayOutput{})
+	pulumi.RegisterOutputType(NonComplianceMessageOutput{})
+	pulumi.RegisterOutputType(NonComplianceMessageArrayOutput{})
+	pulumi.RegisterOutputType(NonComplianceMessageResponseOutput{})
+	pulumi.RegisterOutputType(NonComplianceMessageResponseArrayOutput{})
 	pulumi.RegisterOutputType(ParameterDefinitionsValueOutput{})
 	pulumi.RegisterOutputType(ParameterDefinitionsValueMapOutput{})
 	pulumi.RegisterOutputType(ParameterDefinitionsValueMetadataOutput{})
@@ -2690,10 +2682,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(PolicySkuOutput{})
-	pulumi.RegisterOutputType(PolicySkuPtrOutput{})
-	pulumi.RegisterOutputType(PolicySkuResponseOutput{})
-	pulumi.RegisterOutputType(PolicySkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponseOutput{})

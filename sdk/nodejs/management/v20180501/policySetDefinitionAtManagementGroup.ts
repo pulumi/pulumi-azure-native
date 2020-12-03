@@ -114,7 +114,7 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:management/latest:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20170601preview:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20180301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20190101:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20190601:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20190901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20200301:PolicySetDefinitionAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:management/latest:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20170601preview:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20180301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20190101:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20190601:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20190901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20200301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20200901:PolicySetDefinitionAtManagementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicySetDefinitionAtManagementGroup.__pulumiType, name, inputs, opts);
     }

@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Migration Properties
+        /// </summary>
+        public readonly Outputs.MigrationPropertiesResponse? MigrationProperties;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNextGen.Aad.Latest
 
             string? location,
 
+            Outputs.MigrationPropertiesResponse? migrationProperties,
+
             string name,
 
             Outputs.NotificationSettingsResponse? notificationSettings,
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
             FilteredSync = filteredSync;
             LdapsSettings = ldapsSettings;
             Location = location;
+            MigrationProperties = migrationProperties;
             Name = name;
             NotificationSettings = notificationSettings;
             ProvisioningState = provisioningState;

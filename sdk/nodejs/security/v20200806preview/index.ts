@@ -4,7 +4,9 @@
 // Export members:
 export * from "./getIotDefenderSetting";
 export * from "./getIotSensor";
+export * from "./getIotSite";
 export * from "./getOnPremiseIotSensor";
 export * from "./iotDefenderSetting";
 export * from "./iotSensor";
+export * from "./iotSite";
 export * from "./onPremiseIotSensor";

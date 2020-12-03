@@ -41,6 +41,8 @@ type LookupDomainServiceResult struct {
 	LdapsSettings *LdapsSettingsResponse `pulumi:"ldapsSettings"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Migration Properties
+	MigrationProperties *MigrationPropertiesResponse `pulumi:"migrationProperties"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Notification Settings

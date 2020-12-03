@@ -20,13 +20,16 @@ class GetExportResult:
     """
     A export resource.
     """
-    def __init__(__self__, definition=None, delivery_info=None, format=None, name=None, schedule=None, tags=None, type=None):
+    def __init__(__self__, definition=None, delivery_info=None, e_tag=None, format=None, name=None, schedule=None, type=None):
         if definition and not isinstance(definition, dict):
             raise TypeError("Expected argument 'definition' to be a dict")
         pulumi.set(__self__, "definition", definition)
         if delivery_info and not isinstance(delivery_info, dict):
             raise TypeError("Expected argument 'delivery_info' to be a dict")
         pulumi.set(__self__, "delivery_info", delivery_info)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
@@ -36,16 +39,13 @@ class GetExportResult:
         if schedule and not isinstance(schedule, dict):
             raise TypeError("Expected argument 'schedule' to be a dict")
         pulumi.set(__self__, "schedule", schedule)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def definition(self) -> 'outputs.QueryDefinitionResponse':
+    def definition(self) -> 'outputs.ExportDefinitionResponse':
         """
         Has definition for the export.
         """
@@ -58,6 +58,14 @@ class GetExportResult:
         Has delivery information for the export.
         """
         return pulumi.get(self, "delivery_info")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        """
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
@@ -85,14 +93,6 @@ class GetExportResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         Resource type.
@@ -108,10 +108,10 @@ class AwaitableGetExportResult(GetExportResult):
         return GetExportResult(
             definition=self.definition,
             delivery_info=self.delivery_info,
+            e_tag=self.e_tag,
             format=self.format,
             name=self.name,
             schedule=self.schedule,
-            tags=self.tags,
             type=self.type)
 
 
@@ -136,8 +136,8 @@ def get_export(export_name: Optional[str] = None,
     return AwaitableGetExportResult(
         definition=__ret__.definition,
         delivery_info=__ret__.delivery_info,
+        e_tag=__ret__.e_tag,
         format=__ret__.format,
         name=__ret__.name,
         schedule=__ret__.schedule,
-        tags=__ret__.tags,
         type=__ret__.type)

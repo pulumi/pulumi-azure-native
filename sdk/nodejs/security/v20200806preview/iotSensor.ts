@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * IoT sensor
+ * IoT sensor model
  */
 export class IotSensor extends pulumi.CustomResource {
     /**
@@ -35,13 +35,53 @@ export class IotSensor extends pulumi.CustomResource {
     }
 
     /**
+     * Last connectivity time of the IoT sensor
+     */
+    public /*out*/ readonly connectivityTime!: pulumi.Output<string>;
+    /**
+     * Creation time of the IoT sensor
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Dynamic mode status of the IoT sensor
+     */
+    public /*out*/ readonly dynamicLearning!: pulumi.Output<boolean>;
+    /**
+     * Learning mode status of the IoT sensor
+     */
+    public /*out*/ readonly learningMode!: pulumi.Output<boolean>;
+    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Status of the IoT sensor
+     */
+    public /*out*/ readonly sensorStatus!: pulumi.Output<string>;
+    /**
+     * Version of the IoT sensor
+     */
+    public /*out*/ readonly sensorVersion!: pulumi.Output<string>;
+    /**
+     * TI Automatic mode status of the IoT sensor
+     */
+    public readonly tiAutomaticUpdates!: pulumi.Output<boolean | undefined>;
+    /**
+     * TI Status of the IoT sensor
+     */
+    public /*out*/ readonly tiStatus!: pulumi.Output<string>;
+    /**
+     * TI Version of the IoT sensor
+     */
+    public /*out*/ readonly tiVersion!: pulumi.Output<string>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Zone of the IoT sensor
+     */
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a IotSensor resource with the given unique name, arguments, and options.
@@ -61,11 +101,31 @@ export class IotSensor extends pulumi.CustomResource {
             }
             inputs["iotSensorName"] = args ? args.iotSensorName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["tiAutomaticUpdates"] = args ? args.tiAutomaticUpdates : undefined;
+            inputs["zone"] = args ? args.zone : undefined;
+            inputs["connectivityTime"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["dynamicLearning"] = undefined /*out*/;
+            inputs["learningMode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["sensorStatus"] = undefined /*out*/;
+            inputs["sensorVersion"] = undefined /*out*/;
+            inputs["tiStatus"] = undefined /*out*/;
+            inputs["tiVersion"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["connectivityTime"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["dynamicLearning"] = undefined /*out*/;
+            inputs["learningMode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["sensorStatus"] = undefined /*out*/;
+            inputs["sensorVersion"] = undefined /*out*/;
+            inputs["tiAutomaticUpdates"] = undefined /*out*/;
+            inputs["tiStatus"] = undefined /*out*/;
+            inputs["tiVersion"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["zone"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -90,4 +150,12 @@ export interface IotSensorArgs {
      * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
      */
     readonly scope: pulumi.Input<string>;
+    /**
+     * TI Automatic mode status of the IoT sensor
+     */
+    readonly tiAutomaticUpdates?: pulumi.Input<boolean>;
+    /**
+     * Zone of the IoT sensor
+     */
+    readonly zone?: pulumi.Input<string>;
 }

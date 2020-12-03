@@ -3970,10 +3970,14 @@ func (o ParameterDefinitionsValueMapOutput) MapIndex(k pulumi.StringInput) Param
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueMetadata struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions *bool `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description *string `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName *string `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType *string `pulumi:"strongType"`
 }
 
 // ParameterDefinitionsValueMetadataInput is an input type that accepts ParameterDefinitionsValueMetadataArgs and ParameterDefinitionsValueMetadataOutput values.
@@ -3989,10 +3993,14 @@ type ParameterDefinitionsValueMetadataInput interface {
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueMetadataArgs struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions pulumi.BoolPtrInput `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
 }
 
 func (ParameterDefinitionsValueMetadataArgs) ElementType() reflect.Type {
@@ -4073,6 +4081,11 @@ func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMeta
 	}).(ParameterDefinitionsValueMetadataPtrOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueMetadataOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *bool { return v.AssignPermissions }).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueMetadataOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -4081,6 +4094,11 @@ func (o ParameterDefinitionsValueMetadataOutput) Description() pulumi.StringPtrO
 // The display name for the parameter.
 func (o ParameterDefinitionsValueMetadataOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueMetadataOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
 
 type ParameterDefinitionsValueMetadataPtrOutput struct{ *pulumi.OutputState }
@@ -4101,6 +4119,16 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) Elem() ParameterDefinitionsV
 	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) ParameterDefinitionsValueMetadata { return *v }).(ParameterDefinitionsValueMetadataOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueMetadataPtrOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AssignPermissions
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueMetadataPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
@@ -4118,6 +4146,16 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) DisplayName() pulumi.StringP
 			return nil
 		}
 		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueMetadataPtrOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StrongType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4252,10 +4290,14 @@ func (o ParameterDefinitionsValueResponseMapOutput) MapIndex(k pulumi.StringInpu
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueResponseMetadata struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions *bool `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description *string `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName *string `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType *string `pulumi:"strongType"`
 }
 
 // ParameterDefinitionsValueResponseMetadataInput is an input type that accepts ParameterDefinitionsValueResponseMetadataArgs and ParameterDefinitionsValueResponseMetadataOutput values.
@@ -4271,10 +4313,14 @@ type ParameterDefinitionsValueResponseMetadataInput interface {
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueResponseMetadataArgs struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions pulumi.BoolPtrInput `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
 }
 
 func (ParameterDefinitionsValueResponseMetadataArgs) ElementType() reflect.Type {
@@ -4355,6 +4401,11 @@ func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsV
 	}).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueResponseMetadataOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *bool { return v.AssignPermissions }).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueResponseMetadataOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -4363,6 +4414,11 @@ func (o ParameterDefinitionsValueResponseMetadataOutput) Description() pulumi.St
 // The display name for the parameter.
 func (o ParameterDefinitionsValueResponseMetadataOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueResponseMetadataOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
 
 type ParameterDefinitionsValueResponseMetadataPtrOutput struct{ *pulumi.OutputState }
@@ -4385,6 +4441,16 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Elem() ParameterDefi
 	}).(ParameterDefinitionsValueResponseMetadataOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AssignPermissions
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
@@ -4402,6 +4468,16 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) DisplayName() pulumi
 			return nil
 		}
 		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StrongType
 	}).(pulumi.StringPtrOutput)
 }
 

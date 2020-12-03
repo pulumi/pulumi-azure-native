@@ -42,11 +42,15 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// <summary>
         /// Has definition for the export.
         /// </summary>
-        public readonly Outputs.QueryDefinitionResponse Definition;
+        public readonly Outputs.ExportDefinitionResponse Definition;
         /// <summary>
         /// Has delivery information for the export.
         /// </summary>
         public readonly Outputs.ExportDeliveryInfoResponse DeliveryInfo;
+        /// <summary>
+        /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        /// </summary>
+        public readonly string? ETag;
         /// <summary>
         /// The format of the export being delivered.
         /// </summary>
@@ -60,19 +64,17 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// </summary>
         public readonly Outputs.ExportScheduleResponse? Schedule;
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetExportResult(
-            Outputs.QueryDefinitionResponse definition,
+            Outputs.ExportDefinitionResponse definition,
 
             Outputs.ExportDeliveryInfoResponse deliveryInfo,
+
+            string? eTag,
 
             string? format,
 
@@ -80,16 +82,14 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
 
             Outputs.ExportScheduleResponse? schedule,
 
-            ImmutableDictionary<string, string> tags,
-
             string type)
         {
             Definition = definition;
             DeliveryInfo = deliveryInfo;
+            ETag = eTag;
             Format = format;
             Name = name;
             Schedule = schedule;
-            Tags = tags;
             Type = type;
         }
     }

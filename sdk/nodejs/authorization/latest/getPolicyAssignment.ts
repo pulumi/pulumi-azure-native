@@ -63,6 +63,10 @@ export interface GetPolicyAssignmentResult {
      */
     readonly name: string;
     /**
+     * The messages that describe why a resource is non-compliant with the policy.
+     */
+    readonly nonComplianceMessages?: outputs.authorization.latest.NonComplianceMessageResponse[];
+    /**
      * The policy's excluded scopes.
      */
     readonly notScopes?: string[];
@@ -77,11 +81,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The scope for the policy assignment.
      */
-    readonly scope?: string;
-    /**
-     * The policy sku. This property is optional, obsolete, and will be ignored.
-     */
-    readonly sku?: outputs.authorization.latest.PolicySkuResponse;
+    readonly scope: string;
     /**
      * The type of the policy assignment.
      */

@@ -72,6 +72,9 @@ func NewPolicySetDefinitionAtManagementGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:management/v20190901:PolicySetDefinitionAtManagementGroup"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:management/v20200901:PolicySetDefinitionAtManagementGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PolicySetDefinitionAtManagementGroup

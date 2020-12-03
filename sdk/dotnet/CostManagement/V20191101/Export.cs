@@ -18,13 +18,19 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// Has definition for the export.
         /// </summary>
         [Output("definition")]
-        public Output<Outputs.QueryDefinitionResponse> Definition { get; private set; } = null!;
+        public Output<Outputs.ExportDefinitionResponse> Definition { get; private set; } = null!;
 
         /// <summary>
         /// Has delivery information for the export.
         /// </summary>
         [Output("deliveryInfo")]
         public Output<Outputs.ExportDeliveryInfoResponse> DeliveryInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        /// </summary>
+        [Output("eTag")]
+        public Output<string?> ETag { get; private set; } = null!;
 
         /// <summary>
         /// The format of the export being delivered.
@@ -43,12 +49,6 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.ExportScheduleResponse?> Schedule { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -113,13 +113,19 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// Has definition for the export.
         /// </summary>
         [Input("definition", required: true)]
-        public Input<Inputs.QueryDefinitionArgs> Definition { get; set; } = null!;
+        public Input<Inputs.ExportDefinitionArgs> Definition { get; set; } = null!;
 
         /// <summary>
         /// Has delivery information for the export.
         /// </summary>
         [Input("deliveryInfo", required: true)]
         public Input<Inputs.ExportDeliveryInfoArgs> DeliveryInfo { get; set; } = null!;
+
+        /// <summary>
+        /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        /// </summary>
+        [Input("eTag")]
+        public Input<string>? ETag { get; set; }
 
         /// <summary>
         /// Export Name.

@@ -23,10 +23,30 @@ type LookupIotSensorArgs struct {
 	Scope string `pulumi:"scope"`
 }
 
-// IoT sensor
+// IoT sensor model
 type LookupIotSensorResult struct {
+	// Last connectivity time of the IoT sensor
+	ConnectivityTime string `pulumi:"connectivityTime"`
+	// Creation time of the IoT sensor
+	CreationTime string `pulumi:"creationTime"`
+	// Dynamic mode status of the IoT sensor
+	DynamicLearning bool `pulumi:"dynamicLearning"`
+	// Learning mode status of the IoT sensor
+	LearningMode bool `pulumi:"learningMode"`
 	// Resource name
 	Name string `pulumi:"name"`
+	// Status of the IoT sensor
+	SensorStatus string `pulumi:"sensorStatus"`
+	// Version of the IoT sensor
+	SensorVersion string `pulumi:"sensorVersion"`
+	// TI Automatic mode status of the IoT sensor
+	TiAutomaticUpdates *bool `pulumi:"tiAutomaticUpdates"`
+	// TI Status of the IoT sensor
+	TiStatus string `pulumi:"tiStatus"`
+	// TI Version of the IoT sensor
+	TiVersion string `pulumi:"tiVersion"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Zone of the IoT sensor
+	Zone *string `pulumi:"zone"`
 }

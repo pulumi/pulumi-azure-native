@@ -20,7 +20,7 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_controller_ip_address=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, health_alerts=None, health_last_evaluated=None, health_monitors=None, ldaps_settings=None, location=None, name=None, notification_settings=None, provisioning_state=None, resource_forest_settings=None, service_status=None, sku=None, subnet_id=None, tags=None, tenant_id=None, type=None, version=None, vnet_site_id=None):
+    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_controller_ip_address=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, health_alerts=None, health_last_evaluated=None, health_monitors=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, resource_forest_settings=None, service_status=None, sku=None, subnet_id=None, tags=None, tenant_id=None, type=None, version=None, vnet_site_id=None):
         if deployment_id and not isinstance(deployment_id, str):
             raise TypeError("Expected argument 'deployment_id' to be a str")
         pulumi.set(__self__, "deployment_id", deployment_id)
@@ -57,6 +57,9 @@ class GetDomainServiceResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if migration_properties and not isinstance(migration_properties, dict):
+            raise TypeError("Expected argument 'migration_properties' to be a dict")
+        pulumi.set(__self__, "migration_properties", migration_properties)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -191,6 +194,14 @@ class GetDomainServiceResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="migrationProperties")
+    def migration_properties(self) -> Optional['outputs.MigrationPropertiesResponse']:
+        """
+        Migration Properties
+        """
+        return pulumi.get(self, "migration_properties")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -305,6 +316,7 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
             health_monitors=self.health_monitors,
             ldaps_settings=self.ldaps_settings,
             location=self.location,
+            migration_properties=self.migration_properties,
             name=self.name,
             notification_settings=self.notification_settings,
             provisioning_state=self.provisioning_state,
@@ -350,6 +362,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
         health_monitors=__ret__.health_monitors,
         ldaps_settings=__ret__.ldaps_settings,
         location=__ret__.location,
+        migration_properties=__ret__.migration_properties,
         name=__ret__.name,
         notification_settings=__ret__.notification_settings,
         provisioning_state=__ret__.provisioning_state,

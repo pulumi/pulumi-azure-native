@@ -7,40 +7,43 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20191101.Inputs
+namespace Pulumi.AzureNextGen.CostManagement.V20191101.Outputs
 {
 
-    /// <summary>
-    /// The definition of a query.
-    /// </summary>
-    public sealed class QueryDefinitionArgs : Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class ExportDefinitionResponse
     {
         /// <summary>
         /// Has definition for data in this query.
         /// </summary>
-        [Input("dataset")]
-        public Input<Inputs.QueryDatasetArgs>? Dataset { get; set; }
-
+        public readonly Outputs.QueryDatasetResponse? DataSet;
         /// <summary>
         /// Has time period for pulling data for the query.
         /// </summary>
-        [Input("timePeriod")]
-        public Input<Inputs.QueryTimePeriodArgs>? TimePeriod { get; set; }
-
+        public readonly Outputs.QueryTimePeriodResponse? TimePeriod;
         /// <summary>
         /// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
         /// </summary>
-        [Input("timeframe", required: true)]
-        public Input<string> Timeframe { get; set; } = null!;
-
+        public readonly string Timeframe;
         /// <summary>
         /// The type of the query.
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public readonly string Type;
 
-        public QueryDefinitionArgs()
+        [OutputConstructor]
+        private ExportDefinitionResponse(
+            Outputs.QueryDatasetResponse? dataSet,
+
+            Outputs.QueryTimePeriodResponse? timePeriod,
+
+            string timeframe,
+
+            string type)
         {
+            DataSet = dataSet;
+            TimePeriod = timePeriod;
+            Timeframe = timeframe;
+            Type = type;
         }
     }
 }
