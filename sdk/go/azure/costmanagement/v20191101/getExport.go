@@ -26,17 +26,17 @@ type LookupExportArgs struct {
 // A export resource.
 type LookupExportResult struct {
 	// Has definition for the export.
-	Definition QueryDefinitionResponse `pulumi:"definition"`
+	Definition ExportDefinitionResponse `pulumi:"definition"`
 	// Has delivery information for the export.
 	DeliveryInfo ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
+	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+	ETag *string `pulumi:"eTag"`
 	// The format of the export being delivered.
 	Format *string `pulumi:"format"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Has schedule information for the export.
 	Schedule *ExportScheduleResponse `pulumi:"schedule"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

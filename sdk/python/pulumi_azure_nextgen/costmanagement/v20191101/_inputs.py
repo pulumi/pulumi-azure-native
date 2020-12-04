@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'ExportDefinitionArgs',
     'ExportDeliveryDestinationArgs',
     'ExportDeliveryInfoArgs',
     'ExportRecurrencePeriodArgs',
@@ -19,7 +20,6 @@ __all__ = [
     'QueryComparisonExpressionArgs',
     'QueryDatasetArgs',
     'QueryDatasetConfigurationArgs',
-    'QueryDefinitionArgs',
     'QueryFilterArgs',
     'QueryGroupingArgs',
     'QueryTimePeriodArgs',
@@ -32,6 +32,76 @@ __all__ = [
     'ReportConfigSortingArgs',
     'ReportConfigTimePeriodArgs',
 ]
+
+@pulumi.input_type
+class ExportDefinitionArgs:
+    def __init__(__self__, *,
+                 timeframe: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 data_set: Optional[pulumi.Input['QueryDatasetArgs']] = None,
+                 time_period: Optional[pulumi.Input['QueryTimePeriodArgs']] = None):
+        """
+        The definition of a query.
+        :param pulumi.Input[str] timeframe: The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+        :param pulumi.Input[str] type: The type of the query.
+        :param pulumi.Input['QueryDatasetArgs'] data_set: Has definition for data in this query.
+        :param pulumi.Input['QueryTimePeriodArgs'] time_period: Has time period for pulling data for the query.
+        """
+        pulumi.set(__self__, "timeframe", timeframe)
+        pulumi.set(__self__, "type", type)
+        if data_set is not None:
+            pulumi.set(__self__, "data_set", data_set)
+        if time_period is not None:
+            pulumi.set(__self__, "time_period", time_period)
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> pulumi.Input[str]:
+        """
+        The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+        """
+        return pulumi.get(self, "timeframe")
+
+    @timeframe.setter
+    def timeframe(self, value: pulumi.Input[str]):
+        pulumi.set(self, "timeframe", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the query.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dataSet")
+    def data_set(self) -> Optional[pulumi.Input['QueryDatasetArgs']]:
+        """
+        Has definition for data in this query.
+        """
+        return pulumi.get(self, "data_set")
+
+    @data_set.setter
+    def data_set(self, value: Optional[pulumi.Input['QueryDatasetArgs']]):
+        pulumi.set(self, "data_set", value)
+
+    @property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> Optional[pulumi.Input['QueryTimePeriodArgs']]:
+        """
+        Has time period for pulling data for the query.
+        """
+        return pulumi.get(self, "time_period")
+
+    @time_period.setter
+    def time_period(self, value: Optional[pulumi.Input['QueryTimePeriodArgs']]):
+        pulumi.set(self, "time_period", value)
+
 
 @pulumi.input_type
 class ExportDeliveryDestinationArgs:
@@ -501,76 +571,6 @@ class QueryDatasetConfigurationArgs:
     @columns.setter
     def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "columns", value)
-
-
-@pulumi.input_type
-class QueryDefinitionArgs:
-    def __init__(__self__, *,
-                 timeframe: pulumi.Input[str],
-                 type: pulumi.Input[str],
-                 dataset: Optional[pulumi.Input['QueryDatasetArgs']] = None,
-                 time_period: Optional[pulumi.Input['QueryTimePeriodArgs']] = None):
-        """
-        The definition of a query.
-        :param pulumi.Input[str] timeframe: The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-        :param pulumi.Input[str] type: The type of the query.
-        :param pulumi.Input['QueryDatasetArgs'] dataset: Has definition for data in this query.
-        :param pulumi.Input['QueryTimePeriodArgs'] time_period: Has time period for pulling data for the query.
-        """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
-        if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
-        if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
-
-    @property
-    @pulumi.getter
-    def timeframe(self) -> pulumi.Input[str]:
-        """
-        The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-        """
-        return pulumi.get(self, "timeframe")
-
-    @timeframe.setter
-    def timeframe(self, value: pulumi.Input[str]):
-        pulumi.set(self, "timeframe", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The type of the query.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['QueryDatasetArgs']]:
-        """
-        Has definition for data in this query.
-        """
-        return pulumi.get(self, "dataset")
-
-    @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['QueryDatasetArgs']]):
-        pulumi.set(self, "dataset", value)
-
-    @property
-    @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional[pulumi.Input['QueryTimePeriodArgs']]:
-        """
-        Has time period for pulling data for the query.
-        """
-        return pulumi.get(self, "time_period")
-
-    @time_period.setter
-    def time_period(self, value: Optional[pulumi.Input['QueryTimePeriodArgs']]):
-        pulumi.set(self, "time_period", value)
 
 
 @pulumi.input_type

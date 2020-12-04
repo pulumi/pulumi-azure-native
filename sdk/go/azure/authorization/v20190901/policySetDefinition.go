@@ -69,6 +69,9 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200301:PolicySetDefinition"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20200901:PolicySetDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PolicySetDefinition

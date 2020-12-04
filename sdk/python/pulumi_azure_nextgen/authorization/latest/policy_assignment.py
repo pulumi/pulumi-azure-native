@@ -23,12 +23,12 @@ class PolicyAssignment(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
+                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NonComplianceMessageArgs']]]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValuesValueArgs']]]]] = None,
                  policy_assignment_name: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['PolicySkuArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -43,12 +43,12 @@ class PolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The managed identity associated with the policy assignment.
         :param pulumi.Input[str] location: The location of the policy assignment. Only required when utilizing managed identity.
         :param Any metadata: The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NonComplianceMessageArgs']]]] non_compliance_messages: The messages that describe why a resource is non-compliant with the policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: The policy's excluded scopes.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValuesValueArgs']]]] parameters: The parameter values for the assigned policy rule. The keys are the parameter names.
         :param pulumi.Input[str] policy_assignment_name: The name of the policy assignment.
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
-        :param pulumi.Input[str] scope: The scope for the policy assignment.
-        :param pulumi.Input[pulumi.InputType['PolicySkuArgs']] sku: The policy sku. This property is optional, obsolete, and will be ignored.
+        :param pulumi.Input[str] scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,6 +73,7 @@ class PolicyAssignment(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['location'] = location
             __props__['metadata'] = metadata
+            __props__['non_compliance_messages'] = non_compliance_messages
             __props__['not_scopes'] = not_scopes
             __props__['parameters'] = parameters
             if policy_assignment_name is None:
@@ -82,10 +83,9 @@ class PolicyAssignment(pulumi.CustomResource):
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
-            __props__['sku'] = sku
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20151001preview:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20151101:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20160401:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20161201:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20170601preview:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180301:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180501:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190101:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190601:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190901:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200301:PolicyAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20151001preview:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20151101:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20160401:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20161201:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20170601preview:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180301:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180501:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190101:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190601:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190901:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200301:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200901:PolicyAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyAssignment, __self__).__init__(
             'azure-nextgen:authorization/latest:PolicyAssignment',
@@ -168,6 +168,14 @@ class PolicyAssignment(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="nonComplianceMessages")
+    def non_compliance_messages(self) -> pulumi.Output[Optional[Sequence['outputs.NonComplianceMessageResponse']]]:
+        """
+        The messages that describe why a resource is non-compliant with the policy.
+        """
+        return pulumi.get(self, "non_compliance_messages")
+
+    @property
     @pulumi.getter(name="notScopes")
     def not_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
@@ -193,19 +201,11 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[Optional[str]]:
+    def scope(self) -> pulumi.Output[str]:
         """
         The scope for the policy assignment.
         """
         return pulumi.get(self, "scope")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.PolicySkuResponse']]:
-        """
-        The policy sku. This property is optional, obsolete, and will be ignored.
-        """
-        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter

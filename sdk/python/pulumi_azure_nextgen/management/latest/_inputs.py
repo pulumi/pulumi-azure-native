@@ -370,17 +370,37 @@ class ParameterDefinitionsValueArgs:
 @pulumi.input_type
 class ParameterDefinitionsValueMetadataArgs:
     def __init__(__self__, *,
+                 assign_permissions: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None):
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 strong_type: Optional[pulumi.Input[str]] = None):
         """
         General metadata for the parameter.
+        :param pulumi.Input[bool] assign_permissions: Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
         :param pulumi.Input[str] description: The description of the parameter.
         :param pulumi.Input[str] display_name: The display name for the parameter.
+        :param pulumi.Input[str] strong_type: Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
         """
+        if assign_permissions is not None:
+            pulumi.set(__self__, "assign_permissions", assign_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if strong_type is not None:
+            pulumi.set(__self__, "strong_type", strong_type)
+
+    @property
+    @pulumi.getter(name="assignPermissions")
+    def assign_permissions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+        """
+        return pulumi.get(self, "assign_permissions")
+
+    @assign_permissions.setter
+    def assign_permissions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "assign_permissions", value)
 
     @property
     @pulumi.getter
@@ -405,6 +425,18 @@ class ParameterDefinitionsValueMetadataArgs:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="strongType")
+    def strong_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+        """
+        return pulumi.get(self, "strong_type")
+
+    @strong_type.setter
+    def strong_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "strong_type", value)
 
 
 @pulumi.input_type

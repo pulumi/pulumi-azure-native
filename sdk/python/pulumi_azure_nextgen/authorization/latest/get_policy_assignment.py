@@ -20,7 +20,7 @@ class GetPolicyAssignmentResult:
     """
     The policy assignment.
     """
-    def __init__(__self__, description=None, display_name=None, enforcement_mode=None, identity=None, location=None, metadata=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, sku=None, type=None):
+    def __init__(__self__, description=None, display_name=None, enforcement_mode=None, identity=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -42,6 +42,9 @@ class GetPolicyAssignmentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if non_compliance_messages and not isinstance(non_compliance_messages, list):
+            raise TypeError("Expected argument 'non_compliance_messages' to be a list")
+        pulumi.set(__self__, "non_compliance_messages", non_compliance_messages)
         if not_scopes and not isinstance(not_scopes, list):
             raise TypeError("Expected argument 'not_scopes' to be a list")
         pulumi.set(__self__, "not_scopes", not_scopes)
@@ -54,9 +57,6 @@ class GetPolicyAssignmentResult:
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        pulumi.set(__self__, "sku", sku)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -118,6 +118,14 @@ class GetPolicyAssignmentResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="nonComplianceMessages")
+    def non_compliance_messages(self) -> Optional[Sequence['outputs.NonComplianceMessageResponse']]:
+        """
+        The messages that describe why a resource is non-compliant with the policy.
+        """
+        return pulumi.get(self, "non_compliance_messages")
+
+    @property
     @pulumi.getter(name="notScopes")
     def not_scopes(self) -> Optional[Sequence[str]]:
         """
@@ -143,19 +151,11 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[str]:
+    def scope(self) -> str:
         """
         The scope for the policy assignment.
         """
         return pulumi.get(self, "scope")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.PolicySkuResponse']:
-        """
-        The policy sku. This property is optional, obsolete, and will be ignored.
-        """
-        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter
@@ -179,11 +179,11 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
             location=self.location,
             metadata=self.metadata,
             name=self.name,
+            non_compliance_messages=self.non_compliance_messages,
             not_scopes=self.not_scopes,
             parameters=self.parameters,
             policy_definition_id=self.policy_definition_id,
             scope=self.scope,
-            sku=self.sku,
             type=self.type)
 
 
@@ -213,9 +213,9 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
         location=__ret__.location,
         metadata=__ret__.metadata,
         name=__ret__.name,
+        non_compliance_messages=__ret__.non_compliance_messages,
         not_scopes=__ret__.not_scopes,
         parameters=__ret__.parameters,
         policy_definition_id=__ret__.policy_definition_id,
         scope=__ret__.scope,
-        sku=__ret__.sku,
         type=__ret__.type)

@@ -10,6 +10,7 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'ExportDefinitionResponse',
     'ExportDeliveryDestinationResponse',
     'ExportDeliveryInfoResponse',
     'ExportRecurrencePeriodResponse',
@@ -20,7 +21,6 @@ __all__ = [
     'QueryComparisonExpressionResponse',
     'QueryDatasetConfigurationResponse',
     'QueryDatasetResponse',
-    'QueryDefinitionResponse',
     'QueryFilterResponse',
     'QueryGroupingResponse',
     'QueryTimePeriodResponse',
@@ -33,6 +33,66 @@ __all__ = [
     'ReportConfigSortingResponse',
     'ReportConfigTimePeriodResponse',
 ]
+
+@pulumi.output_type
+class ExportDefinitionResponse(dict):
+    """
+    The definition of a query.
+    """
+    def __init__(__self__, *,
+                 timeframe: str,
+                 type: str,
+                 data_set: Optional['outputs.QueryDatasetResponse'] = None,
+                 time_period: Optional['outputs.QueryTimePeriodResponse'] = None):
+        """
+        The definition of a query.
+        :param str timeframe: The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+        :param str type: The type of the query.
+        :param 'QueryDatasetResponseArgs' data_set: Has definition for data in this query.
+        :param 'QueryTimePeriodResponseArgs' time_period: Has time period for pulling data for the query.
+        """
+        pulumi.set(__self__, "timeframe", timeframe)
+        pulumi.set(__self__, "type", type)
+        if data_set is not None:
+            pulumi.set(__self__, "data_set", data_set)
+        if time_period is not None:
+            pulumi.set(__self__, "time_period", time_period)
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> str:
+        """
+        The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+        """
+        return pulumi.get(self, "timeframe")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the query.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="dataSet")
+    def data_set(self) -> Optional['outputs.QueryDatasetResponse']:
+        """
+        Has definition for data in this query.
+        """
+        return pulumi.get(self, "data_set")
+
+    @property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> Optional['outputs.QueryTimePeriodResponse']:
+        """
+        Has time period for pulling data for the query.
+        """
+        return pulumi.get(self, "time_period")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class ExportDeliveryDestinationResponse(dict):
@@ -459,66 +519,6 @@ class QueryDatasetResponse(dict):
         Array of group by expression to use in the query. Query can have up to 2 group by clauses.
         """
         return pulumi.get(self, "grouping")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class QueryDefinitionResponse(dict):
-    """
-    The definition of a query.
-    """
-    def __init__(__self__, *,
-                 timeframe: str,
-                 type: str,
-                 dataset: Optional['outputs.QueryDatasetResponse'] = None,
-                 time_period: Optional['outputs.QueryTimePeriodResponse'] = None):
-        """
-        The definition of a query.
-        :param str timeframe: The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-        :param str type: The type of the query.
-        :param 'QueryDatasetResponseArgs' dataset: Has definition for data in this query.
-        :param 'QueryTimePeriodResponseArgs' time_period: Has time period for pulling data for the query.
-        """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
-        if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
-        if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
-
-    @property
-    @pulumi.getter
-    def timeframe(self) -> str:
-        """
-        The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-        """
-        return pulumi.get(self, "timeframe")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the query.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def dataset(self) -> Optional['outputs.QueryDatasetResponse']:
-        """
-        Has definition for data in this query.
-        """
-        return pulumi.get(self, "dataset")
-
-    @property
-    @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional['outputs.QueryTimePeriodResponse']:
-        """
-        Has time period for pulling data for the query.
-        """
-        return pulumi.get(self, "time_period")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

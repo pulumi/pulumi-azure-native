@@ -38,11 +38,15 @@ export class Export extends pulumi.CustomResource {
     /**
      * Has definition for the export.
      */
-    public readonly definition!: pulumi.Output<outputs.costmanagement.v20191101.QueryDefinitionResponse>;
+    public readonly definition!: pulumi.Output<outputs.costmanagement.v20191101.ExportDefinitionResponse>;
     /**
      * Has delivery information for the export.
      */
     public readonly deliveryInfo!: pulumi.Output<outputs.costmanagement.v20191101.ExportDeliveryInfoResponse>;
+    /**
+     * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+     */
+    public readonly eTag!: pulumi.Output<string | undefined>;
     /**
      * The format of the export being delivered.
      */
@@ -55,10 +59,6 @@ export class Export extends pulumi.CustomResource {
      * Has schedule information for the export.
      */
     public readonly schedule!: pulumi.Output<outputs.costmanagement.v20191101.ExportScheduleResponse | undefined>;
-    /**
-     * Resource tags.
-     */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Resource type.
      */
@@ -88,20 +88,20 @@ export class Export extends pulumi.CustomResource {
             }
             inputs["definition"] = args ? args.definition : undefined;
             inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
+            inputs["eTag"] = args ? args.eTag : undefined;
             inputs["exportName"] = args ? args.exportName : undefined;
             inputs["format"] = args ? args.format : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["definition"] = undefined /*out*/;
             inputs["deliveryInfo"] = undefined /*out*/;
+            inputs["eTag"] = undefined /*out*/;
             inputs["format"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["schedule"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -124,11 +124,15 @@ export interface ExportArgs {
     /**
      * Has definition for the export.
      */
-    readonly definition: pulumi.Input<inputs.costmanagement.v20191101.QueryDefinition>;
+    readonly definition: pulumi.Input<inputs.costmanagement.v20191101.ExportDefinition>;
     /**
      * Has delivery information for the export.
      */
     readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20191101.ExportDeliveryInfo>;
+    /**
+     * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+     */
+    readonly eTag?: pulumi.Input<string>;
     /**
      * Export Name.
      */

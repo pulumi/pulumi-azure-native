@@ -12,6 +12,8 @@ __all__ = [
     'DomainSecuritySettingsArgs',
     'ForestTrustArgs',
     'LdapsSettingsArgs',
+    'MigrationProgressArgs',
+    'MigrationPropertiesArgs',
     'NotificationSettingsArgs',
     'ResourceForestSettingsArgs',
 ]
@@ -262,6 +264,102 @@ class LdapsSettingsArgs:
     @pfx_certificate_password.setter
     def pfx_certificate_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pfx_certificate_password", value)
+
+
+@pulumi.input_type
+class MigrationProgressArgs:
+    def __init__(__self__, *,
+                 completion_percentage: Optional[pulumi.Input[float]] = None,
+                 progress_message: Optional[pulumi.Input[str]] = None):
+        """
+        Migration Progress
+        :param pulumi.Input[float] completion_percentage: Completion Percentage
+        :param pulumi.Input[str] progress_message: Progress Message
+        """
+        if completion_percentage is not None:
+            pulumi.set(__self__, "completion_percentage", completion_percentage)
+        if progress_message is not None:
+            pulumi.set(__self__, "progress_message", progress_message)
+
+    @property
+    @pulumi.getter(name="completionPercentage")
+    def completion_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        Completion Percentage
+        """
+        return pulumi.get(self, "completion_percentage")
+
+    @completion_percentage.setter
+    def completion_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "completion_percentage", value)
+
+    @property
+    @pulumi.getter(name="progressMessage")
+    def progress_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Progress Message
+        """
+        return pulumi.get(self, "progress_message")
+
+    @progress_message.setter
+    def progress_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "progress_message", value)
+
+
+@pulumi.input_type
+class MigrationPropertiesArgs:
+    def __init__(__self__, *,
+                 migration_progress: Optional[pulumi.Input['MigrationProgressArgs']] = None,
+                 old_subnet_id: Optional[pulumi.Input[str]] = None,
+                 old_vnet_site_id: Optional[pulumi.Input[str]] = None):
+        """
+        Migration Properties
+        :param pulumi.Input['MigrationProgressArgs'] migration_progress: Migration Progress
+        :param pulumi.Input[str] old_subnet_id: Old Subnet Id
+        :param pulumi.Input[str] old_vnet_site_id: Old Vnet Site Id
+        """
+        if migration_progress is not None:
+            pulumi.set(__self__, "migration_progress", migration_progress)
+        if old_subnet_id is not None:
+            pulumi.set(__self__, "old_subnet_id", old_subnet_id)
+        if old_vnet_site_id is not None:
+            pulumi.set(__self__, "old_vnet_site_id", old_vnet_site_id)
+
+    @property
+    @pulumi.getter(name="migrationProgress")
+    def migration_progress(self) -> Optional[pulumi.Input['MigrationProgressArgs']]:
+        """
+        Migration Progress
+        """
+        return pulumi.get(self, "migration_progress")
+
+    @migration_progress.setter
+    def migration_progress(self, value: Optional[pulumi.Input['MigrationProgressArgs']]):
+        pulumi.set(self, "migration_progress", value)
+
+    @property
+    @pulumi.getter(name="oldSubnetId")
+    def old_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Old Subnet Id
+        """
+        return pulumi.get(self, "old_subnet_id")
+
+    @old_subnet_id.setter
+    def old_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "old_subnet_id", value)
+
+    @property
+    @pulumi.getter(name="oldVnetSiteId")
+    def old_vnet_site_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Old Vnet Site Id
+        """
+        return pulumi.get(self, "old_vnet_site_id")
+
+    @old_vnet_site_id.setter
+    def old_vnet_site_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "old_vnet_site_id", value)
 
 
 @pulumi.input_type

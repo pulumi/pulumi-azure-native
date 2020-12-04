@@ -57,6 +57,12 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The messages that describe why a resource is non-compliant with the policy.
+        /// </summary>
+        [Output("nonComplianceMessages")]
+        public Output<ImmutableArray<Outputs.NonComplianceMessageResponse>> NonComplianceMessages { get; private set; } = null!;
+
+        /// <summary>
         /// The policy's excluded scopes.
         /// </summary>
         [Output("notScopes")]
@@ -78,13 +84,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// The scope for the policy assignment.
         /// </summary>
         [Output("scope")]
-        public Output<string?> Scope { get; private set; } = null!;
-
-        /// <summary>
-        /// The policy sku. This property is optional, obsolete, and will be ignored.
-        /// </summary>
-        [Output("sku")]
-        public Output<Outputs.PolicySkuResponse?> Sku { get; private set; } = null!;
+        public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
         /// The type of the policy assignment.
@@ -128,6 +128,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190601:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190901:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200901:PolicyAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -187,6 +188,18 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         [Input("metadata")]
         public Input<object>? Metadata { get; set; }
 
+        [Input("nonComplianceMessages")]
+        private InputList<Inputs.NonComplianceMessageArgs>? _nonComplianceMessages;
+
+        /// <summary>
+        /// The messages that describe why a resource is non-compliant with the policy.
+        /// </summary>
+        public InputList<Inputs.NonComplianceMessageArgs> NonComplianceMessages
+        {
+            get => _nonComplianceMessages ?? (_nonComplianceMessages = new InputList<Inputs.NonComplianceMessageArgs>());
+            set => _nonComplianceMessages = value;
+        }
+
         [Input("notScopes")]
         private InputList<string>? _notScopes;
 
@@ -224,16 +237,10 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         public Input<string>? PolicyDefinitionId { get; set; }
 
         /// <summary>
-        /// The scope for the policy assignment.
+        /// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
-
-        /// <summary>
-        /// The policy sku. This property is optional, obsolete, and will be ignored.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.PolicySkuArgs>? Sku { get; set; }
 
         public PolicyAssignmentArgs()
         {

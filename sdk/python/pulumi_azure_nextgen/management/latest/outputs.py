@@ -1246,17 +1246,33 @@ class ParameterDefinitionsValueResponseMetadata(dict):
     General metadata for the parameter.
     """
     def __init__(__self__, *,
+                 assign_permissions: Optional[bool] = None,
                  description: Optional[str] = None,
-                 display_name: Optional[str] = None):
+                 display_name: Optional[str] = None,
+                 strong_type: Optional[str] = None):
         """
         General metadata for the parameter.
+        :param bool assign_permissions: Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
         :param str description: The description of the parameter.
         :param str display_name: The display name for the parameter.
+        :param str strong_type: Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
         """
+        if assign_permissions is not None:
+            pulumi.set(__self__, "assign_permissions", assign_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if strong_type is not None:
+            pulumi.set(__self__, "strong_type", strong_type)
+
+    @property
+    @pulumi.getter(name="assignPermissions")
+    def assign_permissions(self) -> Optional[bool]:
+        """
+        Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+        """
+        return pulumi.get(self, "assign_permissions")
 
     @property
     @pulumi.getter
@@ -1273,6 +1289,14 @@ class ParameterDefinitionsValueResponseMetadata(dict):
         The display name for the parameter.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="strongType")
+    def strong_type(self) -> Optional[str]:
+        """
+        Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+        """
+        return pulumi.get(self, "strong_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

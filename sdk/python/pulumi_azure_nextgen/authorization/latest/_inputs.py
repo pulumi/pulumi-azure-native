@@ -11,13 +11,13 @@ from ... import _utilities, _tables
 __all__ = [
     'IdentityArgs',
     'ManagementLockOwnerArgs',
+    'NonComplianceMessageArgs',
     'ParameterDefinitionsValueArgs',
     'ParameterDefinitionsValueMetadataArgs',
     'ParameterValuesValueArgs',
     'PermissionArgs',
     'PolicyDefinitionGroupArgs',
     'PolicyDefinitionReferenceArgs',
-    'PolicySkuArgs',
     'RoleAssignmentPropertiesArgs',
 ]
 
@@ -67,6 +67,45 @@ class ManagementLockOwnerArgs:
     @application_id.setter
     def application_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "application_id", value)
+
+
+@pulumi.input_type
+class NonComplianceMessageArgs:
+    def __init__(__self__, *,
+                 message: pulumi.Input[str],
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
+        """
+        A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+        :param pulumi.Input[str] message: A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+        :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+        """
+        pulumi.set(__self__, "message", message)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[str]:
+        """
+        A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[str]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    @policy_definition_reference_id.setter
+    def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_reference_id", value)
 
 
 @pulumi.input_type
@@ -144,17 +183,37 @@ class ParameterDefinitionsValueArgs:
 @pulumi.input_type
 class ParameterDefinitionsValueMetadataArgs:
     def __init__(__self__, *,
+                 assign_permissions: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None):
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 strong_type: Optional[pulumi.Input[str]] = None):
         """
         General metadata for the parameter.
+        :param pulumi.Input[bool] assign_permissions: Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
         :param pulumi.Input[str] description: The description of the parameter.
         :param pulumi.Input[str] display_name: The display name for the parameter.
+        :param pulumi.Input[str] strong_type: Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
         """
+        if assign_permissions is not None:
+            pulumi.set(__self__, "assign_permissions", assign_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if strong_type is not None:
+            pulumi.set(__self__, "strong_type", strong_type)
+
+    @property
+    @pulumi.getter(name="assignPermissions")
+    def assign_permissions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+        """
+        return pulumi.get(self, "assign_permissions")
+
+    @assign_permissions.setter
+    def assign_permissions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "assign_permissions", value)
 
     @property
     @pulumi.getter
@@ -179,6 +238,18 @@ class ParameterDefinitionsValueMetadataArgs:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="strongType")
+    def strong_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+        """
+        return pulumi.get(self, "strong_type")
+
+    @strong_type.setter
+    def strong_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "strong_type", value)
 
 
 @pulumi.input_type
@@ -401,45 +472,6 @@ class PolicyDefinitionReferenceArgs:
     @policy_definition_reference_id.setter
     def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
-
-
-@pulumi.input_type
-class PolicySkuArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 tier: Optional[pulumi.Input[str]] = None):
-        """
-        The policy sku. This property is optional, obsolete, and will be ignored.
-        :param pulumi.Input[str] name: The name of the policy sku. Possible values are A0 and A1.
-        :param pulumi.Input[str] tier: The policy sku tier. Possible values are Free and Standard.
-        """
-        pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the policy sku. Possible values are A0 and A1.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The policy sku tier. Possible values are Free and Standard.
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type

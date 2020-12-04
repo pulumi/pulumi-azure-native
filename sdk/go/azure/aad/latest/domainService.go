@@ -31,6 +31,8 @@ type DomainService struct {
 	LdapsSettings LdapsSettingsResponsePtrOutput `pulumi:"ldapsSettings"`
 	// Resource location
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// Migration Properties
+	MigrationProperties MigrationPropertiesResponsePtrOutput `pulumi:"migrationProperties"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Notification Settings
@@ -117,6 +119,8 @@ type domainServiceState struct {
 	LdapsSettings *LdapsSettingsResponse `pulumi:"ldapsSettings"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Migration Properties
+	MigrationProperties *MigrationPropertiesResponse `pulumi:"migrationProperties"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Notification Settings
@@ -158,6 +162,8 @@ type DomainServiceState struct {
 	LdapsSettings LdapsSettingsResponsePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// Migration Properties
+	MigrationProperties MigrationPropertiesResponsePtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Notification Settings
@@ -203,6 +209,8 @@ type domainServiceArgs struct {
 	LdapsSettings *LdapsSettings `pulumi:"ldapsSettings"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Migration Properties
+	MigrationProperties *MigrationProperties `pulumi:"migrationProperties"`
 	// Notification Settings
 	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
 	// List of ReplicaSets
@@ -235,6 +243,8 @@ type DomainServiceArgs struct {
 	LdapsSettings LdapsSettingsPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// Migration Properties
+	MigrationProperties MigrationPropertiesPtrInput
 	// Notification Settings
 	NotificationSettings NotificationSettingsPtrInput
 	// List of ReplicaSets

@@ -29,6 +29,8 @@ type PolicyAssignment struct {
 	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The messages that describe why a resource is non-compliant with the policy.
+	NonComplianceMessages NonComplianceMessageResponseArrayOutput `pulumi:"nonComplianceMessages"`
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
@@ -36,9 +38,7 @@ type PolicyAssignment struct {
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku PolicySkuResponsePtrOutput `pulumi:"sku"`
+	Scope pulumi.StringOutput `pulumi:"scope"`
 	// The type of the policy assignment.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -89,6 +89,9 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200301:PolicyAssignment"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20200901:PolicyAssignment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PolicyAssignment
@@ -127,6 +130,8 @@ type policyAssignmentState struct {
 	Metadata interface{} `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
+	// The messages that describe why a resource is non-compliant with the policy.
+	NonComplianceMessages []NonComplianceMessageResponse `pulumi:"nonComplianceMessages"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
@@ -135,8 +140,6 @@ type policyAssignmentState struct {
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
 	Scope *string `pulumi:"scope"`
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku *PolicySkuResponse `pulumi:"sku"`
 	// The type of the policy assignment.
 	Type *string `pulumi:"type"`
 }
@@ -156,6 +159,8 @@ type PolicyAssignmentState struct {
 	Metadata pulumi.Input
 	// The name of the policy assignment.
 	Name pulumi.StringPtrInput
+	// The messages that describe why a resource is non-compliant with the policy.
+	NonComplianceMessages NonComplianceMessageResponseArrayInput
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
@@ -164,8 +169,6 @@ type PolicyAssignmentState struct {
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The scope for the policy assignment.
 	Scope pulumi.StringPtrInput
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku PolicySkuResponsePtrInput
 	// The type of the policy assignment.
 	Type pulumi.StringPtrInput
 }
@@ -187,6 +190,8 @@ type policyAssignmentArgs struct {
 	Location *string `pulumi:"location"`
 	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata interface{} `pulumi:"metadata"`
+	// The messages that describe why a resource is non-compliant with the policy.
+	NonComplianceMessages []NonComplianceMessage `pulumi:"nonComplianceMessages"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
@@ -195,10 +200,8 @@ type policyAssignmentArgs struct {
 	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-	// The scope for the policy assignment.
+	// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope string `pulumi:"scope"`
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku *PolicySku `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a PolicyAssignment resource.
@@ -215,6 +218,8 @@ type PolicyAssignmentArgs struct {
 	Location pulumi.StringPtrInput
 	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata pulumi.Input
+	// The messages that describe why a resource is non-compliant with the policy.
+	NonComplianceMessages NonComplianceMessageArrayInput
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
@@ -223,10 +228,8 @@ type PolicyAssignmentArgs struct {
 	PolicyAssignmentName pulumi.StringInput
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId pulumi.StringPtrInput
-	// The scope for the policy assignment.
+	// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope pulumi.StringInput
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku PolicySkuPtrInput
 }
 
 func (PolicyAssignmentArgs) ElementType() reflect.Type {

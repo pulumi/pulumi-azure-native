@@ -16,6 +16,8 @@ __all__ = [
     'HealthAlertResponse',
     'HealthMonitorResponse',
     'LdapsSettingsResponse',
+    'MigrationProgressResponse',
+    'MigrationPropertiesResponse',
     'NotificationSettingsResponse',
     'ResourceForestSettingsResponse',
 ]
@@ -457,6 +459,94 @@ class LdapsSettingsResponse(dict):
         The password to decrypt the provided Secure LDAP certificate pfx file.
         """
         return pulumi.get(self, "pfx_certificate_password")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrationProgressResponse(dict):
+    """
+    Migration Progress
+    """
+    def __init__(__self__, *,
+                 completion_percentage: Optional[float] = None,
+                 progress_message: Optional[str] = None):
+        """
+        Migration Progress
+        :param float completion_percentage: Completion Percentage
+        :param str progress_message: Progress Message
+        """
+        if completion_percentage is not None:
+            pulumi.set(__self__, "completion_percentage", completion_percentage)
+        if progress_message is not None:
+            pulumi.set(__self__, "progress_message", progress_message)
+
+    @property
+    @pulumi.getter(name="completionPercentage")
+    def completion_percentage(self) -> Optional[float]:
+        """
+        Completion Percentage
+        """
+        return pulumi.get(self, "completion_percentage")
+
+    @property
+    @pulumi.getter(name="progressMessage")
+    def progress_message(self) -> Optional[str]:
+        """
+        Progress Message
+        """
+        return pulumi.get(self, "progress_message")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrationPropertiesResponse(dict):
+    """
+    Migration Properties
+    """
+    def __init__(__self__, *,
+                 migration_progress: Optional['outputs.MigrationProgressResponse'] = None,
+                 old_subnet_id: Optional[str] = None,
+                 old_vnet_site_id: Optional[str] = None):
+        """
+        Migration Properties
+        :param 'MigrationProgressResponseArgs' migration_progress: Migration Progress
+        :param str old_subnet_id: Old Subnet Id
+        :param str old_vnet_site_id: Old Vnet Site Id
+        """
+        if migration_progress is not None:
+            pulumi.set(__self__, "migration_progress", migration_progress)
+        if old_subnet_id is not None:
+            pulumi.set(__self__, "old_subnet_id", old_subnet_id)
+        if old_vnet_site_id is not None:
+            pulumi.set(__self__, "old_vnet_site_id", old_vnet_site_id)
+
+    @property
+    @pulumi.getter(name="migrationProgress")
+    def migration_progress(self) -> Optional['outputs.MigrationProgressResponse']:
+        """
+        Migration Progress
+        """
+        return pulumi.get(self, "migration_progress")
+
+    @property
+    @pulumi.getter(name="oldSubnetId")
+    def old_subnet_id(self) -> Optional[str]:
+        """
+        Old Subnet Id
+        """
+        return pulumi.get(self, "old_subnet_id")
+
+    @property
+    @pulumi.getter(name="oldVnetSiteId")
+    def old_vnet_site_id(self) -> Optional[str]:
+        """
+        Old Vnet Site Id
+        """
+        return pulumi.get(self, "old_vnet_site_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
