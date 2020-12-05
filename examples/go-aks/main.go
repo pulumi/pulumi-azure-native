@@ -84,13 +84,16 @@ func main() {
 			Location:          pulumi.String("WestUS"),
 			ResourceGroupName: resourceGroup.Name,
 			DnsPrefix:         randomClusterName.Result,
+			Identity: containerservice.ManagedClusterIdentityArgs{
+				Type: containerservice.ResourceIdentityTypeNone, // strict
+			},
 			AgentPoolProfiles: containerservice.ManagedClusterAgentPoolProfileArray{
 				&containerservice.ManagedClusterAgentPoolProfileArgs{
 					Name:         pulumi.String("agentpool"),
-					Mode:         pulumi.String("System"),
+					Mode:         containerservice.AgentPoolModeSystem,
 					OsDiskSizeGB: pulumi.Int(30),
 					Count:        pulumi.Int(3),
-					VmSize:       pulumi.String("Standard_DS2_v2"),
+					VmSize:       containerservice.ContainerServiceVMSizeTypes_Standard_DS2_v2,
 					OsType:       pulumi.String("Linux"),
 				},
 			},

@@ -40,9 +40,9 @@ func main() {
 			AccountName:       randomAccountName.Result,
 			Location:          resourceGroup.Location,
 			Sku: &storage.SkuArgs{
-				Name: pulumi.String("Standard_LRS"),
+				Name: storage.SkuName_Standard_LRS,
 			},
-			Kind: pulumi.String("StorageV2"),
+			Kind: storage.KindStorageV2,
 		})
 		if err != nil {
 			return err
