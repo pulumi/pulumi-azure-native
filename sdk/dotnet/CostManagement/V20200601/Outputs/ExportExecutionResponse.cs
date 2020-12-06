@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601.Outputs
     public sealed class ExportExecutionResponse
     {
         /// <summary>
+        /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        /// </summary>
+        public readonly string? ETag;
+        /// <summary>
         /// The details of any error.
         /// </summary>
         public readonly Outputs.ErrorDetailsResponse? Error;
@@ -58,16 +62,14 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601.Outputs
         /// </summary>
         public readonly string? SubmittedTime;
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private ExportExecutionResponse(
+            string? eTag,
+
             Outputs.ErrorDetailsResponse? error,
 
             string? executionType,
@@ -90,10 +92,9 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601.Outputs
 
             string? submittedTime,
 
-            ImmutableDictionary<string, string> tags,
-
             string type)
         {
+            ETag = eTag;
             Error = error;
             ExecutionType = executionType;
             FileName = fileName;
@@ -105,7 +106,6 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601.Outputs
             Status = status;
             SubmittedBy = submittedBy;
             SubmittedTime = submittedTime;
-            Tags = tags;
             Type = type;
         }
     }

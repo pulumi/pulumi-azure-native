@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest.Outputs
         /// <summary>
         /// The schedule recurrence.
         /// </summary>
-        public readonly string Recurrence;
+        public readonly string? Recurrence;
         /// <summary>
         /// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest.Outputs
 
         [OutputConstructor]
         private ExportScheduleResponse(
-            string recurrence,
+            string? recurrence,
 
             Outputs.ExportRecurrencePeriodResponse? recurrencePeriod,
 

@@ -282,7 +282,7 @@ class ExportRecurrencePeriodArgs:
 @pulumi.input_type
 class ExportScheduleArgs:
     def __init__(__self__, *,
-                 recurrence: pulumi.Input[str],
+                 recurrence: Optional[pulumi.Input[str]] = None,
                  recurrence_period: Optional[pulumi.Input['ExportRecurrencePeriodArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
@@ -291,7 +291,8 @@ class ExportScheduleArgs:
         :param pulumi.Input['ExportRecurrencePeriodArgs'] recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param pulumi.Input[str] status: The status of the export's schedule. If 'Inactive', the export's schedule is paused.
         """
-        pulumi.set(__self__, "recurrence", recurrence)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
         if recurrence_period is not None:
             pulumi.set(__self__, "recurrence_period", recurrence_period)
         if status is not None:
@@ -299,14 +300,14 @@ class ExportScheduleArgs:
 
     @property
     @pulumi.getter
-    def recurrence(self) -> pulumi.Input[str]:
+    def recurrence(self) -> Optional[pulumi.Input[str]]:
         """
         The schedule recurrence.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: pulumi.Input[str]):
+    def recurrence(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "recurrence", value)
 
     @property

@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// </summary>
         public readonly string ETag;
         /// <summary>
+        /// Properties to enable Customer Managed Key for the factory.
+        /// </summary>
+        public readonly Outputs.EncryptionConfigurationResponse? Encryption;
+        /// <summary>
         /// List of parameters for factory.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponse>? GlobalParameters;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
 
             string eTag,
 
+            Outputs.EncryptionConfigurationResponse? encryption,
+
             ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponse>? globalParameters,
 
             Outputs.FactoryIdentityResponse? identity,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         {
             CreateTime = createTime;
             ETag = eTag;
+            Encryption = encryption;
             GlobalParameters = globalParameters;
             Identity = identity;
             Location = location;

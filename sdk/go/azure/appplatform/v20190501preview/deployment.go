@@ -19,6 +19,8 @@ type Deployment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the Deployment resource
 	Properties DeploymentResourcePropertiesResponseOutput `pulumi:"properties"`
+	// Sku of the Deployment resource
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -76,6 +78,8 @@ type deploymentState struct {
 	Name *string `pulumi:"name"`
 	// Properties of the Deployment resource
 	Properties *DeploymentResourcePropertiesResponse `pulumi:"properties"`
+	// Sku of the Deployment resource
+	Sku *SkuResponse `pulumi:"sku"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -85,6 +89,8 @@ type DeploymentState struct {
 	Name pulumi.StringPtrInput
 	// Properties of the Deployment resource
 	Properties DeploymentResourcePropertiesResponsePtrInput
+	// Sku of the Deployment resource
+	Sku SkuResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }
@@ -104,6 +110,8 @@ type deploymentArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Service resource.
 	ServiceName string `pulumi:"serviceName"`
+	// Sku of the Deployment resource
+	Sku *Sku `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a Deployment resource.
@@ -118,6 +126,8 @@ type DeploymentArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the Service resource.
 	ServiceName pulumi.StringInput
+	// Sku of the Deployment resource
+	Sku SkuPtrInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {

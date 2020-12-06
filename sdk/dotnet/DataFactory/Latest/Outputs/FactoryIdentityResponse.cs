@@ -22,9 +22,13 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type. Currently the only supported type is 'SystemAssigned'.
+        /// The identity type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// List of user assigned identities for the factory.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? UserAssignedIdentities;
 
         [OutputConstructor]
         private FactoryIdentityResponse(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             string tenantId,
 
-            string type)
+            string type,
+
+            ImmutableDictionary<string, object>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

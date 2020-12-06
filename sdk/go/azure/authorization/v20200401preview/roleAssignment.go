@@ -21,6 +21,12 @@ type RoleAssignment struct {
 	Condition pulumi.StringPtrOutput `pulumi:"condition"`
 	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion pulumi.StringPtrOutput `pulumi:"conditionVersion"`
+	// Id of the user who created the assignment
+	CreatedBy pulumi.StringPtrOutput `pulumi:"createdBy"`
+	// Time it was created
+	CreatedOn pulumi.StringPtrOutput `pulumi:"createdOn"`
+	// Id of the delegated managed identity resource
+	DelegatedManagedIdentityResourceId pulumi.StringPtrOutput `pulumi:"delegatedManagedIdentityResourceId"`
 	// Description of role assignment
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The role assignment name.
@@ -35,6 +41,10 @@ type RoleAssignment struct {
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// The role assignment type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Id of the user who updated the assignment
+	UpdatedBy pulumi.StringPtrOutput `pulumi:"updatedBy"`
+	// Time it was updated
+	UpdatedOn pulumi.StringPtrOutput `pulumi:"updatedOn"`
 }
 
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
@@ -101,6 +111,12 @@ type roleAssignmentState struct {
 	Condition *string `pulumi:"condition"`
 	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion *string `pulumi:"conditionVersion"`
+	// Id of the user who created the assignment
+	CreatedBy *string `pulumi:"createdBy"`
+	// Time it was created
+	CreatedOn *string `pulumi:"createdOn"`
+	// Id of the delegated managed identity resource
+	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// Description of role assignment
 	Description *string `pulumi:"description"`
 	// The role assignment name.
@@ -115,6 +131,10 @@ type roleAssignmentState struct {
 	Scope *string `pulumi:"scope"`
 	// The role assignment type.
 	Type *string `pulumi:"type"`
+	// Id of the user who updated the assignment
+	UpdatedBy *string `pulumi:"updatedBy"`
+	// Time it was updated
+	UpdatedOn *string `pulumi:"updatedOn"`
 }
 
 type RoleAssignmentState struct {
@@ -124,6 +144,12 @@ type RoleAssignmentState struct {
 	Condition pulumi.StringPtrInput
 	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion pulumi.StringPtrInput
+	// Id of the user who created the assignment
+	CreatedBy pulumi.StringPtrInput
+	// Time it was created
+	CreatedOn pulumi.StringPtrInput
+	// Id of the delegated managed identity resource
+	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
 	// Description of role assignment
 	Description pulumi.StringPtrInput
 	// The role assignment name.
@@ -138,6 +164,10 @@ type RoleAssignmentState struct {
 	Scope pulumi.StringPtrInput
 	// The role assignment type.
 	Type pulumi.StringPtrInput
+	// Id of the user who updated the assignment
+	UpdatedBy pulumi.StringPtrInput
+	// Time it was updated
+	UpdatedOn pulumi.StringPtrInput
 }
 
 func (RoleAssignmentState) ElementType() reflect.Type {

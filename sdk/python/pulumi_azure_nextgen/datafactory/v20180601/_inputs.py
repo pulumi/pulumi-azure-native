@@ -62,6 +62,7 @@ __all__ = [
     'AzureTableDatasetArgs',
     'AzureTableStorageLinkedServiceArgs',
     'BinaryDatasetArgs',
+    'CMKIdentityDefinitionArgs',
     'CassandraLinkedServiceArgs',
     'CassandraTableDatasetArgs',
     'ChainingTriggerArgs',
@@ -105,6 +106,7 @@ __all__ = [
     'DynamicsLinkedServiceArgs',
     'EloquaLinkedServiceArgs',
     'EloquaObjectDatasetArgs',
+    'EncryptionConfigurationArgs',
     'EntityReferenceArgs',
     'EnvironmentVariableSetupArgs',
     'ExcelDatasetArgs',
@@ -8711,6 +8713,30 @@ class BinaryDatasetArgs:
 
 
 @pulumi.input_type
+class CMKIdentityDefinitionArgs:
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        Managed Identity used for CMK.
+        :param pulumi.Input[str] user_assigned_identity: The resource id of the user assigned identity to authenticate to customer's key vault.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the user assigned identity to authenticate to customer's key vault.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
+
+
+@pulumi.input_type
 class CassandraLinkedServiceArgs:
     def __init__(__self__, *,
                  host: Any,
@@ -14387,6 +14413,76 @@ class EloquaObjectDatasetArgs:
 
 
 @pulumi.input_type
+class EncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 key_name: pulumi.Input[str],
+                 vault_base_url: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['CMKIdentityDefinitionArgs']] = None,
+                 key_version: Optional[pulumi.Input[str]] = None):
+        """
+        Definition of CMK for the factory.
+        :param pulumi.Input[str] key_name: The name of the key in Azure Key Vault to use as Customer Managed Key.
+        :param pulumi.Input[str] vault_base_url: The url of the Azure Key Vault used for CMK.
+        :param pulumi.Input['CMKIdentityDefinitionArgs'] identity: User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+        :param pulumi.Input[str] key_version: The version of the key used for CMK. If not provided, latest version will be used.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "vault_base_url", vault_base_url)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        The name of the key in Azure Key Vault to use as Customer Managed Key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="vaultBaseUrl")
+    def vault_base_url(self) -> pulumi.Input[str]:
+        """
+        The url of the Azure Key Vault used for CMK.
+        """
+        return pulumi.get(self, "vault_base_url")
+
+    @vault_base_url.setter
+    def vault_base_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_base_url", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['CMKIdentityDefinitionArgs']]:
+        """
+        User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['CMKIdentityDefinitionArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the key used for CMK. If not provided, latest version will be used.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
 class EntityReferenceArgs:
     def __init__(__self__, *,
                  reference_name: Optional[pulumi.Input[str]] = None,
@@ -14943,24 +15039,40 @@ class FactoryGitHubConfigurationArgs:
 @pulumi.input_type
 class FactoryIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity properties of the factory resource.
-        :param pulumi.Input[str] type: The identity type. Currently the only supported type is 'SystemAssigned'.
+        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: List of user assigned identities for the factory.
         """
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The identity type. Currently the only supported type is 'SystemAssigned'.
+        The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        List of user assigned identities for the factory.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type

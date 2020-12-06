@@ -19,7 +19,7 @@ class GetRoleAssignmentResult:
     """
     Role Assignments
     """
-    def __init__(__self__, can_delegate=None, condition=None, condition_version=None, description=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None):
+    def __init__(__self__, can_delegate=None, condition=None, condition_version=None, created_by=None, created_on=None, delegated_managed_identity_resource_id=None, description=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None, updated_by=None, updated_on=None):
         if can_delegate and not isinstance(can_delegate, bool):
             raise TypeError("Expected argument 'can_delegate' to be a bool")
         pulumi.set(__self__, "can_delegate", can_delegate)
@@ -29,6 +29,15 @@ class GetRoleAssignmentResult:
         if condition_version and not isinstance(condition_version, str):
             raise TypeError("Expected argument 'condition_version' to be a str")
         pulumi.set(__self__, "condition_version", condition_version)
+        if created_by and not isinstance(created_by, str):
+            raise TypeError("Expected argument 'created_by' to be a str")
+        pulumi.set(__self__, "created_by", created_by)
+        if created_on and not isinstance(created_on, str):
+            raise TypeError("Expected argument 'created_on' to be a str")
+        pulumi.set(__self__, "created_on", created_on)
+        if delegated_managed_identity_resource_id and not isinstance(delegated_managed_identity_resource_id, str):
+            raise TypeError("Expected argument 'delegated_managed_identity_resource_id' to be a str")
+        pulumi.set(__self__, "delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -50,6 +59,12 @@ class GetRoleAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if updated_by and not isinstance(updated_by, str):
+            raise TypeError("Expected argument 'updated_by' to be a str")
+        pulumi.set(__self__, "updated_by", updated_by)
+        if updated_on and not isinstance(updated_on, str):
+            raise TypeError("Expected argument 'updated_on' to be a str")
+        pulumi.set(__self__, "updated_on", updated_on)
 
     @property
     @pulumi.getter(name="canDelegate")
@@ -74,6 +89,30 @@ class GetRoleAssignmentResult:
         Version of the condition. Currently accepted value is '2.0'
         """
         return pulumi.get(self, "condition_version")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        Id of the user who created the assignment
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        """
+        Time it was created
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="delegatedManagedIdentityResourceId")
+    def delegated_managed_identity_resource_id(self) -> Optional[str]:
+        """
+        Id of the delegated managed identity resource
+        """
+        return pulumi.get(self, "delegated_managed_identity_resource_id")
 
     @property
     @pulumi.getter
@@ -131,6 +170,22 @@ class GetRoleAssignmentResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> Optional[str]:
+        """
+        Id of the user who updated the assignment
+        """
+        return pulumi.get(self, "updated_by")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[str]:
+        """
+        Time it was updated
+        """
+        return pulumi.get(self, "updated_on")
+
 
 class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
     # pylint: disable=using-constant-test
@@ -141,13 +196,18 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
             can_delegate=self.can_delegate,
             condition=self.condition,
             condition_version=self.condition_version,
+            created_by=self.created_by,
+            created_on=self.created_on,
+            delegated_managed_identity_resource_id=self.delegated_managed_identity_resource_id,
             description=self.description,
             name=self.name,
             principal_id=self.principal_id,
             principal_type=self.principal_type,
             role_definition_id=self.role_definition_id,
             scope=self.scope,
-            type=self.type)
+            type=self.type,
+            updated_by=self.updated_by,
+            updated_on=self.updated_on)
 
 
 def get_role_assignment(role_assignment_name: Optional[str] = None,
@@ -172,10 +232,15 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
         can_delegate=__ret__.can_delegate,
         condition=__ret__.condition,
         condition_version=__ret__.condition_version,
+        created_by=__ret__.created_by,
+        created_on=__ret__.created_on,
+        delegated_managed_identity_resource_id=__ret__.delegated_managed_identity_resource_id,
         description=__ret__.description,
         name=__ret__.name,
         principal_id=__ret__.principal_id,
         principal_type=__ret__.principal_type,
         role_definition_id=__ret__.role_definition_id,
         scope=__ret__.scope,
-        type=__ret__.type)
+        type=__ret__.type,
+        updated_by=__ret__.updated_by,
+        updated_on=__ret__.updated_on)
