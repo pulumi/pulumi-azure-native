@@ -493,7 +493,7 @@ class VaultPropertiesArgs:
         :param pulumi.Input[bool] enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: Rules governing the accessibility of the key vault from specific network locations.
         :param pulumi.Input[int] soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
-        :param pulumi.Input[str] vault_uri: The URI of the vault for performing operations on keys and secrets.
+        :param pulumi.Input[str] vault_uri: The URI of the vault for performing operations on keys and secrets. This property is readonly
         """
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -668,7 +668,7 @@ class VaultPropertiesArgs:
     @pulumi.getter(name="vaultUri")
     def vault_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URI of the vault for performing operations on keys and secrets.
+        The URI of the vault for performing operations on keys and secrets. This property is readonly
         """
         return pulumi.get(self, "vault_uri")
 

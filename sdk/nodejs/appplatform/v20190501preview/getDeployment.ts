@@ -53,6 +53,10 @@ export interface GetDeploymentResult {
      */
     readonly properties: outputs.appplatform.v20190501preview.DeploymentResourcePropertiesResponse;
     /**
+     * Sku of the Deployment resource
+     */
+    readonly sku?: outputs.appplatform.v20190501preview.SkuResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;

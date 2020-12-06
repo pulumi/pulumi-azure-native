@@ -20,13 +20,16 @@ class GetFactoryResult:
     """
     Factory resource type.
     """
-    def __init__(__self__, create_time=None, e_tag=None, global_parameters=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, repo_configuration=None, tags=None, type=None, version=None):
+    def __init__(__self__, create_time=None, e_tag=None, encryption=None, global_parameters=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, repo_configuration=None, tags=None, type=None, version=None):
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if global_parameters and not isinstance(global_parameters, dict):
             raise TypeError("Expected argument 'global_parameters' to be a dict")
         pulumi.set(__self__, "global_parameters", global_parameters)
@@ -73,6 +76,14 @@ class GetFactoryResult:
         Etag identifies change in the resource.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionConfigurationResponse']:
+        """
+        Properties to enable Customer Managed Key for the factory.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="globalParameters")
@@ -163,6 +174,7 @@ class AwaitableGetFactoryResult(GetFactoryResult):
         return GetFactoryResult(
             create_time=self.create_time,
             e_tag=self.e_tag,
+            encryption=self.encryption,
             global_parameters=self.global_parameters,
             identity=self.identity,
             location=self.location,
@@ -196,6 +208,7 @@ def get_factory(factory_name: Optional[str] = None,
     return AwaitableGetFactoryResult(
         create_time=__ret__.create_time,
         e_tag=__ret__.e_tag,
+        encryption=__ret__.encryption,
         global_parameters=__ret__.global_parameters,
         identity=__ret__.identity,
         location=__ret__.location,

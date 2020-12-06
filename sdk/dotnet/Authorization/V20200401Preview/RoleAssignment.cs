@@ -33,6 +33,24 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
         public Output<string?> ConditionVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Id of the user who created the assignment
+        /// </summary>
+        [Output("createdBy")]
+        public Output<string?> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// Time it was created
+        /// </summary>
+        [Output("createdOn")]
+        public Output<string?> CreatedOn { get; private set; } = null!;
+
+        /// <summary>
+        /// Id of the delegated managed identity resource
+        /// </summary>
+        [Output("delegatedManagedIdentityResourceId")]
+        public Output<string?> DelegatedManagedIdentityResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// Description of role assignment
         /// </summary>
         [Output("description")]
@@ -73,6 +91,18 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Id of the user who updated the assignment
+        /// </summary>
+        [Output("updatedBy")]
+        public Output<string?> UpdatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// Time it was updated
+        /// </summary>
+        [Output("updatedOn")]
+        public Output<string?> UpdatedOn { get; private set; } = null!;
 
 
         /// <summary>

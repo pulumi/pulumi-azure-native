@@ -16,10 +16,22 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class FactoryIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity type. Currently the only supported type is 'SystemAssigned'.
+        /// The identity type.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
+        /// <summary>
+        /// List of user assigned identities for the factory.
+        /// </summary>
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
 
         public FactoryIdentityArgs()
         {

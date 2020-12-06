@@ -371,8 +371,8 @@ class ExportExecutionResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 tags: Mapping[str, str],
                  type: str,
+                 e_tag: Optional[str] = None,
                  error: Optional['outputs.ErrorDetailsResponse'] = None,
                  execution_type: Optional[str] = None,
                  file_name: Optional[str] = None,
@@ -386,8 +386,8 @@ class ExportExecutionResponse(dict):
         An export execution.
         :param str id: Resource Id.
         :param str name: Resource name.
-        :param Mapping[str, str] tags: Resource tags.
         :param str type: Resource type.
+        :param str e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param 'ErrorDetailsResponseArgs' error: The details of any error.
         :param str execution_type: The type of the export execution.
         :param str file_name: The name of the exported file.
@@ -400,8 +400,9 @@ class ExportExecutionResponse(dict):
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tags", tags)
         pulumi.set(__self__, "type", type)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
         if error is not None:
             pulumi.set(__self__, "error", error)
         if execution_type is not None:
@@ -439,19 +440,19 @@ class ExportExecutionResponse(dict):
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         Resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        """
+        eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        """
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
@@ -572,7 +573,7 @@ class ExportScheduleResponse(dict):
     The schedule associated with the export.
     """
     def __init__(__self__, *,
-                 recurrence: str,
+                 recurrence: Optional[str] = None,
                  recurrence_period: Optional['outputs.ExportRecurrencePeriodResponse'] = None,
                  status: Optional[str] = None):
         """
@@ -581,7 +582,8 @@ class ExportScheduleResponse(dict):
         :param 'ExportRecurrencePeriodResponseArgs' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param str status: The status of the export's schedule. If 'Inactive', the export's schedule is paused.
         """
-        pulumi.set(__self__, "recurrence", recurrence)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
         if recurrence_period is not None:
             pulumi.set(__self__, "recurrence_period", recurrence_period)
         if status is not None:
@@ -589,7 +591,7 @@ class ExportScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def recurrence(self) -> str:
+    def recurrence(self) -> Optional[str]:
         """
         The schedule recurrence.
         """

@@ -44,6 +44,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.appplatform.v20190501preview.DeploymentResourcePropertiesResponse>;
     /**
+     * Sku of the Deployment resource
+     */
+    public readonly sku!: pulumi.Output<outputs.appplatform.v20190501preview.SkuResponse | undefined>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -75,11 +79,13 @@ export class Deployment extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -119,4 +125,8 @@ export interface DeploymentArgs {
      * The name of the Service resource.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Sku of the Deployment resource
+     */
+    readonly sku?: pulumi.Input<inputs.appplatform.v20190501preview.Sku>;
 }

@@ -2706,7 +2706,7 @@ type VaultProperties struct {
 	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId string `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri *string `pulumi:"vaultUri"`
 }
 
@@ -2747,7 +2747,7 @@ type VaultPropertiesArgs struct {
 	SoftDeleteRetentionInDays pulumi.IntPtrInput `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
 }
 
@@ -2889,7 +2889,7 @@ func (o VaultPropertiesOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultProperties) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the vault for performing operations on keys and secrets. This property is readonly
 func (o VaultPropertiesOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *string { return v.VaultUri }).(pulumi.StringPtrOutput)
 }
@@ -3032,7 +3032,7 @@ func (o VaultPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the vault for performing operations on keys and secrets. This property is readonly
 func (o VaultPropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *string {
 		if v == nil {
@@ -3070,7 +3070,7 @@ type VaultPropertiesResponse struct {
 	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId string `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri *string `pulumi:"vaultUri"`
 }
 
@@ -3113,7 +3113,7 @@ type VaultPropertiesResponseArgs struct {
 	SoftDeleteRetentionInDays pulumi.IntPtrInput `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
 }
 
@@ -3262,7 +3262,7 @@ func (o VaultPropertiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the vault for performing operations on keys and secrets. This property is readonly
 func (o VaultPropertiesResponseOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *string { return v.VaultUri }).(pulumi.StringPtrOutput)
 }
@@ -3415,7 +3415,7 @@ func (o VaultPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the vault for performing operations on keys and secrets. This property is readonly
 func (o VaultPropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
 		if v == nil {

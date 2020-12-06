@@ -76,8 +76,13 @@ class RoleAssignment(pulumi.CustomResource):
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['created_by'] = None
+            __props__['created_on'] = None
+            __props__['delegated_managed_identity_resource_id'] = None
             __props__['name'] = None
             __props__['type'] = None
+            __props__['updated_by'] = None
+            __props__['updated_on'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/latest:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180901preview:RoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleAssignment, __self__).__init__(
@@ -127,6 +132,30 @@ class RoleAssignment(pulumi.CustomResource):
         Version of the condition. Currently accepted value is '2.0'
         """
         return pulumi.get(self, "condition_version")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        Id of the user who created the assignment
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Output[Optional[str]]:
+        """
+        Time it was created
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="delegatedManagedIdentityResourceId")
+    def delegated_managed_identity_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Id of the delegated managed identity resource
+        """
+        return pulumi.get(self, "delegated_managed_identity_resource_id")
 
     @property
     @pulumi.getter
@@ -183,6 +212,22 @@ class RoleAssignment(pulumi.CustomResource):
         The role assignment type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        Id of the user who updated the assignment
+        """
+        return pulumi.get(self, "updated_by")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> pulumi.Output[Optional[str]]:
+        """
+        Time it was updated
+        """
+        return pulumi.get(self, "updated_on")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
