@@ -123,7 +123,7 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20160801:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20180201:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20181101:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20190801:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20200601:SiteRelayServiceConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20160801:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20180201:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20181101:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20190801:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20200601:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20200901:SiteRelayServiceConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteRelayServiceConnectionSlot.__pulumiType, name, inputs, opts);
     }

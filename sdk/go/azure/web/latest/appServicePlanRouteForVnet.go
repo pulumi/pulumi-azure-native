@@ -30,6 +30,8 @@ type AppServicePlanRouteForVnet struct {
 	RouteType pulumi.StringPtrOutput `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress pulumi.StringPtrOutput `pulumi:"startAddress"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -67,6 +69,9 @@ func NewAppServicePlanRouteForVnet(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:AppServicePlanRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -107,6 +112,8 @@ type appServicePlanRouteForVnetState struct {
 	RouteType *string `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress *string `pulumi:"startAddress"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -127,6 +134,8 @@ type AppServicePlanRouteForVnetState struct {
 	RouteType pulumi.StringPtrInput
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

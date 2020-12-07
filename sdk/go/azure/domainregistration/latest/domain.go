@@ -59,6 +59,8 @@ type Domain struct {
 	ReadyForDnsRecordManagement pulumi.BoolOutput `pulumi:"readyForDnsRecordManagement"`
 	// Domain registration status.
 	RegistrationStatus pulumi.StringOutput `pulumi:"registrationStatus"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Target DNS type (would be used for migration)
@@ -112,6 +114,9 @@ func NewDomain(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20200601:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:domainregistration/v20200901:Domain"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -181,6 +186,8 @@ type domainState struct {
 	ReadyForDnsRecordManagement *bool `pulumi:"readyForDnsRecordManagement"`
 	// Domain registration status.
 	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Target DNS type (would be used for migration)
@@ -234,6 +241,8 @@ type DomainState struct {
 	ReadyForDnsRecordManagement pulumi.BoolPtrInput
 	// Domain registration status.
 	RegistrationStatus pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Target DNS type (would be used for migration)

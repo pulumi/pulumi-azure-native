@@ -99,6 +99,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? ServiceBusSuffix;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? serviceBusSuffix,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Hostname = hostname;
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             SendKeyValue = sendKeyValue;
             ServiceBusNamespace = serviceBusNamespace;
             ServiceBusSuffix = serviceBusSuffix;
+            SystemData = systemData;
             Type = type;
         }
     }

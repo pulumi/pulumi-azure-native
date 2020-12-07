@@ -212,6 +212,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? RuntimeVersion;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The number of hours after session token expiration that a session token can be used to
         /// call the token refresh API. The default is 72 hours.
         /// </summary>
@@ -317,6 +321,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? runtimeVersion,
 
+            Outputs.SystemDataResponse systemData,
+
             double? tokenRefreshExtensionHours,
 
             bool? tokenStoreEnabled,
@@ -365,6 +371,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             MicrosoftAccountOAuthScopes = microsoftAccountOAuthScopes;
             Name = name;
             RuntimeVersion = runtimeVersion;
+            SystemData = systemData;
             TokenRefreshExtensionHours = tokenRefreshExtensionHours;
             TokenStoreEnabled = tokenStoreEnabled;
             TwitterConsumerKey = twitterConsumerKey;

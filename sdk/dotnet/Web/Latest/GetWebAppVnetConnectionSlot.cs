@@ -85,6 +85,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.VnetRouteResponse> Routes;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -111,6 +115,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             ImmutableArray<Outputs.VnetRouteResponse> routes,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string? vnetResourceId)
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             Name = name;
             ResyncRequired = resyncRequired;
             Routes = routes;
+            SystemData = systemData;
             Type = type;
             VnetResourceId = vnetResourceId;
         }

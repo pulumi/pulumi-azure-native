@@ -121,6 +121,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string Subscription;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -183,6 +187,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string subscription,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             int? targetWorkerCount,
@@ -213,6 +219,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             SpotExpirationTime = spotExpirationTime;
             Status = status;
             Subscription = subscription;
+            SystemData = systemData;
             Tags = tags;
             TargetWorkerCount = targetWorkerCount;
             TargetWorkerSizeId = targetWorkerSizeId;

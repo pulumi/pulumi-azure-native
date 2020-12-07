@@ -56,6 +56,10 @@ export interface GetWebAppSwiftVirtualNetworkConnectionSlotResult {
      */
     readonly swiftSupported?: boolean;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * Resource type.
      */
     readonly type: string;

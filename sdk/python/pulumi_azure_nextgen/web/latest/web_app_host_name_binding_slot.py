@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['WebAppHostNameBindingSlot']
 
@@ -88,9 +89,10 @@ class WebAppHostNameBindingSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['ssl_state'] = ssl_state
             __props__['thumbprint'] = thumbprint
+            __props__['system_data'] = None
             __props__['type'] = None
             __props__['virtual_ip'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppHostNameBindingSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppHostNameBindingSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHostNameBindingSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppHostNameBindingSlot',
@@ -187,6 +189,14 @@ class WebAppHostNameBindingSlot(pulumi.CustomResource):
         SSL type
         """
         return pulumi.get(self, "ssl_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

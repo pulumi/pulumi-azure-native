@@ -26,6 +26,8 @@ type WebAppRelayServiceConnection struct {
 	Port                     pulumi.IntPtrOutput    `pulumi:"port"`
 	ResourceConnectionString pulumi.StringPtrOutput `pulumi:"resourceConnectionString"`
 	ResourceType             pulumi.StringPtrOutput `pulumi:"resourceType"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -64,6 +66,9 @@ func NewWebAppRelayServiceConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppRelayServiceConnection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppRelayServiceConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppRelayServiceConnection
@@ -99,6 +104,8 @@ type webAppRelayServiceConnectionState struct {
 	Port                     *int    `pulumi:"port"`
 	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
 	ResourceType             *string `pulumi:"resourceType"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -115,6 +122,8 @@ type WebAppRelayServiceConnectionState struct {
 	Port                     pulumi.IntPtrInput
 	ResourceConnectionString pulumi.StringPtrInput
 	ResourceType             pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

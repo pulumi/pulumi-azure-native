@@ -127,7 +127,7 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20160901:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20180201:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20190801:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20200601:ServerFarmRouteForVnet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20160901:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20180201:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20190801:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20200601:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20200901:ServerFarmRouteForVnet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerFarmRouteForVnet.__pulumiType, name, inputs, opts);
     }

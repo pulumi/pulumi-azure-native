@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -50,6 +51,10 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
     public readonly resourceConnectionString!: pulumi.Output<string | undefined>;
     public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -87,6 +92,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["biztalkUri"] = undefined /*out*/;
@@ -98,6 +104,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
             inputs["port"] = undefined /*out*/;
             inputs["resourceConnectionString"] = undefined /*out*/;
             inputs["resourceType"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,7 +114,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppRelayServiceConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppRelayServiceConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppRelayServiceConnectionSlot.__pulumiType, name, inputs, opts);
     }

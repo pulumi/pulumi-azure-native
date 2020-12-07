@@ -21,6 +21,8 @@ type DomainOwnershipIdentifier struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Ownership Id.
 	OwnershipId pulumi.StringPtrOutput `pulumi:"ownershipId"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -53,6 +55,9 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DomainOwnershipIdentifier
@@ -83,6 +88,8 @@ type domainOwnershipIdentifierState struct {
 	Name *string `pulumi:"name"`
 	// Ownership Id.
 	OwnershipId *string `pulumi:"ownershipId"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -94,6 +101,8 @@ type DomainOwnershipIdentifierState struct {
 	Name pulumi.StringPtrInput
 	// Ownership Id.
 	OwnershipId pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -51,6 +52,10 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
      */
     public readonly publicCertificateLocation!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Certificate Thumbprint
      */
     public /*out*/ readonly thumbprint!: pulumi.Output<string>;
@@ -88,6 +93,7 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
             inputs["publicCertificateName"] = args ? args.publicCertificateName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -95,6 +101,7 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["publicCertificateLocation"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -105,7 +112,7 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200901:WebAppPublicCertificateSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPublicCertificateSlot.__pulumiType, name, inputs, opts);
     }

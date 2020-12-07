@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponseResult> Properties;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -64,11 +68,14 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponseResult> properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Kind = kind;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

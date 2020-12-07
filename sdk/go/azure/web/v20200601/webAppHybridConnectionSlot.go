@@ -77,6 +77,9 @@ func NewWebAppHybridConnectionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppHybridConnectionSlot"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHybridConnectionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHybridConnectionSlot

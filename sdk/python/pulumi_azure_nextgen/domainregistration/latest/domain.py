@@ -116,8 +116,9 @@ class Domain(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['ready_for_dns_record_management'] = None
             __props__['registration_status'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20150801:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:Domain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20150801:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200901:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
             'azure-nextgen:domainregistration/latest:Domain',
@@ -316,6 +317,14 @@ class Domain(pulumi.CustomResource):
         Domain registration status.
         """
         return pulumi.get(self, "registration_status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

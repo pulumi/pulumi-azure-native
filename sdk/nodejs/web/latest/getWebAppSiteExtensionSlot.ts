@@ -124,6 +124,10 @@ export interface GetWebAppSiteExtensionSlotResult {
      * Summary description.
      */
     readonly summary?: string;
+    /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
     readonly title?: string;
     /**
      * Resource type.

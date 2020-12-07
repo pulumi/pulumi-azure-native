@@ -33,6 +33,12 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
         public Output<string?> OwnershipId { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

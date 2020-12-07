@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -47,6 +48,10 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
      */
     public readonly ownershipId!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.domainregistration.latest.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -75,11 +80,13 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ownershipId"] = args ? args.ownershipId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["ownershipId"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -89,7 +96,7 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
     }

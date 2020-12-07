@@ -133,6 +133,8 @@ type ListWebAppAuthSettingsResult struct {
 	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
 	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The number of hours after session token expiration that a session token can be used to
 	// call the token refresh API. The default is 72 hours.
 	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`

@@ -207,6 +207,10 @@ export interface ListWebAppAuthSettingsResult {
      */
     readonly runtimeVersion?: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * The number of hours after session token expiration that a session token can be used to
      * call the token refresh API. The default is 72 hours.
      */

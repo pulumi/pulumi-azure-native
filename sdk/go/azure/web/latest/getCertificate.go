@@ -67,6 +67,8 @@ type LookupCertificateResult struct {
 	SiteName string `pulumi:"siteName"`
 	// Subject name of the certificate.
 	SubjectName string `pulumi:"subjectName"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Certificate thumbprint.

@@ -43,6 +43,8 @@ type LookupWebAppSourceControlSlotResult struct {
 	Name string `pulumi:"name"`
 	// Repository or source control URL.
 	RepoUrl *string `pulumi:"repoUrl"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

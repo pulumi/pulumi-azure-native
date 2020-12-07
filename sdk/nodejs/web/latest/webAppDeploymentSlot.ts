@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -79,6 +80,10 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<number | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -119,6 +124,7 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["status"] = args ? args.status : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["active"] = undefined /*out*/;
@@ -132,6 +138,7 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["startTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -141,7 +148,7 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDeploymentSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200901:WebAppDeploymentSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDeploymentSlot.__pulumiType, name, inputs, opts);
     }

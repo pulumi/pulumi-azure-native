@@ -325,7 +325,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20150801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20160901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20180201:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200601:AppServiceEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20150801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20160901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20180201:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200601:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200901:AppServiceEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceEnvironment.__pulumiType, name, inputs, opts);
     }

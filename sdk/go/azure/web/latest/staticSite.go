@@ -35,6 +35,8 @@ type StaticSite struct {
 	RepositoryUrl pulumi.StringPtrOutput `pulumi:"repositoryUrl"`
 	// Description of a SKU for a scalable resource.
 	Sku SkuDescriptionResponsePtrOutput `pulumi:"sku"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -62,6 +64,9 @@ func NewStaticSite(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:StaticSite"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:StaticSite"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -107,6 +112,8 @@ type staticSiteState struct {
 	RepositoryUrl *string `pulumi:"repositoryUrl"`
 	// Description of a SKU for a scalable resource.
 	Sku *SkuDescriptionResponse `pulumi:"sku"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -134,6 +141,8 @@ type StaticSiteState struct {
 	RepositoryUrl pulumi.StringPtrInput
 	// Description of a SKU for a scalable resource.
 	Sku SkuDescriptionResponsePtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

@@ -76,8 +76,9 @@ class WebAppVnetConnection(pulumi.CustomResource):
             __props__['cert_thumbprint'] = None
             __props__['resync_required'] = None
             __props__['routes'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppVnetConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppVnetConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppVnetConnection, __self__).__init__(
             'azure-nextgen:web/latest:WebAppVnetConnection',
@@ -167,6 +168,14 @@ class WebAppVnetConnection(pulumi.CustomResource):
         The routes that this Virtual Network connection uses.
         """
         return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

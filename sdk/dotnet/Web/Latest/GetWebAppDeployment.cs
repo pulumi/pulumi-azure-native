@@ -90,6 +90,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly int? Status;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             int? status,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Active = active;
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             Name = name;
             StartTime = startTime;
             Status = status;
+            SystemData = systemData;
             Type = type;
         }
     }

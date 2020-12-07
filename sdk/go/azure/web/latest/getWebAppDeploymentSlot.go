@@ -51,6 +51,8 @@ type LookupWebAppDeploymentSlotResult struct {
 	StartTime *string `pulumi:"startTime"`
 	// Deployment status.
 	Status *int `pulumi:"status"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

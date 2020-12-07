@@ -45,6 +45,8 @@ type LookupWebAppHostNameBindingResult struct {
 	SiteName *string `pulumi:"siteName"`
 	// SSL type
 	SslState *string `pulumi:"sslState"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// SSL certificate thumbprint
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type.

@@ -57,6 +57,8 @@ type Certificate struct {
 	SiteName pulumi.StringOutput `pulumi:"siteName"`
 	// Subject name of the certificate.
 	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Certificate thumbprint.
@@ -103,6 +105,9 @@ func NewCertificate(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:Certificate"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -170,6 +175,8 @@ type certificateState struct {
 	SiteName *string `pulumi:"siteName"`
 	// Subject name of the certificate.
 	SubjectName *string `pulumi:"subjectName"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Certificate thumbprint.
@@ -223,6 +230,8 @@ type CertificateState struct {
 	SiteName pulumi.StringPtrInput
 	// Subject name of the certificate.
 	SubjectName pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Certificate thumbprint.

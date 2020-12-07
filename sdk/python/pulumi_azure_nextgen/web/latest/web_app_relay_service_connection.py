@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['WebAppRelayServiceConnection']
 
@@ -70,8 +71,9 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_type'] = resource_type
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppRelayServiceConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppRelayServiceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppRelayServiceConnection, __self__).__init__(
             'azure-nextgen:web/latest:WebAppRelayServiceConnection',
@@ -147,6 +149,14 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

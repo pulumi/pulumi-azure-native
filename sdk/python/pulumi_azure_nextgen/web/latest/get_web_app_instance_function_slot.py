@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetWebAppInstanceFunctionSlotResult',
@@ -19,7 +20,7 @@ class GetWebAppInstanceFunctionSlotResult:
     """
     Function information.
     """
-    def __init__(__self__, config=None, config_href=None, files=None, function_app_id=None, href=None, invoke_url_template=None, is_disabled=None, kind=None, language=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, test_data=None, test_data_href=None, type=None):
+    def __init__(__self__, config=None, config_href=None, files=None, function_app_id=None, href=None, invoke_url_template=None, is_disabled=None, kind=None, language=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, system_data=None, test_data=None, test_data_href=None, type=None):
         if config and not isinstance(config, dict):
             raise TypeError("Expected argument 'config' to be a dict")
         pulumi.set(__self__, "config", config)
@@ -59,6 +60,9 @@ class GetWebAppInstanceFunctionSlotResult:
         if secrets_file_href and not isinstance(secrets_file_href, str):
             raise TypeError("Expected argument 'secrets_file_href' to be a str")
         pulumi.set(__self__, "secrets_file_href", secrets_file_href)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if test_data and not isinstance(test_data, str):
             raise TypeError("Expected argument 'test_data' to be a str")
         pulumi.set(__self__, "test_data", test_data)
@@ -174,6 +178,14 @@ class GetWebAppInstanceFunctionSlotResult:
         return pulumi.get(self, "secrets_file_href")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="testData")
     def test_data(self) -> Optional[str]:
         """
@@ -217,6 +229,7 @@ class AwaitableGetWebAppInstanceFunctionSlotResult(GetWebAppInstanceFunctionSlot
             script_href=self.script_href,
             script_root_path_href=self.script_root_path_href,
             secrets_file_href=self.secrets_file_href,
+            system_data=self.system_data,
             test_data=self.test_data,
             test_data_href=self.test_data_href,
             type=self.type)
@@ -260,6 +273,7 @@ def get_web_app_instance_function_slot(function_name: Optional[str] = None,
         script_href=__ret__.script_href,
         script_root_path_href=__ret__.script_root_path_href,
         secrets_file_href=__ret__.secrets_file_href,
+        system_data=__ret__.system_data,
         test_data=__ret__.test_data,
         test_data_href=__ret__.test_data_href,
         type=__ret__.type)

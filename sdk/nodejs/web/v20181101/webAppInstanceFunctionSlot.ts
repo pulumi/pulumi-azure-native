@@ -141,7 +141,7 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppInstanceFunctionSlot.__pulumiType, name, inputs, opts);
     }

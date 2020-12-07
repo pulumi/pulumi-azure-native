@@ -67,6 +67,8 @@ type LookupAppServiceCertificateOrderResult struct {
 	SignedCertificate CertificateDetailsResponse `pulumi:"signedCertificate"`
 	// Current order status.
 	Status string `pulumi:"status"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

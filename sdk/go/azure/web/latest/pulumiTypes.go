@@ -4818,6 +4818,8 @@ type BackupItemResponse struct {
 	Status string `pulumi:"status"`
 	// SAS URL for the storage account container which contains this backup.
 	StorageAccountUrl string `pulumi:"storageAccountUrl"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Size of the original web app which has been backed up.
@@ -4867,6 +4869,8 @@ type BackupItemResponseArgs struct {
 	Status pulumi.StringInput `pulumi:"status"`
 	// SAS URL for the storage account container which contains this backup.
 	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Size of the original web app which has been backed up.
@@ -4998,6 +5002,11 @@ func (o BackupItemResponseOutput) Status() pulumi.StringOutput {
 // SAS URL for the storage account container which contains this backup.
 func (o BackupItemResponseOutput) StorageAccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o BackupItemResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v BackupItemResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.
@@ -10941,6 +10950,8 @@ type IdentifierResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// String representation of the identity.
@@ -10966,6 +10977,8 @@ type IdentifierResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// String representation of the identity.
@@ -11037,6 +11050,11 @@ func (o IdentifierResponseOutput) Kind() pulumi.StringPtrOutput {
 // Resource Name.
 func (o IdentifierResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentifierResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o IdentifierResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v IdentifierResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.
@@ -13029,6 +13047,8 @@ type PushSettingsResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 	TagWhitelistJson *string `pulumi:"tagWhitelistJson"`
 	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
@@ -13063,6 +13083,8 @@ type PushSettingsResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 	TagWhitelistJson pulumi.StringPtrInput `pulumi:"tagWhitelistJson"`
 	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
@@ -13177,6 +13199,11 @@ func (o PushSettingsResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PushSettingsResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The system metadata relating to this resource.
+func (o PushSettingsResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v PushSettingsResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 func (o PushSettingsResponseOutput) TagWhitelistJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettingsResponse) *string { return v.TagWhitelistJson }).(pulumi.StringPtrOutput)
@@ -13261,6 +13288,16 @@ func (o PushSettingsResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o PushSettingsResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v *PushSettingsResponse) *SystemDataResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SystemData
+	}).(SystemDataResponsePtrOutput)
 }
 
 // Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
@@ -19080,6 +19117,8 @@ type StaticSiteUserARMResourceResponse struct {
 	Provider string `pulumi:"provider"`
 	// The roles for the static site user, in free-form string format
 	Roles *string `pulumi:"roles"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The user id for the static site user.
@@ -19111,6 +19150,8 @@ type StaticSiteUserARMResourceResponseArgs struct {
 	Provider pulumi.StringInput `pulumi:"provider"`
 	// The roles for the static site user, in free-form string format
 	Roles pulumi.StringPtrInput `pulumi:"roles"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user id for the static site user.
@@ -19197,6 +19238,11 @@ func (o StaticSiteUserARMResourceResponseOutput) Provider() pulumi.StringOutput 
 // The roles for the static site user, in free-form string format
 func (o StaticSiteUserARMResourceResponseOutput) Roles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) *string { return v.Roles }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o StaticSiteUserARMResourceResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.
@@ -19499,6 +19545,235 @@ func (o StatusCodesBasedTriggerResponseArrayOutput) Index(i pulumi.IntInput) Sta
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StatusCodesBasedTriggerResponse {
 		return vs[0].([]StatusCodesBasedTriggerResponse)[vs[1].(int)]
 	}).(StatusCodesBasedTriggerResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Virtual application in an app.
@@ -20628,6 +20903,8 @@ type VnetRouteResponse struct {
 	RouteType *string `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress *string `pulumi:"startAddress"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -20662,6 +20939,8 @@ type VnetRouteResponseArgs struct {
 	RouteType pulumi.StringPtrInput `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress pulumi.StringPtrInput `pulumi:"startAddress"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -20751,6 +21030,11 @@ func (o VnetRouteResponseOutput) RouteType() pulumi.StringPtrOutput {
 // The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 func (o VnetRouteResponseOutput) StartAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteResponse) *string { return v.StartAddress }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o VnetRouteResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v VnetRouteResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.
@@ -22110,6 +22394,8 @@ func init() {
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerArrayOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerResponseOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualApplicationOutput{})
 	pulumi.RegisterOutputType(VirtualApplicationArrayOutput{})
 	pulumi.RegisterOutputType(VirtualApplicationResponseOutput{})

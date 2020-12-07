@@ -66,6 +66,8 @@ type LookupAppServicePlanResult struct {
 	Status string `pulumi:"status"`
 	// App Service plan subscription.
 	Subscription string `pulumi:"subscription"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Scaling worker count.

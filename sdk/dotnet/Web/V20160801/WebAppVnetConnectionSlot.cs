@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppVnetConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppVnetConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppVnetConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

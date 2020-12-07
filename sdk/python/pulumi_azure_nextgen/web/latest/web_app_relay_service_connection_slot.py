@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['WebAppRelayServiceConnectionSlot']
 
@@ -75,8 +76,9 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppRelayServiceConnectionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppRelayServiceConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppRelayServiceConnectionSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppRelayServiceConnectionSlot',
@@ -152,6 +154,14 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

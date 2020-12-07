@@ -53,6 +53,10 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
     public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.web.latest.PrivateLinkConnectionStateResponse | undefined>;
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
@@ -90,6 +95,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,7 +105,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

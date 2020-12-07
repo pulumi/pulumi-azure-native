@@ -78,6 +78,9 @@ func NewWebAppHostNameBindingSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppHostNameBindingSlot"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHostNameBindingSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHostNameBindingSlot

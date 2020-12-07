@@ -81,6 +81,8 @@ type AppServiceEnvironment struct {
 	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
 	//  (most likely because NSG blocked the incoming traffic).
 	Suspended pulumi.BoolPtrOutput `pulumi:"suspended"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -139,6 +141,9 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:AppServiceEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:AppServiceEnvironment"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -230,6 +235,8 @@ type appServiceEnvironmentState struct {
 	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
 	//  (most likely because NSG blocked the incoming traffic).
 	Suspended *bool `pulumi:"suspended"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -319,6 +326,8 @@ type AppServiceEnvironmentState struct {
 	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
 	//  (most likely because NSG blocked the incoming traffic).
 	Suspended pulumi.BoolPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

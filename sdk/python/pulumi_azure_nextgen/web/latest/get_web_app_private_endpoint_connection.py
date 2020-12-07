@@ -20,7 +20,7 @@ class GetWebAppPrivateEndpointConnectionResult:
     """
     Private Endpoint Connection ARM resource.
     """
-    def __init__(__self__, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -36,6 +36,9 @@ class GetWebAppPrivateEndpointConnectionResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -78,6 +81,14 @@ class GetWebAppPrivateEndpointConnectionResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -97,6 +108,7 @@ class AwaitableGetWebAppPrivateEndpointConnectionResult(GetWebAppPrivateEndpoint
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -126,4 +138,5 @@ def get_web_app_private_endpoint_connection(name: Optional[str] = None,
         private_endpoint=__ret__.private_endpoint,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         type=__ret__.type)

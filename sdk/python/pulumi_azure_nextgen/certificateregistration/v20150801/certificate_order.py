@@ -118,7 +118,7 @@ class CertificateOrder(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['validity_in_years'] = validity_in_years
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:certificateregistration/latest:CertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20180201:CertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20190801:CertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200601:CertificateOrder")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:certificateregistration/latest:CertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20180201:CertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20190801:CertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200601:CertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200901:CertificateOrder")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CertificateOrder, __self__).__init__(
             'azure-nextgen:certificateregistration/v20150801:CertificateOrder',

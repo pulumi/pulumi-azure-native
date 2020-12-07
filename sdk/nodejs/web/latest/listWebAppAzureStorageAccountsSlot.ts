@@ -52,6 +52,10 @@ export interface ListWebAppAzureStorageAccountsSlotResult {
      */
     readonly properties: {[key: string]: outputs.web.latest.AzureStorageInfoValueResponse};
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * Resource type.
      */
     readonly type: string;

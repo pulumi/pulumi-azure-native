@@ -38,6 +38,8 @@ type LookupWebAppRelayServiceConnectionResult struct {
 	Port                     *int    `pulumi:"port"`
 	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
 	ResourceType             *string `pulumi:"resourceType"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

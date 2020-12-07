@@ -46,6 +46,8 @@ type LookupWebAppVnetConnectionSlotResult struct {
 	ResyncRequired bool `pulumi:"resyncRequired"`
 	// The routes that this Virtual Network connection uses.
 	Routes []VnetRouteResponse `pulumi:"routes"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The Virtual Network's resource ID.

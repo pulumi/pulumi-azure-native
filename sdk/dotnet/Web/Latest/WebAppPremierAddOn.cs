@@ -57,6 +57,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPremierAddOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

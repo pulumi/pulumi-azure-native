@@ -110,6 +110,8 @@ type LookupWebAppResult struct {
 	State string `pulumi:"state"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill string `pulumi:"suspendedTill"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies which deployment slot this app will swap into. Read-only.

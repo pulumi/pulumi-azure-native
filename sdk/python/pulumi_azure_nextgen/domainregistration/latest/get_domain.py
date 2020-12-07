@@ -20,7 +20,7 @@ class GetDomainResult:
     """
     Information about a domain.
     """
-    def __init__(__self__, auth_code=None, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, created_time=None, dns_type=None, dns_zone_id=None, domain_not_renewable_reasons=None, expiration_time=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, tags=None, target_dns_type=None, type=None):
+    def __init__(__self__, auth_code=None, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, created_time=None, dns_type=None, dns_zone_id=None, domain_not_renewable_reasons=None, expiration_time=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, system_data=None, tags=None, target_dns_type=None, type=None):
         if auth_code and not isinstance(auth_code, str):
             raise TypeError("Expected argument 'auth_code' to be a str")
         pulumi.set(__self__, "auth_code", auth_code)
@@ -87,6 +87,9 @@ class GetDomainResult:
         if registration_status and not isinstance(registration_status, str):
             raise TypeError("Expected argument 'registration_status' to be a str")
         pulumi.set(__self__, "registration_status", registration_status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -272,6 +275,14 @@ class GetDomainResult:
         return pulumi.get(self, "registration_status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -324,6 +335,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             provisioning_state=self.provisioning_state,
             ready_for_dns_record_management=self.ready_for_dns_record_management,
             registration_status=self.registration_status,
+            system_data=self.system_data,
             tags=self.tags,
             target_dns_type=self.target_dns_type,
             type=self.type)
@@ -370,6 +382,7 @@ def get_domain(domain_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         ready_for_dns_record_management=__ret__.ready_for_dns_record_management,
         registration_status=__ret__.registration_status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         target_dns_type=__ret__.target_dns_type,
         type=__ret__.type)

@@ -165,6 +165,10 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly suspended?: boolean;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

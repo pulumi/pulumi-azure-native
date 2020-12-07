@@ -75,6 +75,10 @@ export interface GetStaticSiteResult {
      */
     readonly sku?: outputs.web.latest.SkuDescriptionResponse;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

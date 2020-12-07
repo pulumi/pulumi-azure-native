@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -87,6 +88,10 @@ export class WebAppFunction extends pulumi.CustomResource {
      */
     public readonly secretsFileHref!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Test data used when testing via the Azure Portal.
      */
     public readonly testData!: pulumi.Output<string | undefined>;
@@ -135,6 +140,7 @@ export class WebAppFunction extends pulumi.CustomResource {
             inputs["secretsFileHref"] = args ? args.secretsFileHref : undefined;
             inputs["testData"] = args ? args.testData : undefined;
             inputs["testDataHref"] = args ? args.testDataHref : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["config"] = undefined /*out*/;
@@ -150,6 +156,7 @@ export class WebAppFunction extends pulumi.CustomResource {
             inputs["scriptHref"] = undefined /*out*/;
             inputs["scriptRootPathHref"] = undefined /*out*/;
             inputs["secretsFileHref"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["testData"] = undefined /*out*/;
             inputs["testDataHref"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -161,7 +168,7 @@ export class WebAppFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppFunction" }, { type: "azure-nextgen:web/v20180201:WebAppFunction" }, { type: "azure-nextgen:web/v20181101:WebAppFunction" }, { type: "azure-nextgen:web/v20190801:WebAppFunction" }, { type: "azure-nextgen:web/v20200601:WebAppFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppFunction" }, { type: "azure-nextgen:web/v20180201:WebAppFunction" }, { type: "azure-nextgen:web/v20181101:WebAppFunction" }, { type: "azure-nextgen:web/v20190801:WebAppFunction" }, { type: "azure-nextgen:web/v20200601:WebAppFunction" }, { type: "azure-nextgen:web/v20200901:WebAppFunction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppFunction.__pulumiType, name, inputs, opts);
     }

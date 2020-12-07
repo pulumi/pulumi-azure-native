@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetWebAppPremierAddOnResult',
@@ -19,7 +20,7 @@ class GetWebAppPremierAddOnResult:
     """
     Premier add-on.
     """
-    def __init__(__self__, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, sku=None, tags=None, type=None, vendor=None):
+    def __init__(__self__, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, sku=None, system_data=None, tags=None, type=None, vendor=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -41,6 +42,9 @@ class GetWebAppPremierAddOnResult:
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -108,6 +112,14 @@ class GetWebAppPremierAddOnResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -145,6 +157,7 @@ class AwaitableGetWebAppPremierAddOnResult(GetWebAppPremierAddOnResult):
             name=self.name,
             product=self.product,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             vendor=self.vendor)
@@ -179,6 +192,7 @@ def get_web_app_premier_add_on(name: Optional[str] = None,
         name=__ret__.name,
         product=__ret__.product,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         vendor=__ret__.vendor)

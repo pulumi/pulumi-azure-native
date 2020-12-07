@@ -69,6 +69,8 @@ type LookupDomainResult struct {
 	ReadyForDnsRecordManagement bool `pulumi:"readyForDnsRecordManagement"`
 	// Domain registration status.
 	RegistrationStatus string `pulumi:"registrationStatus"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Target DNS type (would be used for migration)

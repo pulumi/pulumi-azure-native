@@ -117,6 +117,10 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly subscription!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -181,6 +185,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["resourceGroup"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["subscription"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["freeOfferExpirationTime"] = undefined /*out*/;
@@ -203,6 +208,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["spotExpirationTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["subscription"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["targetWorkerCount"] = undefined /*out*/;
             inputs["targetWorkerSizeId"] = undefined /*out*/;
@@ -216,7 +222,7 @@ export class AppServicePlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:AppServicePlan" }, { type: "azure-nextgen:web/v20160901:AppServicePlan" }, { type: "azure-nextgen:web/v20180201:AppServicePlan" }, { type: "azure-nextgen:web/v20190801:AppServicePlan" }, { type: "azure-nextgen:web/v20200601:AppServicePlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:AppServicePlan" }, { type: "azure-nextgen:web/v20160901:AppServicePlan" }, { type: "azure-nextgen:web/v20180201:AppServicePlan" }, { type: "azure-nextgen:web/v20190801:AppServicePlan" }, { type: "azure-nextgen:web/v20200601:AppServicePlan" }, { type: "azure-nextgen:web/v20200901:AppServicePlan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServicePlan.__pulumiType, name, inputs, opts);
     }

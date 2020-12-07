@@ -50,6 +50,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         public Output<string?> StartAddress { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

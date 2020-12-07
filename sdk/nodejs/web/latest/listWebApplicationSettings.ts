@@ -47,6 +47,10 @@ export interface ListWebApplicationSettingsResult {
      */
     readonly properties: {[key: string]: string};
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * Resource type.
      */
     readonly type: string;

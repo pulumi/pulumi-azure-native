@@ -45,6 +45,8 @@ type LookupStaticSiteResult struct {
 	RepositoryUrl *string `pulumi:"repositoryUrl"`
 	// Description of a SKU for a scalable resource.
 	Sku *SkuDescriptionResponse `pulumi:"sku"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

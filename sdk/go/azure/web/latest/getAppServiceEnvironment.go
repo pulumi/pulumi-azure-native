@@ -91,6 +91,8 @@ type LookupAppServiceEnvironmentResult struct {
 	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
 	//  (most likely because NSG blocked the incoming traffic).
 	Suspended *bool `pulumi:"suspended"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

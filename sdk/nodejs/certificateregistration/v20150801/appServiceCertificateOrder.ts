@@ -213,7 +213,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceCertificateOrder.__pulumiType, name, inputs, opts);
     }

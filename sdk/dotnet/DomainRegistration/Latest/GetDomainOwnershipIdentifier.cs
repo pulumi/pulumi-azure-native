@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
         /// </summary>
         public readonly string? OwnershipId;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -70,11 +74,14 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
 
             string? ownershipId,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Kind = kind;
             Name = name;
             OwnershipId = ownershipId;
+            SystemData = systemData;
             Type = type;
         }
     }

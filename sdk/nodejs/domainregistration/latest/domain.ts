@@ -122,6 +122,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly registrationStatus!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.domainregistration.latest.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -194,6 +198,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["readyForDnsRecordManagement"] = undefined /*out*/;
             inputs["registrationStatus"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["authCode"] = undefined /*out*/;
@@ -218,6 +223,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["readyForDnsRecordManagement"] = undefined /*out*/;
             inputs["registrationStatus"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["targetDnsType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -229,7 +235,7 @@ export class Domain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration/v20150401:Domain" }, { type: "azure-nextgen:domainregistration/v20150801:Domain" }, { type: "azure-nextgen:domainregistration/v20180201:Domain" }, { type: "azure-nextgen:domainregistration/v20190801:Domain" }, { type: "azure-nextgen:domainregistration/v20200601:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration/v20150401:Domain" }, { type: "azure-nextgen:domainregistration/v20150801:Domain" }, { type: "azure-nextgen:domainregistration/v20180201:Domain" }, { type: "azure-nextgen:domainregistration/v20190801:Domain" }, { type: "azure-nextgen:domainregistration/v20200601:Domain" }, { type: "azure-nextgen:domainregistration/v20200901:Domain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Domain.__pulumiType, name, inputs, opts);
     }

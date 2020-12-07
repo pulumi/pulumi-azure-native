@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -51,6 +52,10 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
      */
     public readonly swiftSupported!: pulumi.Output<boolean | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -80,12 +85,14 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
             inputs["slot"] = args ? args.slot : undefined;
             inputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
             inputs["swiftSupported"] = args ? args.swiftSupported : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["subnetResourceId"] = undefined /*out*/;
             inputs["swiftSupported"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -95,7 +102,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSwiftVirtualNetworkConnectionSlot.__pulumiType, name, inputs, opts);
     }

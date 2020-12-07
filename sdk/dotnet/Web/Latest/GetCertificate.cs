@@ -124,6 +124,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string SubjectName;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -184,6 +188,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string subjectName,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string thumbprint,
@@ -213,6 +219,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             ServerFarmId = serverFarmId;
             SiteName = siteName;
             SubjectName = subjectName;
+            SystemData = systemData;
             Tags = tags;
             Thumbprint = thumbprint;
             Type = type;

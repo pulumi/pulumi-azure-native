@@ -55,7 +55,9 @@ type WebAppSiteExtension struct {
 	PublishedDateTime pulumi.StringPtrOutput `pulumi:"publishedDateTime"`
 	// Summary description.
 	Summary pulumi.StringPtrOutput `pulumi:"summary"`
-	Title   pulumi.StringPtrOutput `pulumi:"title"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	Title      pulumi.StringPtrOutput   `pulumi:"title"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Version information.
@@ -92,6 +94,9 @@ func NewWebAppSiteExtension(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSiteExtension"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSiteExtension"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -157,7 +162,9 @@ type webAppSiteExtensionState struct {
 	PublishedDateTime *string `pulumi:"publishedDateTime"`
 	// Summary description.
 	Summary *string `pulumi:"summary"`
-	Title   *string `pulumi:"title"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	Title      *string             `pulumi:"title"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// Version information.
@@ -205,7 +212,9 @@ type WebAppSiteExtensionState struct {
 	PublishedDateTime pulumi.StringPtrInput
 	// Summary description.
 	Summary pulumi.StringPtrInput
-	Title   pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
+	Title      pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// Version information.

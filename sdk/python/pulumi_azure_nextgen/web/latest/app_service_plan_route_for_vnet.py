@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['AppServicePlanRouteForVnet']
 
@@ -78,8 +79,9 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
             if vnet_name is None:
                 raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlanRouteForVnet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlanRouteForVnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlanRouteForVnet, __self__).__init__(
             'azure-nextgen:web/latest:AppServicePlanRouteForVnet',
@@ -149,6 +151,14 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         """
         return pulumi.get(self, "start_address")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

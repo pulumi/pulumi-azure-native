@@ -116,6 +116,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

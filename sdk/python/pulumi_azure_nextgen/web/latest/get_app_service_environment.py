@@ -20,7 +20,7 @@ class GetAppServiceEnvironmentResult:
     """
     App Service Environment ARM resource.
     """
-    def __init__(__self__, allowed_multi_sizes=None, allowed_worker_sizes=None, api_management_account_id=None, cluster_settings=None, database_edition=None, database_service_objective=None, default_front_end_scale_factor=None, dns_suffix=None, dynamic_cache_enabled=None, environment_capacities=None, environment_is_healthy=None, environment_status=None, front_end_scale_factor=None, has_linux_workers=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, last_action=None, last_action_result=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, network_access_control_list=None, provisioning_state=None, resource_group=None, ssl_cert_key_vault_id=None, ssl_cert_key_vault_secret_name=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, upgrade_domains=None, user_whitelisted_ip_ranges=None, vip_mappings=None, virtual_network=None, vnet_name=None, vnet_resource_group_name=None, vnet_subnet_name=None, worker_pools=None):
+    def __init__(__self__, allowed_multi_sizes=None, allowed_worker_sizes=None, api_management_account_id=None, cluster_settings=None, database_edition=None, database_service_objective=None, default_front_end_scale_factor=None, dns_suffix=None, dynamic_cache_enabled=None, environment_capacities=None, environment_is_healthy=None, environment_status=None, front_end_scale_factor=None, has_linux_workers=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, last_action=None, last_action_result=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, network_access_control_list=None, provisioning_state=None, resource_group=None, ssl_cert_key_vault_id=None, ssl_cert_key_vault_secret_name=None, status=None, subscription_id=None, suspended=None, system_data=None, tags=None, type=None, upgrade_domains=None, user_whitelisted_ip_ranges=None, vip_mappings=None, virtual_network=None, vnet_name=None, vnet_resource_group_name=None, vnet_subnet_name=None, worker_pools=None):
         if allowed_multi_sizes and not isinstance(allowed_multi_sizes, str):
             raise TypeError("Expected argument 'allowed_multi_sizes' to be a str")
         pulumi.set(__self__, "allowed_multi_sizes", allowed_multi_sizes)
@@ -117,6 +117,9 @@ class GetAppServiceEnvironmentResult:
         if suspended and not isinstance(suspended, bool):
             raise TypeError("Expected argument 'suspended' to be a bool")
         pulumi.set(__self__, "suspended", suspended)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -407,6 +410,14 @@ class GetAppServiceEnvironmentResult:
         return pulumi.get(self, "suspended")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -525,6 +536,7 @@ class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
             status=self.status,
             subscription_id=self.subscription_id,
             suspended=self.suspended,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             upgrade_domains=self.upgrade_domains,
@@ -588,6 +600,7 @@ def get_app_service_environment(name: Optional[str] = None,
         status=__ret__.status,
         subscription_id=__ret__.subscription_id,
         suspended=__ret__.suspended,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         upgrade_domains=__ret__.upgrade_domains,

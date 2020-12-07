@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AppSettingNames = appSettingNames;
@@ -83,6 +89,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             ConnectionStringNames = connectionStringNames;
             Kind = kind;
             Name = name;
+            SystemData = systemData;
             Type = type;
         }
     }

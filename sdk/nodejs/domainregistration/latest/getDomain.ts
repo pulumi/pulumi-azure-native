@@ -121,6 +121,10 @@ export interface GetDomainResult {
      */
     readonly registrationStatus: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.domainregistration.latest.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

@@ -89,6 +89,10 @@ export interface GetWebAppDeploymentSlotResult {
      */
     readonly status?: number;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * Resource type.
      */
     readonly type: string;

@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         /// </summary>
         public readonly string? TagWhitelistJson;
@@ -87,6 +91,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string? tagWhitelistJson,
 
             string? tagsRequiringAuth,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             IsPushEnabled = isPushEnabled;
             Kind = kind;
             Name = name;
+            SystemData = systemData;
             TagWhitelistJson = tagWhitelistJson;
             TagsRequiringAuth = tagsRequiringAuth;
             Type = type;

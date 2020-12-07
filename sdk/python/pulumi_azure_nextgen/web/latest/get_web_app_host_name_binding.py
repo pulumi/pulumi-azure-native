@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetWebAppHostNameBindingResult',
@@ -19,7 +20,7 @@ class GetWebAppHostNameBindingResult:
     """
     A hostname binding object.
     """
-    def __init__(__self__, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, kind=None, name=None, site_name=None, ssl_state=None, thumbprint=None, type=None, virtual_ip=None):
+    def __init__(__self__, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, kind=None, name=None, site_name=None, ssl_state=None, system_data=None, thumbprint=None, type=None, virtual_ip=None):
         if azure_resource_name and not isinstance(azure_resource_name, str):
             raise TypeError("Expected argument 'azure_resource_name' to be a str")
         pulumi.set(__self__, "azure_resource_name", azure_resource_name)
@@ -47,6 +48,9 @@ class GetWebAppHostNameBindingResult:
         if ssl_state and not isinstance(ssl_state, str):
             raise TypeError("Expected argument 'ssl_state' to be a str")
         pulumi.set(__self__, "ssl_state", ssl_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if thumbprint and not isinstance(thumbprint, str):
             raise TypeError("Expected argument 'thumbprint' to be a str")
         pulumi.set(__self__, "thumbprint", thumbprint)
@@ -130,6 +134,14 @@ class GetWebAppHostNameBindingResult:
         return pulumi.get(self, "ssl_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def thumbprint(self) -> Optional[str]:
         """
@@ -169,6 +181,7 @@ class AwaitableGetWebAppHostNameBindingResult(GetWebAppHostNameBindingResult):
             name=self.name,
             site_name=self.site_name,
             ssl_state=self.ssl_state,
+            system_data=self.system_data,
             thumbprint=self.thumbprint,
             type=self.type,
             virtual_ip=self.virtual_ip)
@@ -205,6 +218,7 @@ def get_web_app_host_name_binding(host_name: Optional[str] = None,
         name=__ret__.name,
         site_name=__ret__.site_name,
         ssl_state=__ret__.ssl_state,
+        system_data=__ret__.system_data,
         thumbprint=__ret__.thumbprint,
         type=__ret__.type,
         virtual_ip=__ret__.virtual_ip)

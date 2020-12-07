@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -76,6 +77,10 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
      */
     public readonly serviceBusSuffix!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -118,6 +123,7 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
             inputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
             inputs["serviceBusSuffix"] = args ? args.serviceBusSuffix : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["hostname"] = undefined /*out*/;
@@ -130,6 +136,7 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
             inputs["sendKeyValue"] = undefined /*out*/;
             inputs["serviceBusNamespace"] = undefined /*out*/;
             inputs["serviceBusSuffix"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -139,7 +146,7 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppHybridConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHybridConnectionSlot.__pulumiType, name, inputs, opts);
     }

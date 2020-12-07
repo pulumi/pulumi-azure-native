@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? PublicCertificateLocation;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Certificate Thumbprint
         /// </summary>
         public readonly string Thumbprint;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? publicCertificateLocation,
 
+            Outputs.SystemDataResponse systemData,
+
             string thumbprint,
 
             string type)
@@ -94,6 +100,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             Kind = kind;
             Name = name;
             PublicCertificateLocation = publicCertificateLocation;
+            SystemData = systemData;
             Thumbprint = thumbprint;
             Type = type;
         }

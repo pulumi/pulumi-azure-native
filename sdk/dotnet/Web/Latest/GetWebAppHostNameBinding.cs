@@ -82,6 +82,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? SslState;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// SSL certificate thumbprint
         /// </summary>
         public readonly string? Thumbprint;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? sslState,
 
+            Outputs.SystemDataResponse systemData,
+
             string? thumbprint,
 
             string type,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             Name = name;
             SiteName = siteName;
             SslState = sslState;
+            SystemData = systemData;
             Thumbprint = thumbprint;
             Type = type;
             VirtualIP = virtualIP;

@@ -72,6 +72,9 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppVnetConnection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppVnetConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppVnetConnection

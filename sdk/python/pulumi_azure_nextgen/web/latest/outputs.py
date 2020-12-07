@@ -65,6 +65,7 @@ __all__ = [
     'StaticSiteBuildPropertiesResponse',
     'StaticSiteUserARMResourceResponseResult',
     'StatusCodesBasedTriggerResponse',
+    'SystemDataResponse',
     'VirtualApplicationResponse',
     'VirtualDirectoryResponse',
     'VirtualIPMappingResponse',
@@ -912,6 +913,7 @@ class BackupItemResponseResult(dict):
                  size_in_bytes: int,
                  status: str,
                  storage_account_url: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  website_size_in_bytes: int,
                  kind: Optional[str] = None):
@@ -931,6 +933,7 @@ class BackupItemResponseResult(dict):
         :param int size_in_bytes: Size of the backup in bytes.
         :param str status: Backup status.
         :param str storage_account_url: SAS URL for the storage account container which contains this backup.
+        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param int website_size_in_bytes: Size of the original web app which has been backed up.
         :param str kind: Kind of resource.
@@ -949,6 +952,7 @@ class BackupItemResponseResult(dict):
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "storage_account_url", storage_account_url)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "website_size_in_bytes", website_size_in_bytes)
         if kind is not None:
@@ -1065,6 +1069,14 @@ class BackupItemResponseResult(dict):
         SAS URL for the storage account container which contains this backup.
         """
         return pulumi.get(self, "storage_account_url")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -2345,6 +2357,7 @@ class IdentifierResponseResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  kind: Optional[str] = None,
                  value: Optional[str] = None):
@@ -2352,12 +2365,14 @@ class IdentifierResponseResult(dict):
         A domain specific resource identifier.
         :param str id: Resource Id.
         :param str name: Resource Name.
+        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         :param str value: String representation of the identity.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -2379,6 +2394,14 @@ class IdentifierResponseResult(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -2816,6 +2839,7 @@ class PushSettingsResponse(dict):
                  id: str,
                  is_push_enabled: bool,
                  name: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  dynamic_tags_json: Optional[str] = None,
                  kind: Optional[str] = None,
@@ -2826,6 +2850,7 @@ class PushSettingsResponse(dict):
         :param str id: Resource Id.
         :param bool is_push_enabled: Gets or sets a flag indicating whether the Push endpoint is enabled.
         :param str name: Resource Name.
+        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str dynamic_tags_json: Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         :param str kind: Kind of resource.
@@ -2838,6 +2863,7 @@ class PushSettingsResponse(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "is_push_enabled", is_push_enabled)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if dynamic_tags_json is not None:
             pulumi.set(__self__, "dynamic_tags_json", dynamic_tags_json)
@@ -2871,6 +2897,14 @@ class PushSettingsResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -4367,6 +4401,7 @@ class StaticSiteUserARMResourceResponseResult(dict):
                  id: str,
                  name: str,
                  provider: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  user_id: str,
                  kind: Optional[str] = None,
@@ -4377,6 +4412,7 @@ class StaticSiteUserARMResourceResponseResult(dict):
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str provider: The identity provider for the static site user.
+        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str user_id: The user id for the static site user.
         :param str kind: Kind of resource.
@@ -4386,6 +4422,7 @@ class StaticSiteUserARMResourceResponseResult(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "user_id", user_id)
         if kind is not None:
@@ -4424,6 +4461,14 @@ class StaticSiteUserARMResourceResponseResult(dict):
         The identity provider for the static site user.
         """
         return pulumi.get(self, "provider")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -4527,6 +4572,92 @@ class StatusCodesBasedTriggerResponse(dict):
         Win32 error code.
         """
         return pulumi.get(self, "win32_status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4764,6 +4895,7 @@ class VnetRouteResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  end_address: Optional[str] = None,
                  kind: Optional[str] = None,
@@ -4773,6 +4905,7 @@ class VnetRouteResponse(dict):
         Virtual Network route contract used to pass routing information for a Virtual Network.
         :param str id: Resource Id.
         :param str name: Resource Name.
+        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
         :param str kind: Kind of resource.
@@ -4786,6 +4919,7 @@ class VnetRouteResponse(dict):
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if end_address is not None:
             pulumi.set(__self__, "end_address", end_address)
@@ -4811,6 +4945,14 @@ class VnetRouteResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -114,6 +115,10 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
      * Summary description.
      */
     public /*out*/ readonly summary!: pulumi.Output<string | undefined>;
+    /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
     public /*out*/ readonly title!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
@@ -165,6 +170,7 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publishedDateTime"] = undefined /*out*/;
             inputs["summary"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["title"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -189,6 +195,7 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publishedDateTime"] = undefined /*out*/;
             inputs["summary"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["title"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -200,7 +207,7 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20180201:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20181101:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20190801:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20200601:WebAppSiteExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20180201:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20181101:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20190801:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20200601:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20200901:WebAppSiteExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSiteExtension.__pulumiType, name, inputs, opts);
     }
