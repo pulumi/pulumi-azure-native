@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -126,7 +127,7 @@ export interface BandwidthScheduleArgs {
     /**
      * The days of the week when this schedule is applicable.
      */
-    readonly days: pulumi.Input<pulumi.Input<string>[]>;
+    readonly days: pulumi.Input<pulumi.Input<string | enums.databoxedge.v20190301.DayOfWeek>[]>;
     /**
      * The device name.
      */

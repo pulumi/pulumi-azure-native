@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -174,7 +174,7 @@ export interface JobArgs {
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
      */
-    readonly priority?: pulumi.Input<string>;
+    readonly priority?: pulumi.Input<string | enums.media.v20180601preview.Priority>;
     /**
      * The name of the resource group within the Azure subscription.
      */

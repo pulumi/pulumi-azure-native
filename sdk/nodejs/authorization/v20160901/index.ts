@@ -10,3 +10,6 @@ export * from "./managementLockAtResourceGroupLevel";
 export * from "./managementLockAtResourceLevel";
 export * from "./managementLockAtSubscriptionLevel";
 export * from "./managementLockByScope";
+
+// Export enums:
+export * from "../../types/enums/authorization/v20160901";

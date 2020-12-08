@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -158,7 +158,7 @@ export interface AnalyticsItemArgs {
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly scope?: pulumi.Input<string>;
+    readonly scope?: pulumi.Input<string | enums.insights.latest.ItemScope>;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
@@ -166,5 +166,5 @@ export interface AnalyticsItemArgs {
     /**
      * Enum indicating the type of the Analytics item.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | enums.insights.latest.ItemType>;
 }

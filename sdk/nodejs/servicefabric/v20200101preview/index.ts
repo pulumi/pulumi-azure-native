@@ -6,3 +6,6 @@ export * from "./getManagedCluster";
 export * from "./getNodeType";
 export * from "./managedCluster";
 export * from "./nodeType";
+
+// Export enums:
+export * from "../../types/enums/servicefabric/v20200101preview";

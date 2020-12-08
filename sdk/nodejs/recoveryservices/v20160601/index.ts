@@ -6,3 +6,6 @@ export * from "./getProtectionPolicy";
 export * from "./getVault";
 export * from "./protectionPolicy";
 export * from "./vault";
+
+// Export enums:
+export * from "../../types/enums/recoveryservices/v20160601";

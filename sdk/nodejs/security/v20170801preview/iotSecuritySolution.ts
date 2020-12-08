@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -163,7 +163,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
-    readonly disabledDataSources?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly disabledDataSources?: pulumi.Input<pulumi.Input<string | enums.security.v20170801preview.DataSource>[]>;
     /**
      * Resource display name.
      */
@@ -171,7 +171,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * List of additional export to workspace data options
      */
-    readonly export?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly export?: pulumi.Input<pulumi.Input<string | enums.security.v20170801preview.ExportData>[]>;
     /**
      * IoT Hub resource IDs
      */
@@ -195,7 +195,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * Security solution status
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.security.v20170801preview.SecuritySolutionStatus>;
     /**
      * Resource tags
      */

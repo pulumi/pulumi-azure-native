@@ -23,3 +23,6 @@ export * from "./share";
 export * from "./shareSubscription";
 export * from "./synchronizationSetting";
 export * from "./trigger";
+
+// Export enums:
+export * from "../../types/enums/datashare/latest";

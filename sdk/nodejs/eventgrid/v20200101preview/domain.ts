@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -137,7 +137,7 @@ export interface DomainArgs {
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
-    readonly inputSchema?: pulumi.Input<string>;
+    readonly inputSchema?: pulumi.Input<string | enums.eventgrid.v20200101preview.InputSchema>;
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */

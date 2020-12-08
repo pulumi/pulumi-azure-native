@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -159,7 +159,7 @@ export interface StorageTargetArgs {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<string | enums.storagecache.v20200301.ProvisioningStateType>;
     /**
      * Target resource group.
      */
@@ -171,7 +171,7 @@ export interface StorageTargetArgs {
     /**
      * Type of the Storage Target.
      */
-    readonly targetType: pulumi.Input<string>;
+    readonly targetType: pulumi.Input<string | enums.storagecache.v20200301.StorageTargetType>;
     /**
      * Properties when targetType is unknown.
      */

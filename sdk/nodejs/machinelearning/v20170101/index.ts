@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getWebService";
 export * from "./webService";
+
+// Export enums:
+export * from "../../types/enums/machinelearning/v20170101";

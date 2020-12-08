@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -242,11 +242,11 @@ export interface HostPoolArgs {
     /**
      * HostPool type for desktop.
      */
-    readonly hostPoolType: pulumi.Input<string>;
+    readonly hostPoolType: pulumi.Input<string | enums.desktopvirtualization.v20201102preview.HostPoolType>;
     /**
      * The type of the load balancer.
      */
-    readonly loadBalancerType: pulumi.Input<string>;
+    readonly loadBalancerType: pulumi.Input<string | enums.desktopvirtualization.v20201102preview.LoadBalancerType>;
     /**
      * The geo-location where the resource lives
      */
@@ -258,11 +258,11 @@ export interface HostPoolArgs {
     /**
      * PersonalDesktopAssignment type for HostPool.
      */
-    readonly personalDesktopAssignmentType?: pulumi.Input<string>;
+    readonly personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.v20201102preview.PersonalDesktopAssignmentType>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
-    readonly preferredAppGroupType: pulumi.Input<string>;
+    readonly preferredAppGroupType: pulumi.Input<string | enums.desktopvirtualization.v20201102preview.PreferredAppGroupType>;
     /**
      * The registration info of HostPool.
      */
@@ -290,7 +290,7 @@ export interface HostPoolArgs {
     /**
      * The type of single sign on Secret Type.
      */
-    readonly ssoSecretType?: pulumi.Input<string>;
+    readonly ssoSecretType?: pulumi.Input<string | enums.desktopvirtualization.v20201102preview.SSOSecretType>;
     /**
      * URL to customer ADFS server for signing WVD SSO certificates.
      */

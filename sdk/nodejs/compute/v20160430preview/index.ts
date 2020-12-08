@@ -16,3 +16,6 @@ export * from "./snapshot";
 export * from "./virtualMachine";
 export * from "./virtualMachineExtension";
 export * from "./virtualMachineScaleSet";
+
+// Export enums:
+export * from "../../types/enums/compute/v20160430preview";

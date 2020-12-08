@@ -10,3 +10,6 @@ export * from "./listManagedClusterAdminCredentials";
 export * from "./listManagedClusterMonitoringUserCredentials";
 export * from "./listManagedClusterUserCredentials";
 export * from "./managedCluster";
+
+// Export enums:
+export * from "../../types/enums/containerservice/v20200301";

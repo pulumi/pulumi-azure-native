@@ -30,3 +30,6 @@ export * from "./privateEndpointConnection";
 export * from "./systemTopic";
 export * from "./systemTopicEventSubscription";
 export * from "./topic";
+
+// Export enums:
+export * from "../../types/enums/eventgrid/v20200401preview";

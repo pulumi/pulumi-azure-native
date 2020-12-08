@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -130,7 +131,7 @@ export interface RoleAssignmentArgs {
     /**
      * The principal type of the assigned principal ID.
      */
-    readonly principalType?: pulumi.Input<string>;
+    readonly principalType?: pulumi.Input<string | enums.authorization.v20180901preview.PrincipalType>;
     /**
      * The name of the role assignment to create. It can be any valid GUID.
      */

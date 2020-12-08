@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getPolicyDefinitionAtManagementGroup";
 export * from "./policyDefinitionAtManagementGroup";
+
+// Export enums:
+export * from "../../types/enums/management/v20161201";

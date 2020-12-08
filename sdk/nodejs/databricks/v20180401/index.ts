@@ -6,3 +6,6 @@ export * from "./getWorkspace";
 export * from "./getvNetPeering";
 export * from "./vnetPeering";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/databricks/v20180401";

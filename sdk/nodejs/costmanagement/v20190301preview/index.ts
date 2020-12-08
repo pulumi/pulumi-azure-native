@@ -4,3 +4,6 @@
 // Export members:
 export * from "./cloudConnector";
 export * from "./getCloudConnector";
+
+// Export enums:
+export * from "../../types/enums/costmanagement/v20190301preview";

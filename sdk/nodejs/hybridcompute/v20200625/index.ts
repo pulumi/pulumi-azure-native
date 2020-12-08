@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getGuestConfigurationHCRPAssignment";
 export * from "./guestConfigurationHCRPAssignment";
+
+// Export enums:
+export * from "../../types/enums/hybridcompute/v20200625";

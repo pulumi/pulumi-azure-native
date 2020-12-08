@@ -8,3 +8,6 @@ export * from "./getDomain";
 export * from "./getDomainOwnershipIdentifier";
 export * from "./listDomainRecommendations";
 export * from "./listTopLevelDomainAgreements";
+
+// Export enums:
+export * from "../../types/enums/domainregistration/v20190801";

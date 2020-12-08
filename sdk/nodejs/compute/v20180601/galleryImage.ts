@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -220,11 +220,11 @@ export interface GalleryImageArgs {
     /**
      * The allowed values for OS State are 'Generalized'.
      */
-    readonly osState: pulumi.Input<string>;
+    readonly osState: pulumi.Input<enums.compute.v20180601.OperatingSystemStateTypes>;
     /**
      * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly osType: pulumi.Input<string>;
+    readonly osType: pulumi.Input<enums.compute.v20180601.OperatingSystemTypes>;
     /**
      * The privacy statement uri.
      */

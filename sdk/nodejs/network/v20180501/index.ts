@@ -7,3 +7,6 @@ export * from "./getRecordSet";
 export * from "./getZone";
 export * from "./recordSet";
 export * from "./zone";
+
+// Export enums:
+export * from "../../types/enums/network/v20180501";

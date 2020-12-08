@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -115,7 +116,7 @@ export interface PeeringServicePrefixArgs {
     /**
      * The prefix learned type
      */
-    readonly learnedType?: pulumi.Input<string>;
+    readonly learnedType?: pulumi.Input<string | enums.peering.v20190801preview.LearnedType>;
     /**
      * The peering service name.
      */
@@ -131,7 +132,7 @@ export interface PeeringServicePrefixArgs {
     /**
      * The prefix validation state
      */
-    readonly prefixValidationState?: pulumi.Input<string>;
+    readonly prefixValidationState?: pulumi.Input<string | enums.peering.v20190801preview.PrefixValidationState>;
     /**
      * The resource group name.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -165,7 +165,7 @@ export interface ProfileArgs {
     /**
      * The status of the Traffic Manager profile.
      */
-    readonly profileStatus?: pulumi.Input<string>;
+    readonly profileStatus?: pulumi.Input<string | enums.network.v20180301.ProfileStatus>;
     /**
      * The name of the resource group containing the Traffic Manager profile.
      */
@@ -177,11 +177,11 @@ export interface ProfileArgs {
     /**
      * The traffic routing method of the Traffic Manager profile.
      */
-    readonly trafficRoutingMethod?: pulumi.Input<string>;
+    readonly trafficRoutingMethod?: pulumi.Input<string | enums.network.v20180301.TrafficRoutingMethod>;
     /**
      * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
      */
-    readonly trafficViewEnrollmentStatus?: pulumi.Input<string>;
+    readonly trafficViewEnrollmentStatus?: pulumi.Input<string | enums.network.v20180301.TrafficViewEnrollmentStatus>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */

@@ -6,3 +6,6 @@ export * from "./getNamespace";
 export * from "./getPrivateEndpointConnection";
 export * from "./namespace";
 export * from "./privateEndpointConnection";
+
+// Export enums:
+export * from "../../types/enums/relay/v20180101preview";

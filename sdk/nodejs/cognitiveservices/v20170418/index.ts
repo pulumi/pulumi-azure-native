@@ -7,3 +7,6 @@ export * from "./getAccount";
 export * from "./getPrivateEndpointConnection";
 export * from "./listAccountKeys";
 export * from "./privateEndpointConnection";
+
+// Export enums:
+export * from "../../types/enums/cognitiveservices/v20170418";

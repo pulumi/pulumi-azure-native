@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -135,7 +136,7 @@ export interface RouteArgs {
     /**
      * The type of Azure hop the packet should be sent to.
      */
-    readonly nextHopType: pulumi.Input<string>;
+    readonly nextHopType: pulumi.Input<string | enums.network.v20200301.RouteNextHopType>;
     /**
      * The name of the resource group.
      */

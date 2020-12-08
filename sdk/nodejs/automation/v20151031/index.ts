@@ -31,3 +31,6 @@ export * from "./schedule";
 export * from "./variable";
 export * from "./watcher";
 export * from "./webhook";
+
+// Export enums:
+export * from "../../types/enums/automation/v20151031";

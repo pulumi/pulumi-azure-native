@@ -13,3 +13,6 @@ export * from "./getCertificate";
 export * from "./getPool";
 export * from "./listBatchAccountKeys";
 export * from "./pool";
+
+// Export enums:
+export * from "../../types/enums/batch/latest";

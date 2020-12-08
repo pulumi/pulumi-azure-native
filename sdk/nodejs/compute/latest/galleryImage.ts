@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -228,7 +228,7 @@ export interface GalleryImageArgs {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: pulumi.Input<string>;
+    readonly hyperVGeneration?: pulumi.Input<string | enums.compute.latest.HyperVGeneration>;
     /**
      * This is the gallery image definition identifier.
      */
@@ -240,11 +240,11 @@ export interface GalleryImageArgs {
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
-    readonly osState: pulumi.Input<string>;
+    readonly osState: pulumi.Input<enums.compute.latest.OperatingSystemStateTypes>;
     /**
      * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly osType: pulumi.Input<string>;
+    readonly osType: pulumi.Input<enums.compute.latest.OperatingSystemTypes>;
     /**
      * The privacy statement uri.
      */

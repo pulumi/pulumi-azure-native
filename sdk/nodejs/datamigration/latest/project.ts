@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -179,7 +179,7 @@ export interface ProjectArgs {
     /**
      * Source platform for the project
      */
-    readonly sourcePlatform: pulumi.Input<string>;
+    readonly sourcePlatform: pulumi.Input<string | enums.datamigration.latest.ProjectSourcePlatform>;
     /**
      * Resource tags.
      */
@@ -191,5 +191,5 @@ export interface ProjectArgs {
     /**
      * Target platform for the project
      */
-    readonly targetPlatform: pulumi.Input<string>;
+    readonly targetPlatform: pulumi.Input<string | enums.datamigration.latest.ProjectTargetPlatform>;
 }

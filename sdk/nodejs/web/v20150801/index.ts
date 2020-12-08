@@ -57,3 +57,6 @@ export * from "./siteSourceControl";
 export * from "./siteSourceControlSlot";
 export * from "./siteVNETConnection";
 export * from "./siteVNETConnectionSlot";
+
+// Export enums:
+export * from "../../types/enums/web/v20150801";

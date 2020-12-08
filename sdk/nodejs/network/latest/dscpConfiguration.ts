@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -191,7 +191,7 @@ export interface DscpConfigurationArgs {
     /**
      * RNM supported protocol types.
      */
-    readonly protocol?: pulumi.Input<string>;
+    readonly protocol?: pulumi.Input<string | enums.network.latest.ProtocolType>;
     /**
      * The name of the resource group.
      */

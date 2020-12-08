@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -169,7 +169,7 @@ export interface RelationshipArgs {
     /**
      * The Relationship Cardinality.
      */
-    readonly cardinality?: pulumi.Input<string>;
+    readonly cardinality?: pulumi.Input<enums.customerinsights.v20170426.CardinalityTypes>;
     /**
      * Localized descriptions for the Relationship.
      */

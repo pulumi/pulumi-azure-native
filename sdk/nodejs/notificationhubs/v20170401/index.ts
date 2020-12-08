@@ -12,3 +12,6 @@ export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./notificationHub";
 export * from "./notificationHubAuthorizationRule";
+
+// Export enums:
+export * from "../../types/enums/notificationhubs/v20170401";

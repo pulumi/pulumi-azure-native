@@ -18,3 +18,6 @@ export * from "./virtualMachine";
 export * from "./virtualMachineExtension";
 export * from "./virtualMachineScaleSet";
 export * from "./virtualMachineScaleSetExtension";
+
+// Export enums:
+export * from "../../types/enums/compute/v20170330";

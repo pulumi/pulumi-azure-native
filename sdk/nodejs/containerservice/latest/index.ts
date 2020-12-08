@@ -16,3 +16,6 @@ export * from "./listManagedClusterUserCredentials";
 export * from "./managedCluster";
 export * from "./openShiftManagedCluster";
 export * from "./privateEndpointConnection";
+
+// Export enums:
+export * from "../../types/enums/containerservice/latest";

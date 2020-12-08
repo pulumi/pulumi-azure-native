@@ -34,3 +34,6 @@ export * from "./replicationRecoveryServicesProvider";
 export * from "./replicationStorageClassificationMapping";
 export * from "./replicationvCenter";
 export * from "./vault";
+
+// Export enums:
+export * from "../../types/enums/recoveryservices/latest";

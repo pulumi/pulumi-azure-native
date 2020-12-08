@@ -8,3 +8,6 @@ export * from "./getReport";
 export * from "./getReportByResourceGroupName";
 export * from "./report";
 export * from "./reportByResourceGroupName";
+
+// Export enums:
+export * from "../../types/enums/costmanagement/v20180801preview";

@@ -6,3 +6,6 @@ export * from "./endpoint";
 export * from "./getEndpoint";
 export * from "./getProfile";
 export * from "./profile";
+
+// Export enums:
+export * from "../../types/enums/network/v20180301";

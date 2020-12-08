@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -180,7 +180,7 @@ export interface IntegrationAccountAgreementArgs {
     /**
      * The agreement type.
      */
-    readonly agreementType: pulumi.Input<string>;
+    readonly agreementType: pulumi.Input<enums.logic.v20190501.AgreementType>;
     /**
      * The agreement content.
      */

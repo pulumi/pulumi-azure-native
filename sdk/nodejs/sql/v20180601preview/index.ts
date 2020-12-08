@@ -18,3 +18,6 @@ export * from "./managedInstanceVulnerabilityAssessment";
 export * from "./privateEndpointConnection";
 export * from "./serverAzureADAdministrator";
 export * from "./serverVulnerabilityAssessment";
+
+// Export enums:
+export * from "../../types/enums/sql/v20180601preview";

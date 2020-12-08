@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -160,7 +160,7 @@ export interface ShareArgs {
     /**
      * Access protocol to be used by the share.
      */
-    readonly accessProtocol: pulumi.Input<string>;
+    readonly accessProtocol: pulumi.Input<string | enums.databoxedge.v20190801.ShareAccessProtocol>;
     /**
      * Azure container mapping for the share.
      */
@@ -172,7 +172,7 @@ export interface ShareArgs {
     /**
      * Data policy of the share.
      */
-    readonly dataPolicy?: pulumi.Input<string>;
+    readonly dataPolicy?: pulumi.Input<string | enums.databoxedge.v20190801.DataPolicy>;
     /**
      * Description for the share.
      */
@@ -184,7 +184,7 @@ export interface ShareArgs {
     /**
      * Current monitoring status of the share.
      */
-    readonly monitoringStatus: pulumi.Input<string>;
+    readonly monitoringStatus: pulumi.Input<string | enums.databoxedge.v20190801.MonitoringStatus>;
     /**
      * The share name.
      */
@@ -200,7 +200,7 @@ export interface ShareArgs {
     /**
      * Current status of the share.
      */
-    readonly shareStatus: pulumi.Input<string>;
+    readonly shareStatus: pulumi.Input<string | enums.databoxedge.v20190801.ShareStatus>;
     /**
      * Mapping of users and corresponding access rights on the share (required for SMB protocol).
      */

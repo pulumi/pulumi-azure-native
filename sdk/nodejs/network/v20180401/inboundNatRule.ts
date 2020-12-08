@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -181,7 +181,7 @@ export interface InboundNatRuleArgs {
     /**
      * The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
      */
-    readonly protocol?: pulumi.Input<string>;
+    readonly protocol?: pulumi.Input<string | enums.network.v20180401.TransportProtocol>;
     /**
      * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */

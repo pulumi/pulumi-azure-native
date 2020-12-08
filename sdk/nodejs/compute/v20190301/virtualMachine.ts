@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -245,7 +245,7 @@ export interface VirtualMachineArgs {
     /**
      * Specifies the eviction policy for the Azure Spot virtual machine. Only supported value is 'Deallocate'. <br><br>Minimum api-version: 2019-03-01
      */
-    readonly evictionPolicy?: pulumi.Input<string>;
+    readonly evictionPolicy?: pulumi.Input<string | enums.compute.v20190301.VirtualMachineEvictionPolicyTypes>;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
@@ -281,7 +281,7 @@ export interface VirtualMachineArgs {
     /**
      * Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
      */
-    readonly priority?: pulumi.Input<string>;
+    readonly priority?: pulumi.Input<string | enums.compute.v20190301.VirtualMachinePriorityTypes>;
     /**
      * Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */

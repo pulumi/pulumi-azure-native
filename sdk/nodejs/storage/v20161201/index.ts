@@ -5,3 +5,6 @@
 export * from "./getStorageAccount";
 export * from "./listStorageAccountKeys";
 export * from "./storageAccount";
+
+// Export enums:
+export * from "../../types/enums/storage/v20161201";

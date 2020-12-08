@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -124,7 +124,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Provisioning state of the Private Endpoint Connection.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<string | enums.servicebus.v20180101preview.EndPointProvisioningState>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

@@ -6,3 +6,6 @@ export * from "./association";
 export * from "./customResourceProvider";
 export * from "./getAssociation";
 export * from "./getCustomResourceProvider";
+
+// Export enums:
+export * from "../../types/enums/customproviders/v20180901preview";

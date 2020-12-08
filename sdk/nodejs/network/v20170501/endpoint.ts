@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -153,7 +154,7 @@ export interface EndpointArgs {
     /**
      * The monitoring status of the endpoint.
      */
-    readonly endpointMonitorStatus?: pulumi.Input<string>;
+    readonly endpointMonitorStatus?: pulumi.Input<string | enums.network.v20170501.EndpointMonitorStatus>;
     /**
      * The name of the Traffic Manager endpoint to be created or updated.
      */
@@ -161,7 +162,7 @@ export interface EndpointArgs {
     /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */
-    readonly endpointStatus?: pulumi.Input<string>;
+    readonly endpointStatus?: pulumi.Input<string | enums.network.v20170501.EndpointStatus>;
     /**
      * The type of the Traffic Manager endpoint to be created or updated.
      */

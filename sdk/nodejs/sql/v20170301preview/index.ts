@@ -26,3 +26,6 @@ export * from "./managedDatabase";
 export * from "./managedInstanceAdministrator";
 export * from "./sensitivityLabel";
 export * from "./serverDnsAlias";
+
+// Export enums:
+export * from "../../types/enums/sql/v20170301preview";

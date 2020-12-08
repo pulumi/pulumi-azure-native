@@ -10,3 +10,6 @@ export * from "./managedNetwork";
 export * from "./managedNetworkGroup";
 export * from "./managedNetworkPeeringPolicy";
 export * from "./scopeAssignment";
+
+// Export enums:
+export * from "../../types/enums/managednetwork/v20190601preview";

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -129,5 +130,5 @@ export interface AccessPolicyArgs {
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<enums.timeseriesinsights.v20171115.AccessPolicyRole>[]>;
 }

@@ -12,3 +12,6 @@ export * from "./privateZone";
 export * from "./recordSet";
 export * from "./rulesEngine";
 export * from "./virtualNetworkLink";
+
+// Export enums:
+export * from "../../types/enums/network/v20200101";

@@ -10,3 +10,6 @@ export * from "./getWorkspace";
 export * from "./linkedService";
 export * from "./machineGroup";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/operationalinsights/v20151101preview";

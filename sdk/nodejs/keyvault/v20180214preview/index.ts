@@ -6,3 +6,6 @@ export * from "./getSecret";
 export * from "./getVault";
 export * from "./secret";
 export * from "./vault";
+
+// Export enums:
+export * from "../../types/enums/keyvault/v20180214preview";

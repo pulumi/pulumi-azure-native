@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -254,5 +255,5 @@ export interface PartnerRegistrationArgs {
     /**
      * Visibility state of the partner registration.
      */
-    readonly visibilityState?: pulumi.Input<string>;
+    readonly visibilityState?: pulumi.Input<string | enums.eventgrid.v20200401preview.PartnerRegistrationVisibilityState>;
 }

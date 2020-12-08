@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -141,7 +142,7 @@ export interface ComputePolicyArgs {
     /**
      * The type of AAD object the object identifier refers to.
      */
-    readonly objectType: pulumi.Input<string>;
+    readonly objectType: pulumi.Input<string | enums.datalakeanalytics.latest.AADObjectType>;
     /**
      * The name of the Azure resource group.
      */

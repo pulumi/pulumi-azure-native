@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -169,7 +170,7 @@ export interface MyWorkbookArgs {
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<string | enums.insights.v20150501.SharedTypeKind>;
     /**
      * Resource location
      */

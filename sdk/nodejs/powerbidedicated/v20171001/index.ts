@@ -4,3 +4,6 @@
 // Export members:
 export * from "./capacityDetails";
 export * from "./getCapacityDetails";
+
+// Export enums:
+export * from "../../types/enums/powerbidedicated/v20171001";

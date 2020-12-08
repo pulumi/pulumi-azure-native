@@ -10,3 +10,6 @@ export * from "./getTrustedIdProvider";
 export * from "./getVirtualNetworkRule";
 export * from "./trustedIdProvider";
 export * from "./virtualNetworkRule";
+
+// Export enums:
+export * from "../../types/enums/datalakestore/v20161101";

@@ -4,3 +4,6 @@
 // Export members:
 export * from "./app";
 export * from "./getApp";
+
+// Export enums:
+export * from "../../types/enums/iotcentral/v20170701privatepreview";

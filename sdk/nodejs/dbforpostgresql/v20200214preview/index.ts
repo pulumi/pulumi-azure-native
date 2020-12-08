@@ -6,3 +6,6 @@ export * from "./firewallRule";
 export * from "./getFirewallRule";
 export * from "./getServer";
 export * from "./server";
+
+// Export enums:
+export * from "../../types/enums/dbforpostgresql/v20200214preview";

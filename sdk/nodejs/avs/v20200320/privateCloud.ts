@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -206,7 +206,7 @@ export interface PrivateCloudArgs {
     /**
      * Connectivity to internet is enabled or disabled
      */
-    readonly internet?: pulumi.Input<string>;
+    readonly internet?: pulumi.Input<string | enums.avs.v20200320.InternetEnum>;
     /**
      * Resource location
      */

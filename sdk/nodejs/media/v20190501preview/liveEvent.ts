@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -220,7 +220,7 @@ export interface LiveEventArgs {
     /**
      * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
      */
-    readonly streamOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly streamOptions?: pulumi.Input<pulumi.Input<string | enums.media.v20190501preview.StreamOptionsFlag>[]>;
     /**
      * Resource tags.
      */

@@ -18,3 +18,6 @@ export * from "./server";
 export * from "./serverAzureADAdministrator";
 export * from "./serverCommunicationLink";
 export * from "./transparentDataEncryption";
+
+// Export enums:
+export * from "../../types/enums/sql/v20140401";

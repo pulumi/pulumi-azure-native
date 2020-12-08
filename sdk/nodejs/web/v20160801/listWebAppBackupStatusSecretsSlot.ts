@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsSlotResult> {
@@ -72,7 +72,7 @@ export interface ListWebAppBackupStatusSecretsSlotArgs {
     /**
      * Type of the backup.
      */
-    readonly type?: string;
+    readonly type?: enums.web.v20160801.BackupRestoreOperationType;
 }
 
 /**

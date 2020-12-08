@@ -26,3 +26,6 @@ export * from "./rule";
 export * from "./subscription";
 export * from "./topic";
 export * from "./topicAuthorizationRule";
+
+// Export enums:
+export * from "../../types/enums/servicebus/latest";

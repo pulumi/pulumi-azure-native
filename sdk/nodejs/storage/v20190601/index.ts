@@ -29,3 +29,6 @@ export * from "./queueServiceProperties";
 export * from "./storageAccount";
 export * from "./table";
 export * from "./tableServiceProperties";
+
+// Export enums:
+export * from "../../types/enums/storage/v20190601";

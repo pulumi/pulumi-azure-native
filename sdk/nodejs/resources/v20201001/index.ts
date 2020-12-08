@@ -18,3 +18,6 @@ export * from "./getTagAtScope";
 export * from "./resource";
 export * from "./resourceGroup";
 export * from "./tagAtScope";
+
+// Export enums:
+export * from "../../types/enums/resources/v20201001";

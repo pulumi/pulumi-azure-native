@@ -8,3 +8,6 @@ export * from "./getControllerDetails";
 export * from "./getDelegatedSubnetServiceDetails";
 export * from "./getOrchestratorInstanceServiceDetails";
 export * from "./orchestratorInstanceServiceDetails";
+
+// Export enums:
+export * from "../../types/enums/delegatednetwork/v20200808preview";

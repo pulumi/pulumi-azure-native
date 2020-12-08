@@ -4,3 +4,6 @@
 // Export members:
 export * from "./containerGroup";
 export * from "./getContainerGroup";
+
+// Export enums:
+export * from "../../types/enums/containerinstance/v20181001";

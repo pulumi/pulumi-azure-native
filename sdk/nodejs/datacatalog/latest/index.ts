@@ -4,3 +4,6 @@
 // Export members:
 export * from "./adccatalog";
 export * from "./getADCCatalog";
+
+// Export enums:
+export * from "../../types/enums/datacatalog/latest";

@@ -6,3 +6,6 @@ export * from "./getPython2Package";
 export * from "./getRunbook";
 export * from "./python2Package";
 export * from "./runbook";
+
+// Export enums:
+export * from "../../types/enums/automation/v20180630";

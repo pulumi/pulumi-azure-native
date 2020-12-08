@@ -4,3 +4,6 @@
 // Export members:
 export * from "./deploymentScript";
 export * from "./getDeploymentScript";
+
+// Export enums:
+export * from "../../types/enums/resources/v20191001preview";

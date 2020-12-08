@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -247,7 +247,7 @@ export interface WebTestArgs {
     /**
      * The kind of WebTest that this web test watches. Choices are ping and multistep.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<enums.insights.v20201005preview.WebTestKind>;
     /**
      * Resource location
      */
@@ -291,7 +291,7 @@ export interface WebTestArgs {
     /**
      * The kind of web test this is, valid choices are ping, multistep, basic, and standard.
      */
-    readonly webTestKind: pulumi.Input<string>;
+    readonly webTestKind: pulumi.Input<enums.insights.v20201005preview.WebTestKindEnum>;
     /**
      * User defined name if this WebTest.
      */

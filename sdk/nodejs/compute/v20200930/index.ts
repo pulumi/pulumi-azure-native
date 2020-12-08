@@ -12,3 +12,6 @@ export * from "./getGalleryApplication";
 export * from "./getGalleryApplicationVersion";
 export * from "./getGalleryImage";
 export * from "./getGalleryImageVersion";
+
+// Export enums:
+export * from "../../types/enums/compute/v20200930";

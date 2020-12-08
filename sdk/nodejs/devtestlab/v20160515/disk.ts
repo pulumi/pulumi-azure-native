@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -174,7 +175,7 @@ export interface DiskArgs {
     /**
      * The storage type for the disk (i.e. Standard, Premium).
      */
-    readonly diskType?: pulumi.Input<string>;
+    readonly diskType?: pulumi.Input<string | enums.devtestlab.v20160515.StorageType>;
     /**
      * When backed by a blob, the URI of underlying blob.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -261,7 +261,7 @@ export interface QueueArgs {
     /**
      * Entity availability status for the queue.
      */
-    readonly entityAvailabilityStatus?: pulumi.Input<string>;
+    readonly entityAvailabilityStatus?: pulumi.Input<enums.servicebus.v20150801.EntityAvailabilityStatus>;
     /**
      * A value that indicates whether the message is accessible anonymously.
      */
@@ -309,7 +309,7 @@ export interface QueueArgs {
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<enums.servicebus.v20150801.EntityStatus>;
     /**
      * A value that indicates whether the queue supports ordering.
      */

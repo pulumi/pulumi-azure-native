@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -279,11 +279,11 @@ export interface VolumeArgs {
     /**
      * The security style of volume
      */
-    readonly securityStyle?: pulumi.Input<string>;
+    readonly securityStyle?: pulumi.Input<string | enums.netapp.latest.SecurityStyle>;
     /**
      * The service level of the file system
      */
-    readonly serviceLevel?: pulumi.Input<string>;
+    readonly serviceLevel?: pulumi.Input<string | enums.netapp.latest.ServiceLevel>;
     /**
      * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
      */

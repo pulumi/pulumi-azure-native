@@ -19,3 +19,6 @@ export * from "./share";
 export * from "./storageAccountCredential";
 export * from "./trigger";
 export * from "./user";
+
+// Export enums:
+export * from "../../types/enums/databoxedge/v20190301";

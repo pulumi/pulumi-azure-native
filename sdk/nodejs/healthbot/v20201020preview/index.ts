@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getbot";
 export * from "./getgetbot";
+
+// Export enums:
+export * from "../../types/enums/healthbot/v20201020preview";

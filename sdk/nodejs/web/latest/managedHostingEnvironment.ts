@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -337,7 +337,7 @@ export interface ManagedHostingEnvironmentArgs {
     /**
      * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
      */
-    readonly internalLoadBalancingMode?: pulumi.Input<string>;
+    readonly internalLoadBalancingMode?: pulumi.Input<enums.web.latest.InternalLoadBalancingMode>;
     /**
      * Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
      */
@@ -381,7 +381,7 @@ export interface ManagedHostingEnvironmentArgs {
     /**
      * Provisioning state of the hostingEnvironment (App Service Environment)
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<enums.web.latest.ProvisioningState>;
     /**
      * Resource group of the hostingEnvironment (App Service Environment)
      */
@@ -393,7 +393,7 @@ export interface ManagedHostingEnvironmentArgs {
     /**
      * Current status of the hostingEnvironment (App Service Environment)
      */
-    readonly status: pulumi.Input<string>;
+    readonly status: pulumi.Input<enums.web.latest.HostingEnvironmentStatus>;
     /**
      * Subscription of the hostingEnvironment (App Service Environment)
      */

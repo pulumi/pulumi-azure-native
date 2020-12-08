@@ -14,3 +14,6 @@ export * from "./service";
 export * from "./serviceTopology";
 export * from "./serviceUnit";
 export * from "./step";
+
+// Export enums:
+export * from "../../types/enums/deploymentmanager/v20191101preview";

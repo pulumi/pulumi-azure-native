@@ -5,3 +5,6 @@
 export * from "./getJob";
 export * from "./job";
 export * from "./listBitLockerKey";
+
+// Export enums:
+export * from "../../types/enums/importexport/v20200801";

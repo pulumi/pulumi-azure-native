@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -158,7 +159,7 @@ export interface CertificateOrderCertificateArgs {
     /**
      * Status of the Key Vault secret
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<enums.certificateregistration.v20150801.KeyVaultSecretStatus>;
     /**
      * Azure resource group name
      */

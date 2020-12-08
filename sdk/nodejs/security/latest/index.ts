@@ -16,3 +16,6 @@ export * from "./getServerVulnerabilityAssessment";
 export * from "./iotSecuritySolution";
 export * from "./jitNetworkAccessPolicy";
 export * from "./serverVulnerabilityAssessment";
+
+// Export enums:
+export * from "../../types/enums/security/latest";

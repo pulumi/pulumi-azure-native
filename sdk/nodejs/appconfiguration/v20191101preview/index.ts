@@ -7,3 +7,6 @@ export * from "./getConfigurationStore";
 export * from "./getPrivateEndpointConnection";
 export * from "./listConfigurationStoreKeyValue";
 export * from "./privateEndpointConnection";
+
+// Export enums:
+export * from "../../types/enums/appconfiguration/v20191101preview";

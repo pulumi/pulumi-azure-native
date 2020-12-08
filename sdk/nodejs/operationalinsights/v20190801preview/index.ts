@@ -8,3 +8,6 @@ export * from "./getLinkedService";
 export * from "./getLinkedStorageAccount";
 export * from "./linkedService";
 export * from "./linkedStorageAccount";
+
+// Export enums:
+export * from "../../types/enums/operationalinsights/v20190801preview";

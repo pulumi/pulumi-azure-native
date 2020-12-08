@@ -15,3 +15,6 @@ export * from "./managementGroup";
 export * from "./managementGroupSubscription";
 export * from "./policyDefinitionAtManagementGroup";
 export * from "./policySetDefinitionAtManagementGroup";
+
+// Export enums:
+export * from "../../types/enums/management/latest";

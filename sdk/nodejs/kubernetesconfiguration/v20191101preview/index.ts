@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getSourceControlConfiguration";
 export * from "./sourceControlConfiguration";
+
+// Export enums:
+export * from "../../types/enums/kubernetesconfiguration/v20191101preview";

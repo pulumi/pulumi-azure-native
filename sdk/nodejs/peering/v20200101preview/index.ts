@@ -14,3 +14,6 @@ export * from "./peeringService";
 export * from "./prefix";
 export * from "./registeredAsn";
 export * from "./registeredPrefix";
+
+// Export enums:
+export * from "../../types/enums/peering/v20200101preview";

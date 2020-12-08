@@ -13,3 +13,6 @@ export * from "./listRedisKeys";
 export * from "./patchSchedule";
 export * from "./privateEndpointConnection";
 export * from "./redis";
+
+// Export enums:
+export * from "../../types/enums/cache/latest";

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -177,7 +177,7 @@ export interface IpAllocationArgs {
     /**
      * The address prefix Type for the IpAllocation.
      */
-    readonly prefixType?: pulumi.Input<string>;
+    readonly prefixType?: pulumi.Input<string | enums.network.latest.IPVersion>;
     /**
      * The name of the resource group.
      */
@@ -189,5 +189,5 @@ export interface IpAllocationArgs {
     /**
      * The type for the IpAllocation.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | enums.network.latest.IpAllocationType>;
 }

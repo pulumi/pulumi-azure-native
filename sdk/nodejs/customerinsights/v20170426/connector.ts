@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -170,7 +171,7 @@ export interface ConnectorArgs {
     /**
      * Type of connector.
      */
-    readonly connectorType: pulumi.Input<string>;
+    readonly connectorType: pulumi.Input<string | enums.customerinsights.v20170426.ConnectorTypes>;
     /**
      * Description of the connector.
      */

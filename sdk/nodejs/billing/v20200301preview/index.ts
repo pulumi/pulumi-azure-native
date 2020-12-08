@@ -4,3 +4,6 @@
 // Export members:
 export * from "./costAllocationRule";
 export * from "./getCostAllocationRule";
+
+// Export enums:
+export * from "../../types/enums/billing/v20200301preview";

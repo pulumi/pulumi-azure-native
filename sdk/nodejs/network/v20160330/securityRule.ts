@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -167,7 +168,7 @@ export interface SecurityRuleArgs {
     /**
      * Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
      */
-    readonly access: pulumi.Input<string>;
+    readonly access: pulumi.Input<string | enums.network.v20160330.SecurityRuleAccess>;
     /**
      * Gets or sets a description for this rule. Restricted to 140 chars.
      */
@@ -183,7 +184,7 @@ export interface SecurityRuleArgs {
     /**
      * Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
      */
-    readonly direction: pulumi.Input<string>;
+    readonly direction: pulumi.Input<string | enums.network.v20160330.SecurityRuleDirection>;
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
@@ -207,7 +208,7 @@ export interface SecurityRuleArgs {
     /**
      * Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
      */
-    readonly protocol: pulumi.Input<string>;
+    readonly protocol: pulumi.Input<string | enums.network.v20160330.SecurityRuleProtocol>;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */

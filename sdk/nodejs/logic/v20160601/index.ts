@@ -36,3 +36,6 @@ export * from "./rosettaNetProcessConfiguration";
 export * from "./schema";
 export * from "./session";
 export * from "./workflow";
+
+// Export enums:
+export * from "../../types/enums/logic/v20160601";

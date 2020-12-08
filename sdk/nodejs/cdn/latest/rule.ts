@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -149,7 +149,7 @@ export interface RuleArgs {
     /**
      * If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
      */
-    readonly matchProcessingBehavior?: pulumi.Input<string>;
+    readonly matchProcessingBehavior?: pulumi.Input<string | enums.cdn.latest.MatchProcessingBehavior>;
     /**
      * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
      */

@@ -25,3 +25,6 @@ export * from "./replication";
 export * from "./scopeMap";
 export * from "./token";
 export * from "./webhook";
+
+// Export enums:
+export * from "../../types/enums/containerregistry/v20201101preview";

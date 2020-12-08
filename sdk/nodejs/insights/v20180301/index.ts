@@ -6,3 +6,6 @@ export * from "./actionGroup";
 export * from "./getActionGroup";
 export * from "./getMetricAlert";
 export * from "./metricAlert";
+
+// Export enums:
+export * from "../../types/enums/insights/v20180301";

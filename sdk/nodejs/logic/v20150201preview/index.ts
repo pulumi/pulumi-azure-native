@@ -7,3 +7,6 @@ export * from "./getWorkflowAccessKey";
 export * from "./listWorkflowAccessKeySecretKeys";
 export * from "./workflow";
 export * from "./workflowAccessKey";
+
+// Export enums:
+export * from "../../types/enums/logic/v20150201preview";

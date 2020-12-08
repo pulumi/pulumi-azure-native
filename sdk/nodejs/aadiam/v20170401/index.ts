@@ -4,3 +4,6 @@
 // Export members:
 export * from "./diagnosticSetting";
 export * from "./getDiagnosticSetting";
+
+// Export enums:
+export * from "../../types/enums/aadiam/v20170401";

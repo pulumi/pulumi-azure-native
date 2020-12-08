@@ -6,3 +6,6 @@ export * from "./connector";
 export * from "./getConnector";
 export * from "./getSecurityContact";
 export * from "./securityContact";
+
+// Export enums:
+export * from "../../types/enums/security/v20200101preview";

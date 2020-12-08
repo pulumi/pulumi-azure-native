@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -128,7 +128,7 @@ export interface ServiceArgs {
     /**
      * The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<enums.healthcareapis.v20180820preview.Kind>;
     /**
      * The resource location.
      */

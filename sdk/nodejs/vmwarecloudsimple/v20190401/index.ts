@@ -8,3 +8,6 @@ export * from "./getDedicatedCloudNode";
 export * from "./getDedicatedCloudService";
 export * from "./getVirtualMachine";
 export * from "./virtualMachine";
+
+// Export enums:
+export * from "../../types/enums/vmwarecloudsimple/v20190401";

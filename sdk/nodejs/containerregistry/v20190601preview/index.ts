@@ -13,3 +13,6 @@ export * from "./listTaskDetails";
 export * from "./listTaskRunDetails";
 export * from "./task";
 export * from "./taskRun";
+
+// Export enums:
+export * from "../../types/enums/containerregistry/v20190601preview";

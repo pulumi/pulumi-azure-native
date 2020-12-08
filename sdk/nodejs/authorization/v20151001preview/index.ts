@@ -6,3 +6,6 @@ export * from "./getPolicyAssignment";
 export * from "./getPolicyDefinition";
 export * from "./policyAssignment";
 export * from "./policyDefinition";
+
+// Export enums:
+export * from "../../types/enums/authorization/v20151001preview";

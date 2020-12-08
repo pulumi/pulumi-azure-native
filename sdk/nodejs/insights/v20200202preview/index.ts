@@ -4,3 +4,6 @@
 // Export members:
 export * from "./component";
 export * from "./getComponent";
+
+// Export enums:
+export * from "../../types/enums/insights/v20200202preview";

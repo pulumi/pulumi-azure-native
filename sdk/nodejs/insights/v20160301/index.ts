@@ -6,3 +6,6 @@ export * from "./alertRule";
 export * from "./getAlertRule";
 export * from "./getLogProfile";
 export * from "./logProfile";
+
+// Export enums:
+export * from "../../types/enums/insights/v20160301";

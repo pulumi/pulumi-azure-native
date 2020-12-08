@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -125,7 +126,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
      */
-    readonly maintenanceScope?: pulumi.Input<string>;
+    readonly maintenanceScope?: pulumi.Input<string | enums.maintenance.v20200401.MaintenanceScope>;
     /**
      * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */

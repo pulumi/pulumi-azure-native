@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -232,7 +232,7 @@ export interface ServerArgs {
     /**
      * The mode to create a new PostgreSQL server.
      */
-    readonly createMode?: pulumi.Input<string>;
+    readonly createMode?: pulumi.Input<string | enums.dbforpostgresql.v20200214privatepreview.CreateMode>;
     readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesDelegatedSubnetArguments>;
     /**
      * The display name of a server.
@@ -241,7 +241,7 @@ export interface ServerArgs {
     /**
      * stand by count value can be either enabled or disabled
      */
-    readonly haEnabled?: pulumi.Input<string>;
+    readonly haEnabled?: pulumi.Input<enums.dbforpostgresql.v20200214privatepreview.HAEnabledEnum>;
     /**
      * The Azure Active Directory identity of the server.
      */
@@ -285,5 +285,5 @@ export interface ServerArgs {
     /**
      * PostgreSQL Server version.
      */
-    readonly version?: pulumi.Input<string>;
+    readonly version?: pulumi.Input<string | enums.dbforpostgresql.v20200214privatepreview.ServerVersion>;
 }

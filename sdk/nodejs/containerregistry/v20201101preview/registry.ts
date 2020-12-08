@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -234,7 +234,7 @@ export interface RegistryArgs {
     /**
      * Whether to allow trusted Azure services to access a network restricted registry.
      */
-    readonly networkRuleBypassOptions?: pulumi.Input<string>;
+    readonly networkRuleBypassOptions?: pulumi.Input<string | enums.containerregistry.v20201101preview.NetworkRuleBypassOptions>;
     /**
      * The network rule set for a container registry.
      */
@@ -246,7 +246,7 @@ export interface RegistryArgs {
     /**
      * Whether or not public network access is allowed for the container registry.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.containerregistry.v20201101preview.PublicNetworkAccess>;
     /**
      * The name of the container registry.
      */
@@ -270,5 +270,5 @@ export interface RegistryArgs {
     /**
      * Whether or not zone redundancy is enabled for this container registry
      */
-    readonly zoneRedundancy?: pulumi.Input<string>;
+    readonly zoneRedundancy?: pulumi.Input<string | enums.containerregistry.v20201101preview.ZoneRedundancy>;
 }

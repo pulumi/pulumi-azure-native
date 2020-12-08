@@ -5,3 +5,6 @@
 export * from "./connectedCluster";
 export * from "./getConnectedCluster";
 export * from "./listConnectedClusterUserCredentials";
+
+// Export enums:
+export * from "../../types/enums/kubernetes/v20200101preview";

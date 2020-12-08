@@ -10,3 +10,6 @@ export * from "./getAssignment";
 export * from "./getBlueprint";
 export * from "./getPublishedBlueprint";
 export * from "./publishedBlueprint";
+
+// Export enums:
+export * from "../../types/enums/blueprint/v20181101preview";

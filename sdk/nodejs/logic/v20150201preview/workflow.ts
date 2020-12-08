@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export class Workflow extends pulumi.CustomResource {
@@ -200,7 +200,7 @@ export interface WorkflowArgs {
     /**
      * Gets or sets the state.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<enums.logic.v20150201preview.WorkflowState>;
     /**
      * Gets or sets the resource tags.
      */

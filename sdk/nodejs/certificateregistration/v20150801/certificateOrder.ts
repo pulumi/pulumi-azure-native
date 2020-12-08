@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -257,11 +257,11 @@ export interface CertificateOrderArgs {
     /**
      * Certificate product type
      */
-    readonly productType?: pulumi.Input<string>;
+    readonly productType?: pulumi.Input<enums.certificateregistration.v20150801.CertificateProductType>;
     /**
      * Status of certificate order
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<enums.certificateregistration.v20150801.ProvisioningState>;
     /**
      * Azure resource group name
      */
@@ -281,7 +281,7 @@ export interface CertificateOrderArgs {
     /**
      * Current order status
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<enums.certificateregistration.v20150801.CertificateOrderStatus>;
     /**
      * Resource tags
      */

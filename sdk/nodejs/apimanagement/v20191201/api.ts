@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -219,7 +219,7 @@ export interface ApiArgs {
     /**
      * Type of API.
      */
-    readonly apiType?: pulumi.Input<string>;
+    readonly apiType?: pulumi.Input<string | enums.apimanagement.v20191201.ApiType>;
     /**
      * Indicates the Version identifier of the API if the API is versioned
      */
@@ -251,7 +251,7 @@ export interface ApiArgs {
     /**
      * Format of the Content in which the API is getting imported.
      */
-    readonly format?: pulumi.Input<string>;
+    readonly format?: pulumi.Input<string | enums.apimanagement.v20191201.ContentFormat>;
     /**
      * Indicates if API revision is current api revision.
      */
@@ -263,7 +263,7 @@ export interface ApiArgs {
     /**
      * Describes on which protocols the operations in this API can be invoked.
      */
-    readonly protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly protocols?: pulumi.Input<pulumi.Input<enums.apimanagement.v20191201.Protocol>[]>;
     /**
      * The name of the resource group.
      */
@@ -281,7 +281,7 @@ export interface ApiArgs {
      *  * `http` creates a SOAP to REST API 
      *  * `soap` creates a SOAP pass-through API .
      */
-    readonly soapApiType?: pulumi.Input<string>;
+    readonly soapApiType?: pulumi.Input<string | enums.apimanagement.v20191201.SoapApiType>;
     /**
      * API identifier of the source API.
      */

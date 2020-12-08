@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -156,7 +157,7 @@ export interface FavoriteArgs {
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly favoriteType?: pulumi.Input<string>;
+    readonly favoriteType?: pulumi.Input<enums.insights.v20150501.FavoriteType>;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */

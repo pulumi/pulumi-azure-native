@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -120,5 +121,5 @@ export interface HybridConnectionAuthorizationRuleArgs {
     /**
      * The rights associated with the rule.
      */
-    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
+    readonly rights: pulumi.Input<pulumi.Input<string | enums.relay.v20160701.AccessRights>[]>;
 }

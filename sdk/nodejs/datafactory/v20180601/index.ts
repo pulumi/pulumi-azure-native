@@ -27,3 +27,6 @@ export * from "./listIntegrationRuntimeAuthKeys";
 export * from "./managedPrivateEndpoint";
 export * from "./pipeline";
 export * from "./trigger";
+
+// Export enums:
+export * from "../../types/enums/datafactory/v20180601";

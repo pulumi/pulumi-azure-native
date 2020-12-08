@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -216,7 +216,7 @@ export interface ClusterArgs {
     /**
      * VM priority. Allowed values are: dedicated (default) and lowpriority.
      */
-    readonly vmPriority?: pulumi.Input<string>;
+    readonly vmPriority?: pulumi.Input<enums.batchai.latest.VmPriority>;
     /**
      * The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
      */

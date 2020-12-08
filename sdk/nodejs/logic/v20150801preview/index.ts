@@ -15,3 +15,6 @@ export * from "./integrationAccountMap";
 export * from "./integrationAccountPartner";
 export * from "./integrationAccountSchema";
 export * from "./listIntegrationAccountCallbackUrl";
+
+// Export enums:
+export * from "../../types/enums/logic/v20150801preview";

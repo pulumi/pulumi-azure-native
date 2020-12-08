@@ -29,3 +29,6 @@ export * from "./listWorkspaceKeys";
 export * from "./savedSearch";
 export * from "./storageInsightConfig";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/operationalinsights/latest";

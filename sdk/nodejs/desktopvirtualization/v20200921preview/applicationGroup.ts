@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -142,7 +143,7 @@ export interface ApplicationGroupArgs {
     /**
      * Resource Type of ApplicationGroup.
      */
-    readonly applicationGroupType: pulumi.Input<string>;
+    readonly applicationGroupType: pulumi.Input<string | enums.desktopvirtualization.v20200921preview.ApplicationGroupType>;
     /**
      * Description of ApplicationGroup.
      */

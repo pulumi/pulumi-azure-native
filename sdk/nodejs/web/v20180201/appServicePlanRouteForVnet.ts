@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -148,7 +149,7 @@ export interface AppServicePlanRouteForVnetArgs {
      *
      * These values will be used for syncing an app's routes with those from a Virtual Network.
      */
-    readonly routeType?: pulumi.Input<string>;
+    readonly routeType?: pulumi.Input<string | enums.web.v20180201.RouteType>;
     /**
      * The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
      */

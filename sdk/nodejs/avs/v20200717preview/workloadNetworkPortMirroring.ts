@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -135,7 +136,7 @@ export interface WorkloadNetworkPortMirroringArgs {
     /**
      * Direction of port mirroring profile.
      */
-    readonly direction?: pulumi.Input<string>;
+    readonly direction?: pulumi.Input<string | enums.avs.v20200717preview.PortMirroringDirectionEnum>;
     /**
      * Display name of the port mirroring profile.
      */

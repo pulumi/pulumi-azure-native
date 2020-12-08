@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -175,7 +175,7 @@ export interface NamespaceArgs {
     /**
      * State of the namespace.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<enums.servicebus.v20150801.NamespaceState>;
     /**
      * Namespace tags.
      */

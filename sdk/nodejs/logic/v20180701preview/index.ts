@@ -34,3 +34,6 @@ export * from "./listWorkflowRunActionRepetitionExpressionTraces";
 export * from "./listWorkflowTriggerCallbackUrl";
 export * from "./listWorkflowVersionTriggerCallbackUrl";
 export * from "./workflow";
+
+// Export enums:
+export * from "../../types/enums/logic/v20180701preview";

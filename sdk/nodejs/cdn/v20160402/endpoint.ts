@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -216,7 +216,7 @@ export interface EndpointArgs {
     /**
      * Defines the query string caching behavior.
      */
-    readonly queryStringCachingBehavior?: pulumi.Input<string>;
+    readonly queryStringCachingBehavior?: pulumi.Input<enums.cdn.v20160402.QueryStringCachingBehavior>;
     /**
      * Name of the resource group within the Azure subscription.
      */

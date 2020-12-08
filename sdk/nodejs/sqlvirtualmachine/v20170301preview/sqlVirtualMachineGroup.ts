@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -155,7 +155,7 @@ export interface SqlVirtualMachineGroupArgs {
     /**
      * SQL image sku.
      */
-    readonly sqlImageSku?: pulumi.Input<string>;
+    readonly sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.v20170301preview.SqlVmGroupImageSku>;
     /**
      * Name of the SQL virtual machine group.
      */

@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getService";
 export * from "./service";
+
+// Export enums:
+export * from "../../types/enums/healthcareapis/v20180820preview";

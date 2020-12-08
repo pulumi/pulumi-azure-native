@@ -4,3 +4,6 @@
 // Export members:
 export * from "./dscNodeConfiguration";
 export * from "./getDscNodeConfiguration";
+
+// Export enums:
+export * from "../../types/enums/automation/v20180115";

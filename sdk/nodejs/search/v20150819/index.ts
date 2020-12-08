@@ -6,3 +6,6 @@ export * from "./getService";
 export * from "./listAdminKey";
 export * from "./listQueryKeyBySearchService";
 export * from "./service";
+
+// Export enums:
+export * from "../../types/enums/search/v20150819";

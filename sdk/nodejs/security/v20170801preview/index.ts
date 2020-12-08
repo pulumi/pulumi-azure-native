@@ -10,3 +10,6 @@ export * from "./getWorkspaceSetting";
 export * from "./iotSecuritySolution";
 export * from "./securityContact";
 export * from "./workspaceSetting";
+
+// Export enums:
+export * from "../../types/enums/security/v20170801preview";

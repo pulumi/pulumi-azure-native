@@ -14,3 +14,6 @@ export * from "./remediationAtManagementGroup";
 export * from "./remediationAtResource";
 export * from "./remediationAtResourceGroup";
 export * from "./remediationAtSubscription";
+
+// Export enums:
+export * from "../../types/enums/policyinsights/v20190701";

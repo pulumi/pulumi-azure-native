@@ -7,3 +7,6 @@ export * from "./getCluster";
 export * from "./getPrivateEndpoint";
 export * from "./listClusterStreamingJobs";
 export * from "./privateEndpoint";
+
+// Export enums:
+export * from "../../types/enums/streamanalytics/v20200301preview";

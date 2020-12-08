@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -206,7 +206,7 @@ export interface ConnectedClusterArgs {
     /**
      * Represents the connectivity status of the connected cluster.
      */
-    readonly connectivityStatus?: pulumi.Input<string>;
+    readonly connectivityStatus?: pulumi.Input<string | enums.kubernetes.v20200101preview.ConnectivityStatus>;
     /**
      * The Kubernetes distribution running on this connected cluster.
      */
@@ -226,7 +226,7 @@ export interface ConnectedClusterArgs {
     /**
      * Provisioning state of the connected cluster resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<string | enums.kubernetes.v20200101preview.ProvisioningState>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

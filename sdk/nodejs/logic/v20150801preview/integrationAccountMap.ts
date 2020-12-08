@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export class IntegrationAccountMap extends pulumi.CustomResource {
@@ -168,7 +168,7 @@ export interface IntegrationAccountMapArgs {
     /**
      * The map type.
      */
-    readonly mapType?: pulumi.Input<string>;
+    readonly mapType?: pulumi.Input<enums.logic.v20150801preview.MapType>;
     /**
      * The metadata.
      */

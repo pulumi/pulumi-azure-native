@@ -8,3 +8,6 @@ export * from "./listMachineLearningComputeKeys";
 export * from "./listWorkspaceKeys";
 export * from "./machineLearningCompute";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/machinelearningservices/v20180301preview";

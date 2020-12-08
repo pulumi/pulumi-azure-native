@@ -4,3 +4,6 @@
 // Export members:
 export * from "./budget";
 export * from "./getBudget";
+
+// Export enums:
+export * from "../../types/enums/consumption/v20190401preview";

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -168,11 +168,11 @@ export interface ViewArgs {
     /**
      * Show costs accumulated over time.
      */
-    readonly accumulated?: pulumi.Input<string>;
+    readonly accumulated?: pulumi.Input<string | enums.costmanagement.v20200601.AccumulatedType>;
     /**
      * Chart type of the main view in Cost Analysis. Required.
      */
-    readonly chart?: pulumi.Input<string>;
+    readonly chart?: pulumi.Input<string | enums.costmanagement.v20200601.ChartType>;
     /**
      * Has definition for data in this report config.
      */
@@ -192,7 +192,7 @@ export interface ViewArgs {
     /**
      * Metric to use when displaying costs.
      */
-    readonly metric?: pulumi.Input<string>;
+    readonly metric?: pulumi.Input<string | enums.costmanagement.v20200601.MetricType>;
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */
@@ -208,11 +208,11 @@ export interface ViewArgs {
     /**
      * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
      */
-    readonly timeframe: pulumi.Input<string>;
+    readonly timeframe: pulumi.Input<string | enums.costmanagement.v20200601.ReportTimeframeType>;
     /**
      * The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
      */
-    readonly type: pulumi.Input<string>;
+    readonly type: pulumi.Input<string | enums.costmanagement.v20200601.ReportType>;
     /**
      * View name
      */

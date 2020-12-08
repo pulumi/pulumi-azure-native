@@ -14,3 +14,6 @@ export * from "./namespaceIpFilterRule";
 export * from "./namespaceNetworkRuleSet";
 export * from "./namespaceVirtualNetworkRule";
 export * from "./privateEndpointConnection";
+
+// Export enums:
+export * from "../../types/enums/eventhub/v20180101preview";

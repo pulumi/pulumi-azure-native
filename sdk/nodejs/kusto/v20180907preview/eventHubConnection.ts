@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -145,7 +146,7 @@ export interface EventHubConnectionArgs {
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    readonly dataFormat?: pulumi.Input<string>;
+    readonly dataFormat?: pulumi.Input<string | enums.kusto.v20180907preview.DataFormat>;
     /**
      * The name of the database in the Kusto cluster.
      */

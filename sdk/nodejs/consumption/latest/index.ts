@@ -6,3 +6,6 @@ export * from "./budget";
 export * from "./budgetByResourceGroupName";
 export * from "./getBudget";
 export * from "./getBudgetByResourceGroupName";
+
+// Export enums:
+export * from "../../types/enums/consumption/latest";

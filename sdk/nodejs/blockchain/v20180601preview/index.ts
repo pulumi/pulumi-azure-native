@@ -9,3 +9,6 @@ export * from "./listBlockchainMemberApiKeys";
 export * from "./listLocationConsortiums";
 export * from "./listTransactionNodeApiKeys";
 export * from "./transactionNode";
+
+// Export enums:
+export * from "../../types/enums/blockchain/v20180601preview";

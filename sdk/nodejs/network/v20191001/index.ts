@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getPolicy";
 export * from "./policy";
+
+// Export enums:
+export * from "../../types/enums/network/v20191001";

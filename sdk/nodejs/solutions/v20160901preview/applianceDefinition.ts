@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -189,7 +189,7 @@ export interface ApplianceDefinitionArgs {
     /**
      * The appliance lock level.
      */
-    readonly lockLevel: pulumi.Input<string>;
+    readonly lockLevel: pulumi.Input<enums.solutions.v20160901preview.ApplianceLockLevel>;
     /**
      * ID of the resource that manages this resource.
      */

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -129,7 +130,7 @@ export interface DataSourceArgs {
     /**
      * The kind of the DataSource.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.operationalinsights.v20200801.DataSourceKind>;
     /**
      * The data source properties in raw json format, each kind of data source have it's own schema.
      */

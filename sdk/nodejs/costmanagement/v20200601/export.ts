@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -152,7 +152,7 @@ export interface ExportArgs {
     /**
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */
-    readonly format?: pulumi.Input<string>;
+    readonly format?: pulumi.Input<string | enums.costmanagement.v20200601.FormatType>;
     /**
      * Has schedule information for the export.
      */

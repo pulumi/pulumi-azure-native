@@ -24,3 +24,6 @@ export * from "./getDatabaseAccountSqlDatabase";
 export * from "./getDatabaseAccountTable";
 export * from "./listDatabaseAccountConnectionStrings";
 export * from "./listDatabaseAccountKeys";
+
+// Export enums:
+export * from "../../types/enums/documentdb/v20150408";

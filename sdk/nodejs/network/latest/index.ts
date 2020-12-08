@@ -185,3 +185,6 @@ export * from "./vpnServerConfiguration";
 export * from "./vpnSite";
 export * from "./webApplicationFirewallPolicy";
 export * from "./zone";
+
+// Export enums:
+export * from "../../types/enums/network/latest";

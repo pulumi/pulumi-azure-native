@@ -10,3 +10,6 @@ export * from "./managedHsm";
 export * from "./privateEndpointConnection";
 export * from "./secret";
 export * from "./vault";
+
+// Export enums:
+export * from "../../types/enums/keyvault/v20200401preview";

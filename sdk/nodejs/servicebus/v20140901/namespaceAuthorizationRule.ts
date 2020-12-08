@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -184,7 +185,7 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * The rights associated with the rule.
      */
-    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
+    readonly rights: pulumi.Input<pulumi.Input<enums.servicebus.v20140901.AccessRights>[]>;
     /**
      * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -145,7 +145,7 @@ export interface WebhookArgs {
     /**
      * The list of actions that trigger the webhook to post notifications.
      */
-    readonly actions: pulumi.Input<pulumi.Input<string>[]>;
+    readonly actions: pulumi.Input<pulumi.Input<string | enums.containerregistry.v20201101preview.WebhookAction>[]>;
     /**
      * Custom headers that will be added to the webhook notifications.
      */
@@ -173,7 +173,7 @@ export interface WebhookArgs {
     /**
      * The status of the webhook at the time the operation was called.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.containerregistry.v20201101preview.WebhookStatus>;
     /**
      * The tags for the webhook.
      */

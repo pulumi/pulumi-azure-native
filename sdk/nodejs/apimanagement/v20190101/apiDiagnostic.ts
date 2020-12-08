@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -147,7 +147,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Specifies for what type of messages sampling settings should not apply.
      */
-    readonly alwaysLog?: pulumi.Input<string>;
+    readonly alwaysLog?: pulumi.Input<string | enums.apimanagement.v20190101.AlwaysLog>;
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
@@ -171,7 +171,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
-    readonly httpCorrelationProtocol?: pulumi.Input<string>;
+    readonly httpCorrelationProtocol?: pulumi.Input<string | enums.apimanagement.v20190101.HttpCorrelationProtocol>;
     /**
      * Resource Id of a target logger.
      */
@@ -191,5 +191,5 @@ export interface ApiDiagnosticArgs {
     /**
      * The verbosity level applied to traces emitted by trace policies.
      */
-    readonly verbosity?: pulumi.Input<string>;
+    readonly verbosity?: pulumi.Input<string | enums.apimanagement.v20190101.Verbosity>;
 }

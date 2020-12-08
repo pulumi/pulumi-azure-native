@@ -12,3 +12,6 @@ export * from "./getWorkspace";
 export * from "./hostPool";
 export * from "./msixpackage";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/desktopvirtualization/v20201102preview";

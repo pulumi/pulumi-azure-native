@@ -28,3 +28,6 @@ export * from "./routeTable";
 export * from "./securityRule";
 export * from "./subnet";
 export * from "./virtualNetwork";
+
+// Export enums:
+export * from "../../types/enums/network/v20150501preview";

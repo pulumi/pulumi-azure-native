@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -165,7 +165,7 @@ export interface BlueprintArgs {
     /**
      * The scope where this Blueprint can be applied.
      */
-    readonly targetScope: pulumi.Input<string>;
+    readonly targetScope: pulumi.Input<string | enums.management.v20171111preview.BlueprintTargetScope>;
     /**
      * Published versions of this blueprint.
      */

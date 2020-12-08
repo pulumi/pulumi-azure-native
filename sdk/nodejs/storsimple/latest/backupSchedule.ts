@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -165,7 +165,7 @@ export interface BackupScheduleArgs {
     /**
      * The type of backup which needs to be taken.
      */
-    readonly backupType: pulumi.Input<string>;
+    readonly backupType: pulumi.Input<enums.storsimple.latest.BackupType>;
     /**
      * The device name
      */
@@ -173,7 +173,7 @@ export interface BackupScheduleArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<enums.storsimple.latest.Kind>;
     /**
      * The manager name
      */
@@ -193,7 +193,7 @@ export interface BackupScheduleArgs {
     /**
      * The schedule status.
      */
-    readonly scheduleStatus: pulumi.Input<string>;
+    readonly scheduleStatus: pulumi.Input<enums.storsimple.latest.ScheduleStatus>;
     /**
      * The start time of the schedule.
      */

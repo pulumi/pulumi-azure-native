@@ -12,3 +12,6 @@ export * from "./getApplicationTypeVersion";
 export * from "./getCluster";
 export * from "./getService";
 export * from "./service";
+
+// Export enums:
+export * from "../../types/enums/servicefabric/v20190301preview";

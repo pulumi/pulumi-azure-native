@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
@@ -42,6 +42,10 @@ export interface GetFactoryResult {
      * Etag identifies change in the resource.
      */
     readonly eTag: string;
+    /**
+     * Properties to enable Customer Managed Key for the factory.
+     */
+    readonly encryption?: outputs.datafactory.v20180601.EncryptionConfigurationResponse;
     /**
      * List of parameters for factory.
      */

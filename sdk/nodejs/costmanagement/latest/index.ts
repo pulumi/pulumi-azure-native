@@ -12,3 +12,6 @@ export * from "./reportConfig";
 export * from "./reportConfigByResourceGroupName";
 export * from "./view";
 export * from "./viewByScope";
+
+// Export enums:
+export * from "../../types/enums/costmanagement/latest";

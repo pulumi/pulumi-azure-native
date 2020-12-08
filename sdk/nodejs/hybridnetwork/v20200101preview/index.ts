@@ -13,3 +13,6 @@ export * from "./networkFunction";
 export * from "./vendor";
 export * from "./vendorSkuPreview";
 export * from "./vendorSkus";
+
+// Export enums:
+export * from "../../types/enums/hybridnetwork/v20200101preview";

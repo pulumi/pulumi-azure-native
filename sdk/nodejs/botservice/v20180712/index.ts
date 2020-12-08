@@ -13,3 +13,6 @@ export * from "./getEnterpriseChannel";
 export * from "./listBotConnectionServiceProviders";
 export * from "./listBotConnectionWithSecrets";
 export * from "./listChannelWithKeys";
+
+// Export enums:
+export * from "../../types/enums/botservice/v20180712";

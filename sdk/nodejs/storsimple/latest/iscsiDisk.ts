@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -166,7 +167,7 @@ export interface IscsiDiskArgs {
     /**
      * The data policy.
      */
-    readonly dataPolicy: pulumi.Input<string>;
+    readonly dataPolicy: pulumi.Input<enums.storsimple.latest.DataPolicy>;
     /**
      * The description.
      */
@@ -182,7 +183,7 @@ export interface IscsiDiskArgs {
     /**
      * The disk status.
      */
-    readonly diskStatus: pulumi.Input<string>;
+    readonly diskStatus: pulumi.Input<enums.storsimple.latest.DiskStatus>;
     /**
      * The iSCSI server name.
      */
@@ -194,7 +195,7 @@ export interface IscsiDiskArgs {
     /**
      * The monitoring.
      */
-    readonly monitoringStatus: pulumi.Input<string>;
+    readonly monitoringStatus: pulumi.Input<enums.storsimple.latest.MonitoringStatus>;
     /**
      * The provisioned capacity in bytes.
      */

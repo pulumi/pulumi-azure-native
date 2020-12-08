@@ -13,3 +13,6 @@ export * from "./getNamespaceAuthorizationRule";
 export * from "./listNamespaceKeys";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
+
+// Export enums:
+export * from "../../types/enums/eventhub/v20150801";

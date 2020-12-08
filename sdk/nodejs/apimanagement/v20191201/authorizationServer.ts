@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -207,7 +207,7 @@ export interface AuthorizationServerArgs {
     /**
      * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
      */
-    readonly authorizationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly authorizationMethods?: pulumi.Input<pulumi.Input<enums.apimanagement.v20191201.AuthorizationMethod>[]>;
     /**
      * Identifier of the authorization server.
      */
@@ -215,11 +215,11 @@ export interface AuthorizationServerArgs {
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */
-    readonly bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20191201.BearerTokenSendingMethod>[]>;
     /**
      * Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
      */
-    readonly clientAuthenticationMethod?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly clientAuthenticationMethod?: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20191201.ClientAuthenticationMethod>[]>;
     /**
      * Client or app id registered with this authorization server.
      */
@@ -247,7 +247,7 @@ export interface AuthorizationServerArgs {
     /**
      * Form of an authorization grant, which the client uses to request the access token.
      */
-    readonly grantTypes: pulumi.Input<pulumi.Input<string>[]>;
+    readonly grantTypes: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20191201.GrantType>[]>;
     /**
      * The name of the resource group.
      */

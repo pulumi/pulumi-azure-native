@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -159,7 +159,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
      */
-    readonly enabled?: pulumi.Input<string>;
+    readonly enabled?: pulumi.Input<string | enums.insights.latest.Enabled>;
     /**
      * Resource location
      */

@@ -6,3 +6,6 @@ export * from "./getSoftwareUpdateConfigurationByName";
 export * from "./getSourceControl";
 export * from "./softwareUpdateConfigurationByName";
 export * from "./sourceControl";
+
+// Export enums:
+export * from "../../types/enums/automation/v20170515preview";

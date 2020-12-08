@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getGuestConfigurationAssignment";
 export * from "./guestConfigurationAssignment";
+
+// Export enums:
+export * from "../../types/enums/compute/v20200625";

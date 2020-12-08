@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -216,7 +216,7 @@ export interface ProfileArgs {
     /**
      * Type of entity.
      */
-    readonly entityType?: pulumi.Input<string>;
+    readonly entityType?: pulumi.Input<enums.customerinsights.v20170426.EntityTypes>;
     /**
      * The properties of the Profile.
      */

@@ -9,3 +9,6 @@ export * from "./getAccount";
 export * from "./getComputePolicy";
 export * from "./getFirewallRule";
 export * from "./listStorageAccountSasTokens";
+
+// Export enums:
+export * from "../../types/enums/datalakeanalytics/latest";

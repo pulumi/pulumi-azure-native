@@ -4,3 +4,6 @@
 // Export members:
 export * from "./autoscaleSetting";
 export * from "./getAutoscaleSetting";
+
+// Export enums:
+export * from "../../types/enums/insights/v20150401";

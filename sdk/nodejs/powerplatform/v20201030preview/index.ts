@@ -6,3 +6,6 @@ export * from "./enterprisePolicy";
 export * from "./getEnterprisePolicy";
 export * from "./getPrivateEndpointConnection";
 export * from "./privateEndpointConnection";
+
+// Export enums:
+export * from "../../types/enums/powerplatform/v20201030preview";

@@ -52,3 +52,6 @@ export * from "./virtualMachineScaleSetExtension";
 export * from "./virtualMachineScaleSetVM";
 export * from "./virtualMachineScaleSetVMExtension";
 export * from "./virtualMachineScaleSetVMRunCommand";
+
+// Export enums:
+export * from "../../types/enums/compute/latest";

@@ -12,3 +12,6 @@ export * from "./machineExtension";
 export * from "./privateEndpointConnection";
 export * from "./privateLinkScope";
 export * from "./privateLinkScopedResource";
+
+// Export enums:
+export * from "../../types/enums/hybridcompute/v20200815preview";

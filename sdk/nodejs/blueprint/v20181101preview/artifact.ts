@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -106,7 +107,7 @@ export interface ArtifactArgs {
     /**
      * Specifies the kind of blueprint artifact.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.blueprint.v20181101preview.ArtifactKind>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */

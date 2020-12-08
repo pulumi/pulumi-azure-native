@@ -6,3 +6,6 @@ export * from "./account";
 export * from "./configurationProfilePreference";
 export * from "./getAccount";
 export * from "./getConfigurationProfilePreference";
+
+// Export enums:
+export * from "../../types/enums/automanage/v20200630preview";

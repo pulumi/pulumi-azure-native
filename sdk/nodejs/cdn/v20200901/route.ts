@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -200,7 +200,7 @@ export interface RouteArgs {
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
      */
-    readonly enabledState?: pulumi.Input<string>;
+    readonly enabledState?: pulumi.Input<string | enums.cdn.v20200901.EnabledState>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
@@ -208,19 +208,19 @@ export interface RouteArgs {
     /**
      * Protocol this rule will use when forwarding traffic to backends.
      */
-    readonly forwardingProtocol?: pulumi.Input<string>;
+    readonly forwardingProtocol?: pulumi.Input<string | enums.cdn.v20200901.ForwardingProtocol>;
     /**
      * Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
      */
-    readonly httpsRedirect?: pulumi.Input<string>;
+    readonly httpsRedirect?: pulumi.Input<string | enums.cdn.v20200901.HttpsRedirect>;
     /**
      * whether this route will be linked to the default endpoint domain.
      */
-    readonly linkToDefaultDomain?: pulumi.Input<string>;
+    readonly linkToDefaultDomain?: pulumi.Input<string | enums.cdn.v20200901.LinkToDefaultDomain>;
     /**
      * Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
      */
-    readonly optimizationType?: pulumi.Input<string>;
+    readonly optimizationType?: pulumi.Input<string | enums.cdn.v20200901.OptimizationType>;
     /**
      * A reference to the origin group.
      */
@@ -240,7 +240,7 @@ export interface RouteArgs {
     /**
      * Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
      */
-    readonly queryStringCachingBehavior?: pulumi.Input<string>;
+    readonly queryStringCachingBehavior?: pulumi.Input<enums.cdn.v20200901.QueryStringCachingBehavior>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -256,5 +256,5 @@ export interface RouteArgs {
     /**
      * List of supported protocols for this route.
      */
-    readonly supportedProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly supportedProtocols?: pulumi.Input<pulumi.Input<string | enums.cdn.v20200901.AFDEndpointProtocols>[]>;
 }

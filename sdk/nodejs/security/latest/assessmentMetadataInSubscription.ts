@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -163,8 +163,8 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
-    readonly assessmentType: pulumi.Input<string>;
-    readonly category?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly assessmentType: pulumi.Input<string | enums.security.latest.AssessmentType>;
+    readonly category?: pulumi.Input<pulumi.Input<string | enums.security.latest.Category>[]>;
     /**
      * Human readable description of the assessment
      */
@@ -176,7 +176,7 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * The implementation effort required to remediate this assessment
      */
-    readonly implementationEffort?: pulumi.Input<string>;
+    readonly implementationEffort?: pulumi.Input<string | enums.security.latest.ImplementationEffort>;
     /**
      * Describes the partner that created the assessment
      */
@@ -192,10 +192,10 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * The severity level of the assessment
      */
-    readonly severity: pulumi.Input<string>;
-    readonly threats?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly severity: pulumi.Input<string | enums.security.latest.Severity>;
+    readonly threats?: pulumi.Input<pulumi.Input<string | enums.security.latest.Threats>[]>;
     /**
      * The user impact of the assessment
      */
-    readonly userImpact?: pulumi.Input<string>;
+    readonly userImpact?: pulumi.Input<string | enums.security.latest.UserImpact>;
 }

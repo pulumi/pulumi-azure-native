@@ -9,3 +9,6 @@ export * from "./getEndpoint";
 export * from "./getProfile";
 export * from "./getProfileSupportedOptimizationTypes";
 export * from "./profile";
+
+// Export enums:
+export * from "../../types/enums/cdn/v20190415";

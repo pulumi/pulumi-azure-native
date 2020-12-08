@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getProtectedItem";
 export * from "./protectedItem";
+
+// Export enums:
+export * from "../../types/enums/recoveryservices/v20190615";

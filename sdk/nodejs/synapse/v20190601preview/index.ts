@@ -40,3 +40,6 @@ export * from "./workspace";
 export * from "./workspaceAadAdmin";
 export * from "./workspaceManagedSqlServerVulnerabilityAssessment";
 export * from "./workspaceSqlAadAdmin";
+
+// Export enums:
+export * from "../../types/enums/synapse/v20190601preview";

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -209,7 +209,7 @@ export interface RedisArgs {
     /**
      * Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
      */
-    readonly minimumTlsVersion?: pulumi.Input<string>;
+    readonly minimumTlsVersion?: pulumi.Input<string | enums.cache.v20180301.TlsVersion>;
     /**
      * The name of the Redis cache.
      */

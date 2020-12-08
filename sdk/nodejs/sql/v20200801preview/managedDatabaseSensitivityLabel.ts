@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -186,7 +187,7 @@ export interface ManagedDatabaseSensitivityLabelArgs {
      * The name of the managed instance.
      */
     readonly managedInstanceName: pulumi.Input<string>;
-    readonly rank?: pulumi.Input<string>;
+    readonly rank?: pulumi.Input<enums.sql.v20200801preview.SensitivityLabelRank>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

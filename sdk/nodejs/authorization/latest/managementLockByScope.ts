@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -109,7 +109,7 @@ export interface ManagementLockByScopeArgs {
     /**
      * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
      */
-    readonly level: pulumi.Input<string>;
+    readonly level: pulumi.Input<string | enums.authorization.latest.LockLevel>;
     /**
      * The name of lock.
      */

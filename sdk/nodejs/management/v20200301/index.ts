@@ -6,3 +6,6 @@ export * from "./getPolicyDefinitionAtManagementGroup";
 export * from "./getPolicySetDefinitionAtManagementGroup";
 export * from "./policyDefinitionAtManagementGroup";
 export * from "./policySetDefinitionAtManagementGroup";
+
+// Export enums:
+export * from "../../types/enums/management/v20200301";

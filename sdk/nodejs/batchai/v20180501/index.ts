@@ -15,3 +15,6 @@ export * from "./listClusterRemoteLoginInformation";
 export * from "./listJobOutputFiles";
 export * from "./listJobRemoteLoginInformation";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/batchai/v20180501";

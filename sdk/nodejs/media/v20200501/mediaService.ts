@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -151,7 +151,7 @@ export interface MediaServiceArgs {
      * The storage accounts for this resource.
      */
     readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20200501.StorageAccount>[]>;
-    readonly storageAuthentication?: pulumi.Input<string>;
+    readonly storageAuthentication?: pulumi.Input<string | enums.media.v20200501.StorageAuthentication>;
     /**
      * Resource tags.
      */

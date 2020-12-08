@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getMultipleActivationKey";
 export * from "./multipleActivationKey";
+
+// Export enums:
+export * from "../../types/enums/windowsesu/v20190916preview";

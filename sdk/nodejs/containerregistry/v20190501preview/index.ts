@@ -6,3 +6,6 @@ export * from "./getScopeMap";
 export * from "./getToken";
 export * from "./scopeMap";
 export * from "./token";
+
+// Export enums:
+export * from "../../types/enums/containerregistry/v20190501preview";

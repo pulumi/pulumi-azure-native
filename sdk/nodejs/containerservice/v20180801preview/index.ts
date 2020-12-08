@@ -7,3 +7,6 @@ export * from "./listManagedClusterAccessProfile";
 export * from "./listManagedClusterAdminCredentials";
 export * from "./listManagedClusterUserCredentials";
 export * from "./managedCluster";
+
+// Export enums:
+export * from "../../types/enums/containerservice/v20180801preview";

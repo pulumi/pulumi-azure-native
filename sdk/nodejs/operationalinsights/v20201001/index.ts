@@ -6,3 +6,6 @@ export * from "./cluster";
 export * from "./getCluster";
 export * from "./getWorkspace";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/operationalinsights/v20201001";

@@ -15,3 +15,6 @@ export * from "./origin";
 export * from "./originGroup";
 export * from "./policy";
 export * from "./profile";
+
+// Export enums:
+export * from "../../types/enums/cdn/v20200331";

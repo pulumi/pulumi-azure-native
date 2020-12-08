@@ -10,3 +10,6 @@ export * from "./getConnectionGateway";
 export * from "./getCustomApi";
 export * from "./listConnectionConsentLinks";
 export * from "./listCustomApiWsdlInterfaces";
+
+// Export enums:
+export * from "../../types/enums/web/v20160601";

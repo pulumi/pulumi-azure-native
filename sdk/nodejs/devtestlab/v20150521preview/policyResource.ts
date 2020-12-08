@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -153,7 +154,7 @@ export interface PolicyResourceArgs {
     /**
      * The evaluator type of the policy.
      */
-    readonly evaluatorType?: pulumi.Input<string>;
+    readonly evaluatorType?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyEvaluatorType>;
     /**
      * The fact data of the policy.
      */
@@ -161,7 +162,7 @@ export interface PolicyResourceArgs {
     /**
      * The fact name of the policy.
      */
-    readonly factName?: pulumi.Input<string>;
+    readonly factName?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyFactName>;
     /**
      * The identifier of the resource.
      */
@@ -193,7 +194,7 @@ export interface PolicyResourceArgs {
     /**
      * The status of the policy.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyStatus>;
     /**
      * The tags of the resource.
      */

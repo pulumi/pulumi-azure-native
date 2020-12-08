@@ -16,3 +16,6 @@ export * from "./registry";
 export * from "./replication";
 export * from "./task";
 export * from "./webhook";
+
+// Export enums:
+export * from "../../types/enums/containerregistry/latest";

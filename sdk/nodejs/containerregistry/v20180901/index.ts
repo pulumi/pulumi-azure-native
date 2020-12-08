@@ -7,3 +7,6 @@ export * from "./listRegistryBuildSourceUploadUrl";
 export * from "./listRunLogSasUrl";
 export * from "./listTaskDetails";
 export * from "./task";
+
+// Export enums:
+export * from "../../types/enums/containerregistry/v20180901";

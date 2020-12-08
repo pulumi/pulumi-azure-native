@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -107,7 +108,7 @@ export interface NamespaceIpFilterRuleArgs {
     /**
      * The IP Filter Action
      */
-    readonly action?: pulumi.Input<string>;
+    readonly action?: pulumi.Input<string | enums.servicebus.v20180101preview.IPAction>;
     /**
      * IP Filter name
      */

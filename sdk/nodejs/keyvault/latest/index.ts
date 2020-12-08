@@ -8,3 +8,6 @@ export * from "./getVault";
 export * from "./privateEndpointConnection";
 export * from "./secret";
 export * from "./vault";
+
+// Export enums:
+export * from "../../types/enums/keyvault/latest";

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -155,5 +156,5 @@ export interface ApiVersionSetArgs {
     /**
      * An value that determines where the API Version identifer will be located in a HTTP request.
      */
-    readonly versioningScheme: pulumi.Input<string>;
+    readonly versioningScheme: pulumi.Input<string | enums.apimanagement.latest.VersioningScheme>;
 }

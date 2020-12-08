@@ -43,3 +43,6 @@ export * from "./virtualNetwork";
 export * from "./virtualNetworkGateway";
 export * from "./virtualNetworkGatewayConnection";
 export * from "./virtualNetworkPeering";
+
+// Export enums:
+export * from "../../types/enums/network/v20160901";

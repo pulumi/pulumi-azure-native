@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -131,7 +131,7 @@ export interface DeploymentScriptArgs {
     /**
      * Type of the script.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.resources.v20191001preview.ScriptType>;
     /**
      * The location of the ACI and the storage account for the deployment script.
      */

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -166,7 +167,7 @@ export interface PoolArgs {
     /**
      * The qos type of the pool
      */
-    readonly qosType?: pulumi.Input<string>;
+    readonly qosType?: pulumi.Input<string | enums.netapp.v20200601.QosType>;
     /**
      * The name of the resource group.
      */
@@ -174,7 +175,7 @@ export interface PoolArgs {
     /**
      * The service level of the file system
      */
-    readonly serviceLevel: pulumi.Input<string>;
+    readonly serviceLevel: pulumi.Input<string | enums.netapp.v20200601.ServiceLevel>;
     /**
      * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
      */

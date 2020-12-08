@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -404,7 +404,7 @@ export interface WebAppArgs {
     /**
      * Site redundancy mode
      */
-    readonly redundancyMode?: pulumi.Input<string>;
+    readonly redundancyMode?: pulumi.Input<enums.web.v20190801.RedundancyMode>;
     /**
      * <code>true</code> if reserved; otherwise, <code>false</code>.
      */

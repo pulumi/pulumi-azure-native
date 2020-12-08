@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -103,7 +104,7 @@ export interface RoleArgs {
     /**
      * Role type.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.databoxedge.v20200501preview.RoleTypes>;
     /**
      * The role name.
      */

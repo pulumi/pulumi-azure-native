@@ -8,3 +8,6 @@ export * from "./getStreamingEndpoint";
 export * from "./liveEvent";
 export * from "./liveOutput";
 export * from "./streamingEndpoint";
+
+// Export enums:
+export * from "../../types/enums/media/v20190501preview";

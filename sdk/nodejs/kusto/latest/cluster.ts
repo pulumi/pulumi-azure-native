@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -234,7 +234,7 @@ export interface ClusterArgs {
     /**
      * The engine type
      */
-    readonly engineType?: pulumi.Input<string>;
+    readonly engineType?: pulumi.Input<string | enums.kusto.latest.EngineType>;
     /**
      * The identity of the cluster, if configured.
      */

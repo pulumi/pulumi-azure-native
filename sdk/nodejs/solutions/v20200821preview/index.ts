@@ -8,3 +8,6 @@ export * from "./getApplication";
 export * from "./getApplicationDefinition";
 export * from "./getJitRequest";
 export * from "./jitRequest";
+
+// Export enums:
+export * from "../../types/enums/solutions/v20200821preview";

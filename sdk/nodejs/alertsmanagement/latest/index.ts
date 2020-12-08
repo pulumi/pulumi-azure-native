@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getSmartDetectorAlertRule";
 export * from "./smartDetectorAlertRule";
+
+// Export enums:
+export * from "../../types/enums/alertsmanagement/latest";

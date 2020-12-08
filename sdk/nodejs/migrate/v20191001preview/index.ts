@@ -6,3 +6,6 @@ export * from "./getMoveCollection";
 export * from "./getMoveResource";
 export * from "./moveCollection";
 export * from "./moveResource";
+
+// Export enums:
+export * from "../../types/enums/migrate/v20191001preview";

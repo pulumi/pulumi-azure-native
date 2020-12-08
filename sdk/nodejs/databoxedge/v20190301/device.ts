@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -193,7 +193,7 @@ export interface DeviceArgs {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    readonly dataBoxEdgeDeviceStatus?: pulumi.Input<string>;
+    readonly dataBoxEdgeDeviceStatus?: pulumi.Input<string | enums.databoxedge.v20190301.DataBoxEdgeDeviceStatus>;
     /**
      * The Description of the Data Box Edge/Gateway device.
      */

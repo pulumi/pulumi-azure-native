@@ -11,3 +11,6 @@ export * from "./listWebhookEvents";
 export * from "./registry";
 export * from "./replication";
 export * from "./webhook";
+
+// Export enums:
+export * from "../../types/enums/containerregistry/v20170601preview";

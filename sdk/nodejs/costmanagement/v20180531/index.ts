@@ -6,3 +6,6 @@ export * from "./getReportConfig";
 export * from "./getReportConfigByResourceGroupName";
 export * from "./reportConfig";
 export * from "./reportConfigByResourceGroupName";
+
+// Export enums:
+export * from "../../types/enums/costmanagement/v20180531";

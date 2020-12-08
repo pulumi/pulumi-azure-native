@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -211,11 +211,11 @@ export interface PublicIPAddressArgs {
     /**
      * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
      */
-    readonly publicIPAddressVersion?: pulumi.Input<string>;
+    readonly publicIPAddressVersion?: pulumi.Input<string | enums.network.v20180801.IPVersion>;
     /**
      * The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
      */
-    readonly publicIPAllocationMethod?: pulumi.Input<string>;
+    readonly publicIPAllocationMethod?: pulumi.Input<string | enums.network.v20180801.IPAllocationMethod>;
     /**
      * The Public IP Prefix this Public IP Address should be allocated from.
      */

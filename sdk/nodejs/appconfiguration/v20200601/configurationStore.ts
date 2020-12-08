@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -170,7 +170,7 @@ export interface ConfigurationStoreArgs {
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.appconfiguration.v20200601.PublicNetworkAccess>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

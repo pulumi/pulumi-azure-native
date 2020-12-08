@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -198,11 +198,11 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * The alert rule severity.
      */
-    readonly severity: pulumi.Input<string>;
+    readonly severity: pulumi.Input<string | enums.alertsmanagement.v20190601.Severity>;
     /**
      * The alert rule state.
      */
-    readonly state: pulumi.Input<string>;
+    readonly state: pulumi.Input<string | enums.alertsmanagement.v20190601.AlertRuleState>;
     /**
      * The resource tags.
      */

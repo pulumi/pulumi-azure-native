@@ -10,3 +10,6 @@ export * from "./getDiskAccess";
 export * from "./getDiskEncryptionSet";
 export * from "./getSnapshot";
 export * from "./snapshot";
+
+// Export enums:
+export * from "../../types/enums/compute/v20200501";

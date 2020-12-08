@@ -5,3 +5,6 @@
 export * from "./getServerDetails";
 export * from "./listServerGatewayStatus";
 export * from "./serverDetails";
+
+// Export enums:
+export * from "../../types/enums/analysisservices/v20170801beta";

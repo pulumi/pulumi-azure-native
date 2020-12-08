@@ -14,3 +14,6 @@ export * from "./getVirtualNetworkRule";
 export * from "./server";
 export * from "./serverAdministrator";
 export * from "./virtualNetworkRule";
+
+// Export enums:
+export * from "../../types/enums/dbformysql/v20171201";

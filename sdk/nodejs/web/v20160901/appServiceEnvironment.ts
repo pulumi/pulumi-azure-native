@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -341,7 +341,7 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    readonly internalLoadBalancingMode?: pulumi.Input<string>;
+    readonly internalLoadBalancingMode?: pulumi.Input<enums.web.v20160901.InternalLoadBalancingMode>;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */

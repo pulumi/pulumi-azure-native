@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -119,7 +120,7 @@ export interface LinkedServiceArgs {
     /**
      * The provisioning state of the linked service.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<string | enums.operationalinsights.latest.LinkedServiceEntityStatus>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

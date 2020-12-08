@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -160,7 +161,7 @@ export interface LabArgs {
     /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
-    readonly labStorageType?: pulumi.Input<string>;
+    readonly labStorageType?: pulumi.Input<string | enums.devtestlab.v20160515.StorageType>;
     /**
      * The location of the resource.
      */
@@ -174,7 +175,7 @@ export interface LabArgs {
      * When its value is 'Enabled', creation of standard or premium data disks is allowed.
      * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    readonly premiumDataDisks?: pulumi.Input<string>;
+    readonly premiumDataDisks?: pulumi.Input<string | enums.devtestlab.v20160515.PremiumDataDisk>;
     /**
      * The provisioning status of the resource.
      */

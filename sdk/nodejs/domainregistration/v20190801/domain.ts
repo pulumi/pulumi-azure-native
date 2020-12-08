@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -267,7 +267,7 @@ export interface DomainArgs {
     /**
      * Current DNS type
      */
-    readonly dnsType?: pulumi.Input<string>;
+    readonly dnsType?: pulumi.Input<enums.domainregistration.v20190801.DnsType>;
     /**
      * Azure DNS Zone to use
      */
@@ -299,5 +299,5 @@ export interface DomainArgs {
     /**
      * Target DNS type (would be used for migration)
      */
-    readonly targetDnsType?: pulumi.Input<string>;
+    readonly targetDnsType?: pulumi.Input<enums.domainregistration.v20190801.DnsType>;
 }

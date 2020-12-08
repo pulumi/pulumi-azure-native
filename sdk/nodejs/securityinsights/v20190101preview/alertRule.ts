@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -112,7 +113,7 @@ export interface AlertRuleArgs {
     /**
      * The kind of the alert rule
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.securityinsights.v20190101preview.AlertRuleKind>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */

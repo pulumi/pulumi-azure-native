@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -142,5 +143,5 @@ export interface GroupArgs {
     /**
      * Group type.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<enums.apimanagement.v20191201preview.GroupType>;
 }

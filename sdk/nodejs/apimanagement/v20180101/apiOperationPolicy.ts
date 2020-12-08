@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,7 +119,7 @@ export interface ApiOperationPolicyArgs {
     /**
      * Format of the policyContent.
      */
-    readonly contentFormat?: pulumi.Input<string>;
+    readonly contentFormat?: pulumi.Input<string | enums.apimanagement.v20180101.PolicyContentFormat>;
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */

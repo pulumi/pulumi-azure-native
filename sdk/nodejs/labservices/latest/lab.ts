@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -206,5 +206,5 @@ export interface LabArgs {
     /**
      * Lab user access mode (open to all vs. restricted to those listed on the lab).
      */
-    readonly userAccessMode?: pulumi.Input<string>;
+    readonly userAccessMode?: pulumi.Input<string | enums.labservices.latest.LabUserAccessMode>;
 }

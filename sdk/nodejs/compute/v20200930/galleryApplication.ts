@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -181,7 +182,7 @@ export interface GalleryApplicationArgs {
     /**
      * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly supportedOSType: pulumi.Input<string>;
+    readonly supportedOSType: pulumi.Input<enums.compute.v20200930.OperatingSystemTypes>;
     /**
      * Resource tags
      */

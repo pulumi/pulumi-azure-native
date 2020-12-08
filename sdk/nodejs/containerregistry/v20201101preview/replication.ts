@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -161,5 +161,5 @@ export interface ReplicationArgs {
     /**
      * Whether or not zone redundancy is enabled for this container registry replication
      */
-    readonly zoneRedundancy?: pulumi.Input<string>;
+    readonly zoneRedundancy?: pulumi.Input<string | enums.containerregistry.v20201101preview.ZoneRedundancy>;
 }

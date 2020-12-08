@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -138,7 +138,7 @@ export interface MachineLearningDatasetArgs {
     /**
      * Specifies dataset type.
      */
-    readonly datasetType: pulumi.Input<string>;
+    readonly datasetType: pulumi.Input<string | enums.machinelearningservices.v20200501preview.DatasetType>;
     readonly parameters: pulumi.Input<inputs.machinelearningservices.v20200501preview.DatasetCreateRequestParameters>;
     readonly registration: pulumi.Input<inputs.machinelearningservices.v20200501preview.DatasetCreateRequestRegistration>;
     /**

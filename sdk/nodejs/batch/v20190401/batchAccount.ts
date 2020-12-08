@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -179,7 +179,7 @@ export interface BatchAccountArgs {
     /**
      * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
      */
-    readonly poolAllocationMode?: pulumi.Input<string>;
+    readonly poolAllocationMode?: pulumi.Input<enums.batch.v20190401.PoolAllocationMode>;
     /**
      * The name of the resource group that contains the Batch account.
      */

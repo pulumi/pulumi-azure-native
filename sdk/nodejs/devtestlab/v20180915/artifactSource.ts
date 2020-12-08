@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -204,11 +205,11 @@ export interface ArtifactSourceArgs {
     /**
      * The artifact source's type.
      */
-    readonly sourceType?: pulumi.Input<string>;
+    readonly sourceType?: pulumi.Input<string | enums.devtestlab.v20180915.SourceControlType>;
     /**
      * Indicates if the artifact source is enabled (values: Enabled, Disabled).
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.devtestlab.v20180915.EnableStatus>;
     /**
      * The tags of the resource.
      */

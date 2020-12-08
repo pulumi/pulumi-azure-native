@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -186,7 +186,7 @@ export interface FrontDoorArgs {
     /**
      * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
      */
-    readonly enabledState?: pulumi.Input<string>;
+    readonly enabledState?: pulumi.Input<string | enums.network.v20200401.FrontDoorEnabledState>;
     /**
      * A friendly name for the frontDoor
      */

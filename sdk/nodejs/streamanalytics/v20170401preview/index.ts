@@ -10,3 +10,6 @@ export * from "./getStreamingJob";
 export * from "./input";
 export * from "./output";
 export * from "./streamingJob";
+
+// Export enums:
+export * from "../../types/enums/streamanalytics/v20170401preview";

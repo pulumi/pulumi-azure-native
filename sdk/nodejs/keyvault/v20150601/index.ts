@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getVault";
 export * from "./vault";
+
+// Export enums:
+export * from "../../types/enums/keyvault/v20150601";

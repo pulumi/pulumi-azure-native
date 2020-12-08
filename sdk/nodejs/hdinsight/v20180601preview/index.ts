@@ -7,3 +7,6 @@ export * from "./cluster";
 export * from "./getApplication";
 export * from "./getCluster";
 export * from "./getClusterGatewaySettings";
+
+// Export enums:
+export * from "../../types/enums/hdinsight/v20180601preview";

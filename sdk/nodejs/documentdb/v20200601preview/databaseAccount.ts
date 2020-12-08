@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -298,7 +298,7 @@ export interface DatabaseAccountArgs {
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<string | enums.documentdb.v20200601preview.DatabaseAccountKind>;
     /**
      * The location of the resource group to which the resource belongs.
      */

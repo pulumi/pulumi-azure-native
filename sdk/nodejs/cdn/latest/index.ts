@@ -33,3 +33,6 @@ export * from "./rule";
 export * from "./ruleSet";
 export * from "./secret";
 export * from "./securityPolicy";
+
+// Export enums:
+export * from "../../types/enums/cdn/latest";

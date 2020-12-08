@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -154,7 +154,7 @@ export interface VolumeArgs {
     /**
      * Provider of the volume.
      */
-    readonly provider: pulumi.Input<string>;
+    readonly provider: pulumi.Input<string | enums.servicefabricmesh.v20180901preview.VolumeProvider>;
     /**
      * Azure resource group name
      */

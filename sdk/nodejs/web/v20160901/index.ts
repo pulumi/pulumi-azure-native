@@ -8,3 +8,6 @@ export * from "./appServicePlanRouteForVnet";
 export * from "./getAppServiceEnvironment";
 export * from "./getAppServicePlan";
 export * from "./listAppServicePlanHybridConnectionKeys";
+
+// Export enums:
+export * from "../../types/enums/web/v20160901";

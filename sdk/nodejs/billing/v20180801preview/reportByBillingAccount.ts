@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -134,7 +134,7 @@ export interface ReportByBillingAccountArgs {
     /**
      * The format of the report being delivered.
      */
-    readonly format?: pulumi.Input<string>;
+    readonly format?: pulumi.Input<string | enums.billing.v20180801preview.FormatType>;
     /**
      * Report Name.
      */

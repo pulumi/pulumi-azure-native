@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -195,7 +195,7 @@ export interface PublicIPPrefixArgs {
     /**
      * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
      */
-    readonly publicIPAddressVersion?: pulumi.Input<string>;
+    readonly publicIPAddressVersion?: pulumi.Input<string | enums.network.v20180801.IPVersion>;
     /**
      * The list of all referenced PublicIPAddresses
      */

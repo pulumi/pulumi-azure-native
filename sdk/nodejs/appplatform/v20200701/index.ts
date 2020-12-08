@@ -17,3 +17,6 @@ export * from "./getDeploymentLogFileUrl";
 export * from "./getService";
 export * from "./listServiceTestKeys";
 export * from "./service";
+
+// Export enums:
+export * from "../../types/enums/appplatform/v20200701";

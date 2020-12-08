@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -139,7 +139,7 @@ export interface ServiceUnitArgs {
     /**
      * Describes the type of ARM deployment to be performed on the resource.
      */
-    readonly deploymentMode: pulumi.Input<string>;
+    readonly deploymentMode: pulumi.Input<enums.deploymentmanager.v20180901preview.DeploymentMode>;
     /**
      * The geo-location where the resource lives
      */

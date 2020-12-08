@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -215,7 +215,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
      */
-    readonly severity: pulumi.Input<number>;
+    readonly severity: pulumi.Input<string | enums.insights.v20200501preview.AlertSeverity>;
     /**
      * Resource tags.
      */

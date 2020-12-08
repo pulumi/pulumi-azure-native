@@ -10,3 +10,6 @@ export * from "./privateEndpointConnection";
 export * from "./protectedItem";
 export * from "./protectionContainer";
 export * from "./protectionPolicy";
+
+// Export enums:
+export * from "../../types/enums/recoveryservices/v20201001";

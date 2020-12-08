@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -113,7 +114,7 @@ export interface SqlPoolTransparentDataEncryptionArgs {
     /**
      * The status of the database transparent data encryption.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.synapse.v20190601preview.TransparentDataEncryptionStatus>;
     /**
      * The name of the transparent data encryption configuration.
      */

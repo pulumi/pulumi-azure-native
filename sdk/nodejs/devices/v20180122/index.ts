@@ -16,3 +16,6 @@ export * from "./listIotDpsResourceKeys";
 export * from "./listIotDpsResourceKeysForKeyName";
 export * from "./listIotHubResourceKeys";
 export * from "./listIotHubResourceKeysForKeyName";
+
+// Export enums:
+export * from "../../types/enums/devices/v20180122";

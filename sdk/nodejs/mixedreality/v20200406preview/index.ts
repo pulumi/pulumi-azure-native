@@ -5,3 +5,6 @@
 export * from "./getRemoteRenderingAccount";
 export * from "./listRemoteRenderingAccountKeys";
 export * from "./remoteRenderingAccount";
+
+// Export enums:
+export * from "../../types/enums/mixedreality/v20200406preview";

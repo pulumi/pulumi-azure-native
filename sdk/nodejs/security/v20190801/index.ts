@@ -6,3 +6,6 @@ export * from "./deviceSecurityGroup";
 export * from "./getDeviceSecurityGroup";
 export * from "./getIotSecuritySolution";
 export * from "./iotSecuritySolution";
+
+// Export enums:
+export * from "../../types/enums/security/v20190801";

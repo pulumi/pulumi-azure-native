@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -140,7 +140,7 @@ export interface InstancePoolArgs {
     /**
      * The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
      */
-    readonly licenseType: pulumi.Input<string>;
+    readonly licenseType: pulumi.Input<string | enums.sql.v20180601preview.InstancePoolLicenseType>;
     /**
      * Resource location.
      */

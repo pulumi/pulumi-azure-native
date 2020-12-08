@@ -8,3 +8,6 @@ export * from "./getRegistration";
 export * from "./getRegistrationActivationKey";
 export * from "./listProductDetails";
 export * from "./registration";
+
+// Export enums:
+export * from "../../types/enums/azurestack/v20170601";

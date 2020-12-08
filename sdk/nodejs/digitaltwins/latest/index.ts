@@ -6,3 +6,6 @@ export * from "./digitalTwin";
 export * from "./digitalTwinsEndpoint";
 export * from "./getDigitalTwin";
 export * from "./getDigitalTwinsEndpoint";
+
+// Export enums:
+export * from "../../types/enums/digitaltwins/latest";

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -185,5 +185,5 @@ export interface SourceControlArgs {
     /**
      * The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
      */
-    readonly sourceType?: pulumi.Input<string>;
+    readonly sourceType?: pulumi.Input<string | enums.automation.v20170515preview.SourceType>;
 }

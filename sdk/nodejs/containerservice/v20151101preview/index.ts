@@ -4,3 +4,6 @@
 // Export members:
 export * from "./containerService";
 export * from "./getContainerService";
+
+// Export enums:
+export * from "../../types/enums/containerservice/v20151101preview";

@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getPolicyExemption";
 export * from "./policyExemption";
+
+// Export enums:
+export * from "../../types/enums/authorization/v20200701preview";

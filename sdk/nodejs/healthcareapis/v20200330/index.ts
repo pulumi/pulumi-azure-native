@@ -6,3 +6,6 @@ export * from "./getPrivateEndpointConnection";
 export * from "./getService";
 export * from "./privateEndpointConnection";
 export * from "./service";
+
+// Export enums:
+export * from "../../types/enums/healthcareapis/v20200330";

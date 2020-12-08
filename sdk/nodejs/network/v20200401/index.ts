@@ -146,3 +146,6 @@ export * from "./vpnGateway";
 export * from "./vpnServerConfiguration";
 export * from "./vpnSite";
 export * from "./webApplicationFirewallPolicy";
+
+// Export enums:
+export * from "../../types/enums/network/v20200401";

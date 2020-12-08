@@ -16,3 +16,6 @@ export * from "./getWorkbook";
 export * from "./myWorkbook";
 export * from "./webTest";
 export * from "./workbook";
+
+// Export enums:
+export * from "../../types/enums/insights/v20150501";

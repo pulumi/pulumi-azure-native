@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -140,7 +140,7 @@ export interface AFDEndpointArgs {
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
      */
-    readonly enabledState?: pulumi.Input<string>;
+    readonly enabledState?: pulumi.Input<string | enums.cdn.latest.EnabledState>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */

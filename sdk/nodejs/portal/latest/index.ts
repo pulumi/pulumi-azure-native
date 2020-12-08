@@ -10,3 +10,6 @@ export * from "./getUserSettings";
 export * from "./getUserSettingsWithLocation";
 export * from "./userSettings";
 export * from "./userSettingsWithLocation";
+
+// Export enums:
+export * from "../../types/enums/portal/latest";

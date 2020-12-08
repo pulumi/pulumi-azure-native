@@ -5,3 +5,6 @@
 export * from "./getWorkspaceCollection";
 export * from "./listWorkspaceCollectionAccessKeys";
 export * from "./workspaceCollection";
+
+// Export enums:
+export * from "../../types/enums/powerbi/latest";

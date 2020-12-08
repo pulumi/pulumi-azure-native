@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getSpatialAnchorsAccount";
 export * from "./spatialAnchorsAccount";
+
+// Export enums:
+export * from "../../types/enums/mixedreality/v20190228preview";

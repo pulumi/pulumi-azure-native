@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -166,7 +167,7 @@ export interface FileShareArgs {
     /**
      * The data policy
      */
-    readonly dataPolicy: pulumi.Input<string>;
+    readonly dataPolicy: pulumi.Input<enums.storsimple.latest.DataPolicy>;
     /**
      * Description for file share
      */
@@ -186,7 +187,7 @@ export interface FileShareArgs {
     /**
      * The monitoring status
      */
-    readonly monitoringStatus: pulumi.Input<string>;
+    readonly monitoringStatus: pulumi.Input<enums.storsimple.latest.MonitoringStatus>;
     /**
      * The total provisioned capacity in Bytes
      */
@@ -202,5 +203,5 @@ export interface FileShareArgs {
     /**
      * The Share Status
      */
-    readonly shareStatus: pulumi.Input<string>;
+    readonly shareStatus: pulumi.Input<enums.storsimple.latest.ShareStatus>;
 }

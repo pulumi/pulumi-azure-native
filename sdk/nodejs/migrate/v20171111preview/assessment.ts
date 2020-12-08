@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -252,27 +253,27 @@ export interface AssessmentArgs {
     /**
      * AHUB discount on windows virtual machines.
      */
-    readonly azureHybridUseBenefit: pulumi.Input<string>;
+    readonly azureHybridUseBenefit: pulumi.Input<string | enums.migrate.v20171111preview.AzureHybridUseBenefit>;
     /**
      * Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
      */
-    readonly azureLocation: pulumi.Input<string>;
+    readonly azureLocation: pulumi.Input<string | enums.migrate.v20171111preview.AzureLocation>;
     /**
      * Offer code according to which cost estimation is done.
      */
-    readonly azureOfferCode: pulumi.Input<string>;
+    readonly azureOfferCode: pulumi.Input<string | enums.migrate.v20171111preview.AzureOfferCode>;
     /**
      * Pricing tier for Size evaluation.
      */
-    readonly azurePricingTier: pulumi.Input<string>;
+    readonly azurePricingTier: pulumi.Input<string | enums.migrate.v20171111preview.AzurePricingTier>;
     /**
      * Storage Redundancy type offered by Azure.
      */
-    readonly azureStorageRedundancy: pulumi.Input<string>;
+    readonly azureStorageRedundancy: pulumi.Input<string | enums.migrate.v20171111preview.AzureStorageRedundancy>;
     /**
      * Currency to report prices in.
      */
-    readonly currency: pulumi.Input<string>;
+    readonly currency: pulumi.Input<string | enums.migrate.v20171111preview.Currency>;
     /**
      * Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
      */
@@ -288,7 +289,7 @@ export interface AssessmentArgs {
     /**
      * Percentile of performance data used to recommend Azure size.
      */
-    readonly percentile: pulumi.Input<string>;
+    readonly percentile: pulumi.Input<string | enums.migrate.v20171111preview.Percentile>;
     /**
      * Name of the Azure Migrate project.
      */
@@ -304,9 +305,9 @@ export interface AssessmentArgs {
     /**
      * User configurable setting that describes the status of the assessment.
      */
-    readonly stage: pulumi.Input<string>;
+    readonly stage: pulumi.Input<string | enums.migrate.v20171111preview.AssessmentStage>;
     /**
      * Time range of performance data used to recommend a size.
      */
-    readonly timeRange: pulumi.Input<string>;
+    readonly timeRange: pulumi.Input<string | enums.migrate.v20171111preview.TimeRange>;
 }

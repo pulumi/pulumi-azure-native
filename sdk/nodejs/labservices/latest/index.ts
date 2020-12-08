@@ -21,3 +21,6 @@ export * from "./labAccount";
 export * from "./listGlobalUserEnvironments";
 export * from "./listGlobalUserLabs";
 export * from "./user";
+
+// Export enums:
+export * from "../../types/enums/labservices/latest";

@@ -25,3 +25,6 @@ export * from "./incidentRelation";
 export * from "./productSetting";
 export * from "./threatIntelligenceIndicator";
 export * from "./watchlist";
+
+// Export enums:
+export * from "../../types/enums/securityinsights/v20190101preview";

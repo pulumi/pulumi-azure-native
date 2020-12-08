@@ -19,3 +19,6 @@ export * from "./policyResource";
 export * from "./scheduleResource";
 export * from "./virtualMachineResource";
 export * from "./virtualNetworkResource";
+
+// Export enums:
+export * from "../../types/enums/devtestlab/v20150521preview";

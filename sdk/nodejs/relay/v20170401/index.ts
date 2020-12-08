@@ -17,3 +17,6 @@ export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./wcfrelay";
 export * from "./wcfrelayAuthorizationRule";
+
+// Export enums:
+export * from "../../types/enums/relay/v20170401";

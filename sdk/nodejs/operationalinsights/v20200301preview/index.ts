@@ -18,3 +18,6 @@ export * from "./linkedStorageAccount";
 export * from "./savedSearch";
 export * from "./storageInsightConfig";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/operationalinsights/v20200301preview";

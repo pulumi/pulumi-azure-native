@@ -5,3 +5,6 @@
 export * from "./getSignalR";
 export * from "./listSignalRKeys";
 export * from "./signalR";
+
+// Export enums:
+export * from "../../types/enums/signalrservice/v20180301preview";

@@ -8,3 +8,6 @@ export * from "./getGroup";
 export * from "./getProject";
 export * from "./group";
 export * from "./project";
+
+// Export enums:
+export * from "../../types/enums/migrate/v20180202";

@@ -74,3 +74,6 @@ export * from "./webAppSourceControl";
 export * from "./webAppSourceControlSlot";
 export * from "./webAppVnetConnection";
 export * from "./webAppVnetConnectionSlot";
+
+// Export enums:
+export * from "../../types/enums/web/v20160801";

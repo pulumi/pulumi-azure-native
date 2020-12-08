@@ -5,3 +5,6 @@
 export * from "./apiManagementService";
 export * from "./getApiManagementService";
 export * from "./getApiManagementServiceSsoToken";
+
+// Export enums:
+export * from "../../types/enums/apimanagement/v20161010";

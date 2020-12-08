@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -223,7 +223,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * VPN authentication types for the VpnServerConfiguration.
      */
-    readonly vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string | enums.network.v20190801.VpnAuthenticationType>[]>;
     /**
      * VpnClientIpsecPolicies for VpnServerConfiguration.
      */
@@ -239,7 +239,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * VPN protocols for the VpnServerConfiguration.
      */
-    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string | enums.network.v20190801.VpnGatewayTunnelingProtocol>[]>;
     /**
      * The name of the VpnServerConfiguration being created or updated.
      */

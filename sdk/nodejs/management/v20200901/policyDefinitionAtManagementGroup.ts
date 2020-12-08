@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -162,5 +162,5 @@ export interface PolicyDefinitionAtManagementGroupArgs {
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
-    readonly policyType?: pulumi.Input<string>;
+    readonly policyType?: pulumi.Input<string | enums.management.v20200901.PolicyType>;
 }

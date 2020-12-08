@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -182,7 +182,7 @@ export interface JobArgs {
     /**
      * Delivery type of Job.
      */
-    readonly deliveryType?: pulumi.Input<string>;
+    readonly deliveryType?: pulumi.Input<string | enums.databox.v20190901.JobDeliveryType>;
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */

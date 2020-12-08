@@ -8,3 +8,6 @@ export * from "./getSqlVirtualMachine";
 export * from "./getSqlVirtualMachineGroup";
 export * from "./sqlVirtualMachine";
 export * from "./sqlVirtualMachineGroup";
+
+// Export enums:
+export * from "../../types/enums/sqlvirtualmachine/v20170301preview";

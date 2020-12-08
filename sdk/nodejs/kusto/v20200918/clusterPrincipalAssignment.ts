@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -154,7 +155,7 @@ export interface ClusterPrincipalAssignmentArgs {
     /**
      * Principal type.
      */
-    readonly principalType: pulumi.Input<string>;
+    readonly principalType: pulumi.Input<string | enums.kusto.v20200918.PrincipalType>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
@@ -162,7 +163,7 @@ export interface ClusterPrincipalAssignmentArgs {
     /**
      * Cluster principal role.
      */
-    readonly role: pulumi.Input<string>;
+    readonly role: pulumi.Input<string | enums.kusto.v20200918.ClusterPrincipalRole>;
     /**
      * The tenant id of the principal
      */

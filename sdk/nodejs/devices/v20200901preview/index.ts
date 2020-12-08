@@ -10,3 +10,6 @@ export * from "./iotDpsResource";
 export * from "./iotDpsResourcePrivateEndpointConnection";
 export * from "./listIotDpsResourceKeys";
 export * from "./listIotDpsResourceKeysForKeyName";
+
+// Export enums:
+export * from "../../types/enums/devices/v20200901preview";

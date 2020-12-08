@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -146,7 +146,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * Type of storage accessed on the storage account.
      */
-    readonly accountType: pulumi.Input<string>;
+    readonly accountType: pulumi.Input<string | enums.databoxedge.v20190301.AccountType>;
     /**
      * Alias for the storage account.
      */
@@ -174,7 +174,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    readonly sslStatus: pulumi.Input<string>;
+    readonly sslStatus: pulumi.Input<string | enums.databoxedge.v20190301.SSLStatus>;
     /**
      * Username for the storage account.
      */

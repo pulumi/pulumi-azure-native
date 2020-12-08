@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getServerKey";
 export * from "./serverKey";
+
+// Export enums:
+export * from "../../types/enums/dbforpostgresql/v20200101privatepreview";

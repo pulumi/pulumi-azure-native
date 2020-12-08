@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getProtectionIntent";
 export * from "./protectionIntent";
+
+// Export enums:
+export * from "../../types/enums/recoveryservices/v20170701";

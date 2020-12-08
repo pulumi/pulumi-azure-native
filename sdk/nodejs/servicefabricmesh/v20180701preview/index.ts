@@ -8,3 +8,6 @@ export * from "./getNetwork";
 export * from "./getVolume";
 export * from "./network";
 export * from "./volume";
+
+// Export enums:
+export * from "../../types/enums/servicefabricmesh/v20180701preview";

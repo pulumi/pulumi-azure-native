@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -247,7 +248,7 @@ export interface AgentPoolArgs {
     /**
      * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
      */
-    readonly osType?: pulumi.Input<string>;
+    readonly osType?: pulumi.Input<string | enums.containerservice.v20200101.OSType>;
     /**
      * The name of the resource group.
      */
@@ -259,11 +260,11 @@ export interface AgentPoolArgs {
     /**
      * ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
      */
-    readonly scaleSetEvictionPolicy?: pulumi.Input<string>;
+    readonly scaleSetEvictionPolicy?: pulumi.Input<string | enums.containerservice.v20200101.ScaleSetEvictionPolicy>;
     /**
      * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
      */
-    readonly scaleSetPriority?: pulumi.Input<string>;
+    readonly scaleSetPriority?: pulumi.Input<string | enums.containerservice.v20200101.ScaleSetPriority>;
     /**
      * Agent pool tags to be persisted on the agent pool virtual machine scale set.
      */
@@ -271,11 +272,11 @@ export interface AgentPoolArgs {
     /**
      * AgentPoolType represents types of an agent pool
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | enums.containerservice.v20200101.AgentPoolType>;
     /**
      * Size of agent VMs.
      */
-    readonly vmSize?: pulumi.Input<string>;
+    readonly vmSize?: pulumi.Input<string | enums.containerservice.v20200101.ContainerServiceVMSizeTypes>;
     /**
      * VNet SubnetID specifies the VNet's subnet identifier.
      */

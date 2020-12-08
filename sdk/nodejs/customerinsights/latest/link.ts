@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -204,7 +204,7 @@ export interface LinkArgs {
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    readonly operationType?: pulumi.Input<string>;
+    readonly operationType?: pulumi.Input<enums.customerinsights.latest.InstanceOperationType>;
     /**
      * The properties that represent the participating profile.
      */
@@ -220,7 +220,7 @@ export interface LinkArgs {
     /**
      * Type of source entity.
      */
-    readonly sourceEntityType: pulumi.Input<string>;
+    readonly sourceEntityType: pulumi.Input<enums.customerinsights.latest.EntityType>;
     /**
      * Name of the source Entity Type.
      */
@@ -228,7 +228,7 @@ export interface LinkArgs {
     /**
      * Type of target entity.
      */
-    readonly targetEntityType: pulumi.Input<string>;
+    readonly targetEntityType: pulumi.Input<enums.customerinsights.latest.EntityType>;
     /**
      * Name of the target Entity Type.
      */

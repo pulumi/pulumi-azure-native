@@ -11,3 +11,6 @@ export * from "./listRedisKeys";
 export * from "./patchSchedule";
 export * from "./redis";
 export * from "./redisLinkedServer";
+
+// Export enums:
+export * from "../../types/enums/cache/v20170201";

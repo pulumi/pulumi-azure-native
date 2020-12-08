@@ -8,3 +8,6 @@ export * from "./getServer";
 export * from "./getServerKey";
 export * from "./server";
 export * from "./serverKey";
+
+// Export enums:
+export * from "../../types/enums/dbforpostgresql/v20200214privatepreview";

@@ -10,3 +10,6 @@ export * from "./getOrigin";
 export * from "./getProfile";
 export * from "./origin";
 export * from "./profile";
+
+// Export enums:
+export * from "../../types/enums/cdn/v20150601";

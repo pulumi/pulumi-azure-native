@@ -5,3 +5,6 @@
 export * from "./getManagedCluster";
 export * from "./listManagedClusterAccessProfile";
 export * from "./managedCluster";
+
+// Export enums:
+export * from "../../types/enums/containerservice/v20170831";

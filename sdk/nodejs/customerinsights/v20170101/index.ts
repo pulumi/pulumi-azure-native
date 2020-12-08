@@ -24,3 +24,6 @@ export * from "./relationship";
 export * from "./relationshipLink";
 export * from "./roleAssignment";
 export * from "./view";
+
+// Export enums:
+export * from "../../types/enums/customerinsights/v20170101";

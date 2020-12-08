@@ -11,3 +11,6 @@ export * from "./getPrivateCloud";
 export * from "./hcxEnterpriseSite";
 export * from "./listPrivateCloudAdminCredentials";
 export * from "./privateCloud";
+
+// Export enums:
+export * from "../../types/enums/avs/latest";

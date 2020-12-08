@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -249,7 +249,7 @@ export interface PoolArgs {
     /**
      * This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
      */
-    readonly interNodeCommunication?: pulumi.Input<string>;
+    readonly interNodeCommunication?: pulumi.Input<enums.batch.v20170901.InterNodeCommunicationState>;
     readonly maxTasksPerNode?: pulumi.Input<number>;
     /**
      * The Batch service does not assign any meaning to metadata; it is solely for the use of user code.

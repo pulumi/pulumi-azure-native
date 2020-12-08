@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getHealthAlert";
 export * from "./healthAlert";
+
+// Export enums:
+export * from "../../types/enums/alertsmanagement/v20200804preview";

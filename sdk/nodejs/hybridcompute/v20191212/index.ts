@@ -6,3 +6,6 @@ export * from "./getMachine";
 export * from "./getMachineExtension";
 export * from "./machine";
 export * from "./machineExtension";
+
+// Export enums:
+export * from "../../types/enums/hybridcompute/v20191212";

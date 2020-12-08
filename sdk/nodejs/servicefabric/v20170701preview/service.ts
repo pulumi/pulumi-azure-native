@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -171,7 +171,7 @@ export interface ServiceArgs {
     /**
      * Specifies the move cost for the service.
      */
-    readonly defaultMoveCost?: pulumi.Input<string>;
+    readonly defaultMoveCost?: pulumi.Input<string | enums.servicefabric.v20170701preview.MoveCost>;
     /**
      * Azure resource location.
      */
@@ -191,7 +191,7 @@ export interface ServiceArgs {
     /**
      * The kind of service (Stateless or Stateful).
      */
-    readonly serviceKind: pulumi.Input<string>;
+    readonly serviceKind: pulumi.Input<string | enums.servicefabric.v20170701preview.ServiceKind>;
     /**
      * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -176,7 +176,7 @@ export interface DedicatedHostArgs {
     /**
      * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
      */
-    readonly licenseType?: pulumi.Input<string>;
+    readonly licenseType?: pulumi.Input<enums.compute.v20190701.DedicatedHostLicenseTypes>;
     /**
      * Resource location
      */

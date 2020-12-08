@@ -40,3 +40,6 @@ export * from "./listWorkflowTriggerCallbackUrl";
 export * from "./listWorkflowVersionTriggerCallbackUrl";
 export * from "./rosettaNetProcessConfiguration";
 export * from "./workflow";
+
+// Export enums:
+export * from "../../types/enums/logic/latest";

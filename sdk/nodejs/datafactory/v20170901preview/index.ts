@@ -17,3 +17,6 @@ export * from "./linkedService";
 export * from "./listIntegrationRuntimeAuthKeys";
 export * from "./pipeline";
 export * from "./trigger";
+
+// Export enums:
+export * from "../../types/enums/datafactory/v20170901preview";

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -183,7 +183,7 @@ export interface ExpressRoutePortArgs {
     /**
      * Encapsulation method on physical ports.
      */
-    readonly encapsulation?: pulumi.Input<string>;
+    readonly encapsulation?: pulumi.Input<string | enums.network.v20200701.ExpressRoutePortsEncapsulation>;
     /**
      * The name of the ExpressRoutePort resource.
      */

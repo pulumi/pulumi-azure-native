@@ -6,3 +6,6 @@ export * from "./diskPool";
 export * from "./getDiskPool";
 export * from "./getIscsiTarget";
 export * from "./iscsiTarget";
+
+// Export enums:
+export * from "../../types/enums/storagepool/v20200315preview";

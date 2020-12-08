@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getMediaGraph";
 export * from "./mediaGraph";
+
+// Export enums:
+export * from "../../types/enums/media/v20200201preview";

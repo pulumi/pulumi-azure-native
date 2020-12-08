@@ -8,3 +8,6 @@ export * from "./getIotDpsResource";
 export * from "./iotDpsResource";
 export * from "./listIotDpsResourceKeys";
 export * from "./listIotDpsResourceKeysForKeyName";
+
+// Export enums:
+export * from "../../types/enums/devices/v20200101";

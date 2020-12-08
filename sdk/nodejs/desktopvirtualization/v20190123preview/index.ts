@@ -10,3 +10,6 @@ export * from "./getHostPool";
 export * from "./getWorkspace";
 export * from "./hostPool";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/desktopvirtualization/v20190123preview";

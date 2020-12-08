@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -173,7 +174,7 @@ export interface SyncMemberArgs {
     /**
      * Database type of the sync member.
      */
-    readonly databaseType?: pulumi.Input<string>;
+    readonly databaseType?: pulumi.Input<string | enums.sql.v20200801preview.SyncMemberDbType>;
     /**
      * Password of the member database in the sync member.
      */
@@ -197,7 +198,7 @@ export interface SyncMemberArgs {
     /**
      * Sync direction of the sync member.
      */
-    readonly syncDirection?: pulumi.Input<string>;
+    readonly syncDirection?: pulumi.Input<string | enums.sql.v20200801preview.SyncDirection>;
     /**
      * The name of the sync group on which the sync member is hosted.
      */

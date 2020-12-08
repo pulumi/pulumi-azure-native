@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -126,7 +127,7 @@ export interface WorkloadNetworkDhcpArgs {
     /**
      * Type of DHCP: SERVER or RELAY.
      */
-    readonly dhcpType: pulumi.Input<string>;
+    readonly dhcpType: pulumi.Input<string | enums.avs.v20200717preview.DhcpTypeEnum>;
     /**
      * Display name of the DHCP entity.
      */

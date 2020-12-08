@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -166,7 +166,7 @@ export interface ADCCatalogArgs {
     /**
      * Azure data catalog SKU.
      */
-    readonly sku?: pulumi.Input<string>;
+    readonly sku?: pulumi.Input<string | enums.datacatalog.v20160330.SkuType>;
     /**
      * Azure data catalog provision status.
      */

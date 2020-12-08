@@ -6,3 +6,6 @@ export * from "./connection";
 export * from "./getConnection";
 export * from "./listConnectionConsentLinks";
 export * from "./listConnectionKeys";
+
+// Export enums:
+export * from "../../types/enums/web/v20150801preview";

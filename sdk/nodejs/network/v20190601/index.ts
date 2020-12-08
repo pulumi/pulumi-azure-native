@@ -113,3 +113,6 @@ export * from "./vpnConnection";
 export * from "./vpnGateway";
 export * from "./vpnSite";
 export * from "./webApplicationFirewallPolicy";
+
+// Export enums:
+export * from "../../types/enums/network/v20190601";

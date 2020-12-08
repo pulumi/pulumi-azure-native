@@ -9,3 +9,6 @@ export * from "./listHost";
 export * from "./listLinkedResource";
 export * from "./listMonitoredResource";
 export * from "./monitor";
+
+// Export enums:
+export * from "../../types/enums/datadog/v20200201preview";

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -152,11 +153,11 @@ export interface SiteHostNameBindingArgs {
     /**
      * Azure resource type
      */
-    readonly azureResourceType?: pulumi.Input<string>;
+    readonly azureResourceType?: pulumi.Input<enums.web.v20150801.AzureResourceType>;
     /**
      * Custom DNS record type
      */
-    readonly customHostNameDnsRecordType?: pulumi.Input<string>;
+    readonly customHostNameDnsRecordType?: pulumi.Input<enums.web.v20150801.CustomHostNameDnsRecordType>;
     /**
      * Fully qualified ARM domain resource URI
      */
@@ -168,7 +169,7 @@ export interface SiteHostNameBindingArgs {
     /**
      * Host name type
      */
-    readonly hostNameType?: pulumi.Input<string>;
+    readonly hostNameType?: pulumi.Input<enums.web.v20150801.HostNameType>;
     /**
      * Resource Id
      */

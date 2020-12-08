@@ -10,3 +10,6 @@ export * from "./getAppServiceCertificateOrder";
 export * from "./getAppServiceCertificateOrderCertificate";
 export * from "./getCertificateOrder";
 export * from "./getCertificateOrderCertificate";
+
+// Export enums:
+export * from "../../types/enums/certificateregistration/v20150801";

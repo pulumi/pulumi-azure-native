@@ -14,3 +14,6 @@ export * from "./instanceFailoverGroup";
 export * from "./managedDatabaseVulnerabilityAssessment";
 export * from "./managedDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./managedInstanceKey";
+
+// Export enums:
+export * from "../../types/enums/sql/v20171001preview";

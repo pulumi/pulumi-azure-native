@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -255,15 +255,15 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The connection mode for this connection.
      */
-    readonly connectionMode?: pulumi.Input<string>;
+    readonly connectionMode?: pulumi.Input<string | enums.network.latest.VirtualNetworkGatewayConnectionMode>;
     /**
      * Connection protocol used for this connection.
      */
-    readonly connectionProtocol?: pulumi.Input<string>;
+    readonly connectionProtocol?: pulumi.Input<string | enums.network.latest.VirtualNetworkGatewayConnectionProtocol>;
     /**
      * Gateway connection type.
      */
-    readonly connectionType: pulumi.Input<string>;
+    readonly connectionType: pulumi.Input<string | enums.network.latest.VirtualNetworkGatewayConnectionType>;
     /**
      * The dead peer detection timeout of this connection in seconds.
      */

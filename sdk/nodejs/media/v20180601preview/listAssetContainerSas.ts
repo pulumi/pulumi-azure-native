@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export function listAssetContainerSas(args: ListAssetContainerSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetContainerSasResult> {
@@ -38,7 +38,7 @@ export interface ListAssetContainerSasArgs {
     /**
      * The permissions to set on the SAS URL.
      */
-    readonly permissions?: string;
+    readonly permissions?: string | enums.media.v20180601preview.AssetContainerPermission;
     /**
      * The name of the resource group within the Azure subscription.
      */

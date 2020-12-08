@@ -18,3 +18,6 @@ export * from "./syncGroup";
 export * from "./syncMember";
 export * from "./workloadClassifier";
 export * from "./workloadGroup";
+
+// Export enums:
+export * from "../../types/enums/sql/v20190601preview";

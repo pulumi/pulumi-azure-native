@@ -8,3 +8,6 @@ export * from "./listAdminKey";
 export * from "./listQueryKeyBySearchService";
 export * from "./privateEndpointConnection";
 export * from "./service";
+
+// Export enums:
+export * from "../../types/enums/search/v20200313";

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -131,7 +131,7 @@ export interface DiagnosticArgs {
     /**
      * Specifies for what type of messages sampling settings should not apply.
      */
-    readonly alwaysLog?: pulumi.Input<string>;
+    readonly alwaysLog?: pulumi.Input<string | enums.apimanagement.v20180601preview.AlwaysLog>;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */

@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getPipeline";
 export * from "./pipeline";
+
+// Export enums:
+export * from "../../types/enums/devops/v20190701preview";

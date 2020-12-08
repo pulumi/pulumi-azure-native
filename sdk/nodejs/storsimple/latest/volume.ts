@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -182,7 +183,7 @@ export interface VolumeArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<enums.storsimple.latest.Kind>;
     /**
      * The manager name
      */
@@ -190,7 +191,7 @@ export interface VolumeArgs {
     /**
      * The monitoring status of the volume.
      */
-    readonly monitoringStatus: pulumi.Input<string>;
+    readonly monitoringStatus: pulumi.Input<enums.storsimple.latest.MonitoringStatus>;
     /**
      * The resource group name
      */
@@ -210,9 +211,9 @@ export interface VolumeArgs {
     /**
      * The volume status.
      */
-    readonly volumeStatus: pulumi.Input<string>;
+    readonly volumeStatus: pulumi.Input<enums.storsimple.latest.VolumeStatus>;
     /**
      * The type of the volume.
      */
-    readonly volumeType: pulumi.Input<string>;
+    readonly volumeType: pulumi.Input<enums.storsimple.latest.VolumeType>;
 }

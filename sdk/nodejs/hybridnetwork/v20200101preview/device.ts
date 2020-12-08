@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -142,7 +142,7 @@ export interface DeviceArgs {
     /**
      * The type of the device.
      */
-    readonly deviceType: pulumi.Input<string>;
+    readonly deviceType: pulumi.Input<string | enums.hybridnetwork.v20200101preview.DeviceType>;
     /**
      * The geo-location where the resource lives
      */

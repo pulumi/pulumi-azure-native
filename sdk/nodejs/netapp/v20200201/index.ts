@@ -10,3 +10,6 @@ export * from "./getVolume";
 export * from "./pool";
 export * from "./snapshot";
 export * from "./volume";
+
+// Export enums:
+export * from "../../types/enums/netapp/v20200201";

@@ -6,3 +6,6 @@ export * from "./adaptiveApplicationControl";
 export * from "./getAdaptiveApplicationControl";
 export * from "./getJitNetworkAccessPolicy";
 export * from "./jitNetworkAccessPolicy";
+
+// Export enums:
+export * from "../../types/enums/security/v20150601preview";

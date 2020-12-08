@@ -6,3 +6,6 @@ export * from "./disk";
 export * from "./getDisk";
 export * from "./getSnapshot";
 export * from "./snapshot";
+
+// Export enums:
+export * from "../../types/enums/compute/v20180930";

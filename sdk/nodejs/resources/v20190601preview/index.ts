@@ -6,3 +6,6 @@ export * from "./getTemplateSpec";
 export * from "./getTemplateSpecVersion";
 export * from "./templateSpec";
 export * from "./templateSpecVersion";
+
+// Export enums:
+export * from "../../types/enums/resources/v20190601preview";

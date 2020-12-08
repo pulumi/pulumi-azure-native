@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -177,7 +177,7 @@ export interface ContainerGroupArgs {
     /**
      * The operating system type required by the containers in the container group.
      */
-    readonly osType: pulumi.Input<string>;
+    readonly osType: pulumi.Input<string | enums.containerinstance.v20180201preview.OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */
@@ -188,7 +188,7 @@ export interface ContainerGroupArgs {
      * - `OnFailure` Restart on failure
      * - `Never` Never restart
      */
-    readonly restartPolicy?: pulumi.Input<string>;
+    readonly restartPolicy?: pulumi.Input<string | enums.containerinstance.v20180201preview.ContainerGroupRestartPolicy>;
     /**
      * The resource tags.
      */

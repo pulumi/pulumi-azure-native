@@ -6,3 +6,6 @@ export * from "./domainService";
 export * from "./getDomainService";
 export * from "./getOuContainer";
 export * from "./ouContainer";
+
+// Export enums:
+export * from "../../types/enums/aad/v20170601";

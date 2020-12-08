@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -183,7 +183,7 @@ export interface VolumeArgs {
     /**
      * The service level of the file system
      */
-    readonly serviceLevel: pulumi.Input<string>;
+    readonly serviceLevel: pulumi.Input<string | enums.netapp.v20170815.ServiceLevel>;
     /**
      * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
      */

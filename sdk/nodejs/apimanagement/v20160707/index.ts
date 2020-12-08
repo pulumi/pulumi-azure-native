@@ -4,3 +4,6 @@
 // Export members:
 export * from "./apiManagementService";
 export * from "./getApiManagementService";
+
+// Export enums:
+export * from "../../types/enums/apimanagement/v20160707";

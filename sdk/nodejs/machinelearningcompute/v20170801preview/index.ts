@@ -5,3 +5,6 @@
 export * from "./getOperationalizationCluster";
 export * from "./listOperationalizationClusterKeys";
 export * from "./operationalizationCluster";
+
+// Export enums:
+export * from "../../types/enums/machinelearningcompute/v20170801preview";

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,7 +119,7 @@ export interface ExpressRouteCircuitAuthorizationArgs {
     /**
      * Gets or sets AuthorizationUseStatus
      */
-    readonly authorizationUseStatus?: pulumi.Input<string>;
+    readonly authorizationUseStatus?: pulumi.Input<string | enums.network.v20150501preview.AuthorizationUseStatus>;
     /**
      * The name of the express route circuit.
      */

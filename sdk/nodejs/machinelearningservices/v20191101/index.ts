@@ -9,3 +9,6 @@ export * from "./listMachineLearningComputeNodes";
 export * from "./listWorkspaceKeys";
 export * from "./machineLearningCompute";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/machinelearningservices/v20191101";

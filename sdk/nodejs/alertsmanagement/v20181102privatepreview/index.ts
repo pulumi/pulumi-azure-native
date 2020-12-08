@@ -4,3 +4,6 @@
 // Export members:
 export * from "./actionRuleByName";
 export * from "./getActionRuleByName";
+
+// Export enums:
+export * from "../../types/enums/alertsmanagement/v20181102privatepreview";

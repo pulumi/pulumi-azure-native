@@ -22,3 +22,6 @@ export * from "./replicationRecoveryPlan";
 export * from "./replicationRecoveryServicesProvider";
 export * from "./replicationStorageClassificationMapping";
 export * from "./replicationvCenter";
+
+// Export enums:
+export * from "../../types/enums/recoveryservices/v20180110";

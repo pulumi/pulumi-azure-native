@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getRoleAssignment";
 export * from "./roleAssignment";
+
+// Export enums:
+export * from "../../types/enums/authorization/v20180901preview";

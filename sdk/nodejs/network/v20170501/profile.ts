@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -150,7 +150,7 @@ export interface ProfileArgs {
     /**
      * The status of the Traffic Manager profile.
      */
-    readonly profileStatus?: pulumi.Input<string>;
+    readonly profileStatus?: pulumi.Input<string | enums.network.v20170501.ProfileStatus>;
     /**
      * The name of the resource group containing the Traffic Manager profile.
      */
@@ -162,5 +162,5 @@ export interface ProfileArgs {
     /**
      * The traffic routing method of the Traffic Manager profile.
      */
-    readonly trafficRoutingMethod?: pulumi.Input<string>;
+    readonly trafficRoutingMethod?: pulumi.Input<string | enums.network.v20170501.TrafficRoutingMethod>;
 }

@@ -8,3 +8,6 @@ export * from "./listNamespaceKeys";
 export * from "./listNotificationHubKeys";
 export * from "./namespace";
 export * from "./notificationHub";
+
+// Export enums:
+export * from "../../types/enums/notificationhubs/v20140901";

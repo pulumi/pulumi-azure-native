@@ -4,3 +4,6 @@
 // Export members:
 export * from "./deploymentAtManagementGroupScope";
 export * from "./getDeploymentAtManagementGroupScope";
+
+// Export enums:
+export * from "../../types/enums/management/v20190701";

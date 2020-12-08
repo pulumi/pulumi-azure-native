@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -195,7 +195,7 @@ export interface JobDefinitionArgs {
     /**
      * This is the preferred geo location for the job to run.
      */
-    readonly runLocation?: pulumi.Input<string>;
+    readonly runLocation?: pulumi.Input<enums.hybriddata.v20160601.RunLocation>;
     /**
      * Schedule for running the job definition
      */
@@ -203,9 +203,9 @@ export interface JobDefinitionArgs {
     /**
      * State of the job definition.
      */
-    readonly state: pulumi.Input<string>;
+    readonly state: pulumi.Input<enums.hybriddata.v20160601.State>;
     /**
      * Enum to detect if user confirmation is required. If not passed will default to NotRequired.
      */
-    readonly userConfirmation?: pulumi.Input<string>;
+    readonly userConfirmation?: pulumi.Input<enums.hybriddata.v20160601.UserConfirmation>;
 }

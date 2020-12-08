@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getOpenShiftManagedCluster";
 export * from "./openShiftManagedCluster";
+
+// Export enums:
+export * from "../../types/enums/containerservice/v20190430";

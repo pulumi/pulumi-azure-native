@@ -4,3 +4,6 @@
 // Export members:
 export * from "./frontDoor";
 export * from "./getFrontDoor";
+
+// Export enums:
+export * from "../../types/enums/network/v20190501";

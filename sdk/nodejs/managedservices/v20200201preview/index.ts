@@ -6,3 +6,6 @@ export * from "./getRegistrationAssignment";
 export * from "./getRegistrationDefinition";
 export * from "./registrationAssignment";
 export * from "./registrationDefinition";
+
+// Export enums:
+export * from "../../types/enums/managedservices/v20200201preview";

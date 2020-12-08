@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -180,7 +180,7 @@ export interface ConnectedRegistryArgs {
     /**
      * The mode of the connected registry resource that indicates the permissions of the registry.
      */
-    readonly mode: pulumi.Input<string>;
+    readonly mode: pulumi.Input<string | enums.containerregistry.v20201101preview.ConnectedRegistryMode>;
     /**
      * The parent of the connected registry.
      */

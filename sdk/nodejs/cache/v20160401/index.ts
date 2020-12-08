@@ -9,3 +9,6 @@ export * from "./listRedisKeys";
 export * from "./patchSchedule";
 export * from "./redis";
 export * from "./redisFirewallRule";
+
+// Export enums:
+export * from "../../types/enums/cache/v20160401";

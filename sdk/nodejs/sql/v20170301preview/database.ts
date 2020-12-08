@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -255,7 +255,7 @@ export interface DatabaseArgs {
     /**
      * Collation of the metadata catalog.
      */
-    readonly catalogCollation?: pulumi.Input<string>;
+    readonly catalogCollation?: pulumi.Input<string | enums.sql.v20170301preview.CatalogCollationType>;
     /**
      * The collation of the database.
      */
@@ -279,7 +279,7 @@ export interface DatabaseArgs {
      * 
      * Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
-    readonly createMode?: pulumi.Input<string>;
+    readonly createMode?: pulumi.Input<string | enums.sql.v20170301preview.CreateMode>;
     /**
      * The name of the database.
      */
@@ -323,7 +323,7 @@ export interface DatabaseArgs {
     /**
      * The name of the sample schema to apply when creating this database.
      */
-    readonly sampleName?: pulumi.Input<string>;
+    readonly sampleName?: pulumi.Input<string | enums.sql.v20170301preview.SampleName>;
     /**
      * The name of the server.
      */

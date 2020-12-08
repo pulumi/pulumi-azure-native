@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -153,11 +153,11 @@ export interface UserArgs {
     /**
      * Determines the type of application which send the create user request. Default is legacy portal.
      */
-    readonly appType?: pulumi.Input<string>;
+    readonly appType?: pulumi.Input<string | enums.apimanagement.latest.AppType>;
     /**
      * Determines the type of confirmation e-mail that will be sent to the newly created user.
      */
-    readonly confirmation?: pulumi.Input<string>;
+    readonly confirmation?: pulumi.Input<string | enums.apimanagement.latest.Confirmation>;
     /**
      * Email address. Must not be empty and must be unique within the service instance.
      */
@@ -197,7 +197,7 @@ export interface UserArgs {
     /**
      * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string | enums.apimanagement.latest.UserState>;
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */

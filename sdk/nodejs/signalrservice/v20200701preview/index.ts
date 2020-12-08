@@ -7,3 +7,6 @@ export * from "./getSignalRPrivateEndpointConnection";
 export * from "./listSignalRKeys";
 export * from "./signalR";
 export * from "./signalRPrivateEndpointConnection";
+
+// Export enums:
+export * from "../../types/enums/signalrservice/v20200701preview";

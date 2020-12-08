@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getScheduledQueryRule";
 export * from "./scheduledQueryRule";
+
+// Export enums:
+export * from "../../types/enums/insights/v20200501preview";

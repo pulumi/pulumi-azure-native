@@ -5,3 +5,6 @@
 export * from "./getRedis";
 export * from "./listRedisKeys";
 export * from "./redis";
+
+// Export enums:
+export * from "../../types/enums/cache/v20150801";

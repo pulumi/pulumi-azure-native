@@ -31,3 +31,6 @@ export * from "./myWorkbook";
 export * from "./scheduledQueryRule";
 export * from "./webTest";
 export * from "./workbook";
+
+// Export enums:
+export * from "../../types/enums/insights/latest";

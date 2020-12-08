@@ -8,3 +8,6 @@ export * from "./getMachineExtension";
 export * from "./guestConfigurationHCRPAssignment";
 export * from "./machine";
 export * from "./machineExtension";
+
+// Export enums:
+export * from "../../types/enums/hybridcompute/latest";

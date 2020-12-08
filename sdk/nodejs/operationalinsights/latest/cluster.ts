@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -175,7 +175,7 @@ export interface ClusterArgs {
     /**
      * Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
      */
-    readonly billingType?: pulumi.Input<string>;
+    readonly billingType?: pulumi.Input<string | enums.operationalinsights.latest.BillingType>;
     /**
      * The name of the Log Analytics cluster.
      */

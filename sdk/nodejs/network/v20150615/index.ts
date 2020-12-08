@@ -34,3 +34,6 @@ export * from "./subnet";
 export * from "./virtualNetwork";
 export * from "./virtualNetworkGateway";
 export * from "./virtualNetworkGatewayConnection";
+
+// Export enums:
+export * from "../../types/enums/network/v20150615";

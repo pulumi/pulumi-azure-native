@@ -6,3 +6,6 @@ export * from "./application";
 export * from "./applicationDefinition";
 export * from "./getApplication";
 export * from "./getApplicationDefinition";
+
+// Export enums:
+export * from "../../types/enums/solutions/v20180601";

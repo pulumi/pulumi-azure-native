@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getPrivateEndpointConnection";
 export * from "./privateEndpointConnection";
+
+// Export enums:
+export * from "../../types/enums/recoveryservices/v20200202";

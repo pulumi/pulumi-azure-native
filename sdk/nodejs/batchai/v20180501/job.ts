@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -359,7 +359,7 @@ export interface JobArgs {
     /**
      * Scheduling priority associated with the job. Possible values: low, normal, high.
      */
-    readonly schedulingPriority?: pulumi.Input<string>;
+    readonly schedulingPriority?: pulumi.Input<string | enums.batchai.v20180501.JobPriority>;
     /**
      * A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
      */

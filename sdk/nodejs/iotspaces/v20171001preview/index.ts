@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getIoTSpace";
 export * from "./ioTSpace";
+
+// Export enums:
+export * from "../../types/enums/iotspaces/v20171001preview";

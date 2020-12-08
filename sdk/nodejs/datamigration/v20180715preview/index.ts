@@ -12,3 +12,6 @@ export * from "./project";
 export * from "./service";
 export * from "./serviceTask";
 export * from "./task";
+
+// Export enums:
+export * from "../../types/enums/datamigration/v20180715preview";

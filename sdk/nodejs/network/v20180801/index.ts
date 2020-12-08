@@ -100,3 +100,6 @@ export * from "./virtualWan";
 export * from "./vpnConnection";
 export * from "./vpnGateway";
 export * from "./vpnSite";
+
+// Export enums:
+export * from "../../types/enums/network/v20180801";

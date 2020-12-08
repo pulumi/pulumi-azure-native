@@ -9,3 +9,6 @@ export * from "./getApplication";
 export * from "./getApplicationPackage";
 export * from "./getBatchAccount";
 export * from "./listBatchAccountKeys";
+
+// Export enums:
+export * from "../../types/enums/batch/v20170101";

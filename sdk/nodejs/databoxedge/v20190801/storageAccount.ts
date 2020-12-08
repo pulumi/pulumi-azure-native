@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -127,7 +128,7 @@ export interface StorageAccountArgs {
     /**
      * Data policy of the storage Account.
      */
-    readonly dataPolicy?: pulumi.Input<string>;
+    readonly dataPolicy?: pulumi.Input<string | enums.databoxedge.v20190801.DataPolicy>;
     /**
      * Description for the storage Account.
      */
@@ -151,5 +152,5 @@ export interface StorageAccountArgs {
     /**
      * Current status of the storage account
      */
-    readonly storageAccountStatus?: pulumi.Input<string>;
+    readonly storageAccountStatus?: pulumi.Input<string | enums.databoxedge.v20190801.StorageAccountStatus>;
 }

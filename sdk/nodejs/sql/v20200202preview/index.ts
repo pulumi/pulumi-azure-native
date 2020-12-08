@@ -12,3 +12,6 @@ export * from "./managedInstance";
 export * from "./managedInstanceAzureADOnlyAuthentication";
 export * from "./serverAzureADOnlyAuthentication";
 export * from "./serverTrustGroup";
+
+// Export enums:
+export * from "../../types/enums/sql/v20200202preview";

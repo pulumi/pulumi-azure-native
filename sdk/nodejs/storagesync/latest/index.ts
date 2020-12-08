@@ -14,3 +14,6 @@ export * from "./registeredServer";
 export * from "./serverEndpoint";
 export * from "./storageSyncService";
 export * from "./syncGroup";
+
+// Export enums:
+export * from "../../types/enums/storagesync/latest";

@@ -6,3 +6,6 @@ export * from "./account";
 export * from "./extension";
 export * from "./getAccount";
 export * from "./getExtension";
+
+// Export enums:
+export * from "../../types/enums/visualstudio/v20140401preview";

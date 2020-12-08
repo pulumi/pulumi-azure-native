@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -150,7 +150,7 @@ export interface WorkspaceArgs {
     /**
      * The provisioning state of the workspace.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<string | enums.operationalinsights.v20151101preview.EntityStatus>;
     /**
      * The resource group name of the workspace.
      */

@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getMaintenanceConfiguration";
 export * from "./maintenanceConfiguration";
+
+// Export enums:
+export * from "../../types/enums/maintenance/v20200701preview";

@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getServerDetails";
 export * from "./serverDetails";
+
+// Export enums:
+export * from "../../types/enums/analysisservices/v20160516";

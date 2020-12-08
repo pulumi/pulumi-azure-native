@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -219,7 +219,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
      */
-    readonly connectionType: pulumi.Input<string>;
+    readonly connectionType: pulumi.Input<string | enums.network.v20180401.VirtualNetworkGatewayConnectionType>;
     /**
      * EnableBgp flag
      */

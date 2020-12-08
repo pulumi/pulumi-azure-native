@@ -4,3 +4,6 @@
 // Export members:
 export * from "./export";
 export * from "./getExport";
+
+// Export enums:
+export * from "../../types/enums/costmanagement/v20191001";

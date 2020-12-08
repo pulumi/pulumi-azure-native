@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getOrganization";
 export * from "./organization";
+
+// Export enums:
+export * from "../../types/enums/confluent/v20200301preview";

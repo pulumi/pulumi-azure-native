@@ -16,3 +16,6 @@ export * from "./getDatabase";
 export * from "./getDatabasePrincipalAssignment";
 export * from "./listClusterFollowerDatabases";
 export * from "./listDatabasePrincipals";
+
+// Export enums:
+export * from "../../types/enums/kusto/v20191109";

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -128,7 +128,7 @@ export interface EnterpriseChannelArgs {
     /**
      * Required. Gets or sets the Kind of the resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<string | enums.botservice.latest.Kind>;
     /**
      * Specifies the location of the resource.
      */

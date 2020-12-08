@@ -4,3 +4,6 @@
 // Export members:
 export * from "./configurationProfileAssignment";
 export * from "./getConfigurationProfileAssignment";
+
+// Export enums:
+export * from "../../types/enums/compute/v20200630preview";

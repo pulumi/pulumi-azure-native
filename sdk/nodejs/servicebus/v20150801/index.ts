@@ -17,3 +17,6 @@ export * from "./queueAuthorizationRule";
 export * from "./subscription";
 export * from "./topic";
 export * from "./topicAuthorizationRule";
+
+// Export enums:
+export * from "../../types/enums/servicebus/v20150801";

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -159,7 +159,7 @@ export interface ScalingPlanArgs {
     /**
      * HostPool type for scaling plan.
      */
-    readonly hostPoolType?: pulumi.Input<string>;
+    readonly hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.v20201110preview.HostPoolType>;
     /**
      * The geo-location where the resource lives
      */

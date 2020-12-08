@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -123,7 +123,7 @@ export interface PrivateLinkScopeArgs {
     /**
      * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.hybridcompute.v20200815preview.PublicNetworkAccessType>;
     /**
      * The name of the resource group.
      */

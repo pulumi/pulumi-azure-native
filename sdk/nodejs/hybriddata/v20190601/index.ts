@@ -8,3 +8,6 @@ export * from "./getDataManager";
 export * from "./getDataStore";
 export * from "./getJobDefinition";
 export * from "./jobDefinition";
+
+// Export enums:
+export * from "../../types/enums/hybriddata/v20190601";

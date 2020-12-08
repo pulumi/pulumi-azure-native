@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -165,7 +166,7 @@ export interface MultipleActivationKeyArgs {
     /**
      * Type of OS for which the key is requested.
      */
-    readonly osType?: pulumi.Input<string>;
+    readonly osType?: pulumi.Input<string | enums.windowsesu.v20190916preview.OsType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -173,7 +174,7 @@ export interface MultipleActivationKeyArgs {
     /**
      * Type of support
      */
-    readonly supportType?: pulumi.Input<string>;
+    readonly supportType?: pulumi.Input<string | enums.windowsesu.v20190916preview.SupportType>;
     /**
      * Resource tags.
      */

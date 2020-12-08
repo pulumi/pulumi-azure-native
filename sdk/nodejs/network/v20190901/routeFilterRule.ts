@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -131,7 +132,7 @@ export interface RouteFilterRuleArgs {
     /**
      * The access type of the rule.
      */
-    readonly access: pulumi.Input<string>;
+    readonly access: pulumi.Input<string | enums.network.v20190901.Access>;
     /**
      * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
      */
@@ -159,7 +160,7 @@ export interface RouteFilterRuleArgs {
     /**
      * The rule type of the rule.
      */
-    readonly routeFilterRuleType: pulumi.Input<string>;
+    readonly routeFilterRuleType: pulumi.Input<string | enums.network.v20190901.RouteFilterRuleType>;
     /**
      * The name of the route filter rule.
      */

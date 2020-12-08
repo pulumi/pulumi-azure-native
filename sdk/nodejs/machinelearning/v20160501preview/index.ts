@@ -6,3 +6,6 @@ export * from "./commitmentPlan";
 export * from "./getCommitmentPlan";
 export * from "./getWebService";
 export * from "./webService";
+
+// Export enums:
+export * from "../../types/enums/machinelearning/v20160501preview";

@@ -6,3 +6,6 @@ export * from "./getJob";
 export * from "./getJobCollection";
 export * from "./job";
 export * from "./jobCollection";
+
+// Export enums:
+export * from "../../types/enums/scheduler/latest";

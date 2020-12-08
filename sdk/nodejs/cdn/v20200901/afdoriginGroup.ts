@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -161,7 +161,7 @@ export interface AFDOriginGroupArgs {
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */
-    readonly sessionAffinityState?: pulumi.Input<string>;
+    readonly sessionAffinityState?: pulumi.Input<string | enums.cdn.v20200901.EnabledState>;
     /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */

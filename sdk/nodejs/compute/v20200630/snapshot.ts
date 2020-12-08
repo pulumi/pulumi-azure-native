@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -222,7 +222,7 @@ export interface SnapshotArgs {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: pulumi.Input<string>;
+    readonly hyperVGeneration?: pulumi.Input<string | enums.compute.v20200630.HyperVGeneration>;
     /**
      * Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
      */
@@ -234,11 +234,11 @@ export interface SnapshotArgs {
     /**
      * Policy for accessing the disk via network.
      */
-    readonly networkAccessPolicy?: pulumi.Input<string>;
+    readonly networkAccessPolicy?: pulumi.Input<string | enums.compute.v20200630.NetworkAccessPolicy>;
     /**
      * The Operating System type.
      */
-    readonly osType?: pulumi.Input<string>;
+    readonly osType?: pulumi.Input<enums.compute.v20200630.OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */

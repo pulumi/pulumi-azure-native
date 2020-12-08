@@ -8,3 +8,6 @@ export * from "./getArtifact";
 export * from "./getBlueprint";
 export * from "./getPublishedBlueprint";
 export * from "./publishedBlueprint";
+
+// Export enums:
+export * from "../../types/enums/management/v20171111preview";

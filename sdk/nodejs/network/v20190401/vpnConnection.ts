@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -243,5 +243,5 @@ export interface VpnConnectionArgs {
     /**
      * Connection protocol used for this connection.
      */
-    readonly vpnConnectionProtocolType?: pulumi.Input<string>;
+    readonly vpnConnectionProtocolType?: pulumi.Input<string | enums.network.v20190401.VirtualNetworkGatewayConnectionProtocol>;
 }

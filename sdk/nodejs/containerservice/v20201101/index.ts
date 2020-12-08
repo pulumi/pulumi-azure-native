@@ -11,3 +11,6 @@ export * from "./listManagedClusterMonitoringUserCredentials";
 export * from "./listManagedClusterUserCredentials";
 export * from "./managedCluster";
 export * from "./privateEndpointConnection";
+
+// Export enums:
+export * from "../../types/enums/containerservice/v20201101";

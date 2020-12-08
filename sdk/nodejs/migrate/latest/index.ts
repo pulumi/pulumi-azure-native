@@ -12,3 +12,6 @@ export * from "./group";
 export * from "./hyperVCollector";
 export * from "./project";
 export * from "./vmwareCollector";
+
+// Export enums:
+export * from "../../types/enums/migrate/latest";

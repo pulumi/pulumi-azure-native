@@ -15,3 +15,6 @@ export * from "./listDomainSharedAccessKeys";
 export * from "./listTopicSharedAccessKeys";
 export * from "./privateEndpointConnection";
 export * from "./topic";
+
+// Export enums:
+export * from "../../types/enums/eventgrid/v20200601";

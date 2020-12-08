@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -173,7 +173,7 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * The kind of the entity.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.securityinsights.v20190101preview.ThreatIntelligenceResourceKind>;
     /**
      * Labels  of threat intelligence entity
      */

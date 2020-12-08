@@ -15,3 +15,6 @@ export * from "./network";
 export * from "./secret";
 export * from "./secretValue";
 export * from "./volume";
+
+// Export enums:
+export * from "../../types/enums/servicefabricmesh/v20180901preview";

@@ -14,3 +14,6 @@ export * from "./getVirtualNetworkRule";
 export * from "./privateEndpointConnection";
 export * from "./server";
 export * from "./virtualNetworkRule";
+
+// Export enums:
+export * from "../../types/enums/dbformariadb/v20180601";

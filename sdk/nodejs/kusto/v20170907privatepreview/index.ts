@@ -9,3 +9,6 @@ export * from "./getCluster";
 export * from "./getDatabase";
 export * from "./getEventHubConnection";
 export * from "./listDatabasePrincipals";
+
+// Export enums:
+export * from "../../types/enums/kusto/v20170907privatepreview";

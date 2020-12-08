@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -195,7 +195,7 @@ export interface ServiceArgs {
     /**
      * Specifies the move cost for the service.
      */
-    readonly defaultMoveCost?: pulumi.Input<string>;
+    readonly defaultMoveCost?: pulumi.Input<string | enums.servicefabric.v20191101preview.MoveCost>;
     /**
      * It will be deprecated in New API, resource location depends on the parent resource.
      */
@@ -219,7 +219,7 @@ export interface ServiceArgs {
     /**
      * The kind of service (Stateless or Stateful).
      */
-    readonly serviceKind: pulumi.Input<string>;
+    readonly serviceKind: pulumi.Input<string | enums.servicefabric.v20191101preview.ServiceKind>;
     /**
      * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
      */
@@ -231,7 +231,7 @@ export interface ServiceArgs {
     /**
      * The activation Mode of the service package
      */
-    readonly servicePackageActivationMode?: pulumi.Input<string>;
+    readonly servicePackageActivationMode?: pulumi.Input<string | enums.servicefabric.v20191101preview.ArmServicePackageActivationMode>;
     /**
      * A list that describes the correlation of the service with other services.
      */

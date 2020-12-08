@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getWebTest";
 export * from "./webTest";
+
+// Export enums:
+export * from "../../types/enums/insights/v20201005preview";

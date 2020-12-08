@@ -7,3 +7,6 @@ export * from "./getWorkspace";
 export * from "./listWorkspaceKeys";
 export * from "./webService";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/machinelearning/latest";

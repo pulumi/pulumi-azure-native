@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getPrivateStoreOffer";
 export * from "./privateStoreOffer";
+
+// Export enums:
+export * from "../../types/enums/marketplace/latest";

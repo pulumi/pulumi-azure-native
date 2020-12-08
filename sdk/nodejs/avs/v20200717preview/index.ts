@@ -21,3 +21,6 @@ export * from "./workloadNetworkDhcp";
 export * from "./workloadNetworkPortMirroring";
 export * from "./workloadNetworkSegment";
 export * from "./workloadNetworkVMGroup";
+
+// Export enums:
+export * from "../../types/enums/avs/v20200717preview";

@@ -19,3 +19,6 @@ export * from "./listNamespaceKeys";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./namespaceNetworkRuleSet";
+
+// Export enums:
+export * from "../../types/enums/eventhub/latest";

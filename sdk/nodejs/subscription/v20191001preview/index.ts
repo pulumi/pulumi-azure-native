@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getSubscriptionAlias";
 export * from "./subscriptionAlias";
+
+// Export enums:
+export * from "../../types/enums/subscription/v20191001preview";

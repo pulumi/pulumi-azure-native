@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -110,7 +111,7 @@ export interface AlertRuleArgs {
     /**
      * The alert rule kind
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.operationalinsights.latest.AlertRuleKind>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

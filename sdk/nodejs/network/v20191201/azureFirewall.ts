@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -243,7 +243,7 @@ export interface AzureFirewallArgs {
     /**
      * The operation mode for Threat Intelligence.
      */
-    readonly threatIntelMode?: pulumi.Input<string>;
+    readonly threatIntelMode?: pulumi.Input<string | enums.network.v20191201.AzureFirewallThreatIntelMode>;
     /**
      * The virtualHub to which the firewall belongs.
      */

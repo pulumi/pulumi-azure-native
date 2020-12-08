@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -193,7 +193,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
      */
-    readonly gatewayType?: pulumi.Input<string>;
+    readonly gatewayType?: pulumi.Input<string | enums.network.v20170801.VirtualNetworkGatewayType>;
     /**
      * Resource ID.
      */
@@ -233,5 +233,5 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
      */
-    readonly vpnType?: pulumi.Input<string>;
+    readonly vpnType?: pulumi.Input<string | enums.network.v20170801.VpnType>;
 }

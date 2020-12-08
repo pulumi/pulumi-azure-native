@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -120,7 +120,7 @@ export interface StorageDomainArgs {
     /**
      * The encryption status "Enabled | Disabled".
      */
-    readonly encryptionStatus: pulumi.Input<string>;
+    readonly encryptionStatus: pulumi.Input<enums.storsimple.v20161001.EncryptionStatus>;
     /**
      * The manager name
      */

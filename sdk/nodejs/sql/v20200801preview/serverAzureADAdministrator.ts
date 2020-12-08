@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -134,7 +135,7 @@ export interface ServerAzureADAdministratorArgs {
     /**
      * Type of the sever administrator.
      */
-    readonly administratorType: pulumi.Input<string>;
+    readonly administratorType: pulumi.Input<string | enums.sql.v20200801preview.AdministratorType>;
     /**
      * Login name of the server administrator.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -178,7 +178,7 @@ export interface ScheduleResourceArgs {
     /**
      * The status of the schedule.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.devtestlab.v20150521preview.EnableStatus>;
     /**
      * The tags of the resource.
      */
@@ -186,7 +186,7 @@ export interface ScheduleResourceArgs {
     /**
      * The task type of the schedule.
      */
-    readonly taskType?: pulumi.Input<string>;
+    readonly taskType?: pulumi.Input<string | enums.devtestlab.v20150521preview.TaskType>;
     /**
      * The time zone id.
      */

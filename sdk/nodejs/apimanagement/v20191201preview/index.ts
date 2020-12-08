@@ -82,3 +82,6 @@ export * from "./tagByApi";
 export * from "./tagByOperation";
 export * from "./tagByProduct";
 export * from "./user";
+
+// Export enums:
+export * from "../../types/enums/apimanagement/v20191201preview";

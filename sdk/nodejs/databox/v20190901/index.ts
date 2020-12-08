@@ -5,3 +5,6 @@
 export * from "./getJob";
 export * from "./job";
 export * from "./listJobCredentials";
+
+// Export enums:
+export * from "../../types/enums/databox/v20190901";

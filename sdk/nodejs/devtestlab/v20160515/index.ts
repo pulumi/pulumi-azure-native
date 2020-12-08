@@ -37,3 +37,6 @@ export * from "./user";
 export * from "./virtualMachine";
 export * from "./virtualMachineSchedule";
 export * from "./virtualNetwork";
+
+// Export enums:
+export * from "../../types/enums/devtestlab/v20160515";

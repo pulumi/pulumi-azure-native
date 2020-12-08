@@ -119,3 +119,6 @@ export * from "./webAppSwiftVirtualNetworkConnection";
 export * from "./webAppSwiftVirtualNetworkConnectionSlot";
 export * from "./webAppVnetConnection";
 export * from "./webAppVnetConnectionSlot";
+
+// Export enums:
+export * from "../../types/enums/web/latest";

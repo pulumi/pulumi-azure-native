@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -172,7 +173,7 @@ export interface ElasticPoolArgs {
     /**
      * The edition of the elastic pool.
      */
-    readonly edition?: pulumi.Input<string>;
+    readonly edition?: pulumi.Input<string | enums.sql.v20140401.ElasticPoolEdition>;
     /**
      * The name of the elastic pool to be operated on (updated or created).
      */

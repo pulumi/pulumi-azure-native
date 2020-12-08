@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getVirtualMachineImageTemplate";
 export * from "./virtualMachineImageTemplate";
+
+// Export enums:
+export * from "../../types/enums/virtualmachineimages/v20190501preview";

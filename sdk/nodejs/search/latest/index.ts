@@ -10,3 +10,6 @@ export * from "./listQueryKeyBySearchService";
 export * from "./privateEndpointConnection";
 export * from "./service";
 export * from "./sharedPrivateLinkResource";
+
+// Export enums:
+export * from "../../types/enums/search/latest";

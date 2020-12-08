@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -120,7 +121,7 @@ export interface AccessControlRecordArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<enums.storsimple.latest.Kind>;
     /**
      * The manager name
      */

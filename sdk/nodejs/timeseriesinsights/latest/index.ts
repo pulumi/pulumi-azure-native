@@ -10,3 +10,6 @@ export * from "./getEnvironment";
 export * from "./getEventSource";
 export * from "./getReferenceDataSet";
 export * from "./referenceDataSet";
+
+// Export enums:
+export * from "../../types/enums/timeseriesinsights/latest";

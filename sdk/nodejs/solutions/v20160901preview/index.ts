@@ -6,3 +6,6 @@ export * from "./appliance";
 export * from "./applianceDefinition";
 export * from "./getAppliance";
 export * from "./getApplianceDefinition";
+
+// Export enums:
+export * from "../../types/enums/solutions/v20160901preview";

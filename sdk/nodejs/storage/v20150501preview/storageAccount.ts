@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -173,7 +173,7 @@ export interface StorageAccountArgs {
     /**
      * Gets or sets the account type.
      */
-    readonly accountType?: pulumi.Input<string>;
+    readonly accountType?: pulumi.Input<enums.storage.v20150501preview.AccountType>;
     /**
      * Resource location
      */

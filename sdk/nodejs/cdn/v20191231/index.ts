@@ -13,3 +13,6 @@ export * from "./getProfileSupportedOptimizationTypes";
 export * from "./origin";
 export * from "./originGroup";
 export * from "./profile";
+
+// Export enums:
+export * from "../../types/enums/cdn/v20191231";

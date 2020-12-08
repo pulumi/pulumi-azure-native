@@ -8,3 +8,6 @@ export * from "./getTask";
 export * from "./project";
 export * from "./service";
 export * from "./task";
+
+// Export enums:
+export * from "../../types/enums/datamigration/v20180331preview";

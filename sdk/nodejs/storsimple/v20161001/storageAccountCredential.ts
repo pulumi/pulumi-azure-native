@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -144,7 +144,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * The cloud service provider
      */
-    readonly cloudType: pulumi.Input<string>;
+    readonly cloudType: pulumi.Input<enums.storsimple.v20161001.CloudType>;
     /**
      * The credential name.
      */
@@ -152,7 +152,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * SSL needs to be enabled or not
      */
-    readonly enableSSL: pulumi.Input<string>;
+    readonly enableSSL: pulumi.Input<enums.storsimple.v20161001.SslStatus>;
     /**
      * The storage endpoint
      */

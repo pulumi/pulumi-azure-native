@@ -33,3 +33,6 @@ export * from "./sqlResourceSqlStoredProcedure";
 export * from "./sqlResourceSqlTrigger";
 export * from "./sqlResourceSqlUserDefinedFunction";
 export * from "./tableResourceTable";
+
+// Export enums:
+export * from "../../types/enums/documentdb/v20200901";

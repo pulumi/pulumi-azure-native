@@ -6,3 +6,6 @@ export * from "./domain";
 export * from "./getDomain";
 export * from "./listGlobalDomainRegistrationDomainRecommendations";
 export * from "./listTopLevelDomainAgreements";
+
+// Export enums:
+export * from "../../types/enums/domainregistration/v20150801";

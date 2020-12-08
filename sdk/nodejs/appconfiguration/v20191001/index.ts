@@ -5,3 +5,6 @@
 export * from "./configurationStore";
 export * from "./getConfigurationStore";
 export * from "./listConfigurationStoreKeyValue";
+
+// Export enums:
+export * from "../../types/enums/appconfiguration/v20191001";

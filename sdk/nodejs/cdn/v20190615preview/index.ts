@@ -11,3 +11,6 @@ export * from "./getProfile";
 export * from "./getProfileSupportedOptimizationTypes";
 export * from "./policy";
 export * from "./profile";
+
+// Export enums:
+export * from "../../types/enums/cdn/v20190615preview";

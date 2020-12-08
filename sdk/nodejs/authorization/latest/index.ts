@@ -20,3 +20,6 @@ export * from "./policyDefinition";
 export * from "./policySetDefinition";
 export * from "./roleAssignment";
 export * from "./roleDefinition";
+
+// Export enums:
+export * from "../../types/enums/authorization/latest";

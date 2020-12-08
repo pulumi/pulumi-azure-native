@@ -8,3 +8,6 @@ export * from "./getResource";
 export * from "./getResourceGroup";
 export * from "./resource";
 export * from "./resourceGroup";
+
+// Export enums:
+export * from "../../types/enums/resources/v20180201";

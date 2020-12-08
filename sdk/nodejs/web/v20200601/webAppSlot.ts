@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -368,7 +368,7 @@ export interface WebAppSlotArgs {
      * - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
      * - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
      */
-    readonly clientCertMode?: pulumi.Input<string>;
+    readonly clientCertMode?: pulumi.Input<enums.web.v20200601.ClientCertMode>;
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
@@ -434,7 +434,7 @@ export interface WebAppSlotArgs {
     /**
      * Site redundancy mode
      */
-    readonly redundancyMode?: pulumi.Input<string>;
+    readonly redundancyMode?: pulumi.Input<enums.web.v20200601.RedundancyMode>;
     /**
      * <code>true</code> if reserved; otherwise, <code>false</code>.
      */

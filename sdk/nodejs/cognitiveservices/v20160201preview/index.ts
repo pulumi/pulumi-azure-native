@@ -5,3 +5,6 @@
 export * from "./cognitiveServicesAccount";
 export * from "./getCognitiveServicesAccount";
 export * from "./listCognitiveServicesAccountKeys";
+
+// Export enums:
+export * from "../../types/enums/cognitiveservices/v20160201preview";

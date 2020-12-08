@@ -15,3 +15,6 @@ export * from "./machineLearningCompute";
 export * from "./machineLearningService";
 export * from "./privateEndpointConnection";
 export * from "./workspace";
+
+// Export enums:
+export * from "../../types/enums/machinelearningservices/v20200515preview";

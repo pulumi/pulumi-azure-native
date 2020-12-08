@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -211,7 +211,7 @@ export interface DatabaseAccountArgs {
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
-    readonly connectorOffer?: pulumi.Input<string>;
+    readonly connectorOffer?: pulumi.Input<string | enums.documentdb.v20150408.ConnectorOffer>;
     /**
      * The consistency policy for the Cosmos DB account.
      */
@@ -219,7 +219,7 @@ export interface DatabaseAccountArgs {
     /**
      * The offer type for the database
      */
-    readonly databaseAccountOfferType: pulumi.Input<string>;
+    readonly databaseAccountOfferType: pulumi.Input<enums.documentdb.v20150408.DatabaseAccountOfferType>;
     /**
      * Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
      */
@@ -243,7 +243,7 @@ export interface DatabaseAccountArgs {
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<string | enums.documentdb.v20150408.DatabaseAccountKind>;
     /**
      * The location of the resource group to which the resource belongs.
      */

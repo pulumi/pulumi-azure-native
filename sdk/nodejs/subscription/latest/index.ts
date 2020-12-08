@@ -4,3 +4,6 @@
 // Export members:
 export * from "./alias";
 export * from "./getAlias";
+
+// Export enums:
+export * from "../../types/enums/subscription/latest";

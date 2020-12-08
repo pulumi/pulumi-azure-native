@@ -8,3 +8,6 @@ export * from "./getView";
 export * from "./getViewByScope";
 export * from "./view";
 export * from "./viewByScope";
+
+// Export enums:
+export * from "../../types/enums/costmanagement/v20191101";

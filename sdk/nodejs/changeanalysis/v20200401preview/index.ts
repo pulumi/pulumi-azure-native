@@ -4,3 +4,6 @@
 // Export members:
 export * from "./configurationProfile";
 export * from "./getConfigurationProfile";
+
+// Export enums:
+export * from "../../types/enums/changeanalysis/v20200401preview";

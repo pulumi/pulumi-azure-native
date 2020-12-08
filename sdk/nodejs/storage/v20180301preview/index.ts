@@ -13,3 +13,6 @@ export * from "./listStorageAccountKeys";
 export * from "./managementPolicy";
 export * from "./storageAccount";
 export * from "./storageAccountManagementPolicies";
+
+// Export enums:
+export * from "../../types/enums/storage/v20180301preview";

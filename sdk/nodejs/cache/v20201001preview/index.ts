@@ -9,3 +9,6 @@ export * from "./getRedisEnterprise";
 export * from "./listDatabaseKeys";
 export * from "./privateEndpointConnection";
 export * from "./redisEnterprise";
+
+// Export enums:
+export * from "../../types/enums/cache/v20201001preview";

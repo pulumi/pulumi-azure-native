@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -115,7 +116,7 @@ export interface AccountArgs {
     /**
      * The type of the operation.
      */
-    readonly operationType?: pulumi.Input<string>;
+    readonly operationType?: pulumi.Input<string | enums.visualstudio.v20171101preview.AccountResourceRequestOperationType>;
     /**
      * The custom properties of the resource.
      */

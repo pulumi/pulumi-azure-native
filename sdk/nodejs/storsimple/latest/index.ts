@@ -39,3 +39,6 @@ export * from "./storageAccountCredential";
 export * from "./storageDomain";
 export * from "./volume";
 export * from "./volumeContainer";
+
+// Export enums:
+export * from "../../types/enums/storsimple/latest";

@@ -7,3 +7,6 @@ export * from "./getCluster";
 export * from "./getPrivateCloud";
 export * from "./listPrivateCloudAdminCredentials";
 export * from "./privateCloud";
+
+// Export enums:
+export * from "../../types/enums/avs/v20190809preview";

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -171,7 +171,7 @@ export interface EnvironmentSettingArgs {
     /**
      * Describes the user's progress in configuring their environment setting
      */
-    readonly configurationState?: pulumi.Input<string>;
+    readonly configurationState?: pulumi.Input<string | enums.labservices.latest.ConfigurationState>;
     /**
      * Describes the environment and its resource settings
      */

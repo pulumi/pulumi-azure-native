@@ -10,3 +10,6 @@ export * from "./getBuildTask";
 export * from "./getRegistryBuildSourceUploadUrl";
 export * from "./listBuildStepBuildArguments";
 export * from "./listBuildTaskSourceRepositoryProperties";
+
+// Export enums:
+export * from "../../types/enums/containerregistry/v20180201preview";

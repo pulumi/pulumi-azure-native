@@ -5,3 +5,6 @@
 export * from "./controller";
 export * from "./getController";
 export * from "./listControllerConnectionDetails";
+
+// Export enums:
+export * from "../../types/enums/devspaces/v20190401";

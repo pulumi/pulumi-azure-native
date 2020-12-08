@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -136,7 +137,7 @@ export interface ManagedInstanceKeyArgs {
     /**
      * The key type like 'ServiceManaged', 'AzureKeyVault'.
      */
-    readonly serverKeyType: pulumi.Input<string>;
+    readonly serverKeyType: pulumi.Input<string | enums.sql.v20200801preview.ServerKeyType>;
     /**
      * The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
      */

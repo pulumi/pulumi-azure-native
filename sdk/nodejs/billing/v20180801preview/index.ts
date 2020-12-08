@@ -6,3 +6,6 @@ export * from "./getReportByBillingAccount";
 export * from "./getReportByDepartment";
 export * from "./reportByBillingAccount";
 export * from "./reportByDepartment";
+
+// Export enums:
+export * from "../../types/enums/billing/v20180801preview";

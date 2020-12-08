@@ -20,3 +20,6 @@ export * from "./syncAgent";
 export * from "./syncGroup";
 export * from "./syncMember";
 export * from "./virtualNetworkRule";
+
+// Export enums:
+export * from "../../types/enums/sql/v20150501preview";

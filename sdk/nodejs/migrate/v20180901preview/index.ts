@@ -7,3 +7,6 @@ export * from "./getSolution";
 export * from "./getSolutionConfig";
 export * from "./migrateProject";
 export * from "./solution";
+
+// Export enums:
+export * from "../../types/enums/migrate/v20180901preview";

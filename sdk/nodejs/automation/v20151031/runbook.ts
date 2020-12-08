@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -247,7 +247,7 @@ export interface RunbookArgs {
     /**
      * Gets or sets the type of the runbook.
      */
-    readonly runbookType: pulumi.Input<string>;
+    readonly runbookType: pulumi.Input<string | enums.automation.v20151031.RunbookTypeEnum>;
     /**
      * Gets or sets the tags attached to the resource.
      */

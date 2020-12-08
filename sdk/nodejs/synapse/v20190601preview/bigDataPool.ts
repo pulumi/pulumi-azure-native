@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -240,11 +240,11 @@ export interface BigDataPoolArgs {
     /**
      * The level of compute power that each node in the Big Data pool has.
      */
-    readonly nodeSize?: pulumi.Input<string>;
+    readonly nodeSize?: pulumi.Input<string | enums.synapse.v20190601preview.NodeSize>;
     /**
      * The kind of nodes that the Big Data pool provides.
      */
-    readonly nodeSizeFamily?: pulumi.Input<string>;
+    readonly nodeSizeFamily?: pulumi.Input<string | enums.synapse.v20190601preview.NodeSizeFamily>;
     /**
      * The state of the Big Data pool.
      */

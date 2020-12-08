@@ -10,3 +10,6 @@ export * from "./getVirtualMachineScaleSet";
 export * from "./virtualMachine";
 export * from "./virtualMachineExtension";
 export * from "./virtualMachineScaleSet";
+
+// Export enums:
+export * from "../../types/enums/compute/v20150615";

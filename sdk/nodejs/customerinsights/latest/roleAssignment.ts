@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -273,7 +273,7 @@ export interface RoleAssignmentArgs {
     /**
      * Type of roles.
      */
-    readonly role: pulumi.Input<string>;
+    readonly role: pulumi.Input<enums.customerinsights.latest.RoleTypes>;
     /**
      * The Role assignments set for the assignment.
      */

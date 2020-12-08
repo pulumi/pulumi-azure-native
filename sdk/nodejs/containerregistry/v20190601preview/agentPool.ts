@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -154,7 +154,7 @@ export interface AgentPoolArgs {
     /**
      * The OS of agent machine
      */
-    readonly os?: pulumi.Input<string>;
+    readonly os?: pulumi.Input<string | enums.containerregistry.v20190601preview.OS>;
     /**
      * The name of the container registry.
      */

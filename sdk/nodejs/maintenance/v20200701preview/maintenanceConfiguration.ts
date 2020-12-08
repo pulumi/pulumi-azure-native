@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -169,7 +170,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Gets or sets maintenanceScope of the configuration
      */
-    readonly maintenanceScope?: pulumi.Input<string>;
+    readonly maintenanceScope?: pulumi.Input<string | enums.maintenance.v20200701preview.MaintenanceScope>;
     /**
      * Gets or sets namespace of the resource
      */
@@ -201,5 +202,5 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Gets or sets the visibility of the configuration
      */
-    readonly visibility?: pulumi.Input<string>;
+    readonly visibility?: pulumi.Input<string | enums.maintenance.v20200701preview.Visibility>;
 }

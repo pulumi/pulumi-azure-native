@@ -10,3 +10,6 @@ export * from "./getAlertsSuppressionRule";
 export * from "./getAssessment";
 export * from "./getAssessmentsMetadataSubscription";
 export * from "./getAutomation";
+
+// Export enums:
+export * from "../../types/enums/security/v20190101preview";

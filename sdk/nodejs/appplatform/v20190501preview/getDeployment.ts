@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
@@ -52,6 +52,10 @@ export interface GetDeploymentResult {
      * Properties of the Deployment resource
      */
     readonly properties: outputs.appplatform.v20190501preview.DeploymentResourcePropertiesResponse;
+    /**
+     * Sku of the Deployment resource
+     */
+    readonly sku?: outputs.appplatform.v20190501preview.SkuResponse;
     /**
      * The type of the resource.
      */

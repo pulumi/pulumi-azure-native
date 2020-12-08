@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -197,7 +198,7 @@ export interface ProjectArgs {
     /**
      * Provisioning state of the project.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<string | enums.migrate.v20180202.ProvisioningState>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

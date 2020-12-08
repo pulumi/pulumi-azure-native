@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -148,7 +148,7 @@ export interface PolicyExemptionArgs {
     /**
      * The policy exemption category. Possible values are Waiver and Mitigated.
      */
-    readonly exemptionCategory: pulumi.Input<string>;
+    readonly exemptionCategory: pulumi.Input<string | enums.authorization.v20200701preview.ExemptionCategory>;
     /**
      * The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
      */

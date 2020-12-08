@@ -6,3 +6,6 @@ export * from "./getMyWorkbook";
 export * from "./getWorkbook";
 export * from "./myWorkbook";
 export * from "./workbook";
+
+// Export enums:
+export * from "../../types/enums/insights/v20201020";

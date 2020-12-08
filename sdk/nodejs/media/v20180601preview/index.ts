@@ -27,3 +27,6 @@ export * from "./streamingEndpoint";
 export * from "./streamingLocator";
 export * from "./streamingPolicy";
 export * from "./transform";
+
+// Export enums:
+export * from "../../types/enums/media/v20180601preview";

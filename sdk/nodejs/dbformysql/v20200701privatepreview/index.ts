@@ -10,3 +10,6 @@ export * from "./getServer";
 export * from "./getServerKey";
 export * from "./server";
 export * from "./serverKey";
+
+// Export enums:
+export * from "../../types/enums/dbformysql/v20200701privatepreview";

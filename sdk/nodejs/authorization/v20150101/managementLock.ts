@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -95,7 +96,7 @@ export interface ManagementLockArgs {
     /**
      * The lock level of the management lock.
      */
-    readonly level?: pulumi.Input<string>;
+    readonly level?: pulumi.Input<string | enums.authorization.v20150101.LockLevel>;
     /**
      * The name of lock.
      */

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -147,7 +148,7 @@ export interface WCFRelayArgs {
     /**
      * WCF relay type.
      */
-    readonly relayType?: pulumi.Input<string>;
+    readonly relayType?: pulumi.Input<enums.relay.v20170401.Relaytype>;
     /**
      * Returns true if client authorization is needed for this relay; otherwise, false.
      */

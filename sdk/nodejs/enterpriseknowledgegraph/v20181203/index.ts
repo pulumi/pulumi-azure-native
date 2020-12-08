@@ -4,3 +4,6 @@
 // Export members:
 export * from "./enterpriseKnowledgeGraph";
 export * from "./getEnterpriseKnowledgeGraph";
+
+// Export enums:
+export * from "../../types/enums/enterpriseknowledgegraph/v20181203";

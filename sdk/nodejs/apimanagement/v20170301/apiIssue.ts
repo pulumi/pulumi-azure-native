@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -163,7 +164,7 @@ export interface ApiIssueArgs {
     /**
      * Status of the issue.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string | enums.apimanagement.v20170301.State>;
     /**
      * The issue title.
      */

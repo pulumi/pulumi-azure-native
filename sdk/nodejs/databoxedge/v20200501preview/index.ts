@@ -23,3 +23,6 @@ export * from "./storageAccount";
 export * from "./storageAccountCredential";
 export * from "./trigger";
 export * from "./user";
+
+// Export enums:
+export * from "../../types/enums/databoxedge/v20200501preview";

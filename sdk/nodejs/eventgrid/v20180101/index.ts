@@ -8,3 +8,6 @@ export * from "./getEventSubscriptionFullUrl";
 export * from "./getTopic";
 export * from "./listTopicSharedAccessKeys";
 export * from "./topic";
+
+// Export enums:
+export * from "../../types/enums/eventgrid/v20180101";

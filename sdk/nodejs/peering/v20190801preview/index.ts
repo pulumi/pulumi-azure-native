@@ -10,3 +10,6 @@ export * from "./peerAsn";
 export * from "./peering";
 export * from "./peeringService";
 export * from "./peeringServicePrefix";
+
+// Export enums:
+export * from "../../types/enums/peering/v20190801preview";

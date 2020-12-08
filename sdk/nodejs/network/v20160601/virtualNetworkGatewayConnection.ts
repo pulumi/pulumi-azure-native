@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -195,11 +195,11 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * Virtual network Gateway connection status
      */
-    readonly connectionStatus?: pulumi.Input<string>;
+    readonly connectionStatus?: pulumi.Input<string | enums.network.v20160601.VirtualNetworkGatewayConnectionStatus>;
     /**
      * Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
      */
-    readonly connectionType?: pulumi.Input<string>;
+    readonly connectionType?: pulumi.Input<string | enums.network.v20160601.VirtualNetworkGatewayConnectionType>;
     /**
      * The Egress Bytes Transferred in this connection
      */

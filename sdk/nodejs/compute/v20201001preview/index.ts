@@ -4,3 +4,6 @@
 // Export members:
 export * from "./cloudService";
 export * from "./getCloudService";
+
+// Export enums:
+export * from "../../types/enums/compute/v20201001preview";

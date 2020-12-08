@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -242,7 +242,7 @@ export interface TopicArgs {
     /**
      * Entity availability status for the topic.
      */
-    readonly entityAvailabilityStatus?: pulumi.Input<string>;
+    readonly entityAvailabilityStatus?: pulumi.Input<enums.servicebus.v20150801.EntityAvailabilityStatus>;
     /**
      * Whether messages should be filtered before publishing.
      */
@@ -279,7 +279,7 @@ export interface TopicArgs {
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<enums.servicebus.v20150801.EntityStatus>;
     /**
      * Value that indicates whether the topic supports ordering.
      */

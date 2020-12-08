@@ -4,3 +4,6 @@
 // Export members:
 export * from "./getWorkbook";
 export * from "./workbook";
+
+// Export enums:
+export * from "../../types/enums/insights/v20180617preview";

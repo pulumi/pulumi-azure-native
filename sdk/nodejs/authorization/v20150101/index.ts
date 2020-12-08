@@ -6,3 +6,6 @@ export * from "./getManagementLock";
 export * from "./getManagementLockAtResourceGroupLevel";
 export * from "./managementLock";
 export * from "./managementLockAtResourceGroupLevel";
+
+// Export enums:
+export * from "../../types/enums/authorization/v20150101";

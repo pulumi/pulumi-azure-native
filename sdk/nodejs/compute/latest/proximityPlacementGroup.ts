@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -145,7 +145,7 @@ export interface ProximityPlacementGroupArgs {
     /**
      * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
      */
-    readonly proximityPlacementGroupType?: pulumi.Input<string>;
+    readonly proximityPlacementGroupType?: pulumi.Input<string | enums.compute.latest.ProximityPlacementGroupType>;
     /**
      * The name of the resource group.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -128,7 +128,7 @@ export interface VendorSkusArgs {
     /**
      * The sku deployment mode.
      */
-    readonly deploymentMode?: pulumi.Input<string>;
+    readonly deploymentMode?: pulumi.Input<string | enums.hybridnetwork.v20200101preview.SkuDeploymentMode>;
     /**
      * The parameters for the managed application to be supplied by the vendor.
      */
@@ -152,7 +152,7 @@ export interface VendorSkusArgs {
     /**
      * The sku type.
      */
-    readonly skuType?: pulumi.Input<string>;
+    readonly skuType?: pulumi.Input<string | enums.hybridnetwork.v20200101preview.SkuType>;
     /**
      * The name of the vendor.
      */

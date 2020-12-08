@@ -4,3 +4,6 @@
 // Export members:
 export * from "./assignment";
 export * from "./getAssignment";
+
+// Export enums:
+export * from "../../types/enums/blueprint/v20171111preview";

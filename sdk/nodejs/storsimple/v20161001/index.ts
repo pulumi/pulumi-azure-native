@@ -25,3 +25,6 @@ export * from "./manager";
 export * from "./managerExtendedInfo";
 export * from "./storageAccountCredential";
 export * from "./storageDomain";
+
+// Export enums:
+export * from "../../types/enums/storsimple/v20161001";

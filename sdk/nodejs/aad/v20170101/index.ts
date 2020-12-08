@@ -4,3 +4,6 @@
 // Export members:
 export * from "./domainService";
 export * from "./getDomainService";
+
+// Export enums:
+export * from "../../types/enums/aad/v20170101";

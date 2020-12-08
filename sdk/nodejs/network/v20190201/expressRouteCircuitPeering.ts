@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -257,7 +257,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The peering type.
      */
-    readonly peeringType?: pulumi.Input<string>;
+    readonly peeringType?: pulumi.Input<string | enums.network.v20190201.ExpressRoutePeeringType>;
     /**
      * The primary port.
      */
@@ -293,7 +293,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The peering state.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string | enums.network.v20190201.ExpressRoutePeeringState>;
     /**
      * Gets peering stats.
      */

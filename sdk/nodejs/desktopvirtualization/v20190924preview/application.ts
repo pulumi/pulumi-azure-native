@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -166,7 +167,7 @@ export interface ApplicationArgs {
     /**
      * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
      */
-    readonly commandLineSetting: pulumi.Input<string>;
+    readonly commandLineSetting: pulumi.Input<string | enums.desktopvirtualization.v20190924preview.CommandLineSetting>;
     /**
      * Description of Application.
      */

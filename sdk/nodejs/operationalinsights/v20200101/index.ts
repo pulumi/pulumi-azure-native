@@ -12,3 +12,6 @@ export * from "./getBookmark";
 export * from "./getDataConnector";
 export * from "./getIncident";
 export * from "./incident";
+
+// Export enums:
+export * from "../../types/enums/operationalinsights/v20200101";

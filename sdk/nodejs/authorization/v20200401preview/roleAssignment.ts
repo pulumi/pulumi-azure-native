@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -47,6 +48,18 @@ export class RoleAssignment extends pulumi.CustomResource {
      */
     public readonly conditionVersion!: pulumi.Output<string | undefined>;
     /**
+     * Id of the user who created the assignment
+     */
+    public /*out*/ readonly createdBy!: pulumi.Output<string | undefined>;
+    /**
+     * Time it was created
+     */
+    public /*out*/ readonly createdOn!: pulumi.Output<string | undefined>;
+    /**
+     * Id of the delegated managed identity resource
+     */
+    public /*out*/ readonly delegatedManagedIdentityResourceId!: pulumi.Output<string | undefined>;
+    /**
      * Description of role assignment
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -74,6 +87,14 @@ export class RoleAssignment extends pulumi.CustomResource {
      * The role assignment type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Id of the user who updated the assignment
+     */
+    public /*out*/ readonly updatedBy!: pulumi.Output<string | undefined>;
+    /**
+     * Time it was updated
+     */
+    public /*out*/ readonly updatedOn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RoleAssignment resource with the given unique name, arguments, and options.
@@ -106,12 +127,20 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["roleAssignmentName"] = args ? args.roleAssignmentName : undefined;
             inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["createdOn"] = undefined /*out*/;
+            inputs["delegatedManagedIdentityResourceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedBy"] = undefined /*out*/;
+            inputs["updatedOn"] = undefined /*out*/;
         } else {
             inputs["canDelegate"] = undefined /*out*/;
             inputs["condition"] = undefined /*out*/;
             inputs["conditionVersion"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["createdOn"] = undefined /*out*/;
+            inputs["delegatedManagedIdentityResourceId"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["principalId"] = undefined /*out*/;
@@ -119,6 +148,8 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["roleDefinitionId"] = undefined /*out*/;
             inputs["scope"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedBy"] = undefined /*out*/;
+            inputs["updatedOn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -160,7 +191,7 @@ export interface RoleAssignmentArgs {
     /**
      * The principal type of the assigned principal ID.
      */
-    readonly principalType?: pulumi.Input<string>;
+    readonly principalType?: pulumi.Input<string | enums.authorization.v20200401preview.PrincipalType>;
     /**
      * The name of the role assignment to create. It can be any valid GUID.
      */

@@ -12,3 +12,6 @@ export * from "./getJitNetworkAccessPolicy";
 export * from "./getServerVulnerabilityAssessment";
 export * from "./jitNetworkAccessPolicy";
 export * from "./serverVulnerabilityAssessment";
+
+// Export enums:
+export * from "../../types/enums/security/v20200101";

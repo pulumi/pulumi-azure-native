@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -170,7 +170,7 @@ export interface BlobContainerArgs {
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */
-    readonly publicAccess?: pulumi.Input<string>;
+    readonly publicAccess?: pulumi.Input<enums.storage.v20181101.PublicAccess>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

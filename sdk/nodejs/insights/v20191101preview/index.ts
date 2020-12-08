@@ -6,3 +6,6 @@ export * from "./dataCollectionRule";
 export * from "./dataCollectionRuleAssociation";
 export * from "./getDataCollectionRule";
 export * from "./getDataCollectionRuleAssociation";
+
+// Export enums:
+export * from "../../types/enums/insights/v20191101preview";
