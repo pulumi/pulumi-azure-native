@@ -42,7 +42,6 @@ func TestTemplateCoverage(t *testing.T) {
 	renderer := arm2pulumi.NewRenderer(loadSchema(t), loadMetadata(t))
 	for _, match := range matches {
 		t.Run(match, func(t *testing.T) {
-
 			body, diags, err := renderer.RenderFileIR(match, renderOptionsOverride[match]...)
 			if err != nil {
 				t.Logf("%+v", err)
