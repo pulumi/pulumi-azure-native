@@ -229,7 +229,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190701
         /// The service level of the file system
         /// </summary>
         [Input("serviceLevel")]
-        public Input<string>? ServiceLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20190701.ServiceLevel>? ServiceLevel { get; set; }
 
         /// <summary>
         /// UUID v4 or resource identifier used to identify the Snapshot.

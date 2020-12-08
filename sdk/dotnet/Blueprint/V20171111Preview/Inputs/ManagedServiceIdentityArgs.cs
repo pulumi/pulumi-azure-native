@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview.Inputs
         /// Type of the Managed Service Identity.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.V20171111Preview.ManagedServiceIdentityType> Type { get; set; } = null!;
 
         public ManagedServiceIdentityArgs()
         {

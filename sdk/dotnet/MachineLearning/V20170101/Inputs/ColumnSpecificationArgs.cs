@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20170101.Inputs
         /// Additional format information for the data type.
         /// </summary>
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearning.V20170101.ColumnFormat>? Format { get; set; }
 
         /// <summary>
         /// Data type of the column.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearning.V20170101.ColumnType> Type { get; set; } = null!;
 
         /// <summary>
         /// Flag indicating if the type supports null values or not.

@@ -130,7 +130,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200315
         /// The kind of the service.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.HealthcareApis.V20200315.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource location.

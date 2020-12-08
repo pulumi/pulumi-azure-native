@@ -219,19 +219,19 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         /// SQL Server edition type.
         /// </summary>
         [Input("sqlImageSku")]
-        public Input<string>? SqlImageSku { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.SqlImageSku>? SqlImageSku { get; set; }
 
         /// <summary>
         /// SQL Server Management type.
         /// </summary>
         [Input("sqlManagement")]
-        public Input<string>? SqlManagement { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.SqlManagementMode>? SqlManagement { get; set; }
 
         /// <summary>
         /// SQL Server license type.
         /// </summary>
         [Input("sqlServerLicenseType")]
-        public Input<string>? SqlServerLicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.SqlServerLicenseType>? SqlServerLicenseType { get; set; }
 
         /// <summary>
         /// ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.

@@ -135,7 +135,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         /// The policy exemption category. Possible values are Waiver and Mitigated.
         /// </summary>
         [Input("exemptionCategory", required: true)]
-        public Input<string> ExemptionCategory { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20200701Preview.ExemptionCategory> ExemptionCategory { get; set; } = null!;
 
         /// <summary>
         /// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.

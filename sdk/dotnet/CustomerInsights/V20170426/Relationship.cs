@@ -152,7 +152,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// The Relationship Cardinality.
         /// </summary>
         [Input("cardinality")]
-        public Input<string>? Cardinality { get; set; }
+        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170426.CardinalityTypes>? Cardinality { get; set; }
 
         [Input("description")]
         private InputMap<string>? _description;

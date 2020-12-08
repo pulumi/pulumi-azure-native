@@ -127,14 +127,14 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("roles")]
-        private InputList<string>? _roles;
+        private InputList<Pulumi.AzureNextGen.TimeSeriesInsights.V20171115.AccessPolicyRole>? _roles;
 
         /// <summary>
         /// The list of roles the principal is assigned on the environment.
         /// </summary>
-        public InputList<string> Roles
+        public InputList<Pulumi.AzureNextGen.TimeSeriesInsights.V20171115.AccessPolicyRole> Roles
         {
-            get => _roles ?? (_roles = new InputList<string>());
+            get => _roles ?? (_roles = new InputList<Pulumi.AzureNextGen.TimeSeriesInsights.V20171115.AccessPolicyRole>());
             set => _roles = value;
         }
 

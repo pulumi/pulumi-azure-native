@@ -188,7 +188,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200901
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         /// </summary>
         [Input("policyType")]
-        public Input<string>? PolicyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20200901.PolicyType>? PolicyType { get; set; }
 
         public PolicySetDefinitionArgs()
         {

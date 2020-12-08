@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190901.Inputs
         /// Has type of the column to group.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190901.QueryColumnType> Type { get; set; } = null!;
 
         public QueryGroupingArgs()
         {

@@ -117,7 +117,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// Provisioning state of the Private Endpoint Connection.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceBus.V20180101Preview.EndPointProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

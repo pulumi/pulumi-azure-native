@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The signing or hashing algorithm.
         /// </summary>
         [Input("micHashingAlgorithm")]
-        public Input<string>? MicHashingAlgorithm { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.HashingAlgorithm>? MicHashingAlgorithm { get; set; }
 
         /// <summary>
         /// The value indicating whether to send or request a MDN.

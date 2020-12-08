@@ -25,19 +25,19 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20150801.Inputs
         /// Type of the Azure resource the hostname is assigned to
         /// </summary>
         [Input("azureResourceType")]
-        public Input<string>? AzureResourceType { get; set; }
+        public Input<Pulumi.AzureNextGen.DomainRegistration.V20150801.AzureResourceType>? AzureResourceType { get; set; }
 
         /// <summary>
         /// Type of the Dns record
         /// </summary>
         [Input("customHostNameDnsRecordType")]
-        public Input<string>? CustomHostNameDnsRecordType { get; set; }
+        public Input<Pulumi.AzureNextGen.DomainRegistration.V20150801.CustomHostNameDnsRecordType>? CustomHostNameDnsRecordType { get; set; }
 
         /// <summary>
         /// Type of the hostname
         /// </summary>
         [Input("hostNameType")]
-        public Input<string>? HostNameType { get; set; }
+        public Input<Pulumi.AzureNextGen.DomainRegistration.V20150801.HostNameType>? HostNameType { get; set; }
 
         /// <summary>
         /// Name of the hostname

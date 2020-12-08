@@ -157,7 +157,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// Status of the issue.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201.State>? State { get; set; }
 
         /// <summary>
         /// The issue title.

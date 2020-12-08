@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview.Inputs
         /// The HTTP method to use for the request.
         /// </summary>
         [Input("method", required: true)]
-        public Input<string> Method { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.DeploymentManager.V20191101Preview.RestRequestMethod> Method { get; set; } = null!;
 
         /// <summary>
         /// The HTTP URI to use for the request.

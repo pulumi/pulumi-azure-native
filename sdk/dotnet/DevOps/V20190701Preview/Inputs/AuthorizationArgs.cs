@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview.Inputs
         /// Type of authorization.
         /// </summary>
         [Input("authorizationType", required: true)]
-        public Input<string> AuthorizationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DevOps.V20190701Preview.AuthorizationType> AuthorizationType { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<string>? _parameters;

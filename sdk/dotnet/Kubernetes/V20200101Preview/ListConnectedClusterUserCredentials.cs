@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// The mode of client authentication.
         /// </summary>
         [Input("authenticationMethod", required: true)]
-        public string AuthenticationMethod { get; set; } = null!;
+        public Union<string, Pulumi.AzureNextGen.Kubernetes.V20200101Preview.AuthenticationMethod> AuthenticationMethod { get; set; } = null!;
 
         /// <summary>
         /// Parameter to indicate whether the request is for client side proxy or not

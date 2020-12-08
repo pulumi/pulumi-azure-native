@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101.Inputs
         /// Plan accessibility
         /// </summary>
         [Input("accessibility")]
-        public Input<string>? Accessibility { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Marketplace.V20200101.Accessibility>? Accessibility { get; set; }
 
         public PlanArgs()
         {

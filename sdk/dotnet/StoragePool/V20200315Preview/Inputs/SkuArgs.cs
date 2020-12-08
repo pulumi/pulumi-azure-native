@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
         /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public Input<Pulumi.AzureNextGen.StoragePool.V20200315Preview.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

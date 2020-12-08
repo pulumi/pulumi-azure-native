@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview.Inputs
         /// Update classification included in the software update configuration. A comma separated string with required values
         /// </summary>
         [Input("includedUpdateClassifications")]
-        public Input<string>? IncludedUpdateClassifications { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Automation.V20170515Preview.WindowsUpdateClasses>? IncludedUpdateClassifications { get; set; }
 
         /// <summary>
         /// Reboot setting for the software update configuration.

@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901.Inputs
         /// Gets or sets the namespace type.
         /// </summary>
         [Input("namespaceType")]
-        public Input<string>? NamespaceType { get; set; }
+        public Input<Pulumi.AzureNextGen.NotificationHubs.V20140901.NamespaceType>? NamespaceType { get; set; }
 
         /// <summary>
         /// Gets or sets provisioning state of the Namespace.

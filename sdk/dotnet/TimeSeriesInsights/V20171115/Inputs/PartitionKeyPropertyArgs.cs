@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115.Inputs
         /// The type of the property.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.V20171115.PropertyType>? Type { get; set; }
 
         public PartitionKeyPropertyArgs()
         {

@@ -16,38 +16,38 @@ namespace Pulumi.AzureNextGen.KeyVault.V20150601.Inputs
     public sealed class PermissionsArgs : Pulumi.ResourceArgs
     {
         [Input("certificates")]
-        private InputList<string>? _certificates;
+        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20150601.CertificatePermissions>>? _certificates;
 
         /// <summary>
         /// Permissions to certificates
         /// </summary>
-        public InputList<string> Certificates
+        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20150601.CertificatePermissions>> Certificates
         {
-            get => _certificates ?? (_certificates = new InputList<string>());
+            get => _certificates ?? (_certificates = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20150601.CertificatePermissions>>());
             set => _certificates = value;
         }
 
         [Input("keys")]
-        private InputList<string>? _keys;
+        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20150601.KeyPermissions>>? _keys;
 
         /// <summary>
         /// Permissions to keys
         /// </summary>
-        public InputList<string> Keys
+        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20150601.KeyPermissions>> Keys
         {
-            get => _keys ?? (_keys = new InputList<string>());
+            get => _keys ?? (_keys = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20150601.KeyPermissions>>());
             set => _keys = value;
         }
 
         [Input("secrets")]
-        private InputList<string>? _secrets;
+        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20150601.SecretPermissions>>? _secrets;
 
         /// <summary>
         /// Permissions to secrets
         /// </summary>
-        public InputList<string> Secrets
+        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20150601.SecretPermissions>> Secrets
         {
-            get => _secrets ?? (_secrets = new InputList<string>());
+            get => _secrets ?? (_secrets = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20150601.SecretPermissions>>());
             set => _secrets = value;
         }
 

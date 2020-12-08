@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         /// </summary>
         [Input("authenticationType", required: true)]
-        public Input<string> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.GoogleAdWordsAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The Client customer ID of the AdWords account that you want to fetch report data for.

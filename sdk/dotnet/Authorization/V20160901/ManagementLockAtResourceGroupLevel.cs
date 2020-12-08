@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20160901
         /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         /// </summary>
         [Input("level", required: true)]
-        public Input<string> Level { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20160901.LockLevel> Level { get; set; } = null!;
 
         /// <summary>
         /// The lock name. The lock name can be a maximum of 260 characters. It cannot contain &lt;, &gt; %, &amp;, :, \, ?, /, or any control characters.

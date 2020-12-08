@@ -217,7 +217,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         /// </summary>
         [Input("severity", required: true)]
-        public Input<double> Severity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200501Preview.AlertSeverity> Severity { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -194,7 +194,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         /// </summary>
         [Input("operationType")]
-        public Input<string>? OperationType { get; set; }
+        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170101.InstanceOperationType>? OperationType { get; set; }
 
         [Input("participantPropertyReferences", required: true)]
         private InputList<Inputs.ParticipantPropertyReferenceArgs>? _participantPropertyReferences;

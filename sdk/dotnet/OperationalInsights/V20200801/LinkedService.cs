@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
         /// The provisioning state of the linked service.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200801.LinkedServiceEntityStatus>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200330.Inputs
         /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HealthcareApis.V20200330.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         public ServicesPropertiesArgs()
         {

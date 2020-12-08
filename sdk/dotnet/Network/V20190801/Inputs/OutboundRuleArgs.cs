@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         /// The protocol for the outbound rule in load balancer.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.LoadBalancerOutboundRuleProtocol> Protocol { get; set; } = null!;
 
         public OutboundRuleArgs()
         {

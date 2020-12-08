@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101.Inputs
         /// The type of AAD object the object identifier refers to.
         /// </summary>
         [Input("objectType", required: true)]
-        public Input<string> ObjectType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataLakeAnalytics.V20161101.AADObjectType> ObjectType { get; set; } = null!;
 
         public CreateComputePolicyWithAccountParametersArgs()
         {

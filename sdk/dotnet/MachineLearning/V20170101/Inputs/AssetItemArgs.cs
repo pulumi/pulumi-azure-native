@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20170101.Inputs
         /// Asset's type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearning.V20170101.AssetType> Type { get; set; } = null!;
 
         public AssetItemArgs()
         {

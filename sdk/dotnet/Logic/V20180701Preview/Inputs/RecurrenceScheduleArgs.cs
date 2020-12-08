@@ -64,14 +64,14 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Inputs
         }
 
         [Input("weekDays")]
-        private InputList<string>? _weekDays;
+        private InputList<Pulumi.AzureNextGen.Logic.V20180701Preview.DaysOfWeek>? _weekDays;
 
         /// <summary>
         /// The days of the week.
         /// </summary>
-        public InputList<string> WeekDays
+        public InputList<Pulumi.AzureNextGen.Logic.V20180701Preview.DaysOfWeek> WeekDays
         {
-            get => _weekDays ?? (_weekDays = new InputList<string>());
+            get => _weekDays ?? (_weekDays = new InputList<Pulumi.AzureNextGen.Logic.V20180701Preview.DaysOfWeek>());
             set => _weekDays = value;
         }
 

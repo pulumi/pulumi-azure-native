@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         public Input<string>? Expiry { get; set; }
 
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.TokenCertificateName>? Name { get; set; }
 
         /// <summary>
         /// The thumbprint of the certificate.

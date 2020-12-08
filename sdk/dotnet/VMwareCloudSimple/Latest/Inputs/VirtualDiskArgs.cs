@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest.Inputs
         /// Disk's independence mode type
         /// </summary>
         [Input("independenceMode", required: true)]
-        public Input<string> IndependenceMode { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.VMwareCloudSimple.Latest.DiskIndependenceMode> IndependenceMode { get; set; } = null!;
 
         /// <summary>
         /// Disk's total size

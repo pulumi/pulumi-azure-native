@@ -206,7 +206,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// Controls certain runtime behaviors of the streaming job.
         /// </summary>
         [Input("compatibilityLevel")]
-        public Input<string>? CompatibilityLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20160301.CompatibilityLevel>? CompatibilityLevel { get; set; }
 
         /// <summary>
         /// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
@@ -230,7 +230,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// Indicates the policy to apply to events that arrive out of order in the input event stream.
         /// </summary>
         [Input("eventsOutOfOrderPolicy")]
-        public Input<string>? EventsOutOfOrderPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20160301.EventsOutOfOrderPolicy>? EventsOutOfOrderPolicy { get; set; }
 
         [Input("functions")]
         private InputList<Inputs.FunctionArgs>? _functions;
@@ -272,13 +272,13 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         /// </summary>
         [Input("outputErrorPolicy")]
-        public Input<string>? OutputErrorPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20160301.OutputErrorPolicy>? OutputErrorPolicy { get; set; }
 
         /// <summary>
         /// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
         /// </summary>
         [Input("outputStartMode")]
-        public Input<string>? OutputStartMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20160301.OutputStartMode>? OutputStartMode { get; set; }
 
         /// <summary>
         /// Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.

@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
         /// Set value to 'ResultCount' .
         /// </summary>
         [Input("queryType")]
-        public Input<string>? QueryType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180416.QueryType>? QueryType { get; set; }
 
         public SourceArgs()
         {

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNextGen.Batch.V20181201.Inputs
     public sealed class TaskSchedulingPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("nodeFillType", required: true)]
-        public Input<string> NodeFillType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Batch.V20181201.ComputeNodeFillType> NodeFillType { get; set; } = null!;
 
         public TaskSchedulingPolicyArgs()
         {

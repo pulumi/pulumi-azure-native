@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
         /// Protocol. Possible values are: 'Http' and 'Https'.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

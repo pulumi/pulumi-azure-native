@@ -248,13 +248,13 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// Controls certain runtime behaviors of the streaming job.
         /// </summary>
         [Input("compatibilityLevel")]
-        public Input<string>? CompatibilityLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.CompatibilityLevel>? CompatibilityLevel { get; set; }
 
         /// <summary>
         /// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
         /// </summary>
         [Input("contentStoragePolicy")]
-        public Input<string>? ContentStoragePolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.ContentStoragePolicy>? ContentStoragePolicy { get; set; }
 
         /// <summary>
         /// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
@@ -278,7 +278,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// Indicates the policy to apply to events that arrive out of order in the input event stream.
         /// </summary>
         [Input("eventsOutOfOrderPolicy")]
-        public Input<string>? EventsOutOfOrderPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.EventsOutOfOrderPolicy>? EventsOutOfOrderPolicy { get; set; }
 
         /// <summary>
         /// The storage account where the custom code artifacts are located.
@@ -332,7 +332,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
         /// </summary>
         [Input("jobType")]
-        public Input<string>? JobType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.JobType>? JobType { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -344,13 +344,13 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         /// </summary>
         [Input("outputErrorPolicy")]
-        public Input<string>? OutputErrorPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.OutputErrorPolicy>? OutputErrorPolicy { get; set; }
 
         /// <summary>
         /// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
         /// </summary>
         [Input("outputStartMode")]
-        public Input<string>? OutputStartMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.OutputStartMode>? OutputStartMode { get; set; }
 
         /// <summary>
         /// Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.

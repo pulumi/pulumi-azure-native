@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         /// Cookie based affinity.
         /// </summary>
         [Input("cookieBasedAffinity")]
-        public Input<string>? CookieBasedAffinity { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.ApplicationGatewayCookieBasedAffinity>? CookieBasedAffinity { get; set; }
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         /// The protocol used to communicate with the backend.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.

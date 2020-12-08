@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         }
 
         [Input("compressionCodec")]
-        public Input<string>? CompressionCodec { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.CompressionCodec>? CompressionCodec { get; set; }
 
         /// <summary>
         /// Dataset description.

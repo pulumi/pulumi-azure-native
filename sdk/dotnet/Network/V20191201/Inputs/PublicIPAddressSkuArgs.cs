@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// Name of a public IP address SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.PublicIPAddressSkuName>? Name { get; set; }
 
         public PublicIPAddressSkuArgs()
         {

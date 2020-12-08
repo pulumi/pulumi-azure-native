@@ -194,7 +194,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         /// This is the preferred geo location for the job to run.
         /// </summary>
         [Input("runLocation")]
-        public Input<string>? RunLocation { get; set; }
+        public Input<Pulumi.AzureNextGen.HybridData.Latest.RunLocation>? RunLocation { get; set; }
 
         [Input("schedules")]
         private InputList<Inputs.ScheduleArgs>? _schedules;
@@ -212,13 +212,13 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         /// State of the job definition.
         /// </summary>
         [Input("state", required: true)]
-        public Input<string> State { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.HybridData.Latest.State> State { get; set; } = null!;
 
         /// <summary>
         /// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         /// </summary>
         [Input("userConfirmation")]
-        public Input<string>? UserConfirmation { get; set; }
+        public Input<Pulumi.AzureNextGen.HybridData.Latest.UserConfirmation>? UserConfirmation { get; set; }
 
         public JobDefinitionArgs()
         {

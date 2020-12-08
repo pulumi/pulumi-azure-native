@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview.Inputs
         /// Allocation policy to be used by this provisioning service.
         /// </summary>
         [Input("allocationPolicy")]
-        public Input<string>? AllocationPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200901Preview.AllocationPolicy>? AllocationPolicy { get; set; }
 
         [Input("authorizationPolicies")]
         private InputList<Inputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs>? _authorizationPolicies;
@@ -85,13 +85,13 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview.Inputs
         /// Whether requests from Public Network are allowed
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200901Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Current state of the provisioning service.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200901Preview.State>? State { get; set; }
 
         public IotDpsPropertiesDescriptionArgs()
         {

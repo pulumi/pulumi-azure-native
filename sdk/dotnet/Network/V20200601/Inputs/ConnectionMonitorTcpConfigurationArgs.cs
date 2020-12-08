@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// Destination port behavior.
         /// </summary>
         [Input("destinationPortBehavior")]
-        public Input<string>? DestinationPortBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.DestinationPortBehavior>? DestinationPortBehavior { get; set; }
 
         /// <summary>
         /// Value indicating whether path evaluation with trace route should be disabled.

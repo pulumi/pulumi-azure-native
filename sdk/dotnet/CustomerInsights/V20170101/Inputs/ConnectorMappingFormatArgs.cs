@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101.Inputs
         /// The type mapping format.
         /// </summary>
         [Input("formatType", required: true)]
-        public Input<string> FormatType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170101.FormatTypes> FormatType { get; set; } = null!;
 
         /// <summary>
         /// Quote character, used to indicate enquoted fields.

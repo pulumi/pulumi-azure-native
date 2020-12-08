@@ -178,7 +178,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// State of the namespace.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.ServiceBus.V20150801.NamespaceState>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview.Inputs
         /// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
         /// </summary>
         [Input("operator")]
-        public Input<string>? Operator { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Security.V20190101Preview.Operator>? Operator { get; set; }
 
         /// <summary>
         /// The JPath of the entity model property that should be checked.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview.Inputs
         /// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
         /// </summary>
         [Input("propertyType")]
-        public Input<string>? PropertyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Security.V20190101Preview.PropertyType>? PropertyType { get; set; }
 
         public AutomationTriggeringRuleArgs()
         {

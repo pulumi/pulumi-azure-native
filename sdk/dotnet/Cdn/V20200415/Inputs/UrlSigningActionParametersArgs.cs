@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200415.Inputs
         /// Algorithm to use for URL signing
         /// </summary>
         [Input("algorithm")]
-        public Input<string>? Algorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200415.Algorithm>? Algorithm { get; set; }
 
         [Input("ipSubnets")]
         private InputList<string>? _ipSubnets;

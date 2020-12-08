@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20171001Preview.Inputs
         /// Specifies if the IP is exposed to the public internet.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20171001Preview.ContainerGroupIpAddressType> Type { get; set; } = null!;
 
         public IpAddressArgs()
         {

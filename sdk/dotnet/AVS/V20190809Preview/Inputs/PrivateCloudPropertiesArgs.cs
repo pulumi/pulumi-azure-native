@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview.Inputs
         /// Connectivity to internet is enabled or disabled
         /// </summary>
         [Input("internet")]
-        public Input<string>? Internet { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20190809Preview.InternetEnum>? Internet { get; set; }
 
         /// <summary>
         /// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22

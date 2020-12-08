@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200401.Inputs
         /// The status of a private endpoint connection
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200401.PrivateLinkServiceConnectionStatus> Status { get; set; } = null!;
 
         public PrivateLinkServiceConnectionStateArgs()
         {

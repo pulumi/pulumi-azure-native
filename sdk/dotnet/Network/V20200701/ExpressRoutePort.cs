@@ -191,7 +191,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// Encapsulation method on physical ports.
         /// </summary>
         [Input("encapsulation")]
-        public Input<string>? Encapsulation { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200701.ExpressRoutePortsEncapsulation>? Encapsulation { get; set; }
 
         /// <summary>
         /// The name of the ExpressRoutePort resource.

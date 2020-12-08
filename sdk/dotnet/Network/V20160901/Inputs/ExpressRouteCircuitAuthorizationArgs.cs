@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
         /// AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
         /// </summary>
         [Input("authorizationUseStatus")]
-        public Input<string>? AuthorizationUseStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.AuthorizationUseStatus>? AuthorizationUseStatus { get; set; }
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.

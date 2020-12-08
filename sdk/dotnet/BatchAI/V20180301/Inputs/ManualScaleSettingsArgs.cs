@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301.Inputs
         /// The default value is requeue.
         /// </summary>
         [Input("nodeDeallocationOption")]
-        public Input<string>? NodeDeallocationOption { get; set; }
+        public Input<Pulumi.AzureNextGen.BatchAI.V20180301.DeallocationOption>? NodeDeallocationOption { get; set; }
 
         /// <summary>
         /// Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.

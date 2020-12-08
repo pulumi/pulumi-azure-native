@@ -22,14 +22,14 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         public Input<string> SchedulePolicyType { get; set; } = null!;
 
         [Input("scheduleRunDays")]
-        private InputList<string>? _scheduleRunDays;
+        private InputList<Pulumi.AzureNextGen.RecoveryServices.V20201001.DayOfWeek>? _scheduleRunDays;
 
         /// <summary>
         /// List of days of week this schedule has to be run.
         /// </summary>
-        public InputList<string> ScheduleRunDays
+        public InputList<Pulumi.AzureNextGen.RecoveryServices.V20201001.DayOfWeek> ScheduleRunDays
         {
-            get => _scheduleRunDays ?? (_scheduleRunDays = new InputList<string>());
+            get => _scheduleRunDays ?? (_scheduleRunDays = new InputList<Pulumi.AzureNextGen.RecoveryServices.V20201001.DayOfWeek>());
             set => _scheduleRunDays = value;
         }
 
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Frequency of the schedule operation of this policy.
         /// </summary>
         [Input("scheduleRunFrequency")]
-        public Input<string>? ScheduleRunFrequency { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.ScheduleRunType>? ScheduleRunFrequency { get; set; }
 
         [Input("scheduleRunTimes")]
         private InputList<string>? _scheduleRunTimes;

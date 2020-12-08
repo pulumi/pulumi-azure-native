@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// The WSDL import method
         /// </summary>
         [Input("importMethod")]
-        public Input<string>? ImportMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Web.Latest.WsdlImportMethod>? ImportMethod { get; set; }
 
         /// <summary>
         /// The service with name and endpoint names

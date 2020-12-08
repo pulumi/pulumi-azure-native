@@ -237,7 +237,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901
         /// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
         /// </summary>
         [Input("connectionType", required: true)]
-        public Input<string> ConnectionType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170901.VirtualNetworkGatewayConnectionType> ConnectionType { get; set; } = null!;
 
         /// <summary>
         /// EnableBgp flag

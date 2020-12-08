@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20191212.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.HybridCompute.V20191212.ResourceIdentityType>? Type { get; set; }
 
         public MachineIdentityArgs()
         {

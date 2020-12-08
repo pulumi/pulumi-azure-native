@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615.Inputs
         /// Describes the override action to be applied when rule matches.
         /// </summary>
         [Input("action")]
-        public Input<string>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615.ActionType>? Action { get; set; }
 
         /// <summary>
         /// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615.ManagedRuleEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Identifier for the managed rule.

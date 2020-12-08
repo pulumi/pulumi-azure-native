@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
         /// The type of the extended location.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20200801Preview.ExtendedLocationTypes>? Type { get; set; }
 
         public ExtendedLocationArgs()
         {

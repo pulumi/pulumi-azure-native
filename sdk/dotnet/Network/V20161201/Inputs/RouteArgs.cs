@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
         /// The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
         /// </summary>
         [Input("nextHopType", required: true)]
-        public Input<string> NextHopType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.RouteNextHopType> NextHopType { get; set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

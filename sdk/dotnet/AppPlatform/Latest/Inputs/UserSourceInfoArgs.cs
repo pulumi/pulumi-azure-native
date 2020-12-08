@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest.Inputs
         /// Type of the source uploaded
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AppPlatform.Latest.UserSourceType>? Type { get; set; }
 
         /// <summary>
         /// Version of the source

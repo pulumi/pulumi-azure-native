@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501.Inputs
         /// The value that indicates whether the policy is enabled or not.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190501.PolicyStatus>? Status { get; set; }
 
         /// <summary>
         /// The type of trust policy.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190501.TrustPolicyType>? Type { get; set; }
 
         public TrustPolicyArgs()
         {

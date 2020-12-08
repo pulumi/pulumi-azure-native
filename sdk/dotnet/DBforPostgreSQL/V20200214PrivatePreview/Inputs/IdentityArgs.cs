@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

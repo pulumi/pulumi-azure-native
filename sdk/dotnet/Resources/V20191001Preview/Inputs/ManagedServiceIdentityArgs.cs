@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001Preview.Inputs
         /// Type of the managed identity.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Resources.V20191001Preview.ManagedServiceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<Inputs.UserAssignedIdentityArgs>? _userAssignedIdentities;

@@ -201,13 +201,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The type of the artifact source.
         /// </summary>
         [Input("sourceType")]
-        public Input<string>? SourceType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.SourceControlType>? SourceType { get; set; }
 
         /// <summary>
         /// The status of the artifact source.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.EnableStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401.Inputs
         /// The type of action.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200401.AzureFirewallRCActionType>? Type { get; set; }
 
         public AzureFirewallRCActionArgs()
         {

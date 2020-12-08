@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
         /// </summary>
         [Input("advertisedPublicPrefixesState")]
-        public Input<string>? AdvertisedPublicPrefixesState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.ExpressRouteCircuitPeeringAdvertisedPublicPrefixState>? AdvertisedPublicPrefixesState { get; set; }
 
         /// <summary>
         /// The CustomerASN of the peering.

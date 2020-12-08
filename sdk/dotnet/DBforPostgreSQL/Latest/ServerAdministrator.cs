@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
         /// The type of administrator.
         /// </summary>
         [Input("administratorType", required: true)]
-        public Input<string> AdministratorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.Latest.AdministratorType> AdministratorType { get; set; } = null!;
 
         /// <summary>
         /// The server administrator login account name.

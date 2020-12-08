@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The cloud service provider
         /// </summary>
         [Input("cloudType", required: true)]
-        public Input<string> CloudType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.CloudType> CloudType { get; set; } = null!;
 
         /// <summary>
         /// The credential name.
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// SSL needs to be enabled or not
         /// </summary>
         [Input("enableSSL", required: true)]
-        public Input<string> EnableSSL { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.SslStatus> EnableSSL { get; set; } = null!;
 
         /// <summary>
         /// The storage endpoint

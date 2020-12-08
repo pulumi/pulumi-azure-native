@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// Type of database.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.Latest.ConnectionStringType>? Type { get; set; }
 
         public ConnStringInfoArgs()
         {

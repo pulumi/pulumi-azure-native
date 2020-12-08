@@ -231,7 +231,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         /// Type of application being monitored.
         /// </summary>
         [Input("applicationType", required: true)]
-        public Input<string> ApplicationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200202Preview.ApplicationType> ApplicationType { get; set; } = null!;
 
         /// <summary>
         /// Disable IP masking.
@@ -243,7 +243,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         [Input("flowType")]
-        public Input<string>? FlowType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200202Preview.FlowType>? FlowType { get; set; }
 
         /// <summary>
         /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -261,7 +261,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         /// Indicates the flow of the ingestion.
         /// </summary>
         [Input("ingestionMode")]
-        public Input<string>? IngestionMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200202Preview.IngestionMode>? IngestionMode { get; set; }
 
         /// <summary>
         /// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
@@ -279,19 +279,19 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         /// The network access type for accessing Application Insights ingestion.
         /// </summary>
         [Input("publicNetworkAccessForIngestion")]
-        public Input<string>? PublicNetworkAccessForIngestion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200202Preview.PublicNetworkAccessType>? PublicNetworkAccessForIngestion { get; set; }
 
         /// <summary>
         /// The network access type for accessing Application Insights query.
         /// </summary>
         [Input("publicNetworkAccessForQuery")]
-        public Input<string>? PublicNetworkAccessForQuery { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200202Preview.PublicNetworkAccessType>? PublicNetworkAccessForQuery { get; set; }
 
         /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         /// </summary>
         [Input("requestSource")]
-        public Input<string>? RequestSource { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200202Preview.RequestSource>? RequestSource { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

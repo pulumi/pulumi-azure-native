@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The encryption algorithm.
         /// </summary>
         [Input("encryptionAlgorithm")]
-        public Input<string>? EncryptionAlgorithm { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.EncryptionAlgorithm>? EncryptionAlgorithm { get; set; }
 
         /// <summary>
         /// The number of days to look back for duplicate interchange.

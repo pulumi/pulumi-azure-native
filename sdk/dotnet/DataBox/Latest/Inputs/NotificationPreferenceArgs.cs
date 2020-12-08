@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
         /// Name of the stage.
         /// </summary>
         [Input("stageName", required: true)]
-        public Input<string> StageName { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.Latest.NotificationStageName> StageName { get; set; } = null!;
 
         public NotificationPreferenceArgs()
         {

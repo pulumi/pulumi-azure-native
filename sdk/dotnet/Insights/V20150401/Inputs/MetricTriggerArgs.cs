@@ -49,13 +49,13 @@ namespace Pulumi.AzureNextGen.Insights.V20150401.Inputs
         /// the operator that is used to compare the metric data and the threshold.
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Insights.V20150401.ComparisonOperationType> Operator { get; set; } = null!;
 
         /// <summary>
         /// the metric statistic type. How the metrics from multiple instances are combined.
         /// </summary>
         [Input("statistic", required: true)]
-        public Input<string> Statistic { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Insights.V20150401.MetricStatisticType> Statistic { get; set; } = null!;
 
         /// <summary>
         /// the threshold of the metric that triggers the scale action.
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150401.Inputs
         /// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         /// </summary>
         [Input("timeAggregation", required: true)]
-        public Input<string> TimeAggregation { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Insights.V20150401.TimeAggregationType> TimeAggregation { get; set; } = null!;
 
         /// <summary>
         /// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.

@@ -141,7 +141,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// The replication mode of hybrid link. Parameter will be ignored during link creation.
         /// </summary>
         [Input("replicationMode")]
-        public Input<string>? ReplicationMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.ReplicationMode>? ReplicationMode { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

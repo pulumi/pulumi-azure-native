@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest.Inputs
         /// The data type of the parameter.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Authorization.Latest.ParameterType>? Type { get; set; }
 
         public ParameterDefinitionsValueArgs()
         {

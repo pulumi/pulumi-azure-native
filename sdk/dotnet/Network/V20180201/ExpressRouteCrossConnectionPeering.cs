@@ -243,7 +243,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// The peering type.
         /// </summary>
         [Input("peeringType")]
-        public Input<string>? PeeringType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180201.ExpressRoutePeeringType>? PeeringType { get; set; }
 
         /// <summary>
         /// The primary address prefix.
@@ -273,7 +273,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// The peering state.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180201.ExpressRoutePeeringState>? State { get; set; }
 
         /// <summary>
         /// The VLAN ID.

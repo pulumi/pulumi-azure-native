@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         /// Type of the machine group
         /// </summary>
         [Input("groupType")]
-        public Input<string>? GroupType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20151101Preview.MachineGroupType>? GroupType { get; set; }
 
         /// <summary>
         /// Additional resource type qualifier.

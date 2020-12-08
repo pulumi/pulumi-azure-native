@@ -302,7 +302,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// Type of roles.
         /// </summary>
         [Input("role", required: true)]
-        public Input<string> Role { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170426.RoleTypes> Role { get; set; } = null!;
 
         /// <summary>
         /// The Role assignments set for the assignment.

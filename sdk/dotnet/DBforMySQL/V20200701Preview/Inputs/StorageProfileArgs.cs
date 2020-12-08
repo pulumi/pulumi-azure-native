@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview.Inputs
         /// Enable Storage Auto Grow.
         /// </summary>
         [Input("storageAutogrow")]
-        public Input<string>? StorageAutogrow { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701Preview.StorageAutogrow>? StorageAutogrow { get; set; }
 
         /// <summary>
         /// Storage IOPS for a server.

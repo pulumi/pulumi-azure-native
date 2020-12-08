@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         /// Specifies the move cost for the service.
         /// </summary>
         [Input("defaultMoveCost")]
-        public Input<string>? DefaultMoveCost { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.V20170701Preview.MoveCost>? DefaultMoveCost { get; set; }
 
         /// <summary>
         /// Azure resource location.
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         /// The kind of service (Stateless or Stateful).
         /// </summary>
         [Input("serviceKind", required: true)]
-        public Input<string> ServiceKind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.V20170701Preview.ServiceKind> ServiceKind { get; set; } = null!;
 
         [Input("serviceLoadMetrics")]
         private InputList<Inputs.ServiceLoadMetricDescriptionArgs>? _serviceLoadMetrics;

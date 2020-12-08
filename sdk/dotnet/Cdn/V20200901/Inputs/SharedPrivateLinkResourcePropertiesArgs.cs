@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
         /// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.Cdn.V20200901.SharedPrivateLinkResourceStatus>? Status { get; set; }
 
         public SharedPrivateLinkResourcePropertiesArgs()
         {

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Inputs
         /// The QoS tier for ingress.
         /// </summary>
         [Input("qosLevel")]
-        public Input<string>? QosLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.IngressQoSLevel>? QosLevel { get; set; }
 
         public IngressConfigArgs()
         {

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200101.Inputs
         /// The severity of the incident
         /// </summary>
         [Input("severity", required: true)]
-        public Input<string> Severity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200101.CaseSeverity> Severity { get; set; } = null!;
 
         /// <summary>
         /// The title of the incident

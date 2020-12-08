@@ -139,7 +139,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Specifies for what type of messages sampling settings should not apply.
         /// </summary>
         [Input("alwaysLog")]
-        public Input<string>? AlwaysLog { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.AlwaysLog>? AlwaysLog { get; set; }
 
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Sets correlation protocol to use for Application Insights diagnostics.
         /// </summary>
         [Input("httpCorrelationProtocol")]
-        public Input<string>? HttpCorrelationProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.HttpCorrelationProtocol>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
         /// Log the ClientIP. Default is false.
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// The format of the Operation Name for Application Insights telemetries. Default is Name.
         /// </summary>
         [Input("operationNameFormat")]
-        public Input<string>? OperationNameFormat { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.OperationNameFormat>? OperationNameFormat { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -205,7 +205,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// The verbosity level applied to traces emitted by trace policies.
         /// </summary>
         [Input("verbosity")]
-        public Input<string>? Verbosity { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.Verbosity>? Verbosity { get; set; }
 
         public DiagnosticArgs()
         {

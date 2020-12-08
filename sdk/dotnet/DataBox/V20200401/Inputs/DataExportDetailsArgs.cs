@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Inputs
         /// Level of the logs to be collected.
         /// </summary>
         [Input("logCollectionLevel")]
-        public Input<string>? LogCollectionLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20200401.LogCollectionLevel>? LogCollectionLevel { get; set; }
 
         /// <summary>
         /// Configuration for the data transfer.

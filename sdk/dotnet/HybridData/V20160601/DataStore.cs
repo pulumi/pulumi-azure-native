@@ -158,7 +158,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         /// State of the data source.
         /// </summary>
         [Input("state", required: true)]
-        public Input<string> State { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.HybridData.V20160601.State> State { get; set; } = null!;
 
         public DataStoreArgs()
         {

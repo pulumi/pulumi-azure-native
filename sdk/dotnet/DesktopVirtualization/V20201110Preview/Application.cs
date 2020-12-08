@@ -174,7 +174,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview
         /// Resource Type of Application.
         /// </summary>
         [Input("applicationType")]
-        public Input<string>? ApplicationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.RemoteApplicationType>? ApplicationType { get; set; }
 
         /// <summary>
         /// Command Line Arguments for Application.
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview
         /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
         /// </summary>
         [Input("commandLineSetting", required: true)]
-        public Input<string> CommandLineSetting { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.CommandLineSetting> CommandLineSetting { get; set; } = null!;
 
         /// <summary>
         /// Description of Application.

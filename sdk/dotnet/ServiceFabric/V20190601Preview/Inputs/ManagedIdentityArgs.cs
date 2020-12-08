@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190601Preview.Inputs
         /// The type of managed identity for the resource.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.ServiceFabric.V20190601Preview.ManagedIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

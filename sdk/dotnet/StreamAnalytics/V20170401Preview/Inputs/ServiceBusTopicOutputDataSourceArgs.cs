@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
         /// Authentication Mode.
         /// </summary>
         [Input("authenticationMode")]
-        public Input<string>? AuthenticationMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.AuthenticationMode>? AuthenticationMode { get; set; }
 
         [Input("propertyColumns")]
         private InputList<string>? _propertyColumns;

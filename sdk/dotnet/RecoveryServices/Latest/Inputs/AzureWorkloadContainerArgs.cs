@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Type of backup management for the container.
         /// </summary>
         [Input("backupManagementType")]
-        public Input<string>? BackupManagementType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.BackupManagementType>? BackupManagementType { get; set; }
 
         /// <summary>
         /// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Re-Do Operation
         /// </summary>
         [Input("operationType")]
-        public Input<string>? OperationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.OperationType>? OperationType { get; set; }
 
         /// <summary>
         /// Status of registration of the container with the Recovery Services Vault.
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Workload type for which registration was sent.
         /// </summary>
         [Input("workloadType")]
-        public Input<string>? WorkloadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.WorkloadType>? WorkloadType { get; set; }
 
         public AzureWorkloadContainerArgs()
         {

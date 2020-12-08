@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
         /// the storage account type of the disk.
         /// </summary>
         [Input("accountType")]
-        public Input<string>? AccountType { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20160430Preview.StorageAccountTypes>? AccountType { get; set; }
 
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
         /// The Operating System type.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20160430Preview.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group.

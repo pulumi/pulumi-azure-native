@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest.Inputs
         /// The drive's current state. 
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ImportExport.Latest.DriveState>? State { get; set; }
 
         /// <summary>
         /// A URI that points to the blob containing the verbose log for the data transfer operation. 

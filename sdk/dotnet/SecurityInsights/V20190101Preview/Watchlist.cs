@@ -279,7 +279,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// The source of the watchlist
         /// </summary>
         [Input("source", required: true)]
-        public Input<string> Source { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.Source> Source { get; set; } = null!;
 
         /// <summary>
         /// The tenantId where the watchlist belongs to

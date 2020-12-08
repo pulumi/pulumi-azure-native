@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview.Inputs
         /// The managed application deployment mode.
         /// </summary>
         [Input("deploymentMode", required: true)]
-        public Input<string> DeploymentMode { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Solutions.V20200821Preview.DeploymentMode> DeploymentMode { get; set; } = null!;
 
         public ApplicationDeploymentPolicyArgs()
         {

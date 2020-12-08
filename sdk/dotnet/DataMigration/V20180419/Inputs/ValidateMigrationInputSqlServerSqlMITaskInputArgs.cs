@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Inputs
         /// Backup Mode to specify whether to use existing backup or create new backup.
         /// </summary>
         [Input("backupMode")]
-        public Input<string>? BackupMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.V20180419.BackupMode>? BackupMode { get; set; }
 
         [Input("selectedDatabases", required: true)]
         private InputList<Inputs.MigrateSqlServerSqlMIDatabaseInputArgs>? _selectedDatabases;

@@ -537,7 +537,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// Tells source of creation of lab virtual machine. Output property only.
         /// </summary>
         [Input("virtualMachineCreationSource")]
-        public Input<string>? VirtualMachineCreationSource { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.VirtualMachineCreationSource>? VirtualMachineCreationSource { get; set; }
 
         public VirtualMachineArgs()
         {

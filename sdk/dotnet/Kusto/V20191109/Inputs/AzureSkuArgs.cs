@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Kusto.V20191109.Inputs
         /// SKU name.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20191109.AzureSkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// SKU tier.
         /// </summary>
         [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20191109.AzureSkuTier> Tier { get; set; } = null!;
 
         public AzureSkuArgs()
         {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// Name of Nat Gateway SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.NatGatewaySkuName>? Name { get; set; }
 
         public NatGatewaySkuArgs()
         {

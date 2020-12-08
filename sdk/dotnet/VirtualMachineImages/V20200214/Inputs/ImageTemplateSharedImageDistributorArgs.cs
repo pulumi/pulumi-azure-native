@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20200214.Inputs
         /// Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
         /// </summary>
         [Input("storageAccountType")]
-        public Input<string>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.VirtualMachineImages.V20200214.SharedImageStorageAccountType>? StorageAccountType { get; set; }
 
         /// <summary>
         /// Type of distribution.

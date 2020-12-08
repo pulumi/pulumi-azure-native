@@ -162,7 +162,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview
         /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
         /// </summary>
         [Input("commandLineSetting", required: true)]
-        public Input<string> CommandLineSetting { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview.CommandLineSetting> CommandLineSetting { get; set; } = null!;
 
         /// <summary>
         /// Description of Application.

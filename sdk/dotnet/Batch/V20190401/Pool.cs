@@ -265,7 +265,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190401
         /// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         /// </summary>
         [Input("interNodeCommunication")]
-        public Input<string>? InterNodeCommunication { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.V20190401.InterNodeCommunicationState>? InterNodeCommunication { get; set; }
 
         /// <summary>
         /// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.

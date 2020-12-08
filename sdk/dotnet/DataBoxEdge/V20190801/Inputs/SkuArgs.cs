@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801.Inputs
         /// SKU name.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190801.SkuName>? Name { get; set; }
 
         /// <summary>
         /// The SKU tier. This is based on the SKU name.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190801.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

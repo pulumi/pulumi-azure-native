@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Compute.V20150615.Inputs
         /// The level code.
         /// </summary>
         [Input("level")]
-        public Input<string>? Level { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20150615.StatusLevelTypes>? Level { get; set; }
 
         /// <summary>
         /// The detailed status message, including for alerts and error messages.

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// How often should be the backup executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
         /// </summary>
         [Input("frequencyUnit", required: true)]
-        public string FrequencyUnit { get; set; } = null!;
+        public Pulumi.AzureNextGen.Web.V20150801.FrequencyUnit FrequencyUnit { get; set; }
 
         /// <summary>
         /// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.

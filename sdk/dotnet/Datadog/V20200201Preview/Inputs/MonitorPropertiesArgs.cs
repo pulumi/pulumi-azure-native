@@ -25,16 +25,16 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Inputs
         /// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         /// </summary>
         [Input("marketplaceSubscriptionStatus")]
-        public Input<string>? MarketplaceSubscriptionStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Datadog.V20200201Preview.MarketplaceSubscriptionStatus>? MarketplaceSubscriptionStatus { get; set; }
 
         /// <summary>
         /// Flag specifying if the resource monitoring is enabled or disabled.
         /// </summary>
         [Input("monitoringStatus")]
-        public Input<string>? MonitoringStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Datadog.V20200201Preview.MonitoringStatus>? MonitoringStatus { get; set; }
 
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Datadog.V20200201Preview.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// User info

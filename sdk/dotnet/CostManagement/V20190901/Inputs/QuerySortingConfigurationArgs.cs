@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190901.Inputs
         /// The sorting direction
         /// </summary>
         [Input("querySortingDirection")]
-        public Input<string>? QuerySortingDirection { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190901.SortDirection>? QuerySortingDirection { get; set; }
 
         public QuerySortingConfigurationArgs()
         {

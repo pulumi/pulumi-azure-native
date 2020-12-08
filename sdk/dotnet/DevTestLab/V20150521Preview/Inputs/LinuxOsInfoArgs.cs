@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview.Inputs
         /// The state of the Linux OS.
         /// </summary>
         [Input("linuxOsState")]
-        public Input<string>? LinuxOsState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.LinuxOsState>? LinuxOsState { get; set; }
 
         public LinuxOsInfoArgs()
         {

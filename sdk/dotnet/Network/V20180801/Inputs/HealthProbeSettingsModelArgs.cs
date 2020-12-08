@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// Protocol scheme to use for this probe
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.FrontDoorProtocol>? Protocol { get; set; }
 
         public HealthProbeSettingsModelArgs()
         {

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701.Inputs
         /// Intrusion detection general state.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200701.FirewallPolicyIntrusionDetectionStateType>? Mode { get; set; }
 
         public FirewallPolicyIntrusionDetectionArgs()
         {

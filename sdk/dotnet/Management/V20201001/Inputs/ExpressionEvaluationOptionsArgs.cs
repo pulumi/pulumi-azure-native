@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Management.V20201001.Inputs
         /// The scope to be used for evaluation of parameters, variables and functions in a nested template.
         /// </summary>
         [Input("scope")]
-        public Input<string>? Scope { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Management.V20201001.ExpressionEvaluationOptionsScopeType>? Scope { get; set; }
 
         public ExpressionEvaluationOptionsArgs()
         {

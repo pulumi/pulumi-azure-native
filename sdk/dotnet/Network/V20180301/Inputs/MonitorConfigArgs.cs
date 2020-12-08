@@ -61,13 +61,13 @@ namespace Pulumi.AzureNextGen.Network.V20180301.Inputs
         /// The profile-level monitoring status of the Traffic Manager profile.
         /// </summary>
         [Input("profileMonitorStatus")]
-        public Input<string>? ProfileMonitorStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180301.ProfileMonitorStatus>? ProfileMonitorStatus { get; set; }
 
         /// <summary>
         /// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180301.MonitorProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.

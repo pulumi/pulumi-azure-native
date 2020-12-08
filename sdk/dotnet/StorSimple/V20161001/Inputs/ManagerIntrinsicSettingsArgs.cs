@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001.Inputs
         /// Refers to the type of the StorSimple Manager
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.ManagerType> Type { get; set; } = null!;
 
         public ManagerIntrinsicSettingsArgs()
         {

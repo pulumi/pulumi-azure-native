@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// Data policy of the storage Account.
         /// </summary>
         [Input("dataPolicy")]
-        public Input<string>? DataPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190801.DataPolicy>? DataPolicy { get; set; }
 
         /// <summary>
         /// Description for the storage Account.
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// Current status of the storage account
         /// </summary>
         [Input("storageAccountStatus")]
-        public Input<string>? StorageAccountStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190801.StorageAccountStatus>? StorageAccountStatus { get; set; }
 
         public StorageAccountArgs()
         {

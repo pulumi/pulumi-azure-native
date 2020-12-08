@@ -171,7 +171,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190301Preview
         /// Connector billing model
         /// </summary>
         [Input("billingModel")]
-        public Input<string>? BillingModel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190301Preview.ConnectorBillingModel>? BillingModel { get; set; }
 
         /// <summary>
         /// Connector Name.

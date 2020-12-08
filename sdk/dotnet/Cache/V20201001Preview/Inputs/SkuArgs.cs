@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview.Inputs
         /// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20201001Preview.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

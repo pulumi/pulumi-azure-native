@@ -137,7 +137,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// Role of the linked server.
         /// </summary>
         [Input("serverRole", required: true)]
-        public Input<string> ServerRole { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Cache.Latest.ReplicationRole> ServerRole { get; set; } = null!;
 
         public LinkedServerArgs()
         {

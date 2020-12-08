@@ -186,14 +186,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         public Input<string> AuthorizationEndpoint { get; set; } = null!;
 
         [Input("authorizationMethods")]
-        private InputList<string>? _authorizationMethods;
+        private InputList<Pulumi.AzureNextGen.ApiManagement.V20191201.AuthorizationMethod>? _authorizationMethods;
 
         /// <summary>
         /// HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
         /// </summary>
-        public InputList<string> AuthorizationMethods
+        public InputList<Pulumi.AzureNextGen.ApiManagement.V20191201.AuthorizationMethod> AuthorizationMethods
         {
-            get => _authorizationMethods ?? (_authorizationMethods = new InputList<string>());
+            get => _authorizationMethods ?? (_authorizationMethods = new InputList<Pulumi.AzureNextGen.ApiManagement.V20191201.AuthorizationMethod>());
             set => _authorizationMethods = value;
         }
 
@@ -204,26 +204,26 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         public Input<string> Authsid { get; set; } = null!;
 
         [Input("bearerTokenSendingMethods")]
-        private InputList<string>? _bearerTokenSendingMethods;
+        private InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20191201.BearerTokenSendingMethod>>? _bearerTokenSendingMethods;
 
         /// <summary>
         /// Specifies the mechanism by which access token is passed to the API. 
         /// </summary>
-        public InputList<string> BearerTokenSendingMethods
+        public InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20191201.BearerTokenSendingMethod>> BearerTokenSendingMethods
         {
-            get => _bearerTokenSendingMethods ?? (_bearerTokenSendingMethods = new InputList<string>());
+            get => _bearerTokenSendingMethods ?? (_bearerTokenSendingMethods = new InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20191201.BearerTokenSendingMethod>>());
             set => _bearerTokenSendingMethods = value;
         }
 
         [Input("clientAuthenticationMethod")]
-        private InputList<string>? _clientAuthenticationMethod;
+        private InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20191201.ClientAuthenticationMethod>>? _clientAuthenticationMethod;
 
         /// <summary>
         /// Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
         /// </summary>
-        public InputList<string> ClientAuthenticationMethod
+        public InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20191201.ClientAuthenticationMethod>> ClientAuthenticationMethod
         {
-            get => _clientAuthenticationMethod ?? (_clientAuthenticationMethod = new InputList<string>());
+            get => _clientAuthenticationMethod ?? (_clientAuthenticationMethod = new InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20191201.ClientAuthenticationMethod>>());
             set => _clientAuthenticationMethod = value;
         }
 
@@ -264,14 +264,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("grantTypes", required: true)]
-        private InputList<string>? _grantTypes;
+        private InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20191201.GrantType>>? _grantTypes;
 
         /// <summary>
         /// Form of an authorization grant, which the client uses to request the access token.
         /// </summary>
-        public InputList<string> GrantTypes
+        public InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20191201.GrantType>> GrantTypes
         {
-            get => _grantTypes ?? (_grantTypes = new InputList<string>());
+            get => _grantTypes ?? (_grantTypes = new InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20191201.GrantType>>());
             set => _grantTypes = value;
         }
 

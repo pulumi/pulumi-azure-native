@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
         /// The type of key used to encrypt the Account Key.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.Latest.AccountEncryptionKeyType> Type { get; set; } = null!;
 
         public AccountEncryptionArgs()
         {

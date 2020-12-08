@@ -391,7 +391,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// Scheduling priority associated with the job. Possible values: low, normal, high.
         /// </summary>
         [Input("schedulingPriority")]
-        public Input<string>? SchedulingPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.V20180501.JobPriority>? SchedulingPriority { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.EnvironmentVariableWithSecretValueArgs>? _secrets;

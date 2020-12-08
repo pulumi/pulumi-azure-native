@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200101.Inputs
         /// Rights that this key has.
         /// </summary>
         [Input("rights", required: true)]
-        public Input<string> Rights { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200101.AccessRightsDescription> Rights { get; set; } = null!;
 
         /// <summary>
         /// Secondary SAS key value.

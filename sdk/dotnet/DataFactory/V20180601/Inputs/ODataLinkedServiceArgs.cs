@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// Specify the credential type (key or cert) is used for service principal.
         /// </summary>
         [Input("aadServicePrincipalCredentialType")]
-        public Input<string>? AadServicePrincipalCredentialType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.ODataAadServicePrincipalCredentialType>? AadServicePrincipalCredentialType { get; set; }
 
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// Type of authentication used to connect to the OData service.
         /// </summary>
         [Input("authenticationType")]
-        public Input<string>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.ODataAuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).

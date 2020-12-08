@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20190401Preview
         /// The category of the budget, whether the budget tracks cost or usage.
         /// </summary>
         [Input("category", required: true)]
-        public Input<string> Category { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Consumption.V20190401Preview.CategoryType> Category { get; set; } = null!;
 
         /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20190401Preview
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
         /// </summary>
         [Input("timeGrain", required: true)]
-        public Input<string> TimeGrain { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Consumption.V20190401Preview.TimeGrainType> TimeGrain { get; set; } = null!;
 
         /// <summary>
         /// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.

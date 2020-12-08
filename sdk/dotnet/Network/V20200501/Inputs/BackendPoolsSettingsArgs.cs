@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
         /// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
         /// </summary>
         [Input("enforceCertificateNameCheck")]
-        public Input<string>? EnforceCertificateNameCheck { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.EnforceCertificateNameCheckEnabledState>? EnforceCertificateNameCheck { get; set; }
 
         /// <summary>
         /// Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.

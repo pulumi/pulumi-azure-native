@@ -195,7 +195,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
         /// Connectivity to internet is enabled or disabled
         /// </summary>
         [Input("internet")]
-        public Input<string>? Internet { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AVS.Latest.InternetEnum>? Internet { get; set; }
 
         /// <summary>
         /// Resource location

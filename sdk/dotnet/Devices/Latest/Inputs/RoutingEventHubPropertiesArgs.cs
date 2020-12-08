@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest.Inputs
         /// Method used to authenticate against the event hub endpoint
         /// </summary>
         [Input("authenticationType")]
-        public Input<string>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.Latest.AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The connection string of the event hub endpoint. 

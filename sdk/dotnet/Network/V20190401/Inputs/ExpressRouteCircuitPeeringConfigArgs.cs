@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Inputs
         /// The advertised public prefix state of the Peering resource.
         /// </summary>
         [Input("advertisedPublicPrefixesState")]
-        public Input<string>? AdvertisedPublicPrefixesState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190401.ExpressRouteCircuitPeeringAdvertisedPublicPrefixState>? AdvertisedPublicPrefixesState { get; set; }
 
         /// <summary>
         /// The CustomerASN of the peering.

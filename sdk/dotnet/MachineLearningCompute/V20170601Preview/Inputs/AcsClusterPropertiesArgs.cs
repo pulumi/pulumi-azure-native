@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.Inputs
         /// The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created.
         /// </summary>
         [Input("agentVmSize")]
-        public Input<string>? AgentVmSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.AgentVMSizeTypes>? AgentVmSize { get; set; }
 
         /// <summary>
         /// Orchestrator specific properties
@@ -37,17 +37,17 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.Inputs
         /// Type of orchestrator. It cannot be changed once the cluster is created.
         /// </summary>
         [Input("orchestratorType", required: true)]
-        public Input<string> OrchestratorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.Orchestrator> OrchestratorType { get; set; } = null!;
 
         [Input("systemServices")]
-        private InputList<string>? _systemServices;
+        private InputList<Union<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.SystemServices>>? _systemServices;
 
         /// <summary>
         /// The system services deployed to the cluster
         /// </summary>
-        public InputList<string> SystemServices
+        public InputList<Union<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.SystemServices>> SystemServices
         {
-            get => _systemServices ?? (_systemServices = new InputList<string>());
+            get => _systemServices ?? (_systemServices = new InputList<Union<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.SystemServices>>());
             set => _systemServices = value;
         }
 

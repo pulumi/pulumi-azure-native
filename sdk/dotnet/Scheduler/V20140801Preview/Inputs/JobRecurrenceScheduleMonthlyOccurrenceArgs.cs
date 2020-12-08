@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20140801Preview.Inputs
         /// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         /// </summary>
         [Input("day")]
-        public Input<string>? Day { get; set; }
+        public Input<Pulumi.AzureNextGen.Scheduler.V20140801Preview.JobScheduleDay>? Day { get; set; }
 
         /// <summary>
         /// Gets or sets the occurrence. Must be between -5 and 5.

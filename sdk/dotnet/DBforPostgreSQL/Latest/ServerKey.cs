@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
         /// The key type like 'AzureKeyVault'.
         /// </summary>
         [Input("serverKeyType", required: true)]
-        public Input<string> ServerKeyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.Latest.ServerKeyType> ServerKeyType { get; set; } = null!;
 
         /// <summary>
         /// The name of the server.

@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
         /// Kind of the endpoint for the data connection
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20200614.DataConnectionKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

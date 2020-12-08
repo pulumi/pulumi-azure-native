@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// The type of the storage account.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180601Preview.StorageAccountType> Type { get; set; } = null!;
 
         public StorageAccountArgs()
         {

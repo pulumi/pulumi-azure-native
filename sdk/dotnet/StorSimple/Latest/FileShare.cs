@@ -133,7 +133,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The data policy
         /// </summary>
         [Input("dataPolicy", required: true)]
-        public Input<string> DataPolicy { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.DataPolicy> DataPolicy { get; set; } = null!;
 
         /// <summary>
         /// Description for file share
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The monitoring status
         /// </summary>
         [Input("monitoringStatus", required: true)]
-        public Input<string> MonitoringStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.MonitoringStatus> MonitoringStatus { get; set; } = null!;
 
         /// <summary>
         /// The total provisioned capacity in Bytes
@@ -187,7 +187,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The Share Status
         /// </summary>
         [Input("shareStatus", required: true)]
-        public Input<string> ShareStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.ShareStatus> ShareStatus { get; set; } = null!;
 
         public FileShareArgs()
         {

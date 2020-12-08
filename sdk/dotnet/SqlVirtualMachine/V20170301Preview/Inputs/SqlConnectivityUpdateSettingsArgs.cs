@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
         /// SQL Server connectivity option.
         /// </summary>
         [Input("connectivityType")]
-        public Input<string>? ConnectivityType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.ConnectivityType>? ConnectivityType { get; set; }
 
         /// <summary>
         /// SQL Server port.

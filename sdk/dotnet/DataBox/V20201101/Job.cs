@@ -190,7 +190,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
         /// Delivery type of Job.
         /// </summary>
         [Input("deliveryType")]
-        public Input<string>? DeliveryType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20201101.JobDeliveryType>? DeliveryType { get; set; }
 
         /// <summary>
         /// Details of a job run. This field will only be sent for expand details filter.
@@ -244,7 +244,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
         /// Type of the data transfer.
         /// </summary>
         [Input("transferType", required: true)]
-        public Input<string> TransferType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20201101.TransferType> TransferType { get; set; } = null!;
 
         public JobArgs()
         {

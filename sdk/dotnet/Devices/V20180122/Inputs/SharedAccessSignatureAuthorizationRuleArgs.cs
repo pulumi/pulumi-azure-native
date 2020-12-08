@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Devices.V20180122.Inputs
         /// The permissions assigned to the shared access policy.
         /// </summary>
         [Input("rights", required: true)]
-        public Input<string> Rights { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Devices.V20180122.AccessRights> Rights { get; set; } = null!;
 
         /// <summary>
         /// The secondary key.

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Inputs
         /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
         /// </summary>
         [Input("caching")]
-        public Input<string>? Caching { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20190701.CachingTypes>? Caching { get; set; }
 
         /// <summary>
         /// Specifies the customer managed disk encryption set resource id for the managed image disk.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Inputs
         /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         /// </summary>
         [Input("storageAccountType")]
-        public Input<string>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190701.StorageAccountTypes>? StorageAccountType { get; set; }
 
         public ImageDataDiskArgs()
         {

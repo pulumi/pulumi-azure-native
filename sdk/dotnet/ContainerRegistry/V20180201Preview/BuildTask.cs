@@ -171,7 +171,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
         /// The current status of build task.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview.BuildTaskStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

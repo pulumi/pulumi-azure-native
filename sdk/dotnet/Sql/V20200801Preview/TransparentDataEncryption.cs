@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// Specifies the state of the transparent data encryption.
         /// </summary>
         [Input("state", required: true)]
-        public Input<string> State { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Sql.V20200801Preview.TransparentDataEncryptionState> State { get; set; } = null!;
 
         /// <summary>
         /// The name of the transparent data encryption configuration.

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Inputs
         /// Enumerates the possible value of keySource for Encryption
         /// </summary>
         [Input("keySource")]
-        public Input<string>? KeySource { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CognitiveServices.V20170418.KeySource>? KeySource { get; set; }
 
         /// <summary>
         /// Properties of KeyVault

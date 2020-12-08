@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview.Inputs
         /// The tier of the particular SKU, e.g. Basic.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

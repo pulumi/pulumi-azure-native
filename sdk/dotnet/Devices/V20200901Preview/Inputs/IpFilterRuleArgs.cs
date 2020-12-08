@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview.Inputs
         /// The desired action for requests captured by this rule.
         /// </summary>
         [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Devices.V20200901Preview.IpFilterActionType> Action { get; set; } = null!;
 
         /// <summary>
         /// The name of the IP filter rule.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview.Inputs
         /// Target for requests captured by this rule.
         /// </summary>
         [Input("target")]
-        public Input<string>? Target { get; set; }
+        public Input<Pulumi.AzureNextGen.Devices.V20200901Preview.IpFilterTargetType>? Target { get; set; }
 
         public IpFilterRuleArgs()
         {

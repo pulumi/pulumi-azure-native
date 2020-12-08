@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200301.Inputs
         /// The activation Mode of the service package
         /// </summary>
         [Input("failureAction")]
-        public Input<string>? FailureAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.V20200301.ArmUpgradeFailureAction>? FailureAction { get; set; }
 
         /// <summary>
         /// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.

@@ -252,7 +252,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// Specifies the eviction policy for the Azure Spot virtual machine. Only supported value is 'Deallocate'. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01
         /// </summary>
         [Input("evictionPolicy")]
-        public Input<string>? EvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190301.VirtualMachineEvictionPolicyTypes>? EvictionPolicy { get; set; }
 
         /// <summary>
         /// Specifies the hardware settings for the virtual machine.
@@ -306,7 +306,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// Specifies the priority for the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01
         /// </summary>
         [Input("priority")]
-        public Input<string>? Priority { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190301.VirtualMachinePriorityTypes>? Priority { get; set; }
 
         /// <summary>
         /// Specifies information about the proximity placement group that the virtual machine should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.

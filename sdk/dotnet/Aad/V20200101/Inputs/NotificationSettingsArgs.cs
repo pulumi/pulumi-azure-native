@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.Aad.V20200101.Inputs
         /// Should domain controller admins be notified
         /// </summary>
         [Input("notifyDcAdmins")]
-        public Input<string>? NotifyDcAdmins { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Aad.V20200101.NotifyDcAdmins>? NotifyDcAdmins { get; set; }
 
         /// <summary>
         /// Should global admins be notified
         /// </summary>
         [Input("notifyGlobalAdmins")]
-        public Input<string>? NotifyGlobalAdmins { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Aad.V20200101.NotifyGlobalAdmins>? NotifyGlobalAdmins { get; set; }
 
         public NotificationSettingsArgs()
         {

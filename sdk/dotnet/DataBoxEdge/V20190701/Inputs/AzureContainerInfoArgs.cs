@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701.Inputs
         /// Storage format used for the file represented by the share.
         /// </summary>
         [Input("dataFormat", required: true)]
-        public Input<string> DataFormat { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190701.AzureContainerDataFormat> DataFormat { get; set; } = null!;
 
         /// <summary>
         /// ID of the storage account credential used to access storage.

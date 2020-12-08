@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
         /// Name of the resource.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.AutoScalingResourceMetricName> Name { get; set; } = null!;
 
         public AutoScalingResourceMetricArgs()
         {

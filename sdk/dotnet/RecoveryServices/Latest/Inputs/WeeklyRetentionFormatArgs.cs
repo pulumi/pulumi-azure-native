@@ -16,26 +16,26 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     public sealed class WeeklyRetentionFormatArgs : Pulumi.ResourceArgs
     {
         [Input("daysOfTheWeek")]
-        private InputList<string>? _daysOfTheWeek;
+        private InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.DayOfWeek>? _daysOfTheWeek;
 
         /// <summary>
         /// List of days of the week.
         /// </summary>
-        public InputList<string> DaysOfTheWeek
+        public InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.DayOfWeek> DaysOfTheWeek
         {
-            get => _daysOfTheWeek ?? (_daysOfTheWeek = new InputList<string>());
+            get => _daysOfTheWeek ?? (_daysOfTheWeek = new InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.DayOfWeek>());
             set => _daysOfTheWeek = value;
         }
 
         [Input("weeksOfTheMonth")]
-        private InputList<string>? _weeksOfTheMonth;
+        private InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.WeekOfMonth>? _weeksOfTheMonth;
 
         /// <summary>
         /// List of weeks of month.
         /// </summary>
-        public InputList<string> WeeksOfTheMonth
+        public InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.WeekOfMonth> WeeksOfTheMonth
         {
-            get => _weeksOfTheMonth ?? (_weeksOfTheMonth = new InputList<string>());
+            get => _weeksOfTheMonth ?? (_weeksOfTheMonth = new InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.WeekOfMonth>());
             set => _weeksOfTheMonth = value;
         }
 

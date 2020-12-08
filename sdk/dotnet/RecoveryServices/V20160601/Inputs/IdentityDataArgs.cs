@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20160601.ResourceIdentityType> Type { get; set; } = null!;
 
         public IdentityDataArgs()
         {

@@ -265,7 +265,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200301
         /// The service level of the file system
         /// </summary>
         [Input("serviceLevel")]
-        public Input<string>? ServiceLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20200301.ServiceLevel>? ServiceLevel { get; set; }
 
         /// <summary>
         /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).

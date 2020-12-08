@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
         /// Type of the configuration for transfer.
         /// </summary>
         [Input("transferConfigurationType", required: true)]
-        public Input<string> TransferConfigurationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.Latest.TransferConfigurationType> TransferConfigurationType { get; set; } = null!;
 
         /// <summary>
         /// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.

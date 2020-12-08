@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180701.Inputs
         /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         /// </summary>
         [Input("keySource", required: true)]
-        public Input<string> KeySource { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20180701.KeySource> KeySource { get; set; } = null!;
 
         /// <summary>
         /// Properties provided by key vault.

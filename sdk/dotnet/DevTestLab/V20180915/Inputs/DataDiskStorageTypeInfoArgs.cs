@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
         /// Disk Storage Type
         /// </summary>
         [Input("storageType")]
-        public Input<string>? StorageType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.StorageType>? StorageType { get; set; }
 
         public DataDiskStorageTypeInfoArgs()
         {

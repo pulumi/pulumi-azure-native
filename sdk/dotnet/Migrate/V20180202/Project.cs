@@ -199,7 +199,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
         /// Provisioning state of the project.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20180202.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the Azure Resource Group that project is part of.

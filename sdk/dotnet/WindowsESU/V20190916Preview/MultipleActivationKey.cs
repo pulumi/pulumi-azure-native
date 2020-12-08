@@ -162,7 +162,7 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
         /// Type of OS for which the key is requested.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.WindowsESU.V20190916Preview.OsType>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
         /// Type of support
         /// </summary>
         [Input("supportType")]
-        public Input<string>? SupportType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.WindowsESU.V20190916Preview.SupportType>? SupportType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

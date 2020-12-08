@@ -121,7 +121,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
         /// </summary>
         [Input("licenseType", required: true)]
-        public Input<string> LicenseType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.InstancePoolLicenseType> LicenseType { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Inputs
         /// The Sku name.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20160601.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

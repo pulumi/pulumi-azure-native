@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview.Inputs
         /// Failover policy of the read-only endpoint for the failover group.
         /// </summary>
         [Input("failoverPolicy")]
-        public Input<string>? FailoverPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20150501Preview.ReadOnlyEndpointFailoverPolicy>? FailoverPolicy { get; set; }
 
         public FailoverGroupReadOnlyEndpointArgs()
         {

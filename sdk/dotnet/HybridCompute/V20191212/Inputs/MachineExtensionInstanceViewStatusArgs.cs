@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20191212.Inputs
         /// The level code.
         /// </summary>
         [Input("level")]
-        public Input<string>? Level { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HybridCompute.V20191212.StatusLevelTypes>? Level { get; set; }
 
         /// <summary>
         /// The detailed status message, including for alerts and error messages.

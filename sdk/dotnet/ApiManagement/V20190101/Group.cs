@@ -147,7 +147,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// Group type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.ApiManagement.V20190101.GroupType>? Type { get; set; }
 
         public GroupArgs()
         {

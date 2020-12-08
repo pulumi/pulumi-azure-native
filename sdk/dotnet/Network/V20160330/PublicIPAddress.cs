@@ -220,13 +220,13 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// Gets or sets PublicIP address version (IPv4/IPv6)
         /// </summary>
         [Input("publicIPAddressVersion")]
-        public Input<string>? PublicIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160330.IPVersion>? PublicIPAddressVersion { get; set; }
 
         /// <summary>
         /// Gets or sets PublicIP allocation method (Static/Dynamic)
         /// </summary>
         [Input("publicIPAllocationMethod")]
-        public Input<string>? PublicIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160330.IPAllocationMethod>? PublicIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The name of the publicIpAddress.

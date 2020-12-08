@@ -206,7 +206,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// The calculation window.
         /// </summary>
         [Input("calculationWindow", required: true)]
-        public Input<string> CalculationWindow { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170101.CalculationWindowTypes> CalculationWindow { get; set; } = null!;
 
         /// <summary>
         /// Name of calculation window field.
@@ -242,7 +242,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// The mapping entity type.
         /// </summary>
         [Input("entityType", required: true)]
-        public Input<string> EntityType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170101.EntityTypes> EntityType { get; set; } = null!;
 
         /// <summary>
         /// The mapping entity name.
@@ -278,7 +278,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// The computation function for the KPI.
         /// </summary>
         [Input("function", required: true)]
-        public Input<string> Function { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170101.KpiFunctions> Function { get; set; } = null!;
 
         [Input("groupBy")]
         private InputList<string>? _groupBy;

@@ -190,7 +190,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         /// </summary>
         [Input("storageLimitExceededBehavior")]
-        public Input<string>? StorageLimitExceededBehavior { get; set; }
+        public Input<Pulumi.AzureNextGen.TimeSeriesInsights.V20171115.StorageLimitExceededBehavior>? StorageLimitExceededBehavior { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

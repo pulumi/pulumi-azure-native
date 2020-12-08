@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Resource Health Status
         /// </summary>
         [Input("resourceHealthStatus")]
-        public Input<string>? ResourceHealthStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.ResourceHealthStatus>? ResourceHealthStatus { get; set; }
 
         public KPIResourceHealthDetailsArgs()
         {

@@ -153,7 +153,7 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
         /// The license type to apply for this elastic pool.
         /// </summary>
         [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20171001Preview.ElasticPoolLicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// Resource location.

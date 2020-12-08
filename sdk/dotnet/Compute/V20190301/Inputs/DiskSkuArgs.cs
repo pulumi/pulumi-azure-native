@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301.Inputs
         /// The sku name.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190301.DiskStorageAccountTypes>? Name { get; set; }
 
         public DiskSkuArgs()
         {

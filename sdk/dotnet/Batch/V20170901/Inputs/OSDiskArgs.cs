@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Batch.V20170901.Inputs
         /// Default value is none.
         /// </summary>
         [Input("caching")]
-        public Input<string>? Caching { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.V20170901.CachingType>? Caching { get; set; }
 
         public OSDiskArgs()
         {

@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview.Inputs
         /// The output destination type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.JobStepOutputType>? Type { get; set; }
 
         public JobStepOutputArgs()
         {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview.Inputs
         /// Provisioning state of the migrate project.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20180901Preview.ProvisioningState>? ProvisioningState { get; set; }
 
         [Input("registeredTools")]
         private InputList<string>? _registeredTools;

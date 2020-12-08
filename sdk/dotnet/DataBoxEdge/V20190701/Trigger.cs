@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
         /// Trigger Kind.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190701.TriggerEventType> Kind { get; set; } = null!;
 
         /// <summary>
         /// The trigger name.

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Inputs
         /// Type of address.
         /// </summary>
         [Input("addressType")]
-        public Input<string>? AddressType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20200401.AddressType>? AddressType { get; set; }
 
         /// <summary>
         /// Name of the City.

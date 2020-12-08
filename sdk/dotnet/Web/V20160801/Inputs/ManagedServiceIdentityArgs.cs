@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801.Inputs
         /// Type of managed service identity.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Web.V20160801.ManagedServiceIdentityType>? Type { get; set; }
 
         public ManagedServiceIdentityArgs()
         {

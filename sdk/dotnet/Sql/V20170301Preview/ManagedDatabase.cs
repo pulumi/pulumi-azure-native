@@ -184,7 +184,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// Collation of the metadata catalog.
         /// </summary>
         [Input("catalogCollation")]
-        public Input<string>? CatalogCollation { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20170301Preview.CatalogCollationType>? CatalogCollation { get; set; }
 
         /// <summary>
         /// Collation of the managed database.
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20170301Preview.ManagedDatabaseCreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// The name of the database.

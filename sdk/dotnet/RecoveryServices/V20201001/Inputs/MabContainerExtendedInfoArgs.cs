@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Type of backup items associated with this container.
         /// </summary>
         [Input("backupItemType")]
-        public Input<string>? BackupItemType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.BackupItemType>? BackupItemType { get; set; }
 
         [Input("backupItems")]
         private InputList<string>? _backupItems;

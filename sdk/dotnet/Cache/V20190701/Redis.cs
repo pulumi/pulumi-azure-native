@@ -217,7 +217,7 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
         /// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         /// </summary>
         [Input("minimumTlsVersion")]
-        public Input<string>? MinimumTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20190701.TlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// The name of the Redis cache.

@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
         /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HybridCompute.V20200815Preview.PublicNetworkAccessType>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group.

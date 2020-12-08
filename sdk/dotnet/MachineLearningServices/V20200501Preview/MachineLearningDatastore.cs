@@ -153,7 +153,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
         /// Specifies datastore type.
         /// </summary>
         [Input("dataStoreType", required: true)]
-        public Input<string> DataStoreType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.DatastoreTypeArm> DataStoreType { get; set; } = null!;
 
         /// <summary>
         /// The database name.

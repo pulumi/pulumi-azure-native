@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// Format of the policyContent.
         /// </summary>
         [Input("contentFormat")]
-        public Input<string>? ContentFormat { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180601Preview.PolicyContentFormat>? ContentFormat { get; set; }
 
         /// <summary>
         /// Operation identifier within an API. Must be unique in the current API Management service instance.

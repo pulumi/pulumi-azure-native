@@ -195,7 +195,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
         /// Connector status
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20180801Preview.ConnectorStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160101.Inputs
         /// Gets or set the SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public Input<Pulumi.AzureNextGen.Scheduler.V20160101.SkuDefinition>? Name { get; set; }
 
         public SkuArgs()
         {

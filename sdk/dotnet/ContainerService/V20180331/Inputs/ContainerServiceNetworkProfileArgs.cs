@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180331.Inputs
         /// Network plugin used for building Kubernetes network.
         /// </summary>
         [Input("networkPlugin")]
-        public Input<string>? NetworkPlugin { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20180331.NetworkPlugin>? NetworkPlugin { get; set; }
 
         /// <summary>
         /// Network policy used for building Kubernetes network.
         /// </summary>
         [Input("networkPolicy")]
-        public Input<string>? NetworkPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20180331.NetworkPolicy>? NetworkPolicy { get; set; }
 
         /// <summary>
         /// A CIDR notation IP range from which to assign pod IPs when kubenet is used.

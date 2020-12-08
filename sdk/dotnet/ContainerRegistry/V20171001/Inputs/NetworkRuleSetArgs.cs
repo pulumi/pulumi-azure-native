@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001.Inputs
         /// The default action of allow or deny when no other rules match.
         /// </summary>
         [Input("defaultAction", required: true)]
-        public Input<string> DefaultAction { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20171001.DefaultAction> DefaultAction { get; set; } = null!;
 
         [Input("ipRules")]
         private InputList<Inputs.IPRuleArgs>? _ipRules;

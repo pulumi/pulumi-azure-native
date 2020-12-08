@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201.Inputs
         /// The protocol for the outbound rule in load balancer. Possible values are: 'Tcp', 'Udp', and 'All'.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190201.LoadBalancerOutboundRuleProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

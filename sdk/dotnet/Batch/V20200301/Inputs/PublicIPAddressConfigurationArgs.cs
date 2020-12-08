@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200301.Inputs
         /// The default value is BatchManaged
         /// </summary>
         [Input("provision")]
-        public Input<string>? Provision { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.V20200301.IPAddressProvisioningType>? Provision { get; set; }
 
         public PublicIPAddressConfigurationArgs()
         {

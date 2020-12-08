@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         /// Describes operator to be matched
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.RequestMethodOperator> Operator { get; set; } = null!;
 
         public RequestMethodMatchConditionParametersArgs()
         {

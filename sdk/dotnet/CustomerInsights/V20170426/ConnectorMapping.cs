@@ -176,7 +176,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// Type of connector.
         /// </summary>
         [Input("connectorType")]
-        public Input<string>? ConnectorType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CustomerInsights.V20170426.ConnectorTypes>? ConnectorType { get; set; }
 
         /// <summary>
         /// The description of the connector mapping.
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// Defines which entity type the file should map to.
         /// </summary>
         [Input("entityType", required: true)]
-        public Input<string> EntityType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170426.EntityTypes> EntityType { get; set; } = null!;
 
         /// <summary>
         /// The mapping entity name.

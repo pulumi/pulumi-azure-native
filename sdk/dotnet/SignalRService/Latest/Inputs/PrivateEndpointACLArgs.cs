@@ -16,26 +16,26 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest.Inputs
     public sealed class PrivateEndpointACLArgs : Pulumi.ResourceArgs
     {
         [Input("allow")]
-        private InputList<string>? _allow;
+        private InputList<Union<string, Pulumi.AzureNextGen.SignalRService.Latest.SignalRRequestType>>? _allow;
 
         /// <summary>
         /// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         /// </summary>
-        public InputList<string> Allow
+        public InputList<Union<string, Pulumi.AzureNextGen.SignalRService.Latest.SignalRRequestType>> Allow
         {
-            get => _allow ?? (_allow = new InputList<string>());
+            get => _allow ?? (_allow = new InputList<Union<string, Pulumi.AzureNextGen.SignalRService.Latest.SignalRRequestType>>());
             set => _allow = value;
         }
 
         [Input("deny")]
-        private InputList<string>? _deny;
+        private InputList<Union<string, Pulumi.AzureNextGen.SignalRService.Latest.SignalRRequestType>>? _deny;
 
         /// <summary>
         /// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         /// </summary>
-        public InputList<string> Deny
+        public InputList<Union<string, Pulumi.AzureNextGen.SignalRService.Latest.SignalRRequestType>> Deny
         {
-            get => _deny ?? (_deny = new InputList<string>());
+            get => _deny ?? (_deny = new InputList<Union<string, Pulumi.AzureNextGen.SignalRService.Latest.SignalRRequestType>>());
             set => _deny = value;
         }
 

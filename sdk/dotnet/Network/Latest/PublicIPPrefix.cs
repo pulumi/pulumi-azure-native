@@ -228,7 +228,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The public IP address version.
         /// </summary>
         [Input("publicIPAddressVersion")]
-        public Input<string>? PublicIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.IPVersion>? PublicIPAddressVersion { get; set; }
 
         /// <summary>
         /// The name of the public IP prefix.

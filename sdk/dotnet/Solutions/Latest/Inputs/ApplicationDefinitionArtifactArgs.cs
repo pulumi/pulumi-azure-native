@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Solutions.Latest.Inputs
         /// The managed application definition artifact name.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Solutions.Latest.ApplicationDefinitionArtifactName> Name { get; set; } = null!;
 
         /// <summary>
         /// The managed application definition artifact type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Solutions.Latest.ApplicationArtifactType> Type { get; set; } = null!;
 
         /// <summary>
         /// The managed application definition artifact blob uri.

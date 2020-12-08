@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20200201Preview.Inputs
         /// MFA provider.
         /// </summary>
         [Input("multiFactorAuthProvider", required: true)]
-        public Input<string> MultiFactorAuthProvider { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ManagedServices.V20200201Preview.MultiFactorAuthProvider> MultiFactorAuthProvider { get; set; } = null!;
 
         public JustInTimeAccessPolicyArgs()
         {

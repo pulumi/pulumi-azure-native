@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
         /// The frequency.
         /// </summary>
         [Input("frequency")]
-        public Input<string>? Frequency { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.RecurrenceFrequency>? Frequency { get; set; }
 
         /// <summary>
         /// The interval.

@@ -133,7 +133,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
         /// Provider of the volume.
         /// </summary>
         [Input("provider", required: true)]
-        public Input<string> Provider { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.VolumeProvider> Provider { get; set; } = null!;
 
         /// <summary>
         /// Azure resource group name

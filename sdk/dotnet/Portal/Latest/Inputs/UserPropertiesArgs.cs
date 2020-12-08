@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Portal.Latest.Inputs
         /// The operating system type of the cloud shell. Deprecated, use preferredShellType.
         /// </summary>
         [Input("preferredOsType", required: true)]
-        public Input<string> PreferredOsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Portal.Latest.OsType> PreferredOsType { get; set; } = null!;
 
         /// <summary>
         /// The shell type of the cloud shell.
         /// </summary>
         [Input("preferredShellType", required: true)]
-        public Input<string> PreferredShellType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Portal.Latest.ShellType> PreferredShellType { get; set; } = null!;
 
         /// <summary>
         /// The storage profile of the user settings.

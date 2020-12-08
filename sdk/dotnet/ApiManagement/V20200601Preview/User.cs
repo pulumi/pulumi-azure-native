@@ -135,13 +135,13 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Determines the type of application which send the create user request. Default is legacy portal.
         /// </summary>
         [Input("appType")]
-        public Input<string>? AppType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.AppType>? AppType { get; set; }
 
         /// <summary>
         /// Determines the type of confirmation e-mail that will be sent to the newly created user.
         /// </summary>
         [Input("confirmation")]
-        public Input<string>? Confirmation { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.Confirmation>? Confirmation { get; set; }
 
         /// <summary>
         /// Email address. Must not be empty and must be unique within the service instance.
@@ -207,7 +207,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.UserState>? State { get; set; }
 
         /// <summary>
         /// User identifier. Must be unique in the current API Management service instance.

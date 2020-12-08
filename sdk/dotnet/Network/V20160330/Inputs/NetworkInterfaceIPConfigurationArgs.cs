@@ -82,13 +82,13 @@ namespace Pulumi.AzureNextGen.Network.V20160330.Inputs
         /// Gets or sets PrivateIP address version (IPv4/IPv6)
         /// </summary>
         [Input("privateIPAddressVersion")]
-        public Input<string>? PrivateIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160330.IPVersion>? PrivateIPAddressVersion { get; set; }
 
         /// <summary>
         /// Gets or sets PrivateIP allocation method (Static/Dynamic)
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public Input<string>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160330.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         [Input("provisioningState")]
         public Input<string>? ProvisioningState { get; set; }

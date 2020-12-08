@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// Kind of data set mapping.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataShare.Latest.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

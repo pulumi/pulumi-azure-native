@@ -219,7 +219,7 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
         /// Enabled or Disabled flag to turn on Group-based filtered sync
         /// </summary>
         [Input("filteredSync")]
-        public Input<string>? FilteredSync { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Aad.V20200101.FilteredSync>? FilteredSync { get; set; }
 
         /// <summary>
         /// Secure LDAP Settings

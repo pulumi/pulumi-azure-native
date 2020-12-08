@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901.Inputs
         /// interpreted.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20180901.SecretObjectType>? Type { get; set; }
 
         /// <summary>
         /// The value of the secret. The format of this value will be determined

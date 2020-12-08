@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Inputs
         /// The DiskType.
         /// </summary>
         [Input("diskType")]
-        public Input<string>? DiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20180710.DiskAccountType>? DiskType { get; set; }
 
         [Input("disksToInclude")]
         private InputList<Inputs.InMageAzureV2DiskInputDetailsArgs>? _disksToInclude;

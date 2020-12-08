@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
         /// Disk configuration to apply to SQL Server.
         /// </summary>
         [Input("diskConfigurationType")]
-        public Input<string>? DiskConfigurationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.DiskConfigurationType>? DiskConfigurationType { get; set; }
 
         /// <summary>
         /// SQL Server Data Storage Settings.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
         /// Storage workload type.
         /// </summary>
         [Input("storageWorkloadType")]
-        public Input<string>? StorageWorkloadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.StorageWorkloadType>? StorageWorkloadType { get; set; }
 
         public StorageConfigurationSettingsArgs()
         {

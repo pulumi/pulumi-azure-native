@@ -187,7 +187,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200101
         /// The reason the incident was closed
         /// </summary>
         [Input("classification")]
-        public Input<string>? Classification { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200101.IncidentClassification>? Classification { get; set; }
 
         /// <summary>
         /// Describes the reason the incident was closed
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200101
         /// The classification reason the incident was closed with
         /// </summary>
         [Input("classificationReason")]
-        public Input<string>? ClassificationReason { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200101.IncidentClassificationReason>? ClassificationReason { get; set; }
 
         /// <summary>
         /// The description of the incident
@@ -259,13 +259,13 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200101
         /// The severity of the incident
         /// </summary>
         [Input("severity", required: true)]
-        public Input<string> Severity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200101.IncidentSeverity> Severity { get; set; } = null!;
 
         /// <summary>
         /// The status of the incident
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200101.IncidentStatus> Status { get; set; } = null!;
 
         /// <summary>
         /// The title of the incident

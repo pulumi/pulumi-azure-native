@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
         /// The type of this referenced entity.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Synapse.V20190601Preview.IntegrationRuntimeEntityReferenceType>? Type { get; set; }
 
         public EntityReferenceArgs()
         {

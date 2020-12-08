@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001Preview
         /// Type of the script.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Resources.V20191001Preview.ScriptType> Kind { get; set; } = null!;
 
         /// <summary>
         /// The location of the ACI and the storage account for the deployment script.

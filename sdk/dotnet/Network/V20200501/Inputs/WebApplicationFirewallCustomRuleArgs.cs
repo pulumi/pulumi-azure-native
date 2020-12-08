@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
         /// Type of Actions.
         /// </summary>
         [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.WebApplicationFirewallAction> Action { get; set; } = null!;
 
         [Input("matchConditions", required: true)]
         private InputList<Inputs.MatchConditionArgs>? _matchConditions;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
         /// The rule type.
         /// </summary>
         [Input("ruleType", required: true)]
-        public Input<string> RuleType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.WebApplicationFirewallRuleType> RuleType { get; set; } = null!;
 
         public WebApplicationFirewallCustomRuleArgs()
         {

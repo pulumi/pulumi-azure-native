@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Security.V20150601Preview.Inputs
         public Input<int> Number { get; set; } = null!;
 
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Security.V20150601Preview.Protocol> Protocol { get; set; } = null!;
 
         public JitNetworkAccessPortRuleArgs()
         {

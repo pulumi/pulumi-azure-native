@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// Type of the managed instance administrator.
         /// </summary>
         [Input("administratorType", required: true)]
-        public Input<string> AdministratorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.ManagedInstanceAdministratorType> AdministratorType { get; set; } = null!;
 
         /// <summary>
         /// Login name of the managed instance administrator.

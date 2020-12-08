@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301.Inputs
         /// Sampling type.
         /// </summary>
         [Input("samplingType")]
-        public Input<string>? SamplingType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20170301.SamplingType>? SamplingType { get; set; }
 
         public LoggerSamplingContractArgs()
         {

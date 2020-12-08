@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Status code of the application gateway customer error.
         /// </summary>
         [Input("statusCode")]
-        public Input<string>? StatusCode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ApplicationGatewayCustomErrorStatusCode>? StatusCode { get; set; }
 
         public ApplicationGatewayCustomErrorArgs()
         {

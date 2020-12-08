@@ -159,7 +159,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         /// This determines the format that Event Grid should expect for incoming events published to the topic.
         /// </summary>
         [Input("inputSchema")]
-        public Input<string>? InputSchema { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.Latest.InputSchema>? InputSchema { get; set; }
 
         /// <summary>
         /// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" /&gt;
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

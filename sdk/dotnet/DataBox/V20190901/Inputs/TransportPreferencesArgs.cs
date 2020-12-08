@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901.Inputs
         /// Indicates Shipment Logistics type that the customer preferred.
         /// </summary>
         [Input("preferredShipmentType", required: true)]
-        public Input<string> PreferredShipmentType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20190901.TransportShipmentTypes> PreferredShipmentType { get; set; } = null!;
 
         public TransportPreferencesArgs()
         {

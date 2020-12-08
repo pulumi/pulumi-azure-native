@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview.Inputs
         /// The Sku name of the resource. The possible values are: Basic or Premium.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20200401Preview.Sku>? Name { get; set; }
 
         public ResourceSkuArgs()
         {

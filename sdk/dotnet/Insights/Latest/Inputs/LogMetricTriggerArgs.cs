@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
         /// Metric Trigger Type - 'Consecutive' or 'Total'
         /// </summary>
         [Input("metricTriggerType")]
-        public Input<string>? MetricTriggerType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.MetricTriggerType>? MetricTriggerType { get; set; }
 
         /// <summary>
         /// The threshold of the metric trigger.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
         /// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
         /// </summary>
         [Input("thresholdOperator")]
-        public Input<string>? ThresholdOperator { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.ConditionalOperator>? ThresholdOperator { get; set; }
 
         public LogMetricTriggerArgs()
         {

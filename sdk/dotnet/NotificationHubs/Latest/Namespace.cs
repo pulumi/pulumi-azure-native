@@ -219,7 +219,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
         /// The namespace type.
         /// </summary>
         [Input("namespaceType")]
-        public Input<string>? NamespaceType { get; set; }
+        public Input<Pulumi.AzureNextGen.NotificationHubs.Latest.NamespaceType>? NamespaceType { get; set; }
 
         /// <summary>
         /// Provisioning state of the Namespace.

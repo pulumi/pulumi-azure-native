@@ -235,7 +235,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// Whether or not public network access is allowed for the container registry.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the container registry.

@@ -117,7 +117,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         /// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
         /// </summary>
         [Input("clientProtocol")]
-        public Input<string>? ClientProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20201001Preview.Protocol>? ClientProtocol { get; set; }
 
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         /// Clustering policy - default is OSSCluster. Specified at create time.
         /// </summary>
         [Input("clusteringPolicy")]
-        public Input<string>? ClusteringPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20201001Preview.ClusteringPolicy>? ClusteringPolicy { get; set; }
 
         /// <summary>
         /// The name of the database.
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         /// Redis eviction policy - default is VolatileLRU
         /// </summary>
         [Input("evictionPolicy")]
-        public Input<string>? EvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20201001Preview.EvictionPolicy>? EvictionPolicy { get; set; }
 
         [Input("modules")]
         private InputList<Inputs.ModuleArgs>? _modules;

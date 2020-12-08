@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
         /// The type of identity used for the cache
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.StorageCache.Latest.CacheIdentityType>? Type { get; set; }
 
         public CacheIdentityArgs()
         {

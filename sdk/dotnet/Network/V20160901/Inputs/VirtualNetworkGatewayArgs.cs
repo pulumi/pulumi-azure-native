@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
         /// The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
         /// </summary>
         [Input("gatewayType", required: true)]
-        public Input<string> GatewayType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.VirtualNetworkGatewayType> GatewayType { get; set; } = null!;
 
         /// <summary>
         /// Resource ID.
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
         /// The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
         /// </summary>
         [Input("vpnType", required: true)]
-        public Input<string> VpnType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.VpnType> VpnType { get; set; } = null!;
 
         public VirtualNetworkGatewayArgs()
         {

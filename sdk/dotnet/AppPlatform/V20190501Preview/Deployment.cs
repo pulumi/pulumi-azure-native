@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
         public Output<Outputs.DeploymentResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// Sku of the Deployment resource
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
@@ -111,6 +117,12 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Sku of the Deployment resource
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         public DeploymentArgs()
         {

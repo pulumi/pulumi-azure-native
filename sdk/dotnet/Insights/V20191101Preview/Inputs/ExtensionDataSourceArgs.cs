@@ -36,15 +36,15 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview.Inputs
         public Input<string> Name { get; set; } = null!;
 
         [Input("streams", required: true)]
-        private InputList<string>? _streams;
+        private InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownExtensionDataSourceStreams>>? _streams;
 
         /// <summary>
         /// List of streams that this data source will be sent to.
         /// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         /// </summary>
-        public InputList<string> Streams
+        public InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownExtensionDataSourceStreams>> Streams
         {
-            get => _streams ?? (_streams = new InputList<string>());
+            get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownExtensionDataSourceStreams>>());
             set => _streams = value;
         }
 

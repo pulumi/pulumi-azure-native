@@ -193,7 +193,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview
         /// Option to enable Helm Operator for this git configuration.
         /// </summary>
         [Input("enableHelmOperator")]
-        public Input<bool>? EnableHelmOperator { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview.EnableHelmOperatorType>? EnableHelmOperator { get; set; }
 
         /// <summary>
         /// Properties for Helm operator.
@@ -223,13 +223,13 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview
         /// Scope at which the operator will be installed.
         /// </summary>
         [Input("operatorScope")]
-        public Input<string>? OperatorScope { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview.OperatorScopeType>? OperatorScope { get; set; }
 
         /// <summary>
         /// Type of the operator
         /// </summary>
         [Input("operatorType")]
-        public Input<string>? OperatorType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview.OperatorType>? OperatorType { get; set; }
 
         /// <summary>
         /// Url of the SourceControl Repository.

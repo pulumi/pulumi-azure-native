@@ -184,7 +184,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// The version of the server.
         /// </summary>
         [Input("version")]
-        public Input<string>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20140401.ServerVersion>? Version { get; set; }
 
         public ServerArgs()
         {

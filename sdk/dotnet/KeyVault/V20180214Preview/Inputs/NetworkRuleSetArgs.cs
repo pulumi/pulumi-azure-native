@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214Preview.Inputs
         /// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         /// </summary>
         [Input("bypass")]
-        public Input<string>? Bypass { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20180214Preview.NetworkRuleBypassOptions>? Bypass { get; set; }
 
         /// <summary>
         /// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         /// </summary>
         [Input("defaultAction")]
-        public Input<string>? DefaultAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20180214Preview.NetworkRuleAction>? DefaultAction { get; set; }
 
         [Input("ipRules")]
         private InputList<Inputs.IPRuleArgs>? _ipRules;

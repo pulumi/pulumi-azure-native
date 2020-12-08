@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
         /// The kind of the event source.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The location of the resource.

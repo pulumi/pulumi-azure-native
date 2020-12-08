@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest.Inputs
         /// Specifies if the IP is exposed to the public internet or private VNET.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.Latest.ContainerGroupIpAddressType> Type { get; set; } = null!;
 
         public IpAddressArgs()
         {

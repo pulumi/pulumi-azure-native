@@ -248,14 +248,14 @@ namespace Pulumi.AzureNextGen.Network.V20181201
         }
 
         [Input("vpnProtocols")]
-        private InputList<string>? _vpnProtocols;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20181201.VpnGatewayTunnelingProtocol>>? _vpnProtocols;
 
         /// <summary>
         /// VPN protocols for the P2SVpnServerConfiguration.
         /// </summary>
-        public InputList<string> VpnProtocols
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20181201.VpnGatewayTunnelingProtocol>> VpnProtocols
         {
-            get => _vpnProtocols ?? (_vpnProtocols = new InputList<string>());
+            get => _vpnProtocols ?? (_vpnProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20181201.VpnGatewayTunnelingProtocol>>());
             set => _vpnProtocols = value;
         }
 

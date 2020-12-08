@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest.Inputs
         /// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
         /// </summary>
         [Input("upgradeMode")]
-        public Input<string>? UpgradeMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.Latest.RollingUpgradeMode>? UpgradeMode { get; set; }
 
         /// <summary>
         /// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).

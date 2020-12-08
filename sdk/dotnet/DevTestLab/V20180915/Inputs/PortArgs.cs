@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
         /// Protocol type of the port.
         /// </summary>
         [Input("transportProtocol")]
-        public Input<string>? TransportProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.TransportProtocol>? TransportProtocol { get; set; }
 
         public PortArgs()
         {

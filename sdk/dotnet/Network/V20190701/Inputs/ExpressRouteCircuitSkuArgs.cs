@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         /// The family of the SKU.
         /// </summary>
         [Input("family")]
-        public Input<string>? Family { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190701.ExpressRouteCircuitSkuFamily>? Family { get; set; }
 
         /// <summary>
         /// The name of the SKU.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         /// The tier of the SKU.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190701.ExpressRouteCircuitSkuTier>? Tier { get; set; }
 
         public ExpressRouteCircuitSkuArgs()
         {

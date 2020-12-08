@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
         /// Access protocol to be used by the share.
         /// </summary>
         [Input("accessProtocol", required: true)]
-        public Input<string> AccessProtocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190301.ShareAccessProtocol> AccessProtocol { get; set; } = null!;
 
         /// <summary>
         /// Azure container mapping for the share.
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
         /// Data policy of the share.
         /// </summary>
         [Input("dataPolicy")]
-        public Input<string>? DataPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190301.DataPolicy>? DataPolicy { get; set; }
 
         /// <summary>
         /// Description for the share.
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
         /// Current monitoring status of the share.
         /// </summary>
         [Input("monitoringStatus", required: true)]
-        public Input<string> MonitoringStatus { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190301.MonitoringStatus> MonitoringStatus { get; set; } = null!;
 
         /// <summary>
         /// The share name.
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
         /// Current status of the share.
         /// </summary>
         [Input("shareStatus", required: true)]
-        public Input<string> ShareStatus { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190301.ShareStatus> ShareStatus { get; set; } = null!;
 
         [Input("userAccessRights")]
         private InputList<Inputs.UserAccessRightArgs>? _userAccessRights;

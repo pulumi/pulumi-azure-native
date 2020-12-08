@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The message filter type.
         /// </summary>
         [Input("messageFilterType")]
-        public Input<string>? MessageFilterType { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.MessageFilterType>? MessageFilterType { get; set; }
 
         public X12MessageFilterArgs()
         {

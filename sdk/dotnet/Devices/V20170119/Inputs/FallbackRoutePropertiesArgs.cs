@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Devices.V20170119.Inputs
         /// The source to which the routing rule is to be applied to. e.g. DeviceMessages
         /// </summary>
         [Input("source", required: true)]
-        public Input<string> Source { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20170119.RoutingSource> Source { get; set; } = null!;
 
         public FallbackRoutePropertiesArgs()
         {

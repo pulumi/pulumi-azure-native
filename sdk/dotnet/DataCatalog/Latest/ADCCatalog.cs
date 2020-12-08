@@ -175,7 +175,7 @@ namespace Pulumi.AzureNextGen.DataCatalog.Latest
         /// Azure data catalog SKU.
         /// </summary>
         [Input("sku")]
-        public Input<string>? Sku { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataCatalog.Latest.SkuType>? Sku { get; set; }
 
         /// <summary>
         /// Azure data catalog provision status.

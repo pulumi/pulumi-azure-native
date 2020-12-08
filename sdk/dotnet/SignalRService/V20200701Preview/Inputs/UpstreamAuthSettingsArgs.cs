@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
         /// Gets or sets the type of auth. None or ManagedIdentity is supported now.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.UpstreamAuthType>? Type { get; set; }
 
         public UpstreamAuthSettingsArgs()
         {

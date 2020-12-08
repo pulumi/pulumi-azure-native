@@ -151,7 +151,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// Describes the user's progress in configuring their environment setting
         /// </summary>
         [Input("configurationState")]
-        public Input<string>? ConfigurationState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.LabServices.Latest.ConfigurationState>? ConfigurationState { get; set; }
 
         /// <summary>
         /// Describes the environment and its resource settings

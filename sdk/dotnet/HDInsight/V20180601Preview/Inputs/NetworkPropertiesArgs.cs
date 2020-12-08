@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
         /// Indicates whether or not private link is enabled.
         /// </summary>
         [Input("privateLink")]
-        public Input<string>? PrivateLink { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HDInsight.V20180601Preview.PrivateLink>? PrivateLink { get; set; }
 
         /// <summary>
         /// The direction for the resource provider connection.
         /// </summary>
         [Input("resourceProviderConnection")]
-        public Input<string>? ResourceProviderConnection { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HDInsight.V20180601Preview.ResourceProviderConnection>? ResourceProviderConnection { get; set; }
 
         public NetworkPropertiesArgs()
         {

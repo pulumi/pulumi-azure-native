@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.Inputs
         /// Indicates if the given action rule is enabled or disabled
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.ActionRuleStatus>? Status { get; set; }
 
         /// <summary>
         /// Suppression logic for a given action rule

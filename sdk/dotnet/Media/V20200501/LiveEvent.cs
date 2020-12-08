@@ -236,14 +236,14 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("streamOptions")]
-        private InputList<string>? _streamOptions;
+        private InputList<Union<string, Pulumi.AzureNextGen.Media.V20200501.StreamOptionsFlag>>? _streamOptions;
 
         /// <summary>
         /// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
         /// </summary>
-        public InputList<string> StreamOptions
+        public InputList<Union<string, Pulumi.AzureNextGen.Media.V20200501.StreamOptionsFlag>> StreamOptions
         {
-            get => _streamOptions ?? (_streamOptions = new InputList<string>());
+            get => _streamOptions ?? (_streamOptions = new InputList<Union<string, Pulumi.AzureNextGen.Media.V20200501.StreamOptionsFlag>>());
             set => _streamOptions = value;
         }
 

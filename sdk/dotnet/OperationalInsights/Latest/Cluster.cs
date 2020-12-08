@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
         /// </summary>
         [Input("billingType")]
-        public Input<string>? BillingType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.Latest.BillingType>? BillingType { get; set; }
 
         /// <summary>
         /// The name of the Log Analytics cluster.

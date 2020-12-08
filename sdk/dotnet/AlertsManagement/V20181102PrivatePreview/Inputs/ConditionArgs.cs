@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.Inputs
         /// operator for a given condition
         /// </summary>
         [Input("operator")]
-        public Input<string>? Operator { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.ScopeType>? Operator { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;

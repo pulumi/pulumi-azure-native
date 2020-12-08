@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20180331.Inputs
         /// The comparison operator.
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Consumption.V20180331.OperatorType> Operator { get; set; } = null!;
 
         /// <summary>
         /// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.

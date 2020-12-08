@@ -125,7 +125,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
         /// Public Certificate Location
         /// </summary>
         [Input("publicCertificateLocation")]
-        public Input<string>? PublicCertificateLocation { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20181101.PublicCertificateLocation>? PublicCertificateLocation { get; set; }
 
         /// <summary>
         /// Public certificate name.

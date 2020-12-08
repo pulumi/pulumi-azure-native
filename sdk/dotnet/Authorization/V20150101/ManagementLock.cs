@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
         /// The lock level of the management lock.
         /// </summary>
         [Input("level")]
-        public Input<string>? Level { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20150101.LockLevel>? Level { get; set; }
 
         /// <summary>
         /// The name of lock.

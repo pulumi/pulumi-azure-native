@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest.Inputs
         /// The type of completion operation.
         /// </summary>
         [Input("completionOperationType")]
-        public Input<string>? CompletionOperationType { get; set; }
+        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.CompletionOperationTypes>? CompletionOperationType { get; set; }
 
         /// <summary>
         /// The destination folder where files will be moved to once the import is done.

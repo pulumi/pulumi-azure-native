@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
         /// the scale direction. Whether the scaling action increases or decreases the number of instances.
         /// </summary>
         [Input("direction", required: true)]
-        public Input<string> Direction { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Insights.Latest.ScaleDirection> Direction { get; set; } = null!;
 
         /// <summary>
         /// the type of action that should occur when the scale rule fires.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Insights.Latest.ScaleType> Type { get; set; } = null!;
 
         /// <summary>
         /// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.

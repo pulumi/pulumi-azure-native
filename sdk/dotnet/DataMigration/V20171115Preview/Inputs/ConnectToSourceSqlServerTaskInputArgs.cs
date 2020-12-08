@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview.Inputs
         /// Permission group for validations
         /// </summary>
         [Input("checkPermissionsGroup")]
-        public Input<string>? CheckPermissionsGroup { get; set; }
+        public Input<Pulumi.AzureNextGen.DataMigration.V20171115Preview.ServerLevelPermissionsGroup>? CheckPermissionsGroup { get; set; }
 
         /// <summary>
         /// Connection information for Source SQL Server

@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest.Inputs
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.Latest.PublicNetworkAccessEnum>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]
-        public Input<string>? SslEnforcement { get; set; }
+        public Input<Pulumi.AzureNextGen.DBforMariaDB.Latest.SslEnforcementEnum>? SslEnforcement { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest.Inputs
         /// Server version.
         /// </summary>
         [Input("version")]
-        public Input<string>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.Latest.ServerVersion>? Version { get; set; }
 
         public ServerPropertiesForDefaultCreateArgs()
         {

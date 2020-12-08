@@ -13,7 +13,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
     public sealed class NetworkAccessControlEntryArgs : Pulumi.ResourceArgs
     {
         [Input("action")]
-        public Input<string>? Action { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20150801.AccessControlEntryAction>? Action { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }

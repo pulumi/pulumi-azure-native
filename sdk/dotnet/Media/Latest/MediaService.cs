@@ -161,7 +161,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         }
 
         [Input("storageAuthentication")]
-        public Input<string>? StorageAuthentication { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Media.Latest.StorageAuthentication>? StorageAuthentication { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

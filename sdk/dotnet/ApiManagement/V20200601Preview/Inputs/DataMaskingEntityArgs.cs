@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview.Inputs
         /// Data masking mode.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.DataMaskingMode>? Mode { get; set; }
 
         /// <summary>
         /// The name of an entity to mask (e.g. a name of a header or a query parameter).

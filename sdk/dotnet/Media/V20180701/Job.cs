@@ -190,7 +190,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         /// </summary>
         [Input("priority")]
-        public Input<string>? Priority { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180701.Priority>? Priority { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

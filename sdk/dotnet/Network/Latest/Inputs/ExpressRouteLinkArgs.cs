@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Administrative state of the physical port.
         /// </summary>
         [Input("adminState")]
-        public Input<string>? AdminState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ExpressRouteLinkAdminState>? AdminState { get; set; }
 
         /// <summary>
         /// Resource ID.

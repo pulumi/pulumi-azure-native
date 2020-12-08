@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Type of backup management for the backed up item.
         /// </summary>
         [Input("backupManagementType")]
-        public Input<string>? BackupManagementType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.BackupManagementType>? BackupManagementType { get; set; }
 
         /// <summary>
         /// Friendly name of the VM represented by this backup item.
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Backup state of this backup item.
         /// </summary>
         [Input("protectionState")]
-        public Input<string>? ProtectionState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.ProtectionStatus>? ProtectionState { get; set; }
 
         /// <summary>
         /// ARM ID of the resource to be backed up.

@@ -146,7 +146,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         /// </summary>
         [Input("enabled")]
-        public Input<string>? Enabled { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.Enabled>? Enabled { get; set; }
 
         /// <summary>
         /// Resource location

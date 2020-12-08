@@ -123,7 +123,7 @@ namespace Pulumi.AzureNextGen.Billing.V20180801Preview
         /// The format of the report being delivered.
         /// </summary>
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Billing.V20180801Preview.FormatType>? Format { get; set; }
 
         /// <summary>
         /// Report Name.

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160331.Inputs
         /// The default consistency level and configuration settings of the Cosmos DB account.
         /// </summary>
         [Input("defaultConsistencyLevel", required: true)]
-        public Input<string> DefaultConsistencyLevel { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.DocumentDB.V20160331.DefaultConsistencyLevel> DefaultConsistencyLevel { get; set; } = null!;
 
         /// <summary>
         /// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.

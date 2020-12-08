@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707.Inputs
         /// Hostname type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.ApiManagement.V20160707.HostnameType> Type { get; set; } = null!;
 
         public HostnameConfigurationArgs()
         {

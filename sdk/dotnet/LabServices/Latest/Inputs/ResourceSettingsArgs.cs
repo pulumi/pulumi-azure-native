@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest.Inputs
         /// The size of the virtual machine
         /// </summary>
         [Input("size")]
-        public Input<string>? Size { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.LabServices.Latest.ManagedLabVmSize>? Size { get; set; }
 
         public ResourceSettingsArgs()
         {

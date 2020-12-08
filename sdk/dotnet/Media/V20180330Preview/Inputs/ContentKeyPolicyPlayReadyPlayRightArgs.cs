@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
         /// Configures Unknown output handling settings of the license.
         /// </summary>
         [Input("allowPassingVideoContentToUnknownOutput", required: true)]
-        public Input<string> AllowPassingVideoContentToUnknownOutput { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180330Preview.ContentKeyPolicyPlayReadyUnknownOutputPassingOption> AllowPassingVideoContentToUnknownOutput { get; set; } = null!;
 
         /// <summary>
         /// Specifies the output protection level for compressed digital audio.

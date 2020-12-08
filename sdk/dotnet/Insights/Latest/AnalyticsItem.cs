@@ -157,7 +157,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
         [Input("scope")]
-        public Input<string>? Scope { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.ItemScope>? Scope { get; set; }
 
         /// <summary>
         /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
@@ -169,7 +169,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Enum indicating the type of the Analytics item.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.ItemType>? Type { get; set; }
 
         public AnalyticsItemArgs()
         {

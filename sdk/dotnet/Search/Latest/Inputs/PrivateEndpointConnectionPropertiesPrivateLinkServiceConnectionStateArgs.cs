@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Search.Latest.Inputs
         /// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.Search.Latest.PrivateLinkServiceConnectionStatus>? Status { get; set; }
 
         public PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs()
         {

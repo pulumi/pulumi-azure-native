@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801.Inputs
         /// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public Input<Pulumi.AzureNextGen.Search.V20200801.SharedPrivateLinkResourceProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The request message for requesting approval of the shared private link resource.
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801.Inputs
         /// Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.Search.V20200801.SharedPrivateLinkResourceStatus>? Status { get; set; }
 
         public SharedPrivateLinkResourcePropertiesArgs()
         {

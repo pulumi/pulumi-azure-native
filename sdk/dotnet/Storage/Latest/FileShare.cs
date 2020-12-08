@@ -165,7 +165,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         /// </summary>
         [Input("accessTier")]
-        public Input<string>? AccessTier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.ShareAccessTier>? AccessTier { get; set; }
 
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The authentication protocol that is used for the file share. Can only be specified when creating a share.
         /// </summary>
         [Input("enabledProtocols")]
-        public Input<string>? EnabledProtocols { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.EnabledProtocols>? EnabledProtocols { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The property is for NFS share only. The default is NoRootSquash.
         /// </summary>
         [Input("rootSquash")]
-        public Input<string>? RootSquash { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.RootSquashType>? RootSquash { get; set; }
 
         /// <summary>
         /// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.

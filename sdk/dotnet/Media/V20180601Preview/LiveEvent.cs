@@ -218,14 +218,14 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("streamOptions")]
-        private InputList<string>? _streamOptions;
+        private InputList<Pulumi.AzureNextGen.Media.V20180601Preview.StreamOptionsFlag>? _streamOptions;
 
         /// <summary>
         /// The stream options.
         /// </summary>
-        public InputList<string> StreamOptions
+        public InputList<Pulumi.AzureNextGen.Media.V20180601Preview.StreamOptionsFlag> StreamOptions
         {
-            get => _streamOptions ?? (_streamOptions = new InputList<string>());
+            get => _streamOptions ?? (_streamOptions = new InputList<Pulumi.AzureNextGen.Media.V20180601Preview.StreamOptionsFlag>());
             set => _streamOptions = value;
         }
 

@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest.Inputs
         /// Runtime version
         /// </summary>
         [Input("runtimeVersion")]
-        public Input<string>? RuntimeVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AppPlatform.Latest.RuntimeVersion>? RuntimeVersion { get; set; }
 
         public DeploymentSettingsArgs()
         {

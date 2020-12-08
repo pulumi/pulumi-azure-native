@@ -191,7 +191,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// The address prefix Type for the IpAllocation.
         /// </summary>
         [Input("prefixType")]
-        public Input<string>? PrefixType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.IPVersion>? PrefixType { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -215,7 +215,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// The type for the IpAllocation.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.IpAllocationType>? Type { get; set; }
 
         public IpAllocationArgs()
         {

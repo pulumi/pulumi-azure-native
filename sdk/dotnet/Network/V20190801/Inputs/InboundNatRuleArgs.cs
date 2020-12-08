@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         /// The reference to the transport protocol used by the load balancing rule.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.TransportProtocol>? Protocol { get; set; }
 
         public InboundNatRuleArgs()
         {

@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// Filter type that is evaluated against a BrokeredMessage.
         /// </summary>
         [Input("filterType")]
-        public Input<string>? FilterType { get; set; }
+        public Input<Pulumi.AzureNextGen.ServiceBus.Latest.FilterType>? FilterType { get; set; }
 
         /// <summary>
         /// The namespace name

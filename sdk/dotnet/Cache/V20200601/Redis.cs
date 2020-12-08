@@ -229,7 +229,7 @@ namespace Pulumi.AzureNextGen.Cache.V20200601
         /// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         /// </summary>
         [Input("minimumTlsVersion")]
-        public Input<string>? MinimumTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20200601.TlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// The name of the Redis cache.
@@ -241,7 +241,7 @@ namespace Pulumi.AzureNextGen.Cache.V20200601
         /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20200601.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         [Input("redisConfiguration")]
         private InputMap<string>? _redisConfiguration;

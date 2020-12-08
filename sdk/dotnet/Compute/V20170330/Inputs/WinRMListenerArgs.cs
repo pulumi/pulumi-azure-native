@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20170330.Inputs
         /// Specifies the protocol of listener. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;**http** &lt;br&gt;&lt;br&gt; **https**
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20170330.ProtocolTypes>? Protocol { get; set; }
 
         public WinRMListenerArgs()
         {

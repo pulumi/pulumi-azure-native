@@ -28,14 +28,14 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
         public Input<Inputs.SourcePropertiesArgs> SourceRepository { get; set; } = null!;
 
         [Input("sourceTriggerEvents", required: true)]
-        private InputList<string>? _sourceTriggerEvents;
+        private InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20190401.SourceTriggerEvent>>? _sourceTriggerEvents;
 
         /// <summary>
         /// The source event corresponding to the trigger.
         /// </summary>
-        public InputList<string> SourceTriggerEvents
+        public InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20190401.SourceTriggerEvent>> SourceTriggerEvents
         {
-            get => _sourceTriggerEvents ?? (_sourceTriggerEvents = new InputList<string>());
+            get => _sourceTriggerEvents ?? (_sourceTriggerEvents = new InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20190401.SourceTriggerEvent>>());
             set => _sourceTriggerEvents = value;
         }
 
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
         /// The current status of trigger.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190401.TriggerStatus>? Status { get; set; }
 
         public SourceTriggerArgs()
         {

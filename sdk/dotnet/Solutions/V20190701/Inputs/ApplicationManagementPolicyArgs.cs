@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701.Inputs
         /// The managed application management mode.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Solutions.V20190701.ApplicationManagementMode>? Mode { get; set; }
 
         public ApplicationManagementPolicyArgs()
         {

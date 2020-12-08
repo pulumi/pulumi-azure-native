@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
         /// Operator for dimension values
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180416.Operator> Operator { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;

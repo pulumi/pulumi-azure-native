@@ -97,7 +97,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// Format of the policyContent.
         /// </summary>
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201Preview.PolicyContentFormat>? Format { get; set; }
 
         /// <summary>
         /// The identifier of the Policy.

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest.Inputs
         /// The role of the contact.
         /// </summary>
         [Input("role")]
-        public Input<string>? Role { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Peering.Latest.Role>? Role { get; set; }
 
         public ContactDetailArgs()
         {

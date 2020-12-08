@@ -19,19 +19,19 @@ namespace Pulumi.AzureNextGen.Aad.V20170101.Inputs
         /// A flag to determine whether or not NtlmV1 is enabled or disabled.
         /// </summary>
         [Input("ntlmV1")]
-        public Input<string>? NtlmV1 { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Aad.V20170101.NtlmV1>? NtlmV1 { get; set; }
 
         /// <summary>
         /// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
         /// </summary>
         [Input("syncNtlmPasswords")]
-        public Input<string>? SyncNtlmPasswords { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Aad.V20170101.SyncNtlmPasswords>? SyncNtlmPasswords { get; set; }
 
         /// <summary>
         /// A flag to determine whether or not TlsV1 is enabled or disabled.
         /// </summary>
         [Input("tlsV1")]
-        public Input<string>? TlsV1 { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Aad.V20170101.TlsV1>? TlsV1 { get; set; }
 
         public DomainSecuritySettingsArgs()
         {

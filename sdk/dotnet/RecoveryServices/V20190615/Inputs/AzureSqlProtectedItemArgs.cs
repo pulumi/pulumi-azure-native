@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190615.Inputs
         /// Type of backup management for the backed up item.
         /// </summary>
         [Input("backupManagementType")]
-        public Input<string>? BackupManagementType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20190615.BackupManagementType>? BackupManagementType { get; set; }
 
         /// <summary>
         /// Name of the backup set the backup item belongs to
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190615.Inputs
         /// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20190615.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Time for deferred deletion in UTC
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190615.Inputs
         /// Backup state of the backed up item.
         /// </summary>
         [Input("protectionState")]
-        public Input<string>? ProtectionState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20190615.ProtectedItemState>? ProtectionState { get; set; }
 
         /// <summary>
         /// ARM ID of the resource to be backed up.
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190615.Inputs
         /// Type of workload this item represents.
         /// </summary>
         [Input("workloadType")]
-        public Input<string>? WorkloadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20190615.DataSourceType>? WorkloadType { get; set; }
 
         public AzureSqlProtectedItemArgs()
         {

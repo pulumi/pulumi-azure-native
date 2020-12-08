@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         }
 
         [Input("avroCompressionCodec")]
-        public Input<string>? AvroCompressionCodec { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.AvroCompressionCodec>? AvroCompressionCodec { get; set; }
 
         [Input("avroCompressionLevel")]
         public Input<int>? AvroCompressionLevel { get; set; }

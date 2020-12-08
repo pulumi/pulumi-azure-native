@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         /// </summary>
         [Input("multiVmSyncStatus", required: true)]
-        public Input<string> MultiVmSyncStatus { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.SetMultiVmSyncStatus> MultiVmSyncStatus { get; set; } = null!;
 
         /// <summary>
         /// The duration in minutes until which the recovery points need to be stored.

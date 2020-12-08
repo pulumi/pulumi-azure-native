@@ -149,14 +149,14 @@ namespace Pulumi.AzureNextGen.Security.V20190801
     public sealed class IotSecuritySolutionArgs : Pulumi.ResourceArgs
     {
         [Input("disabledDataSources")]
-        private InputList<string>? _disabledDataSources;
+        private InputList<Union<string, Pulumi.AzureNextGen.Security.V20190801.DataSource>>? _disabledDataSources;
 
         /// <summary>
         /// Disabled data sources. Disabling these data sources compromises the system.
         /// </summary>
-        public InputList<string> DisabledDataSources
+        public InputList<Union<string, Pulumi.AzureNextGen.Security.V20190801.DataSource>> DisabledDataSources
         {
-            get => _disabledDataSources ?? (_disabledDataSources = new InputList<string>());
+            get => _disabledDataSources ?? (_disabledDataSources = new InputList<Union<string, Pulumi.AzureNextGen.Security.V20190801.DataSource>>());
             set => _disabledDataSources = value;
         }
 
@@ -167,14 +167,14 @@ namespace Pulumi.AzureNextGen.Security.V20190801
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("export")]
-        private InputList<string>? _export;
+        private InputList<Union<string, Pulumi.AzureNextGen.Security.V20190801.ExportData>>? _export;
 
         /// <summary>
         /// List of additional options for exporting to workspace data.
         /// </summary>
-        public InputList<string> Export
+        public InputList<Union<string, Pulumi.AzureNextGen.Security.V20190801.ExportData>> Export
         {
-            get => _export ?? (_export = new InputList<string>());
+            get => _export ?? (_export = new InputList<Union<string, Pulumi.AzureNextGen.Security.V20190801.ExportData>>());
             set => _export = value;
         }
 
@@ -224,7 +224,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
         /// Status of the IoT Security solution.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Security.V20190801.SecuritySolutionStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -242,7 +242,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
         /// Unmasked IP address logging status
         /// </summary>
         [Input("unmaskedIpLoggingStatus")]
-        public Input<string>? UnmaskedIpLoggingStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Security.V20190801.UnmaskedIpLoggingStatus>? UnmaskedIpLoggingStatus { get; set; }
 
         /// <summary>
         /// Properties of the IoT Security solution's user defined resources.

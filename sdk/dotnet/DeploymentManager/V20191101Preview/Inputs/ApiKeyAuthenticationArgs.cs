@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview.Inputs
         /// The location of the authentication key/value pair in the request.
         /// </summary>
         [Input("in", required: true)]
-        public Input<string> In { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.DeploymentManager.V20191101Preview.RestAuthLocation> In { get; set; } = null!;
 
         /// <summary>
         /// The key name of the authentication key/value pair.

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Inputs
         /// The mode of the policy.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.WebApplicationFirewallMode>? Mode { get; set; }
 
         /// <summary>
         /// Whether to allow WAF to check request Body.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Inputs
         /// The state of the policy.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.WebApplicationFirewallEnabledState>? State { get; set; }
 
         public PolicySettingsArgs()
         {

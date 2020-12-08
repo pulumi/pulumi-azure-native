@@ -163,7 +163,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
         /// This determines the format that Event Grid should expect for incoming events published to the domain.
         /// </summary>
         [Input("inputSchema")]
-        public Input<string>? InputSchema { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20200601.InputSchema>? InputSchema { get; set; }
 
         /// <summary>
         /// Information about the InputSchemaMapping which specified the info about mapping event payload.
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
         /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" /&gt;
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20200601.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

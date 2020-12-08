@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Storage.V20170601.Inputs
         /// The action of IP ACL rule.
         /// </summary>
         [Input("action")]
-        public Input<string>? Action { get; set; }
+        public Input<Pulumi.AzureNextGen.Storage.V20170601.Action>? Action { get; set; }
 
         /// <summary>
         /// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.

@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
         /// SKU family name
         /// </summary>
         [Input("family", required: true)]
-        public Input<string> Family { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.SkuFamily> Family { get; set; } = null!;
 
         /// <summary>
         /// SKU name to specify whether the key vault is a standard vault or a premium vault.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.KeyVault.V20200401Preview.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         public Output<string> ETag { get; private set; } = null!;
 
         /// <summary>
+        /// Properties to enable Customer Managed Key for the factory.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionConfigurationResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// List of parameters for factory.
         /// </summary>
         [Output("globalParameters")]
@@ -137,6 +143,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
     public sealed class FactoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Properties to enable Customer Managed Key for the factory.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionConfigurationArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The factory name.
         /// </summary>
         [Input("factoryName", required: true)]
@@ -170,7 +182,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// Whether or not public network access is allowed for the data factory.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Git repo information of the factory.

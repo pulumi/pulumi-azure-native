@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// Enum indicating if user is adding or removing a favorite lab
         /// </summary>
         [Input("addRemove")]
-        public string? AddRemove { get; set; }
+        public Union<string, Pulumi.AzureNextGen.LabServices.V20181015.AddRemove>? AddRemove { get; set; }
 
         /// <summary>
         /// Resource Id of the lab account

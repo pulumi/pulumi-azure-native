@@ -13,7 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview.Inputs
     public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
         [Input("allowPublicIp")]
-        public Input<string>? AllowPublicIp { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.UsagePermissionType>? AllowPublicIp { get; set; }
 
         [Input("labSubnetName")]
         public Input<string>? LabSubnetName { get; set; }

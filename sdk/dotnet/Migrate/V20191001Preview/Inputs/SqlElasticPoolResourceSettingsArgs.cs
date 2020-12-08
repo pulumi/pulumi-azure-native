@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
         /// Defines the zone redundant resource setting.
         /// </summary>
         [Input("zoneRedundant")]
-        public Input<string>? ZoneRedundant { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20191001Preview.ZoneRedundant>? ZoneRedundant { get; set; }
 
         public SqlElasticPoolResourceSettingsArgs()
         {

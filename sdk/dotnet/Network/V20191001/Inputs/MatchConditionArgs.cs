@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20191001.Inputs
         /// Request variable to compare with.
         /// </summary>
         [Input("matchVariable", required: true)]
-        public Input<string> MatchVariable { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191001.MatchVariable> MatchVariable { get; set; } = null!;
 
         /// <summary>
         /// Describes if the result of this condition should be negated.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20191001.Inputs
         /// Comparison type to use for matching with the variable value.
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191001.Operator> Operator { get; set; } = null!;
 
         /// <summary>
         /// Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
@@ -52,14 +52,14 @@ namespace Pulumi.AzureNextGen.Network.V20191001.Inputs
         public Input<string>? Selector { get; set; }
 
         [Input("transforms")]
-        private InputList<string>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20191001.TransformType>>? _transforms;
 
         /// <summary>
         /// List of transforms.
         /// </summary>
-        public InputList<string> Transforms
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20191001.TransformType>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<string>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20191001.TransformType>>());
             set => _transforms = value;
         }
 

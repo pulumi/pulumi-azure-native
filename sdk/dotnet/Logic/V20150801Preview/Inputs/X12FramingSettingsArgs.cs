@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The X12 character set.
         /// </summary>
         [Input("characterSet")]
-        public Input<string>? CharacterSet { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.X12CharacterSet>? CharacterSet { get; set; }
 
         /// <summary>
         /// The component separator.
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The segment terminator suffix.
         /// </summary>
         [Input("segmentTerminatorSuffix")]
-        public Input<string>? SegmentTerminatorSuffix { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.SegmentTerminatorSuffix>? SegmentTerminatorSuffix { get; set; }
 
         public X12FramingSettingsArgs()
         {

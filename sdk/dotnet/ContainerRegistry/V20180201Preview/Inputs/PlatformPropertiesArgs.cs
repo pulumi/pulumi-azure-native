@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview.Inputs
         /// The operating system type required for the build.
         /// </summary>
         [Input("osType", required: true)]
-        public Input<string> OsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview.OsType> OsType { get; set; } = null!;
 
         public PlatformPropertiesArgs()
         {

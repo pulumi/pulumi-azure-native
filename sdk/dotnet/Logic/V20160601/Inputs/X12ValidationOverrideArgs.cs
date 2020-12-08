@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The trailing separator policy.
         /// </summary>
         [Input("trailingSeparatorPolicy", required: true)]
-        public Input<string> TrailingSeparatorPolicy { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.V20160601.TrailingSeparatorPolicy> TrailingSeparatorPolicy { get; set; } = null!;
 
         /// <summary>
         /// The value indicating whether to trim leading and trailing spaces and zeroes.

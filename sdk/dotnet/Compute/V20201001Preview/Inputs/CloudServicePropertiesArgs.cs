@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview.Inputs
         /// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
         /// </summary>
         [Input("upgradeMode")]
-        public Input<string>? UpgradeMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20201001Preview.CloudServiceUpgradeMode>? UpgradeMode { get; set; }
 
         public CloudServicePropertiesArgs()
         {

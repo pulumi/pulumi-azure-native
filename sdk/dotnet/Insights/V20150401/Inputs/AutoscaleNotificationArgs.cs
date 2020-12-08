@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150401.Inputs
         /// the operation associated with the notification and its value must be "scale"
         /// </summary>
         [Input("operation", required: true)]
-        public Input<string> Operation { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Insights.V20150401.OperationType> Operation { get; set; } = null!;
 
         [Input("webhooks")]
         private InputList<Inputs.WebhookNotificationArgs>? _webhooks;

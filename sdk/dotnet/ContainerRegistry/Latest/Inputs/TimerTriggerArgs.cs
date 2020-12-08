@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
         /// The current status of trigger.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.TriggerStatus>? Status { get; set; }
 
         public TimerTriggerArgs()
         {

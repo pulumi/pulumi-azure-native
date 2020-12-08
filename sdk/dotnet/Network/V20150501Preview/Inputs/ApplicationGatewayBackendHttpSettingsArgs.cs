@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview.Inputs
         /// Gets or sets the cookie affinity
         /// </summary>
         [Input("cookieBasedAffinity")]
-        public Input<string>? CookieBasedAffinity { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150501Preview.ApplicationGatewayCookieBasedAffinity>? CookieBasedAffinity { get; set; }
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview.Inputs
         /// Gets or sets the protocol
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150501Preview.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// The current status of the source trigger.
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.TriggerStatus> Status { get; set; } = null!;
 
         public PipelineSourceTriggerPropertiesArgs()
         {

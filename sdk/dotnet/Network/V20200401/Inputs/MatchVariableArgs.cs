@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401.Inputs
         /// Match Variable.
         /// </summary>
         [Input("variableName", required: true)]
-        public Input<string> VariableName { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200401.WebApplicationFirewallMatchVariable> VariableName { get; set; } = null!;
 
         public MatchVariableArgs()
         {

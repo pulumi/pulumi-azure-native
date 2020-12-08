@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20191101Preview.Inputs
         /// The service load metric relative weight, compared to other metrics configured for this service, as a number.
         /// </summary>
         [Input("weight")]
-        public Input<string>? Weight { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.V20191101Preview.ServiceLoadMetricWeight>? Weight { get; set; }
 
         public ServiceLoadMetricDescriptionArgs()
         {

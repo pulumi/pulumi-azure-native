@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101.Inputs
         /// Programmatic code for the status of the assessment
         /// </summary>
         [Input("code", required: true)]
-        public Input<string> Code { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Security.V20200101.AssessmentStatusCode> Code { get; set; } = null!;
 
         /// <summary>
         /// Human readable description of the assessment status

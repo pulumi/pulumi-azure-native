@@ -271,7 +271,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200901
         /// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         /// </summary>
         [Input("interNodeCommunication")]
-        public Input<string>? InterNodeCommunication { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.V20200901.InterNodeCommunicationState>? InterNodeCommunication { get; set; }
 
         [Input("metadata")]
         private InputList<Inputs.MetadataItemArgs>? _metadata;

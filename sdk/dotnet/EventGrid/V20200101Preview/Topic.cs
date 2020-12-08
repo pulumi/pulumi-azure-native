@@ -131,7 +131,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200101Preview
         /// This determines the format that Event Grid should expect for incoming events published to the topic.
         /// </summary>
         [Input("inputSchema")]
-        public Input<string>? InputSchema { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20200101Preview.InputSchema>? InputSchema { get; set; }
 
         /// <summary>
         /// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.

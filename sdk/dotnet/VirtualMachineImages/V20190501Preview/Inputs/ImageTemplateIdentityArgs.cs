@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview.Inputs
         /// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

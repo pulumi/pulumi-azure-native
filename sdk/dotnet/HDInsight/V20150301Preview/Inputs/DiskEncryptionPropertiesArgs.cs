@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Inputs
         /// Algorithm identifier for encryption, default RSA-OAEP.
         /// </summary>
         [Input("encryptionAlgorithm")]
-        public Input<string>? EncryptionAlgorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HDInsight.V20150301Preview.JsonWebKeyEncryptionAlgorithm>? EncryptionAlgorithm { get; set; }
 
         /// <summary>
         /// Indicates whether or not resource disk encryption is enabled.

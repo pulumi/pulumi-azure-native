@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
         /// Protocol
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Provisioning state of the http listener resource Updating/Deleting/Failed

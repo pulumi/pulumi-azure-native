@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest.Inputs
         /// The name of the SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.Latest.ClusterSkuNameEnum>? Name { get; set; }
 
         public ClusterSkuArgs()
         {

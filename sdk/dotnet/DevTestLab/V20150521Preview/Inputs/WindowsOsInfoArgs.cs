@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview.Inputs
         /// The state of the Windows OS.
         /// </summary>
         [Input("windowsOsState")]
-        public Input<string>? WindowsOsState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.WindowsOsState>? WindowsOsState { get; set; }
 
         public WindowsOsInfoArgs()
         {

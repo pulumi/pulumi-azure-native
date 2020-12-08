@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The node types on which the script action should be executed.
         /// </summary>
         [Input("roles", required: true)]
-        public Input<string> Roles { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.HdiNodeTypes> Roles { get; set; } = null!;
 
         /// <summary>
         /// The URI for the script action.

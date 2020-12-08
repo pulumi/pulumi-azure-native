@@ -229,7 +229,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
         /// Default is dedicated.
         /// </summary>
         [Input("vmPriority")]
-        public Input<string>? VmPriority { get; set; }
+        public Input<Pulumi.AzureNextGen.BatchAI.V20170901Preview.VmPriority>? VmPriority { get; set; }
 
         /// <summary>
         /// All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).

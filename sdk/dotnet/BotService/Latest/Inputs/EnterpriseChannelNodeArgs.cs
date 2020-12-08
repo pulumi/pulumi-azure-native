@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest.Inputs
         /// The current state of the Enterprise Channel Node.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.BotService.Latest.EnterpriseChannelNodeState>? State { get; set; }
 
         public EnterpriseChannelNodeArgs()
         {

@@ -215,7 +215,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160319
         /// The cassandra connector offer type for the Cosmos DB database C* account.
         /// </summary>
         [Input("connectorOffer")]
-        public Input<string>? ConnectorOffer { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20160319.ConnectorOffer>? ConnectorOffer { get; set; }
 
         /// <summary>
         /// The consistency policy for the Cosmos DB account.
@@ -227,7 +227,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160319
         /// The offer type for the database
         /// </summary>
         [Input("databaseAccountOfferType", required: true)]
-        public Input<string> DatabaseAccountOfferType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.DocumentDB.V20160319.DatabaseAccountOfferType> DatabaseAccountOfferType { get; set; } = null!;
 
         /// <summary>
         /// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
@@ -263,7 +263,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160319
         /// Indicates the type of database account. This can only be set at database account creation.
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20160319.DatabaseAccountKind>? Kind { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

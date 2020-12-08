@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701.Inputs
         /// Type of the managed identity
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AppPlatform.V20200701.ManagedIdentityType>? Type { get; set; }
 
         public ManagedIdentityPropertiesArgs()
         {

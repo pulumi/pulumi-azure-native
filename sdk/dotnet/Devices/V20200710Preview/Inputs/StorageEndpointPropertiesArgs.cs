@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview.Inputs
         /// Specifies authentication type being used for connecting to the storage account.
         /// </summary>
         [Input("authenticationType")]
-        public Input<string>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200710Preview.AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The connection string for the Azure Storage account to which files are uploaded.

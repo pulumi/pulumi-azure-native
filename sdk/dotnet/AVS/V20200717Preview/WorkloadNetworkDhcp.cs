@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// Type of DHCP: SERVER or RELAY.
         /// </summary>
         [Input("dhcpType", required: true)]
-        public Input<string> DhcpType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20200717Preview.DhcpTypeEnum> DhcpType { get; set; } = null!;
 
         /// <summary>
         /// Display name of the DHCP entity.

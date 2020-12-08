@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.BotService.V20180712.Inputs
         /// The current state of the Enterprise Channel.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.BotService.V20180712.EnterpriseChannelState>? State { get; set; }
 
         public EnterpriseChannelPropertiesArgs()
         {

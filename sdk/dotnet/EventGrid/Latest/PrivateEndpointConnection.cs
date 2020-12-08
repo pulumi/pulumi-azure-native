@@ -143,7 +143,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         /// Provisioning state of the Private Endpoint Connection.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.Latest.ResourceProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

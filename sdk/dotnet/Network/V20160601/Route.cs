@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601
         /// Gets or sets the type of Azure hop the packet should be sent to.
         /// </summary>
         [Input("nextHopType", required: true)]
-        public Input<string> NextHopType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.RouteNextHopType> NextHopType { get; set; } = null!;
 
         /// <summary>
         /// Gets provisioning state of the resource Updating/Deleting/Failed

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
         /// SQL Server workload type.
         /// </summary>
         [Input("sqlWorkloadType")]
-        public Input<string>? SqlWorkloadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.SqlWorkloadType>? SqlWorkloadType { get; set; }
 
         public SqlWorkloadTypeUpdateSettingsArgs()
         {

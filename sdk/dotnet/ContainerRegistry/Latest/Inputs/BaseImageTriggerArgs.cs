@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
         /// The type of the auto trigger for base image dependency updates.
         /// </summary>
         [Input("baseImageTriggerType", required: true)]
-        public Input<string> BaseImageTriggerType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.BaseImageTriggerType> BaseImageTriggerType { get; set; } = null!;
 
         /// <summary>
         /// The name of the trigger.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
         /// The current status of trigger.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.TriggerStatus>? Status { get; set; }
 
         public BaseImageTriggerArgs()
         {

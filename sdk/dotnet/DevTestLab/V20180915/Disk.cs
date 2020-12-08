@@ -164,7 +164,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// The storage type for the disk (i.e. Standard, Premium).
         /// </summary>
         [Input("diskType")]
-        public Input<string>? DiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.StorageType>? DiskType { get; set; }
 
         /// <summary>
         /// When backed by a blob, the URI of underlying blob.

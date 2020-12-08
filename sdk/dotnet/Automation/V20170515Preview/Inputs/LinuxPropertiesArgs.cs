@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview.Inputs
         /// Update classifications included in the software update configuration.
         /// </summary>
         [Input("includedPackageClassifications")]
-        public Input<string>? IncludedPackageClassifications { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Automation.V20170515Preview.LinuxUpdateClasses>? IncludedPackageClassifications { get; set; }
 
         [Input("includedPackageNameMasks")]
         private InputList<string>? _includedPackageNameMasks;

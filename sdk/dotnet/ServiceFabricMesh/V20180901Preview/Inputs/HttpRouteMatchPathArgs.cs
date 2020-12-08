@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
         /// how to match value in the Uri
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.PathMatchType> Type { get; set; } = null!;
 
         /// <summary>
         /// Uri path to match for request.

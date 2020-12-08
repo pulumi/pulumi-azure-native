@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// Type of Actions
         /// </summary>
         [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.Action> Action { get; set; } = null!;
 
         [Input("matchConditions", required: true)]
         private InputList<Inputs.MatchConditionArgs>? _matchConditions;
@@ -61,17 +61,17 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// Describes type of rule
         /// </summary>
         [Input("ruleType", required: true)]
-        public Input<string> RuleType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.RuleType> RuleType { get; set; } = null!;
 
         [Input("transforms")]
-        private InputList<string>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.Transform>>? _transforms;
 
         /// <summary>
         /// List of transforms
         /// </summary>
-        public InputList<string> Transforms
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.Transform>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<string>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.Transform>>());
             set => _transforms = value;
         }
 

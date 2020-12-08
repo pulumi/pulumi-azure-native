@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         /// </summary>
         [Input("matchProcessingBehavior")]
-        public Input<string>? MatchProcessingBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.MatchProcessingBehavior>? MatchProcessingBehavior { get; set; }
 
         /// <summary>
         /// A name to refer to this specific rule.

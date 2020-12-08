@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// The PlayReady content type.
         /// </summary>
         [Input("contentType", required: true)]
-        public Input<string> ContentType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180601Preview.ContentKeyPolicyPlayReadyContentType> ContentType { get; set; } = null!;
 
         /// <summary>
         /// The expiration date of license.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// The license type.
         /// </summary>
         [Input("licenseType", required: true)]
-        public Input<string> LicenseType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180601Preview.ContentKeyPolicyPlayReadyLicenseType> LicenseType { get; set; } = null!;
 
         /// <summary>
         /// The license PlayRight

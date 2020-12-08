@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview.Inputs
         /// The appliance artifact type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Solutions.V20160901Preview.ApplianceArtifactType>? Type { get; set; }
 
         /// <summary>
         /// The appliance artifact blob uri.

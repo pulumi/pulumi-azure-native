@@ -235,7 +235,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// Whether to allow trusted Azure services to access a network restricted registry.
         /// </summary>
         [Input("networkRuleBypassOptions")]
-        public Input<string>? NetworkRuleBypassOptions { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.NetworkRuleBypassOptions>? NetworkRuleBypassOptions { get; set; }
 
         /// <summary>
         /// The network rule set for a container registry.
@@ -253,7 +253,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// Whether or not public network access is allowed for the container registry.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the container registry.
@@ -295,7 +295,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// Whether or not zone redundancy is enabled for this container registry
         /// </summary>
         [Input("zoneRedundancy")]
-        public Input<string>? ZoneRedundancy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.ZoneRedundancy>? ZoneRedundancy { get; set; }
 
         public RegistryArgs()
         {

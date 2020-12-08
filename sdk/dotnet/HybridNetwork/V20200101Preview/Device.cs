@@ -129,7 +129,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// The type of the device.
         /// </summary>
         [Input("deviceType", required: true)]
-        public Input<string> DeviceType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.DeviceType> DeviceType { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

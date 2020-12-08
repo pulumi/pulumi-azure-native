@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview.Inputs
         /// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         /// </summary>
         [Input("failoverPolicy", required: true)]
-        public Input<string> FailoverPolicy { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20171001Preview.ReadWriteEndpointFailoverPolicy> FailoverPolicy { get; set; } = null!;
 
         /// <summary>
         /// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.

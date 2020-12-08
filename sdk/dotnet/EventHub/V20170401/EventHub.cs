@@ -159,7 +159,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// Enumerates the possible values for the status of the Event Hub.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.EventHub.V20170401.EntityStatus>? Status { get; set; }
 
         public EventHubArgs()
         {
