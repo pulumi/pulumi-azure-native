@@ -117,6 +117,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppHostNameBindingSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -139,7 +139,7 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppHybridConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHybridConnectionSlot.__pulumiType, name, inputs, opts);
     }

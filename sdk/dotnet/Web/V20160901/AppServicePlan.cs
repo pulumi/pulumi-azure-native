@@ -177,6 +177,7 @@ namespace Pulumi.AzureNextGen.Web.V20160901
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:AppServicePlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

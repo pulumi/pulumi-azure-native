@@ -74,6 +74,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -20,7 +20,7 @@ class GetStaticSiteResult:
     """
     Static Site ARM resource.
     """
-    def __init__(__self__, branch=None, build_properties=None, custom_domains=None, default_hostname=None, kind=None, location=None, name=None, repository_token=None, repository_url=None, sku=None, tags=None, type=None):
+    def __init__(__self__, branch=None, build_properties=None, custom_domains=None, default_hostname=None, kind=None, location=None, name=None, repository_token=None, repository_url=None, sku=None, system_data=None, tags=None, type=None):
         if branch and not isinstance(branch, str):
             raise TypeError("Expected argument 'branch' to be a str")
         pulumi.set(__self__, "branch", branch)
@@ -51,6 +51,9 @@ class GetStaticSiteResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -139,6 +142,14 @@ class GetStaticSiteResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -171,6 +182,7 @@ class AwaitableGetStaticSiteResult(GetStaticSiteResult):
             repository_token=self.repository_token,
             repository_url=self.repository_url,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -204,5 +216,6 @@ def get_static_site(name: Optional[str] = None,
         repository_token=__ret__.repository_token,
         repository_url=__ret__.repository_url,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

@@ -119,6 +119,10 @@ export interface GetAppServiceCertificateOrderResult {
      */
     readonly status: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.certificateregistration.latest.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

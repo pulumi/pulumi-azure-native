@@ -31,6 +31,8 @@ type WebAppSourceControlSlot struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Repository or source control URL.
 	RepoUrl pulumi.StringPtrOutput `pulumi:"repoUrl"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -68,6 +70,9 @@ func NewWebAppSourceControlSlot(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSourceControlSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSourceControlSlot"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -109,6 +114,8 @@ type webAppSourceControlSlotState struct {
 	Name *string `pulumi:"name"`
 	// Repository or source control URL.
 	RepoUrl *string `pulumi:"repoUrl"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -130,6 +137,8 @@ type WebAppSourceControlSlotState struct {
 	Name pulumi.StringPtrInput
 	// Repository or source control URL.
 	RepoUrl pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

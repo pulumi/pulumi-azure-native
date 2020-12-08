@@ -126,6 +126,10 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
         /// </summary>
         public readonly string RegistrationStatus;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -184,6 +188,8 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
 
             string registrationStatus,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string? targetDnsType,
@@ -212,6 +218,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
             ProvisioningState = provisioningState;
             ReadyForDnsRecordManagement = readyForDnsRecordManagement;
             RegistrationStatus = registrationStatus;
+            SystemData = systemData;
             Tags = tags;
             TargetDnsType = targetDnsType;
             Type = type;

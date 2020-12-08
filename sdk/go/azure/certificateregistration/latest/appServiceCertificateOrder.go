@@ -57,6 +57,8 @@ type AppServiceCertificateOrder struct {
 	SignedCertificate CertificateDetailsResponseOutput `pulumi:"signedCertificate"`
 	// Current order status.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -95,6 +97,9 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -162,6 +167,8 @@ type appServiceCertificateOrderState struct {
 	SignedCertificate *CertificateDetailsResponse `pulumi:"signedCertificate"`
 	// Current order status.
 	Status *string `pulumi:"status"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -213,6 +220,8 @@ type AppServiceCertificateOrderState struct {
 	SignedCertificate CertificateDetailsResponsePtrInput
 	// Current order status.
 	Status pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

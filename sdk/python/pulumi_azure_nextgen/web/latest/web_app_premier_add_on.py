@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['WebAppPremierAddOn']
 
@@ -82,8 +83,9 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['vendor'] = vendor
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPremierAddOn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPremierAddOn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPremierAddOn, __self__).__init__(
             'azure-nextgen:web/latest:WebAppPremierAddOn',
@@ -164,6 +166,14 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         Premier add on SKU.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

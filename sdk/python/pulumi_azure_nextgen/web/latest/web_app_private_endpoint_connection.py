@@ -65,8 +65,9 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:web/latest:WebAppPrivateEndpointConnection',
@@ -128,6 +129,14 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

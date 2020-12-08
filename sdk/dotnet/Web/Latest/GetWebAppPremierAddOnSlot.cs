@@ -80,6 +80,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? Sku;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             Name = name;
             Product = product;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             Vendor = vendor;

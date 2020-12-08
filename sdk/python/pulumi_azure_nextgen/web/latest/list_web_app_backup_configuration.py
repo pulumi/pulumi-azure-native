@@ -20,7 +20,7 @@ class ListWebAppBackupConfigurationResult:
     """
     Description of a backup which will be performed.
     """
-    def __init__(__self__, backup_name=None, backup_schedule=None, databases=None, enabled=None, kind=None, name=None, storage_account_url=None, type=None):
+    def __init__(__self__, backup_name=None, backup_schedule=None, databases=None, enabled=None, kind=None, name=None, storage_account_url=None, system_data=None, type=None):
         if backup_name and not isinstance(backup_name, str):
             raise TypeError("Expected argument 'backup_name' to be a str")
         pulumi.set(__self__, "backup_name", backup_name)
@@ -42,6 +42,9 @@ class ListWebAppBackupConfigurationResult:
         if storage_account_url and not isinstance(storage_account_url, str):
             raise TypeError("Expected argument 'storage_account_url' to be a str")
         pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -103,6 +106,14 @@ class ListWebAppBackupConfigurationResult:
         return pulumi.get(self, "storage_account_url")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -124,6 +135,7 @@ class AwaitableListWebAppBackupConfigurationResult(ListWebAppBackupConfiguration
             kind=self.kind,
             name=self.name,
             storage_account_url=self.storage_account_url,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -153,4 +165,5 @@ def list_web_app_backup_configuration(name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         storage_account_url=__ret__.storage_account_url,
+        system_data=__ret__.system_data,
         type=__ret__.type)

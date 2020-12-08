@@ -100,6 +100,8 @@ type WebApp struct {
 	State pulumi.StringOutput `pulumi:"state"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill pulumi.StringOutput `pulumi:"suspendedTill"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies which deployment slot this app will swap into. Read-only.
@@ -145,6 +147,9 @@ func NewWebApp(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebApp"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebApp"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -255,6 +260,8 @@ type webAppState struct {
 	State *string `pulumi:"state"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill *string `pulumi:"suspendedTill"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies which deployment slot this app will swap into. Read-only.
@@ -353,6 +360,8 @@ type WebAppState struct {
 	State pulumi.StringPtrInput
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Specifies which deployment slot this app will swap into. Read-only.

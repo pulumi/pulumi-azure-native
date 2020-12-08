@@ -78,6 +78,10 @@ export interface GetWebAppVnetConnectionSlotResult {
      */
     readonly routes: outputs.web.latest.VnetRouteResponse[];
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * Resource type.
      */
     readonly type: string;

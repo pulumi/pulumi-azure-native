@@ -120,6 +120,10 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.certificateregistration.latest.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -179,6 +183,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             inputs["serialNumber"] = undefined /*out*/;
             inputs["signedCertificate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
@@ -202,6 +207,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             inputs["serialNumber"] = undefined /*out*/;
             inputs["signedCertificate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["validityInYears"] = undefined /*out*/;
@@ -213,7 +219,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceCertificateOrder.__pulumiType, name, inputs, opts);
     }

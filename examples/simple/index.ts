@@ -9,7 +9,8 @@ import * as managedidentity from "@pulumi/azure-nextgen/managedidentity/latest";
 import * as network from "@pulumi/azure-nextgen/network/latest";
 import * as resources from "@pulumi/azure-nextgen/resources/latest";
 import * as storage from "@pulumi/azure-nextgen/storage/latest";
-import * as web from "@pulumi/azure-nextgen/web/latest";
+// TODO change to latest when https://github.com/Azure/azure-rest-api-specs/issues/12005 is fixed
+import * as web from "@pulumi/azure-nextgen/web/v20200601";
 
 const randomString = new random.RandomString("random", {
     length: 12,

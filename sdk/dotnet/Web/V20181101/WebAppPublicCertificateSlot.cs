@@ -80,6 +80,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPublicCertificateSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

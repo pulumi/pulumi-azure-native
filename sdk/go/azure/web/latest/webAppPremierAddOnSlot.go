@@ -29,6 +29,8 @@ type WebAppPremierAddOnSlot struct {
 	Product pulumi.StringPtrOutput `pulumi:"product"`
 	// Premier add on SKU.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -77,6 +79,9 @@ func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPremierAddOnSlot"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPremierAddOnSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPremierAddOnSlot
@@ -115,6 +120,8 @@ type webAppPremierAddOnSlotState struct {
 	Product *string `pulumi:"product"`
 	// Premier add on SKU.
 	Sku *string `pulumi:"sku"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -138,6 +145,8 @@ type WebAppPremierAddOnSlotState struct {
 	Product pulumi.StringPtrInput
 	// Premier add on SKU.
 	Sku pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

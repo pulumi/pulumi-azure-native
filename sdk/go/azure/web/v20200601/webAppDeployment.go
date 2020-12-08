@@ -75,6 +75,9 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppDeployment"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppDeployment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDeployment

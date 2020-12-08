@@ -39,6 +39,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         public Output<string?> PublicCertificateLocation { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Certificate Thumbprint
         /// </summary>
         [Output("thumbprint")]
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPublicCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

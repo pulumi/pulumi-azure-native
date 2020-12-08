@@ -81,6 +81,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSlotConfigurationNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppSlotConfigurationNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSlotConfigurationNames"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

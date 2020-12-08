@@ -64,6 +64,9 @@ func NewCertificateOrderCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20200601:CertificateOrderCertificate"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:certificateregistration/v20200901:CertificateOrderCertificate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CertificateOrderCertificate

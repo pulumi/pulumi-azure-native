@@ -166,6 +166,10 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      */
     public readonly suspended!: pulumi.Output<boolean | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -271,6 +275,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             inputs["resourceGroup"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["subscriptionId"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["upgradeDomains"] = undefined /*out*/;
             inputs["vipMappings"] = undefined /*out*/;
@@ -307,6 +312,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["subscriptionId"] = undefined /*out*/;
             inputs["suspended"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["upgradeDomains"] = undefined /*out*/;
@@ -325,7 +331,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20160901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20180201:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20190801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200601:AppServiceEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20160901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20180201:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20190801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200601:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200901:AppServiceEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceEnvironment.__pulumiType, name, inputs, opts);
     }

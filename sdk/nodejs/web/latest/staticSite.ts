@@ -76,6 +76,10 @@ export class StaticSite extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.web.latest.SkuDescriptionResponse | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -115,6 +119,7 @@ export class StaticSite extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["customDomains"] = undefined /*out*/;
             inputs["defaultHostname"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["branch"] = undefined /*out*/;
@@ -127,6 +132,7 @@ export class StaticSite extends pulumi.CustomResource {
             inputs["repositoryToken"] = undefined /*out*/;
             inputs["repositoryUrl"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -137,7 +143,7 @@ export class StaticSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20190801:StaticSite" }, { type: "azure-nextgen:web/v20200601:StaticSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20190801:StaticSite" }, { type: "azure-nextgen:web/v20200601:StaticSite" }, { type: "azure-nextgen:web/v20200901:StaticSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StaticSite.__pulumiType, name, inputs, opts);
     }

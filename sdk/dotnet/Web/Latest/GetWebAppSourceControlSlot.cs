@@ -78,6 +78,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? RepoUrl;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? repoUrl,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Branch = branch;
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             Kind = kind;
             Name = name;
             RepoUrl = repoUrl;
+            SystemData = systemData;
             Type = type;
         }
     }

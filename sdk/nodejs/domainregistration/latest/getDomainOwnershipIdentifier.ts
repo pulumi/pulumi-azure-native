@@ -52,6 +52,10 @@ export interface GetDomainOwnershipIdentifierResult {
      */
     readonly ownershipId?: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.domainregistration.latest.SystemDataResponse;
+    /**
      * Resource type.
      */
     readonly type: string;

@@ -88,7 +88,7 @@ class SiteSourceControlSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteSourceControlSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteSourceControlSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteSourceControlSlot, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteSourceControlSlot',

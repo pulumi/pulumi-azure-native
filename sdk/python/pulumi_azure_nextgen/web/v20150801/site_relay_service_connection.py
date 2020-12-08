@@ -84,7 +84,7 @@ class SiteRelayServiceConnection(pulumi.CustomResource):
             __props__['resource_type'] = resource_type
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteRelayServiceConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteRelayServiceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteRelayServiceConnection, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteRelayServiceConnection',

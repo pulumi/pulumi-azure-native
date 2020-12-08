@@ -71,7 +71,7 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_type'] = resource_type
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppRelayServiceConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppRelayServiceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppRelayServiceConnection, __self__).__init__(
             'azure-nextgen:web/v20180201:WebAppRelayServiceConnection',

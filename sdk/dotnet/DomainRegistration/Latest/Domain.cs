@@ -145,6 +145,12 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
         public Output<string> RegistrationStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20180201:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20190801:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200601:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200901:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

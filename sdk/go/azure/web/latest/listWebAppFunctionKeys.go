@@ -33,6 +33,8 @@ type ListWebAppFunctionKeysResult struct {
 	Name string `pulumi:"name"`
 	// Settings.
 	Properties map[string]string `pulumi:"properties"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

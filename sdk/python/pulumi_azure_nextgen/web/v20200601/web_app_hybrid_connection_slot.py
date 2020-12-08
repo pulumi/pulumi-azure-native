@@ -92,7 +92,7 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppHybridConnectionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppHybridConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHybridConnectionSlot, __self__).__init__(
             'azure-nextgen:web/v20200601:WebAppHybridConnectionSlot',

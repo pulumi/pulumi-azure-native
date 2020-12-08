@@ -41,6 +41,8 @@ type ListWebAppBackupConfigurationSlotResult struct {
 	Name string `pulumi:"name"`
 	// SAS URL to the container.
 	StorageAccountUrl string `pulumi:"storageAccountUrl"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

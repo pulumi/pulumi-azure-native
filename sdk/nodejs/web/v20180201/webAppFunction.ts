@@ -161,7 +161,7 @@ export class WebAppFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppFunction" }, { type: "azure-nextgen:web/v20160801:WebAppFunction" }, { type: "azure-nextgen:web/v20181101:WebAppFunction" }, { type: "azure-nextgen:web/v20190801:WebAppFunction" }, { type: "azure-nextgen:web/v20200601:WebAppFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppFunction" }, { type: "azure-nextgen:web/v20160801:WebAppFunction" }, { type: "azure-nextgen:web/v20181101:WebAppFunction" }, { type: "azure-nextgen:web/v20190801:WebAppFunction" }, { type: "azure-nextgen:web/v20200601:WebAppFunction" }, { type: "azure-nextgen:web/v20200901:WebAppFunction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppFunction.__pulumiType, name, inputs, opts);
     }

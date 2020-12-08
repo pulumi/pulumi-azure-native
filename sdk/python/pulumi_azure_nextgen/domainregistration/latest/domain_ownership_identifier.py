@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['DomainOwnershipIdentifier']
 
@@ -62,8 +63,9 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainOwnershipIdentifier, __self__).__init__(
             'azure-nextgen:domainregistration/latest:DomainOwnershipIdentifier',
@@ -112,6 +114,14 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         Ownership Id.
         """
         return pulumi.get(self, "ownership_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -107,7 +107,7 @@ export class SiteSlotConfigNames extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20160801:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20180201:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20181101:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20190801:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20200601:SiteSlotConfigNames" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20160801:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20180201:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20181101:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20190801:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20200601:SiteSlotConfigNames" }, { type: "azure-nextgen:web/v20200901:SiteSlotConfigNames" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteSlotConfigNames.__pulumiType, name, inputs, opts);
     }

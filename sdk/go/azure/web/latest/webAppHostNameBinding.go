@@ -33,6 +33,8 @@ type WebAppHostNameBinding struct {
 	SiteName pulumi.StringPtrOutput `pulumi:"siteName"`
 	// SSL type
 	SslState pulumi.StringPtrOutput `pulumi:"sslState"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// SSL certificate thumbprint
 	Thumbprint pulumi.StringPtrOutput `pulumi:"thumbprint"`
 	// Resource type.
@@ -74,6 +76,9 @@ func NewWebAppHostNameBinding(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHostNameBinding"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -117,6 +122,8 @@ type webAppHostNameBindingState struct {
 	SiteName *string `pulumi:"siteName"`
 	// SSL type
 	SslState *string `pulumi:"sslState"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// SSL certificate thumbprint
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type.
@@ -144,6 +151,8 @@ type WebAppHostNameBindingState struct {
 	SiteName pulumi.StringPtrInput
 	// SSL type
 	SslState pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// SSL certificate thumbprint
 	Thumbprint pulumi.StringPtrInput
 	// Resource type.

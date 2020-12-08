@@ -92,6 +92,10 @@ export interface GetWebAppFunctionResult {
      */
     readonly secretsFileHref?: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * Test data used when testing via the Azure Portal.
      */
     readonly testData?: string;

@@ -24,6 +24,8 @@ type WebAppPrivateEndpointConnection struct {
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState PrivateLinkConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 pulumi.StringOutput                         `pulumi:"provisioningState"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -49,6 +51,9 @@ func NewWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -83,6 +88,8 @@ type webAppPrivateEndpointConnectionState struct {
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState *PrivateLinkConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 *string                             `pulumi:"provisioningState"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -97,6 +104,8 @@ type WebAppPrivateEndpointConnectionState struct {
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState PrivateLinkConnectionStateResponsePtrInput
 	ProvisioningState                 pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

@@ -37,6 +37,8 @@ type WebAppDeployment struct {
 	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
 	// Deployment status.
 	Status pulumi.IntPtrOutput `pulumi:"status"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -74,6 +76,9 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppDeployment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppDeployment"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -121,6 +126,8 @@ type webAppDeploymentState struct {
 	StartTime *string `pulumi:"startTime"`
 	// Deployment status.
 	Status *int `pulumi:"status"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -148,6 +155,8 @@ type WebAppDeploymentState struct {
 	StartTime pulumi.StringPtrInput
 	// Deployment status.
 	Status pulumi.IntPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -60,6 +61,10 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
      */
     public readonly startAddress!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -94,6 +99,7 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
             inputs["routeType"] = args ? args.routeType : undefined;
             inputs["startAddress"] = args ? args.startAddress : undefined;
             inputs["vnetName"] = args ? args.vnetName : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["endAddress"] = undefined /*out*/;
@@ -101,6 +107,7 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["routeType"] = undefined /*out*/;
             inputs["startAddress"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,7 +117,7 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20160901:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20200601:AppServicePlanRouteForVnet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20160901:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20200601:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20200901:AppServicePlanRouteForVnet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServicePlanRouteForVnet.__pulumiType, name, inputs, opts);
     }

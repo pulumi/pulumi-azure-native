@@ -37,6 +37,8 @@ type ListAppServicePlanHybridConnectionKeysResult struct {
 	SendKeyName string `pulumi:"sendKeyName"`
 	// The value of the send key.
 	SendKeyValue string `pulumi:"sendKeyValue"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

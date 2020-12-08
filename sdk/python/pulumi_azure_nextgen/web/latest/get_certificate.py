@@ -20,7 +20,7 @@ class GetCertificateResult:
     """
     SSL certificate for an app.
     """
-    def __init__(__self__, canonical_name=None, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
+    def __init__(__self__, canonical_name=None, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, system_data=None, tags=None, thumbprint=None, type=None, valid=None):
         if canonical_name and not isinstance(canonical_name, str):
             raise TypeError("Expected argument 'canonical_name' to be a str")
         pulumi.set(__self__, "canonical_name", canonical_name)
@@ -84,6 +84,9 @@ class GetCertificateResult:
         if subject_name and not isinstance(subject_name, str):
             raise TypeError("Expected argument 'subject_name' to be a str")
         pulumi.set(__self__, "subject_name", subject_name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -266,6 +269,14 @@ class GetCertificateResult:
         return pulumi.get(self, "subject_name")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -325,6 +336,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             server_farm_id=self.server_farm_id,
             site_name=self.site_name,
             subject_name=self.subject_name,
+            system_data=self.system_data,
             tags=self.tags,
             thumbprint=self.thumbprint,
             type=self.type,
@@ -371,6 +383,7 @@ def get_certificate(name: Optional[str] = None,
         server_farm_id=__ret__.server_farm_id,
         site_name=__ret__.site_name,
         subject_name=__ret__.subject_name,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         thumbprint=__ret__.thumbprint,
         type=__ret__.type,

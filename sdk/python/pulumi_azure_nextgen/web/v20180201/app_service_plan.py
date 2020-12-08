@@ -112,7 +112,7 @@ class AppServicePlan(pulumi.CustomResource):
             __props__['status'] = None
             __props__['subscription'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlan, __self__).__init__(
             'azure-nextgen:web/v20180201:AppServicePlan',

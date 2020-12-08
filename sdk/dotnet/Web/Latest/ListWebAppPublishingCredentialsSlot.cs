@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? ScmUri;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? scmUri,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Kind = kind;
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             PublishingPasswordHashSalt = publishingPasswordHashSalt;
             PublishingUserName = publishingUserName;
             ScmUri = scmUri;
+            SystemData = systemData;
             Type = type;
         }
     }

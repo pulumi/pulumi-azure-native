@@ -124,6 +124,10 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.Latest
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -180,6 +184,8 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.Latest
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -207,6 +213,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.Latest
             SerialNumber = serialNumber;
             SignedCertificate = signedCertificate;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             ValidityInYears = validityInYears;

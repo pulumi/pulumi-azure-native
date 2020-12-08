@@ -120,6 +120,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly subjectName!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -181,6 +185,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["selfLink"] = undefined /*out*/;
             inputs["siteName"] = undefined /*out*/;
             inputs["subjectName"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["valid"] = undefined /*out*/;
@@ -206,6 +211,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["serverFarmId"] = undefined /*out*/;
             inputs["siteName"] = undefined /*out*/;
             inputs["subjectName"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -218,7 +224,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:Certificate" }, { type: "azure-nextgen:web/v20160301:Certificate" }, { type: "azure-nextgen:web/v20180201:Certificate" }, { type: "azure-nextgen:web/v20181101:Certificate" }, { type: "azure-nextgen:web/v20190801:Certificate" }, { type: "azure-nextgen:web/v20200601:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:Certificate" }, { type: "azure-nextgen:web/v20160301:Certificate" }, { type: "azure-nextgen:web/v20180201:Certificate" }, { type: "azure-nextgen:web/v20181101:Certificate" }, { type: "azure-nextgen:web/v20190801:Certificate" }, { type: "azure-nextgen:web/v20200601:Certificate" }, { type: "azure-nextgen:web/v20200901:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

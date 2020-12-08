@@ -192,6 +192,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20150801:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20180201:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200601:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200901:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

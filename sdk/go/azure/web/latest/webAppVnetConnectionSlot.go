@@ -32,6 +32,8 @@ type WebAppVnetConnectionSlot struct {
 	ResyncRequired pulumi.BoolOutput `pulumi:"resyncRequired"`
 	// The routes that this Virtual Network connection uses.
 	Routes VnetRouteResponseArrayOutput `pulumi:"routes"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The Virtual Network's resource ID.
@@ -75,6 +77,9 @@ func NewWebAppVnetConnectionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppVnetConnectionSlot"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppVnetConnectionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppVnetConnectionSlot
@@ -116,6 +121,8 @@ type webAppVnetConnectionSlotState struct {
 	ResyncRequired *bool `pulumi:"resyncRequired"`
 	// The routes that this Virtual Network connection uses.
 	Routes []VnetRouteResponse `pulumi:"routes"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// The Virtual Network's resource ID.
@@ -140,6 +147,8 @@ type WebAppVnetConnectionSlotState struct {
 	ResyncRequired pulumi.BoolPtrInput
 	// The routes that this Virtual Network connection uses.
 	Routes VnetRouteResponseArrayInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// The Virtual Network's resource ID.

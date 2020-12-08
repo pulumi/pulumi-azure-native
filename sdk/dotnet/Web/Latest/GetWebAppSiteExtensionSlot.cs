@@ -131,6 +131,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Summary description.
         /// </summary>
         public readonly string? Summary;
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         public readonly string? Title;
         /// <summary>
         /// Resource type.
@@ -183,6 +187,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? summary,
 
+            Outputs.SystemDataResponse systemData,
+
             string? title,
 
             string type,
@@ -209,6 +215,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             ProvisioningState = provisioningState;
             PublishedDateTime = publishedDateTime;
             Summary = summary;
+            SystemData = systemData;
             Title = title;
             Type = type;
             Version = version;

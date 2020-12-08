@@ -81,8 +81,9 @@ class StaticSite(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['custom_domains'] = None
             __props__['default_hostname'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20200601:StaticSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20200601:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20200901:StaticSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSite, __self__).__init__(
             'azure-nextgen:web/latest:StaticSite',
@@ -187,6 +188,14 @@ class StaticSite(pulumi.CustomResource):
         Description of a SKU for a scalable resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

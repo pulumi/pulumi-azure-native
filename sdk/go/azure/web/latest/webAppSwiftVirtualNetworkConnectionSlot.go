@@ -23,6 +23,8 @@ type WebAppSwiftVirtualNetworkConnectionSlot struct {
 	SubnetResourceId pulumi.StringPtrOutput `pulumi:"subnetResourceId"`
 	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
 	SwiftSupported pulumi.BoolPtrOutput `pulumi:"swiftSupported"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -54,6 +56,9 @@ func NewWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -87,6 +92,8 @@ type webAppSwiftVirtualNetworkConnectionSlotState struct {
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
 	SwiftSupported *bool `pulumi:"swiftSupported"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -100,6 +107,8 @@ type WebAppSwiftVirtualNetworkConnectionSlotState struct {
 	SubnetResourceId pulumi.StringPtrInput
 	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
 	SwiftSupported pulumi.BoolPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

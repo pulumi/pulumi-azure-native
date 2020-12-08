@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         public readonly Outputs.PrivateLinkConnectionStateResponse? PrivateLinkServiceConnectionState;
         public readonly string ProvisioningState;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Kind = kind;
@@ -83,6 +89,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

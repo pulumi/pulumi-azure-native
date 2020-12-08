@@ -156,7 +156,7 @@ export class SiteDeploymentSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20160801:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20180201:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20181101:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20190801:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20200601:SiteDeploymentSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20160801:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20180201:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20181101:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20190801:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20200601:SiteDeploymentSlot" }, { type: "azure-nextgen:web/v20200901:SiteDeploymentSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteDeploymentSlot.__pulumiType, name, inputs, opts);
     }

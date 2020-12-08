@@ -150,6 +150,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string StorageAccountUrl;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -188,6 +192,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string storageAccountUrl,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             int websiteSizeInBytes)
@@ -206,6 +212,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             SizeInBytes = sizeInBytes;
             Status = status;
             StorageAccountUrl = storageAccountUrl;
+            SystemData = systemData;
             Type = type;
             WebsiteSizeInBytes = websiteSizeInBytes;
         }

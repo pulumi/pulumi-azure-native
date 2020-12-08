@@ -47,6 +47,10 @@ export interface ListWebAppConnectionStringsResult {
      */
     readonly properties: {[key: string]: outputs.web.latest.ConnStringValueTypePairResponse};
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * Resource type.
      */
     readonly type: string;

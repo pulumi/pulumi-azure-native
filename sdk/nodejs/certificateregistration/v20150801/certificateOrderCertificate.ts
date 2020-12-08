@@ -117,7 +117,7 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:certificateregistration/latest:CertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20180201:CertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20190801:CertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20200601:CertificateOrderCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:certificateregistration/latest:CertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20180201:CertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20190801:CertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20200601:CertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20200901:CertificateOrderCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CertificateOrderCertificate.__pulumiType, name, inputs, opts);
     }

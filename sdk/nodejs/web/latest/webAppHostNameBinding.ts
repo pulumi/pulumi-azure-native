@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -71,6 +72,10 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
      */
     public readonly sslState!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
+    /**
      * SSL certificate thumbprint
      */
     public readonly thumbprint!: pulumi.Output<string | undefined>;
@@ -114,6 +119,7 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
             inputs["siteName"] = args ? args.siteName : undefined;
             inputs["sslState"] = args ? args.sslState : undefined;
             inputs["thumbprint"] = args ? args.thumbprint : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualIP"] = undefined /*out*/;
         } else {
@@ -126,6 +132,7 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["siteName"] = undefined /*out*/;
             inputs["sslState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualIP"] = undefined /*out*/;
@@ -137,7 +144,7 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20160801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20180201:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20181101:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20190801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20200601:WebAppHostNameBinding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20160801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20180201:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20181101:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20190801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20200601:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20200901:WebAppHostNameBinding" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHostNameBinding.__pulumiType, name, inputs, opts);
     }

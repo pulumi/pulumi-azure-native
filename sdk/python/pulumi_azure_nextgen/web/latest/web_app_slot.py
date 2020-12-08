@@ -152,11 +152,12 @@ class WebAppSlot(pulumi.CustomResource):
             __props__['slot_swap_status'] = None
             __props__['state'] = None
             __props__['suspended_till'] = None
+            __props__['system_data'] = None
             __props__['target_swap_slot'] = None
             __props__['traffic_manager_host_names'] = None
             __props__['type'] = None
             __props__['usage_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppSlot',
@@ -500,6 +501,14 @@ class WebAppSlot(pulumi.CustomResource):
         App suspended till in case memory-time quota is exceeded.
         """
         return pulumi.get(self, "suspended_till")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

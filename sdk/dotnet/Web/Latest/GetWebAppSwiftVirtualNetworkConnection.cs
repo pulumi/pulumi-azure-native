@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly bool? SwiftSupported;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -70,12 +74,15 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             bool? swiftSupported,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Kind = kind;
             Name = name;
             SubnetResourceId = subnetResourceId;
             SwiftSupported = swiftSupported;
+            SystemData = systemData;
             Type = type;
         }
     }

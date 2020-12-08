@@ -56,6 +56,10 @@ export interface GetWebAppPublicCertificateResult {
      */
     readonly publicCertificateLocation?: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.latest.SystemDataResponse;
+    /**
      * Certificate Thumbprint
      */
     readonly thumbprint: string;

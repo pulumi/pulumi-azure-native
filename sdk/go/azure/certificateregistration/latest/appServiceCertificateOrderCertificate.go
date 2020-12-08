@@ -27,6 +27,8 @@ type AppServiceCertificateOrderCertificate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the Key Vault secret.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -64,6 +66,9 @@ func NewAppServiceCertificateOrderCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServiceCertificateOrderCertificate
@@ -100,6 +105,8 @@ type appServiceCertificateOrderCertificateState struct {
 	Name *string `pulumi:"name"`
 	// Status of the Key Vault secret.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -119,6 +126,8 @@ type AppServiceCertificateOrderCertificateState struct {
 	Name pulumi.StringPtrInput
 	// Status of the Key Vault secret.
 	ProvisioningState pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

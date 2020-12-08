@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetWebAppRelayServiceConnectionResult',
@@ -19,7 +20,7 @@ class GetWebAppRelayServiceConnectionResult:
     """
     Hybrid Connection for an App Service app.
     """
-    def __init__(__self__, biztalk_uri=None, entity_connection_string=None, entity_name=None, hostname=None, kind=None, name=None, port=None, resource_connection_string=None, resource_type=None, type=None):
+    def __init__(__self__, biztalk_uri=None, entity_connection_string=None, entity_name=None, hostname=None, kind=None, name=None, port=None, resource_connection_string=None, resource_type=None, system_data=None, type=None):
         if biztalk_uri and not isinstance(biztalk_uri, str):
             raise TypeError("Expected argument 'biztalk_uri' to be a str")
         pulumi.set(__self__, "biztalk_uri", biztalk_uri)
@@ -47,6 +48,9 @@ class GetWebAppRelayServiceConnectionResult:
         if resource_type and not isinstance(resource_type, str):
             raise TypeError("Expected argument 'resource_type' to be a str")
         pulumi.set(__self__, "resource_type", resource_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -103,6 +107,14 @@ class GetWebAppRelayServiceConnectionResult:
         return pulumi.get(self, "resource_type")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -126,6 +138,7 @@ class AwaitableGetWebAppRelayServiceConnectionResult(GetWebAppRelayServiceConnec
             port=self.port,
             resource_connection_string=self.resource_connection_string,
             resource_type=self.resource_type,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -160,4 +173,5 @@ def get_web_app_relay_service_connection(entity_name: Optional[str] = None,
         port=__ret__.port,
         resource_connection_string=__ret__.resource_connection_string,
         resource_type=__ret__.resource_type,
+        system_data=__ret__.system_data,
         type=__ret__.type)

@@ -134,6 +134,9 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:AppServiceEnvironment"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:AppServiceEnvironment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServiceEnvironment

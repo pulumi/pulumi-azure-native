@@ -98,6 +98,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? SecretsFileHref;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Test data used when testing via the Azure Portal.
         /// </summary>
         public readonly string? TestData;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? secretsFileHref,
 
+            Outputs.SystemDataResponse systemData,
+
             string? testData,
 
             string? testDataHref,
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             ScriptHref = scriptHref;
             ScriptRootPathHref = scriptRootPathHref;
             SecretsFileHref = secretsFileHref;
+            SystemData = systemData;
             TestData = testData;
             TestDataHref = testDataHref;
             Type = type;

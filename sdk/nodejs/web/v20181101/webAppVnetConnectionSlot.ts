@@ -131,7 +131,7 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20150801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppVnetConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20150801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppVnetConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppVnetConnectionSlot.__pulumiType, name, inputs, opts);
     }

@@ -20,7 +20,7 @@ class GetAppServicePlanResult:
     """
     App Service plan.
     """
-    def __init__(__self__, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, is_spot=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
+    def __init__(__self__, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, is_spot=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, system_data=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
         if free_offer_expiration_time and not isinstance(free_offer_expiration_time, str):
             raise TypeError("Expected argument 'free_offer_expiration_time' to be a str")
         pulumi.set(__self__, "free_offer_expiration_time", free_offer_expiration_time)
@@ -81,6 +81,9 @@ class GetAppServicePlanResult:
         if subscription and not isinstance(subscription, str):
             raise TypeError("Expected argument 'subscription' to be a str")
         pulumi.set(__self__, "subscription", subscription)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -259,6 +262,14 @@ class GetAppServicePlanResult:
         return pulumi.get(self, "subscription")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -325,6 +336,7 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             spot_expiration_time=self.spot_expiration_time,
             status=self.status,
             subscription=self.subscription,
+            system_data=self.system_data,
             tags=self.tags,
             target_worker_count=self.target_worker_count,
             target_worker_size_id=self.target_worker_size_id,
@@ -371,6 +383,7 @@ def get_app_service_plan(name: Optional[str] = None,
         spot_expiration_time=__ret__.spot_expiration_time,
         status=__ret__.status,
         subscription=__ret__.subscription,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         target_worker_count=__ret__.target_worker_count,
         target_worker_size_id=__ret__.target_worker_size_id,

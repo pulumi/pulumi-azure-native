@@ -56,6 +56,8 @@ type AppServicePlan struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// App Service plan subscription.
 	Subscription pulumi.StringOutput `pulumi:"subscription"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Scaling worker count.
@@ -98,6 +100,9 @@ func NewAppServicePlan(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:AppServicePlan"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:AppServicePlan"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -164,6 +169,8 @@ type appServicePlanState struct {
 	Status *string `pulumi:"status"`
 	// App Service plan subscription.
 	Subscription *string `pulumi:"subscription"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Scaling worker count.
@@ -218,6 +225,8 @@ type AppServicePlanState struct {
 	Status pulumi.StringPtrInput
 	// App Service plan subscription.
 	Subscription pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Scaling worker count.

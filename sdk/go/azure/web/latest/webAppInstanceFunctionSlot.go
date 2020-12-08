@@ -41,6 +41,8 @@ type WebAppInstanceFunctionSlot struct {
 	ScriptRootPathHref pulumi.StringPtrOutput `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
 	SecretsFileHref pulumi.StringPtrOutput `pulumi:"secretsFileHref"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Test data used when testing via the Azure Portal.
 	TestData pulumi.StringPtrOutput `pulumi:"testData"`
 	// Test data URI.
@@ -82,6 +84,9 @@ func NewWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -133,6 +138,8 @@ type webAppInstanceFunctionSlotState struct {
 	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
 	SecretsFileHref *string `pulumi:"secretsFileHref"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Test data used when testing via the Azure Portal.
 	TestData *string `pulumi:"testData"`
 	// Test data URI.
@@ -168,6 +175,8 @@ type WebAppInstanceFunctionSlotState struct {
 	ScriptRootPathHref pulumi.StringPtrInput
 	// Secrets file URI.
 	SecretsFileHref pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Test data used when testing via the Azure Portal.
 	TestData pulumi.StringPtrInput
 	// Test data URI.

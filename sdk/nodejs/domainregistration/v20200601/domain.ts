@@ -229,7 +229,7 @@ export class Domain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration/latest:Domain" }, { type: "azure-nextgen:domainregistration/v20150401:Domain" }, { type: "azure-nextgen:domainregistration/v20150801:Domain" }, { type: "azure-nextgen:domainregistration/v20180201:Domain" }, { type: "azure-nextgen:domainregistration/v20190801:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration/latest:Domain" }, { type: "azure-nextgen:domainregistration/v20150401:Domain" }, { type: "azure-nextgen:domainregistration/v20150801:Domain" }, { type: "azure-nextgen:domainregistration/v20180201:Domain" }, { type: "azure-nextgen:domainregistration/v20190801:Domain" }, { type: "azure-nextgen:domainregistration/v20200901:Domain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Domain.__pulumiType, name, inputs, opts);
     }

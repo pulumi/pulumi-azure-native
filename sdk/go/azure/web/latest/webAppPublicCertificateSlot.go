@@ -23,6 +23,8 @@ type WebAppPublicCertificateSlot struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Public Certificate Location
 	PublicCertificateLocation pulumi.StringPtrOutput `pulumi:"publicCertificateLocation"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Certificate Thumbprint
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 	// Resource type.
@@ -63,6 +65,9 @@ func NewWebAppPublicCertificateSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPublicCertificateSlot"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPublicCertificateSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPublicCertificateSlot
@@ -95,6 +100,8 @@ type webAppPublicCertificateSlotState struct {
 	Name *string `pulumi:"name"`
 	// Public Certificate Location
 	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Certificate Thumbprint
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type.
@@ -110,6 +117,8 @@ type WebAppPublicCertificateSlotState struct {
 	Name pulumi.StringPtrInput
 	// Public Certificate Location
 	PublicCertificateLocation pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Certificate Thumbprint
 	Thumbprint pulumi.StringPtrInput
 	// Resource type.

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['WebAppSourceControlSlot']
 
@@ -77,8 +78,9 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSourceControlSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSourceControlSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSourceControlSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppSourceControlSlot',
@@ -167,6 +169,14 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
         Repository or source control URL.
         """
         return pulumi.get(self, "repo_url")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

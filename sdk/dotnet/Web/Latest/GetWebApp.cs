@@ -203,6 +203,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string SuspendedTill;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -303,6 +307,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string suspendedTill,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string targetSwapSlot,
@@ -352,6 +358,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             SlotSwapStatus = slotSwapStatus;
             State = state;
             SuspendedTill = suspendedTill;
+            SystemData = systemData;
             Tags = tags;
             TargetSwapSlot = targetSwapSlot;
             TrafficManagerHostNames = trafficManagerHostNames;
