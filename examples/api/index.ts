@@ -1,6 +1,6 @@
 import * as random from "@pulumi/random";
 import * as resources from "@pulumi/azure-nextgen/resources/latest";
-import * as web from "@pulumi/azure-nextgen/web/v20200601";
+import * as web from "@pulumi/azure-nextgen/web/latest";
 
 const randomString = new random.RandomString("random", {
     length: 12,
