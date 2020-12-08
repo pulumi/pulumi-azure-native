@@ -781,15 +781,15 @@ func TestFlattenParams(t *testing.T) {
 					"subscriptionId":    "subscription-id",
 					"resourceGroupName": "OneResourceGroupName",
 					"api-version":       "2020-06-02",
-					"resourceName": "samplebotname",
-					"channelName": "AlexaChannel",
+					"resourceName":      "samplebotname",
+					"channelName":       "AlexaChannel",
 					"parameters": map[string]interface{}{
 						"location": "global",
 						"properties": map[string]interface{}{
 							"channelName": "AlexaChannel",
 							"properties": map[string]interface{}{
 								"alexaSkillId": "XAlexaSkillIdX",
-								"isEnabled": true,
+								"isEnabled":    true,
 							},
 						},
 					},
@@ -798,7 +798,7 @@ func TestFlattenParams(t *testing.T) {
 			resourceName: "azure-nextgen:botservice/v20200602:Channel",
 			expected: map[string]interface{}{
 				"channelName": "AlexaChannel",
-				"location": "global",
+				"location":    "global",
 				"properties": map[string]interface{}{
 					"channelName": "AlexaChannel",
 					"properties": map[string]interface{}{
@@ -807,7 +807,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 				"resourceGroupName": "OneResourceGroupName",
-				"resourceName": "samplebotname",
+				"resourceName":      "samplebotname",
 			},
 		},
 	} {

@@ -313,7 +313,7 @@ func (t *TemplateElements) EvaluateExpressions() error {
 	}
 
 	var funcs []string
-	if t.renderOptions.disableResourceLinking == true {
+	if t.renderOptions.disableResourceLinking {
 		funcs = append(funcs, "resourceId")
 	}
 
@@ -630,7 +630,7 @@ func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *provi
 		}
 	}
 
-	if t.renderOptions.disableResourceLinking == true {
+	if t.renderOptions.disableResourceLinking {
 		return nil
 	}
 
