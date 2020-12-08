@@ -67,6 +67,8 @@ namespace Pulumi.AzureNextGen.Resources.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentAtTenantScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

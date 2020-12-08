@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The URI of the vault for performing operations on keys and secrets.
+        /// The URI of the vault for performing operations on keys and secrets. This property is readonly
         /// </summary>
         public readonly string? VaultUri;
 

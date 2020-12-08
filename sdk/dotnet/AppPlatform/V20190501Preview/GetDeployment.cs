@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
         /// </summary>
         public readonly Outputs.DeploymentResourcePropertiesResponse Properties;
         /// <summary>
+        /// Sku of the Deployment resource
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -70,10 +74,13 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
 
             Outputs.DeploymentResourcePropertiesResponse properties,
 
+            Outputs.SkuResponse? sku,
+
             string type)
         {
             Name = name;
             Properties = properties;
+            Sku = sku;
             Type = type;
         }
     }

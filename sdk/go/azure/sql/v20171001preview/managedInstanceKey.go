@@ -49,6 +49,12 @@ func NewManagedInstanceKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedInstanceKeyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstanceKey"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedInstanceKey
 	err := ctx.RegisterResource("azure-nextgen:sql/v20171001preview:ManagedInstanceKey", name, args, &resource, opts...)
 	if err != nil {

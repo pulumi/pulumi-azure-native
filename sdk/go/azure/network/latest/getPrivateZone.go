@@ -27,6 +27,8 @@ type LookupPrivateZoneArgs struct {
 type LookupPrivateZoneResult struct {
 	// The ETag of the zone.
 	Etag *string `pulumi:"etag"`
+	// Private zone internal Id
+	InternalId string `pulumi:"internalId"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.

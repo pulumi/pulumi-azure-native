@@ -39,6 +39,8 @@ type LookupPolicyAssignmentResult struct {
 	Metadata interface{} `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name string `pulumi:"name"`
+	// The messages that describe why a resource is non-compliant with the policy.
+	NonComplianceMessages []NonComplianceMessageResponse `pulumi:"nonComplianceMessages"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
@@ -46,9 +48,7 @@ type LookupPolicyAssignmentResult struct {
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
-	Scope *string `pulumi:"scope"`
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku *PolicySkuResponse `pulumi:"sku"`
+	Scope string `pulumi:"scope"`
 	// The type of the policy assignment.
 	Type string `pulumi:"type"`
 }

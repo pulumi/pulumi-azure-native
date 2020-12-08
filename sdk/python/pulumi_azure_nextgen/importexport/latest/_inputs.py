@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'DeliveryPackageInformationArgs',
     'DriveStatusArgs',
     'EncryptionKeyDetailsArgs',
     'ExportArgs',
@@ -18,6 +19,76 @@ __all__ = [
     'ReturnShippingArgs',
     'ShippingInformationArgs',
 ]
+
+@pulumi.input_type
+class DeliveryPackageInformationArgs:
+    def __init__(__self__, *,
+                 carrier_name: pulumi.Input[str],
+                 tracking_number: pulumi.Input[str],
+                 drive_count: Optional[pulumi.Input[int]] = None,
+                 ship_date: Optional[pulumi.Input[str]] = None):
+        """
+        Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+        :param pulumi.Input[str] carrier_name: The name of the carrier that is used to ship the import or export drives.
+        :param pulumi.Input[str] tracking_number: The tracking number of the package.
+        :param pulumi.Input[int] drive_count: The number of drives included in the package.
+        :param pulumi.Input[str] ship_date: The date when the package is shipped.
+        """
+        pulumi.set(__self__, "carrier_name", carrier_name)
+        pulumi.set(__self__, "tracking_number", tracking_number)
+        if drive_count is not None:
+            pulumi.set(__self__, "drive_count", drive_count)
+        if ship_date is not None:
+            pulumi.set(__self__, "ship_date", ship_date)
+
+    @property
+    @pulumi.getter(name="carrierName")
+    def carrier_name(self) -> pulumi.Input[str]:
+        """
+        The name of the carrier that is used to ship the import or export drives.
+        """
+        return pulumi.get(self, "carrier_name")
+
+    @carrier_name.setter
+    def carrier_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "carrier_name", value)
+
+    @property
+    @pulumi.getter(name="trackingNumber")
+    def tracking_number(self) -> pulumi.Input[str]:
+        """
+        The tracking number of the package.
+        """
+        return pulumi.get(self, "tracking_number")
+
+    @tracking_number.setter
+    def tracking_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tracking_number", value)
+
+    @property
+    @pulumi.getter(name="driveCount")
+    def drive_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of drives included in the package.
+        """
+        return pulumi.get(self, "drive_count")
+
+    @drive_count.setter
+    def drive_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "drive_count", value)
+
+    @property
+    @pulumi.getter(name="shipDate")
+    def ship_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date when the package is shipped.
+        """
+        return pulumi.get(self, "ship_date")
+
+    @ship_date.setter
+    def ship_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ship_date", value)
+
 
 @pulumi.input_type
 class DriveStatusArgs:
@@ -336,7 +407,7 @@ class JobDetailsArgs:
     def __init__(__self__, *,
                  backup_drive_manifest: Optional[pulumi.Input[bool]] = None,
                  cancel_requested: Optional[pulumi.Input[bool]] = None,
-                 delivery_package: Optional[pulumi.Input['PackageInformationArgs']] = None,
+                 delivery_package: Optional[pulumi.Input['DeliveryPackageInformationArgs']] = None,
                  diagnostics_path: Optional[pulumi.Input[str]] = None,
                  drive_list: Optional[pulumi.Input[Sequence[pulumi.Input['DriveStatusArgs']]]] = None,
                  encryption_key: Optional[pulumi.Input['EncryptionKeyDetailsArgs']] = None,
@@ -356,7 +427,7 @@ class JobDetailsArgs:
         Specifies the job properties
         :param pulumi.Input[bool] backup_drive_manifest: Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
         :param pulumi.Input[bool] cancel_requested: Indicates whether a request has been submitted to cancel the job.
-        :param pulumi.Input['PackageInformationArgs'] delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
+        :param pulumi.Input['DeliveryPackageInformationArgs'] delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
         :param pulumi.Input[str] diagnostics_path: The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
         :param pulumi.Input[Sequence[pulumi.Input['DriveStatusArgs']]] drive_list: List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
         :param pulumi.Input['EncryptionKeyDetailsArgs'] encryption_key: Contains information about the encryption key.
@@ -436,14 +507,14 @@ class JobDetailsArgs:
 
     @property
     @pulumi.getter(name="deliveryPackage")
-    def delivery_package(self) -> Optional[pulumi.Input['PackageInformationArgs']]:
+    def delivery_package(self) -> Optional[pulumi.Input['DeliveryPackageInformationArgs']]:
         """
         Contains information about the package being shipped by the customer to the Microsoft data center. 
         """
         return pulumi.get(self, "delivery_package")
 
     @delivery_package.setter
-    def delivery_package(self, value: Optional[pulumi.Input['PackageInformationArgs']]):
+    def delivery_package(self, value: Optional[pulumi.Input['DeliveryPackageInformationArgs']]):
         pulumi.set(self, "delivery_package", value)
 
     @property

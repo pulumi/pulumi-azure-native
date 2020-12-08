@@ -20,7 +20,7 @@ class GetPolicyResult:
     """
     Defines web application firewall policy for Azure CDN.
     """
-    def __init__(__self__, custom_rules=None, endpoint_links=None, etag=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, rate_limit_rules=None, resource_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, custom_rules=None, endpoint_links=None, etag=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, rate_limit_rules=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
         if custom_rules and not isinstance(custom_rules, dict):
             raise TypeError("Expected argument 'custom_rules' to be a dict")
         pulumi.set(__self__, "custom_rules", custom_rules)
@@ -54,6 +54,9 @@ class GetPolicyResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -147,6 +150,14 @@ class GetPolicyResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -180,6 +191,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             rate_limit_rules=self.rate_limit_rules,
             resource_state=self.resource_state,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -214,5 +226,6 @@ def get_policy(policy_name: Optional[str] = None,
         rate_limit_rules=__ret__.rate_limit_rules,
         resource_state=__ret__.resource_state,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

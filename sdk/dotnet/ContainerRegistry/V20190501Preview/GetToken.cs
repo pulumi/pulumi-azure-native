@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
         /// </summary>
         public readonly string? Status;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
 
             string? status,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             CreationDate = creationDate;
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
             ProvisioningState = provisioningState;
             ScopeMapId = scopeMapId;
             Status = status;
+            SystemData = systemData;
             Type = type;
         }
     }

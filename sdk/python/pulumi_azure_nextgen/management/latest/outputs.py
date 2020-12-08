@@ -35,6 +35,7 @@ __all__ = [
     'ParentGroupInfoResponse',
     'PolicyDefinitionGroupResponse',
     'PolicyDefinitionReferenceResponse',
+    'ProviderExtendedLocationResponse',
     'ProviderResourceTypeResponse',
     'ProviderResponse',
     'ResourceReferenceResponse',
@@ -1245,17 +1246,33 @@ class ParameterDefinitionsValueResponseMetadata(dict):
     General metadata for the parameter.
     """
     def __init__(__self__, *,
+                 assign_permissions: Optional[bool] = None,
                  description: Optional[str] = None,
-                 display_name: Optional[str] = None):
+                 display_name: Optional[str] = None,
+                 strong_type: Optional[str] = None):
         """
         General metadata for the parameter.
+        :param bool assign_permissions: Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
         :param str description: The description of the parameter.
         :param str display_name: The display name for the parameter.
+        :param str strong_type: Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
         """
+        if assign_permissions is not None:
+            pulumi.set(__self__, "assign_permissions", assign_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if strong_type is not None:
+            pulumi.set(__self__, "strong_type", strong_type)
+
+    @property
+    @pulumi.getter(name="assignPermissions")
+    def assign_permissions(self) -> Optional[bool]:
+        """
+        Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+        """
+        return pulumi.get(self, "assign_permissions")
 
     @property
     @pulumi.getter
@@ -1272,6 +1289,14 @@ class ParameterDefinitionsValueResponseMetadata(dict):
         The display name for the parameter.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="strongType")
+    def strong_type(self) -> Optional[str]:
+        """
+        Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+        """
+        return pulumi.get(self, "strong_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1525,6 +1550,56 @@ class PolicyDefinitionReferenceResponse(dict):
 
 
 @pulumi.output_type
+class ProviderExtendedLocationResponse(dict):
+    """
+    The provider extended location. 
+    """
+    def __init__(__self__, *,
+                 extended_locations: Optional[Sequence[str]] = None,
+                 location: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The provider extended location. 
+        :param Sequence[str] extended_locations: The extended locations for the azure location.
+        :param str location: The azure location.
+        :param str type: The extended location type.
+        """
+        if extended_locations is not None:
+            pulumi.set(__self__, "extended_locations", extended_locations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="extendedLocations")
+    def extended_locations(self) -> Optional[Sequence[str]]:
+        """
+        The extended locations for the azure location.
+        """
+        return pulumi.get(self, "extended_locations")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The azure location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The extended location type.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ProviderResourceTypeResponse(dict):
     """
     Resource type managed by the resource provider.
@@ -1535,6 +1610,7 @@ class ProviderResourceTypeResponse(dict):
                  aliases: Optional[Sequence['outputs.AliasResponse']] = None,
                  api_versions: Optional[Sequence[str]] = None,
                  capabilities: Optional[str] = None,
+                 location_mappings: Optional[Sequence['outputs.ProviderExtendedLocationResponse']] = None,
                  locations: Optional[Sequence[str]] = None,
                  properties: Optional[Mapping[str, str]] = None,
                  resource_type: Optional[str] = None):
@@ -1545,6 +1621,7 @@ class ProviderResourceTypeResponse(dict):
         :param Sequence['AliasResponseArgs'] aliases: The aliases that are supported by this resource type.
         :param Sequence[str] api_versions: The API version.
         :param str capabilities: The additional capabilities offered by this resource type.
+        :param Sequence['ProviderExtendedLocationResponseArgs'] location_mappings: The location mappings that are supported by this resource type.
         :param Sequence[str] locations: The collection of locations where this resource type can be created.
         :param Mapping[str, str] properties: The properties.
         :param str resource_type: The resource type.
@@ -1557,6 +1634,8 @@ class ProviderResourceTypeResponse(dict):
             pulumi.set(__self__, "api_versions", api_versions)
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
+        if location_mappings is not None:
+            pulumi.set(__self__, "location_mappings", location_mappings)
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
         if properties is not None:
@@ -1603,6 +1682,14 @@ class ProviderResourceTypeResponse(dict):
         The additional capabilities offered by this resource type.
         """
         return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="locationMappings")
+    def location_mappings(self) -> Optional[Sequence['outputs.ProviderExtendedLocationResponse']]:
+        """
+        The location mappings that are supported by this resource type.
+        """
+        return pulumi.get(self, "location_mappings")
 
     @property
     @pulumi.getter
@@ -1735,19 +1822,23 @@ class TemplateLinkResponse(dict):
     def __init__(__self__, *,
                  content_version: Optional[str] = None,
                  id: Optional[str] = None,
+                 query_string: Optional[str] = None,
                  relative_path: Optional[str] = None,
                  uri: Optional[str] = None):
         """
         Entity representing the reference to the template.
         :param str content_version: If included, must match the ContentVersion in the template.
         :param str id: The resource id of a Template Spec. Use either the id or uri property, but not both.
-        :param str relative_path: Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+        :param str query_string: The query string (for example, a SAS token) to be used with the templateLink URI.
+        :param str relative_path: The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
         :param str uri: The URI of the template to deploy. Use either the uri or id property, but not both.
         """
         if content_version is not None:
             pulumi.set(__self__, "content_version", content_version)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
         if relative_path is not None:
             pulumi.set(__self__, "relative_path", relative_path)
         if uri is not None:
@@ -1770,10 +1861,18 @@ class TemplateLinkResponse(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[str]:
+        """
+        The query string (for example, a SAS token) to be used with the templateLink URI.
+        """
+        return pulumi.get(self, "query_string")
+
+    @property
     @pulumi.getter(name="relativePath")
     def relative_path(self) -> Optional[str]:
         """
-        Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
         """
         return pulumi.get(self, "relative_path")
 

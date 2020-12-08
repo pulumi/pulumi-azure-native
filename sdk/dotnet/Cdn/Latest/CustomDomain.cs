@@ -51,6 +51,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

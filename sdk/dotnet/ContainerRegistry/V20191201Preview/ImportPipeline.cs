@@ -51,6 +51,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         public Output<Outputs.ImportPipelineSourcePropertiesResponse> Source { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The properties that describe the trigger of the import pipeline.
         /// </summary>
         [Output("trigger")]
@@ -85,6 +91,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:ImportPipeline"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

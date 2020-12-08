@@ -41,6 +41,12 @@ func NewServerAzureADOnlyAuthentication(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerAzureADOnlyAuthenticationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerAzureADOnlyAuthentication"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerAzureADOnlyAuthentication
 	err := ctx.RegisterResource("azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication", name, args, &resource, opts...)
 	if err != nil {

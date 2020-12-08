@@ -46,7 +46,7 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
     /**
      * Icon File Uris
      */
-    public readonly iconFileUris!: pulumi.Output<outputs.marketplace.latest.OfferPropertiesResponseIconFileUris | undefined>;
+    public readonly iconFileUris!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Private store offer modification date
      */
@@ -157,7 +157,7 @@ export interface PrivateStoreOfferArgs {
     /**
      * Icon File Uris
      */
-    readonly iconFileUris?: pulumi.Input<inputs.marketplace.latest.OfferPropertiesIconFileUris>;
+    readonly iconFileUris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The offer ID to update or delete
      */

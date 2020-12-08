@@ -112,6 +112,8 @@ namespace Pulumi.AzureNextGen.Network.V20180901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateZone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

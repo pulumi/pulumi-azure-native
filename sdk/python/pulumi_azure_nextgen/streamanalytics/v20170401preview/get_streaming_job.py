@@ -127,7 +127,7 @@ class GetStreamingJobResult:
 
     @property
     @pulumi.getter(name="contentStoragePolicy")
-    def content_storage_policy(self) -> str:
+    def content_storage_policy(self) -> Optional[str]:
         """
         Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
         """

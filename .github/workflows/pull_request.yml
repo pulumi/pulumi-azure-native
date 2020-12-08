@@ -40,11 +40,11 @@ jobs:
 #        with:
 #          go-version: ${{ matrix.goversion }}
 #      - name: Install pulumictl
-#        uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+#        uses: jaxxstorm/action-install-gh-release@v1.1.0
 #        with:
 #          repo: pulumi/pulumictl
 #      - name: Install Pulumi CLI
-#        uses: pulumi/action-install-pulumi-cli@releases/v1
+#        uses: pulumi/action-install-pulumi-cli@v1.0.1
 #      - name: Initialize submodules
 #        run: make init_submodules
 #      - name: Build codegen binaries
@@ -58,9 +58,14 @@ jobs:
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goversion: [1.15.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
+        with:
+          lfs: true
       - name: Checkout Scripts Repo
         uses: actions/checkout@v2
         with:
@@ -73,11 +78,11 @@ jobs:
         with:
           go-version: ${{ matrix.goversion }}
       - name: Install pulumictl
-        uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+        uses: jaxxstorm/action-install-gh-release@v1.1.0
         with:
           repo: pulumi/pulumictl
       - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@releases/v1
+        uses: pulumi/action-install-pulumi-cli@v1.0.1
       - name: Initialize submodules
         run: make init_submodules
       - name: Build codegen binaries
@@ -103,9 +108,9 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion: [3.1.301]
-        goversion: [1.14.x]
+        goversion: [1.15.x]
         language: [nodejs, python, dotnet, go]
-        nodeversion: [13.x]
+        nodeversion: [14.x]
         pythonversion: [3.7]
     steps:
       - name: Checkout Repo
@@ -135,11 +140,11 @@ jobs:
         with:
           python-version: ${{matrix.pythonversion}}
       - name: Install pulumictl
-        uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+        uses: jaxxstorm/action-install-gh-release@v1.1.0
         with:
           repo: pulumi/pulumictl
       - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@releases/v1
+        uses: pulumi/action-install-pulumi-cli@v1.0.1
       - name: Download provider + tfgen binaries
         uses: actions/download-artifact@v2
         with:
@@ -171,9 +176,9 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion: [3.1.301]
-        goversion: [1.14.x]
+        goversion: [1.15.x]
         language: [nodejs, python, dotnet, go]
-        nodeversion: [13.x]
+        nodeversion: [14.x]
         pythonversion: [3.7]
     steps:
       - name: Checkout Repo
@@ -190,11 +195,11 @@ jobs:
         with:
           go-version: ${{ matrix.goversion }}
       - name: Install pulumictl
-        uses: jaxxstorm/action-install-gh-release@release/v1-alpha
+        uses: jaxxstorm/action-install-gh-release@v1.1.0
         with:
           repo: pulumi/pulumictl
       - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@releases/v1
+        uses: pulumi/action-install-pulumi-cli@v1.0.1
       - name: Setup Node
         uses: actions/setup-node@v1
         with:

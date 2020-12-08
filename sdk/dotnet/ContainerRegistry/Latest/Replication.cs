@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:Replication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

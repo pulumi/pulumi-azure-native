@@ -21,6 +21,18 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
+        /// <summary>
+        /// Get or set the user assigned identities
+        /// </summary>
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
+
         public ManagedIdentityArgs()
         {
         }

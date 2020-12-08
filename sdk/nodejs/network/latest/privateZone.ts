@@ -39,6 +39,10 @@ export class PrivateZone extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * Private zone internal Id
+     */
+    public /*out*/ readonly internalId!: pulumi.Output<string>;
+    /**
      * The Azure Region where the resource lives
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -104,6 +108,7 @@ export class PrivateZone extends pulumi.CustomResource {
             inputs["privateZoneName"] = args ? args.privateZoneName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["internalId"] = undefined /*out*/;
             inputs["maxNumberOfRecordSets"] = undefined /*out*/;
             inputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
             inputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
@@ -115,6 +120,7 @@ export class PrivateZone extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
+            inputs["internalId"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maxNumberOfRecordSets"] = undefined /*out*/;
             inputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
@@ -134,7 +140,7 @@ export class PrivateZone extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180901:PrivateZone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180901:PrivateZone" }, { type: "azure-nextgen:network/v20200101:PrivateZone" }, { type: "azure-nextgen:network/v20200601:PrivateZone" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateZone.__pulumiType, name, inputs, opts);
     }

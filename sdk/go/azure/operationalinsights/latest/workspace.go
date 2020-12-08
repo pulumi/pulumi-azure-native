@@ -19,6 +19,8 @@ type Workspace struct {
 	CustomerId pulumi.StringOutput `pulumi:"customerId"`
 	// The ETag of the workspace.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
+	// Indicates whether customer managed storage is mandatory for query management.
+	ForceCmkForQuery pulumi.BoolPtrOutput `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
@@ -68,6 +70,9 @@ func NewWorkspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:Workspace"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:operationalinsights/v20201001:Workspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
@@ -96,6 +101,8 @@ type workspaceState struct {
 	CustomerId *string `pulumi:"customerId"`
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
+	// Indicates whether customer managed storage is mandatory for query management.
+	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
@@ -125,6 +132,8 @@ type WorkspaceState struct {
 	CustomerId pulumi.StringPtrInput
 	// The ETag of the workspace.
 	ETag pulumi.StringPtrInput
+	// Indicates whether customer managed storage is mandatory for query management.
+	ForceCmkForQuery pulumi.BoolPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
@@ -156,6 +165,8 @@ func (WorkspaceState) ElementType() reflect.Type {
 type workspaceArgs struct {
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
+	// Indicates whether customer managed storage is mandatory for query management.
+	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The provisioning state of the workspace.
@@ -182,6 +193,8 @@ type workspaceArgs struct {
 type WorkspaceArgs struct {
 	// The ETag of the workspace.
 	ETag pulumi.StringPtrInput
+	// Indicates whether customer managed storage is mandatory for query management.
+	ForceCmkForQuery pulumi.BoolPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The provisioning state of the workspace.

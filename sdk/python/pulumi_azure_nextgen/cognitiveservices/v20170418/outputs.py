@@ -145,6 +145,7 @@ class CognitiveServicesAccountPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  capabilities: Sequence['outputs.SkuCapabilityResponse'],
+                 date_created: str,
                  endpoint: str,
                  internal_id: str,
                  provisioning_state: str,
@@ -158,6 +159,7 @@ class CognitiveServicesAccountPropertiesResponse(dict):
         """
         Properties of Cognitive Services account.
         :param Sequence['SkuCapabilityResponseArgs'] capabilities: Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
+        :param str date_created: Gets the date of cognitive services account creation.
         :param str endpoint: Endpoint of the created account.
         :param str internal_id: The internal identifier.
         :param str provisioning_state: Gets the status of the cognitive services account at the time the operation was called.
@@ -170,6 +172,7 @@ class CognitiveServicesAccountPropertiesResponse(dict):
         :param Sequence['UserOwnedStorageResponseArgs'] user_owned_storage: The storage accounts for this resource.
         """
         pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "date_created", date_created)
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "internal_id", internal_id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -195,6 +198,14 @@ class CognitiveServicesAccountPropertiesResponse(dict):
         Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
         """
         return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="dateCreated")
+    def date_created(self) -> str:
+        """
+        Gets the date of cognitive services account creation.
+        """
+        return pulumi.get(self, "date_created")
 
     @property
     @pulumi.getter

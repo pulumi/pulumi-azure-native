@@ -22,6 +22,7 @@ class Deployment(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['DeploymentResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,6 +36,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeploymentResourcePropertiesArgs']] properties: Properties of the Deployment resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku of the Deployment resource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,6 +68,7 @@ class Deployment(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['sku'] = sku
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/latest:Deployment"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:Deployment")])
@@ -109,6 +112,14 @@ class Deployment(pulumi.CustomResource):
         Properties of the Deployment resource
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        Sku of the Deployment resource
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter

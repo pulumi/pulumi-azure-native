@@ -12,6 +12,7 @@ __all__ = [
     'ConnectedClusterAADProfileResponse',
     'ConnectedClusterIdentityResponse',
     'CredentialResultResponseResult',
+    'HybridConnectionConfigResponseResult',
 ]
 
 @pulumi.output_type
@@ -139,5 +140,60 @@ class CredentialResultResponseResult(dict):
         Base64-encoded Kubernetes configuration file.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class HybridConnectionConfigResponseResult(dict):
+    """
+    Contains the REP (rendezvous endpoint) and “Sender” access token.
+    """
+    def __init__(__self__, *,
+                 expiration_time: int,
+                 hybrid_connection_name: str,
+                 relay: str,
+                 token: str):
+        """
+        Contains the REP (rendezvous endpoint) and “Sender” access token.
+        :param int expiration_time: Timestamp when this token will be expired.
+        :param str hybrid_connection_name: Name of the connection
+        :param str relay: Name of the relay.
+        :param str token: Sender access token
+        """
+        pulumi.set(__self__, "expiration_time", expiration_time)
+        pulumi.set(__self__, "hybrid_connection_name", hybrid_connection_name)
+        pulumi.set(__self__, "relay", relay)
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter(name="expirationTime")
+    def expiration_time(self) -> int:
+        """
+        Timestamp when this token will be expired.
+        """
+        return pulumi.get(self, "expiration_time")
+
+    @property
+    @pulumi.getter(name="hybridConnectionName")
+    def hybrid_connection_name(self) -> str:
+        """
+        Name of the connection
+        """
+        return pulumi.get(self, "hybrid_connection_name")
+
+    @property
+    @pulumi.getter
+    def relay(self) -> str:
+        """
+        Name of the relay.
+        """
+        return pulumi.get(self, "relay")
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        Sender access token
+        """
+        return pulumi.get(self, "token")
 
 

@@ -110,6 +110,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20160402:Origin"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:Origin"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Origin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Origin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

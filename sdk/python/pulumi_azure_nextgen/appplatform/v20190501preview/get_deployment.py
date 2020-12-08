@@ -20,13 +20,16 @@ class GetDeploymentResult:
     """
     Deployment resource payload
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, properties=None, sku=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -49,6 +52,14 @@ class GetDeploymentResult:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        Sku of the Deployment resource
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource.
@@ -64,6 +75,7 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
         return GetDeploymentResult(
             name=self.name,
             properties=self.properties,
+            sku=self.sku,
             type=self.type)
 
 
@@ -94,4 +106,5 @@ def get_deployment(app_name: Optional[str] = None,
     return AwaitableGetDeploymentResult(
         name=__ret__.name,
         properties=__ret__.properties,
+        sku=__ret__.sku,
         type=__ret__.type)

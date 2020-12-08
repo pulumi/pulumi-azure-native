@@ -25,14 +25,22 @@ class AuthorizationResponse(dict):
     """
     def __init__(__self__, *,
                  principal_id: str,
-                 role_definition_id: str):
+                 role_definition_id: str,
+                 delegated_role_definition_ids: Optional[Sequence[str]] = None,
+                 principal_id_display_name: Optional[str] = None):
         """
         Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
         :param str principal_id: Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
         :param str role_definition_id: The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+        :param Sequence[str] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+        :param str principal_id_display_name: Display name of the principal Id.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if delegated_role_definition_ids is not None:
+            pulumi.set(__self__, "delegated_role_definition_ids", delegated_role_definition_ids)
+        if principal_id_display_name is not None:
+            pulumi.set(__self__, "principal_id_display_name", principal_id_display_name)
 
     @property
     @pulumi.getter(name="principalId")
@@ -49,6 +57,22 @@ class AuthorizationResponse(dict):
         The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
         """
         return pulumi.get(self, "role_definition_id")
+
+    @property
+    @pulumi.getter(name="delegatedRoleDefinitionIds")
+    def delegated_role_definition_ids(self) -> Optional[Sequence[str]]:
+        """
+        The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+        """
+        return pulumi.get(self, "delegated_role_definition_ids")
+
+    @property
+    @pulumi.getter(name="principalIdDisplayName")
+    def principal_id_display_name(self) -> Optional[str]:
+        """
+        Display name of the principal Id.
+        """
+        return pulumi.get(self, "principal_id_display_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

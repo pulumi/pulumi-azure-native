@@ -12,8 +12,12 @@ import (
 
 // Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type Authorization struct {
+	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
 	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 	PrincipalId string `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
 	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
@@ -31,8 +35,12 @@ type AuthorizationInput interface {
 
 // Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationArgs struct {
+	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
 	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
 	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
@@ -89,9 +97,19 @@ func (o AuthorizationOutput) ToAuthorizationOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+func (o AuthorizationOutput) DelegatedRoleDefinitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Authorization) []string { return v.DelegatedRoleDefinitionIds }).(pulumi.StringArrayOutput)
+}
+
 // Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 func (o AuthorizationOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v Authorization) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Display name of the principal Id.
+func (o AuthorizationOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Authorization) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
@@ -121,8 +139,12 @@ func (o AuthorizationArrayOutput) Index(i pulumi.IntInput) AuthorizationOutput {
 
 // Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponse struct {
+	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
 	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 	PrincipalId string `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
 	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
@@ -140,8 +162,12 @@ type AuthorizationResponseInput interface {
 
 // Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponseArgs struct {
+	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
 	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
 	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
@@ -198,9 +224,19 @@ func (o AuthorizationResponseOutput) ToAuthorizationResponseOutputWithContext(ct
 	return o
 }
 
+// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+func (o AuthorizationResponseOutput) DelegatedRoleDefinitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthorizationResponse) []string { return v.DelegatedRoleDefinitionIds }).(pulumi.StringArrayOutput)
+}
+
 // Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 func (o AuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Display name of the principal Id.
+func (o AuthorizationResponseOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthorizationResponse) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.

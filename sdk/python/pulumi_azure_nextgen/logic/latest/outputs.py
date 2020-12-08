@@ -59,6 +59,8 @@ __all__ = [
     'FlowEndpointsResponse',
     'IntegrationAccountMapPropertiesResponseParametersSchema',
     'IntegrationAccountSkuResponse',
+    'IntegrationServiceEnvironmenEncryptionConfigurationResponse',
+    'IntegrationServiceEnvironmenEncryptionKeyReferenceResponse',
     'IntegrationServiceEnvironmentAccessEndpointResponse',
     'IntegrationServiceEnvironmentPropertiesResponse',
     'IntegrationServiceEnvironmentResponse',
@@ -4094,6 +4096,82 @@ class IntegrationAccountSkuResponse(dict):
 
 
 @pulumi.output_type
+class IntegrationServiceEnvironmenEncryptionConfigurationResponse(dict):
+    """
+    The encryption configuration for the integration service environment.
+    """
+    def __init__(__self__, *,
+                 encryption_key_reference: Optional['outputs.IntegrationServiceEnvironmenEncryptionKeyReferenceResponse'] = None):
+        """
+        The encryption configuration for the integration service environment.
+        :param 'IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs' encryption_key_reference: The encryption key reference.
+        """
+        if encryption_key_reference is not None:
+            pulumi.set(__self__, "encryption_key_reference", encryption_key_reference)
+
+    @property
+    @pulumi.getter(name="encryptionKeyReference")
+    def encryption_key_reference(self) -> Optional['outputs.IntegrationServiceEnvironmenEncryptionKeyReferenceResponse']:
+        """
+        The encryption key reference.
+        """
+        return pulumi.get(self, "encryption_key_reference")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IntegrationServiceEnvironmenEncryptionKeyReferenceResponse(dict):
+    """
+    The encryption key details for the integration service environment.
+    """
+    def __init__(__self__, *,
+                 key_name: Optional[str] = None,
+                 key_vault: Optional['outputs.ResourceReferenceResponse'] = None,
+                 key_version: Optional[str] = None):
+        """
+        The encryption key details for the integration service environment.
+        :param str key_name: Gets the key name in the Key Vault.
+        :param 'ResourceReferenceResponseArgs' key_vault: The key vault reference.
+        :param str key_version: Gets the version of the key specified in the keyName property.
+        """
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault is not None:
+            pulumi.set(__self__, "key_vault", key_vault)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        """
+        Gets the key name in the Key Vault.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> Optional['outputs.ResourceReferenceResponse']:
+        """
+        The key vault reference.
+        """
+        return pulumi.get(self, "key_vault")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        Gets the version of the key specified in the keyName property.
+        """
+        return pulumi.get(self, "key_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class IntegrationServiceEnvironmentAccessEndpointResponse(dict):
     """
     The integration service environment access endpoint.
@@ -4125,6 +4203,7 @@ class IntegrationServiceEnvironmentPropertiesResponse(dict):
     The integration service environment properties.
     """
     def __init__(__self__, *,
+                 encryption_configuration: Optional['outputs.IntegrationServiceEnvironmenEncryptionConfigurationResponse'] = None,
                  endpoints_configuration: Optional['outputs.FlowEndpointsConfigurationResponse'] = None,
                  integration_service_environment_id: Optional[str] = None,
                  network_configuration: Optional['outputs.NetworkConfigurationResponse'] = None,
@@ -4132,12 +4211,15 @@ class IntegrationServiceEnvironmentPropertiesResponse(dict):
                  state: Optional[str] = None):
         """
         The integration service environment properties.
+        :param 'IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs' encryption_configuration: The encryption configuration.
         :param 'FlowEndpointsConfigurationResponseArgs' endpoints_configuration: The endpoints configuration.
         :param str integration_service_environment_id: Gets the tracking id.
         :param 'NetworkConfigurationResponseArgs' network_configuration: The network configuration.
         :param str provisioning_state: The provisioning state.
         :param str state: The integration service environment state.
         """
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if endpoints_configuration is not None:
             pulumi.set(__self__, "endpoints_configuration", endpoints_configuration)
         if integration_service_environment_id is not None:
@@ -4148,6 +4230,14 @@ class IntegrationServiceEnvironmentPropertiesResponse(dict):
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if state is not None:
             pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional['outputs.IntegrationServiceEnvironmenEncryptionConfigurationResponse']:
+        """
+        The encryption configuration.
+        """
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="endpointsConfiguration")

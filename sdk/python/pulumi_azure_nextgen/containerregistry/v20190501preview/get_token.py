@@ -20,7 +20,7 @@ class GetTokenResult:
     """
     An object that represents a token for a container registry.
     """
-    def __init__(__self__, creation_date=None, credentials=None, name=None, provisioning_state=None, scope_map_id=None, status=None, type=None):
+    def __init__(__self__, creation_date=None, credentials=None, name=None, provisioning_state=None, scope_map_id=None, status=None, system_data=None, type=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -39,6 +39,9 @@ class GetTokenResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -92,6 +95,14 @@ class GetTokenResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -112,6 +123,7 @@ class AwaitableGetTokenResult(GetTokenResult):
             provisioning_state=self.provisioning_state,
             scope_map_id=self.scope_map_id,
             status=self.status,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -143,4 +155,5 @@ def get_token(registry_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         scope_map_id=__ret__.scope_map_id,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         type=__ret__.type)

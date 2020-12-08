@@ -51,9 +51,6 @@ func NewDeploymentScript(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:resources/latest:DeploymentScript"),
-		},
-		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001preview:DeploymentScript"),
 		},
 	})

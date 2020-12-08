@@ -18,15 +18,15 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// </summary>
         public readonly Outputs.RetentionDurationResponse? RetentionDuration;
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        public readonly string? RetentionPolicyType;
+        public readonly string RetentionPolicyType;
 
         [OutputConstructor]
         private SimpleRetentionPolicyResponse(
             Outputs.RetentionDurationResponse? retentionDuration,
 
-            string? retentionPolicyType)
+            string retentionPolicyType)
         {
             RetentionDuration = retentionDuration;
             RetentionPolicyType = retentionPolicyType;

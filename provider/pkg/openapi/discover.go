@@ -60,10 +60,10 @@ func AllVersions() AzureProviders {
 		}
 	}
 
-	for _, versionMap := range providers {
+	for providerName, versionMap := range providers {
 		// Add a `latest` (stable) version for each resource and invoke.
-		latestResources := calculateLatestVersions(versionMap, false /* invokes */, false /* preview */)
-		latestInvokes := calculateLatestVersions(versionMap, true /* invokes */, false /* preview */)
+		latestResources := calculateLatestVersions(providerName, versionMap, false /* invokes */, false /* preview */)
+		latestInvokes := calculateLatestVersions(providerName, versionMap, true /* invokes */, false /* preview */)
 		versionMap["latest"] = VersionResources{
 			Resources: latestResources,
 			Invokes:   latestInvokes,
@@ -100,7 +100,7 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 
 		findVersion := func(resource *ResourceSpec) *VersionResources {
 			apiVersion := "v" + strings.ReplaceAll(resource.Swagger.Info.Version, "-", "")
-			if !strings.Contains(apiVersion, "preview") || strings.Contains(apiVersion, "privatepreview") {
+			if !IsPreview(apiVersion) || strings.Contains(apiVersion, "privatepreview") {
 				return nil
 			}
 			version, ok := versions[apiVersion]
@@ -114,7 +114,7 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 			return &version
 		}
 
-		previewResources := calculateLatestVersions(allVersionMap, false /* invokes */, true /* preview */)
+		previewResources := calculateLatestVersions(providerName, allVersionMap, false /* invokes */, true /* preview */)
 		for resourceName, resource := range previewResources {
 			if _, ok := latest.Resources[resourceName]; ok {
 				continue
@@ -126,7 +126,7 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 			}
 		}
 
-		previewInvokes := calculateLatestVersions(allVersionMap, true /* invokes */, true /* preview */)
+		previewInvokes := calculateLatestVersions(providerName, allVersionMap, true /* invokes */, true /* preview */)
 		for invokeName, invoke := range previewInvokes {
 			if _, ok := latest.Invokes[invokeName]; ok {
 				continue
@@ -142,6 +142,12 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 	}
 
 	return singleVersion
+}
+
+// IsPreview returns true for API versions that aren't considered stable.
+func IsPreview(apiVersion string) bool {
+	lower := strings.ToLower(apiVersion)
+	return strings.Contains(lower, "preview") || strings.Contains(lower, "beta")
 }
 
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
@@ -165,7 +171,7 @@ func swaggerLocations() ([]string, error) {
 
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
-func addAPIPath(providers AzureProviders, path string, spec *Spec) {
+func addAPIPath(providers AzureProviders, path string, swagger *Spec) {
 	prov := provider.ResourceProvider(path)
 	if prov == "" {
 		return
@@ -179,7 +185,7 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 	}
 
 	// Find (or create) the resource map with this name.
-	apiVersion := "v" + strings.ReplaceAll(spec.Info.Version, "-", "")
+	apiVersion := "v" + strings.ReplaceAll(swagger.Info.Version, "-", "")
 	version, ok := versionMap[apiVersion]
 	if !ok {
 		version = VersionResources{
@@ -189,7 +195,15 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 		versionMap[apiVersion] = version
 	}
 
-	pathItem := spec.Paths.Paths[path]
+	pathItem := swagger.Paths.Paths[path]
+
+	if ok := provider.HasCustomDelete(path); ok {
+		pathItem.Delete = &spec.Operation{
+			OperationProps: spec.OperationProps{
+				Description: "Custom implementation of this operation is available",
+			},
+		}
+	}
 
 	// Add a resource entry.
 	if pathItem.Put != nil && !pathItem.Put.Deprecated &&
@@ -202,7 +216,7 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 			version.Resources[typeName] = &ResourceSpec{
 				Path:        path,
 				PathItem:    &pathItem,
-				Swagger:     spec,
+				Swagger:     swagger,
 				DefaultBody: defaultBody,
 			}
 		}
@@ -227,7 +241,7 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 			version.Invokes[prefix+typeName] = &ResourceSpec{
 				Path:     path,
 				PathItem: &pathItem,
-				Swagger:  spec,
+				Swagger:  swagger,
 			}
 		}
 	}
@@ -235,11 +249,11 @@ func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
 // provider. The result is a map from a resource type name to resource specs.
-func calculateLatestVersions(versionMap ProviderVersions, invokes,
+func calculateLatestVersions(provider string, versionMap ProviderVersions, invokes,
 	preview bool) (latestResources map[string]*ResourceSpec) {
 	var versions []string
 	for version := range versionMap {
-		if preview || !strings.Contains(version, "preview") {
+		if preview || !IsPreview(version) {
 			versions = append(versions, version)
 		}
 	}
@@ -248,6 +262,12 @@ func calculateLatestVersions(versionMap ProviderVersions, invokes,
 	pathTypeNames := map[string]string{}
 	latestResources = map[string]*ResourceSpec{}
 	for _, version := range versions {
+		if provider == "Resources" && version == "v20201001" {
+			// Temporary workaround for a API that's not yet deployed.
+			// Remove when https://github.com/Azure/azure-rest-api-specs/issues/11711 is fixed.
+			continue
+		}
+
 		items := versionMap[version]
 		resources := items.Resources
 		if invokes {

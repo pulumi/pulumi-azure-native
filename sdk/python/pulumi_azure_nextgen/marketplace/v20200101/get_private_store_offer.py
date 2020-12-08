@@ -79,7 +79,7 @@ class GetPrivateStoreOfferResult:
 
     @property
     @pulumi.getter(name="iconFileUris")
-    def icon_file_uris(self) -> Optional['outputs.OfferPropertiesResponseIconFileUris']:
+    def icon_file_uris(self) -> Optional[Mapping[str, str]]:
         """
         Icon File Uris
         """

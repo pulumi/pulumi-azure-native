@@ -93,6 +93,10 @@ export interface ListTaskDetailsResult {
      */
     readonly step?: outputs.containerregistry.v20190601preview.DockerBuildStepResponse | outputs.containerregistry.v20190601preview.EncodedTaskStepResponse | outputs.containerregistry.v20190601preview.FileTaskStepResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.v20190601preview.SystemDataResponse;
+    /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};

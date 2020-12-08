@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.MixedReality.V20190228Preview
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The identity associated with this account
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -101,6 +107,12 @@ namespace Pulumi.AzureNextGen.MixedReality.V20190228Preview
 
     public sealed class SpatialAnchorsAccountArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identity associated with this account
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

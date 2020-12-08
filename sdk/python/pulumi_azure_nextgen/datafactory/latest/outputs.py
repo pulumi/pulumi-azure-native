@@ -63,6 +63,7 @@ __all__ = [
     'AzureTableDatasetResponse',
     'AzureTableStorageLinkedServiceResponse',
     'BinaryDatasetResponse',
+    'CMKIdentityDefinitionResponse',
     'CassandraLinkedServiceResponse',
     'CassandraTableDatasetResponse',
     'ChainingTriggerResponse',
@@ -107,6 +108,7 @@ __all__ = [
     'DynamicsLinkedServiceResponse',
     'EloquaLinkedServiceResponse',
     'EloquaObjectDatasetResponse',
+    'EncryptionConfigurationResponse',
     'EntityReferenceResponse',
     'EnvironmentVariableSetupResponse',
     'ExcelDatasetResponse',
@@ -7014,6 +7016,32 @@ class BinaryDatasetResponse(dict):
 
 
 @pulumi.output_type
+class CMKIdentityDefinitionResponse(dict):
+    """
+    Managed Identity used for CMK.
+    """
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        Managed Identity used for CMK.
+        :param str user_assigned_identity: The resource id of the user assigned identity to authenticate to customer's key vault.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The resource id of the user assigned identity to authenticate to customer's key vault.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class CassandraLinkedServiceResponse(dict):
     """
     Linked service for Cassandra data source.
@@ -11650,6 +11678,66 @@ class EloquaObjectDatasetResponse(dict):
 
 
 @pulumi.output_type
+class EncryptionConfigurationResponse(dict):
+    """
+    Definition of CMK for the factory.
+    """
+    def __init__(__self__, *,
+                 key_name: str,
+                 vault_base_url: str,
+                 identity: Optional['outputs.CMKIdentityDefinitionResponse'] = None,
+                 key_version: Optional[str] = None):
+        """
+        Definition of CMK for the factory.
+        :param str key_name: The name of the key in Azure Key Vault to use as Customer Managed Key.
+        :param str vault_base_url: The url of the Azure Key Vault used for CMK.
+        :param 'CMKIdentityDefinitionResponseArgs' identity: User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+        :param str key_version: The version of the key used for CMK. If not provided, latest version will be used.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "vault_base_url", vault_base_url)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of the key in Azure Key Vault to use as Customer Managed Key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="vaultBaseUrl")
+    def vault_base_url(self) -> str:
+        """
+        The url of the Azure Key Vault used for CMK.
+        """
+        return pulumi.get(self, "vault_base_url")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.CMKIdentityDefinitionResponse']:
+        """
+        User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        The version of the key used for CMK. If not provided, latest version will be used.
+        """
+        return pulumi.get(self, "key_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class EntityReferenceResponse(dict):
     """
     The entity reference.
@@ -12109,16 +12197,20 @@ class FactoryIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str):
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, Any]] = None):
         """
         Identity properties of the factory resource.
         :param str principal_id: The principal id of the identity.
         :param str tenant_id: The client tenant id of the identity.
-        :param str type: The identity type. Currently the only supported type is 'SystemAssigned'.
+        :param str type: The identity type.
+        :param Mapping[str, Any] user_assigned_identities: List of user assigned identities for the factory.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -12140,9 +12232,17 @@ class FactoryIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The identity type. Currently the only supported type is 'SystemAssigned'.
+        The identity type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, Any]]:
+        """
+        List of user assigned identities for the factory.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -64,6 +64,10 @@ export interface GetImportPipelineResult {
      */
     readonly source: outputs.containerregistry.v20191201preview.ImportPipelineSourcePropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.v20191201preview.SystemDataResponse;
+    /**
      * The properties that describe the trigger of the import pipeline.
      */
     readonly trigger?: outputs.containerregistry.v20191201preview.PipelineTriggerPropertiesResponse;

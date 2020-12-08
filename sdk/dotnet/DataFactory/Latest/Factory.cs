@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         public Output<string> ETag { get; private set; } = null!;
 
         /// <summary>
+        /// Properties to enable Customer Managed Key for the factory.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionConfigurationResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// List of parameters for factory.
         /// </summary>
         [Output("globalParameters")]
@@ -136,6 +142,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
 
     public sealed class FactoryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Properties to enable Customer Managed Key for the factory.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionConfigurationArgs>? Encryption { get; set; }
+
         /// <summary>
         /// The factory name.
         /// </summary>

@@ -22,10 +22,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         public Input<Inputs.RetentionDurationArgs>? RetentionDuration { get; set; }
 
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        [Input("retentionPolicyType")]
-        public Input<string>? RetentionPolicyType { get; set; }
+        [Input("retentionPolicyType", required: true)]
+        public Input<string> RetentionPolicyType { get; set; } = null!;
 
         public SimpleRetentionPolicyArgs()
         {

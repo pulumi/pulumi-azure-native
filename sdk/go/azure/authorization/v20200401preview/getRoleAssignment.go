@@ -31,6 +31,12 @@ type LookupRoleAssignmentResult struct {
 	Condition *string `pulumi:"condition"`
 	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion *string `pulumi:"conditionVersion"`
+	// Id of the user who created the assignment
+	CreatedBy *string `pulumi:"createdBy"`
+	// Time it was created
+	CreatedOn *string `pulumi:"createdOn"`
+	// Id of the delegated managed identity resource
+	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// Description of role assignment
 	Description *string `pulumi:"description"`
 	// The role assignment name.
@@ -45,4 +51,8 @@ type LookupRoleAssignmentResult struct {
 	Scope *string `pulumi:"scope"`
 	// The role assignment type.
 	Type string `pulumi:"type"`
+	// Id of the user who updated the assignment
+	UpdatedBy *string `pulumi:"updatedBy"`
+	// Time it was updated
+	UpdatedOn *string `pulumi:"updatedOn"`
 }

@@ -14,6 +14,8 @@ __all__ = [
     'NetworkRuleSetArgs',
     'PermissionsArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'SecretAttributesArgs',
+    'SecretPropertiesArgs',
     'SkuArgs',
     'VaultPropertiesArgs',
     'VirtualNetworkRuleArgs',
@@ -312,6 +314,118 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class SecretAttributesArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 expires: Optional[pulumi.Input[int]] = None,
+                 not_before: Optional[pulumi.Input[int]] = None):
+        """
+        The secret management attributes.
+        :param pulumi.Input[bool] enabled: Determines whether the object is enabled.
+        :param pulumi.Input[int] expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
+        :param pulumi.Input[int] not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if expires is not None:
+            pulumi.set(__self__, "expires", expires)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether the object is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def expires(self) -> Optional[pulumi.Input[int]]:
+        """
+        Expiry date in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "expires")
+
+    @expires.setter
+    def expires(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expires", value)
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[pulumi.Input[int]]:
+        """
+        Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "not_before")
+
+    @not_before.setter
+    def not_before(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "not_before", value)
+
+
+@pulumi.input_type
+class SecretPropertiesArgs:
+    def __init__(__self__, *,
+                 attributes: Optional[pulumi.Input['SecretAttributesArgs']] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the secret
+        :param pulumi.Input['SecretAttributesArgs'] attributes: The attributes of the secret.
+        :param pulumi.Input[str] content_type: The content type of the secret.
+        :param pulumi.Input[str] value: The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input['SecretAttributesArgs']]:
+        """
+        The attributes of the secret.
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input['SecretAttributesArgs']]):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type of the secret.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
                  family: pulumi.Input[str],
@@ -379,7 +493,7 @@ class VaultPropertiesArgs:
         :param pulumi.Input[bool] enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: Rules governing the accessibility of the key vault from specific network locations.
         :param pulumi.Input[int] soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
-        :param pulumi.Input[str] vault_uri: The URI of the vault for performing operations on keys and secrets.
+        :param pulumi.Input[str] vault_uri: The URI of the vault for performing operations on keys and secrets. This property is readonly
         """
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -554,7 +668,7 @@ class VaultPropertiesArgs:
     @pulumi.getter(name="vaultUri")
     def vault_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URI of the vault for performing operations on keys and secrets.
+        The URI of the vault for performing operations on keys and secrets. This property is readonly
         """
         return pulumi.get(self, "vault_uri")
 

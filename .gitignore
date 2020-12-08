@@ -19,3 +19,4 @@ package-lock.json
 **/dist
 
 ci-scripts/
+provider/cmd/pulumi-resource-azure-nextgen/schema-full.json

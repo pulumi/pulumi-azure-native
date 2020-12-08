@@ -12,6 +12,8 @@ __all__ = [
     'ClusterSkuArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
+    'WorkspaceCappingArgs',
+    'WorkspaceSkuArgs',
 ]
 
 @pulumi.input_type
@@ -57,12 +59,16 @@ class ClusterSkuArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the resource.
         :param pulumi.Input[str] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -76,29 +82,41 @@ class IdentityArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  key_name: Optional[pulumi.Input[str]] = None,
+                 key_rsa_size: Optional[pulumi.Input[int]] = None,
                  key_vault_uri: Optional[pulumi.Input[str]] = None,
-                 key_version: Optional[pulumi.Input[str]] = None,
-                 rsa_key_size: Optional[pulumi.Input[int]] = None):
+                 key_version: Optional[pulumi.Input[str]] = None):
         """
         The key vault properties.
         :param pulumi.Input[str] key_name: The name of the key associated with the Log Analytics cluster.
+        :param pulumi.Input[int] key_rsa_size: Selected key minimum required size.
         :param pulumi.Input[str] key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
         :param pulumi.Input[str] key_version: The version of the key associated with the Log Analytics cluster.
-        :param pulumi.Input[int] rsa_key_size: Selected key minimum required key size.
         """
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
+        if key_rsa_size is not None:
+            pulumi.set(__self__, "key_rsa_size", key_rsa_size)
         if key_vault_uri is not None:
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
-        if rsa_key_size is not None:
-            pulumi.set(__self__, "rsa_key_size", rsa_key_size)
 
     @property
     @pulumi.getter(name="keyName")
@@ -111,6 +129,18 @@ class KeyVaultPropertiesArgs:
     @key_name.setter
     def key_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyRsaSize")
+    def key_rsa_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Selected key minimum required size.
+        """
+        return pulumi.get(self, "key_rsa_size")
+
+    @key_rsa_size.setter
+    def key_rsa_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "key_rsa_size", value)
 
     @property
     @pulumi.getter(name="keyVaultUri")
@@ -136,16 +166,67 @@ class KeyVaultPropertiesArgs:
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
 
-    @property
-    @pulumi.getter(name="rsaKeySize")
-    def rsa_key_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        Selected key minimum required key size.
-        """
-        return pulumi.get(self, "rsa_key_size")
 
-    @rsa_key_size.setter
-    def rsa_key_size(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "rsa_key_size", value)
+@pulumi.input_type
+class WorkspaceCappingArgs:
+    def __init__(__self__, *,
+                 daily_quota_gb: Optional[pulumi.Input[float]] = None):
+        """
+        The daily volume cap for ingestion.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion.
+        """
+        if daily_quota_gb is not None:
+            pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
+
+    @property
+    @pulumi.getter(name="dailyQuotaGb")
+    def daily_quota_gb(self) -> Optional[pulumi.Input[float]]:
+        """
+        The workspace daily quota for ingestion.
+        """
+        return pulumi.get(self, "daily_quota_gb")
+
+    @daily_quota_gb.setter
+    def daily_quota_gb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "daily_quota_gb", value)
+
+
+@pulumi.input_type
+class WorkspaceSkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 capacity_reservation_level: Optional[pulumi.Input[int]] = None):
+        """
+        The SKU (tier) of a workspace.
+        :param pulumi.Input[str] name: The name of the SKU.
+        :param pulumi.Input[int] capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity_reservation_level is not None:
+            pulumi.set(__self__, "capacity_reservation_level", capacity_reservation_level)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationLevel")
+    def capacity_reservation_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        """
+        return pulumi.get(self, "capacity_reservation_level")
+
+    @capacity_reservation_level.setter
+    def capacity_reservation_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity_reservation_level", value)
 
 

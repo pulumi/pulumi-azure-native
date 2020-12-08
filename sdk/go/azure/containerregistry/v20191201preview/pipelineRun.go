@@ -25,6 +25,8 @@ type PipelineRun struct {
 	Request PipelineRunRequestResponsePtrOutput `pulumi:"request"`
 	// The response of a pipeline run.
 	Response PipelineRunResponseResponseOutput `pulumi:"response"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -44,6 +46,12 @@ func NewPipelineRun(ctx *pulumi.Context,
 	if args == nil {
 		args = &PipelineRunArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:PipelineRun"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PipelineRun
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20191201preview:PipelineRun", name, args, &resource, opts...)
 	if err != nil {
@@ -76,6 +84,8 @@ type pipelineRunState struct {
 	Request *PipelineRunRequestResponse `pulumi:"request"`
 	// The response of a pipeline run.
 	Response *PipelineRunResponseResponse `pulumi:"response"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -91,6 +101,8 @@ type PipelineRunState struct {
 	Request PipelineRunRequestResponsePtrInput
 	// The response of a pipeline run.
 	Response PipelineRunResponseResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

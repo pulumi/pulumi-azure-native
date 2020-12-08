@@ -43,6 +43,10 @@ export interface GetWorkspaceResult {
      */
     readonly eTag?: string;
     /**
+     * Indicates whether customer managed storage is mandatory for query management.
+     */
+    readonly forceCmkForQuery?: boolean;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;

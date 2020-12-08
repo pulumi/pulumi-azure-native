@@ -56,6 +56,10 @@ export class Replication extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<outputs.containerregistry.v20191201preview.StatusResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.v20191201preview.SystemDataResponse>;
+    /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -95,6 +99,7 @@ export class Replication extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
@@ -102,6 +107,7 @@ export class Replication extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["regionEndpointEnabled"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -112,7 +118,7 @@ export class Replication extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/latest:Replication" }, { type: "azure-nextgen:containerregistry/v20170601preview:Replication" }, { type: "azure-nextgen:containerregistry/v20171001:Replication" }, { type: "azure-nextgen:containerregistry/v20190501:Replication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/latest:Replication" }, { type: "azure-nextgen:containerregistry/v20170601preview:Replication" }, { type: "azure-nextgen:containerregistry/v20171001:Replication" }, { type: "azure-nextgen:containerregistry/v20190501:Replication" }, { type: "azure-nextgen:containerregistry/v20201101preview:Replication" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Replication.__pulumiType, name, inputs, opts);
     }

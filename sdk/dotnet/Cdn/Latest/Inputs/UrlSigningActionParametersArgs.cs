@@ -21,26 +21,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
         [Input("algorithm")]
         public Input<string>? Algorithm { get; set; }
 
-        [Input("ipSubnets")]
-        private InputList<string>? _ipSubnets;
-
-        /// <summary>
-        /// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
-        /// </summary>
-        public InputList<string> IpSubnets
-        {
-            get => _ipSubnets ?? (_ipSubnets = new InputList<string>());
-            set => _ipSubnets = value;
-        }
-
-        /// <summary>
-        /// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
-        /// </summary>
-        [Input("keyId", required: true)]
-        public Input<string> KeyId { get; set; } = null!;
-
-        [Input("odataType")]
-        public Input<string>? OdataType { get; set; }
+        [Input("odataType", required: true)]
+        public Input<string> OdataType { get; set; } = null!;
 
         [Input("parameterNameOverride")]
         private InputList<Inputs.UrlSigningParamIdentifierArgs>? _parameterNameOverride;

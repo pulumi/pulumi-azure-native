@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Management.V20161201
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20190601:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20190901:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200301:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20200901:PolicyDefinitionAtManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

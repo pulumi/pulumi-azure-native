@@ -10,10 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Security.V20200806Preview
 {
     /// <summary>
-    /// IoT sensor
+    /// IoT sensor model
     /// </summary>
     public partial class IotSensor : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Last connectivity time of the IoT sensor
+        /// </summary>
+        [Output("connectivityTime")]
+        public Output<string> ConnectivityTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Creation time of the IoT sensor
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Dynamic mode status of the IoT sensor
+        /// </summary>
+        [Output("dynamicLearning")]
+        public Output<bool> DynamicLearning { get; private set; } = null!;
+
+        /// <summary>
+        /// Learning mode status of the IoT sensor
+        /// </summary>
+        [Output("learningMode")]
+        public Output<bool> LearningMode { get; private set; } = null!;
+
         /// <summary>
         /// Resource name
         /// </summary>
@@ -21,10 +45,46 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Status of the IoT sensor
+        /// </summary>
+        [Output("sensorStatus")]
+        public Output<string> SensorStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Version of the IoT sensor
+        /// </summary>
+        [Output("sensorVersion")]
+        public Output<string> SensorVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// TI Automatic mode status of the IoT sensor
+        /// </summary>
+        [Output("tiAutomaticUpdates")]
+        public Output<bool?> TiAutomaticUpdates { get; private set; } = null!;
+
+        /// <summary>
+        /// TI Status of the IoT sensor
+        /// </summary>
+        [Output("tiStatus")]
+        public Output<string> TiStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// TI Version of the IoT sensor
+        /// </summary>
+        [Output("tiVersion")]
+        public Output<string> TiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Zone of the IoT sensor
+        /// </summary>
+        [Output("zone")]
+        public Output<string?> Zone { get; private set; } = null!;
 
 
         /// <summary>
@@ -82,6 +142,18 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
+
+        /// <summary>
+        /// TI Automatic mode status of the IoT sensor
+        /// </summary>
+        [Input("tiAutomaticUpdates")]
+        public Input<bool>? TiAutomaticUpdates { get; set; }
+
+        /// <summary>
+        /// Zone of the IoT sensor
+        /// </summary>
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
 
         public IotSensorArgs()
         {

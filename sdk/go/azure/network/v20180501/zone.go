@@ -21,6 +21,8 @@ type Zone struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	MaxNumberOfRecordSets pulumi.IntOutput `pulumi:"maxNumberOfRecordSets"`
+	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordsPerRecordSet pulumi.IntOutput `pulumi:"maxNumberOfRecordsPerRecordSet"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
@@ -103,6 +105,8 @@ type zoneState struct {
 	Location *string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
+	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordsPerRecordSet *int `pulumi:"maxNumberOfRecordsPerRecordSet"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
@@ -128,6 +132,8 @@ type ZoneState struct {
 	Location pulumi.StringPtrInput
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	MaxNumberOfRecordSets pulumi.IntPtrInput
+	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordsPerRecordSet pulumi.IntPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.

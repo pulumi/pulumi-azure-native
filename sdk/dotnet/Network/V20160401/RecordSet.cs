@@ -39,6 +39,12 @@ namespace Pulumi.AzureNextGen.Network.V20160401
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Fully qualified domain name of the record set.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
         /// The metadata attached to the record set.
         /// </summary>
         [Output("metadata")]

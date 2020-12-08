@@ -27,6 +27,8 @@ type ScopeMap struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -49,6 +51,12 @@ func NewScopeMap(ctx *pulumi.Context,
 	if args == nil {
 		args = &ScopeMapArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ScopeMap"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ScopeMap
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190501preview:ScopeMap", name, args, &resource, opts...)
 	if err != nil {
@@ -83,6 +91,8 @@ type scopeMapState struct {
 	Name *string `pulumi:"name"`
 	// Provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -100,6 +110,8 @@ type ScopeMapState struct {
 	Name pulumi.StringPtrInput
 	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

@@ -37,6 +37,8 @@ type LookupRecordSetResult struct {
 	CnameRecord *CnameRecordResponse `pulumi:"cnameRecord"`
 	// The etag of the record set.
 	Etag *string `pulumi:"etag"`
+	// Fully qualified domain name of the record set.
+	Fqdn string `pulumi:"fqdn"`
 	// The metadata attached to the record set.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The list of MX records in the record set.

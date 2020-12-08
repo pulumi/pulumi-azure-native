@@ -116,6 +116,10 @@ export interface GetEndpointResult {
      */
     readonly resourceState: string;
     /**
+     * Read only system data
+     */
+    readonly systemData: outputs.cdn.latest.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

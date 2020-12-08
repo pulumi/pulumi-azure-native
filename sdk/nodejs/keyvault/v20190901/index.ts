@@ -3,6 +3,8 @@
 
 // Export members:
 export * from "./getPrivateEndpointConnection";
+export * from "./getSecret";
 export * from "./getVault";
 export * from "./privateEndpointConnection";
+export * from "./secret";
 export * from "./vault";

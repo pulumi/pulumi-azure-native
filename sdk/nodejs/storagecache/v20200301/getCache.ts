@@ -83,6 +83,10 @@ export interface GetCacheResult {
      */
     readonly subnet?: string;
     /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.storagecache.v20200301.SystemDataResponse;
+    /**
      * ARM tags as name/value pairs.
      */
     readonly tags?: any;

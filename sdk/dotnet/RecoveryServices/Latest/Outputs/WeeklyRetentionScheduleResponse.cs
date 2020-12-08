@@ -14,15 +14,15 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class WeeklyRetentionScheduleResponse
     {
         /// <summary>
-        /// List of the days of the week for the weekly retention policy.
+        /// List of days of week for weekly retention policy.
         /// </summary>
         public readonly ImmutableArray<string> DaysOfTheWeek;
         /// <summary>
-        /// Retention duration of retention policy.
+        /// Retention duration of retention Policy.
         /// </summary>
         public readonly Outputs.RetentionDurationResponse? RetentionDuration;
         /// <summary>
-        /// Retention times of the retention policy.
+        /// Retention times of retention policy.
         /// </summary>
         public readonly ImmutableArray<string> RetentionTimes;
 

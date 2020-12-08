@@ -16,9 +16,11 @@ export function getLogAnalyticExportRequestRateByInterval(args: GetLogAnalyticEx
     return pulumi.runtime.invoke("azure-nextgen:compute/latest:getLogAnalyticExportRequestRateByInterval", {
         "blobContainerSasUri": args.blobContainerSasUri,
         "fromTime": args.fromTime,
+        "groupByClientApplicationId": args.groupByClientApplicationId,
         "groupByOperationName": args.groupByOperationName,
         "groupByResourceName": args.groupByResourceName,
         "groupByThrottlePolicy": args.groupByThrottlePolicy,
+        "groupByUserAgent": args.groupByUserAgent,
         "intervalLength": args.intervalLength,
         "location": args.location,
         "toTime": args.toTime,
@@ -35,6 +37,10 @@ export interface GetLogAnalyticExportRequestRateByIntervalArgs {
      */
     readonly fromTime: string;
     /**
+     * Group query result by Client Application ID.
+     */
+    readonly groupByClientApplicationId?: boolean;
+    /**
      * Group query result by Operation Name.
      */
     readonly groupByOperationName?: boolean;
@@ -46,6 +52,10 @@ export interface GetLogAnalyticExportRequestRateByIntervalArgs {
      * Group query result by Throttle Policy applied.
      */
     readonly groupByThrottlePolicy?: boolean;
+    /**
+     * Group query result by User Agent.
+     */
+    readonly groupByUserAgent?: boolean;
     /**
      * Interval value in minutes used to create LogAnalytics call rate logs.
      */

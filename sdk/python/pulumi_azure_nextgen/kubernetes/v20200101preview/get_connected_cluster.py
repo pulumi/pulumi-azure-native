@@ -20,7 +20,7 @@ class GetConnectedClusterResult:
     """
     Represents a connected cluster.
     """
-    def __init__(__self__, aad_profile=None, agent_public_key_certificate=None, agent_version=None, identity=None, kubernetes_version=None, location=None, name=None, provisioning_state=None, tags=None, total_node_count=None, type=None):
+    def __init__(__self__, aad_profile=None, agent_public_key_certificate=None, agent_version=None, connectivity_status=None, distribution=None, identity=None, infrastructure=None, kubernetes_version=None, last_connectivity_time=None, location=None, managed_identity_certificate_expiration_time=None, name=None, offering=None, provisioning_state=None, tags=None, total_core_count=None, total_node_count=None, type=None):
         if aad_profile and not isinstance(aad_profile, dict):
             raise TypeError("Expected argument 'aad_profile' to be a dict")
         pulumi.set(__self__, "aad_profile", aad_profile)
@@ -30,24 +30,45 @@ class GetConnectedClusterResult:
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
+        if connectivity_status and not isinstance(connectivity_status, str):
+            raise TypeError("Expected argument 'connectivity_status' to be a str")
+        pulumi.set(__self__, "connectivity_status", connectivity_status)
+        if distribution and not isinstance(distribution, str):
+            raise TypeError("Expected argument 'distribution' to be a str")
+        pulumi.set(__self__, "distribution", distribution)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if infrastructure and not isinstance(infrastructure, str):
+            raise TypeError("Expected argument 'infrastructure' to be a str")
+        pulumi.set(__self__, "infrastructure", infrastructure)
         if kubernetes_version and not isinstance(kubernetes_version, str):
             raise TypeError("Expected argument 'kubernetes_version' to be a str")
         pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        if last_connectivity_time and not isinstance(last_connectivity_time, str):
+            raise TypeError("Expected argument 'last_connectivity_time' to be a str")
+        pulumi.set(__self__, "last_connectivity_time", last_connectivity_time)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_identity_certificate_expiration_time and not isinstance(managed_identity_certificate_expiration_time, str):
+            raise TypeError("Expected argument 'managed_identity_certificate_expiration_time' to be a str")
+        pulumi.set(__self__, "managed_identity_certificate_expiration_time", managed_identity_certificate_expiration_time)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if offering and not isinstance(offering, str):
+            raise TypeError("Expected argument 'offering' to be a str")
+        pulumi.set(__self__, "offering", offering)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if total_core_count and not isinstance(total_core_count, int):
+            raise TypeError("Expected argument 'total_core_count' to be a int")
+        pulumi.set(__self__, "total_core_count", total_core_count)
         if total_node_count and not isinstance(total_node_count, int):
             raise TypeError("Expected argument 'total_node_count' to be a int")
         pulumi.set(__self__, "total_node_count", total_node_count)
@@ -80,12 +101,36 @@ class GetConnectedClusterResult:
         return pulumi.get(self, "agent_version")
 
     @property
+    @pulumi.getter(name="connectivityStatus")
+    def connectivity_status(self) -> Optional[str]:
+        """
+        Represents the connectivity status of the connected cluster.
+        """
+        return pulumi.get(self, "connectivity_status")
+
+    @property
+    @pulumi.getter
+    def distribution(self) -> Optional[str]:
+        """
+        The Kubernetes distribution running on this connected cluster.
+        """
+        return pulumi.get(self, "distribution")
+
+    @property
     @pulumi.getter
     def identity(self) -> 'outputs.ConnectedClusterIdentityResponse':
         """
         The identity of the connected cluster.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def infrastructure(self) -> Optional[str]:
+        """
+        The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+        """
+        return pulumi.get(self, "infrastructure")
 
     @property
     @pulumi.getter(name="kubernetesVersion")
@@ -96,6 +141,14 @@ class GetConnectedClusterResult:
         return pulumi.get(self, "kubernetes_version")
 
     @property
+    @pulumi.getter(name="lastConnectivityTime")
+    def last_connectivity_time(self) -> str:
+        """
+        Time representing the last instance when heart beat was received from the cluster
+        """
+        return pulumi.get(self, "last_connectivity_time")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -104,12 +157,28 @@ class GetConnectedClusterResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedIdentityCertificateExpirationTime")
+    def managed_identity_certificate_expiration_time(self) -> str:
+        """
+        Expiration time of the managed identity certificate
+        """
+        return pulumi.get(self, "managed_identity_certificate_expiration_time")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def offering(self) -> str:
+        """
+        Connected cluster offering
+        """
+        return pulumi.get(self, "offering")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -126,6 +195,14 @@ class GetConnectedClusterResult:
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="totalCoreCount")
+    def total_core_count(self) -> int:
+        """
+        Number of CPU cores present in the connected cluster resource
+        """
+        return pulumi.get(self, "total_core_count")
 
     @property
     @pulumi.getter(name="totalNodeCount")
@@ -153,12 +230,19 @@ class AwaitableGetConnectedClusterResult(GetConnectedClusterResult):
             aad_profile=self.aad_profile,
             agent_public_key_certificate=self.agent_public_key_certificate,
             agent_version=self.agent_version,
+            connectivity_status=self.connectivity_status,
+            distribution=self.distribution,
             identity=self.identity,
+            infrastructure=self.infrastructure,
             kubernetes_version=self.kubernetes_version,
+            last_connectivity_time=self.last_connectivity_time,
             location=self.location,
+            managed_identity_certificate_expiration_time=self.managed_identity_certificate_expiration_time,
             name=self.name,
+            offering=self.offering,
             provisioning_state=self.provisioning_state,
             tags=self.tags,
+            total_core_count=self.total_core_count,
             total_node_count=self.total_node_count,
             type=self.type)
 
@@ -185,11 +269,18 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
         aad_profile=__ret__.aad_profile,
         agent_public_key_certificate=__ret__.agent_public_key_certificate,
         agent_version=__ret__.agent_version,
+        connectivity_status=__ret__.connectivity_status,
+        distribution=__ret__.distribution,
         identity=__ret__.identity,
+        infrastructure=__ret__.infrastructure,
         kubernetes_version=__ret__.kubernetes_version,
+        last_connectivity_time=__ret__.last_connectivity_time,
         location=__ret__.location,
+        managed_identity_certificate_expiration_time=__ret__.managed_identity_certificate_expiration_time,
         name=__ret__.name,
+        offering=__ret__.offering,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
+        total_core_count=__ret__.total_core_count,
         total_node_count=__ret__.total_node_count,
         type=__ret__.type)

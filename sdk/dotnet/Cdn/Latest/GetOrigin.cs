@@ -108,6 +108,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
             string resourceState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             int? weight)
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
             PrivateLinkResourceId = privateLinkResourceId;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
+            SystemData = systemData;
             Type = type;
             Weight = weight;
         }

@@ -20,7 +20,7 @@ class GetEndpointResult:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
     """
-    def __init__(__self__, content_types_to_compress=None, default_origin_group=None, delivery_policy=None, geo_filters=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_groups=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, provisioning_state=None, query_string_caching_behavior=None, resource_state=None, tags=None, type=None, url_signing_keys=None, web_application_firewall_policy_link=None):
+    def __init__(__self__, content_types_to_compress=None, default_origin_group=None, delivery_policy=None, geo_filters=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_groups=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, provisioning_state=None, query_string_caching_behavior=None, resource_state=None, system_data=None, tags=None, type=None, url_signing_keys=None, web_application_firewall_policy_link=None):
         if content_types_to_compress and not isinstance(content_types_to_compress, list):
             raise TypeError("Expected argument 'content_types_to_compress' to be a list")
         pulumi.set(__self__, "content_types_to_compress", content_types_to_compress)
@@ -78,6 +78,9 @@ class GetEndpointResult:
         if resource_state and not isinstance(resource_state, str):
             raise TypeError("Expected argument 'resource_state' to be a str")
         pulumi.set(__self__, "resource_state", resource_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -244,6 +247,14 @@ class GetEndpointResult:
         return pulumi.get(self, "resource_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -301,6 +312,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             provisioning_state=self.provisioning_state,
             query_string_caching_behavior=self.query_string_caching_behavior,
             resource_state=self.resource_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             url_signing_keys=self.url_signing_keys,
@@ -348,6 +360,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         query_string_caching_behavior=__ret__.query_string_caching_behavior,
         resource_state=__ret__.resource_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         url_signing_keys=__ret__.url_signing_keys,

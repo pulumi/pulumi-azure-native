@@ -56,6 +56,10 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly provisioningState: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.v20191201preview.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;

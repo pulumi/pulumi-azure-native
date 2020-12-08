@@ -39,6 +39,8 @@ type LookupImportPipelineResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The source properties of the import pipeline.
 	Source ImportPipelineSourcePropertiesResponse `pulumi:"source"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The properties that describe the trigger of the import pipeline.
 	Trigger *PipelineTriggerPropertiesResponse `pulumi:"trigger"`
 	// The type of the resource.

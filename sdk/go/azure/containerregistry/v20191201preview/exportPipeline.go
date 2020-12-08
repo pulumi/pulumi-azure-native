@@ -25,6 +25,8 @@ type ExportPipeline struct {
 	Options pulumi.StringArrayOutput `pulumi:"options"`
 	// The provisioning state of the pipeline at the time the operation was called.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The target properties of the export pipeline.
 	Target ExportPipelineTargetPropertiesResponseOutput `pulumi:"target"`
 	// The type of the resource.
@@ -49,6 +51,12 @@ func NewExportPipeline(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExportPipelineArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ExportPipeline"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ExportPipeline
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20191201preview:ExportPipeline", name, args, &resource, opts...)
 	if err != nil {
@@ -81,6 +89,8 @@ type exportPipelineState struct {
 	Options []string `pulumi:"options"`
 	// The provisioning state of the pipeline at the time the operation was called.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The target properties of the export pipeline.
 	Target *ExportPipelineTargetPropertiesResponse `pulumi:"target"`
 	// The type of the resource.
@@ -98,6 +108,8 @@ type ExportPipelineState struct {
 	Options pulumi.StringArrayInput
 	// The provisioning state of the pipeline at the time the operation was called.
 	ProvisioningState pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The target properties of the export pipeline.
 	Target ExportPipelineTargetPropertiesResponsePtrInput
 	// The type of the resource.

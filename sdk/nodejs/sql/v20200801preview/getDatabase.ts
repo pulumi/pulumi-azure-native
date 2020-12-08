@@ -124,7 +124,7 @@ export interface GetDatabaseResult {
      */
     readonly longTermRetentionBackupResourceId?: string;
     /**
-     * Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+     * Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
      */
     readonly maintenanceConfigurationId?: string;
     /**
@@ -214,7 +214,7 @@ export interface GetDatabaseResult {
      */
     readonly status: string;
     /**
-     * The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+     * The storage account type used to store backups for this database.
      */
     readonly storageAccountType?: string;
     /**

@@ -19,12 +19,16 @@ type StorageTarget struct {
 	Clfs ClfsTargetResponsePtrOutput `pulumi:"clfs"`
 	// List of Cache namespace junctions to target for namespace associations.
 	Junctions NamespaceJunctionResponseArrayOutput `pulumi:"junctions"`
+	// Region name string.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the Storage Target.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties when targetType is nfs3.
 	Nfs3 Nfs3TargetResponsePtrOutput `pulumi:"nfs3"`
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Type of the Storage Target.
 	TargetType pulumi.StringOutput `pulumi:"targetType"`
 	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
@@ -89,12 +93,16 @@ type storageTargetState struct {
 	Clfs *ClfsTargetResponse `pulumi:"clfs"`
 	// List of Cache namespace junctions to target for namespace associations.
 	Junctions []NamespaceJunctionResponse `pulumi:"junctions"`
+	// Region name string.
+	Location *string `pulumi:"location"`
 	// Name of the Storage Target.
 	Name *string `pulumi:"name"`
 	// Properties when targetType is nfs3.
 	Nfs3 *Nfs3TargetResponse `pulumi:"nfs3"`
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Type of the Storage Target.
 	TargetType *string `pulumi:"targetType"`
 	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
@@ -108,12 +116,16 @@ type StorageTargetState struct {
 	Clfs ClfsTargetResponsePtrInput
 	// List of Cache namespace junctions to target for namespace associations.
 	Junctions NamespaceJunctionResponseArrayInput
+	// Region name string.
+	Location pulumi.StringPtrInput
 	// Name of the Storage Target.
 	Name pulumi.StringPtrInput
 	// Properties when targetType is nfs3.
 	Nfs3 Nfs3TargetResponsePtrInput
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState pulumi.StringPtrInput
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Type of the Storage Target.
 	TargetType pulumi.StringPtrInput
 	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget

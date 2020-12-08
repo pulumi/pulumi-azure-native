@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Inputs
         public Input<string> TenantId { get; set; } = null!;
 
         /// <summary>
-        /// The URI of the vault for performing operations on keys and secrets.
+        /// The URI of the vault for performing operations on keys and secrets. This property is readonly
         /// </summary>
         [Input("vaultUri")]
         public Input<string>? VaultUri { get; set; }

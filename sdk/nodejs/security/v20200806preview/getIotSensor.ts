@@ -31,15 +31,55 @@ export interface GetIotSensorArgs {
 }
 
 /**
- * IoT sensor
+ * IoT sensor model
  */
 export interface GetIotSensorResult {
+    /**
+     * Last connectivity time of the IoT sensor
+     */
+    readonly connectivityTime: string;
+    /**
+     * Creation time of the IoT sensor
+     */
+    readonly creationTime: string;
+    /**
+     * Dynamic mode status of the IoT sensor
+     */
+    readonly dynamicLearning: boolean;
+    /**
+     * Learning mode status of the IoT sensor
+     */
+    readonly learningMode: boolean;
     /**
      * Resource name
      */
     readonly name: string;
     /**
+     * Status of the IoT sensor
+     */
+    readonly sensorStatus: string;
+    /**
+     * Version of the IoT sensor
+     */
+    readonly sensorVersion: string;
+    /**
+     * TI Automatic mode status of the IoT sensor
+     */
+    readonly tiAutomaticUpdates?: boolean;
+    /**
+     * TI Status of the IoT sensor
+     */
+    readonly tiStatus: string;
+    /**
+     * TI Version of the IoT sensor
+     */
+    readonly tiVersion: string;
+    /**
      * Resource type
      */
     readonly type: string;
+    /**
+     * Zone of the IoT sensor
+     */
+    readonly zone?: string;
 }

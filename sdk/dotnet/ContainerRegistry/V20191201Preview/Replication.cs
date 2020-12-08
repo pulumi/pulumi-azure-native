@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         public Output<Outputs.StatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         [Output("tags")]
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Replication"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:Replication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

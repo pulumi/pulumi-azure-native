@@ -52,6 +52,10 @@ export class RecordSet extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * Fully qualified domain name of the record set.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * The metadata attached to the record set.
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -133,11 +137,13 @@ export class RecordSet extends pulumi.CustomResource {
             inputs["txtRecords"] = args ? args.txtRecords : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
         } else {
             inputs["aRecords"] = undefined /*out*/;
             inputs["aaaaRecords"] = undefined /*out*/;
             inputs["cnameRecord"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
             inputs["metadata"] = undefined /*out*/;
             inputs["mxRecords"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

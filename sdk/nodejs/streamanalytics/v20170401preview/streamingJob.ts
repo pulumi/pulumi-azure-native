@@ -46,7 +46,7 @@ export class StreamingJob extends pulumi.CustomResource {
     /**
      * Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
      */
-    public /*out*/ readonly contentStoragePolicy!: pulumi.Output<string>;
+    public readonly contentStoragePolicy!: pulumi.Output<string | undefined>;
     /**
      * Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
      */
@@ -170,6 +170,7 @@ export class StreamingJob extends pulumi.CustomResource {
             }
             inputs["cluster"] = args ? args.cluster : undefined;
             inputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
+            inputs["contentStoragePolicy"] = args ? args.contentStoragePolicy : undefined;
             inputs["dataLocale"] = args ? args.dataLocale : undefined;
             inputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
             inputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
@@ -190,7 +191,6 @@ export class StreamingJob extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transformation"] = args ? args.transformation : undefined;
-            inputs["contentStoragePolicy"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["jobId"] = undefined /*out*/;
@@ -255,6 +255,10 @@ export interface StreamingJobArgs {
      * Controls certain runtime behaviors of the streaming job.
      */
     readonly compatibilityLevel?: pulumi.Input<string>;
+    /**
+     * Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+     */
+    readonly contentStoragePolicy?: pulumi.Input<string>;
     /**
      * The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
      */

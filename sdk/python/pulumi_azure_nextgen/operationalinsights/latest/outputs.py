@@ -10,6 +10,8 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'AssociatedWorkspaceResponse',
+    'CapacityReservationPropertiesResponse',
     'ClusterSkuResponse',
     'IdentityResponse',
     'IncidentAdditionalDataResponse',
@@ -26,6 +28,111 @@ __all__ = [
     'WorkspaceCappingResponse',
     'WorkspaceSkuResponse',
 ]
+
+@pulumi.output_type
+class AssociatedWorkspaceResponse(dict):
+    """
+    The list of Log Analytics workspaces associated with the cluster.
+    """
+    def __init__(__self__, *,
+                 associate_date: str,
+                 resource_id: str,
+                 workspace_id: str,
+                 workspace_name: str):
+        """
+        The list of Log Analytics workspaces associated with the cluster.
+        :param str associate_date: The time of workspace association.
+        :param str resource_id: The ResourceId id the assigned workspace.
+        :param str workspace_id: The id of the assigned workspace.
+        :param str workspace_name: The name id the assigned workspace.
+        """
+        pulumi.set(__self__, "associate_date", associate_date)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+
+    @property
+    @pulumi.getter(name="associateDate")
+    def associate_date(self) -> str:
+        """
+        The time of workspace association.
+        """
+        return pulumi.get(self, "associate_date")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The ResourceId id the assigned workspace.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        The id of the assigned workspace.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> str:
+        """
+        The name id the assigned workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CapacityReservationPropertiesResponse(dict):
+    """
+    The Capacity Reservation properties.
+    """
+    def __init__(__self__, *,
+                 last_sku_update: str,
+                 max_capacity: int,
+                 min_capacity: int):
+        """
+        The Capacity Reservation properties.
+        :param str last_sku_update: The last time Sku was updated.
+        :param int max_capacity: Maximum CapacityReservation value in GB.
+        :param int min_capacity: Minimum CapacityReservation value in GB.
+        """
+        pulumi.set(__self__, "last_sku_update", last_sku_update)
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @property
+    @pulumi.getter(name="lastSkuUpdate")
+    def last_sku_update(self) -> str:
+        """
+        The last time Sku was updated.
+        """
+        return pulumi.get(self, "last_sku_update")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> int:
+        """
+        Maximum CapacityReservation value in GB.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> int:
+        """
+        Minimum CapacityReservation value in GB.
+        """
+        return pulumi.get(self, "min_capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class ClusterSkuResponse(dict):
@@ -356,24 +463,24 @@ class KeyVaultPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  key_name: Optional[str] = None,
+                 key_rsa_size: Optional[int] = None,
                  key_vault_uri: Optional[str] = None,
-                 key_version: Optional[str] = None,
-                 rsa_key_size: Optional[int] = None):
+                 key_version: Optional[str] = None):
         """
         The key vault properties.
         :param str key_name: The name of the key associated with the Log Analytics cluster.
+        :param int key_rsa_size: Selected key minimum required size.
         :param str key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
         :param str key_version: The version of the key associated with the Log Analytics cluster.
-        :param int rsa_key_size: Selected key minimum required key size.
         """
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
+        if key_rsa_size is not None:
+            pulumi.set(__self__, "key_rsa_size", key_rsa_size)
         if key_vault_uri is not None:
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
-        if rsa_key_size is not None:
-            pulumi.set(__self__, "rsa_key_size", rsa_key_size)
 
     @property
     @pulumi.getter(name="keyName")
@@ -382,6 +489,14 @@ class KeyVaultPropertiesResponse(dict):
         The name of the key associated with the Log Analytics cluster.
         """
         return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyRsaSize")
+    def key_rsa_size(self) -> Optional[int]:
+        """
+        Selected key minimum required size.
+        """
+        return pulumi.get(self, "key_rsa_size")
 
     @property
     @pulumi.getter(name="keyVaultUri")
@@ -398,14 +513,6 @@ class KeyVaultPropertiesResponse(dict):
         The version of the key associated with the Log Analytics cluster.
         """
         return pulumi.get(self, "key_version")
-
-    @property
-    @pulumi.getter(name="rsaKeySize")
-    def rsa_key_size(self) -> Optional[int]:
-        """
-        Selected key minimum required key size.
-        """
-        return pulumi.get(self, "rsa_key_size")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

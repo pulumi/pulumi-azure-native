@@ -301,7 +301,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="maintenanceConfigurationId")
     def maintenance_configuration_id(self) -> Optional[str]:
         """
-        Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+        Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 
@@ -471,7 +471,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[str]:
         """
-        The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        The storage account type used to store backups for this database.
         """
         return pulumi.get(self, "storage_account_type")
 

@@ -39,7 +39,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool.
         :param pulumi.Input[str] license_type: The license type to apply for this elastic pool.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+        :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         :param pulumi.Input[int] max_size_bytes: The storage limit for the database elastic pool in bytes.
         :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: The per database settings for the elastic pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -157,7 +157,7 @@ class ElasticPool(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceConfigurationId")
     def maintenance_configuration_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+        Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 

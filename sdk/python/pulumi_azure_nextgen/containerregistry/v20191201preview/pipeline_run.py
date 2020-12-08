@@ -67,7 +67,10 @@ class PipelineRun(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['response'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:PipelineRun")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PipelineRun, __self__).__init__(
             'azure-nextgen:containerregistry/v20191201preview:PipelineRun',
             resource_name,
@@ -131,6 +134,14 @@ class PipelineRun(pulumi.CustomResource):
         The response of a pipeline run.
         """
         return pulumi.get(self, "response")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -23,6 +23,8 @@ type PrivateEndpointConnection struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of private endpoint connection resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -42,6 +44,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateEndpointConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:PrivateEndpointConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20191201preview:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
@@ -72,6 +80,8 @@ type privateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of private endpoint connection resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -85,6 +95,8 @@ type PrivateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
 	// The provisioning state of private endpoint connection resource.
 	ProvisioningState pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

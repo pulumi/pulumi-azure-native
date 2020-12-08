@@ -19,6 +19,7 @@ class StreamingJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster: Optional[pulumi.Input[pulumi.InputType['ClusterInfoArgs']]] = None,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
+                 content_storage_policy: Optional[pulumi.Input[str]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
                  events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -49,6 +50,7 @@ class StreamingJob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ClusterInfoArgs']] cluster: The cluster which streaming jobs will run on.
         :param pulumi.Input[str] compatibility_level: Controls certain runtime behaviors of the streaming job.
+        :param pulumi.Input[str] content_storage_policy: Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
         :param pulumi.Input[str] data_locale: The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
@@ -89,6 +91,7 @@ class StreamingJob(pulumi.CustomResource):
 
             __props__['cluster'] = cluster
             __props__['compatibility_level'] = compatibility_level
+            __props__['content_storage_policy'] = content_storage_policy
             __props__['data_locale'] = data_locale
             __props__['events_late_arrival_max_delay_in_seconds'] = events_late_arrival_max_delay_in_seconds
             __props__['events_out_of_order_max_delay_in_seconds'] = events_out_of_order_max_delay_in_seconds
@@ -113,7 +116,6 @@ class StreamingJob(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['transformation'] = transformation
-            __props__['content_storage_policy'] = None
             __props__['created_date'] = None
             __props__['etag'] = None
             __props__['job_id'] = None
@@ -166,7 +168,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentStoragePolicy")
-    def content_storage_policy(self) -> pulumi.Output[str]:
+    def content_storage_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
         """

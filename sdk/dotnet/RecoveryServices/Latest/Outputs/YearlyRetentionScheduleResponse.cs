@@ -14,27 +14,27 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class YearlyRetentionScheduleResponse
     {
         /// <summary>
-        /// List of the months of year for the yearly retention policy.
+        /// List of months of year of yearly retention policy.
         /// </summary>
         public readonly ImmutableArray<string> MonthsOfYear;
         /// <summary>
-        /// Retention duration for the retention policy.
+        /// Retention duration of retention Policy.
         /// </summary>
         public readonly Outputs.RetentionDurationResponse? RetentionDuration;
         /// <summary>
-        /// Daily retention format for the yearly retention policy.
+        /// Daily retention format for yearly retention policy.
         /// </summary>
         public readonly Outputs.DailyRetentionFormatResponse? RetentionScheduleDaily;
         /// <summary>
-        /// Retention schedule format for the yearly retention policy.
+        /// Retention schedule format for yearly retention policy.
         /// </summary>
         public readonly string? RetentionScheduleFormatType;
         /// <summary>
-        /// Weekly retention format for the yearly retention policy.
+        /// Weekly retention format for yearly retention policy.
         /// </summary>
         public readonly Outputs.WeeklyRetentionFormatResponse? RetentionScheduleWeekly;
         /// <summary>
-        /// Retention times for the retention policy.
+        /// Retention times of retention policy.
         /// </summary>
         public readonly ImmutableArray<string> RetentionTimes;
 

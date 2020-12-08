@@ -15,6 +15,12 @@ namespace Pulumi.AzureNextGen.Advisor.Latest
     public partial class Suppression : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the expiration time stamp.
+        /// </summary>
+        [Output("expirationTimeStamp")]
+        public Output<string> ExpirationTimeStamp { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]

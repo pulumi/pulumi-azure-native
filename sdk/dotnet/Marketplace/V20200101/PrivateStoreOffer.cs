@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// Icon File Uris
         /// </summary>
         [Output("iconFileUris")]
-        public Output<Outputs.OfferPropertiesResponseIconFileUris?> IconFileUris { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> IconFileUris { get; private set; } = null!;
 
         /// <summary>
         /// Private store offer modification date
@@ -147,11 +147,17 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
 
+        [Input("iconFileUris")]
+        private InputMap<string>? _iconFileUris;
+
         /// <summary>
         /// Icon File Uris
         /// </summary>
-        [Input("iconFileUris")]
-        public Input<Inputs.OfferPropertiesIconFileUrisArgs>? IconFileUris { get; set; }
+        public InputMap<string> IconFileUris
+        {
+            get => _iconFileUris ?? (_iconFileUris = new InputMap<string>());
+            set => _iconFileUris = value;
+        }
 
         /// <summary>
         /// The offer ID to update or delete

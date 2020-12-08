@@ -20,7 +20,10 @@ class ConnectedCluster(pulumi.CustomResource):
                  aad_profile: Optional[pulumi.Input[pulumi.InputType['ConnectedClusterAADProfileArgs']]] = None,
                  agent_public_key_certificate: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 connectivity_status: Optional[pulumi.Input[str]] = None,
+                 distribution: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']]] = None,
+                 infrastructure: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +39,10 @@ class ConnectedCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectedClusterAADProfileArgs']] aad_profile: AAD profile of the connected cluster.
         :param pulumi.Input[str] agent_public_key_certificate: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
         :param pulumi.Input[str] cluster_name: The name of the Kubernetes cluster on which get is called.
+        :param pulumi.Input[str] connectivity_status: Represents the connectivity status of the connected cluster.
+        :param pulumi.Input[str] distribution: The Kubernetes distribution running on this connected cluster.
         :param pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']] identity: The identity of the connected cluster.
+        :param pulumi.Input[str] infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] provisioning_state: Provisioning state of the connected cluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -68,9 +74,12 @@ class ConnectedCluster(pulumi.CustomResource):
             if cluster_name is None:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
+            __props__['connectivity_status'] = connectivity_status
+            __props__['distribution'] = distribution
             if identity is None:
                 raise TypeError("Missing required property 'identity'")
             __props__['identity'] = identity
+            __props__['infrastructure'] = infrastructure
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -81,7 +90,11 @@ class ConnectedCluster(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['agent_version'] = None
             __props__['kubernetes_version'] = None
+            __props__['last_connectivity_time'] = None
+            __props__['managed_identity_certificate_expiration_time'] = None
             __props__['name'] = None
+            __props__['offering'] = None
+            __props__['total_core_count'] = None
             __props__['total_node_count'] = None
             __props__['type'] = None
         super(ConnectedCluster, __self__).__init__(
@@ -133,12 +146,36 @@ class ConnectedCluster(pulumi.CustomResource):
         return pulumi.get(self, "agent_version")
 
     @property
+    @pulumi.getter(name="connectivityStatus")
+    def connectivity_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Represents the connectivity status of the connected cluster.
+        """
+        return pulumi.get(self, "connectivity_status")
+
+    @property
+    @pulumi.getter
+    def distribution(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Kubernetes distribution running on this connected cluster.
+        """
+        return pulumi.get(self, "distribution")
+
+    @property
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.ConnectedClusterIdentityResponse']:
         """
         The identity of the connected cluster.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def infrastructure(self) -> pulumi.Output[Optional[str]]:
+        """
+        The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+        """
+        return pulumi.get(self, "infrastructure")
 
     @property
     @pulumi.getter(name="kubernetesVersion")
@@ -149,6 +186,14 @@ class ConnectedCluster(pulumi.CustomResource):
         return pulumi.get(self, "kubernetes_version")
 
     @property
+    @pulumi.getter(name="lastConnectivityTime")
+    def last_connectivity_time(self) -> pulumi.Output[str]:
+        """
+        Time representing the last instance when heart beat was received from the cluster
+        """
+        return pulumi.get(self, "last_connectivity_time")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -157,12 +202,28 @@ class ConnectedCluster(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedIdentityCertificateExpirationTime")
+    def managed_identity_certificate_expiration_time(self) -> pulumi.Output[str]:
+        """
+        Expiration time of the managed identity certificate
+        """
+        return pulumi.get(self, "managed_identity_certificate_expiration_time")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def offering(self) -> pulumi.Output[str]:
+        """
+        Connected cluster offering
+        """
+        return pulumi.get(self, "offering")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -179,6 +240,14 @@ class ConnectedCluster(pulumi.CustomResource):
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="totalCoreCount")
+    def total_core_count(self) -> pulumi.Output[int]:
+        """
+        Number of CPU cores present in the connected cluster resource
+        """
+        return pulumi.get(self, "total_core_count")
 
     @property
     @pulumi.getter(name="totalNodeCount")

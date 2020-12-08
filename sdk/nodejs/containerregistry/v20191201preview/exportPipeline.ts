@@ -56,6 +56,10 @@ export class ExportPipeline extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.v20191201preview.SystemDataResponse>;
+    /**
      * The target properties of the export pipeline.
      */
     public readonly target!: pulumi.Output<outputs.containerregistry.v20191201preview.ExportPipelineTargetPropertiesResponse>;
@@ -95,6 +99,7 @@ export class ExportPipeline extends pulumi.CustomResource {
             inputs["target"] = args ? args.target : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["identity"] = undefined /*out*/;
@@ -102,6 +107,7 @@ export class ExportPipeline extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["options"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["target"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -112,6 +118,8 @@ export class ExportPipeline extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20201101preview:ExportPipeline" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ExportPipeline.__pulumiType, name, inputs, opts);
     }
 }

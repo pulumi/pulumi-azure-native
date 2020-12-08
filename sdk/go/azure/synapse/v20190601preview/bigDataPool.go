@@ -23,6 +23,8 @@ type BigDataPool struct {
 	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrOutput `pulumi:"defaultSparkLogFolder"`
+	// Whether library requirements changed.
+	HaveLibraryRequirementsChanged pulumi.BoolPtrOutput `pulumi:"haveLibraryRequirementsChanged"`
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled pulumi.BoolPtrOutput `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements
@@ -39,6 +41,8 @@ type BigDataPool struct {
 	NodeSizeFamily pulumi.StringPtrOutput `pulumi:"nodeSizeFamily"`
 	// The state of the Big Data pool.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Whether session level packages enabled.
+	SessionLevelPackagesEnabled pulumi.BoolPtrOutput `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties LibraryRequirementsResponsePtrOutput `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
@@ -99,6 +103,8 @@ type bigDataPoolState struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
+	// Whether library requirements changed.
+	HaveLibraryRequirementsChanged *bool `pulumi:"haveLibraryRequirementsChanged"`
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements
@@ -115,6 +121,8 @@ type bigDataPoolState struct {
 	NodeSizeFamily *string `pulumi:"nodeSizeFamily"`
 	// The state of the Big Data pool.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Whether session level packages enabled.
+	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties *LibraryRequirementsResponse `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
@@ -136,6 +144,8 @@ type BigDataPoolState struct {
 	CreationDate pulumi.StringPtrInput
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrInput
+	// Whether library requirements changed.
+	HaveLibraryRequirementsChanged pulumi.BoolPtrInput
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled pulumi.BoolPtrInput
 	// Library version requirements
@@ -152,6 +162,8 @@ type BigDataPoolState struct {
 	NodeSizeFamily pulumi.StringPtrInput
 	// The state of the Big Data pool.
 	ProvisioningState pulumi.StringPtrInput
+	// Whether session level packages enabled.
+	SessionLevelPackagesEnabled pulumi.BoolPtrInput
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties LibraryRequirementsResponsePtrInput
 	// The Spark events folder
@@ -181,6 +193,8 @@ type bigDataPoolArgs struct {
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Whether to stop any running jobs in the Big Data pool
 	Force *bool `pulumi:"force"`
+	// Whether library requirements changed.
+	HaveLibraryRequirementsChanged *bool `pulumi:"haveLibraryRequirementsChanged"`
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements
@@ -197,6 +211,8 @@ type bigDataPoolArgs struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Whether session level packages enabled.
+	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties *LibraryRequirements `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
@@ -223,6 +239,8 @@ type BigDataPoolArgs struct {
 	DefaultSparkLogFolder pulumi.StringPtrInput
 	// Whether to stop any running jobs in the Big Data pool
 	Force pulumi.BoolPtrInput
+	// Whether library requirements changed.
+	HaveLibraryRequirementsChanged pulumi.BoolPtrInput
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled pulumi.BoolPtrInput
 	// Library version requirements
@@ -239,6 +257,8 @@ type BigDataPoolArgs struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Whether session level packages enabled.
+	SessionLevelPackagesEnabled pulumi.BoolPtrInput
 	// Spark configuration file to specify additional properties
 	SparkConfigProperties LibraryRequirementsPtrInput
 	// The Spark events folder

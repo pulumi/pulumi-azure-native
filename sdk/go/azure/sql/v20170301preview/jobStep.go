@@ -63,6 +63,12 @@ func NewJobStep(ctx *pulumi.Context,
 	if args == nil {
 		args = &JobStepArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:JobStep"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource JobStep
 	err := ctx.RegisterResource("azure-nextgen:sql/v20170301preview:JobStep", name, args, &resource, opts...)
 	if err != nil {

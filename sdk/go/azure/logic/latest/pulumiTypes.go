@@ -18925,6 +18925,632 @@ func (o IntegrationAccountSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The encryption configuration for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionConfiguration struct {
+	// The encryption key reference.
+	EncryptionKeyReference *IntegrationServiceEnvironmenEncryptionKeyReference `pulumi:"encryptionKeyReference"`
+}
+
+// IntegrationServiceEnvironmenEncryptionConfigurationInput is an input type that accepts IntegrationServiceEnvironmenEncryptionConfigurationArgs and IntegrationServiceEnvironmenEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionConfigurationInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionConfigurationArgs{...}
+type IntegrationServiceEnvironmenEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionConfigurationOutput() IntegrationServiceEnvironmenEncryptionConfigurationOutput
+	ToIntegrationServiceEnvironmenEncryptionConfigurationOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionConfigurationOutput
+}
+
+// The encryption configuration for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionConfigurationArgs struct {
+	// The encryption key reference.
+	EncryptionKeyReference IntegrationServiceEnvironmenEncryptionKeyReferencePtrInput `pulumi:"encryptionKeyReference"`
+}
+
+func (IntegrationServiceEnvironmenEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationOutput() IntegrationServiceEnvironmenEncryptionConfigurationOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationOutput)
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationOutput).ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// IntegrationServiceEnvironmenEncryptionConfigurationPtrInput is an input type that accepts IntegrationServiceEnvironmenEncryptionConfigurationArgs, IntegrationServiceEnvironmenEncryptionConfigurationPtr and IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionConfigurationPtrInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationServiceEnvironmenEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput
+	ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput
+}
+
+type integrationServiceEnvironmenEncryptionConfigurationPtrType IntegrationServiceEnvironmenEncryptionConfigurationArgs
+
+func IntegrationServiceEnvironmenEncryptionConfigurationPtr(v *IntegrationServiceEnvironmenEncryptionConfigurationArgs) IntegrationServiceEnvironmenEncryptionConfigurationPtrInput {
+	return (*integrationServiceEnvironmenEncryptionConfigurationPtrType)(v)
+}
+
+func (*integrationServiceEnvironmenEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmenEncryptionConfigurationPtrType) ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmenEncryptionConfigurationPtrType) ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput)
+}
+
+// The encryption configuration for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationOutput() IntegrationServiceEnvironmenEncryptionConfigurationOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput {
+	return o.ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionConfiguration) *IntegrationServiceEnvironmenEncryptionConfiguration {
+		return &v
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput)
+}
+
+// The encryption key reference.
+func (o IntegrationServiceEnvironmenEncryptionConfigurationOutput) EncryptionKeyReference() IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionConfiguration) *IntegrationServiceEnvironmenEncryptionKeyReference {
+		return v.EncryptionKeyReference
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput)
+}
+
+type IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationPtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput) Elem() IntegrationServiceEnvironmenEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionConfiguration) IntegrationServiceEnvironmenEncryptionConfiguration {
+		return *v
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationOutput)
+}
+
+// The encryption key reference.
+func (o IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput) EncryptionKeyReference() IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionConfiguration) *IntegrationServiceEnvironmenEncryptionKeyReference {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyReference
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput)
+}
+
+// The encryption configuration for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionConfigurationResponse struct {
+	// The encryption key reference.
+	EncryptionKeyReference *IntegrationServiceEnvironmenEncryptionKeyReferenceResponse `pulumi:"encryptionKeyReference"`
+}
+
+// IntegrationServiceEnvironmenEncryptionConfigurationResponseInput is an input type that accepts IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs and IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionConfigurationResponseInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs{...}
+type IntegrationServiceEnvironmenEncryptionConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionConfigurationResponseOutput() IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput
+	ToIntegrationServiceEnvironmenEncryptionConfigurationResponseOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput
+}
+
+// The encryption configuration for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs struct {
+	// The encryption key reference.
+	EncryptionKeyReference IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrInput `pulumi:"encryptionKeyReference"`
+}
+
+func (IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionConfigurationResponse)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationResponseOutput() IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput)
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput).ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrInput is an input type that accepts IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs, IntegrationServiceEnvironmenEncryptionConfigurationResponsePtr and IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput
+	ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput
+}
+
+type integrationServiceEnvironmenEncryptionConfigurationResponsePtrType IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs
+
+func IntegrationServiceEnvironmenEncryptionConfigurationResponsePtr(v *IntegrationServiceEnvironmenEncryptionConfigurationResponseArgs) IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrInput {
+	return (*integrationServiceEnvironmenEncryptionConfigurationResponsePtrType)(v)
+}
+
+func (*integrationServiceEnvironmenEncryptionConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionConfigurationResponse)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmenEncryptionConfigurationResponsePtrType) ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmenEncryptionConfigurationResponsePtrType) ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput)
+}
+
+// The encryption configuration for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionConfigurationResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationResponseOutput() IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput {
+	return o.ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionConfigurationResponse) *IntegrationServiceEnvironmenEncryptionConfigurationResponse {
+		return &v
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput)
+}
+
+// The encryption key reference.
+func (o IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput) EncryptionKeyReference() IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionConfigurationResponse) *IntegrationServiceEnvironmenEncryptionKeyReferenceResponse {
+		return v.EncryptionKeyReference
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput)
+}
+
+type IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionConfigurationResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput) Elem() IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionConfigurationResponse) IntegrationServiceEnvironmenEncryptionConfigurationResponse {
+		return *v
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput)
+}
+
+// The encryption key reference.
+func (o IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput) EncryptionKeyReference() IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionConfigurationResponse) *IntegrationServiceEnvironmenEncryptionKeyReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyReference
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput)
+}
+
+// The encryption key details for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionKeyReference struct {
+	// Gets the key name in the Key Vault.
+	KeyName *string `pulumi:"keyName"`
+	// The key vault reference.
+	KeyVault *ResourceReference `pulumi:"keyVault"`
+	// Gets the version of the key specified in the keyName property.
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// IntegrationServiceEnvironmenEncryptionKeyReferenceInput is an input type that accepts IntegrationServiceEnvironmenEncryptionKeyReferenceArgs and IntegrationServiceEnvironmenEncryptionKeyReferenceOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionKeyReferenceInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionKeyReferenceArgs{...}
+type IntegrationServiceEnvironmenEncryptionKeyReferenceInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionKeyReferenceOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceOutput
+	ToIntegrationServiceEnvironmenEncryptionKeyReferenceOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceOutput
+}
+
+// The encryption key details for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionKeyReferenceArgs struct {
+	// Gets the key name in the Key Vault.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The key vault reference.
+	KeyVault ResourceReferencePtrInput `pulumi:"keyVault"`
+	// Gets the version of the key specified in the keyName property.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+}
+
+func (IntegrationServiceEnvironmenEncryptionKeyReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionKeyReference)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferenceOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionKeyReferenceOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferenceOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferenceOutput)
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferenceOutput).ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutputWithContext(ctx)
+}
+
+// IntegrationServiceEnvironmenEncryptionKeyReferencePtrInput is an input type that accepts IntegrationServiceEnvironmenEncryptionKeyReferenceArgs, IntegrationServiceEnvironmenEncryptionKeyReferencePtr and IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionKeyReferencePtrInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionKeyReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationServiceEnvironmenEncryptionKeyReferencePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput
+	ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput
+}
+
+type integrationServiceEnvironmenEncryptionKeyReferencePtrType IntegrationServiceEnvironmenEncryptionKeyReferenceArgs
+
+func IntegrationServiceEnvironmenEncryptionKeyReferencePtr(v *IntegrationServiceEnvironmenEncryptionKeyReferenceArgs) IntegrationServiceEnvironmenEncryptionKeyReferencePtrInput {
+	return (*integrationServiceEnvironmenEncryptionKeyReferencePtrType)(v)
+}
+
+func (*integrationServiceEnvironmenEncryptionKeyReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionKeyReference)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmenEncryptionKeyReferencePtrType) ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmenEncryptionKeyReferencePtrType) ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput)
+}
+
+// The encryption key details for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionKeyReferenceOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionKeyReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionKeyReference)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput {
+	return o.ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReference) *IntegrationServiceEnvironmenEncryptionKeyReference {
+		return &v
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput)
+}
+
+// Gets the key name in the Key Vault.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReference) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The key vault reference.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceOutput) KeyVault() ResourceReferencePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReference) *ResourceReference { return v.KeyVault }).(ResourceReferencePtrOutput)
+}
+
+// Gets the version of the key specified in the keyName property.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReference) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionKeyReference)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferencePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput) Elem() IntegrationServiceEnvironmenEncryptionKeyReferenceOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReference) IntegrationServiceEnvironmenEncryptionKeyReference {
+		return *v
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferenceOutput)
+}
+
+// Gets the key name in the Key Vault.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key vault reference.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput) KeyVault() ResourceReferencePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReference) *ResourceReference {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVault
+	}).(ResourceReferencePtrOutput)
+}
+
+// Gets the version of the key specified in the keyName property.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption key details for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionKeyReferenceResponse struct {
+	// Gets the key name in the Key Vault.
+	KeyName *string `pulumi:"keyName"`
+	// The key vault reference.
+	KeyVault *ResourceReferenceResponse `pulumi:"keyVault"`
+	// Gets the version of the key specified in the keyName property.
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// IntegrationServiceEnvironmenEncryptionKeyReferenceResponseInput is an input type that accepts IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs and IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionKeyReferenceResponseInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs{...}
+type IntegrationServiceEnvironmenEncryptionKeyReferenceResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput
+	ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput
+}
+
+// The encryption key details for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs struct {
+	// Gets the key name in the Key Vault.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The key vault reference.
+	KeyVault ResourceReferenceResponsePtrInput `pulumi:"keyVault"`
+	// Gets the version of the key specified in the keyName property.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+}
+
+func (IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionKeyReferenceResponse)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput)
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput).ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutputWithContext(ctx)
+}
+
+// IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrInput is an input type that accepts IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs, IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtr and IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput
+	ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput
+}
+
+type integrationServiceEnvironmenEncryptionKeyReferenceResponsePtrType IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs
+
+func IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtr(v *IntegrationServiceEnvironmenEncryptionKeyReferenceResponseArgs) IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrInput {
+	return (*integrationServiceEnvironmenEncryptionKeyReferenceResponsePtrType)(v)
+}
+
+func (*integrationServiceEnvironmenEncryptionKeyReferenceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionKeyReferenceResponse)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmenEncryptionKeyReferenceResponsePtrType) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmenEncryptionKeyReferenceResponsePtrType) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput)
+}
+
+// The encryption key details for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionKeyReferenceResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput {
+	return o.ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReferenceResponse) *IntegrationServiceEnvironmenEncryptionKeyReferenceResponse {
+		return &v
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput)
+}
+
+// Gets the key name in the Key Vault.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReferenceResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The key vault reference.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput) KeyVault() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReferenceResponse) *ResourceReferenceResponse {
+		return v.KeyVault
+	}).(ResourceReferenceResponsePtrOutput)
+}
+
+// Gets the version of the key specified in the keyName property.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReferenceResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionKeyReferenceResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput) Elem() IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReferenceResponse) IntegrationServiceEnvironmenEncryptionKeyReferenceResponse {
+		return *v
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput)
+}
+
+// Gets the key name in the Key Vault.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key vault reference.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput) KeyVault() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReferenceResponse) *ResourceReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVault
+	}).(ResourceReferenceResponsePtrOutput)
+}
+
+// Gets the version of the key specified in the keyName property.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // The integration service environment.
 type IntegrationServiceEnvironmentType struct {
 	// The resource location.
@@ -19392,6 +20018,8 @@ func (o IntegrationServiceEnvironmentAccessEndpointResponsePtrOutput) Type() pul
 
 // The integration service environment properties.
 type IntegrationServiceEnvironmentProperties struct {
+	// The encryption configuration.
+	EncryptionConfiguration *IntegrationServiceEnvironmenEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The endpoints configuration.
 	EndpointsConfiguration *FlowEndpointsConfiguration `pulumi:"endpointsConfiguration"`
 	// Gets the tracking id.
@@ -19417,6 +20045,8 @@ type IntegrationServiceEnvironmentPropertiesInput interface {
 
 // The integration service environment properties.
 type IntegrationServiceEnvironmentPropertiesArgs struct {
+	// The encryption configuration.
+	EncryptionConfiguration IntegrationServiceEnvironmenEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
 	// The endpoints configuration.
 	EndpointsConfiguration FlowEndpointsConfigurationPtrInput `pulumi:"endpointsConfiguration"`
 	// Gets the tracking id.
@@ -19507,6 +20137,13 @@ func (o IntegrationServiceEnvironmentPropertiesOutput) ToIntegrationServiceEnvir
 	}).(IntegrationServiceEnvironmentPropertiesPtrOutput)
 }
 
+// The encryption configuration.
+func (o IntegrationServiceEnvironmentPropertiesOutput) EncryptionConfiguration() IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentProperties) *IntegrationServiceEnvironmenEncryptionConfiguration {
+		return v.EncryptionConfiguration
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput)
+}
+
 // The endpoints configuration.
 func (o IntegrationServiceEnvironmentPropertiesOutput) EndpointsConfiguration() FlowEndpointsConfigurationPtrOutput {
 	return o.ApplyT(func(v IntegrationServiceEnvironmentProperties) *FlowEndpointsConfiguration {
@@ -19550,6 +20187,16 @@ func (o IntegrationServiceEnvironmentPropertiesPtrOutput) ToIntegrationServiceEn
 
 func (o IntegrationServiceEnvironmentPropertiesPtrOutput) Elem() IntegrationServiceEnvironmentPropertiesOutput {
 	return o.ApplyT(func(v *IntegrationServiceEnvironmentProperties) IntegrationServiceEnvironmentProperties { return *v }).(IntegrationServiceEnvironmentPropertiesOutput)
+}
+
+// The encryption configuration.
+func (o IntegrationServiceEnvironmentPropertiesPtrOutput) EncryptionConfiguration() IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentProperties) *IntegrationServiceEnvironmenEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionConfiguration
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput)
 }
 
 // The endpoints configuration.
@@ -19604,6 +20251,8 @@ func (o IntegrationServiceEnvironmentPropertiesPtrOutput) State() pulumi.StringP
 
 // The integration service environment properties.
 type IntegrationServiceEnvironmentPropertiesResponse struct {
+	// The encryption configuration.
+	EncryptionConfiguration *IntegrationServiceEnvironmenEncryptionConfigurationResponse `pulumi:"encryptionConfiguration"`
 	// The endpoints configuration.
 	EndpointsConfiguration *FlowEndpointsConfigurationResponse `pulumi:"endpointsConfiguration"`
 	// Gets the tracking id.
@@ -19629,6 +20278,8 @@ type IntegrationServiceEnvironmentPropertiesResponseInput interface {
 
 // The integration service environment properties.
 type IntegrationServiceEnvironmentPropertiesResponseArgs struct {
+	// The encryption configuration.
+	EncryptionConfiguration IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrInput `pulumi:"encryptionConfiguration"`
 	// The endpoints configuration.
 	EndpointsConfiguration FlowEndpointsConfigurationResponsePtrInput `pulumi:"endpointsConfiguration"`
 	// Gets the tracking id.
@@ -19719,6 +20370,13 @@ func (o IntegrationServiceEnvironmentPropertiesResponseOutput) ToIntegrationServ
 	}).(IntegrationServiceEnvironmentPropertiesResponsePtrOutput)
 }
 
+// The encryption configuration.
+func (o IntegrationServiceEnvironmentPropertiesResponseOutput) EncryptionConfiguration() IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentPropertiesResponse) *IntegrationServiceEnvironmenEncryptionConfigurationResponse {
+		return v.EncryptionConfiguration
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput)
+}
+
 // The endpoints configuration.
 func (o IntegrationServiceEnvironmentPropertiesResponseOutput) EndpointsConfiguration() FlowEndpointsConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v IntegrationServiceEnvironmentPropertiesResponse) *FlowEndpointsConfigurationResponse {
@@ -19768,6 +20426,16 @@ func (o IntegrationServiceEnvironmentPropertiesResponsePtrOutput) Elem() Integra
 	return o.ApplyT(func(v *IntegrationServiceEnvironmentPropertiesResponse) IntegrationServiceEnvironmentPropertiesResponse {
 		return *v
 	}).(IntegrationServiceEnvironmentPropertiesResponseOutput)
+}
+
+// The encryption configuration.
+func (o IntegrationServiceEnvironmentPropertiesResponsePtrOutput) EncryptionConfiguration() IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentPropertiesResponse) *IntegrationServiceEnvironmenEncryptionConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionConfiguration
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput)
 }
 
 // The endpoints configuration.
@@ -34403,6 +35071,14 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationAccountSkuPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSkuResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferenceOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentTypePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointOutput{})

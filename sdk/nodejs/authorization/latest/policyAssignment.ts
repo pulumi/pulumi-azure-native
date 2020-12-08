@@ -64,6 +64,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The messages that describe why a resource is non-compliant with the policy.
+     */
+    public readonly nonComplianceMessages!: pulumi.Output<outputs.authorization.latest.NonComplianceMessageResponse[] | undefined>;
+    /**
      * The policy's excluded scopes.
      */
     public readonly notScopes!: pulumi.Output<string[] | undefined>;
@@ -78,11 +82,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * The scope for the policy assignment.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
-    /**
-     * The policy sku. This property is optional, obsolete, and will be ignored.
-     */
-    public readonly sku!: pulumi.Output<outputs.authorization.latest.PolicySkuResponse | undefined>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * The type of the policy assignment.
      */
@@ -110,12 +110,12 @@ export class PolicyAssignment extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
+            inputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
             inputs["notScopes"] = args ? args.notScopes : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["policyAssignmentName"] = args ? args.policyAssignmentName : undefined;
             inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -126,11 +126,11 @@ export class PolicyAssignment extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["metadata"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["nonComplianceMessages"] = undefined /*out*/;
             inputs["notScopes"] = undefined /*out*/;
             inputs["parameters"] = undefined /*out*/;
             inputs["policyDefinitionId"] = undefined /*out*/;
             inputs["scope"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -140,7 +140,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20151101:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20160401:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20161201:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180301:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180501:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190101:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190601:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190901:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20200301:PolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20151101:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20160401:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20161201:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180301:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180501:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190101:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190601:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190901:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20200301:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20200901:PolicyAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyAssignment.__pulumiType, name, inputs, opts);
     }
@@ -175,6 +175,10 @@ export interface PolicyAssignmentArgs {
      */
     readonly metadata?: any;
     /**
+     * The messages that describe why a resource is non-compliant with the policy.
+     */
+    readonly nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.authorization.latest.NonComplianceMessage>[]>;
+    /**
      * The policy's excluded scopes.
      */
     readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -191,11 +195,7 @@ export interface PolicyAssignmentArgs {
      */
     readonly policyDefinitionId?: pulumi.Input<string>;
     /**
-     * The scope for the policy assignment.
+     * The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     readonly scope: pulumi.Input<string>;
-    /**
-     * The policy sku. This property is optional, obsolete, and will be ignored.
-     */
-    readonly sku?: pulumi.Input<inputs.authorization.latest.PolicySku>;
 }

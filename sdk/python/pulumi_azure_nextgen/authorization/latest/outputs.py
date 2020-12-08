@@ -12,13 +12,13 @@ from . import outputs
 __all__ = [
     'IdentityResponse',
     'ManagementLockOwnerResponse',
+    'NonComplianceMessageResponse',
     'ParameterDefinitionsValueResponse',
     'ParameterDefinitionsValueResponseMetadata',
     'ParameterValuesValueResponse',
     'PermissionResponse',
     'PolicyDefinitionGroupResponse',
     'PolicyDefinitionReferenceResponse',
-    'PolicySkuResponse',
     'RoleAssignmentPropertiesWithScopeResponse',
 ]
 
@@ -97,6 +97,43 @@ class ManagementLockOwnerResponse(dict):
 
 
 @pulumi.output_type
+class NonComplianceMessageResponse(dict):
+    """
+    A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+    """
+    def __init__(__self__, *,
+                 message: str,
+                 policy_definition_reference_id: Optional[str] = None):
+        """
+        A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+        :param str message: A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+        :param str policy_definition_reference_id: The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+        """
+        pulumi.set(__self__, "message", message)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[str]:
+        """
+        The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ParameterDefinitionsValueResponse(dict):
     """
     The definition of a parameter that can be provided to the policy.
@@ -164,17 +201,33 @@ class ParameterDefinitionsValueResponseMetadata(dict):
     General metadata for the parameter.
     """
     def __init__(__self__, *,
+                 assign_permissions: Optional[bool] = None,
                  description: Optional[str] = None,
-                 display_name: Optional[str] = None):
+                 display_name: Optional[str] = None,
+                 strong_type: Optional[str] = None):
         """
         General metadata for the parameter.
+        :param bool assign_permissions: Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
         :param str description: The description of the parameter.
         :param str display_name: The display name for the parameter.
+        :param str strong_type: Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
         """
+        if assign_permissions is not None:
+            pulumi.set(__self__, "assign_permissions", assign_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if strong_type is not None:
+            pulumi.set(__self__, "strong_type", strong_type)
+
+    @property
+    @pulumi.getter(name="assignPermissions")
+    def assign_permissions(self) -> Optional[bool]:
+        """
+        Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+        """
+        return pulumi.get(self, "assign_permissions")
 
     @property
     @pulumi.getter
@@ -191,6 +244,14 @@ class ParameterDefinitionsValueResponseMetadata(dict):
         The display name for the parameter.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="strongType")
+    def strong_type(self) -> Optional[str]:
+        """
+        Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+        """
+        return pulumi.get(self, "strong_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -389,43 +450,6 @@ class PolicyDefinitionReferenceResponse(dict):
         A unique id (within the policy set definition) for this policy definition reference.
         """
         return pulumi.get(self, "policy_definition_reference_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PolicySkuResponse(dict):
-    """
-    The policy sku. This property is optional, obsolete, and will be ignored.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 tier: Optional[str] = None):
-        """
-        The policy sku. This property is optional, obsolete, and will be ignored.
-        :param str name: The name of the policy sku. Possible values are A0 and A1.
-        :param str tier: The policy sku tier. Possible values are Free and Standard.
-        """
-        pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the policy sku. Possible values are A0 and A1.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[str]:
-        """
-        The policy sku tier. Possible values are Free and Standard.
-        """
-        return pulumi.get(self, "tier")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

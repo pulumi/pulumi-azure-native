@@ -27,6 +27,8 @@ type ImportPipeline struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The source properties of the import pipeline.
 	Source ImportPipelineSourcePropertiesResponseOutput `pulumi:"source"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The properties that describe the trigger of the import pipeline.
 	Trigger PipelineTriggerPropertiesResponsePtrOutput `pulumi:"trigger"`
 	// The type of the resource.
@@ -51,6 +53,12 @@ func NewImportPipeline(ctx *pulumi.Context,
 	if args == nil {
 		args = &ImportPipelineArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ImportPipeline"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ImportPipeline
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20191201preview:ImportPipeline", name, args, &resource, opts...)
 	if err != nil {
@@ -85,6 +93,8 @@ type importPipelineState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The source properties of the import pipeline.
 	Source *ImportPipelineSourcePropertiesResponse `pulumi:"source"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The properties that describe the trigger of the import pipeline.
 	Trigger *PipelineTriggerPropertiesResponse `pulumi:"trigger"`
 	// The type of the resource.
@@ -104,6 +114,8 @@ type ImportPipelineState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The source properties of the import pipeline.
 	Source ImportPipelineSourcePropertiesResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The properties that describe the trigger of the import pipeline.
 	Trigger PipelineTriggerPropertiesResponsePtrInput
 	// The type of the resource.

@@ -27,6 +27,8 @@ type OriginGroup struct {
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
 	ResponseBasedOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersResponsePtrOutput `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	// Read only system data
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
 	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrOutput `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
 	// Resource type.
@@ -64,6 +66,9 @@ func NewOriginGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:OriginGroup"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:cdn/v20200901:OriginGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource OriginGroup
@@ -100,6 +105,8 @@ type originGroupState struct {
 	ResourceState *string `pulumi:"resourceState"`
 	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
 	ResponseBasedOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersResponse `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
 	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
 	// Resource type.
@@ -119,6 +126,8 @@ type OriginGroupState struct {
 	ResourceState pulumi.StringPtrInput
 	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
 	ResponseBasedOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersResponsePtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
 	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
 	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrInput
 	// Resource type.

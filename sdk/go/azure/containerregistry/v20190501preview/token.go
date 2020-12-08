@@ -27,6 +27,8 @@ type Token struct {
 	ScopeMapId pulumi.StringPtrOutput `pulumi:"scopeMapId"`
 	// The status of the token example enabled or disabled.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -46,6 +48,12 @@ func NewToken(ctx *pulumi.Context,
 	if args == nil {
 		args = &TokenArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Token"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Token
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190501preview:Token", name, args, &resource, opts...)
 	if err != nil {
@@ -80,6 +88,8 @@ type tokenState struct {
 	ScopeMapId *string `pulumi:"scopeMapId"`
 	// The status of the token example enabled or disabled.
 	Status *string `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -97,6 +107,8 @@ type TokenState struct {
 	ScopeMapId pulumi.StringPtrInput
 	// The status of the token example enabled or disabled.
 	Status pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

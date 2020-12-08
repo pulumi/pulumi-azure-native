@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.Authorization.Latest.Inputs
     public sealed class ParameterDefinitionsValueMetadataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+        /// </summary>
+        [Input("assignPermissions")]
+        public Input<bool>? AssignPermissions { get; set; }
+
+        /// <summary>
         /// The description of the parameter.
         /// </summary>
         [Input("description")]
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNextGen.Authorization.Latest.Inputs
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+        /// </summary>
+        [Input("strongType")]
+        public Input<string>? StrongType { get; set; }
 
         public ParameterDefinitionsValueMetadataArgs()
         {

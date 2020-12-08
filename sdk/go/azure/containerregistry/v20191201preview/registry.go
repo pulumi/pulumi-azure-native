@@ -49,6 +49,8 @@ type Registry struct {
 	Status StatusResponseOutput `pulumi:"status"`
 	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
 	StorageAccount StorageAccountPropertiesResponsePtrOutput `pulumi:"storageAccount"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -91,6 +93,9 @@ func NewRegistry(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20190501:Registry"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Registry"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -150,6 +155,8 @@ type registryState struct {
 	Status *StatusResponse `pulumi:"status"`
 	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
 	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -191,6 +198,8 @@ type RegistryState struct {
 	Status StatusResponsePtrInput
 	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
 	StorageAccount StorageAccountPropertiesResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.

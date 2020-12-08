@@ -21,6 +21,18 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
+        /// <summary>
+        /// The user assigned identities associated with the resource.
+        /// </summary>
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
+
         public IdentityArgs()
         {
         }

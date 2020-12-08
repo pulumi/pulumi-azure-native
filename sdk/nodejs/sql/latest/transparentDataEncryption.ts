@@ -94,7 +94,7 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20140401:TransparentDataEncryption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20140401:TransparentDataEncryption" }, { type: "azure-nextgen:sql/v20200801preview:TransparentDataEncryption" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TransparentDataEncryption.__pulumiType, name, inputs, opts);
     }

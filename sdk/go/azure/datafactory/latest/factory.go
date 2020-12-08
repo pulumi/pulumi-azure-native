@@ -19,6 +19,8 @@ type Factory struct {
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// Etag identifies change in the resource.
 	ETag pulumi.StringOutput `pulumi:"eTag"`
+	// Properties to enable Customer Managed Key for the factory.
+	Encryption EncryptionConfigurationResponsePtrOutput `pulumi:"encryption"`
 	// List of parameters for factory.
 	GlobalParameters GlobalParameterSpecificationResponseMapOutput `pulumi:"globalParameters"`
 	// Managed service identity of the factory.
@@ -88,6 +90,8 @@ type factoryState struct {
 	CreateTime *string `pulumi:"createTime"`
 	// Etag identifies change in the resource.
 	ETag *string `pulumi:"eTag"`
+	// Properties to enable Customer Managed Key for the factory.
+	Encryption *EncryptionConfigurationResponse `pulumi:"encryption"`
 	// List of parameters for factory.
 	GlobalParameters map[string]GlobalParameterSpecificationResponse `pulumi:"globalParameters"`
 	// Managed service identity of the factory.
@@ -115,6 +119,8 @@ type FactoryState struct {
 	CreateTime pulumi.StringPtrInput
 	// Etag identifies change in the resource.
 	ETag pulumi.StringPtrInput
+	// Properties to enable Customer Managed Key for the factory.
+	Encryption EncryptionConfigurationResponsePtrInput
 	// List of parameters for factory.
 	GlobalParameters GlobalParameterSpecificationResponseMapInput
 	// Managed service identity of the factory.
@@ -142,6 +148,8 @@ func (FactoryState) ElementType() reflect.Type {
 }
 
 type factoryArgs struct {
+	// Properties to enable Customer Managed Key for the factory.
+	Encryption *EncryptionConfiguration `pulumi:"encryption"`
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// List of parameters for factory.
@@ -162,6 +170,8 @@ type factoryArgs struct {
 
 // The set of arguments for constructing a Factory resource.
 type FactoryArgs struct {
+	// Properties to enable Customer Managed Key for the factory.
+	Encryption EncryptionConfigurationPtrInput
 	// The factory name.
 	FactoryName pulumi.StringInput
 	// List of parameters for factory.

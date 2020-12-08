@@ -114,6 +114,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,10 +15,16 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// The list of Log Analytics workspaces associated with the cluster
+	AssociatedWorkspaces AssociatedWorkspaceResponseArrayOutput `pulumi:"associatedWorkspaces"`
 	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
 	BillingType pulumi.StringPtrOutput `pulumi:"billingType"`
+	// Additional properties for capacity reservation
+	CapacityReservationProperties CapacityReservationPropertiesResponsePtrOutput `pulumi:"capacityReservationProperties"`
 	// The ID associated with the cluster.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
+	// The cluster creation time
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The identity of the resource.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
@@ -27,6 +33,8 @@ type Cluster struct {
 	IsDoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"isDoubleEncryptionEnabled"`
 	// The associated key properties.
 	KeyVaultProperties KeyVaultPropertiesResponsePtrOutput `pulumi:"keyVaultProperties"`
+	// The last time the cluster was updated.
+	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
@@ -93,10 +101,16 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// The list of Log Analytics workspaces associated with the cluster
+	AssociatedWorkspaces []AssociatedWorkspaceResponse `pulumi:"associatedWorkspaces"`
 	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
 	BillingType *string `pulumi:"billingType"`
+	// Additional properties for capacity reservation
+	CapacityReservationProperties *CapacityReservationPropertiesResponse `pulumi:"capacityReservationProperties"`
 	// The ID associated with the cluster.
 	ClusterId *string `pulumi:"clusterId"`
+	// The cluster creation time
+	CreatedDate *string `pulumi:"createdDate"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
@@ -105,6 +119,8 @@ type clusterState struct {
 	IsDoubleEncryptionEnabled *bool `pulumi:"isDoubleEncryptionEnabled"`
 	// The associated key properties.
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// The last time the cluster was updated.
+	LastModifiedDate *string `pulumi:"lastModifiedDate"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
@@ -120,10 +136,16 @@ type clusterState struct {
 }
 
 type ClusterState struct {
+	// The list of Log Analytics workspaces associated with the cluster
+	AssociatedWorkspaces AssociatedWorkspaceResponseArrayInput
 	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
 	BillingType pulumi.StringPtrInput
+	// Additional properties for capacity reservation
+	CapacityReservationProperties CapacityReservationPropertiesResponsePtrInput
 	// The ID associated with the cluster.
 	ClusterId pulumi.StringPtrInput
+	// The cluster creation time
+	CreatedDate pulumi.StringPtrInput
 	// The identity of the resource.
 	Identity IdentityResponsePtrInput
 	// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
@@ -132,6 +154,8 @@ type ClusterState struct {
 	IsDoubleEncryptionEnabled pulumi.BoolPtrInput
 	// The associated key properties.
 	KeyVaultProperties KeyVaultPropertiesResponsePtrInput
+	// The last time the cluster was updated.
+	LastModifiedDate pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource

@@ -17,7 +17,7 @@ func LookupThreatIntelligenceIndicator(ctx *pulumi.Context, args *LookupThreatIn
 }
 
 type LookupThreatIntelligenceIndicatorArgs struct {
-	// Threat Intelligence Identifier
+	// Threat intelligence indicator name field.
 	Name string `pulumi:"name"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
@@ -27,7 +27,7 @@ type LookupThreatIntelligenceIndicatorArgs struct {
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
-// Threat intelligence resource.
+// Threat intelligence information object.
 type LookupThreatIntelligenceIndicatorResult struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`

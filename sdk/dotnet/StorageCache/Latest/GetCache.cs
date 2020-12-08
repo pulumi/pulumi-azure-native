@@ -88,6 +88,10 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         /// </summary>
         public readonly string? Subnet;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// ARM tags as name/value pairs.
         /// </summary>
         public readonly object? Tags;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
 
             string? subnet,
 
+            Outputs.SystemDataResponse systemData,
+
             object? tags,
 
             string type,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
             SecuritySettings = securitySettings;
             Sku = sku;
             Subnet = subnet;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UpgradeStatus = upgradeStatus;

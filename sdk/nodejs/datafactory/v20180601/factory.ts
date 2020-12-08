@@ -44,6 +44,10 @@ export class Factory extends pulumi.CustomResource {
      */
     public /*out*/ readonly eTag!: pulumi.Output<string>;
     /**
+     * Properties to enable Customer Managed Key for the factory.
+     */
+    public readonly encryption!: pulumi.Output<outputs.datafactory.v20180601.EncryptionConfigurationResponse | undefined>;
+    /**
      * List of parameters for factory.
      */
     public readonly globalParameters!: pulumi.Output<{[key: string]: outputs.datafactory.v20180601.GlobalParameterSpecificationResponse} | undefined>;
@@ -100,6 +104,7 @@ export class Factory extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["factoryName"] = args ? args.factoryName : undefined;
             inputs["globalParameters"] = args ? args.globalParameters : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -117,6 +122,7 @@ export class Factory extends pulumi.CustomResource {
         } else {
             inputs["createTime"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
             inputs["globalParameters"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -145,6 +151,10 @@ export class Factory extends pulumi.CustomResource {
  * The set of arguments for constructing a Factory resource.
  */
 export interface FactoryArgs {
+    /**
+     * Properties to enable Customer Managed Key for the factory.
+     */
+    readonly encryption?: pulumi.Input<inputs.datafactory.v20180601.EncryptionConfiguration>;
     /**
      * The factory name.
      */

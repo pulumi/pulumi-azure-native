@@ -89,6 +89,10 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly step!: pulumi.Output<outputs.containerregistry.v20190601preview.DockerBuildStepResponse | outputs.containerregistry.v20190601preview.EncodedTaskStepResponse | outputs.containerregistry.v20190601preview.FileTaskStepResponse | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.v20190601preview.SystemDataResponse>;
+    /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -146,6 +150,7 @@ export class Task extends pulumi.CustomResource {
             inputs["creationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["agentConfiguration"] = undefined /*out*/;
@@ -161,6 +166,7 @@ export class Task extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["step"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeout"] = undefined /*out*/;
             inputs["trigger"] = undefined /*out*/;

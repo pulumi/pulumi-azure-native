@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetCustomDomainResult',
@@ -19,7 +20,7 @@ class GetCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, custom_https_provisioning_state=None, custom_https_provisioning_substate=None, host_name=None, name=None, provisioning_state=None, resource_state=None, type=None, validation_data=None):
+    def __init__(__self__, custom_https_provisioning_state=None, custom_https_provisioning_substate=None, host_name=None, name=None, provisioning_state=None, resource_state=None, system_data=None, type=None, validation_data=None):
         if custom_https_provisioning_state and not isinstance(custom_https_provisioning_state, str):
             raise TypeError("Expected argument 'custom_https_provisioning_state' to be a str")
         pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
@@ -38,6 +39,9 @@ class GetCustomDomainResult:
         if resource_state and not isinstance(resource_state, str):
             raise TypeError("Expected argument 'resource_state' to be a str")
         pulumi.set(__self__, "resource_state", resource_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -94,6 +98,14 @@ class GetCustomDomainResult:
         return pulumi.get(self, "resource_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -122,6 +134,7 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
+            system_data=self.system_data,
             type=self.type,
             validation_data=self.validation_data)
 
@@ -157,5 +170,6 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         validation_data=__ret__.validation_data)

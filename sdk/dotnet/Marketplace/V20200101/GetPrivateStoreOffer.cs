@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// <summary>
         /// Icon File Uris
         /// </summary>
-        public readonly Outputs.OfferPropertiesResponseIconFileUris? IconFileUris;
+        public readonly ImmutableDictionary<string, string>? IconFileUris;
         /// <summary>
         /// Private store offer modification date
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
 
             string? eTag,
 
-            Outputs.OfferPropertiesResponseIconFileUris? iconFileUris,
+            ImmutableDictionary<string, string>? iconFileUris,
 
             string modifiedAt,
 

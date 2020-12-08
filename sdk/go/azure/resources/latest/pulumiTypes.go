@@ -1138,8 +1138,6 @@ func (o DependencyResponseArrayOutput) Index(i pulumi.IntInput) DependencyRespon
 type DeploymentProperties struct {
 	// The debug setting of the deployment.
 	DebugSetting *DebugSetting `pulumi:"debugSetting"`
-	// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
-	ExpressionEvaluationOptions *ExpressionEvaluationOptions `pulumi:"expressionEvaluationOptions"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
 	Mode string `pulumi:"mode"`
 	// The deployment on error behavior.
@@ -1169,8 +1167,6 @@ type DeploymentPropertiesInput interface {
 type DeploymentPropertiesArgs struct {
 	// The debug setting of the deployment.
 	DebugSetting DebugSettingPtrInput `pulumi:"debugSetting"`
-	// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
-	ExpressionEvaluationOptions ExpressionEvaluationOptionsPtrInput `pulumi:"expressionEvaluationOptions"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
 	Mode pulumi.StringInput `pulumi:"mode"`
 	// The deployment on error behavior.
@@ -1268,11 +1264,6 @@ func (o DeploymentPropertiesOutput) DebugSetting() DebugSettingPtrOutput {
 	return o.ApplyT(func(v DeploymentProperties) *DebugSetting { return v.DebugSetting }).(DebugSettingPtrOutput)
 }
 
-// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
-func (o DeploymentPropertiesOutput) ExpressionEvaluationOptions() ExpressionEvaluationOptionsPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *ExpressionEvaluationOptions { return v.ExpressionEvaluationOptions }).(ExpressionEvaluationOptionsPtrOutput)
-}
-
 // The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
 func (o DeploymentPropertiesOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentProperties) string { return v.Mode }).(pulumi.StringOutput)
@@ -1329,16 +1320,6 @@ func (o DeploymentPropertiesPtrOutput) DebugSetting() DebugSettingPtrOutput {
 		}
 		return v.DebugSetting
 	}).(DebugSettingPtrOutput)
-}
-
-// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
-func (o DeploymentPropertiesPtrOutput) ExpressionEvaluationOptions() ExpressionEvaluationOptionsPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *ExpressionEvaluationOptions {
-		if v == nil {
-			return nil
-		}
-		return v.ExpressionEvaluationOptions
-	}).(ExpressionEvaluationOptionsPtrOutput)
 }
 
 // The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
@@ -2205,144 +2186,12 @@ func (o ErrorResponseResponseArrayOutput) Index(i pulumi.IntInput) ErrorResponse
 	}).(ErrorResponseResponseOutput)
 }
 
-// Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
-type ExpressionEvaluationOptions struct {
-	// The scope to be used for evaluation of parameters, variables and functions in a nested template.
-	Scope *string `pulumi:"scope"`
-}
-
-// ExpressionEvaluationOptionsInput is an input type that accepts ExpressionEvaluationOptionsArgs and ExpressionEvaluationOptionsOutput values.
-// You can construct a concrete instance of `ExpressionEvaluationOptionsInput` via:
-//
-//          ExpressionEvaluationOptionsArgs{...}
-type ExpressionEvaluationOptionsInput interface {
-	pulumi.Input
-
-	ToExpressionEvaluationOptionsOutput() ExpressionEvaluationOptionsOutput
-	ToExpressionEvaluationOptionsOutputWithContext(context.Context) ExpressionEvaluationOptionsOutput
-}
-
-// Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
-type ExpressionEvaluationOptionsArgs struct {
-	// The scope to be used for evaluation of parameters, variables and functions in a nested template.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-}
-
-func (ExpressionEvaluationOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressionEvaluationOptions)(nil)).Elem()
-}
-
-func (i ExpressionEvaluationOptionsArgs) ToExpressionEvaluationOptionsOutput() ExpressionEvaluationOptionsOutput {
-	return i.ToExpressionEvaluationOptionsOutputWithContext(context.Background())
-}
-
-func (i ExpressionEvaluationOptionsArgs) ToExpressionEvaluationOptionsOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressionEvaluationOptionsOutput)
-}
-
-func (i ExpressionEvaluationOptionsArgs) ToExpressionEvaluationOptionsPtrOutput() ExpressionEvaluationOptionsPtrOutput {
-	return i.ToExpressionEvaluationOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i ExpressionEvaluationOptionsArgs) ToExpressionEvaluationOptionsPtrOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressionEvaluationOptionsOutput).ToExpressionEvaluationOptionsPtrOutputWithContext(ctx)
-}
-
-// ExpressionEvaluationOptionsPtrInput is an input type that accepts ExpressionEvaluationOptionsArgs, ExpressionEvaluationOptionsPtr and ExpressionEvaluationOptionsPtrOutput values.
-// You can construct a concrete instance of `ExpressionEvaluationOptionsPtrInput` via:
-//
-//          ExpressionEvaluationOptionsArgs{...}
-//
-//  or:
-//
-//          nil
-type ExpressionEvaluationOptionsPtrInput interface {
-	pulumi.Input
-
-	ToExpressionEvaluationOptionsPtrOutput() ExpressionEvaluationOptionsPtrOutput
-	ToExpressionEvaluationOptionsPtrOutputWithContext(context.Context) ExpressionEvaluationOptionsPtrOutput
-}
-
-type expressionEvaluationOptionsPtrType ExpressionEvaluationOptionsArgs
-
-func ExpressionEvaluationOptionsPtr(v *ExpressionEvaluationOptionsArgs) ExpressionEvaluationOptionsPtrInput {
-	return (*expressionEvaluationOptionsPtrType)(v)
-}
-
-func (*expressionEvaluationOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpressionEvaluationOptions)(nil)).Elem()
-}
-
-func (i *expressionEvaluationOptionsPtrType) ToExpressionEvaluationOptionsPtrOutput() ExpressionEvaluationOptionsPtrOutput {
-	return i.ToExpressionEvaluationOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *expressionEvaluationOptionsPtrType) ToExpressionEvaluationOptionsPtrOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressionEvaluationOptionsPtrOutput)
-}
-
-// Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
-type ExpressionEvaluationOptionsOutput struct{ *pulumi.OutputState }
-
-func (ExpressionEvaluationOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressionEvaluationOptions)(nil)).Elem()
-}
-
-func (o ExpressionEvaluationOptionsOutput) ToExpressionEvaluationOptionsOutput() ExpressionEvaluationOptionsOutput {
-	return o
-}
-
-func (o ExpressionEvaluationOptionsOutput) ToExpressionEvaluationOptionsOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsOutput {
-	return o
-}
-
-func (o ExpressionEvaluationOptionsOutput) ToExpressionEvaluationOptionsPtrOutput() ExpressionEvaluationOptionsPtrOutput {
-	return o.ToExpressionEvaluationOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o ExpressionEvaluationOptionsOutput) ToExpressionEvaluationOptionsPtrOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsPtrOutput {
-	return o.ApplyT(func(v ExpressionEvaluationOptions) *ExpressionEvaluationOptions {
-		return &v
-	}).(ExpressionEvaluationOptionsPtrOutput)
-}
-
-// The scope to be used for evaluation of parameters, variables and functions in a nested template.
-func (o ExpressionEvaluationOptionsOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExpressionEvaluationOptions) *string { return v.Scope }).(pulumi.StringPtrOutput)
-}
-
-type ExpressionEvaluationOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (ExpressionEvaluationOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpressionEvaluationOptions)(nil)).Elem()
-}
-
-func (o ExpressionEvaluationOptionsPtrOutput) ToExpressionEvaluationOptionsPtrOutput() ExpressionEvaluationOptionsPtrOutput {
-	return o
-}
-
-func (o ExpressionEvaluationOptionsPtrOutput) ToExpressionEvaluationOptionsPtrOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsPtrOutput {
-	return o
-}
-
-func (o ExpressionEvaluationOptionsPtrOutput) Elem() ExpressionEvaluationOptionsOutput {
-	return o.ApplyT(func(v *ExpressionEvaluationOptions) ExpressionEvaluationOptions { return *v }).(ExpressionEvaluationOptionsOutput)
-}
-
-// The scope to be used for evaluation of parameters, variables and functions in a nested template.
-func (o ExpressionEvaluationOptionsPtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExpressionEvaluationOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Scope
-	}).(pulumi.StringPtrOutput)
-}
-
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
 	Type *string `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -2360,6 +2209,8 @@ type IdentityInput interface {
 type IdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -2445,6 +2296,11 @@ func (o IdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
 type IdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityPtrOutput) ElementType() reflect.Type {
@@ -2471,6 +2327,16 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *Identity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
 }
 
 // Identity for the resource.
@@ -2770,314 +2636,6 @@ func (o IdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.Strin
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseUserAssignedIdentities {
 		return vs[0].(map[string]IdentityResponseUserAssignedIdentities)[vs[1].(string)]
 	}).(IdentityResponseUserAssignedIdentitiesOutput)
-}
-
-// Managed identity generic object.
-type ManagedServiceIdentity struct {
-	// Type of the managed identity.
-	Type *string `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-	UserAssignedIdentities map[string]UserAssignedIdentity `pulumi:"userAssignedIdentities"`
-}
-
-// ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
-// You can construct a concrete instance of `ManagedServiceIdentityInput` via:
-//
-//          ManagedServiceIdentityArgs{...}
-type ManagedServiceIdentityInput interface {
-	pulumi.Input
-
-	ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput
-	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
-}
-
-// Managed identity generic object.
-type ManagedServiceIdentityArgs struct {
-	// Type of the managed identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-	UserAssignedIdentities UserAssignedIdentityMapInput `pulumi:"userAssignedIdentities"`
-}
-
-func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
-}
-
-func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
-	return i.ToManagedServiceIdentityOutputWithContext(context.Background())
-}
-
-func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput)
-}
-
-func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
-	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput).ToManagedServiceIdentityPtrOutputWithContext(ctx)
-}
-
-// ManagedServiceIdentityPtrInput is an input type that accepts ManagedServiceIdentityArgs, ManagedServiceIdentityPtr and ManagedServiceIdentityPtrOutput values.
-// You can construct a concrete instance of `ManagedServiceIdentityPtrInput` via:
-//
-//          ManagedServiceIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type ManagedServiceIdentityPtrInput interface {
-	pulumi.Input
-
-	ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput
-	ToManagedServiceIdentityPtrOutputWithContext(context.Context) ManagedServiceIdentityPtrOutput
-}
-
-type managedServiceIdentityPtrType ManagedServiceIdentityArgs
-
-func ManagedServiceIdentityPtr(v *ManagedServiceIdentityArgs) ManagedServiceIdentityPtrInput {
-	return (*managedServiceIdentityPtrType)(v)
-}
-
-func (*managedServiceIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
-}
-
-func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
-	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
-}
-
-// Managed identity generic object.
-type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
-
-func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
-}
-
-func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
-	return o
-}
-
-func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
-	return o
-}
-
-func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
-	return o.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
-		return &v
-	}).(ManagedServiceIdentityPtrOutput)
-}
-
-// Type of the managed identity.
-func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-func (o ManagedServiceIdentityOutput) UserAssignedIdentities() UserAssignedIdentityMapOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) map[string]UserAssignedIdentity { return v.UserAssignedIdentities }).(UserAssignedIdentityMapOutput)
-}
-
-type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedServiceIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
-}
-
-func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
-	return o
-}
-
-func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o
-}
-
-func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
-}
-
-// Type of the managed identity.
-func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() UserAssignedIdentityMapOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]UserAssignedIdentity {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(UserAssignedIdentityMapOutput)
-}
-
-// Managed identity generic object.
-type ManagedServiceIdentityResponse struct {
-	// Type of the managed identity.
-	Type *string `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
-}
-
-// ManagedServiceIdentityResponseInput is an input type that accepts ManagedServiceIdentityResponseArgs and ManagedServiceIdentityResponseOutput values.
-// You can construct a concrete instance of `ManagedServiceIdentityResponseInput` via:
-//
-//          ManagedServiceIdentityResponseArgs{...}
-type ManagedServiceIdentityResponseInput interface {
-	pulumi.Input
-
-	ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput
-	ToManagedServiceIdentityResponseOutputWithContext(context.Context) ManagedServiceIdentityResponseOutput
-}
-
-// Managed identity generic object.
-type ManagedServiceIdentityResponseArgs struct {
-	// Type of the managed identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
-}
-
-func (ManagedServiceIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
-}
-
-func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
-	return i.ToManagedServiceIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponseOutput)
-}
-
-func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
-	return i.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponseOutput).ToManagedServiceIdentityResponsePtrOutputWithContext(ctx)
-}
-
-// ManagedServiceIdentityResponsePtrInput is an input type that accepts ManagedServiceIdentityResponseArgs, ManagedServiceIdentityResponsePtr and ManagedServiceIdentityResponsePtrOutput values.
-// You can construct a concrete instance of `ManagedServiceIdentityResponsePtrInput` via:
-//
-//          ManagedServiceIdentityResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ManagedServiceIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput
-	ToManagedServiceIdentityResponsePtrOutputWithContext(context.Context) ManagedServiceIdentityResponsePtrOutput
-}
-
-type managedServiceIdentityResponsePtrType ManagedServiceIdentityResponseArgs
-
-func ManagedServiceIdentityResponsePtr(v *ManagedServiceIdentityResponseArgs) ManagedServiceIdentityResponsePtrInput {
-	return (*managedServiceIdentityResponsePtrType)(v)
-}
-
-func (*managedServiceIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
-}
-
-func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
-	return i.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePtrOutput)
-}
-
-// Managed identity generic object.
-type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
-
-func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
-}
-
-func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
-	return o
-}
-
-func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
-	return o
-}
-
-func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
-	return o.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
-		return &v
-	}).(ManagedServiceIdentityResponsePtrOutput)
-}
-
-// Type of the managed identity.
-func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
-		return v.UserAssignedIdentities
-	}).(UserAssignedIdentityResponseMapOutput)
-}
-
-type ManagedServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedServiceIdentityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
-}
-
-func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
-}
-
-// Type of the managed identity.
-func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 // Deployment on error behavior.
@@ -4131,6 +3689,124 @@ func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The provider extended location.
+type ProviderExtendedLocationResponse struct {
+	// The extended locations for the azure location.
+	ExtendedLocations []string `pulumi:"extendedLocations"`
+	// The azure location.
+	Location *string `pulumi:"location"`
+	// The extended location type.
+	Type *string `pulumi:"type"`
+}
+
+// ProviderExtendedLocationResponseInput is an input type that accepts ProviderExtendedLocationResponseArgs and ProviderExtendedLocationResponseOutput values.
+// You can construct a concrete instance of `ProviderExtendedLocationResponseInput` via:
+//
+//          ProviderExtendedLocationResponseArgs{...}
+type ProviderExtendedLocationResponseInput interface {
+	pulumi.Input
+
+	ToProviderExtendedLocationResponseOutput() ProviderExtendedLocationResponseOutput
+	ToProviderExtendedLocationResponseOutputWithContext(context.Context) ProviderExtendedLocationResponseOutput
+}
+
+// The provider extended location.
+type ProviderExtendedLocationResponseArgs struct {
+	// The extended locations for the azure location.
+	ExtendedLocations pulumi.StringArrayInput `pulumi:"extendedLocations"`
+	// The azure location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The extended location type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ProviderExtendedLocationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ProviderExtendedLocationResponseArgs) ToProviderExtendedLocationResponseOutput() ProviderExtendedLocationResponseOutput {
+	return i.ToProviderExtendedLocationResponseOutputWithContext(context.Background())
+}
+
+func (i ProviderExtendedLocationResponseArgs) ToProviderExtendedLocationResponseOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderExtendedLocationResponseOutput)
+}
+
+// ProviderExtendedLocationResponseArrayInput is an input type that accepts ProviderExtendedLocationResponseArray and ProviderExtendedLocationResponseArrayOutput values.
+// You can construct a concrete instance of `ProviderExtendedLocationResponseArrayInput` via:
+//
+//          ProviderExtendedLocationResponseArray{ ProviderExtendedLocationResponseArgs{...} }
+type ProviderExtendedLocationResponseArrayInput interface {
+	pulumi.Input
+
+	ToProviderExtendedLocationResponseArrayOutput() ProviderExtendedLocationResponseArrayOutput
+	ToProviderExtendedLocationResponseArrayOutputWithContext(context.Context) ProviderExtendedLocationResponseArrayOutput
+}
+
+type ProviderExtendedLocationResponseArray []ProviderExtendedLocationResponseInput
+
+func (ProviderExtendedLocationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ProviderExtendedLocationResponseArray) ToProviderExtendedLocationResponseArrayOutput() ProviderExtendedLocationResponseArrayOutput {
+	return i.ToProviderExtendedLocationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ProviderExtendedLocationResponseArray) ToProviderExtendedLocationResponseArrayOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderExtendedLocationResponseArrayOutput)
+}
+
+// The provider extended location.
+type ProviderExtendedLocationResponseOutput struct{ *pulumi.OutputState }
+
+func (ProviderExtendedLocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ProviderExtendedLocationResponseOutput) ToProviderExtendedLocationResponseOutput() ProviderExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ProviderExtendedLocationResponseOutput) ToProviderExtendedLocationResponseOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseOutput {
+	return o
+}
+
+// The extended locations for the azure location.
+func (o ProviderExtendedLocationResponseOutput) ExtendedLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProviderExtendedLocationResponse) []string { return v.ExtendedLocations }).(pulumi.StringArrayOutput)
+}
+
+// The azure location.
+func (o ProviderExtendedLocationResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderExtendedLocationResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The extended location type.
+func (o ProviderExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ProviderExtendedLocationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProviderExtendedLocationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ProviderExtendedLocationResponseArrayOutput) ToProviderExtendedLocationResponseArrayOutput() ProviderExtendedLocationResponseArrayOutput {
+	return o
+}
+
+func (o ProviderExtendedLocationResponseArrayOutput) ToProviderExtendedLocationResponseArrayOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseArrayOutput {
+	return o
+}
+
+func (o ProviderExtendedLocationResponseArrayOutput) Index(i pulumi.IntInput) ProviderExtendedLocationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderExtendedLocationResponse {
+		return vs[0].([]ProviderExtendedLocationResponse)[vs[1].(int)]
+	}).(ProviderExtendedLocationResponseOutput)
+}
+
 // Resource type managed by the resource provider.
 type ProviderResourceTypeResponse struct {
 	// The aliases that are supported by this resource type.
@@ -4143,6 +3819,8 @@ type ProviderResourceTypeResponse struct {
 	Capabilities *string `pulumi:"capabilities"`
 	// The default API version.
 	DefaultApiVersion string `pulumi:"defaultApiVersion"`
+	// The location mappings that are supported by this resource type.
+	LocationMappings []ProviderExtendedLocationResponse `pulumi:"locationMappings"`
 	// The collection of locations where this resource type can be created.
 	Locations []string `pulumi:"locations"`
 	// The properties.
@@ -4174,6 +3852,8 @@ type ProviderResourceTypeResponseArgs struct {
 	Capabilities pulumi.StringPtrInput `pulumi:"capabilities"`
 	// The default API version.
 	DefaultApiVersion pulumi.StringInput `pulumi:"defaultApiVersion"`
+	// The location mappings that are supported by this resource type.
+	LocationMappings ProviderExtendedLocationResponseArrayInput `pulumi:"locationMappings"`
 	// The collection of locations where this resource type can be created.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 	// The properties.
@@ -4257,6 +3937,11 @@ func (o ProviderResourceTypeResponseOutput) Capabilities() pulumi.StringPtrOutpu
 // The default API version.
 func (o ProviderResourceTypeResponseOutput) DefaultApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) string { return v.DefaultApiVersion }).(pulumi.StringOutput)
+}
+
+// The location mappings that are supported by this resource type.
+func (o ProviderResourceTypeResponseOutput) LocationMappings() ProviderExtendedLocationResponseArrayOutput {
+	return o.ApplyT(func(v ProviderResourceTypeResponse) []ProviderExtendedLocationResponse { return v.LocationMappings }).(ProviderExtendedLocationResponseArrayOutput)
 }
 
 // The collection of locations where this resource type can be created.
@@ -5122,235 +4807,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
-// You can construct a concrete instance of `SystemDataResponseInput` via:
-//
-//          SystemDataResponseArgs{...}
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
-// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
-//
-//          SystemDataResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponseOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
-}
-
-// The timestamp of resource creation (UTC).
-func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
-}
-
-// The identity that created the resource.
-func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that created the resource.
-func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
-}
-
-// The timestamp of resource creation (UTC).
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity that created the resource.
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that created the resource.
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 // A dictionary of name and value pairs.
 type Tags struct {
 	Tags map[string]string `pulumi:"tags"`
@@ -5991,224 +5447,6 @@ func (o TemplateLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User-assigned managed identity.
-type UserAssignedIdentity struct {
-	// Client App Id associated with this identity.
-	ClientId *string `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this identity.
-	PrincipalId *string `pulumi:"principalId"`
-}
-
-// UserAssignedIdentityInput is an input type that accepts UserAssignedIdentityArgs and UserAssignedIdentityOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityInput` via:
-//
-//          UserAssignedIdentityArgs{...}
-type UserAssignedIdentityInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityOutput() UserAssignedIdentityOutput
-	ToUserAssignedIdentityOutputWithContext(context.Context) UserAssignedIdentityOutput
-}
-
-// User-assigned managed identity.
-type UserAssignedIdentityArgs struct {
-	// Client App Id associated with this identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this identity.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-}
-
-func (UserAssignedIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
-	return i.ToUserAssignedIdentityOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityArgs) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
-}
-
-// UserAssignedIdentityMapInput is an input type that accepts UserAssignedIdentityMap and UserAssignedIdentityMapOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityMapInput` via:
-//
-//          UserAssignedIdentityMap{ "key": UserAssignedIdentityArgs{...} }
-type UserAssignedIdentityMapInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput
-	ToUserAssignedIdentityMapOutputWithContext(context.Context) UserAssignedIdentityMapOutput
-}
-
-type UserAssignedIdentityMap map[string]UserAssignedIdentityInput
-
-func (UserAssignedIdentityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentity)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
-	return i.ToUserAssignedIdentityMapOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput)
-}
-
-// User-assigned managed identity.
-type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
-	return o
-}
-
-func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
-	return o
-}
-
-// Client App Id associated with this identity.
-func (o UserAssignedIdentityOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// Azure Active Directory principal ID associated with this identity.
-func (o UserAssignedIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-type UserAssignedIdentityMapOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentity)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentity {
-		return vs[0].(map[string]UserAssignedIdentity)[vs[1].(string)]
-	}).(UserAssignedIdentityOutput)
-}
-
-// User-assigned managed identity.
-type UserAssignedIdentityResponse struct {
-	// Client App Id associated with this identity.
-	ClientId *string `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this identity.
-	PrincipalId *string `pulumi:"principalId"`
-}
-
-// UserAssignedIdentityResponseInput is an input type that accepts UserAssignedIdentityResponseArgs and UserAssignedIdentityResponseOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityResponseInput` via:
-//
-//          UserAssignedIdentityResponseArgs{...}
-type UserAssignedIdentityResponseInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput
-	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
-}
-
-// User-assigned managed identity.
-type UserAssignedIdentityResponseArgs struct {
-	// Client App Id associated with this identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this identity.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-}
-
-func (UserAssignedIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
-	return i.ToUserAssignedIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseOutput)
-}
-
-// UserAssignedIdentityResponseMapInput is an input type that accepts UserAssignedIdentityResponseMap and UserAssignedIdentityResponseMapOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityResponseMapInput` via:
-//
-//          UserAssignedIdentityResponseMap{ "key": UserAssignedIdentityResponseArgs{...} }
-type UserAssignedIdentityResponseMapInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput
-	ToUserAssignedIdentityResponseMapOutputWithContext(context.Context) UserAssignedIdentityResponseMapOutput
-}
-
-type UserAssignedIdentityResponseMap map[string]UserAssignedIdentityResponseInput
-
-func (UserAssignedIdentityResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
-	return i.ToUserAssignedIdentityResponseMapOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
-}
-
-// User-assigned managed identity.
-type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
-	return o
-}
-
-func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
-	return o
-}
-
-// Client App Id associated with this identity.
-func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// Azure Active Directory principal ID associated with this identity.
-func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
-	return o
-}
-
-func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
-		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
-	}).(UserAssignedIdentityResponseOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AliasPathMetadataResponseOutput{})
 	pulumi.RegisterOutputType(AliasPathResponseOutput{})
@@ -6236,18 +5474,12 @@ func init() {
 	pulumi.RegisterOutputType(ErrorResponseResponseOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponsePtrOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponseArrayOutput{})
-	pulumi.RegisterOutputType(ExpressionEvaluationOptionsOutput{})
-	pulumi.RegisterOutputType(ExpressionEvaluationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesOutput{})
 	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesMapOutput{})
-	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
-	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
-	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
-	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(OnErrorDeploymentOutput{})
 	pulumi.RegisterOutputType(OnErrorDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(OnErrorDeploymentExtendedResponseOutput{})
@@ -6260,6 +5492,8 @@ func init() {
 	pulumi.RegisterOutputType(PlanPtrOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProviderExtendedLocationResponseOutput{})
+	pulumi.RegisterOutputType(ProviderExtendedLocationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProviderResourceTypeResponseOutput{})
 	pulumi.RegisterOutputType(ProviderResourceTypeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProviderResponseOutput{})
@@ -6272,8 +5506,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TagsOutput{})
 	pulumi.RegisterOutputType(TagsPtrOutput{})
 	pulumi.RegisterOutputType(TagsResponseOutput{})
@@ -6282,8 +5514,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateLinkPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLinkResponseOutput{})
 	pulumi.RegisterOutputType(TemplateLinkResponsePtrOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityMapOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

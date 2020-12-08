@@ -84,6 +84,10 @@ export class DomainService extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Migration Properties
+     */
+    public readonly migrationProperties!: pulumi.Output<outputs.aad.v20170601.MigrationPropertiesResponse | undefined>;
+    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -156,6 +160,7 @@ export class DomainService extends pulumi.CustomResource {
             inputs["filteredSync"] = args ? args.filteredSync : undefined;
             inputs["ldapsSettings"] = args ? args.ldapsSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["migrationProperties"] = args ? args.migrationProperties : undefined;
             inputs["notificationSettings"] = args ? args.notificationSettings : undefined;
             inputs["resourceForestSettings"] = args ? args.resourceForestSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -187,6 +192,7 @@ export class DomainService extends pulumi.CustomResource {
             inputs["healthMonitors"] = undefined /*out*/;
             inputs["ldapsSettings"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["migrationProperties"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["notificationSettings"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -249,6 +255,10 @@ export interface DomainServiceArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Migration Properties
+     */
+    readonly migrationProperties?: pulumi.Input<inputs.aad.v20170601.MigrationProperties>;
     /**
      * Notification Settings
      */

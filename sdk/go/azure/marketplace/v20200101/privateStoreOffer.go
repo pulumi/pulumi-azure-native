@@ -20,7 +20,7 @@ type PrivateStoreOffer struct {
 	// Identifier for purposes of race condition
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
 	// Icon File Uris
-	IconFileUris OfferPropertiesResponseIconFileUrisPtrOutput `pulumi:"iconFileUris"`
+	IconFileUris pulumi.StringMapOutput `pulumi:"iconFileUris"`
 	// Private store offer modification date
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// The name of the resource.
@@ -88,7 +88,7 @@ type privateStoreOfferState struct {
 	// Identifier for purposes of race condition
 	ETag *string `pulumi:"eTag"`
 	// Icon File Uris
-	IconFileUris *OfferPropertiesResponseIconFileUris `pulumi:"iconFileUris"`
+	IconFileUris map[string]string `pulumi:"iconFileUris"`
 	// Private store offer modification date
 	ModifiedAt *string `pulumi:"modifiedAt"`
 	// The name of the resource.
@@ -117,7 +117,7 @@ type PrivateStoreOfferState struct {
 	// Identifier for purposes of race condition
 	ETag pulumi.StringPtrInput
 	// Icon File Uris
-	IconFileUris OfferPropertiesResponseIconFileUrisPtrInput
+	IconFileUris pulumi.StringMapInput
 	// Private store offer modification date
 	ModifiedAt pulumi.StringPtrInput
 	// The name of the resource.
@@ -148,7 +148,7 @@ type privateStoreOfferArgs struct {
 	// Identifier for purposes of race condition
 	ETag *string `pulumi:"eTag"`
 	// Icon File Uris
-	IconFileUris *OfferPropertiesIconFileUris `pulumi:"iconFileUris"`
+	IconFileUris map[string]string `pulumi:"iconFileUris"`
 	// The offer ID to update or delete
 	OfferId string `pulumi:"offerId"`
 	// Offer plans
@@ -166,7 +166,7 @@ type PrivateStoreOfferArgs struct {
 	// Identifier for purposes of race condition
 	ETag pulumi.StringPtrInput
 	// Icon File Uris
-	IconFileUris OfferPropertiesIconFileUrisPtrInput
+	IconFileUris pulumi.StringMapInput
 	// The offer ID to update or delete
 	OfferId pulumi.StringInput
 	// Offer plans

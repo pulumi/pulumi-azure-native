@@ -10,6 +10,388 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The definition of a query.
+type ExportDefinition struct {
+	// Has definition for data in this query.
+	DataSet *QueryDataset `pulumi:"dataSet"`
+	// Has time period for pulling data for the query.
+	TimePeriod *QueryTimePeriod `pulumi:"timePeriod"`
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+	Timeframe string `pulumi:"timeframe"`
+	// The type of the query.
+	Type string `pulumi:"type"`
+}
+
+// ExportDefinitionInput is an input type that accepts ExportDefinitionArgs and ExportDefinitionOutput values.
+// You can construct a concrete instance of `ExportDefinitionInput` via:
+//
+//          ExportDefinitionArgs{...}
+type ExportDefinitionInput interface {
+	pulumi.Input
+
+	ToExportDefinitionOutput() ExportDefinitionOutput
+	ToExportDefinitionOutputWithContext(context.Context) ExportDefinitionOutput
+}
+
+// The definition of a query.
+type ExportDefinitionArgs struct {
+	// Has definition for data in this query.
+	DataSet QueryDatasetPtrInput `pulumi:"dataSet"`
+	// Has time period for pulling data for the query.
+	TimePeriod QueryTimePeriodPtrInput `pulumi:"timePeriod"`
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+	Timeframe pulumi.StringInput `pulumi:"timeframe"`
+	// The type of the query.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ExportDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportDefinition)(nil)).Elem()
+}
+
+func (i ExportDefinitionArgs) ToExportDefinitionOutput() ExportDefinitionOutput {
+	return i.ToExportDefinitionOutputWithContext(context.Background())
+}
+
+func (i ExportDefinitionArgs) ToExportDefinitionOutputWithContext(ctx context.Context) ExportDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionOutput)
+}
+
+func (i ExportDefinitionArgs) ToExportDefinitionPtrOutput() ExportDefinitionPtrOutput {
+	return i.ToExportDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ExportDefinitionArgs) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionOutput).ToExportDefinitionPtrOutputWithContext(ctx)
+}
+
+// ExportDefinitionPtrInput is an input type that accepts ExportDefinitionArgs, ExportDefinitionPtr and ExportDefinitionPtrOutput values.
+// You can construct a concrete instance of `ExportDefinitionPtrInput` via:
+//
+//          ExportDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type ExportDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToExportDefinitionPtrOutput() ExportDefinitionPtrOutput
+	ToExportDefinitionPtrOutputWithContext(context.Context) ExportDefinitionPtrOutput
+}
+
+type exportDefinitionPtrType ExportDefinitionArgs
+
+func ExportDefinitionPtr(v *ExportDefinitionArgs) ExportDefinitionPtrInput {
+	return (*exportDefinitionPtrType)(v)
+}
+
+func (*exportDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportDefinition)(nil)).Elem()
+}
+
+func (i *exportDefinitionPtrType) ToExportDefinitionPtrOutput() ExportDefinitionPtrOutput {
+	return i.ToExportDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *exportDefinitionPtrType) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionPtrOutput)
+}
+
+// The definition of a query.
+type ExportDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ExportDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportDefinition)(nil)).Elem()
+}
+
+func (o ExportDefinitionOutput) ToExportDefinitionOutput() ExportDefinitionOutput {
+	return o
+}
+
+func (o ExportDefinitionOutput) ToExportDefinitionOutputWithContext(ctx context.Context) ExportDefinitionOutput {
+	return o
+}
+
+func (o ExportDefinitionOutput) ToExportDefinitionPtrOutput() ExportDefinitionPtrOutput {
+	return o.ToExportDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ExportDefinitionOutput) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
+	return o.ApplyT(func(v ExportDefinition) *ExportDefinition {
+		return &v
+	}).(ExportDefinitionPtrOutput)
+}
+
+// Has definition for data in this query.
+func (o ExportDefinitionOutput) DataSet() QueryDatasetPtrOutput {
+	return o.ApplyT(func(v ExportDefinition) *QueryDataset { return v.DataSet }).(QueryDatasetPtrOutput)
+}
+
+// Has time period for pulling data for the query.
+func (o ExportDefinitionOutput) TimePeriod() QueryTimePeriodPtrOutput {
+	return o.ApplyT(func(v ExportDefinition) *QueryTimePeriod { return v.TimePeriod }).(QueryTimePeriodPtrOutput)
+}
+
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+func (o ExportDefinitionOutput) Timeframe() pulumi.StringOutput {
+	return o.ApplyT(func(v ExportDefinition) string { return v.Timeframe }).(pulumi.StringOutput)
+}
+
+// The type of the query.
+func (o ExportDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ExportDefinition) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ExportDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ExportDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportDefinition)(nil)).Elem()
+}
+
+func (o ExportDefinitionPtrOutput) ToExportDefinitionPtrOutput() ExportDefinitionPtrOutput {
+	return o
+}
+
+func (o ExportDefinitionPtrOutput) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
+	return o
+}
+
+func (o ExportDefinitionPtrOutput) Elem() ExportDefinitionOutput {
+	return o.ApplyT(func(v *ExportDefinition) ExportDefinition { return *v }).(ExportDefinitionOutput)
+}
+
+// Has definition for data in this query.
+func (o ExportDefinitionPtrOutput) DataSet() QueryDatasetPtrOutput {
+	return o.ApplyT(func(v *ExportDefinition) *QueryDataset {
+		if v == nil {
+			return nil
+		}
+		return v.DataSet
+	}).(QueryDatasetPtrOutput)
+}
+
+// Has time period for pulling data for the query.
+func (o ExportDefinitionPtrOutput) TimePeriod() QueryTimePeriodPtrOutput {
+	return o.ApplyT(func(v *ExportDefinition) *QueryTimePeriod {
+		if v == nil {
+			return nil
+		}
+		return v.TimePeriod
+	}).(QueryTimePeriodPtrOutput)
+}
+
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+func (o ExportDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timeframe
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the query.
+func (o ExportDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The definition of a query.
+type ExportDefinitionResponse struct {
+	// Has definition for data in this query.
+	DataSet *QueryDatasetResponse `pulumi:"dataSet"`
+	// Has time period for pulling data for the query.
+	TimePeriod *QueryTimePeriodResponse `pulumi:"timePeriod"`
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+	Timeframe string `pulumi:"timeframe"`
+	// The type of the query.
+	Type string `pulumi:"type"`
+}
+
+// ExportDefinitionResponseInput is an input type that accepts ExportDefinitionResponseArgs and ExportDefinitionResponseOutput values.
+// You can construct a concrete instance of `ExportDefinitionResponseInput` via:
+//
+//          ExportDefinitionResponseArgs{...}
+type ExportDefinitionResponseInput interface {
+	pulumi.Input
+
+	ToExportDefinitionResponseOutput() ExportDefinitionResponseOutput
+	ToExportDefinitionResponseOutputWithContext(context.Context) ExportDefinitionResponseOutput
+}
+
+// The definition of a query.
+type ExportDefinitionResponseArgs struct {
+	// Has definition for data in this query.
+	DataSet QueryDatasetResponsePtrInput `pulumi:"dataSet"`
+	// Has time period for pulling data for the query.
+	TimePeriod QueryTimePeriodResponsePtrInput `pulumi:"timePeriod"`
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+	Timeframe pulumi.StringInput `pulumi:"timeframe"`
+	// The type of the query.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ExportDefinitionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportDefinitionResponse)(nil)).Elem()
+}
+
+func (i ExportDefinitionResponseArgs) ToExportDefinitionResponseOutput() ExportDefinitionResponseOutput {
+	return i.ToExportDefinitionResponseOutputWithContext(context.Background())
+}
+
+func (i ExportDefinitionResponseArgs) ToExportDefinitionResponseOutputWithContext(ctx context.Context) ExportDefinitionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionResponseOutput)
+}
+
+func (i ExportDefinitionResponseArgs) ToExportDefinitionResponsePtrOutput() ExportDefinitionResponsePtrOutput {
+	return i.ToExportDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ExportDefinitionResponseArgs) ToExportDefinitionResponsePtrOutputWithContext(ctx context.Context) ExportDefinitionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionResponseOutput).ToExportDefinitionResponsePtrOutputWithContext(ctx)
+}
+
+// ExportDefinitionResponsePtrInput is an input type that accepts ExportDefinitionResponseArgs, ExportDefinitionResponsePtr and ExportDefinitionResponsePtrOutput values.
+// You can construct a concrete instance of `ExportDefinitionResponsePtrInput` via:
+//
+//          ExportDefinitionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ExportDefinitionResponsePtrInput interface {
+	pulumi.Input
+
+	ToExportDefinitionResponsePtrOutput() ExportDefinitionResponsePtrOutput
+	ToExportDefinitionResponsePtrOutputWithContext(context.Context) ExportDefinitionResponsePtrOutput
+}
+
+type exportDefinitionResponsePtrType ExportDefinitionResponseArgs
+
+func ExportDefinitionResponsePtr(v *ExportDefinitionResponseArgs) ExportDefinitionResponsePtrInput {
+	return (*exportDefinitionResponsePtrType)(v)
+}
+
+func (*exportDefinitionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportDefinitionResponse)(nil)).Elem()
+}
+
+func (i *exportDefinitionResponsePtrType) ToExportDefinitionResponsePtrOutput() ExportDefinitionResponsePtrOutput {
+	return i.ToExportDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *exportDefinitionResponsePtrType) ToExportDefinitionResponsePtrOutputWithContext(ctx context.Context) ExportDefinitionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionResponsePtrOutput)
+}
+
+// The definition of a query.
+type ExportDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (ExportDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportDefinitionResponse)(nil)).Elem()
+}
+
+func (o ExportDefinitionResponseOutput) ToExportDefinitionResponseOutput() ExportDefinitionResponseOutput {
+	return o
+}
+
+func (o ExportDefinitionResponseOutput) ToExportDefinitionResponseOutputWithContext(ctx context.Context) ExportDefinitionResponseOutput {
+	return o
+}
+
+func (o ExportDefinitionResponseOutput) ToExportDefinitionResponsePtrOutput() ExportDefinitionResponsePtrOutput {
+	return o.ToExportDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ExportDefinitionResponseOutput) ToExportDefinitionResponsePtrOutputWithContext(ctx context.Context) ExportDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v ExportDefinitionResponse) *ExportDefinitionResponse {
+		return &v
+	}).(ExportDefinitionResponsePtrOutput)
+}
+
+// Has definition for data in this query.
+func (o ExportDefinitionResponseOutput) DataSet() QueryDatasetResponsePtrOutput {
+	return o.ApplyT(func(v ExportDefinitionResponse) *QueryDatasetResponse { return v.DataSet }).(QueryDatasetResponsePtrOutput)
+}
+
+// Has time period for pulling data for the query.
+func (o ExportDefinitionResponseOutput) TimePeriod() QueryTimePeriodResponsePtrOutput {
+	return o.ApplyT(func(v ExportDefinitionResponse) *QueryTimePeriodResponse { return v.TimePeriod }).(QueryTimePeriodResponsePtrOutput)
+}
+
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+func (o ExportDefinitionResponseOutput) Timeframe() pulumi.StringOutput {
+	return o.ApplyT(func(v ExportDefinitionResponse) string { return v.Timeframe }).(pulumi.StringOutput)
+}
+
+// The type of the query.
+func (o ExportDefinitionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ExportDefinitionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ExportDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExportDefinitionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportDefinitionResponse)(nil)).Elem()
+}
+
+func (o ExportDefinitionResponsePtrOutput) ToExportDefinitionResponsePtrOutput() ExportDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ExportDefinitionResponsePtrOutput) ToExportDefinitionResponsePtrOutputWithContext(ctx context.Context) ExportDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ExportDefinitionResponsePtrOutput) Elem() ExportDefinitionResponseOutput {
+	return o.ApplyT(func(v *ExportDefinitionResponse) ExportDefinitionResponse { return *v }).(ExportDefinitionResponseOutput)
+}
+
+// Has definition for data in this query.
+func (o ExportDefinitionResponsePtrOutput) DataSet() QueryDatasetResponsePtrOutput {
+	return o.ApplyT(func(v *ExportDefinitionResponse) *QueryDatasetResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DataSet
+	}).(QueryDatasetResponsePtrOutput)
+}
+
+// Has time period for pulling data for the query.
+func (o ExportDefinitionResponsePtrOutput) TimePeriod() QueryTimePeriodResponsePtrOutput {
+	return o.ApplyT(func(v *ExportDefinitionResponse) *QueryTimePeriodResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TimePeriod
+	}).(QueryTimePeriodResponsePtrOutput)
+}
+
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+func (o ExportDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timeframe
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the query.
+func (o ExportDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestination struct {
 	// The name of the container where exports will be uploaded.
@@ -2974,388 +3356,6 @@ func (o QueryDatasetResponsePtrOutput) Grouping() QueryGroupingResponseArrayOutp
 		}
 		return v.Grouping
 	}).(QueryGroupingResponseArrayOutput)
-}
-
-// The definition of a query.
-type QueryDefinition struct {
-	// Has definition for data in this query.
-	Dataset *QueryDataset `pulumi:"dataset"`
-	// Has time period for pulling data for the query.
-	TimePeriod *QueryTimePeriod `pulumi:"timePeriod"`
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the query.
-	Type string `pulumi:"type"`
-}
-
-// QueryDefinitionInput is an input type that accepts QueryDefinitionArgs and QueryDefinitionOutput values.
-// You can construct a concrete instance of `QueryDefinitionInput` via:
-//
-//          QueryDefinitionArgs{...}
-type QueryDefinitionInput interface {
-	pulumi.Input
-
-	ToQueryDefinitionOutput() QueryDefinitionOutput
-	ToQueryDefinitionOutputWithContext(context.Context) QueryDefinitionOutput
-}
-
-// The definition of a query.
-type QueryDefinitionArgs struct {
-	// Has definition for data in this query.
-	Dataset QueryDatasetPtrInput `pulumi:"dataset"`
-	// Has time period for pulling data for the query.
-	TimePeriod QueryTimePeriodPtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the query.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (QueryDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryDefinition)(nil)).Elem()
-}
-
-func (i QueryDefinitionArgs) ToQueryDefinitionOutput() QueryDefinitionOutput {
-	return i.ToQueryDefinitionOutputWithContext(context.Background())
-}
-
-func (i QueryDefinitionArgs) ToQueryDefinitionOutputWithContext(ctx context.Context) QueryDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionOutput)
-}
-
-func (i QueryDefinitionArgs) ToQueryDefinitionPtrOutput() QueryDefinitionPtrOutput {
-	return i.ToQueryDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i QueryDefinitionArgs) ToQueryDefinitionPtrOutputWithContext(ctx context.Context) QueryDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionOutput).ToQueryDefinitionPtrOutputWithContext(ctx)
-}
-
-// QueryDefinitionPtrInput is an input type that accepts QueryDefinitionArgs, QueryDefinitionPtr and QueryDefinitionPtrOutput values.
-// You can construct a concrete instance of `QueryDefinitionPtrInput` via:
-//
-//          QueryDefinitionArgs{...}
-//
-//  or:
-//
-//          nil
-type QueryDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToQueryDefinitionPtrOutput() QueryDefinitionPtrOutput
-	ToQueryDefinitionPtrOutputWithContext(context.Context) QueryDefinitionPtrOutput
-}
-
-type queryDefinitionPtrType QueryDefinitionArgs
-
-func QueryDefinitionPtr(v *QueryDefinitionArgs) QueryDefinitionPtrInput {
-	return (*queryDefinitionPtrType)(v)
-}
-
-func (*queryDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueryDefinition)(nil)).Elem()
-}
-
-func (i *queryDefinitionPtrType) ToQueryDefinitionPtrOutput() QueryDefinitionPtrOutput {
-	return i.ToQueryDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *queryDefinitionPtrType) ToQueryDefinitionPtrOutputWithContext(ctx context.Context) QueryDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionPtrOutput)
-}
-
-// The definition of a query.
-type QueryDefinitionOutput struct{ *pulumi.OutputState }
-
-func (QueryDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryDefinition)(nil)).Elem()
-}
-
-func (o QueryDefinitionOutput) ToQueryDefinitionOutput() QueryDefinitionOutput {
-	return o
-}
-
-func (o QueryDefinitionOutput) ToQueryDefinitionOutputWithContext(ctx context.Context) QueryDefinitionOutput {
-	return o
-}
-
-func (o QueryDefinitionOutput) ToQueryDefinitionPtrOutput() QueryDefinitionPtrOutput {
-	return o.ToQueryDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o QueryDefinitionOutput) ToQueryDefinitionPtrOutputWithContext(ctx context.Context) QueryDefinitionPtrOutput {
-	return o.ApplyT(func(v QueryDefinition) *QueryDefinition {
-		return &v
-	}).(QueryDefinitionPtrOutput)
-}
-
-// Has definition for data in this query.
-func (o QueryDefinitionOutput) Dataset() QueryDatasetPtrOutput {
-	return o.ApplyT(func(v QueryDefinition) *QueryDataset { return v.Dataset }).(QueryDatasetPtrOutput)
-}
-
-// Has time period for pulling data for the query.
-func (o QueryDefinitionOutput) TimePeriod() QueryTimePeriodPtrOutput {
-	return o.ApplyT(func(v QueryDefinition) *QueryTimePeriod { return v.TimePeriod }).(QueryTimePeriodPtrOutput)
-}
-
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-func (o QueryDefinitionOutput) Timeframe() pulumi.StringOutput {
-	return o.ApplyT(func(v QueryDefinition) string { return v.Timeframe }).(pulumi.StringOutput)
-}
-
-// The type of the query.
-func (o QueryDefinitionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v QueryDefinition) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type QueryDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (QueryDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueryDefinition)(nil)).Elem()
-}
-
-func (o QueryDefinitionPtrOutput) ToQueryDefinitionPtrOutput() QueryDefinitionPtrOutput {
-	return o
-}
-
-func (o QueryDefinitionPtrOutput) ToQueryDefinitionPtrOutputWithContext(ctx context.Context) QueryDefinitionPtrOutput {
-	return o
-}
-
-func (o QueryDefinitionPtrOutput) Elem() QueryDefinitionOutput {
-	return o.ApplyT(func(v *QueryDefinition) QueryDefinition { return *v }).(QueryDefinitionOutput)
-}
-
-// Has definition for data in this query.
-func (o QueryDefinitionPtrOutput) Dataset() QueryDatasetPtrOutput {
-	return o.ApplyT(func(v *QueryDefinition) *QueryDataset {
-		if v == nil {
-			return nil
-		}
-		return v.Dataset
-	}).(QueryDatasetPtrOutput)
-}
-
-// Has time period for pulling data for the query.
-func (o QueryDefinitionPtrOutput) TimePeriod() QueryTimePeriodPtrOutput {
-	return o.ApplyT(func(v *QueryDefinition) *QueryTimePeriod {
-		if v == nil {
-			return nil
-		}
-		return v.TimePeriod
-	}).(QueryTimePeriodPtrOutput)
-}
-
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-func (o QueryDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *QueryDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Timeframe
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of the query.
-func (o QueryDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *QueryDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// The definition of a query.
-type QueryDefinitionResponse struct {
-	// Has definition for data in this query.
-	Dataset *QueryDatasetResponse `pulumi:"dataset"`
-	// Has time period for pulling data for the query.
-	TimePeriod *QueryTimePeriodResponse `pulumi:"timePeriod"`
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the query.
-	Type string `pulumi:"type"`
-}
-
-// QueryDefinitionResponseInput is an input type that accepts QueryDefinitionResponseArgs and QueryDefinitionResponseOutput values.
-// You can construct a concrete instance of `QueryDefinitionResponseInput` via:
-//
-//          QueryDefinitionResponseArgs{...}
-type QueryDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToQueryDefinitionResponseOutput() QueryDefinitionResponseOutput
-	ToQueryDefinitionResponseOutputWithContext(context.Context) QueryDefinitionResponseOutput
-}
-
-// The definition of a query.
-type QueryDefinitionResponseArgs struct {
-	// Has definition for data in this query.
-	Dataset QueryDatasetResponsePtrInput `pulumi:"dataset"`
-	// Has time period for pulling data for the query.
-	TimePeriod QueryTimePeriodResponsePtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the query.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (QueryDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryDefinitionResponse)(nil)).Elem()
-}
-
-func (i QueryDefinitionResponseArgs) ToQueryDefinitionResponseOutput() QueryDefinitionResponseOutput {
-	return i.ToQueryDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i QueryDefinitionResponseArgs) ToQueryDefinitionResponseOutputWithContext(ctx context.Context) QueryDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionResponseOutput)
-}
-
-func (i QueryDefinitionResponseArgs) ToQueryDefinitionResponsePtrOutput() QueryDefinitionResponsePtrOutput {
-	return i.ToQueryDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i QueryDefinitionResponseArgs) ToQueryDefinitionResponsePtrOutputWithContext(ctx context.Context) QueryDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionResponseOutput).ToQueryDefinitionResponsePtrOutputWithContext(ctx)
-}
-
-// QueryDefinitionResponsePtrInput is an input type that accepts QueryDefinitionResponseArgs, QueryDefinitionResponsePtr and QueryDefinitionResponsePtrOutput values.
-// You can construct a concrete instance of `QueryDefinitionResponsePtrInput` via:
-//
-//          QueryDefinitionResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type QueryDefinitionResponsePtrInput interface {
-	pulumi.Input
-
-	ToQueryDefinitionResponsePtrOutput() QueryDefinitionResponsePtrOutput
-	ToQueryDefinitionResponsePtrOutputWithContext(context.Context) QueryDefinitionResponsePtrOutput
-}
-
-type queryDefinitionResponsePtrType QueryDefinitionResponseArgs
-
-func QueryDefinitionResponsePtr(v *QueryDefinitionResponseArgs) QueryDefinitionResponsePtrInput {
-	return (*queryDefinitionResponsePtrType)(v)
-}
-
-func (*queryDefinitionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueryDefinitionResponse)(nil)).Elem()
-}
-
-func (i *queryDefinitionResponsePtrType) ToQueryDefinitionResponsePtrOutput() QueryDefinitionResponsePtrOutput {
-	return i.ToQueryDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *queryDefinitionResponsePtrType) ToQueryDefinitionResponsePtrOutputWithContext(ctx context.Context) QueryDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionResponsePtrOutput)
-}
-
-// The definition of a query.
-type QueryDefinitionResponseOutput struct{ *pulumi.OutputState }
-
-func (QueryDefinitionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryDefinitionResponse)(nil)).Elem()
-}
-
-func (o QueryDefinitionResponseOutput) ToQueryDefinitionResponseOutput() QueryDefinitionResponseOutput {
-	return o
-}
-
-func (o QueryDefinitionResponseOutput) ToQueryDefinitionResponseOutputWithContext(ctx context.Context) QueryDefinitionResponseOutput {
-	return o
-}
-
-func (o QueryDefinitionResponseOutput) ToQueryDefinitionResponsePtrOutput() QueryDefinitionResponsePtrOutput {
-	return o.ToQueryDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o QueryDefinitionResponseOutput) ToQueryDefinitionResponsePtrOutputWithContext(ctx context.Context) QueryDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v QueryDefinitionResponse) *QueryDefinitionResponse {
-		return &v
-	}).(QueryDefinitionResponsePtrOutput)
-}
-
-// Has definition for data in this query.
-func (o QueryDefinitionResponseOutput) Dataset() QueryDatasetResponsePtrOutput {
-	return o.ApplyT(func(v QueryDefinitionResponse) *QueryDatasetResponse { return v.Dataset }).(QueryDatasetResponsePtrOutput)
-}
-
-// Has time period for pulling data for the query.
-func (o QueryDefinitionResponseOutput) TimePeriod() QueryTimePeriodResponsePtrOutput {
-	return o.ApplyT(func(v QueryDefinitionResponse) *QueryTimePeriodResponse { return v.TimePeriod }).(QueryTimePeriodResponsePtrOutput)
-}
-
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-func (o QueryDefinitionResponseOutput) Timeframe() pulumi.StringOutput {
-	return o.ApplyT(func(v QueryDefinitionResponse) string { return v.Timeframe }).(pulumi.StringOutput)
-}
-
-// The type of the query.
-func (o QueryDefinitionResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v QueryDefinitionResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type QueryDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (QueryDefinitionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueryDefinitionResponse)(nil)).Elem()
-}
-
-func (o QueryDefinitionResponsePtrOutput) ToQueryDefinitionResponsePtrOutput() QueryDefinitionResponsePtrOutput {
-	return o
-}
-
-func (o QueryDefinitionResponsePtrOutput) ToQueryDefinitionResponsePtrOutputWithContext(ctx context.Context) QueryDefinitionResponsePtrOutput {
-	return o
-}
-
-func (o QueryDefinitionResponsePtrOutput) Elem() QueryDefinitionResponseOutput {
-	return o.ApplyT(func(v *QueryDefinitionResponse) QueryDefinitionResponse { return *v }).(QueryDefinitionResponseOutput)
-}
-
-// Has definition for data in this query.
-func (o QueryDefinitionResponsePtrOutput) Dataset() QueryDatasetResponsePtrOutput {
-	return o.ApplyT(func(v *QueryDefinitionResponse) *QueryDatasetResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Dataset
-	}).(QueryDatasetResponsePtrOutput)
-}
-
-// Has time period for pulling data for the query.
-func (o QueryDefinitionResponsePtrOutput) TimePeriod() QueryTimePeriodResponsePtrOutput {
-	return o.ApplyT(func(v *QueryDefinitionResponse) *QueryTimePeriodResponse {
-		if v == nil {
-			return nil
-		}
-		return v.TimePeriod
-	}).(QueryTimePeriodResponsePtrOutput)
-}
-
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-func (o QueryDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *QueryDefinitionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Timeframe
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of the query.
-func (o QueryDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *QueryDefinitionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // The filter expression to be used in the export.
@@ -6933,6 +6933,10 @@ func (o ReportConfigTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ExportDefinitionOutput{})
+	pulumi.RegisterOutputType(ExportDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ExportDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(ExportDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationResponseOutput{})
@@ -6973,10 +6977,6 @@ func init() {
 	pulumi.RegisterOutputType(QueryDatasetConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(QueryDatasetResponseOutput{})
 	pulumi.RegisterOutputType(QueryDatasetResponsePtrOutput{})
-	pulumi.RegisterOutputType(QueryDefinitionOutput{})
-	pulumi.RegisterOutputType(QueryDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(QueryDefinitionResponseOutput{})
-	pulumi.RegisterOutputType(QueryDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(QueryFilterOutput{})
 	pulumi.RegisterOutputType(QueryFilterPtrOutput{})
 	pulumi.RegisterOutputType(QueryFilterArrayOutput{})

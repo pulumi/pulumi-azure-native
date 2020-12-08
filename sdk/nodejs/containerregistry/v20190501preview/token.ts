@@ -60,6 +60,10 @@ export class Token extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.v20190501preview.SystemDataResponse>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -92,6 +96,7 @@ export class Token extends pulumi.CustomResource {
             inputs["creationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["creationDate"] = undefined /*out*/;
@@ -100,6 +105,7 @@ export class Token extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["scopeMapId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,6 +115,8 @@ export class Token extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20201101preview:Token" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Token.__pulumiType, name, inputs, opts);
     }
 }

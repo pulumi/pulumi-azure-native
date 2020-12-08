@@ -43,6 +43,10 @@ export interface GetSpatialAnchorsAccountResult {
      */
     readonly accountId: string;
     /**
+     * The identity associated with this account
+     */
+    readonly identity?: outputs.mixedreality.v20190228preview.IdentityResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;

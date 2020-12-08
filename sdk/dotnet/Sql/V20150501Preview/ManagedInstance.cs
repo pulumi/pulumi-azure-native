@@ -206,6 +206,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

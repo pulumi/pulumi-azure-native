@@ -47,21 +47,45 @@ export interface GetConnectedClusterResult {
      */
     readonly agentVersion: string;
     /**
+     * Represents the connectivity status of the connected cluster.
+     */
+    readonly connectivityStatus?: string;
+    /**
+     * The Kubernetes distribution running on this connected cluster.
+     */
+    readonly distribution?: string;
+    /**
      * The identity of the connected cluster.
      */
     readonly identity: outputs.kubernetes.v20200101preview.ConnectedClusterIdentityResponse;
+    /**
+     * The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+     */
+    readonly infrastructure?: string;
     /**
      * The Kubernetes version of the connected cluster resource
      */
     readonly kubernetesVersion: string;
     /**
+     * Time representing the last instance when heart beat was received from the cluster
+     */
+    readonly lastConnectivityTime: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
+     * Expiration time of the managed identity certificate
+     */
+    readonly managedIdentityCertificateExpirationTime: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * Connected cluster offering
+     */
+    readonly offering: string;
     /**
      * Provisioning state of the connected cluster resource.
      */
@@ -70,6 +94,10 @@ export interface GetConnectedClusterResult {
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Number of CPU cores present in the connected cluster resource
+     */
+    readonly totalCoreCount: number;
     /**
      * Number of nodes present in the connected cluster resource
      */

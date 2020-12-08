@@ -37,11 +37,15 @@ export interface GetExportResult {
     /**
      * Has definition for the export.
      */
-    readonly definition: outputs.costmanagement.v20191101.QueryDefinitionResponse;
+    readonly definition: outputs.costmanagement.v20191101.ExportDefinitionResponse;
     /**
      * Has delivery information for the export.
      */
     readonly deliveryInfo: outputs.costmanagement.v20191101.ExportDeliveryInfoResponse;
+    /**
+     * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+     */
+    readonly eTag?: string;
     /**
      * The format of the export being delivered.
      */
@@ -54,10 +58,6 @@ export interface GetExportResult {
      * Has schedule information for the export.
      */
     readonly schedule?: outputs.costmanagement.v20191101.ExportScheduleResponse;
-    /**
-     * Resource tags.
-     */
-    readonly tags: {[key: string]: string};
     /**
      * Resource type.
      */

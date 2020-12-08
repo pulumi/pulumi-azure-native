@@ -130,7 +130,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly string? LongTermRetentionBackupResourceId;
         /// <summary>
-        /// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+        /// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         /// </summary>
         public readonly string? MaintenanceConfigurationId;
         /// <summary>
@@ -220,7 +220,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        /// The storage account type used to store backups for this database.
         /// </summary>
         public readonly string? StorageAccountType;
         /// <summary>

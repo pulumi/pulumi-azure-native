@@ -14640,6 +14640,274 @@ func (o BinaryDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BinaryDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Managed Identity used for CMK.
+type CMKIdentityDefinition struct {
+	// The resource id of the user assigned identity to authenticate to customer's key vault.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// CMKIdentityDefinitionInput is an input type that accepts CMKIdentityDefinitionArgs and CMKIdentityDefinitionOutput values.
+// You can construct a concrete instance of `CMKIdentityDefinitionInput` via:
+//
+//          CMKIdentityDefinitionArgs{...}
+type CMKIdentityDefinitionInput interface {
+	pulumi.Input
+
+	ToCMKIdentityDefinitionOutput() CMKIdentityDefinitionOutput
+	ToCMKIdentityDefinitionOutputWithContext(context.Context) CMKIdentityDefinitionOutput
+}
+
+// Managed Identity used for CMK.
+type CMKIdentityDefinitionArgs struct {
+	// The resource id of the user assigned identity to authenticate to customer's key vault.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (CMKIdentityDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CMKIdentityDefinition)(nil)).Elem()
+}
+
+func (i CMKIdentityDefinitionArgs) ToCMKIdentityDefinitionOutput() CMKIdentityDefinitionOutput {
+	return i.ToCMKIdentityDefinitionOutputWithContext(context.Background())
+}
+
+func (i CMKIdentityDefinitionArgs) ToCMKIdentityDefinitionOutputWithContext(ctx context.Context) CMKIdentityDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CMKIdentityDefinitionOutput)
+}
+
+func (i CMKIdentityDefinitionArgs) ToCMKIdentityDefinitionPtrOutput() CMKIdentityDefinitionPtrOutput {
+	return i.ToCMKIdentityDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i CMKIdentityDefinitionArgs) ToCMKIdentityDefinitionPtrOutputWithContext(ctx context.Context) CMKIdentityDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CMKIdentityDefinitionOutput).ToCMKIdentityDefinitionPtrOutputWithContext(ctx)
+}
+
+// CMKIdentityDefinitionPtrInput is an input type that accepts CMKIdentityDefinitionArgs, CMKIdentityDefinitionPtr and CMKIdentityDefinitionPtrOutput values.
+// You can construct a concrete instance of `CMKIdentityDefinitionPtrInput` via:
+//
+//          CMKIdentityDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type CMKIdentityDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToCMKIdentityDefinitionPtrOutput() CMKIdentityDefinitionPtrOutput
+	ToCMKIdentityDefinitionPtrOutputWithContext(context.Context) CMKIdentityDefinitionPtrOutput
+}
+
+type cmkidentityDefinitionPtrType CMKIdentityDefinitionArgs
+
+func CMKIdentityDefinitionPtr(v *CMKIdentityDefinitionArgs) CMKIdentityDefinitionPtrInput {
+	return (*cmkidentityDefinitionPtrType)(v)
+}
+
+func (*cmkidentityDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CMKIdentityDefinition)(nil)).Elem()
+}
+
+func (i *cmkidentityDefinitionPtrType) ToCMKIdentityDefinitionPtrOutput() CMKIdentityDefinitionPtrOutput {
+	return i.ToCMKIdentityDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *cmkidentityDefinitionPtrType) ToCMKIdentityDefinitionPtrOutputWithContext(ctx context.Context) CMKIdentityDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CMKIdentityDefinitionPtrOutput)
+}
+
+// Managed Identity used for CMK.
+type CMKIdentityDefinitionOutput struct{ *pulumi.OutputState }
+
+func (CMKIdentityDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CMKIdentityDefinition)(nil)).Elem()
+}
+
+func (o CMKIdentityDefinitionOutput) ToCMKIdentityDefinitionOutput() CMKIdentityDefinitionOutput {
+	return o
+}
+
+func (o CMKIdentityDefinitionOutput) ToCMKIdentityDefinitionOutputWithContext(ctx context.Context) CMKIdentityDefinitionOutput {
+	return o
+}
+
+func (o CMKIdentityDefinitionOutput) ToCMKIdentityDefinitionPtrOutput() CMKIdentityDefinitionPtrOutput {
+	return o.ToCMKIdentityDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o CMKIdentityDefinitionOutput) ToCMKIdentityDefinitionPtrOutputWithContext(ctx context.Context) CMKIdentityDefinitionPtrOutput {
+	return o.ApplyT(func(v CMKIdentityDefinition) *CMKIdentityDefinition {
+		return &v
+	}).(CMKIdentityDefinitionPtrOutput)
+}
+
+// The resource id of the user assigned identity to authenticate to customer's key vault.
+func (o CMKIdentityDefinitionOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CMKIdentityDefinition) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type CMKIdentityDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (CMKIdentityDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CMKIdentityDefinition)(nil)).Elem()
+}
+
+func (o CMKIdentityDefinitionPtrOutput) ToCMKIdentityDefinitionPtrOutput() CMKIdentityDefinitionPtrOutput {
+	return o
+}
+
+func (o CMKIdentityDefinitionPtrOutput) ToCMKIdentityDefinitionPtrOutputWithContext(ctx context.Context) CMKIdentityDefinitionPtrOutput {
+	return o
+}
+
+func (o CMKIdentityDefinitionPtrOutput) Elem() CMKIdentityDefinitionOutput {
+	return o.ApplyT(func(v *CMKIdentityDefinition) CMKIdentityDefinition { return *v }).(CMKIdentityDefinitionOutput)
+}
+
+// The resource id of the user assigned identity to authenticate to customer's key vault.
+func (o CMKIdentityDefinitionPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CMKIdentityDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed Identity used for CMK.
+type CMKIdentityDefinitionResponse struct {
+	// The resource id of the user assigned identity to authenticate to customer's key vault.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// CMKIdentityDefinitionResponseInput is an input type that accepts CMKIdentityDefinitionResponseArgs and CMKIdentityDefinitionResponseOutput values.
+// You can construct a concrete instance of `CMKIdentityDefinitionResponseInput` via:
+//
+//          CMKIdentityDefinitionResponseArgs{...}
+type CMKIdentityDefinitionResponseInput interface {
+	pulumi.Input
+
+	ToCMKIdentityDefinitionResponseOutput() CMKIdentityDefinitionResponseOutput
+	ToCMKIdentityDefinitionResponseOutputWithContext(context.Context) CMKIdentityDefinitionResponseOutput
+}
+
+// Managed Identity used for CMK.
+type CMKIdentityDefinitionResponseArgs struct {
+	// The resource id of the user assigned identity to authenticate to customer's key vault.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (CMKIdentityDefinitionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CMKIdentityDefinitionResponse)(nil)).Elem()
+}
+
+func (i CMKIdentityDefinitionResponseArgs) ToCMKIdentityDefinitionResponseOutput() CMKIdentityDefinitionResponseOutput {
+	return i.ToCMKIdentityDefinitionResponseOutputWithContext(context.Background())
+}
+
+func (i CMKIdentityDefinitionResponseArgs) ToCMKIdentityDefinitionResponseOutputWithContext(ctx context.Context) CMKIdentityDefinitionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CMKIdentityDefinitionResponseOutput)
+}
+
+func (i CMKIdentityDefinitionResponseArgs) ToCMKIdentityDefinitionResponsePtrOutput() CMKIdentityDefinitionResponsePtrOutput {
+	return i.ToCMKIdentityDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CMKIdentityDefinitionResponseArgs) ToCMKIdentityDefinitionResponsePtrOutputWithContext(ctx context.Context) CMKIdentityDefinitionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CMKIdentityDefinitionResponseOutput).ToCMKIdentityDefinitionResponsePtrOutputWithContext(ctx)
+}
+
+// CMKIdentityDefinitionResponsePtrInput is an input type that accepts CMKIdentityDefinitionResponseArgs, CMKIdentityDefinitionResponsePtr and CMKIdentityDefinitionResponsePtrOutput values.
+// You can construct a concrete instance of `CMKIdentityDefinitionResponsePtrInput` via:
+//
+//          CMKIdentityDefinitionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CMKIdentityDefinitionResponsePtrInput interface {
+	pulumi.Input
+
+	ToCMKIdentityDefinitionResponsePtrOutput() CMKIdentityDefinitionResponsePtrOutput
+	ToCMKIdentityDefinitionResponsePtrOutputWithContext(context.Context) CMKIdentityDefinitionResponsePtrOutput
+}
+
+type cmkidentityDefinitionResponsePtrType CMKIdentityDefinitionResponseArgs
+
+func CMKIdentityDefinitionResponsePtr(v *CMKIdentityDefinitionResponseArgs) CMKIdentityDefinitionResponsePtrInput {
+	return (*cmkidentityDefinitionResponsePtrType)(v)
+}
+
+func (*cmkidentityDefinitionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CMKIdentityDefinitionResponse)(nil)).Elem()
+}
+
+func (i *cmkidentityDefinitionResponsePtrType) ToCMKIdentityDefinitionResponsePtrOutput() CMKIdentityDefinitionResponsePtrOutput {
+	return i.ToCMKIdentityDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cmkidentityDefinitionResponsePtrType) ToCMKIdentityDefinitionResponsePtrOutputWithContext(ctx context.Context) CMKIdentityDefinitionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CMKIdentityDefinitionResponsePtrOutput)
+}
+
+// Managed Identity used for CMK.
+type CMKIdentityDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (CMKIdentityDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CMKIdentityDefinitionResponse)(nil)).Elem()
+}
+
+func (o CMKIdentityDefinitionResponseOutput) ToCMKIdentityDefinitionResponseOutput() CMKIdentityDefinitionResponseOutput {
+	return o
+}
+
+func (o CMKIdentityDefinitionResponseOutput) ToCMKIdentityDefinitionResponseOutputWithContext(ctx context.Context) CMKIdentityDefinitionResponseOutput {
+	return o
+}
+
+func (o CMKIdentityDefinitionResponseOutput) ToCMKIdentityDefinitionResponsePtrOutput() CMKIdentityDefinitionResponsePtrOutput {
+	return o.ToCMKIdentityDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CMKIdentityDefinitionResponseOutput) ToCMKIdentityDefinitionResponsePtrOutputWithContext(ctx context.Context) CMKIdentityDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v CMKIdentityDefinitionResponse) *CMKIdentityDefinitionResponse {
+		return &v
+	}).(CMKIdentityDefinitionResponsePtrOutput)
+}
+
+// The resource id of the user assigned identity to authenticate to customer's key vault.
+func (o CMKIdentityDefinitionResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CMKIdentityDefinitionResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type CMKIdentityDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CMKIdentityDefinitionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CMKIdentityDefinitionResponse)(nil)).Elem()
+}
+
+func (o CMKIdentityDefinitionResponsePtrOutput) ToCMKIdentityDefinitionResponsePtrOutput() CMKIdentityDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o CMKIdentityDefinitionResponsePtrOutput) ToCMKIdentityDefinitionResponsePtrOutputWithContext(ctx context.Context) CMKIdentityDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o CMKIdentityDefinitionResponsePtrOutput) Elem() CMKIdentityDefinitionResponseOutput {
+	return o.ApplyT(func(v *CMKIdentityDefinitionResponse) CMKIdentityDefinitionResponse { return *v }).(CMKIdentityDefinitionResponseOutput)
+}
+
+// The resource id of the user assigned identity to authenticate to customer's key vault.
+func (o CMKIdentityDefinitionResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CMKIdentityDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
 // Linked service for Cassandra data source.
 type CassandraLinkedService struct {
 	// List of tags that can be used for describing the linked service.
@@ -25599,6 +25867,388 @@ func (o EloquaObjectDatasetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EloquaObjectDatasetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Definition of CMK for the factory.
+type EncryptionConfiguration struct {
+	// User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+	Identity *CMKIdentityDefinition `pulumi:"identity"`
+	// The name of the key in Azure Key Vault to use as Customer Managed Key.
+	KeyName string `pulumi:"keyName"`
+	// The version of the key used for CMK. If not provided, latest version will be used.
+	KeyVersion *string `pulumi:"keyVersion"`
+	// The url of the Azure Key Vault used for CMK.
+	VaultBaseUrl string `pulumi:"vaultBaseUrl"`
+}
+
+// EncryptionConfigurationInput is an input type that accepts EncryptionConfigurationArgs and EncryptionConfigurationOutput values.
+// You can construct a concrete instance of `EncryptionConfigurationInput` via:
+//
+//          EncryptionConfigurationArgs{...}
+type EncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigurationOutput() EncryptionConfigurationOutput
+	ToEncryptionConfigurationOutputWithContext(context.Context) EncryptionConfigurationOutput
+}
+
+// Definition of CMK for the factory.
+type EncryptionConfigurationArgs struct {
+	// User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+	Identity CMKIdentityDefinitionPtrInput `pulumi:"identity"`
+	// The name of the key in Azure Key Vault to use as Customer Managed Key.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The version of the key used for CMK. If not provided, latest version will be used.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	// The url of the Azure Key Vault used for CMK.
+	VaultBaseUrl pulumi.StringInput `pulumi:"vaultBaseUrl"`
+}
+
+func (EncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfiguration)(nil)).Elem()
+}
+
+func (i EncryptionConfigurationArgs) ToEncryptionConfigurationOutput() EncryptionConfigurationOutput {
+	return i.ToEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i EncryptionConfigurationArgs) ToEncryptionConfigurationOutputWithContext(ctx context.Context) EncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigurationOutput)
+}
+
+func (i EncryptionConfigurationArgs) ToEncryptionConfigurationPtrOutput() EncryptionConfigurationPtrOutput {
+	return i.ToEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionConfigurationArgs) ToEncryptionConfigurationPtrOutputWithContext(ctx context.Context) EncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigurationOutput).ToEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// EncryptionConfigurationPtrInput is an input type that accepts EncryptionConfigurationArgs, EncryptionConfigurationPtr and EncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `EncryptionConfigurationPtrInput` via:
+//
+//          EncryptionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigurationPtrOutput() EncryptionConfigurationPtrOutput
+	ToEncryptionConfigurationPtrOutputWithContext(context.Context) EncryptionConfigurationPtrOutput
+}
+
+type encryptionConfigurationPtrType EncryptionConfigurationArgs
+
+func EncryptionConfigurationPtr(v *EncryptionConfigurationArgs) EncryptionConfigurationPtrInput {
+	return (*encryptionConfigurationPtrType)(v)
+}
+
+func (*encryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *encryptionConfigurationPtrType) ToEncryptionConfigurationPtrOutput() EncryptionConfigurationPtrOutput {
+	return i.ToEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionConfigurationPtrType) ToEncryptionConfigurationPtrOutputWithContext(ctx context.Context) EncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigurationPtrOutput)
+}
+
+// Definition of CMK for the factory.
+type EncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfiguration)(nil)).Elem()
+}
+
+func (o EncryptionConfigurationOutput) ToEncryptionConfigurationOutput() EncryptionConfigurationOutput {
+	return o
+}
+
+func (o EncryptionConfigurationOutput) ToEncryptionConfigurationOutputWithContext(ctx context.Context) EncryptionConfigurationOutput {
+	return o
+}
+
+func (o EncryptionConfigurationOutput) ToEncryptionConfigurationPtrOutput() EncryptionConfigurationPtrOutput {
+	return o.ToEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigurationOutput) ToEncryptionConfigurationPtrOutputWithContext(ctx context.Context) EncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v EncryptionConfiguration) *EncryptionConfiguration {
+		return &v
+	}).(EncryptionConfigurationPtrOutput)
+}
+
+// User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+func (o EncryptionConfigurationOutput) Identity() CMKIdentityDefinitionPtrOutput {
+	return o.ApplyT(func(v EncryptionConfiguration) *CMKIdentityDefinition { return v.Identity }).(CMKIdentityDefinitionPtrOutput)
+}
+
+// The name of the key in Azure Key Vault to use as Customer Managed Key.
+func (o EncryptionConfigurationOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionConfiguration) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The version of the key used for CMK. If not provided, latest version will be used.
+func (o EncryptionConfigurationOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionConfiguration) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The url of the Azure Key Vault used for CMK.
+func (o EncryptionConfigurationOutput) VaultBaseUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionConfiguration) string { return v.VaultBaseUrl }).(pulumi.StringOutput)
+}
+
+type EncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionConfiguration)(nil)).Elem()
+}
+
+func (o EncryptionConfigurationPtrOutput) ToEncryptionConfigurationPtrOutput() EncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o EncryptionConfigurationPtrOutput) ToEncryptionConfigurationPtrOutputWithContext(ctx context.Context) EncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o EncryptionConfigurationPtrOutput) Elem() EncryptionConfigurationOutput {
+	return o.ApplyT(func(v *EncryptionConfiguration) EncryptionConfiguration { return *v }).(EncryptionConfigurationOutput)
+}
+
+// User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+func (o EncryptionConfigurationPtrOutput) Identity() CMKIdentityDefinitionPtrOutput {
+	return o.ApplyT(func(v *EncryptionConfiguration) *CMKIdentityDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(CMKIdentityDefinitionPtrOutput)
+}
+
+// The name of the key in Azure Key Vault to use as Customer Managed Key.
+func (o EncryptionConfigurationPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the key used for CMK. If not provided, latest version will be used.
+func (o EncryptionConfigurationPtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The url of the Azure Key Vault used for CMK.
+func (o EncryptionConfigurationPtrOutput) VaultBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VaultBaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Definition of CMK for the factory.
+type EncryptionConfigurationResponse struct {
+	// User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+	Identity *CMKIdentityDefinitionResponse `pulumi:"identity"`
+	// The name of the key in Azure Key Vault to use as Customer Managed Key.
+	KeyName string `pulumi:"keyName"`
+	// The version of the key used for CMK. If not provided, latest version will be used.
+	KeyVersion *string `pulumi:"keyVersion"`
+	// The url of the Azure Key Vault used for CMK.
+	VaultBaseUrl string `pulumi:"vaultBaseUrl"`
+}
+
+// EncryptionConfigurationResponseInput is an input type that accepts EncryptionConfigurationResponseArgs and EncryptionConfigurationResponseOutput values.
+// You can construct a concrete instance of `EncryptionConfigurationResponseInput` via:
+//
+//          EncryptionConfigurationResponseArgs{...}
+type EncryptionConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigurationResponseOutput() EncryptionConfigurationResponseOutput
+	ToEncryptionConfigurationResponseOutputWithContext(context.Context) EncryptionConfigurationResponseOutput
+}
+
+// Definition of CMK for the factory.
+type EncryptionConfigurationResponseArgs struct {
+	// User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+	Identity CMKIdentityDefinitionResponsePtrInput `pulumi:"identity"`
+	// The name of the key in Azure Key Vault to use as Customer Managed Key.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The version of the key used for CMK. If not provided, latest version will be used.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	// The url of the Azure Key Vault used for CMK.
+	VaultBaseUrl pulumi.StringInput `pulumi:"vaultBaseUrl"`
+}
+
+func (EncryptionConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfigurationResponse)(nil)).Elem()
+}
+
+func (i EncryptionConfigurationResponseArgs) ToEncryptionConfigurationResponseOutput() EncryptionConfigurationResponseOutput {
+	return i.ToEncryptionConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionConfigurationResponseArgs) ToEncryptionConfigurationResponseOutputWithContext(ctx context.Context) EncryptionConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigurationResponseOutput)
+}
+
+func (i EncryptionConfigurationResponseArgs) ToEncryptionConfigurationResponsePtrOutput() EncryptionConfigurationResponsePtrOutput {
+	return i.ToEncryptionConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionConfigurationResponseArgs) ToEncryptionConfigurationResponsePtrOutputWithContext(ctx context.Context) EncryptionConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigurationResponseOutput).ToEncryptionConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionConfigurationResponsePtrInput is an input type that accepts EncryptionConfigurationResponseArgs, EncryptionConfigurationResponsePtr and EncryptionConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionConfigurationResponsePtrInput` via:
+//
+//          EncryptionConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigurationResponsePtrOutput() EncryptionConfigurationResponsePtrOutput
+	ToEncryptionConfigurationResponsePtrOutputWithContext(context.Context) EncryptionConfigurationResponsePtrOutput
+}
+
+type encryptionConfigurationResponsePtrType EncryptionConfigurationResponseArgs
+
+func EncryptionConfigurationResponsePtr(v *EncryptionConfigurationResponseArgs) EncryptionConfigurationResponsePtrInput {
+	return (*encryptionConfigurationResponsePtrType)(v)
+}
+
+func (*encryptionConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionConfigurationResponse)(nil)).Elem()
+}
+
+func (i *encryptionConfigurationResponsePtrType) ToEncryptionConfigurationResponsePtrOutput() EncryptionConfigurationResponsePtrOutput {
+	return i.ToEncryptionConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionConfigurationResponsePtrType) ToEncryptionConfigurationResponsePtrOutputWithContext(ctx context.Context) EncryptionConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigurationResponsePtrOutput)
+}
+
+// Definition of CMK for the factory.
+type EncryptionConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfigurationResponse)(nil)).Elem()
+}
+
+func (o EncryptionConfigurationResponseOutput) ToEncryptionConfigurationResponseOutput() EncryptionConfigurationResponseOutput {
+	return o
+}
+
+func (o EncryptionConfigurationResponseOutput) ToEncryptionConfigurationResponseOutputWithContext(ctx context.Context) EncryptionConfigurationResponseOutput {
+	return o
+}
+
+func (o EncryptionConfigurationResponseOutput) ToEncryptionConfigurationResponsePtrOutput() EncryptionConfigurationResponsePtrOutput {
+	return o.ToEncryptionConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigurationResponseOutput) ToEncryptionConfigurationResponsePtrOutputWithContext(ctx context.Context) EncryptionConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionConfigurationResponse) *EncryptionConfigurationResponse {
+		return &v
+	}).(EncryptionConfigurationResponsePtrOutput)
+}
+
+// User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+func (o EncryptionConfigurationResponseOutput) Identity() CMKIdentityDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionConfigurationResponse) *CMKIdentityDefinitionResponse { return v.Identity }).(CMKIdentityDefinitionResponsePtrOutput)
+}
+
+// The name of the key in Azure Key Vault to use as Customer Managed Key.
+func (o EncryptionConfigurationResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionConfigurationResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The version of the key used for CMK. If not provided, latest version will be used.
+func (o EncryptionConfigurationResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionConfigurationResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The url of the Azure Key Vault used for CMK.
+func (o EncryptionConfigurationResponseOutput) VaultBaseUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionConfigurationResponse) string { return v.VaultBaseUrl }).(pulumi.StringOutput)
+}
+
+type EncryptionConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionConfigurationResponse)(nil)).Elem()
+}
+
+func (o EncryptionConfigurationResponsePtrOutput) ToEncryptionConfigurationResponsePtrOutput() EncryptionConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionConfigurationResponsePtrOutput) ToEncryptionConfigurationResponsePtrOutputWithContext(ctx context.Context) EncryptionConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionConfigurationResponsePtrOutput) Elem() EncryptionConfigurationResponseOutput {
+	return o.ApplyT(func(v *EncryptionConfigurationResponse) EncryptionConfigurationResponse { return *v }).(EncryptionConfigurationResponseOutput)
+}
+
+// User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
+func (o EncryptionConfigurationResponsePtrOutput) Identity() CMKIdentityDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionConfigurationResponse) *CMKIdentityDefinitionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(CMKIdentityDefinitionResponsePtrOutput)
+}
+
+// The name of the key in Azure Key Vault to use as Customer Managed Key.
+func (o EncryptionConfigurationResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the key used for CMK. If not provided, latest version will be used.
+func (o EncryptionConfigurationResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The url of the Azure Key Vault used for CMK.
+func (o EncryptionConfigurationResponsePtrOutput) VaultBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VaultBaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 // The entity reference.
 type EntityReference struct {
 	// The name of this referenced entity.
@@ -26833,8 +27483,10 @@ func (o FactoryGitHubConfigurationResponseOutput) Type() pulumi.StringOutput {
 
 // Identity properties of the factory resource.
 type FactoryIdentity struct {
-	// The identity type. Currently the only supported type is 'SystemAssigned'.
+	// The identity type.
 	Type string `pulumi:"type"`
+	// List of user assigned identities for the factory.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // FactoryIdentityInput is an input type that accepts FactoryIdentityArgs and FactoryIdentityOutput values.
@@ -26850,8 +27502,10 @@ type FactoryIdentityInput interface {
 
 // Identity properties of the factory resource.
 type FactoryIdentityArgs struct {
-	// The identity type. Currently the only supported type is 'SystemAssigned'.
+	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
+	// List of user assigned identities for the factory.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (FactoryIdentityArgs) ElementType() reflect.Type {
@@ -26932,9 +27586,14 @@ func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context
 	}).(FactoryIdentityPtrOutput)
 }
 
-// The identity type. Currently the only supported type is 'SystemAssigned'.
+// The identity type.
 func (o FactoryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// List of user assigned identities for the factory.
+func (o FactoryIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v FactoryIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
 
 type FactoryIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -26955,7 +27614,7 @@ func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
 	return o.ApplyT(func(v *FactoryIdentity) FactoryIdentity { return *v }).(FactoryIdentityOutput)
 }
 
-// The identity type. Currently the only supported type is 'SystemAssigned'.
+// The identity type.
 func (o FactoryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryIdentity) *string {
 		if v == nil {
@@ -26965,14 +27624,26 @@ func (o FactoryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of user assigned identities for the factory.
+func (o FactoryIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *FactoryIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
 // Identity properties of the factory resource.
 type FactoryIdentityResponse struct {
 	// The principal id of the identity.
 	PrincipalId string `pulumi:"principalId"`
 	// The client tenant id of the identity.
 	TenantId string `pulumi:"tenantId"`
-	// The identity type. Currently the only supported type is 'SystemAssigned'.
+	// The identity type.
 	Type string `pulumi:"type"`
+	// List of user assigned identities for the factory.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // FactoryIdentityResponseInput is an input type that accepts FactoryIdentityResponseArgs and FactoryIdentityResponseOutput values.
@@ -26992,8 +27663,10 @@ type FactoryIdentityResponseArgs struct {
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The client tenant id of the identity.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type. Currently the only supported type is 'SystemAssigned'.
+	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
+	// List of user assigned identities for the factory.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (FactoryIdentityResponseArgs) ElementType() reflect.Type {
@@ -27084,9 +27757,14 @@ func (o FactoryIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type. Currently the only supported type is 'SystemAssigned'.
+// The identity type.
 func (o FactoryIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// List of user assigned identities for the factory.
+func (o FactoryIdentityResponseOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v FactoryIdentityResponse) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
 
 type FactoryIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -27127,7 +27805,7 @@ func (o FactoryIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type. Currently the only supported type is 'SystemAssigned'.
+// The identity type.
 func (o FactoryIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryIdentityResponse) *string {
 		if v == nil {
@@ -27135,6 +27813,16 @@ func (o FactoryIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// List of user assigned identities for the factory.
+func (o FactoryIdentityResponsePtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *FactoryIdentityResponse) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
 }
 
 // Factory's VSTS repo information.
@@ -75896,6 +76584,10 @@ func init() {
 	pulumi.RegisterOutputType(AzureTableStorageLinkedServiceResponseOutput{})
 	pulumi.RegisterOutputType(BinaryDatasetOutput{})
 	pulumi.RegisterOutputType(BinaryDatasetResponseOutput{})
+	pulumi.RegisterOutputType(CMKIdentityDefinitionOutput{})
+	pulumi.RegisterOutputType(CMKIdentityDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(CMKIdentityDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(CMKIdentityDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(CassandraLinkedServiceOutput{})
 	pulumi.RegisterOutputType(CassandraLinkedServiceResponseOutput{})
 	pulumi.RegisterOutputType(CassandraTableDatasetOutput{})
@@ -75994,6 +76686,10 @@ func init() {
 	pulumi.RegisterOutputType(EloquaLinkedServiceResponseOutput{})
 	pulumi.RegisterOutputType(EloquaObjectDatasetOutput{})
 	pulumi.RegisterOutputType(EloquaObjectDatasetResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(EntityReferenceOutput{})
 	pulumi.RegisterOutputType(EntityReferencePtrOutput{})
 	pulumi.RegisterOutputType(EntityReferenceResponseOutput{})

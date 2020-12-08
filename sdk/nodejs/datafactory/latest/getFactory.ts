@@ -43,6 +43,10 @@ export interface GetFactoryResult {
      */
     readonly eTag: string;
     /**
+     * Properties to enable Customer Managed Key for the factory.
+     */
+    readonly encryption?: outputs.datafactory.latest.EncryptionConfigurationResponse;
+    /**
      * List of parameters for factory.
      */
     readonly globalParameters?: {[key: string]: outputs.datafactory.latest.GlobalParameterSpecificationResponse};

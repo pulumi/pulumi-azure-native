@@ -60,6 +60,10 @@ export class OriginGroup extends pulumi.CustomResource {
      */
     public readonly responseBasedOriginErrorDetectionSettings!: pulumi.Output<outputs.cdn.latest.ResponseBasedOriginErrorDetectionParametersResponse | undefined>;
     /**
+     * Read only system data
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.latest.SystemDataResponse>;
+    /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */
     public readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes!: pulumi.Output<number | undefined>;
@@ -104,6 +108,7 @@ export class OriginGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["healthProbeSettings"] = undefined /*out*/;
@@ -112,6 +117,7 @@ export class OriginGroup extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["responseBasedOriginErrorDetectionSettings"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -122,7 +128,7 @@ export class OriginGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20191231:OriginGroup" }, { type: "azure-nextgen:cdn/v20200331:OriginGroup" }, { type: "azure-nextgen:cdn/v20200415:OriginGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20191231:OriginGroup" }, { type: "azure-nextgen:cdn/v20200331:OriginGroup" }, { type: "azure-nextgen:cdn/v20200415:OriginGroup" }, { type: "azure-nextgen:cdn/v20200901:OriginGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OriginGroup.__pulumiType, name, inputs, opts);
     }

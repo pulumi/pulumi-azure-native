@@ -23,7 +23,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         /// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         /// Backup is VMAppContainer
         /// </summary>
-        public readonly string? ContainerType;
+        public readonly string ContainerType;
         /// <summary>
         /// Extended information (not returned in List container API calls)
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
         private GenericContainerResponse(
             string? backupManagementType,
 
-            string? containerType,
+            string containerType,
 
             Outputs.GenericContainerExtendedInfoResponse? extendedInformation,
 

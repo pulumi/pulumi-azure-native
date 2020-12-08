@@ -52,6 +52,18 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
         /// </summary>
         public readonly string? ConditionVersion;
         /// <summary>
+        /// Id of the user who created the assignment
+        /// </summary>
+        public readonly string? CreatedBy;
+        /// <summary>
+        /// Time it was created
+        /// </summary>
+        public readonly string? CreatedOn;
+        /// <summary>
+        /// Id of the delegated managed identity resource
+        /// </summary>
+        public readonly string? DelegatedManagedIdentityResourceId;
+        /// <summary>
         /// Description of role assignment
         /// </summary>
         public readonly string? Description;
@@ -79,6 +91,14 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
         /// The role assignment type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Id of the user who updated the assignment
+        /// </summary>
+        public readonly string? UpdatedBy;
+        /// <summary>
+        /// Time it was updated
+        /// </summary>
+        public readonly string? UpdatedOn;
 
         [OutputConstructor]
         private GetRoleAssignmentResult(
@@ -87,6 +107,12 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
             string? condition,
 
             string? conditionVersion,
+
+            string? createdBy,
+
+            string? createdOn,
+
+            string? delegatedManagedIdentityResourceId,
 
             string? description,
 
@@ -100,11 +126,18 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
 
             string? scope,
 
-            string type)
+            string type,
+
+            string? updatedBy,
+
+            string? updatedOn)
         {
             CanDelegate = canDelegate;
             Condition = condition;
             ConditionVersion = conditionVersion;
+            CreatedBy = createdBy;
+            CreatedOn = createdOn;
+            DelegatedManagedIdentityResourceId = delegatedManagedIdentityResourceId;
             Description = description;
             Name = name;
             PrincipalId = principalId;
@@ -112,6 +145,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
             RoleDefinitionId = roleDefinitionId;
             Scope = scope;
             Type = type;
+            UpdatedBy = updatedBy;
+            UpdatedOn = updatedOn;
         }
     }
 }

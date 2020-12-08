@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The messages that describe why a resource is non-compliant with the policy.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NonComplianceMessageResponse> NonComplianceMessages;
+        /// <summary>
         /// The policy's excluded scopes.
         /// </summary>
         public readonly ImmutableArray<string> NotScopes;
@@ -82,11 +86,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// <summary>
         /// The scope for the policy assignment.
         /// </summary>
-        public readonly string? Scope;
-        /// <summary>
-        /// The policy sku. This property is optional, obsolete, and will be ignored.
-        /// </summary>
-        public readonly Outputs.PolicySkuResponse? Sku;
+        public readonly string Scope;
         /// <summary>
         /// The type of the policy assignment.
         /// </summary>
@@ -108,15 +108,15 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 
             string name,
 
+            ImmutableArray<Outputs.NonComplianceMessageResponse> nonComplianceMessages,
+
             ImmutableArray<string> notScopes,
 
             ImmutableDictionary<string, Outputs.ParameterValuesValueResponse>? parameters,
 
             string? policyDefinitionId,
 
-            string? scope,
-
-            Outputs.PolicySkuResponse? sku,
+            string scope,
 
             string type)
         {
@@ -127,11 +127,11 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
             Location = location;
             Metadata = metadata;
             Name = name;
+            NonComplianceMessages = nonComplianceMessages;
             NotScopes = notScopes;
             Parameters = parameters;
             PolicyDefinitionId = policyDefinitionId;
             Scope = scope;
-            Sku = sku;
             Type = type;
         }
     }

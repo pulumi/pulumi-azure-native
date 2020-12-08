@@ -56,7 +56,7 @@ export interface GetElasticPoolResult {
      */
     readonly location: string;
     /**
-     * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+     * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
      */
     readonly maintenanceConfigurationId?: string;
     /**

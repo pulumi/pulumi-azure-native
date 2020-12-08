@@ -26,6 +26,8 @@ type AgentPool struct {
 	Os pulumi.StringPtrOutput `pulumi:"os"`
 	// The provisioning state of this agent pool
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Tier of agent machine
@@ -86,6 +88,8 @@ type agentPoolState struct {
 	Os *string `pulumi:"os"`
 	// The provisioning state of this agent pool
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Tier of agent machine
@@ -107,6 +111,8 @@ type AgentPoolState struct {
 	Os pulumi.StringPtrInput
 	// The provisioning state of this agent pool
 	ProvisioningState pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The Tier of agent machine

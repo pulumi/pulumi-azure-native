@@ -77,7 +77,10 @@ class ImportPipeline(pulumi.CustomResource):
             __props__['trigger'] = trigger
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:ImportPipeline")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ImportPipeline, __self__).__init__(
             'azure-nextgen:containerregistry/v20191201preview:ImportPipeline',
             resource_name,
@@ -149,6 +152,14 @@ class ImportPipeline(pulumi.CustomResource):
         The source properties of the import pipeline.
         """
         return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

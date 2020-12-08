@@ -18,6 +18,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_network_access_for_ingestion: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,7 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: The ETag of the workspace.
+        :param pulumi.Input[bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] provisioning_state: The provisioning state of the workspace.
         :param pulumi.Input[str] public_network_access_for_ingestion: The network access type for accessing Log Analytics ingestion.
@@ -66,6 +68,7 @@ class Workspace(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
+            __props__['force_cmk_for_query'] = force_cmk_for_query
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -86,7 +89,7 @@ class Workspace(pulumi.CustomResource):
             __props__['name'] = None
             __props__['private_link_scoped_resources'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20201001:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-nextgen:operationalinsights/latest:Workspace',
@@ -127,6 +130,14 @@ class Workspace(pulumi.CustomResource):
         The ETag of the workspace.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter(name="forceCmkForQuery")
+    def force_cmk_for_query(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether customer managed storage is mandatory for query management.
+        """
+        return pulumi.get(self, "force_cmk_for_query")
 
     @property
     @pulumi.getter

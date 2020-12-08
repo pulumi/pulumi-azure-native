@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest.Inputs
         /// Contains information about the package being shipped by the customer to the Microsoft data center. 
         /// </summary>
         [Input("deliveryPackage")]
-        public Input<Inputs.PackageInformationArgs>? DeliveryPackage { get; set; }
+        public Input<Inputs.DeliveryPackageInformationArgs>? DeliveryPackage { get; set; }
 
         /// <summary>
         /// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.

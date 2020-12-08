@@ -111,7 +111,7 @@ export class ProtectedItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160601:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190513:ProtectedItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160601:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190513:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectedItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectedItem.__pulumiType, name, inputs, opts);
     }

@@ -14,12 +14,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Outputs
     public sealed class LongTermSchedulePolicyResponse
     {
         /// <summary>
-        /// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// </summary>
-        public readonly string? SchedulePolicyType;
+        public readonly string SchedulePolicyType;
 
         [OutputConstructor]
-        private LongTermSchedulePolicyResponse(string? schedulePolicyType)
+        private LongTermSchedulePolicyResponse(string schedulePolicyType)
         {
             SchedulePolicyType = schedulePolicyType;
         }

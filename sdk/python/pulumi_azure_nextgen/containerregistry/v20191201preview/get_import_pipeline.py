@@ -20,7 +20,7 @@ class GetImportPipelineResult:
     """
     An object that represents an import pipeline for a container registry.
     """
-    def __init__(__self__, identity=None, location=None, name=None, options=None, provisioning_state=None, source=None, trigger=None, type=None):
+    def __init__(__self__, identity=None, location=None, name=None, options=None, provisioning_state=None, source=None, system_data=None, trigger=None, type=None):
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -39,6 +39,9 @@ class GetImportPipelineResult:
         if source and not isinstance(source, dict):
             raise TypeError("Expected argument 'source' to be a dict")
         pulumi.set(__self__, "source", source)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if trigger and not isinstance(trigger, dict):
             raise TypeError("Expected argument 'trigger' to be a dict")
         pulumi.set(__self__, "trigger", trigger)
@@ -95,6 +98,14 @@ class GetImportPipelineResult:
         return pulumi.get(self, "source")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def trigger(self) -> Optional['outputs.PipelineTriggerPropertiesResponse']:
         """
@@ -123,6 +134,7 @@ class AwaitableGetImportPipelineResult(GetImportPipelineResult):
             options=self.options,
             provisioning_state=self.provisioning_state,
             source=self.source,
+            system_data=self.system_data,
             trigger=self.trigger,
             type=self.type)
 
@@ -155,5 +167,6 @@ def get_import_pipeline(import_pipeline_name: Optional[str] = None,
         options=__ret__.options,
         provisioning_state=__ret__.provisioning_state,
         source=__ret__.source,
+        system_data=__ret__.system_data,
         trigger=__ret__.trigger,
         type=__ret__.type)

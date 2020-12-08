@@ -31,18 +31,32 @@ type LookupConnectedClusterResult struct {
 	AgentPublicKeyCertificate string `pulumi:"agentPublicKeyCertificate"`
 	// Version of the agent running on the connected cluster resource
 	AgentVersion string `pulumi:"agentVersion"`
+	// Represents the connectivity status of the connected cluster.
+	ConnectivityStatus *string `pulumi:"connectivityStatus"`
+	// The Kubernetes distribution running on this connected cluster.
+	Distribution *string `pulumi:"distribution"`
 	// The identity of the connected cluster.
 	Identity ConnectedClusterIdentityResponse `pulumi:"identity"`
+	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+	Infrastructure *string `pulumi:"infrastructure"`
 	// The Kubernetes version of the connected cluster resource
 	KubernetesVersion string `pulumi:"kubernetesVersion"`
+	// Time representing the last instance when heart beat was received from the cluster
+	LastConnectivityTime string `pulumi:"lastConnectivityTime"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// Expiration time of the managed identity certificate
+	ManagedIdentityCertificateExpirationTime string `pulumi:"managedIdentityCertificateExpirationTime"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// Connected cluster offering
+	Offering string `pulumi:"offering"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Number of CPU cores present in the connected cluster resource
+	TotalCoreCount int `pulumi:"totalCoreCount"`
 	// Number of nodes present in the connected cluster resource
 	TotalNodeCount int `pulumi:"totalNodeCount"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -17,15 +17,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Outputs
         /// Algorithm to use for URL signing
         /// </summary>
         public readonly string? Algorithm;
-        /// <summary>
-        /// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
-        /// </summary>
-        public readonly ImmutableArray<string> IpSubnets;
-        /// <summary>
-        /// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
-        /// </summary>
-        public readonly string KeyId;
-        public readonly string? OdataType;
+        public readonly string OdataType;
         /// <summary>
         /// Defines which query string parameters in the url to be considered for expires, key id etc. 
         /// </summary>
@@ -35,17 +27,11 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Outputs
         private UrlSigningActionParametersResponse(
             string? algorithm,
 
-            ImmutableArray<string> ipSubnets,
-
-            string keyId,
-
-            string? odataType,
+            string odataType,
 
             ImmutableArray<Outputs.UrlSigningParamIdentifierResponse> parameterNameOverride)
         {
             Algorithm = algorithm;
-            IpSubnets = ipSubnets;
-            KeyId = keyId;
             OdataType = odataType;
             ParameterNameOverride = parameterNameOverride;
         }

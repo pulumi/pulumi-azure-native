@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:SyncGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

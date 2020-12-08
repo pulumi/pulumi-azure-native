@@ -79,7 +79,11 @@ class Cluster(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['associated_workspaces'] = None
+            __props__['capacity_reservation_properties'] = None
             __props__['cluster_id'] = None
+            __props__['created_date'] = None
+            __props__['last_modified_date'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
@@ -110,6 +114,14 @@ class Cluster(pulumi.CustomResource):
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="associatedWorkspaces")
+    def associated_workspaces(self) -> pulumi.Output[Optional[Sequence['outputs.AssociatedWorkspaceResponse']]]:
+        """
+        The list of Log Analytics workspaces associated with the cluster
+        """
+        return pulumi.get(self, "associated_workspaces")
+
+    @property
     @pulumi.getter(name="billingType")
     def billing_type(self) -> pulumi.Output[Optional[str]]:
         """
@@ -118,12 +130,28 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "billing_type")
 
     @property
+    @pulumi.getter(name="capacityReservationProperties")
+    def capacity_reservation_properties(self) -> pulumi.Output[Optional['outputs.CapacityReservationPropertiesResponse']]:
+        """
+        Additional properties for capacity reservation
+        """
+        return pulumi.get(self, "capacity_reservation_properties")
+
+    @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[str]:
         """
         The ID associated with the cluster.
         """
         return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> pulumi.Output[str]:
+        """
+        The cluster creation time
+        """
+        return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
@@ -156,6 +184,14 @@ class Cluster(pulumi.CustomResource):
         The associated key properties.
         """
         return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter(name="lastModifiedDate")
+    def last_modified_date(self) -> pulumi.Output[str]:
+        """
+        The last time the cluster was updated.
+        """
+        return pulumi.get(self, "last_modified_date")
 
     @property
     @pulumi.getter

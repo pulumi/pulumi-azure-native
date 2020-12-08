@@ -50,7 +50,7 @@ export interface GetStreamingJobResult {
     /**
      * Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
      */
-    readonly contentStoragePolicy: string;
+    readonly contentStoragePolicy?: string;
     /**
      * Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
      */

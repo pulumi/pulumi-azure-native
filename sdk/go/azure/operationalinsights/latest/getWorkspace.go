@@ -29,6 +29,8 @@ type LookupWorkspaceResult struct {
 	CustomerId string `pulumi:"customerId"`
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
+	// Indicates whether customer managed storage is mandatory for query management.
+	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

@@ -3970,10 +3970,14 @@ func (o ParameterDefinitionsValueMapOutput) MapIndex(k pulumi.StringInput) Param
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueMetadata struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions *bool `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description *string `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName *string `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType *string `pulumi:"strongType"`
 }
 
 // ParameterDefinitionsValueMetadataInput is an input type that accepts ParameterDefinitionsValueMetadataArgs and ParameterDefinitionsValueMetadataOutput values.
@@ -3989,10 +3993,14 @@ type ParameterDefinitionsValueMetadataInput interface {
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueMetadataArgs struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions pulumi.BoolPtrInput `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
 }
 
 func (ParameterDefinitionsValueMetadataArgs) ElementType() reflect.Type {
@@ -4073,6 +4081,11 @@ func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMeta
 	}).(ParameterDefinitionsValueMetadataPtrOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueMetadataOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *bool { return v.AssignPermissions }).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueMetadataOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -4081,6 +4094,11 @@ func (o ParameterDefinitionsValueMetadataOutput) Description() pulumi.StringPtrO
 // The display name for the parameter.
 func (o ParameterDefinitionsValueMetadataOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueMetadataOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
 
 type ParameterDefinitionsValueMetadataPtrOutput struct{ *pulumi.OutputState }
@@ -4101,6 +4119,16 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) Elem() ParameterDefinitionsV
 	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) ParameterDefinitionsValueMetadata { return *v }).(ParameterDefinitionsValueMetadataOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueMetadataPtrOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AssignPermissions
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueMetadataPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
@@ -4118,6 +4146,16 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) DisplayName() pulumi.StringP
 			return nil
 		}
 		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueMetadataPtrOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StrongType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4252,10 +4290,14 @@ func (o ParameterDefinitionsValueResponseMapOutput) MapIndex(k pulumi.StringInpu
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueResponseMetadata struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions *bool `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description *string `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName *string `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType *string `pulumi:"strongType"`
 }
 
 // ParameterDefinitionsValueResponseMetadataInput is an input type that accepts ParameterDefinitionsValueResponseMetadataArgs and ParameterDefinitionsValueResponseMetadataOutput values.
@@ -4271,10 +4313,14 @@ type ParameterDefinitionsValueResponseMetadataInput interface {
 
 // General metadata for the parameter.
 type ParameterDefinitionsValueResponseMetadataArgs struct {
+	// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+	AssignPermissions pulumi.BoolPtrInput `pulumi:"assignPermissions"`
 	// The description of the parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The display name for the parameter.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
 }
 
 func (ParameterDefinitionsValueResponseMetadataArgs) ElementType() reflect.Type {
@@ -4355,6 +4401,11 @@ func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsV
 	}).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueResponseMetadataOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *bool { return v.AssignPermissions }).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueResponseMetadataOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -4363,6 +4414,11 @@ func (o ParameterDefinitionsValueResponseMetadataOutput) Description() pulumi.St
 // The display name for the parameter.
 func (o ParameterDefinitionsValueResponseMetadataOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueResponseMetadataOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
 
 type ParameterDefinitionsValueResponseMetadataPtrOutput struct{ *pulumi.OutputState }
@@ -4385,6 +4441,16 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Elem() ParameterDefi
 	}).(ParameterDefinitionsValueResponseMetadataOutput)
 }
 
+// Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) AssignPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AssignPermissions
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The description of the parameter.
 func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
@@ -4402,6 +4468,16 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) DisplayName() pulumi
 			return nil
 		}
 		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StrongType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5609,6 +5685,124 @@ func (o PolicyDefinitionReferenceResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PolicyDefinitionReferenceResponseOutput)
 }
 
+// The provider extended location.
+type ProviderExtendedLocationResponse struct {
+	// The extended locations for the azure location.
+	ExtendedLocations []string `pulumi:"extendedLocations"`
+	// The azure location.
+	Location *string `pulumi:"location"`
+	// The extended location type.
+	Type *string `pulumi:"type"`
+}
+
+// ProviderExtendedLocationResponseInput is an input type that accepts ProviderExtendedLocationResponseArgs and ProviderExtendedLocationResponseOutput values.
+// You can construct a concrete instance of `ProviderExtendedLocationResponseInput` via:
+//
+//          ProviderExtendedLocationResponseArgs{...}
+type ProviderExtendedLocationResponseInput interface {
+	pulumi.Input
+
+	ToProviderExtendedLocationResponseOutput() ProviderExtendedLocationResponseOutput
+	ToProviderExtendedLocationResponseOutputWithContext(context.Context) ProviderExtendedLocationResponseOutput
+}
+
+// The provider extended location.
+type ProviderExtendedLocationResponseArgs struct {
+	// The extended locations for the azure location.
+	ExtendedLocations pulumi.StringArrayInput `pulumi:"extendedLocations"`
+	// The azure location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The extended location type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ProviderExtendedLocationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ProviderExtendedLocationResponseArgs) ToProviderExtendedLocationResponseOutput() ProviderExtendedLocationResponseOutput {
+	return i.ToProviderExtendedLocationResponseOutputWithContext(context.Background())
+}
+
+func (i ProviderExtendedLocationResponseArgs) ToProviderExtendedLocationResponseOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderExtendedLocationResponseOutput)
+}
+
+// ProviderExtendedLocationResponseArrayInput is an input type that accepts ProviderExtendedLocationResponseArray and ProviderExtendedLocationResponseArrayOutput values.
+// You can construct a concrete instance of `ProviderExtendedLocationResponseArrayInput` via:
+//
+//          ProviderExtendedLocationResponseArray{ ProviderExtendedLocationResponseArgs{...} }
+type ProviderExtendedLocationResponseArrayInput interface {
+	pulumi.Input
+
+	ToProviderExtendedLocationResponseArrayOutput() ProviderExtendedLocationResponseArrayOutput
+	ToProviderExtendedLocationResponseArrayOutputWithContext(context.Context) ProviderExtendedLocationResponseArrayOutput
+}
+
+type ProviderExtendedLocationResponseArray []ProviderExtendedLocationResponseInput
+
+func (ProviderExtendedLocationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ProviderExtendedLocationResponseArray) ToProviderExtendedLocationResponseArrayOutput() ProviderExtendedLocationResponseArrayOutput {
+	return i.ToProviderExtendedLocationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ProviderExtendedLocationResponseArray) ToProviderExtendedLocationResponseArrayOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderExtendedLocationResponseArrayOutput)
+}
+
+// The provider extended location.
+type ProviderExtendedLocationResponseOutput struct{ *pulumi.OutputState }
+
+func (ProviderExtendedLocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ProviderExtendedLocationResponseOutput) ToProviderExtendedLocationResponseOutput() ProviderExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ProviderExtendedLocationResponseOutput) ToProviderExtendedLocationResponseOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseOutput {
+	return o
+}
+
+// The extended locations for the azure location.
+func (o ProviderExtendedLocationResponseOutput) ExtendedLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProviderExtendedLocationResponse) []string { return v.ExtendedLocations }).(pulumi.StringArrayOutput)
+}
+
+// The azure location.
+func (o ProviderExtendedLocationResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderExtendedLocationResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The extended location type.
+func (o ProviderExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ProviderExtendedLocationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProviderExtendedLocationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ProviderExtendedLocationResponseArrayOutput) ToProviderExtendedLocationResponseArrayOutput() ProviderExtendedLocationResponseArrayOutput {
+	return o
+}
+
+func (o ProviderExtendedLocationResponseArrayOutput) ToProviderExtendedLocationResponseArrayOutputWithContext(ctx context.Context) ProviderExtendedLocationResponseArrayOutput {
+	return o
+}
+
+func (o ProviderExtendedLocationResponseArrayOutput) Index(i pulumi.IntInput) ProviderExtendedLocationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderExtendedLocationResponse {
+		return vs[0].([]ProviderExtendedLocationResponse)[vs[1].(int)]
+	}).(ProviderExtendedLocationResponseOutput)
+}
+
 // Resource type managed by the resource provider.
 type ProviderResourceTypeResponse struct {
 	// The aliases that are supported by this resource type.
@@ -5621,6 +5815,8 @@ type ProviderResourceTypeResponse struct {
 	Capabilities *string `pulumi:"capabilities"`
 	// The default API version.
 	DefaultApiVersion string `pulumi:"defaultApiVersion"`
+	// The location mappings that are supported by this resource type.
+	LocationMappings []ProviderExtendedLocationResponse `pulumi:"locationMappings"`
 	// The collection of locations where this resource type can be created.
 	Locations []string `pulumi:"locations"`
 	// The properties.
@@ -5652,6 +5848,8 @@ type ProviderResourceTypeResponseArgs struct {
 	Capabilities pulumi.StringPtrInput `pulumi:"capabilities"`
 	// The default API version.
 	DefaultApiVersion pulumi.StringInput `pulumi:"defaultApiVersion"`
+	// The location mappings that are supported by this resource type.
+	LocationMappings ProviderExtendedLocationResponseArrayInput `pulumi:"locationMappings"`
 	// The collection of locations where this resource type can be created.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 	// The properties.
@@ -5735,6 +5933,11 @@ func (o ProviderResourceTypeResponseOutput) Capabilities() pulumi.StringPtrOutpu
 // The default API version.
 func (o ProviderResourceTypeResponseOutput) DefaultApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) string { return v.DefaultApiVersion }).(pulumi.StringOutput)
+}
+
+// The location mappings that are supported by this resource type.
+func (o ProviderResourceTypeResponseOutput) LocationMappings() ProviderExtendedLocationResponseArrayOutput {
+	return o.ApplyT(func(v ProviderResourceTypeResponse) []ProviderExtendedLocationResponse { return v.LocationMappings }).(ProviderExtendedLocationResponseArrayOutput)
 }
 
 // The collection of locations where this resource type can be created.
@@ -6014,7 +6217,9 @@ type TemplateLink struct {
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The resource id of a Template Spec. Use either the id or uri property, but not both.
 	Id *string `pulumi:"id"`
-	// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+	// The query string (for example, a SAS token) to be used with the templateLink URI.
+	QueryString *string `pulumi:"queryString"`
+	// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 	RelativePath *string `pulumi:"relativePath"`
 	// The URI of the template to deploy. Use either the uri or id property, but not both.
 	Uri *string `pulumi:"uri"`
@@ -6037,7 +6242,9 @@ type TemplateLinkArgs struct {
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The resource id of a Template Spec. Use either the id or uri property, but not both.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+	// The query string (for example, a SAS token) to be used with the templateLink URI.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
 	// The URI of the template to deploy. Use either the uri or id property, but not both.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -6131,7 +6338,12 @@ func (o TemplateLinkOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLink) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+// The query string (for example, a SAS token) to be used with the templateLink URI.
+func (o TemplateLinkOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateLink) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 func (o TemplateLinkOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLink) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
 }
@@ -6179,7 +6391,17 @@ func (o TemplateLinkPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+// The query string (for example, a SAS token) to be used with the templateLink URI.
+func (o TemplateLinkPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLink) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 func (o TemplateLinkPtrOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateLink) *string {
 		if v == nil {
@@ -6205,7 +6427,9 @@ type TemplateLinkResponse struct {
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The resource id of a Template Spec. Use either the id or uri property, but not both.
 	Id *string `pulumi:"id"`
-	// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+	// The query string (for example, a SAS token) to be used with the templateLink URI.
+	QueryString *string `pulumi:"queryString"`
+	// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 	RelativePath *string `pulumi:"relativePath"`
 	// The URI of the template to deploy. Use either the uri or id property, but not both.
 	Uri *string `pulumi:"uri"`
@@ -6228,7 +6452,9 @@ type TemplateLinkResponseArgs struct {
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The resource id of a Template Spec. Use either the id or uri property, but not both.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+	// The query string (for example, a SAS token) to be used with the templateLink URI.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
 	// The URI of the template to deploy. Use either the uri or id property, but not both.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -6322,7 +6548,12 @@ func (o TemplateLinkResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLinkResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+// The query string (for example, a SAS token) to be used with the templateLink URI.
+func (o TemplateLinkResponseOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateLinkResponse) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 func (o TemplateLinkResponseOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLinkResponse) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
 }
@@ -6370,7 +6601,17 @@ func (o TemplateLinkResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+// The query string (for example, a SAS token) to be used with the templateLink URI.
+func (o TemplateLinkResponsePtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLinkResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
 func (o TemplateLinkResponsePtrOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateLinkResponse) *string {
 		if v == nil {
@@ -6465,6 +6706,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(ProviderExtendedLocationResponseOutput{})
+	pulumi.RegisterOutputType(ProviderExtendedLocationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProviderResourceTypeResponseOutput{})
 	pulumi.RegisterOutputType(ProviderResourceTypeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProviderResponseOutput{})

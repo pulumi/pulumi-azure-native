@@ -98,6 +98,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

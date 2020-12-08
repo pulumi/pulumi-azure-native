@@ -42,12 +42,15 @@ __all__ = [
 @pulumi.input_type
 class ArmIdentityArgs:
     def __init__(__self__, *,
-                 identity_type: Optional[pulumi.Input[str]] = None):
+                 identity_type: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         :param pulumi.Input[str] identity_type: Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
         """
         if identity_type is not None:
             pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="identityType")
@@ -60,6 +63,15 @@ class ArmIdentityArgs:
     @identity_type.setter
     def identity_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type

@@ -123,6 +123,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Registry"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:Registry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

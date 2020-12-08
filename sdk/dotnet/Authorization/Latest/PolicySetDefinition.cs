@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190601:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190901:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200901:PolicySetDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

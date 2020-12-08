@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will be rolled out.
+        /// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         /// </summary>
         public readonly string? MaintenanceConfigurationId;
         /// <summary>

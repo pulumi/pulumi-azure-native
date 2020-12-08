@@ -20,13 +20,22 @@ class GetClusterResult:
     """
     The top level Log Analytics cluster resource container.
     """
-    def __init__(__self__, billing_type=None, cluster_id=None, identity=None, is_availability_zones_enabled=None, is_double_encryption_enabled=None, key_vault_properties=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, associated_workspaces=None, billing_type=None, capacity_reservation_properties=None, cluster_id=None, created_date=None, identity=None, is_availability_zones_enabled=None, is_double_encryption_enabled=None, key_vault_properties=None, last_modified_date=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+        if associated_workspaces and not isinstance(associated_workspaces, list):
+            raise TypeError("Expected argument 'associated_workspaces' to be a list")
+        pulumi.set(__self__, "associated_workspaces", associated_workspaces)
         if billing_type and not isinstance(billing_type, str):
             raise TypeError("Expected argument 'billing_type' to be a str")
         pulumi.set(__self__, "billing_type", billing_type)
+        if capacity_reservation_properties and not isinstance(capacity_reservation_properties, dict):
+            raise TypeError("Expected argument 'capacity_reservation_properties' to be a dict")
+        pulumi.set(__self__, "capacity_reservation_properties", capacity_reservation_properties)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -39,6 +48,9 @@ class GetClusterResult:
         if key_vault_properties and not isinstance(key_vault_properties, dict):
             raise TypeError("Expected argument 'key_vault_properties' to be a dict")
         pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if last_modified_date and not isinstance(last_modified_date, str):
+            raise TypeError("Expected argument 'last_modified_date' to be a str")
+        pulumi.set(__self__, "last_modified_date", last_modified_date)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -59,6 +71,14 @@ class GetClusterResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="associatedWorkspaces")
+    def associated_workspaces(self) -> Optional[Sequence['outputs.AssociatedWorkspaceResponse']]:
+        """
+        The list of Log Analytics workspaces associated with the cluster
+        """
+        return pulumi.get(self, "associated_workspaces")
+
+    @property
     @pulumi.getter(name="billingType")
     def billing_type(self) -> Optional[str]:
         """
@@ -67,12 +87,28 @@ class GetClusterResult:
         return pulumi.get(self, "billing_type")
 
     @property
+    @pulumi.getter(name="capacityReservationProperties")
+    def capacity_reservation_properties(self) -> Optional['outputs.CapacityReservationPropertiesResponse']:
+        """
+        Additional properties for capacity reservation
+        """
+        return pulumi.get(self, "capacity_reservation_properties")
+
+    @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> str:
         """
         The ID associated with the cluster.
         """
         return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The cluster creation time
+        """
+        return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
@@ -105,6 +141,14 @@ class GetClusterResult:
         The associated key properties.
         """
         return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter(name="lastModifiedDate")
+    def last_modified_date(self) -> str:
+        """
+        The last time the cluster was updated.
+        """
+        return pulumi.get(self, "last_modified_date")
 
     @property
     @pulumi.getter
@@ -161,12 +205,16 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            associated_workspaces=self.associated_workspaces,
             billing_type=self.billing_type,
+            capacity_reservation_properties=self.capacity_reservation_properties,
             cluster_id=self.cluster_id,
+            created_date=self.created_date,
             identity=self.identity,
             is_availability_zones_enabled=self.is_availability_zones_enabled,
             is_double_encryption_enabled=self.is_double_encryption_enabled,
             key_vault_properties=self.key_vault_properties,
+            last_modified_date=self.last_modified_date,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -194,12 +242,16 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:operationalinsights/v20201001:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
+        associated_workspaces=__ret__.associated_workspaces,
         billing_type=__ret__.billing_type,
+        capacity_reservation_properties=__ret__.capacity_reservation_properties,
         cluster_id=__ret__.cluster_id,
+        created_date=__ret__.created_date,
         identity=__ret__.identity,
         is_availability_zones_enabled=__ret__.is_availability_zones_enabled,
         is_double_encryption_enabled=__ret__.is_double_encryption_enabled,
         key_vault_properties=__ret__.key_vault_properties,
+        last_modified_date=__ret__.last_modified_date,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

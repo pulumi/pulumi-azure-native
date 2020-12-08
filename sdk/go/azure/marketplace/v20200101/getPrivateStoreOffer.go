@@ -30,7 +30,7 @@ type LookupPrivateStoreOfferResult struct {
 	// Identifier for purposes of race condition
 	ETag *string `pulumi:"eTag"`
 	// Icon File Uris
-	IconFileUris *OfferPropertiesResponseIconFileUris `pulumi:"iconFileUris"`
+	IconFileUris map[string]string `pulumi:"iconFileUris"`
 	// Private store offer modification date
 	ModifiedAt string `pulumi:"modifiedAt"`
 	// The name of the resource.

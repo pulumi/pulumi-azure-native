@@ -20,7 +20,7 @@ class GetPipelineRunResult:
     """
     An object that represents a pipeline run for a container registry.
     """
-    def __init__(__self__, force_update_tag=None, name=None, provisioning_state=None, request=None, response=None, type=None):
+    def __init__(__self__, force_update_tag=None, name=None, provisioning_state=None, request=None, response=None, system_data=None, type=None):
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
@@ -36,6 +36,9 @@ class GetPipelineRunResult:
         if response and not isinstance(response, dict):
             raise TypeError("Expected argument 'response' to be a dict")
         pulumi.set(__self__, "response", response)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -81,6 +84,14 @@ class GetPipelineRunResult:
         return pulumi.get(self, "response")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -100,6 +111,7 @@ class AwaitableGetPipelineRunResult(GetPipelineRunResult):
             provisioning_state=self.provisioning_state,
             request=self.request,
             response=self.response,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -130,4 +142,5 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         request=__ret__.request,
         response=__ret__.response,
+        system_data=__ret__.system_data,
         type=__ret__.type)

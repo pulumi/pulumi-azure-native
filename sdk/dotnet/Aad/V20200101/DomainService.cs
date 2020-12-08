@@ -63,6 +63,12 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Migration Properties
+        /// </summary>
+        [Output("migrationProperties")]
+        public Output<Outputs.MigrationPropertiesResponse?> MigrationProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
@@ -226,6 +232,12 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Migration Properties
+        /// </summary>
+        [Input("migrationProperties")]
+        public Input<Inputs.MigrationPropertiesArgs>? MigrationProperties { get; set; }
 
         /// <summary>
         /// Notification Settings

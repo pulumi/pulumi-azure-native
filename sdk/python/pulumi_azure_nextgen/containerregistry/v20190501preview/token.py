@@ -70,7 +70,10 @@ class Token(pulumi.CustomResource):
             __props__['creation_date'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:Token")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Token, __self__).__init__(
             'azure-nextgen:containerregistry/v20190501preview:Token',
             resource_name,
@@ -142,6 +145,14 @@ class Token(pulumi.CustomResource):
         The status of the token example enabled or disabled.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

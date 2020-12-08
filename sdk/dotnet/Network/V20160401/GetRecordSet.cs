@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Network.V20160401
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified domain name of the record set.
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
         /// The metadata attached to the record set.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Metadata;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNextGen.Network.V20160401
 
             string? etag,
 
+            string fqdn,
+
             ImmutableDictionary<string, string>? metadata,
 
             ImmutableArray<Outputs.MxRecordResponse> mxRecords,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNextGen.Network.V20160401
             AaaaRecords = aaaaRecords;
             CnameRecord = cnameRecord;
             Etag = etag;
+            Fqdn = fqdn;
             Metadata = metadata;
             MxRecords = mxRecords;
             Name = name;

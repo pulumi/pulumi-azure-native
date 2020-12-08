@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -59,6 +60,10 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
+     * Read only system data
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.latest.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -102,6 +107,7 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["validationData"] = undefined /*out*/;
         } else {
@@ -111,6 +117,7 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["validationData"] = undefined /*out*/;
         }
@@ -121,7 +128,7 @@ export class CustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:CustomDomain" }, { type: "azure-nextgen:cdn/v20160402:CustomDomain" }, { type: "azure-nextgen:cdn/v20161002:CustomDomain" }, { type: "azure-nextgen:cdn/v20170402:CustomDomain" }, { type: "azure-nextgen:cdn/v20171012:CustomDomain" }, { type: "azure-nextgen:cdn/v20190415:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615preview:CustomDomain" }, { type: "azure-nextgen:cdn/v20191231:CustomDomain" }, { type: "azure-nextgen:cdn/v20200331:CustomDomain" }, { type: "azure-nextgen:cdn/v20200415:CustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:CustomDomain" }, { type: "azure-nextgen:cdn/v20160402:CustomDomain" }, { type: "azure-nextgen:cdn/v20161002:CustomDomain" }, { type: "azure-nextgen:cdn/v20170402:CustomDomain" }, { type: "azure-nextgen:cdn/v20171012:CustomDomain" }, { type: "azure-nextgen:cdn/v20190415:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615preview:CustomDomain" }, { type: "azure-nextgen:cdn/v20191231:CustomDomain" }, { type: "azure-nextgen:cdn/v20200331:CustomDomain" }, { type: "azure-nextgen:cdn/v20200415:CustomDomain" }, { type: "azure-nextgen:cdn/v20200901:CustomDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }

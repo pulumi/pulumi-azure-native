@@ -21,18 +21,32 @@ type ConnectedCluster struct {
 	AgentPublicKeyCertificate pulumi.StringOutput `pulumi:"agentPublicKeyCertificate"`
 	// Version of the agent running on the connected cluster resource
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
+	// Represents the connectivity status of the connected cluster.
+	ConnectivityStatus pulumi.StringPtrOutput `pulumi:"connectivityStatus"`
+	// The Kubernetes distribution running on this connected cluster.
+	Distribution pulumi.StringPtrOutput `pulumi:"distribution"`
 	// The identity of the connected cluster.
 	Identity ConnectedClusterIdentityResponseOutput `pulumi:"identity"`
+	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+	Infrastructure pulumi.StringPtrOutput `pulumi:"infrastructure"`
 	// The Kubernetes version of the connected cluster resource
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
+	// Time representing the last instance when heart beat was received from the cluster
+	LastConnectivityTime pulumi.StringOutput `pulumi:"lastConnectivityTime"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Expiration time of the managed identity certificate
+	ManagedIdentityCertificateExpirationTime pulumi.StringOutput `pulumi:"managedIdentityCertificateExpirationTime"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Connected cluster offering
+	Offering pulumi.StringOutput `pulumi:"offering"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Number of CPU cores present in the connected cluster resource
+	TotalCoreCount pulumi.IntOutput `pulumi:"totalCoreCount"`
 	// Number of nodes present in the connected cluster resource
 	TotalNodeCount pulumi.IntOutput `pulumi:"totalNodeCount"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -91,18 +105,32 @@ type connectedClusterState struct {
 	AgentPublicKeyCertificate *string `pulumi:"agentPublicKeyCertificate"`
 	// Version of the agent running on the connected cluster resource
 	AgentVersion *string `pulumi:"agentVersion"`
+	// Represents the connectivity status of the connected cluster.
+	ConnectivityStatus *string `pulumi:"connectivityStatus"`
+	// The Kubernetes distribution running on this connected cluster.
+	Distribution *string `pulumi:"distribution"`
 	// The identity of the connected cluster.
 	Identity *ConnectedClusterIdentityResponse `pulumi:"identity"`
+	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+	Infrastructure *string `pulumi:"infrastructure"`
 	// The Kubernetes version of the connected cluster resource
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
+	// Time representing the last instance when heart beat was received from the cluster
+	LastConnectivityTime *string `pulumi:"lastConnectivityTime"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// Expiration time of the managed identity certificate
+	ManagedIdentityCertificateExpirationTime *string `pulumi:"managedIdentityCertificateExpirationTime"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// Connected cluster offering
+	Offering *string `pulumi:"offering"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Number of CPU cores present in the connected cluster resource
+	TotalCoreCount *int `pulumi:"totalCoreCount"`
 	// Number of nodes present in the connected cluster resource
 	TotalNodeCount *int `pulumi:"totalNodeCount"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -116,18 +144,32 @@ type ConnectedClusterState struct {
 	AgentPublicKeyCertificate pulumi.StringPtrInput
 	// Version of the agent running on the connected cluster resource
 	AgentVersion pulumi.StringPtrInput
+	// Represents the connectivity status of the connected cluster.
+	ConnectivityStatus pulumi.StringPtrInput
+	// The Kubernetes distribution running on this connected cluster.
+	Distribution pulumi.StringPtrInput
 	// The identity of the connected cluster.
 	Identity ConnectedClusterIdentityResponsePtrInput
+	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+	Infrastructure pulumi.StringPtrInput
 	// The Kubernetes version of the connected cluster resource
 	KubernetesVersion pulumi.StringPtrInput
+	// Time representing the last instance when heart beat was received from the cluster
+	LastConnectivityTime pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// Expiration time of the managed identity certificate
+	ManagedIdentityCertificateExpirationTime pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// Connected cluster offering
+	Offering pulumi.StringPtrInput
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Number of CPU cores present in the connected cluster resource
+	TotalCoreCount pulumi.IntPtrInput
 	// Number of nodes present in the connected cluster resource
 	TotalNodeCount pulumi.IntPtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -145,8 +187,14 @@ type connectedClusterArgs struct {
 	AgentPublicKeyCertificate string `pulumi:"agentPublicKeyCertificate"`
 	// The name of the Kubernetes cluster on which get is called.
 	ClusterName string `pulumi:"clusterName"`
+	// Represents the connectivity status of the connected cluster.
+	ConnectivityStatus *string `pulumi:"connectivityStatus"`
+	// The Kubernetes distribution running on this connected cluster.
+	Distribution *string `pulumi:"distribution"`
 	// The identity of the connected cluster.
 	Identity ConnectedClusterIdentity `pulumi:"identity"`
+	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+	Infrastructure *string `pulumi:"infrastructure"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Provisioning state of the connected cluster resource.
@@ -165,8 +213,14 @@ type ConnectedClusterArgs struct {
 	AgentPublicKeyCertificate pulumi.StringInput
 	// The name of the Kubernetes cluster on which get is called.
 	ClusterName pulumi.StringInput
+	// Represents the connectivity status of the connected cluster.
+	ConnectivityStatus pulumi.StringPtrInput
+	// The Kubernetes distribution running on this connected cluster.
+	Distribution pulumi.StringPtrInput
 	// The identity of the connected cluster.
 	Identity ConnectedClusterIdentityInput
+	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+	Infrastructure pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// Provisioning state of the connected cluster resource.

@@ -65,7 +65,7 @@ type Database struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId pulumi.StringPtrOutput `pulumi:"longTermRetentionBackupResourceId"`
-	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
 	MaintenanceConfigurationId pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationId"`
 	// Resource that manages the database.
 	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
@@ -107,7 +107,7 @@ type Database struct {
 	SourceDatabaseId pulumi.StringPtrOutput `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -225,7 +225,7 @@ type databaseState struct {
 	Location *string `pulumi:"location"`
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
-	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// Resource that manages the database.
 	ManagedBy *string `pulumi:"managedBy"`
@@ -267,7 +267,7 @@ type databaseState struct {
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status *string `pulumi:"status"`
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -328,7 +328,7 @@ type DatabaseState struct {
 	Location pulumi.StringPtrInput
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId pulumi.StringPtrInput
-	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
 	MaintenanceConfigurationId pulumi.StringPtrInput
 	// Resource that manages the database.
 	ManagedBy pulumi.StringPtrInput
@@ -370,7 +370,7 @@ type DatabaseState struct {
 	SourceDatabaseId pulumi.StringPtrInput
 	// The status of the database.
 	Status pulumi.StringPtrInput
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
@@ -421,7 +421,7 @@ type databaseArgs struct {
 	Location string `pulumi:"location"`
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
-	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// The max size of the database expressed in bytes.
 	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
@@ -453,7 +453,7 @@ type databaseArgs struct {
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
 	// The resource identifier of the source database associated with create operation of this database.
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -499,7 +499,7 @@ type DatabaseArgs struct {
 	Location pulumi.StringInput
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId pulumi.StringPtrInput
-	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will be rolled out.
+	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
 	MaintenanceConfigurationId pulumi.StringPtrInput
 	// The max size of the database expressed in bytes.
 	MaxSizeBytes pulumi.IntPtrInput
@@ -531,7 +531,7 @@ type DatabaseArgs struct {
 	SourceDatabaseDeletionDate pulumi.StringPtrInput
 	// The resource identifier of the source database associated with create operation of this database.
 	SourceDatabaseId pulumi.StringPtrInput
-	// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+	// The storage account type used to store backups for this database.
 	StorageAccountType pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput

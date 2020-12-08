@@ -62,6 +62,10 @@ export interface GetScopeMapResult {
      */
     readonly provisioningState: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.v20190501preview.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;

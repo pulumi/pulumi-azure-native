@@ -60,6 +60,7 @@ class PrivateZone(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['internal_id'] = None
             __props__['max_number_of_record_sets'] = None
             __props__['max_number_of_virtual_network_links'] = None
             __props__['max_number_of_virtual_network_links_with_registration'] = None
@@ -69,7 +70,7 @@ class PrivateZone(pulumi.CustomResource):
             __props__['number_of_virtual_network_links_with_registration'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180901:PrivateZone")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180901:PrivateZone"), pulumi.Alias(type_="azure-nextgen:network/v20200101:PrivateZone"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateZone")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateZone, __self__).__init__(
             'azure-nextgen:network/latest:PrivateZone',
@@ -102,6 +103,14 @@ class PrivateZone(pulumi.CustomResource):
         The ETag of the zone.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="internalId")
+    def internal_id(self) -> pulumi.Output[str]:
+        """
+        Private zone internal Id
+        """
+        return pulumi.get(self, "internal_id")
 
     @property
     @pulumi.getter

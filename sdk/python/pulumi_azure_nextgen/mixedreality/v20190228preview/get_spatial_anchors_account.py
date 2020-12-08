@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetSpatialAnchorsAccountResult',
@@ -19,13 +20,16 @@ class GetSpatialAnchorsAccountResult:
     """
     SpatialAnchorsAccount Response.
     """
-    def __init__(__self__, account_domain=None, account_id=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, account_domain=None, account_id=None, identity=None, location=None, name=None, tags=None, type=None):
         if account_domain and not isinstance(account_domain, str):
             raise TypeError("Expected argument 'account_domain' to be a str")
         pulumi.set(__self__, "account_domain", account_domain)
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -54,6 +58,14 @@ class GetSpatialAnchorsAccountResult:
         unique id of certain Spatial Anchors Account data contract.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity associated with this account
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -96,6 +108,7 @@ class AwaitableGetSpatialAnchorsAccountResult(GetSpatialAnchorsAccountResult):
         return GetSpatialAnchorsAccountResult(
             account_domain=self.account_domain,
             account_id=self.account_id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             tags=self.tags,
@@ -123,6 +136,7 @@ def get_spatial_anchors_account(resource_group_name: Optional[str] = None,
     return AwaitableGetSpatialAnchorsAccountResult(
         account_domain=__ret__.account_domain,
         account_id=__ret__.account_id,
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         tags=__ret__.tags,

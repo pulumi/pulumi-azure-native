@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// </summary>
         public readonly Outputs.PipelineRunResponseResponse Response;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             Outputs.PipelineRunResponseResponse response,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             ForceUpdateTag = forceUpdateTag;
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
             ProvisioningState = provisioningState;
             Request = request;
             Response = response;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
     /// <summary>
-    /// The base class for backup policy. Workload-specific backup policies are derived from this class.
+    /// Base class for backup policy. Workload-specific backup policies are derived from this class.
     /// </summary>
     public partial class ProtectionPolicy : Pulumi.CustomResource
     {
@@ -30,13 +30,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// Resource name associated with the resource.
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The base class for a backup policy. Workload-specific backup policies are derived from this class.
+        /// ProtectionPolicyResource properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AzureIaaSVMProtectionPolicyResponse, Union<Outputs.AzureSqlProtectionPolicyResponse, Outputs.MabProtectionPolicyResponse>>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.AzureFileShareProtectionPolicyResponse, Union<Outputs.AzureIaaSVMProtectionPolicyResponse, Union<Outputs.AzureSqlProtectionPolicyResponse, Union<Outputs.AzureVmWorkloadProtectionPolicyResponse, Union<Outputs.GenericProtectionPolicyResponse, Outputs.MabProtectionPolicyResponse>>>>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<string> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160601:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:ProtectionPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -106,37 +107,25 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         public Input<string>? ETag { get; set; }
 
         /// <summary>
-        /// Resource ID represents the complete path to the resource.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Resource name associated with the resource.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The backup policy to be created.
+        /// Backup policy to be created.
         /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
-        /// The base class for a backup policy. Workload-specific backup policies are derived from this class.
+        /// ProtectionPolicyResource properties
         /// </summary>
         [Input("properties")]
-        public InputUnion<Inputs.AzureIaaSVMProtectionPolicyArgs, InputUnion<Inputs.AzureSqlProtectionPolicyArgs, Inputs.MabProtectionPolicyArgs>>? Properties { get; set; }
+        public InputUnion<Inputs.AzureFileShareProtectionPolicyArgs, InputUnion<Inputs.AzureIaaSVMProtectionPolicyArgs, InputUnion<Inputs.AzureSqlProtectionPolicyArgs, InputUnion<Inputs.AzureVmWorkloadProtectionPolicyArgs, InputUnion<Inputs.GenericProtectionPolicyArgs, Inputs.MabProtectionPolicyArgs>>>>>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group associated with the Recovery Services vault.
+        /// The name of the resource group where the recovery services vault is present.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -154,13 +143,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         }
 
         /// <summary>
-        /// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        /// <summary>
-        /// The name of the Recovery Services vault.
+        /// The name of the recovery services vault.
         /// </summary>
         [Input("vaultName", required: true)]
         public Input<string> VaultName { get; set; } = null!;

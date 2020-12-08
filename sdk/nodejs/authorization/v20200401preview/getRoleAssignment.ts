@@ -47,6 +47,18 @@ export interface GetRoleAssignmentResult {
      */
     readonly conditionVersion?: string;
     /**
+     * Id of the user who created the assignment
+     */
+    readonly createdBy?: string;
+    /**
+     * Time it was created
+     */
+    readonly createdOn?: string;
+    /**
+     * Id of the delegated managed identity resource
+     */
+    readonly delegatedManagedIdentityResourceId?: string;
+    /**
      * Description of role assignment
      */
     readonly description?: string;
@@ -74,4 +86,12 @@ export interface GetRoleAssignmentResult {
      * The role assignment type.
      */
     readonly type: string;
+    /**
+     * Id of the user who updated the assignment
+     */
+    readonly updatedBy?: string;
+    /**
+     * Time it was updated
+     */
+    readonly updatedOn?: string;
 }

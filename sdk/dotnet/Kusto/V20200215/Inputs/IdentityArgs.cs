@@ -21,6 +21,18 @@ namespace Pulumi.AzureNextGen.Kusto.V20200215.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
+        /// <summary>
+        /// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// </summary>
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
+
         public IdentityArgs()
         {
         }

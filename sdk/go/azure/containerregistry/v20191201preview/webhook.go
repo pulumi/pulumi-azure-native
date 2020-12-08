@@ -27,6 +27,8 @@ type Webhook struct {
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// The status of the webhook at the time the operation was called.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -70,6 +72,9 @@ func NewWebhook(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20190501:Webhook"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Webhook"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Webhook
@@ -106,6 +111,8 @@ type webhookState struct {
 	Scope *string `pulumi:"scope"`
 	// The status of the webhook at the time the operation was called.
 	Status *string `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -125,6 +132,8 @@ type WebhookState struct {
 	Scope pulumi.StringPtrInput
 	// The status of the webhook at the time the operation was called.
 	Status pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.

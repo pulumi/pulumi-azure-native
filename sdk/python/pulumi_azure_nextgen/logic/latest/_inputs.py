@@ -47,6 +47,8 @@ __all__ = [
     'FlowEndpointsConfigurationArgs',
     'IntegrationAccountMapPropertiesParametersSchemaArgs',
     'IntegrationAccountSkuArgs',
+    'IntegrationServiceEnvironmenEncryptionConfigurationArgs',
+    'IntegrationServiceEnvironmenEncryptionKeyReferenceArgs',
     'IntegrationServiceEnvironmentArgs',
     'IntegrationServiceEnvironmentAccessEndpointArgs',
     'IntegrationServiceEnvironmentPropertiesArgs',
@@ -4023,6 +4025,86 @@ class IntegrationAccountSkuArgs:
 
 
 @pulumi.input_type
+class IntegrationServiceEnvironmenEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 encryption_key_reference: Optional[pulumi.Input['IntegrationServiceEnvironmenEncryptionKeyReferenceArgs']] = None):
+        """
+        The encryption configuration for the integration service environment.
+        :param pulumi.Input['IntegrationServiceEnvironmenEncryptionKeyReferenceArgs'] encryption_key_reference: The encryption key reference.
+        """
+        if encryption_key_reference is not None:
+            pulumi.set(__self__, "encryption_key_reference", encryption_key_reference)
+
+    @property
+    @pulumi.getter(name="encryptionKeyReference")
+    def encryption_key_reference(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmenEncryptionKeyReferenceArgs']]:
+        """
+        The encryption key reference.
+        """
+        return pulumi.get(self, "encryption_key_reference")
+
+    @encryption_key_reference.setter
+    def encryption_key_reference(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmenEncryptionKeyReferenceArgs']]):
+        pulumi.set(self, "encryption_key_reference", value)
+
+
+@pulumi.input_type
+class IntegrationServiceEnvironmenEncryptionKeyReferenceArgs:
+    def __init__(__self__, *,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_vault: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+                 key_version: Optional[pulumi.Input[str]] = None):
+        """
+        The encryption key details for the integration service environment.
+        :param pulumi.Input[str] key_name: Gets the key name in the Key Vault.
+        :param pulumi.Input['ResourceReferenceArgs'] key_vault: The key vault reference.
+        :param pulumi.Input[str] key_version: Gets the version of the key specified in the keyName property.
+        """
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault is not None:
+            pulumi.set(__self__, "key_vault", key_vault)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets the key name in the Key Vault.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+        """
+        The key vault reference.
+        """
+        return pulumi.get(self, "key_vault")
+
+    @key_vault.setter
+    def key_vault(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+        pulumi.set(self, "key_vault", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets the version of the key specified in the keyName property.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
 class IntegrationServiceEnvironmentArgs:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
@@ -4121,6 +4203,7 @@ class IntegrationServiceEnvironmentAccessEndpointArgs:
 @pulumi.input_type
 class IntegrationServiceEnvironmentPropertiesArgs:
     def __init__(__self__, *,
+                 encryption_configuration: Optional[pulumi.Input['IntegrationServiceEnvironmenEncryptionConfigurationArgs']] = None,
                  endpoints_configuration: Optional[pulumi.Input['FlowEndpointsConfigurationArgs']] = None,
                  integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None,
@@ -4128,12 +4211,15 @@ class IntegrationServiceEnvironmentPropertiesArgs:
                  state: Optional[pulumi.Input[str]] = None):
         """
         The integration service environment properties.
+        :param pulumi.Input['IntegrationServiceEnvironmenEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration.
         :param pulumi.Input['FlowEndpointsConfigurationArgs'] endpoints_configuration: The endpoints configuration.
         :param pulumi.Input[str] integration_service_environment_id: Gets the tracking id.
         :param pulumi.Input['NetworkConfigurationArgs'] network_configuration: The network configuration.
         :param pulumi.Input[str] provisioning_state: The provisioning state.
         :param pulumi.Input[str] state: The integration service environment state.
         """
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if endpoints_configuration is not None:
             pulumi.set(__self__, "endpoints_configuration", endpoints_configuration)
         if integration_service_environment_id is not None:
@@ -4144,6 +4230,18 @@ class IntegrationServiceEnvironmentPropertiesArgs:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if state is not None:
             pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmenEncryptionConfigurationArgs']]:
+        """
+        The encryption configuration.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmenEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter(name="endpointsConfiguration")

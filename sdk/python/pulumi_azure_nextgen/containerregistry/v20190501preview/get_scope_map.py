@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetScopeMapResult',
@@ -19,7 +20,7 @@ class GetScopeMapResult:
     """
     An object that represents a scope map for a container registry.
     """
-    def __init__(__self__, actions=None, creation_date=None, description=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, actions=None, creation_date=None, description=None, name=None, provisioning_state=None, system_data=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -35,6 +36,9 @@ class GetScopeMapResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -82,6 +86,14 @@ class GetScopeMapResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -101,6 +113,7 @@ class AwaitableGetScopeMapResult(GetScopeMapResult):
             description=self.description,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -131,4 +144,5 @@ def get_scope_map(registry_name: Optional[str] = None,
         description=__ret__.description,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         type=__ret__.type)

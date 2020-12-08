@@ -44,6 +44,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether customer managed storage is mandatory for query management.
+     */
+    public readonly forceCmkForQuery!: pulumi.Output<boolean | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class Workspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["forceCmkForQuery"] = args ? args.forceCmkForQuery : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
@@ -125,6 +130,7 @@ export class Workspace extends pulumi.CustomResource {
         } else {
             inputs["customerId"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
+            inputs["forceCmkForQuery"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
@@ -144,7 +150,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20151101preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200801:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20151101preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200801:Workspace" }, { type: "azure-nextgen:operationalinsights/v20201001:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }
@@ -158,6 +164,10 @@ export interface WorkspaceArgs {
      * The ETag of the workspace.
      */
     readonly eTag?: pulumi.Input<string>;
+    /**
+     * Indicates whether customer managed storage is mandatory for query management.
+     */
+    readonly forceCmkForQuery?: pulumi.Input<boolean>;
     /**
      * The geo-location where the resource lives
      */

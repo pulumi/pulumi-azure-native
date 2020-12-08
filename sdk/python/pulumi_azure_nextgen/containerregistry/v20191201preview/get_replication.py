@@ -20,7 +20,7 @@ class GetReplicationResult:
     """
     An object that represents a replication for a container registry.
     """
-    def __init__(__self__, location=None, name=None, provisioning_state=None, region_endpoint_enabled=None, status=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, provisioning_state=None, region_endpoint_enabled=None, status=None, system_data=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -36,6 +36,9 @@ class GetReplicationResult:
         if status and not isinstance(status, dict):
             raise TypeError("Expected argument 'status' to be a dict")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -84,6 +87,14 @@ class GetReplicationResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -111,6 +122,7 @@ class AwaitableGetReplicationResult(GetReplicationResult):
             provisioning_state=self.provisioning_state,
             region_endpoint_enabled=self.region_endpoint_enabled,
             status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -142,5 +154,6 @@ def get_replication(registry_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         region_endpoint_enabled=__ret__.region_endpoint_enabled,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

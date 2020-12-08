@@ -48,6 +48,10 @@ export interface GetStorageTargetResult {
      */
     readonly junctions?: outputs.storagecache.latest.NamespaceJunctionResponse[];
     /**
+     * Region name string.
+     */
+    readonly location: string;
+    /**
      * Name of the Storage Target.
      */
     readonly name: string;
@@ -59,6 +63,10 @@ export interface GetStorageTargetResult {
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
     readonly provisioningState?: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.storagecache.latest.SystemDataResponse;
     /**
      * Type of the Storage Target.
      */

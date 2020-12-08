@@ -35,6 +35,10 @@ export interface GetProfileArgs {
  */
 export interface GetProfileResult {
     /**
+     * The Id of the frontdoor.
+     */
+    readonly frontdoorId: string;
+    /**
      * Resource location.
      */
     readonly location: string;
@@ -54,6 +58,10 @@ export interface GetProfileResult {
      * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
      */
     readonly sku: outputs.cdn.latest.SkuResponse;
+    /**
+     * Read only system data
+     */
+    readonly systemData: outputs.cdn.latest.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -25,7 +25,7 @@ type DedicatedHostGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number of fault domains that the host group can span.
 	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
-	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
+	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
 	SupportAutomaticPlacement pulumi.BoolPtrOutput `pulumi:"supportAutomaticPlacement"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -100,7 +100,7 @@ type dedicatedHostGroupState struct {
 	Name *string `pulumi:"name"`
 	// Number of fault domains that the host group can span.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
+	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
 	SupportAutomaticPlacement *bool `pulumi:"supportAutomaticPlacement"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -121,7 +121,7 @@ type DedicatedHostGroupState struct {
 	Name pulumi.StringPtrInput
 	// Number of fault domains that the host group can span.
 	PlatformFaultDomainCount pulumi.IntPtrInput
-	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
+	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
 	SupportAutomaticPlacement pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
@@ -144,7 +144,7 @@ type dedicatedHostGroupArgs struct {
 	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
+	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
 	SupportAutomaticPlacement *bool `pulumi:"supportAutomaticPlacement"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -162,7 +162,7 @@ type DedicatedHostGroupArgs struct {
 	PlatformFaultDomainCount pulumi.IntInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
+	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
 	SupportAutomaticPlacement pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput

@@ -19,19 +19,19 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
     public sealed class GetProtectionPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The backup policy name used in this GET operation.
+        /// Backup policy information to be fetched.
         /// </summary>
         [Input("policyName", required: true)]
         public string PolicyName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group associated with the Recovery Services vault.
+        /// The name of the resource group where the recovery services vault is present.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Recovery Services vault.
+        /// The name of the recovery services vault.
         /// </summary>
         [Input("vaultName", required: true)]
         public string VaultName { get; set; } = null!;
@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// Resource name associated with the resource.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
-        /// The base class for a backup policy. Workload-specific backup policies are derived from this class.
+        /// ProtectionPolicyResource properties
         /// </summary>
-        public readonly Union<Outputs.AzureIaaSVMProtectionPolicyResponse, Union<Outputs.AzureSqlProtectionPolicyResponse, Outputs.MabProtectionPolicyResponse>> Properties;
+        public readonly Union<Outputs.AzureFileShareProtectionPolicyResponse, Union<Outputs.AzureIaaSVMProtectionPolicyResponse, Union<Outputs.AzureSqlProtectionPolicyResponse, Union<Outputs.AzureVmWorkloadProtectionPolicyResponse, Union<Outputs.GenericProtectionPolicyResponse, Outputs.MabProtectionPolicyResponse>>>>> Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private GetProtectionPolicyResult(
@@ -76,13 +76,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 
             string? location,
 
-            string? name,
+            string name,
 
-            Union<Outputs.AzureIaaSVMProtectionPolicyResponse, Union<Outputs.AzureSqlProtectionPolicyResponse, Outputs.MabProtectionPolicyResponse>> properties,
+            Union<Outputs.AzureFileShareProtectionPolicyResponse, Union<Outputs.AzureIaaSVMProtectionPolicyResponse, Union<Outputs.AzureSqlProtectionPolicyResponse, Union<Outputs.AzureVmWorkloadProtectionPolicyResponse, Union<Outputs.GenericProtectionPolicyResponse, Outputs.MabProtectionPolicyResponse>>>>> properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? type)
+            string type)
         {
             ETag = eTag;
             Location = location;

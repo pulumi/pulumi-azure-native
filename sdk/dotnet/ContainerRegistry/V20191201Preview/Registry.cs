@@ -117,6 +117,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         public Output<Outputs.StorageAccountPropertiesResponse?> StorageAccount { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         [Output("tags")]
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Registry"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:Registry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

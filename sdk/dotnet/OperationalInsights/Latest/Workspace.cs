@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         public Output<string?> ETag { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether customer managed storage is mandatory for query management.
+        /// </summary>
+        [Output("forceCmkForQuery")]
+        public Output<bool?> ForceCmkForQuery { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20201001:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,6 +155,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
+
+        /// <summary>
+        /// Indicates whether customer managed storage is mandatory for query management.
+        /// </summary>
+        [Input("forceCmkForQuery")]
+        public Input<bool>? ForceCmkForQuery { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

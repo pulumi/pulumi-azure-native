@@ -10,6 +10,350 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The JSON object that contains the properties to secure a domain.
+type AFDDomainHttpsParameters struct {
+	// Defines the source of the SSL certificate.
+	CertificateType string `pulumi:"certificateType"`
+	// TLS protocol version that will be used for Https
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
+	// Resource reference to the secret. ie. subs/rg/profile/secret
+	Secret *ResourceReference `pulumi:"secret"`
+}
+
+// AFDDomainHttpsParametersInput is an input type that accepts AFDDomainHttpsParametersArgs and AFDDomainHttpsParametersOutput values.
+// You can construct a concrete instance of `AFDDomainHttpsParametersInput` via:
+//
+//          AFDDomainHttpsParametersArgs{...}
+type AFDDomainHttpsParametersInput interface {
+	pulumi.Input
+
+	ToAFDDomainHttpsParametersOutput() AFDDomainHttpsParametersOutput
+	ToAFDDomainHttpsParametersOutputWithContext(context.Context) AFDDomainHttpsParametersOutput
+}
+
+// The JSON object that contains the properties to secure a domain.
+type AFDDomainHttpsParametersArgs struct {
+	// Defines the source of the SSL certificate.
+	CertificateType pulumi.StringInput `pulumi:"certificateType"`
+	// TLS protocol version that will be used for Https
+	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
+	// Resource reference to the secret. ie. subs/rg/profile/secret
+	Secret ResourceReferencePtrInput `pulumi:"secret"`
+}
+
+func (AFDDomainHttpsParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AFDDomainHttpsParameters)(nil)).Elem()
+}
+
+func (i AFDDomainHttpsParametersArgs) ToAFDDomainHttpsParametersOutput() AFDDomainHttpsParametersOutput {
+	return i.ToAFDDomainHttpsParametersOutputWithContext(context.Background())
+}
+
+func (i AFDDomainHttpsParametersArgs) ToAFDDomainHttpsParametersOutputWithContext(ctx context.Context) AFDDomainHttpsParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AFDDomainHttpsParametersOutput)
+}
+
+func (i AFDDomainHttpsParametersArgs) ToAFDDomainHttpsParametersPtrOutput() AFDDomainHttpsParametersPtrOutput {
+	return i.ToAFDDomainHttpsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i AFDDomainHttpsParametersArgs) ToAFDDomainHttpsParametersPtrOutputWithContext(ctx context.Context) AFDDomainHttpsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AFDDomainHttpsParametersOutput).ToAFDDomainHttpsParametersPtrOutputWithContext(ctx)
+}
+
+// AFDDomainHttpsParametersPtrInput is an input type that accepts AFDDomainHttpsParametersArgs, AFDDomainHttpsParametersPtr and AFDDomainHttpsParametersPtrOutput values.
+// You can construct a concrete instance of `AFDDomainHttpsParametersPtrInput` via:
+//
+//          AFDDomainHttpsParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type AFDDomainHttpsParametersPtrInput interface {
+	pulumi.Input
+
+	ToAFDDomainHttpsParametersPtrOutput() AFDDomainHttpsParametersPtrOutput
+	ToAFDDomainHttpsParametersPtrOutputWithContext(context.Context) AFDDomainHttpsParametersPtrOutput
+}
+
+type afddomainHttpsParametersPtrType AFDDomainHttpsParametersArgs
+
+func AFDDomainHttpsParametersPtr(v *AFDDomainHttpsParametersArgs) AFDDomainHttpsParametersPtrInput {
+	return (*afddomainHttpsParametersPtrType)(v)
+}
+
+func (*afddomainHttpsParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AFDDomainHttpsParameters)(nil)).Elem()
+}
+
+func (i *afddomainHttpsParametersPtrType) ToAFDDomainHttpsParametersPtrOutput() AFDDomainHttpsParametersPtrOutput {
+	return i.ToAFDDomainHttpsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *afddomainHttpsParametersPtrType) ToAFDDomainHttpsParametersPtrOutputWithContext(ctx context.Context) AFDDomainHttpsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AFDDomainHttpsParametersPtrOutput)
+}
+
+// The JSON object that contains the properties to secure a domain.
+type AFDDomainHttpsParametersOutput struct{ *pulumi.OutputState }
+
+func (AFDDomainHttpsParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AFDDomainHttpsParameters)(nil)).Elem()
+}
+
+func (o AFDDomainHttpsParametersOutput) ToAFDDomainHttpsParametersOutput() AFDDomainHttpsParametersOutput {
+	return o
+}
+
+func (o AFDDomainHttpsParametersOutput) ToAFDDomainHttpsParametersOutputWithContext(ctx context.Context) AFDDomainHttpsParametersOutput {
+	return o
+}
+
+func (o AFDDomainHttpsParametersOutput) ToAFDDomainHttpsParametersPtrOutput() AFDDomainHttpsParametersPtrOutput {
+	return o.ToAFDDomainHttpsParametersPtrOutputWithContext(context.Background())
+}
+
+func (o AFDDomainHttpsParametersOutput) ToAFDDomainHttpsParametersPtrOutputWithContext(ctx context.Context) AFDDomainHttpsParametersPtrOutput {
+	return o.ApplyT(func(v AFDDomainHttpsParameters) *AFDDomainHttpsParameters {
+		return &v
+	}).(AFDDomainHttpsParametersPtrOutput)
+}
+
+// Defines the source of the SSL certificate.
+func (o AFDDomainHttpsParametersOutput) CertificateType() pulumi.StringOutput {
+	return o.ApplyT(func(v AFDDomainHttpsParameters) string { return v.CertificateType }).(pulumi.StringOutput)
+}
+
+// TLS protocol version that will be used for Https
+func (o AFDDomainHttpsParametersOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AFDDomainHttpsParameters) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// Resource reference to the secret. ie. subs/rg/profile/secret
+func (o AFDDomainHttpsParametersOutput) Secret() ResourceReferencePtrOutput {
+	return o.ApplyT(func(v AFDDomainHttpsParameters) *ResourceReference { return v.Secret }).(ResourceReferencePtrOutput)
+}
+
+type AFDDomainHttpsParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (AFDDomainHttpsParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AFDDomainHttpsParameters)(nil)).Elem()
+}
+
+func (o AFDDomainHttpsParametersPtrOutput) ToAFDDomainHttpsParametersPtrOutput() AFDDomainHttpsParametersPtrOutput {
+	return o
+}
+
+func (o AFDDomainHttpsParametersPtrOutput) ToAFDDomainHttpsParametersPtrOutputWithContext(ctx context.Context) AFDDomainHttpsParametersPtrOutput {
+	return o
+}
+
+func (o AFDDomainHttpsParametersPtrOutput) Elem() AFDDomainHttpsParametersOutput {
+	return o.ApplyT(func(v *AFDDomainHttpsParameters) AFDDomainHttpsParameters { return *v }).(AFDDomainHttpsParametersOutput)
+}
+
+// Defines the source of the SSL certificate.
+func (o AFDDomainHttpsParametersPtrOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AFDDomainHttpsParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateType
+	}).(pulumi.StringPtrOutput)
+}
+
+// TLS protocol version that will be used for Https
+func (o AFDDomainHttpsParametersPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AFDDomainHttpsParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumTlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource reference to the secret. ie. subs/rg/profile/secret
+func (o AFDDomainHttpsParametersPtrOutput) Secret() ResourceReferencePtrOutput {
+	return o.ApplyT(func(v *AFDDomainHttpsParameters) *ResourceReference {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(ResourceReferencePtrOutput)
+}
+
+// The JSON object that contains the properties to secure a domain.
+type AFDDomainHttpsParametersResponse struct {
+	// Defines the source of the SSL certificate.
+	CertificateType string `pulumi:"certificateType"`
+	// TLS protocol version that will be used for Https
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
+	// Resource reference to the secret. ie. subs/rg/profile/secret
+	Secret *ResourceReferenceResponse `pulumi:"secret"`
+}
+
+// AFDDomainHttpsParametersResponseInput is an input type that accepts AFDDomainHttpsParametersResponseArgs and AFDDomainHttpsParametersResponseOutput values.
+// You can construct a concrete instance of `AFDDomainHttpsParametersResponseInput` via:
+//
+//          AFDDomainHttpsParametersResponseArgs{...}
+type AFDDomainHttpsParametersResponseInput interface {
+	pulumi.Input
+
+	ToAFDDomainHttpsParametersResponseOutput() AFDDomainHttpsParametersResponseOutput
+	ToAFDDomainHttpsParametersResponseOutputWithContext(context.Context) AFDDomainHttpsParametersResponseOutput
+}
+
+// The JSON object that contains the properties to secure a domain.
+type AFDDomainHttpsParametersResponseArgs struct {
+	// Defines the source of the SSL certificate.
+	CertificateType pulumi.StringInput `pulumi:"certificateType"`
+	// TLS protocol version that will be used for Https
+	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
+	// Resource reference to the secret. ie. subs/rg/profile/secret
+	Secret ResourceReferenceResponsePtrInput `pulumi:"secret"`
+}
+
+func (AFDDomainHttpsParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AFDDomainHttpsParametersResponse)(nil)).Elem()
+}
+
+func (i AFDDomainHttpsParametersResponseArgs) ToAFDDomainHttpsParametersResponseOutput() AFDDomainHttpsParametersResponseOutput {
+	return i.ToAFDDomainHttpsParametersResponseOutputWithContext(context.Background())
+}
+
+func (i AFDDomainHttpsParametersResponseArgs) ToAFDDomainHttpsParametersResponseOutputWithContext(ctx context.Context) AFDDomainHttpsParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AFDDomainHttpsParametersResponseOutput)
+}
+
+func (i AFDDomainHttpsParametersResponseArgs) ToAFDDomainHttpsParametersResponsePtrOutput() AFDDomainHttpsParametersResponsePtrOutput {
+	return i.ToAFDDomainHttpsParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AFDDomainHttpsParametersResponseArgs) ToAFDDomainHttpsParametersResponsePtrOutputWithContext(ctx context.Context) AFDDomainHttpsParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AFDDomainHttpsParametersResponseOutput).ToAFDDomainHttpsParametersResponsePtrOutputWithContext(ctx)
+}
+
+// AFDDomainHttpsParametersResponsePtrInput is an input type that accepts AFDDomainHttpsParametersResponseArgs, AFDDomainHttpsParametersResponsePtr and AFDDomainHttpsParametersResponsePtrOutput values.
+// You can construct a concrete instance of `AFDDomainHttpsParametersResponsePtrInput` via:
+//
+//          AFDDomainHttpsParametersResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AFDDomainHttpsParametersResponsePtrInput interface {
+	pulumi.Input
+
+	ToAFDDomainHttpsParametersResponsePtrOutput() AFDDomainHttpsParametersResponsePtrOutput
+	ToAFDDomainHttpsParametersResponsePtrOutputWithContext(context.Context) AFDDomainHttpsParametersResponsePtrOutput
+}
+
+type afddomainHttpsParametersResponsePtrType AFDDomainHttpsParametersResponseArgs
+
+func AFDDomainHttpsParametersResponsePtr(v *AFDDomainHttpsParametersResponseArgs) AFDDomainHttpsParametersResponsePtrInput {
+	return (*afddomainHttpsParametersResponsePtrType)(v)
+}
+
+func (*afddomainHttpsParametersResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AFDDomainHttpsParametersResponse)(nil)).Elem()
+}
+
+func (i *afddomainHttpsParametersResponsePtrType) ToAFDDomainHttpsParametersResponsePtrOutput() AFDDomainHttpsParametersResponsePtrOutput {
+	return i.ToAFDDomainHttpsParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *afddomainHttpsParametersResponsePtrType) ToAFDDomainHttpsParametersResponsePtrOutputWithContext(ctx context.Context) AFDDomainHttpsParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AFDDomainHttpsParametersResponsePtrOutput)
+}
+
+// The JSON object that contains the properties to secure a domain.
+type AFDDomainHttpsParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (AFDDomainHttpsParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AFDDomainHttpsParametersResponse)(nil)).Elem()
+}
+
+func (o AFDDomainHttpsParametersResponseOutput) ToAFDDomainHttpsParametersResponseOutput() AFDDomainHttpsParametersResponseOutput {
+	return o
+}
+
+func (o AFDDomainHttpsParametersResponseOutput) ToAFDDomainHttpsParametersResponseOutputWithContext(ctx context.Context) AFDDomainHttpsParametersResponseOutput {
+	return o
+}
+
+func (o AFDDomainHttpsParametersResponseOutput) ToAFDDomainHttpsParametersResponsePtrOutput() AFDDomainHttpsParametersResponsePtrOutput {
+	return o.ToAFDDomainHttpsParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AFDDomainHttpsParametersResponseOutput) ToAFDDomainHttpsParametersResponsePtrOutputWithContext(ctx context.Context) AFDDomainHttpsParametersResponsePtrOutput {
+	return o.ApplyT(func(v AFDDomainHttpsParametersResponse) *AFDDomainHttpsParametersResponse {
+		return &v
+	}).(AFDDomainHttpsParametersResponsePtrOutput)
+}
+
+// Defines the source of the SSL certificate.
+func (o AFDDomainHttpsParametersResponseOutput) CertificateType() pulumi.StringOutput {
+	return o.ApplyT(func(v AFDDomainHttpsParametersResponse) string { return v.CertificateType }).(pulumi.StringOutput)
+}
+
+// TLS protocol version that will be used for Https
+func (o AFDDomainHttpsParametersResponseOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AFDDomainHttpsParametersResponse) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// Resource reference to the secret. ie. subs/rg/profile/secret
+func (o AFDDomainHttpsParametersResponseOutput) Secret() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v AFDDomainHttpsParametersResponse) *ResourceReferenceResponse { return v.Secret }).(ResourceReferenceResponsePtrOutput)
+}
+
+type AFDDomainHttpsParametersResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AFDDomainHttpsParametersResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AFDDomainHttpsParametersResponse)(nil)).Elem()
+}
+
+func (o AFDDomainHttpsParametersResponsePtrOutput) ToAFDDomainHttpsParametersResponsePtrOutput() AFDDomainHttpsParametersResponsePtrOutput {
+	return o
+}
+
+func (o AFDDomainHttpsParametersResponsePtrOutput) ToAFDDomainHttpsParametersResponsePtrOutputWithContext(ctx context.Context) AFDDomainHttpsParametersResponsePtrOutput {
+	return o
+}
+
+func (o AFDDomainHttpsParametersResponsePtrOutput) Elem() AFDDomainHttpsParametersResponseOutput {
+	return o.ApplyT(func(v *AFDDomainHttpsParametersResponse) AFDDomainHttpsParametersResponse { return *v }).(AFDDomainHttpsParametersResponseOutput)
+}
+
+// Defines the source of the SSL certificate.
+func (o AFDDomainHttpsParametersResponsePtrOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AFDDomainHttpsParametersResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateType
+	}).(pulumi.StringPtrOutput)
+}
+
+// TLS protocol version that will be used for Https
+func (o AFDDomainHttpsParametersResponsePtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AFDDomainHttpsParametersResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumTlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource reference to the secret. ie. subs/rg/profile/secret
+func (o AFDDomainHttpsParametersResponsePtrOutput) Secret() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *AFDDomainHttpsParametersResponse) *ResourceReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(ResourceReferenceResponsePtrOutput)
+}
+
 // Defines the parameters for the cache expiration action.
 type CacheExpirationActionParameters struct {
 	// Caching behavior for the requests
@@ -406,6 +750,224 @@ func (o CdnEndpointResponseArrayOutput) Index(i pulumi.IntInput) CdnEndpointResp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CdnEndpointResponse {
 		return vs[0].([]CdnEndpointResponse)[vs[1].(int)]
 	}).(CdnEndpointResponseOutput)
+}
+
+// settings for compression.
+type CompressionSettings struct {
+	// List of content types on which compression applies. The value should be a valid MIME type.
+	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
+	// Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
+}
+
+// CompressionSettingsInput is an input type that accepts CompressionSettingsArgs and CompressionSettingsOutput values.
+// You can construct a concrete instance of `CompressionSettingsInput` via:
+//
+//          CompressionSettingsArgs{...}
+type CompressionSettingsInput interface {
+	pulumi.Input
+
+	ToCompressionSettingsOutput() CompressionSettingsOutput
+	ToCompressionSettingsOutputWithContext(context.Context) CompressionSettingsOutput
+}
+
+// settings for compression.
+type CompressionSettingsArgs struct {
+	// List of content types on which compression applies. The value should be a valid MIME type.
+	ContentTypesToCompress pulumi.StringArrayInput `pulumi:"contentTypesToCompress"`
+	// Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+	IsCompressionEnabled pulumi.BoolPtrInput `pulumi:"isCompressionEnabled"`
+}
+
+func (CompressionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompressionSettings)(nil)).Elem()
+}
+
+func (i CompressionSettingsArgs) ToCompressionSettingsOutput() CompressionSettingsOutput {
+	return i.ToCompressionSettingsOutputWithContext(context.Background())
+}
+
+func (i CompressionSettingsArgs) ToCompressionSettingsOutputWithContext(ctx context.Context) CompressionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompressionSettingsOutput)
+}
+
+// CompressionSettingsArrayInput is an input type that accepts CompressionSettingsArray and CompressionSettingsArrayOutput values.
+// You can construct a concrete instance of `CompressionSettingsArrayInput` via:
+//
+//          CompressionSettingsArray{ CompressionSettingsArgs{...} }
+type CompressionSettingsArrayInput interface {
+	pulumi.Input
+
+	ToCompressionSettingsArrayOutput() CompressionSettingsArrayOutput
+	ToCompressionSettingsArrayOutputWithContext(context.Context) CompressionSettingsArrayOutput
+}
+
+type CompressionSettingsArray []CompressionSettingsInput
+
+func (CompressionSettingsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CompressionSettings)(nil)).Elem()
+}
+
+func (i CompressionSettingsArray) ToCompressionSettingsArrayOutput() CompressionSettingsArrayOutput {
+	return i.ToCompressionSettingsArrayOutputWithContext(context.Background())
+}
+
+func (i CompressionSettingsArray) ToCompressionSettingsArrayOutputWithContext(ctx context.Context) CompressionSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompressionSettingsArrayOutput)
+}
+
+// settings for compression.
+type CompressionSettingsOutput struct{ *pulumi.OutputState }
+
+func (CompressionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompressionSettings)(nil)).Elem()
+}
+
+func (o CompressionSettingsOutput) ToCompressionSettingsOutput() CompressionSettingsOutput {
+	return o
+}
+
+func (o CompressionSettingsOutput) ToCompressionSettingsOutputWithContext(ctx context.Context) CompressionSettingsOutput {
+	return o
+}
+
+// List of content types on which compression applies. The value should be a valid MIME type.
+func (o CompressionSettingsOutput) ContentTypesToCompress() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CompressionSettings) []string { return v.ContentTypesToCompress }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+func (o CompressionSettingsOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CompressionSettings) *bool { return v.IsCompressionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type CompressionSettingsArrayOutput struct{ *pulumi.OutputState }
+
+func (CompressionSettingsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CompressionSettings)(nil)).Elem()
+}
+
+func (o CompressionSettingsArrayOutput) ToCompressionSettingsArrayOutput() CompressionSettingsArrayOutput {
+	return o
+}
+
+func (o CompressionSettingsArrayOutput) ToCompressionSettingsArrayOutputWithContext(ctx context.Context) CompressionSettingsArrayOutput {
+	return o
+}
+
+func (o CompressionSettingsArrayOutput) Index(i pulumi.IntInput) CompressionSettingsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompressionSettings {
+		return vs[0].([]CompressionSettings)[vs[1].(int)]
+	}).(CompressionSettingsOutput)
+}
+
+// settings for compression.
+type CompressionSettingsResponse struct {
+	// List of content types on which compression applies. The value should be a valid MIME type.
+	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
+	// Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
+}
+
+// CompressionSettingsResponseInput is an input type that accepts CompressionSettingsResponseArgs and CompressionSettingsResponseOutput values.
+// You can construct a concrete instance of `CompressionSettingsResponseInput` via:
+//
+//          CompressionSettingsResponseArgs{...}
+type CompressionSettingsResponseInput interface {
+	pulumi.Input
+
+	ToCompressionSettingsResponseOutput() CompressionSettingsResponseOutput
+	ToCompressionSettingsResponseOutputWithContext(context.Context) CompressionSettingsResponseOutput
+}
+
+// settings for compression.
+type CompressionSettingsResponseArgs struct {
+	// List of content types on which compression applies. The value should be a valid MIME type.
+	ContentTypesToCompress pulumi.StringArrayInput `pulumi:"contentTypesToCompress"`
+	// Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+	IsCompressionEnabled pulumi.BoolPtrInput `pulumi:"isCompressionEnabled"`
+}
+
+func (CompressionSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompressionSettingsResponse)(nil)).Elem()
+}
+
+func (i CompressionSettingsResponseArgs) ToCompressionSettingsResponseOutput() CompressionSettingsResponseOutput {
+	return i.ToCompressionSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i CompressionSettingsResponseArgs) ToCompressionSettingsResponseOutputWithContext(ctx context.Context) CompressionSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompressionSettingsResponseOutput)
+}
+
+// CompressionSettingsResponseArrayInput is an input type that accepts CompressionSettingsResponseArray and CompressionSettingsResponseArrayOutput values.
+// You can construct a concrete instance of `CompressionSettingsResponseArrayInput` via:
+//
+//          CompressionSettingsResponseArray{ CompressionSettingsResponseArgs{...} }
+type CompressionSettingsResponseArrayInput interface {
+	pulumi.Input
+
+	ToCompressionSettingsResponseArrayOutput() CompressionSettingsResponseArrayOutput
+	ToCompressionSettingsResponseArrayOutputWithContext(context.Context) CompressionSettingsResponseArrayOutput
+}
+
+type CompressionSettingsResponseArray []CompressionSettingsResponseInput
+
+func (CompressionSettingsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CompressionSettingsResponse)(nil)).Elem()
+}
+
+func (i CompressionSettingsResponseArray) ToCompressionSettingsResponseArrayOutput() CompressionSettingsResponseArrayOutput {
+	return i.ToCompressionSettingsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CompressionSettingsResponseArray) ToCompressionSettingsResponseArrayOutputWithContext(ctx context.Context) CompressionSettingsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompressionSettingsResponseArrayOutput)
+}
+
+// settings for compression.
+type CompressionSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (CompressionSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompressionSettingsResponse)(nil)).Elem()
+}
+
+func (o CompressionSettingsResponseOutput) ToCompressionSettingsResponseOutput() CompressionSettingsResponseOutput {
+	return o
+}
+
+func (o CompressionSettingsResponseOutput) ToCompressionSettingsResponseOutputWithContext(ctx context.Context) CompressionSettingsResponseOutput {
+	return o
+}
+
+// List of content types on which compression applies. The value should be a valid MIME type.
+func (o CompressionSettingsResponseOutput) ContentTypesToCompress() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CompressionSettingsResponse) []string { return v.ContentTypesToCompress }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+func (o CompressionSettingsResponseOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CompressionSettingsResponse) *bool { return v.IsCompressionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type CompressionSettingsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CompressionSettingsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CompressionSettingsResponse)(nil)).Elem()
+}
+
+func (o CompressionSettingsResponseArrayOutput) ToCompressionSettingsResponseArrayOutput() CompressionSettingsResponseArrayOutput {
+	return o
+}
+
+func (o CompressionSettingsResponseArrayOutput) ToCompressionSettingsResponseArrayOutputWithContext(ctx context.Context) CompressionSettingsResponseArrayOutput {
+	return o
+}
+
+func (o CompressionSettingsResponseArrayOutput) Index(i pulumi.IntInput) CompressionSettingsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompressionSettingsResponse {
+		return vs[0].([]CompressionSettingsResponse)[vs[1].(int)]
+	}).(CompressionSettingsResponseOutput)
 }
 
 // Defines the parameters for Cookies match conditions
@@ -1140,6 +1702,260 @@ func (o CustomRuleResponseArrayOutput) Index(i pulumi.IntInput) CustomRuleRespon
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomRuleResponse {
 		return vs[0].([]CustomRuleResponse)[vs[1].(int)]
 	}).(CustomRuleResponseOutput)
+}
+
+// Customer Certificate used for https
+type CustomerCertificateParameters struct {
+	// Certificate issuing authority.
+	CertificateAuthority *string `pulumi:"certificateAuthority"`
+	// Certificate expiration date.
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// Resource reference to the KV secret
+	SecretSource ResourceReference `pulumi:"secretSource"`
+	// Version of the secret to be used
+	SecretVersion *string `pulumi:"secretVersion"`
+	// Subject name in the certificate.
+	Subject *string `pulumi:"subject"`
+	// The list of SANs.
+	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
+	// Certificate thumbprint.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// The type of the Secret to create.
+	Type string `pulumi:"type"`
+	// Whether to use the latest version for the certificate
+	UseLatestVersion *bool `pulumi:"useLatestVersion"`
+}
+
+// CustomerCertificateParametersInput is an input type that accepts CustomerCertificateParametersArgs and CustomerCertificateParametersOutput values.
+// You can construct a concrete instance of `CustomerCertificateParametersInput` via:
+//
+//          CustomerCertificateParametersArgs{...}
+type CustomerCertificateParametersInput interface {
+	pulumi.Input
+
+	ToCustomerCertificateParametersOutput() CustomerCertificateParametersOutput
+	ToCustomerCertificateParametersOutputWithContext(context.Context) CustomerCertificateParametersOutput
+}
+
+// Customer Certificate used for https
+type CustomerCertificateParametersArgs struct {
+	// Certificate issuing authority.
+	CertificateAuthority pulumi.StringPtrInput `pulumi:"certificateAuthority"`
+	// Certificate expiration date.
+	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
+	// Resource reference to the KV secret
+	SecretSource ResourceReferenceInput `pulumi:"secretSource"`
+	// Version of the secret to be used
+	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+	// Subject name in the certificate.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// The list of SANs.
+	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
+	// Certificate thumbprint.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	// The type of the Secret to create.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Whether to use the latest version for the certificate
+	UseLatestVersion pulumi.BoolPtrInput `pulumi:"useLatestVersion"`
+}
+
+func (CustomerCertificateParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerCertificateParameters)(nil)).Elem()
+}
+
+func (i CustomerCertificateParametersArgs) ToCustomerCertificateParametersOutput() CustomerCertificateParametersOutput {
+	return i.ToCustomerCertificateParametersOutputWithContext(context.Background())
+}
+
+func (i CustomerCertificateParametersArgs) ToCustomerCertificateParametersOutputWithContext(ctx context.Context) CustomerCertificateParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerCertificateParametersOutput)
+}
+
+// Customer Certificate used for https
+type CustomerCertificateParametersOutput struct{ *pulumi.OutputState }
+
+func (CustomerCertificateParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerCertificateParameters)(nil)).Elem()
+}
+
+func (o CustomerCertificateParametersOutput) ToCustomerCertificateParametersOutput() CustomerCertificateParametersOutput {
+	return o
+}
+
+func (o CustomerCertificateParametersOutput) ToCustomerCertificateParametersOutputWithContext(ctx context.Context) CustomerCertificateParametersOutput {
+	return o
+}
+
+// Certificate issuing authority.
+func (o CustomerCertificateParametersOutput) CertificateAuthority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParameters) *string { return v.CertificateAuthority }).(pulumi.StringPtrOutput)
+}
+
+// Certificate expiration date.
+func (o CustomerCertificateParametersOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParameters) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// Resource reference to the KV secret
+func (o CustomerCertificateParametersOutput) SecretSource() ResourceReferenceOutput {
+	return o.ApplyT(func(v CustomerCertificateParameters) ResourceReference { return v.SecretSource }).(ResourceReferenceOutput)
+}
+
+// Version of the secret to be used
+func (o CustomerCertificateParametersOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParameters) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
+}
+
+// Subject name in the certificate.
+func (o CustomerCertificateParametersOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParameters) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// The list of SANs.
+func (o CustomerCertificateParametersOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CustomerCertificateParameters) []string { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
+}
+
+// Certificate thumbprint.
+func (o CustomerCertificateParametersOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParameters) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The type of the Secret to create.
+func (o CustomerCertificateParametersOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerCertificateParameters) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether to use the latest version for the certificate
+func (o CustomerCertificateParametersOutput) UseLatestVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParameters) *bool { return v.UseLatestVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Customer Certificate used for https
+type CustomerCertificateParametersResponse struct {
+	// Certificate issuing authority.
+	CertificateAuthority *string `pulumi:"certificateAuthority"`
+	// Certificate expiration date.
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// Resource reference to the KV secret
+	SecretSource ResourceReferenceResponse `pulumi:"secretSource"`
+	// Version of the secret to be used
+	SecretVersion *string `pulumi:"secretVersion"`
+	// Subject name in the certificate.
+	Subject *string `pulumi:"subject"`
+	// The list of SANs.
+	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
+	// Certificate thumbprint.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// The type of the Secret to create.
+	Type string `pulumi:"type"`
+	// Whether to use the latest version for the certificate
+	UseLatestVersion *bool `pulumi:"useLatestVersion"`
+}
+
+// CustomerCertificateParametersResponseInput is an input type that accepts CustomerCertificateParametersResponseArgs and CustomerCertificateParametersResponseOutput values.
+// You can construct a concrete instance of `CustomerCertificateParametersResponseInput` via:
+//
+//          CustomerCertificateParametersResponseArgs{...}
+type CustomerCertificateParametersResponseInput interface {
+	pulumi.Input
+
+	ToCustomerCertificateParametersResponseOutput() CustomerCertificateParametersResponseOutput
+	ToCustomerCertificateParametersResponseOutputWithContext(context.Context) CustomerCertificateParametersResponseOutput
+}
+
+// Customer Certificate used for https
+type CustomerCertificateParametersResponseArgs struct {
+	// Certificate issuing authority.
+	CertificateAuthority pulumi.StringPtrInput `pulumi:"certificateAuthority"`
+	// Certificate expiration date.
+	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
+	// Resource reference to the KV secret
+	SecretSource ResourceReferenceResponseInput `pulumi:"secretSource"`
+	// Version of the secret to be used
+	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+	// Subject name in the certificate.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// The list of SANs.
+	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
+	// Certificate thumbprint.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	// The type of the Secret to create.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Whether to use the latest version for the certificate
+	UseLatestVersion pulumi.BoolPtrInput `pulumi:"useLatestVersion"`
+}
+
+func (CustomerCertificateParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerCertificateParametersResponse)(nil)).Elem()
+}
+
+func (i CustomerCertificateParametersResponseArgs) ToCustomerCertificateParametersResponseOutput() CustomerCertificateParametersResponseOutput {
+	return i.ToCustomerCertificateParametersResponseOutputWithContext(context.Background())
+}
+
+func (i CustomerCertificateParametersResponseArgs) ToCustomerCertificateParametersResponseOutputWithContext(ctx context.Context) CustomerCertificateParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerCertificateParametersResponseOutput)
+}
+
+// Customer Certificate used for https
+type CustomerCertificateParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomerCertificateParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerCertificateParametersResponse)(nil)).Elem()
+}
+
+func (o CustomerCertificateParametersResponseOutput) ToCustomerCertificateParametersResponseOutput() CustomerCertificateParametersResponseOutput {
+	return o
+}
+
+func (o CustomerCertificateParametersResponseOutput) ToCustomerCertificateParametersResponseOutputWithContext(ctx context.Context) CustomerCertificateParametersResponseOutput {
+	return o
+}
+
+// Certificate issuing authority.
+func (o CustomerCertificateParametersResponseOutput) CertificateAuthority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParametersResponse) *string { return v.CertificateAuthority }).(pulumi.StringPtrOutput)
+}
+
+// Certificate expiration date.
+func (o CustomerCertificateParametersResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParametersResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// Resource reference to the KV secret
+func (o CustomerCertificateParametersResponseOutput) SecretSource() ResourceReferenceResponseOutput {
+	return o.ApplyT(func(v CustomerCertificateParametersResponse) ResourceReferenceResponse { return v.SecretSource }).(ResourceReferenceResponseOutput)
+}
+
+// Version of the secret to be used
+func (o CustomerCertificateParametersResponseOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParametersResponse) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
+}
+
+// Subject name in the certificate.
+func (o CustomerCertificateParametersResponseOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParametersResponse) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// The list of SANs.
+func (o CustomerCertificateParametersResponseOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CustomerCertificateParametersResponse) []string { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
+}
+
+// Certificate thumbprint.
+func (o CustomerCertificateParametersResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParametersResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The type of the Secret to create.
+func (o CustomerCertificateParametersResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerCertificateParametersResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether to use the latest version for the certificate
+func (o CustomerCertificateParametersResponseOutput) UseLatestVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomerCertificateParametersResponse) *bool { return v.UseLatestVersion }).(pulumi.BoolPtrOutput)
 }
 
 // The main origin of CDN content which is added when creating a CDN endpoint.
@@ -4410,6 +5226,159 @@ func (o DeliveryRuleUrlPathConditionResponseOutput) Parameters() UrlPathMatchCon
 	}).(UrlPathMatchConditionParametersResponseOutput)
 }
 
+// The JSON object that contains the properties to validate a domain.
+type DomainValidationPropertiesResponse struct {
+	// The date time that the token expires
+	ExpirationDate string `pulumi:"expirationDate"`
+	// Challenge used for DNS TXT record or file based validation
+	ValidationToken string `pulumi:"validationToken"`
+}
+
+// DomainValidationPropertiesResponseInput is an input type that accepts DomainValidationPropertiesResponseArgs and DomainValidationPropertiesResponseOutput values.
+// You can construct a concrete instance of `DomainValidationPropertiesResponseInput` via:
+//
+//          DomainValidationPropertiesResponseArgs{...}
+type DomainValidationPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToDomainValidationPropertiesResponseOutput() DomainValidationPropertiesResponseOutput
+	ToDomainValidationPropertiesResponseOutputWithContext(context.Context) DomainValidationPropertiesResponseOutput
+}
+
+// The JSON object that contains the properties to validate a domain.
+type DomainValidationPropertiesResponseArgs struct {
+	// The date time that the token expires
+	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
+	// Challenge used for DNS TXT record or file based validation
+	ValidationToken pulumi.StringInput `pulumi:"validationToken"`
+}
+
+func (DomainValidationPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainValidationPropertiesResponse)(nil)).Elem()
+}
+
+func (i DomainValidationPropertiesResponseArgs) ToDomainValidationPropertiesResponseOutput() DomainValidationPropertiesResponseOutput {
+	return i.ToDomainValidationPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i DomainValidationPropertiesResponseArgs) ToDomainValidationPropertiesResponseOutputWithContext(ctx context.Context) DomainValidationPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainValidationPropertiesResponseOutput)
+}
+
+func (i DomainValidationPropertiesResponseArgs) ToDomainValidationPropertiesResponsePtrOutput() DomainValidationPropertiesResponsePtrOutput {
+	return i.ToDomainValidationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DomainValidationPropertiesResponseArgs) ToDomainValidationPropertiesResponsePtrOutputWithContext(ctx context.Context) DomainValidationPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainValidationPropertiesResponseOutput).ToDomainValidationPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// DomainValidationPropertiesResponsePtrInput is an input type that accepts DomainValidationPropertiesResponseArgs, DomainValidationPropertiesResponsePtr and DomainValidationPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `DomainValidationPropertiesResponsePtrInput` via:
+//
+//          DomainValidationPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainValidationPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToDomainValidationPropertiesResponsePtrOutput() DomainValidationPropertiesResponsePtrOutput
+	ToDomainValidationPropertiesResponsePtrOutputWithContext(context.Context) DomainValidationPropertiesResponsePtrOutput
+}
+
+type domainValidationPropertiesResponsePtrType DomainValidationPropertiesResponseArgs
+
+func DomainValidationPropertiesResponsePtr(v *DomainValidationPropertiesResponseArgs) DomainValidationPropertiesResponsePtrInput {
+	return (*domainValidationPropertiesResponsePtrType)(v)
+}
+
+func (*domainValidationPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainValidationPropertiesResponse)(nil)).Elem()
+}
+
+func (i *domainValidationPropertiesResponsePtrType) ToDomainValidationPropertiesResponsePtrOutput() DomainValidationPropertiesResponsePtrOutput {
+	return i.ToDomainValidationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *domainValidationPropertiesResponsePtrType) ToDomainValidationPropertiesResponsePtrOutputWithContext(ctx context.Context) DomainValidationPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainValidationPropertiesResponsePtrOutput)
+}
+
+// The JSON object that contains the properties to validate a domain.
+type DomainValidationPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (DomainValidationPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainValidationPropertiesResponse)(nil)).Elem()
+}
+
+func (o DomainValidationPropertiesResponseOutput) ToDomainValidationPropertiesResponseOutput() DomainValidationPropertiesResponseOutput {
+	return o
+}
+
+func (o DomainValidationPropertiesResponseOutput) ToDomainValidationPropertiesResponseOutputWithContext(ctx context.Context) DomainValidationPropertiesResponseOutput {
+	return o
+}
+
+func (o DomainValidationPropertiesResponseOutput) ToDomainValidationPropertiesResponsePtrOutput() DomainValidationPropertiesResponsePtrOutput {
+	return o.ToDomainValidationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DomainValidationPropertiesResponseOutput) ToDomainValidationPropertiesResponsePtrOutputWithContext(ctx context.Context) DomainValidationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v DomainValidationPropertiesResponse) *DomainValidationPropertiesResponse {
+		return &v
+	}).(DomainValidationPropertiesResponsePtrOutput)
+}
+
+// The date time that the token expires
+func (o DomainValidationPropertiesResponseOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainValidationPropertiesResponse) string { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+// Challenge used for DNS TXT record or file based validation
+func (o DomainValidationPropertiesResponseOutput) ValidationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainValidationPropertiesResponse) string { return v.ValidationToken }).(pulumi.StringOutput)
+}
+
+type DomainValidationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainValidationPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainValidationPropertiesResponse)(nil)).Elem()
+}
+
+func (o DomainValidationPropertiesResponsePtrOutput) ToDomainValidationPropertiesResponsePtrOutput() DomainValidationPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o DomainValidationPropertiesResponsePtrOutput) ToDomainValidationPropertiesResponsePtrOutputWithContext(ctx context.Context) DomainValidationPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o DomainValidationPropertiesResponsePtrOutput) Elem() DomainValidationPropertiesResponseOutput {
+	return o.ApplyT(func(v *DomainValidationPropertiesResponse) DomainValidationPropertiesResponse { return *v }).(DomainValidationPropertiesResponseOutput)
+}
+
+// The date time that the token expires
+func (o DomainValidationPropertiesResponsePtrOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainValidationPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpirationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Challenge used for DNS TXT record or file based validation
+func (o DomainValidationPropertiesResponsePtrOutput) ValidationToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainValidationPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidationToken
+	}).(pulumi.StringPtrOutput)
+}
+
 // A policy that specifies the delivery rules to be used for an endpoint.
 type EndpointPropertiesUpdateParametersDeliveryPolicy struct {
 	// User-friendly description of the policy.
@@ -6518,6 +7487,514 @@ func (o KeyVaultSigningKeyParametersResponseOutput) VaultName() pulumi.StringOut
 	return o.ApplyT(func(v KeyVaultSigningKeyParametersResponse) string { return v.VaultName }).(pulumi.StringOutput)
 }
 
+// Round-Robin load balancing settings for a backend pool
+type LoadBalancingSettingsParameters struct {
+	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+	AdditionalLatencyInMilliseconds *int `pulumi:"additionalLatencyInMilliseconds"`
+	// The number of samples to consider for load balancing decisions
+	SampleSize *int `pulumi:"sampleSize"`
+	// The number of samples within the sample period that must succeed
+	SuccessfulSamplesRequired *int `pulumi:"successfulSamplesRequired"`
+}
+
+// LoadBalancingSettingsParametersInput is an input type that accepts LoadBalancingSettingsParametersArgs and LoadBalancingSettingsParametersOutput values.
+// You can construct a concrete instance of `LoadBalancingSettingsParametersInput` via:
+//
+//          LoadBalancingSettingsParametersArgs{...}
+type LoadBalancingSettingsParametersInput interface {
+	pulumi.Input
+
+	ToLoadBalancingSettingsParametersOutput() LoadBalancingSettingsParametersOutput
+	ToLoadBalancingSettingsParametersOutputWithContext(context.Context) LoadBalancingSettingsParametersOutput
+}
+
+// Round-Robin load balancing settings for a backend pool
+type LoadBalancingSettingsParametersArgs struct {
+	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+	AdditionalLatencyInMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyInMilliseconds"`
+	// The number of samples to consider for load balancing decisions
+	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
+	// The number of samples within the sample period that must succeed
+	SuccessfulSamplesRequired pulumi.IntPtrInput `pulumi:"successfulSamplesRequired"`
+}
+
+func (LoadBalancingSettingsParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancingSettingsParameters)(nil)).Elem()
+}
+
+func (i LoadBalancingSettingsParametersArgs) ToLoadBalancingSettingsParametersOutput() LoadBalancingSettingsParametersOutput {
+	return i.ToLoadBalancingSettingsParametersOutputWithContext(context.Background())
+}
+
+func (i LoadBalancingSettingsParametersArgs) ToLoadBalancingSettingsParametersOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsParametersOutput)
+}
+
+func (i LoadBalancingSettingsParametersArgs) ToLoadBalancingSettingsParametersPtrOutput() LoadBalancingSettingsParametersPtrOutput {
+	return i.ToLoadBalancingSettingsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancingSettingsParametersArgs) ToLoadBalancingSettingsParametersPtrOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsParametersOutput).ToLoadBalancingSettingsParametersPtrOutputWithContext(ctx)
+}
+
+// LoadBalancingSettingsParametersPtrInput is an input type that accepts LoadBalancingSettingsParametersArgs, LoadBalancingSettingsParametersPtr and LoadBalancingSettingsParametersPtrOutput values.
+// You can construct a concrete instance of `LoadBalancingSettingsParametersPtrInput` via:
+//
+//          LoadBalancingSettingsParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type LoadBalancingSettingsParametersPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancingSettingsParametersPtrOutput() LoadBalancingSettingsParametersPtrOutput
+	ToLoadBalancingSettingsParametersPtrOutputWithContext(context.Context) LoadBalancingSettingsParametersPtrOutput
+}
+
+type loadBalancingSettingsParametersPtrType LoadBalancingSettingsParametersArgs
+
+func LoadBalancingSettingsParametersPtr(v *LoadBalancingSettingsParametersArgs) LoadBalancingSettingsParametersPtrInput {
+	return (*loadBalancingSettingsParametersPtrType)(v)
+}
+
+func (*loadBalancingSettingsParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancingSettingsParameters)(nil)).Elem()
+}
+
+func (i *loadBalancingSettingsParametersPtrType) ToLoadBalancingSettingsParametersPtrOutput() LoadBalancingSettingsParametersPtrOutput {
+	return i.ToLoadBalancingSettingsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancingSettingsParametersPtrType) ToLoadBalancingSettingsParametersPtrOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsParametersPtrOutput)
+}
+
+// Round-Robin load balancing settings for a backend pool
+type LoadBalancingSettingsParametersOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancingSettingsParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancingSettingsParameters)(nil)).Elem()
+}
+
+func (o LoadBalancingSettingsParametersOutput) ToLoadBalancingSettingsParametersOutput() LoadBalancingSettingsParametersOutput {
+	return o
+}
+
+func (o LoadBalancingSettingsParametersOutput) ToLoadBalancingSettingsParametersOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersOutput {
+	return o
+}
+
+func (o LoadBalancingSettingsParametersOutput) ToLoadBalancingSettingsParametersPtrOutput() LoadBalancingSettingsParametersPtrOutput {
+	return o.ToLoadBalancingSettingsParametersPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancingSettingsParametersOutput) ToLoadBalancingSettingsParametersPtrOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsParameters) *LoadBalancingSettingsParameters {
+		return &v
+	}).(LoadBalancingSettingsParametersPtrOutput)
+}
+
+// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+func (o LoadBalancingSettingsParametersOutput) AdditionalLatencyInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsParameters) *int { return v.AdditionalLatencyInMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+// The number of samples to consider for load balancing decisions
+func (o LoadBalancingSettingsParametersOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsParameters) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
+}
+
+// The number of samples within the sample period that must succeed
+func (o LoadBalancingSettingsParametersOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsParameters) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
+}
+
+type LoadBalancingSettingsParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancingSettingsParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancingSettingsParameters)(nil)).Elem()
+}
+
+func (o LoadBalancingSettingsParametersPtrOutput) ToLoadBalancingSettingsParametersPtrOutput() LoadBalancingSettingsParametersPtrOutput {
+	return o
+}
+
+func (o LoadBalancingSettingsParametersPtrOutput) ToLoadBalancingSettingsParametersPtrOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersPtrOutput {
+	return o
+}
+
+func (o LoadBalancingSettingsParametersPtrOutput) Elem() LoadBalancingSettingsParametersOutput {
+	return o.ApplyT(func(v *LoadBalancingSettingsParameters) LoadBalancingSettingsParameters { return *v }).(LoadBalancingSettingsParametersOutput)
+}
+
+// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+func (o LoadBalancingSettingsParametersPtrOutput) AdditionalLatencyInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancingSettingsParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalLatencyInMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of samples to consider for load balancing decisions
+func (o LoadBalancingSettingsParametersPtrOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancingSettingsParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SampleSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of samples within the sample period that must succeed
+func (o LoadBalancingSettingsParametersPtrOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancingSettingsParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessfulSamplesRequired
+	}).(pulumi.IntPtrOutput)
+}
+
+// Round-Robin load balancing settings for a backend pool
+type LoadBalancingSettingsParametersResponse struct {
+	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+	AdditionalLatencyInMilliseconds *int `pulumi:"additionalLatencyInMilliseconds"`
+	// The number of samples to consider for load balancing decisions
+	SampleSize *int `pulumi:"sampleSize"`
+	// The number of samples within the sample period that must succeed
+	SuccessfulSamplesRequired *int `pulumi:"successfulSamplesRequired"`
+}
+
+// LoadBalancingSettingsParametersResponseInput is an input type that accepts LoadBalancingSettingsParametersResponseArgs and LoadBalancingSettingsParametersResponseOutput values.
+// You can construct a concrete instance of `LoadBalancingSettingsParametersResponseInput` via:
+//
+//          LoadBalancingSettingsParametersResponseArgs{...}
+type LoadBalancingSettingsParametersResponseInput interface {
+	pulumi.Input
+
+	ToLoadBalancingSettingsParametersResponseOutput() LoadBalancingSettingsParametersResponseOutput
+	ToLoadBalancingSettingsParametersResponseOutputWithContext(context.Context) LoadBalancingSettingsParametersResponseOutput
+}
+
+// Round-Robin load balancing settings for a backend pool
+type LoadBalancingSettingsParametersResponseArgs struct {
+	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+	AdditionalLatencyInMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyInMilliseconds"`
+	// The number of samples to consider for load balancing decisions
+	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
+	// The number of samples within the sample period that must succeed
+	SuccessfulSamplesRequired pulumi.IntPtrInput `pulumi:"successfulSamplesRequired"`
+}
+
+func (LoadBalancingSettingsParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancingSettingsParametersResponse)(nil)).Elem()
+}
+
+func (i LoadBalancingSettingsParametersResponseArgs) ToLoadBalancingSettingsParametersResponseOutput() LoadBalancingSettingsParametersResponseOutput {
+	return i.ToLoadBalancingSettingsParametersResponseOutputWithContext(context.Background())
+}
+
+func (i LoadBalancingSettingsParametersResponseArgs) ToLoadBalancingSettingsParametersResponseOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsParametersResponseOutput)
+}
+
+func (i LoadBalancingSettingsParametersResponseArgs) ToLoadBalancingSettingsParametersResponsePtrOutput() LoadBalancingSettingsParametersResponsePtrOutput {
+	return i.ToLoadBalancingSettingsParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancingSettingsParametersResponseArgs) ToLoadBalancingSettingsParametersResponsePtrOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsParametersResponseOutput).ToLoadBalancingSettingsParametersResponsePtrOutputWithContext(ctx)
+}
+
+// LoadBalancingSettingsParametersResponsePtrInput is an input type that accepts LoadBalancingSettingsParametersResponseArgs, LoadBalancingSettingsParametersResponsePtr and LoadBalancingSettingsParametersResponsePtrOutput values.
+// You can construct a concrete instance of `LoadBalancingSettingsParametersResponsePtrInput` via:
+//
+//          LoadBalancingSettingsParametersResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LoadBalancingSettingsParametersResponsePtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancingSettingsParametersResponsePtrOutput() LoadBalancingSettingsParametersResponsePtrOutput
+	ToLoadBalancingSettingsParametersResponsePtrOutputWithContext(context.Context) LoadBalancingSettingsParametersResponsePtrOutput
+}
+
+type loadBalancingSettingsParametersResponsePtrType LoadBalancingSettingsParametersResponseArgs
+
+func LoadBalancingSettingsParametersResponsePtr(v *LoadBalancingSettingsParametersResponseArgs) LoadBalancingSettingsParametersResponsePtrInput {
+	return (*loadBalancingSettingsParametersResponsePtrType)(v)
+}
+
+func (*loadBalancingSettingsParametersResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancingSettingsParametersResponse)(nil)).Elem()
+}
+
+func (i *loadBalancingSettingsParametersResponsePtrType) ToLoadBalancingSettingsParametersResponsePtrOutput() LoadBalancingSettingsParametersResponsePtrOutput {
+	return i.ToLoadBalancingSettingsParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancingSettingsParametersResponsePtrType) ToLoadBalancingSettingsParametersResponsePtrOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsParametersResponsePtrOutput)
+}
+
+// Round-Robin load balancing settings for a backend pool
+type LoadBalancingSettingsParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancingSettingsParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancingSettingsParametersResponse)(nil)).Elem()
+}
+
+func (o LoadBalancingSettingsParametersResponseOutput) ToLoadBalancingSettingsParametersResponseOutput() LoadBalancingSettingsParametersResponseOutput {
+	return o
+}
+
+func (o LoadBalancingSettingsParametersResponseOutput) ToLoadBalancingSettingsParametersResponseOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersResponseOutput {
+	return o
+}
+
+func (o LoadBalancingSettingsParametersResponseOutput) ToLoadBalancingSettingsParametersResponsePtrOutput() LoadBalancingSettingsParametersResponsePtrOutput {
+	return o.ToLoadBalancingSettingsParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancingSettingsParametersResponseOutput) ToLoadBalancingSettingsParametersResponsePtrOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersResponsePtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsParametersResponse) *LoadBalancingSettingsParametersResponse {
+		return &v
+	}).(LoadBalancingSettingsParametersResponsePtrOutput)
+}
+
+// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+func (o LoadBalancingSettingsParametersResponseOutput) AdditionalLatencyInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsParametersResponse) *int { return v.AdditionalLatencyInMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+// The number of samples to consider for load balancing decisions
+func (o LoadBalancingSettingsParametersResponseOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsParametersResponse) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
+}
+
+// The number of samples within the sample period that must succeed
+func (o LoadBalancingSettingsParametersResponseOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsParametersResponse) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
+}
+
+type LoadBalancingSettingsParametersResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancingSettingsParametersResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancingSettingsParametersResponse)(nil)).Elem()
+}
+
+func (o LoadBalancingSettingsParametersResponsePtrOutput) ToLoadBalancingSettingsParametersResponsePtrOutput() LoadBalancingSettingsParametersResponsePtrOutput {
+	return o
+}
+
+func (o LoadBalancingSettingsParametersResponsePtrOutput) ToLoadBalancingSettingsParametersResponsePtrOutputWithContext(ctx context.Context) LoadBalancingSettingsParametersResponsePtrOutput {
+	return o
+}
+
+func (o LoadBalancingSettingsParametersResponsePtrOutput) Elem() LoadBalancingSettingsParametersResponseOutput {
+	return o.ApplyT(func(v *LoadBalancingSettingsParametersResponse) LoadBalancingSettingsParametersResponse { return *v }).(LoadBalancingSettingsParametersResponseOutput)
+}
+
+// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+func (o LoadBalancingSettingsParametersResponsePtrOutput) AdditionalLatencyInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancingSettingsParametersResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalLatencyInMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of samples to consider for load balancing decisions
+func (o LoadBalancingSettingsParametersResponsePtrOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancingSettingsParametersResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SampleSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of samples within the sample period that must succeed
+func (o LoadBalancingSettingsParametersResponsePtrOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancingSettingsParametersResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessfulSamplesRequired
+	}).(pulumi.IntPtrOutput)
+}
+
+// Managed Certificate used for https
+type ManagedCertificateParameters struct {
+	// Certificate expiration date.
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// Subject name in the certificate.
+	Subject *string `pulumi:"subject"`
+	// Certificate thumbprint.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// The type of the Secret to create.
+	Type string `pulumi:"type"`
+}
+
+// ManagedCertificateParametersInput is an input type that accepts ManagedCertificateParametersArgs and ManagedCertificateParametersOutput values.
+// You can construct a concrete instance of `ManagedCertificateParametersInput` via:
+//
+//          ManagedCertificateParametersArgs{...}
+type ManagedCertificateParametersInput interface {
+	pulumi.Input
+
+	ToManagedCertificateParametersOutput() ManagedCertificateParametersOutput
+	ToManagedCertificateParametersOutputWithContext(context.Context) ManagedCertificateParametersOutput
+}
+
+// Managed Certificate used for https
+type ManagedCertificateParametersArgs struct {
+	// Certificate expiration date.
+	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
+	// Subject name in the certificate.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// Certificate thumbprint.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	// The type of the Secret to create.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedCertificateParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedCertificateParameters)(nil)).Elem()
+}
+
+func (i ManagedCertificateParametersArgs) ToManagedCertificateParametersOutput() ManagedCertificateParametersOutput {
+	return i.ToManagedCertificateParametersOutputWithContext(context.Background())
+}
+
+func (i ManagedCertificateParametersArgs) ToManagedCertificateParametersOutputWithContext(ctx context.Context) ManagedCertificateParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedCertificateParametersOutput)
+}
+
+// Managed Certificate used for https
+type ManagedCertificateParametersOutput struct{ *pulumi.OutputState }
+
+func (ManagedCertificateParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedCertificateParameters)(nil)).Elem()
+}
+
+func (o ManagedCertificateParametersOutput) ToManagedCertificateParametersOutput() ManagedCertificateParametersOutput {
+	return o
+}
+
+func (o ManagedCertificateParametersOutput) ToManagedCertificateParametersOutputWithContext(ctx context.Context) ManagedCertificateParametersOutput {
+	return o
+}
+
+// Certificate expiration date.
+func (o ManagedCertificateParametersOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedCertificateParameters) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// Subject name in the certificate.
+func (o ManagedCertificateParametersOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedCertificateParameters) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// Certificate thumbprint.
+func (o ManagedCertificateParametersOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedCertificateParameters) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The type of the Secret to create.
+func (o ManagedCertificateParametersOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedCertificateParameters) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Managed Certificate used for https
+type ManagedCertificateParametersResponse struct {
+	// Certificate expiration date.
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// Subject name in the certificate.
+	Subject *string `pulumi:"subject"`
+	// Certificate thumbprint.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// The type of the Secret to create.
+	Type string `pulumi:"type"`
+}
+
+// ManagedCertificateParametersResponseInput is an input type that accepts ManagedCertificateParametersResponseArgs and ManagedCertificateParametersResponseOutput values.
+// You can construct a concrete instance of `ManagedCertificateParametersResponseInput` via:
+//
+//          ManagedCertificateParametersResponseArgs{...}
+type ManagedCertificateParametersResponseInput interface {
+	pulumi.Input
+
+	ToManagedCertificateParametersResponseOutput() ManagedCertificateParametersResponseOutput
+	ToManagedCertificateParametersResponseOutputWithContext(context.Context) ManagedCertificateParametersResponseOutput
+}
+
+// Managed Certificate used for https
+type ManagedCertificateParametersResponseArgs struct {
+	// Certificate expiration date.
+	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
+	// Subject name in the certificate.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// Certificate thumbprint.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	// The type of the Secret to create.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedCertificateParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedCertificateParametersResponse)(nil)).Elem()
+}
+
+func (i ManagedCertificateParametersResponseArgs) ToManagedCertificateParametersResponseOutput() ManagedCertificateParametersResponseOutput {
+	return i.ToManagedCertificateParametersResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedCertificateParametersResponseArgs) ToManagedCertificateParametersResponseOutputWithContext(ctx context.Context) ManagedCertificateParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedCertificateParametersResponseOutput)
+}
+
+// Managed Certificate used for https
+type ManagedCertificateParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedCertificateParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedCertificateParametersResponse)(nil)).Elem()
+}
+
+func (o ManagedCertificateParametersResponseOutput) ToManagedCertificateParametersResponseOutput() ManagedCertificateParametersResponseOutput {
+	return o
+}
+
+func (o ManagedCertificateParametersResponseOutput) ToManagedCertificateParametersResponseOutputWithContext(ctx context.Context) ManagedCertificateParametersResponseOutput {
+	return o
+}
+
+// Certificate expiration date.
+func (o ManagedCertificateParametersResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedCertificateParametersResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// Subject name in the certificate.
+func (o ManagedCertificateParametersResponseOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedCertificateParametersResponse) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// Certificate thumbprint.
+func (o ManagedCertificateParametersResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedCertificateParametersResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The type of the Secret to create.
+func (o ManagedCertificateParametersResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedCertificateParametersResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Defines a managed rule group override setting.
 type ManagedRuleGroupOverride struct {
 	// Describes the managed rule group within the rule set to override
@@ -7782,6 +9259,258 @@ func (o MatchConditionResponseArrayOutput) Index(i pulumi.IntInput) MatchConditi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchConditionResponse {
 		return vs[0].([]MatchConditionResponse)[vs[1].(int)]
 	}).(MatchConditionResponseOutput)
+}
+
+// Defines the origin group override action for the delivery rule.
+type OriginGroupOverrideAction struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters OriginGroupOverrideActionParameters `pulumi:"parameters"`
+}
+
+// OriginGroupOverrideActionInput is an input type that accepts OriginGroupOverrideActionArgs and OriginGroupOverrideActionOutput values.
+// You can construct a concrete instance of `OriginGroupOverrideActionInput` via:
+//
+//          OriginGroupOverrideActionArgs{...}
+type OriginGroupOverrideActionInput interface {
+	pulumi.Input
+
+	ToOriginGroupOverrideActionOutput() OriginGroupOverrideActionOutput
+	ToOriginGroupOverrideActionOutputWithContext(context.Context) OriginGroupOverrideActionOutput
+}
+
+// Defines the origin group override action for the delivery rule.
+type OriginGroupOverrideActionArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters OriginGroupOverrideActionParametersInput `pulumi:"parameters"`
+}
+
+func (OriginGroupOverrideActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideAction)(nil)).Elem()
+}
+
+func (i OriginGroupOverrideActionArgs) ToOriginGroupOverrideActionOutput() OriginGroupOverrideActionOutput {
+	return i.ToOriginGroupOverrideActionOutputWithContext(context.Background())
+}
+
+func (i OriginGroupOverrideActionArgs) ToOriginGroupOverrideActionOutputWithContext(ctx context.Context) OriginGroupOverrideActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOverrideActionOutput)
+}
+
+// Defines the origin group override action for the delivery rule.
+type OriginGroupOverrideActionOutput struct{ *pulumi.OutputState }
+
+func (OriginGroupOverrideActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideAction)(nil)).Elem()
+}
+
+func (o OriginGroupOverrideActionOutput) ToOriginGroupOverrideActionOutput() OriginGroupOverrideActionOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionOutput) ToOriginGroupOverrideActionOutputWithContext(ctx context.Context) OriginGroupOverrideActionOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o OriginGroupOverrideActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginGroupOverrideAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o OriginGroupOverrideActionOutput) Parameters() OriginGroupOverrideActionParametersOutput {
+	return o.ApplyT(func(v OriginGroupOverrideAction) OriginGroupOverrideActionParameters { return v.Parameters }).(OriginGroupOverrideActionParametersOutput)
+}
+
+// Defines the parameters for the origin group override action.
+type OriginGroupOverrideActionParameters struct {
+	OdataType string `pulumi:"odataType"`
+	// defines the OriginGroup that would override the DefaultOriginGroup.
+	OriginGroup ResourceReference `pulumi:"originGroup"`
+}
+
+// OriginGroupOverrideActionParametersInput is an input type that accepts OriginGroupOverrideActionParametersArgs and OriginGroupOverrideActionParametersOutput values.
+// You can construct a concrete instance of `OriginGroupOverrideActionParametersInput` via:
+//
+//          OriginGroupOverrideActionParametersArgs{...}
+type OriginGroupOverrideActionParametersInput interface {
+	pulumi.Input
+
+	ToOriginGroupOverrideActionParametersOutput() OriginGroupOverrideActionParametersOutput
+	ToOriginGroupOverrideActionParametersOutputWithContext(context.Context) OriginGroupOverrideActionParametersOutput
+}
+
+// Defines the parameters for the origin group override action.
+type OriginGroupOverrideActionParametersArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// defines the OriginGroup that would override the DefaultOriginGroup.
+	OriginGroup ResourceReferenceInput `pulumi:"originGroup"`
+}
+
+func (OriginGroupOverrideActionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionParameters)(nil)).Elem()
+}
+
+func (i OriginGroupOverrideActionParametersArgs) ToOriginGroupOverrideActionParametersOutput() OriginGroupOverrideActionParametersOutput {
+	return i.ToOriginGroupOverrideActionParametersOutputWithContext(context.Background())
+}
+
+func (i OriginGroupOverrideActionParametersArgs) ToOriginGroupOverrideActionParametersOutputWithContext(ctx context.Context) OriginGroupOverrideActionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOverrideActionParametersOutput)
+}
+
+// Defines the parameters for the origin group override action.
+type OriginGroupOverrideActionParametersOutput struct{ *pulumi.OutputState }
+
+func (OriginGroupOverrideActionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionParameters)(nil)).Elem()
+}
+
+func (o OriginGroupOverrideActionParametersOutput) ToOriginGroupOverrideActionParametersOutput() OriginGroupOverrideActionParametersOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionParametersOutput) ToOriginGroupOverrideActionParametersOutputWithContext(ctx context.Context) OriginGroupOverrideActionParametersOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// defines the OriginGroup that would override the DefaultOriginGroup.
+func (o OriginGroupOverrideActionParametersOutput) OriginGroup() ResourceReferenceOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionParameters) ResourceReference { return v.OriginGroup }).(ResourceReferenceOutput)
+}
+
+// Defines the parameters for the origin group override action.
+type OriginGroupOverrideActionParametersResponse struct {
+	OdataType string `pulumi:"odataType"`
+	// defines the OriginGroup that would override the DefaultOriginGroup.
+	OriginGroup ResourceReferenceResponse `pulumi:"originGroup"`
+}
+
+// OriginGroupOverrideActionParametersResponseInput is an input type that accepts OriginGroupOverrideActionParametersResponseArgs and OriginGroupOverrideActionParametersResponseOutput values.
+// You can construct a concrete instance of `OriginGroupOverrideActionParametersResponseInput` via:
+//
+//          OriginGroupOverrideActionParametersResponseArgs{...}
+type OriginGroupOverrideActionParametersResponseInput interface {
+	pulumi.Input
+
+	ToOriginGroupOverrideActionParametersResponseOutput() OriginGroupOverrideActionParametersResponseOutput
+	ToOriginGroupOverrideActionParametersResponseOutputWithContext(context.Context) OriginGroupOverrideActionParametersResponseOutput
+}
+
+// Defines the parameters for the origin group override action.
+type OriginGroupOverrideActionParametersResponseArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// defines the OriginGroup that would override the DefaultOriginGroup.
+	OriginGroup ResourceReferenceResponseInput `pulumi:"originGroup"`
+}
+
+func (OriginGroupOverrideActionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionParametersResponse)(nil)).Elem()
+}
+
+func (i OriginGroupOverrideActionParametersResponseArgs) ToOriginGroupOverrideActionParametersResponseOutput() OriginGroupOverrideActionParametersResponseOutput {
+	return i.ToOriginGroupOverrideActionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i OriginGroupOverrideActionParametersResponseArgs) ToOriginGroupOverrideActionParametersResponseOutputWithContext(ctx context.Context) OriginGroupOverrideActionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOverrideActionParametersResponseOutput)
+}
+
+// Defines the parameters for the origin group override action.
+type OriginGroupOverrideActionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (OriginGroupOverrideActionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionParametersResponse)(nil)).Elem()
+}
+
+func (o OriginGroupOverrideActionParametersResponseOutput) ToOriginGroupOverrideActionParametersResponseOutput() OriginGroupOverrideActionParametersResponseOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionParametersResponseOutput) ToOriginGroupOverrideActionParametersResponseOutputWithContext(ctx context.Context) OriginGroupOverrideActionParametersResponseOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// defines the OriginGroup that would override the DefaultOriginGroup.
+func (o OriginGroupOverrideActionParametersResponseOutput) OriginGroup() ResourceReferenceResponseOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionParametersResponse) ResourceReferenceResponse { return v.OriginGroup }).(ResourceReferenceResponseOutput)
+}
+
+// Defines the origin group override action for the delivery rule.
+type OriginGroupOverrideActionResponse struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters OriginGroupOverrideActionParametersResponse `pulumi:"parameters"`
+}
+
+// OriginGroupOverrideActionResponseInput is an input type that accepts OriginGroupOverrideActionResponseArgs and OriginGroupOverrideActionResponseOutput values.
+// You can construct a concrete instance of `OriginGroupOverrideActionResponseInput` via:
+//
+//          OriginGroupOverrideActionResponseArgs{...}
+type OriginGroupOverrideActionResponseInput interface {
+	pulumi.Input
+
+	ToOriginGroupOverrideActionResponseOutput() OriginGroupOverrideActionResponseOutput
+	ToOriginGroupOverrideActionResponseOutputWithContext(context.Context) OriginGroupOverrideActionResponseOutput
+}
+
+// Defines the origin group override action for the delivery rule.
+type OriginGroupOverrideActionResponseArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters OriginGroupOverrideActionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (OriginGroupOverrideActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionResponse)(nil)).Elem()
+}
+
+func (i OriginGroupOverrideActionResponseArgs) ToOriginGroupOverrideActionResponseOutput() OriginGroupOverrideActionResponseOutput {
+	return i.ToOriginGroupOverrideActionResponseOutputWithContext(context.Background())
+}
+
+func (i OriginGroupOverrideActionResponseArgs) ToOriginGroupOverrideActionResponseOutputWithContext(ctx context.Context) OriginGroupOverrideActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOverrideActionResponseOutput)
+}
+
+// Defines the origin group override action for the delivery rule.
+type OriginGroupOverrideActionResponseOutput struct{ *pulumi.OutputState }
+
+func (OriginGroupOverrideActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionResponse)(nil)).Elem()
+}
+
+func (o OriginGroupOverrideActionResponseOutput) ToOriginGroupOverrideActionResponseOutput() OriginGroupOverrideActionResponseOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionResponseOutput) ToOriginGroupOverrideActionResponseOutputWithContext(ctx context.Context) OriginGroupOverrideActionResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o OriginGroupOverrideActionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o OriginGroupOverrideActionResponseOutput) Parameters() OriginGroupOverrideActionParametersResponseOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionResponse) OriginGroupOverrideActionParametersResponse {
+		return v.Parameters
+	}).(OriginGroupOverrideActionParametersResponseOutput)
 }
 
 // Defines contents of a web application firewall global configuration
@@ -10904,6 +12633,852 @@ func (o ResponseBasedOriginErrorDetectionParametersResponsePtrOutput) ResponseBa
 	}).(pulumi.IntPtrOutput)
 }
 
+// settings for security policy patterns to match
+type SecurityPolicyWebApplicationFirewallAssociation struct {
+	// List of domains.
+	Domains []ResourceReference `pulumi:"domains"`
+	// List of paths
+	PatternsToMatch []string `pulumi:"patternsToMatch"`
+}
+
+// SecurityPolicyWebApplicationFirewallAssociationInput is an input type that accepts SecurityPolicyWebApplicationFirewallAssociationArgs and SecurityPolicyWebApplicationFirewallAssociationOutput values.
+// You can construct a concrete instance of `SecurityPolicyWebApplicationFirewallAssociationInput` via:
+//
+//          SecurityPolicyWebApplicationFirewallAssociationArgs{...}
+type SecurityPolicyWebApplicationFirewallAssociationInput interface {
+	pulumi.Input
+
+	ToSecurityPolicyWebApplicationFirewallAssociationOutput() SecurityPolicyWebApplicationFirewallAssociationOutput
+	ToSecurityPolicyWebApplicationFirewallAssociationOutputWithContext(context.Context) SecurityPolicyWebApplicationFirewallAssociationOutput
+}
+
+// settings for security policy patterns to match
+type SecurityPolicyWebApplicationFirewallAssociationArgs struct {
+	// List of domains.
+	Domains ResourceReferenceArrayInput `pulumi:"domains"`
+	// List of paths
+	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
+}
+
+func (SecurityPolicyWebApplicationFirewallAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPolicyWebApplicationFirewallAssociation)(nil)).Elem()
+}
+
+func (i SecurityPolicyWebApplicationFirewallAssociationArgs) ToSecurityPolicyWebApplicationFirewallAssociationOutput() SecurityPolicyWebApplicationFirewallAssociationOutput {
+	return i.ToSecurityPolicyWebApplicationFirewallAssociationOutputWithContext(context.Background())
+}
+
+func (i SecurityPolicyWebApplicationFirewallAssociationArgs) ToSecurityPolicyWebApplicationFirewallAssociationOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyWebApplicationFirewallAssociationOutput)
+}
+
+// SecurityPolicyWebApplicationFirewallAssociationArrayInput is an input type that accepts SecurityPolicyWebApplicationFirewallAssociationArray and SecurityPolicyWebApplicationFirewallAssociationArrayOutput values.
+// You can construct a concrete instance of `SecurityPolicyWebApplicationFirewallAssociationArrayInput` via:
+//
+//          SecurityPolicyWebApplicationFirewallAssociationArray{ SecurityPolicyWebApplicationFirewallAssociationArgs{...} }
+type SecurityPolicyWebApplicationFirewallAssociationArrayInput interface {
+	pulumi.Input
+
+	ToSecurityPolicyWebApplicationFirewallAssociationArrayOutput() SecurityPolicyWebApplicationFirewallAssociationArrayOutput
+	ToSecurityPolicyWebApplicationFirewallAssociationArrayOutputWithContext(context.Context) SecurityPolicyWebApplicationFirewallAssociationArrayOutput
+}
+
+type SecurityPolicyWebApplicationFirewallAssociationArray []SecurityPolicyWebApplicationFirewallAssociationInput
+
+func (SecurityPolicyWebApplicationFirewallAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityPolicyWebApplicationFirewallAssociation)(nil)).Elem()
+}
+
+func (i SecurityPolicyWebApplicationFirewallAssociationArray) ToSecurityPolicyWebApplicationFirewallAssociationArrayOutput() SecurityPolicyWebApplicationFirewallAssociationArrayOutput {
+	return i.ToSecurityPolicyWebApplicationFirewallAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityPolicyWebApplicationFirewallAssociationArray) ToSecurityPolicyWebApplicationFirewallAssociationArrayOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyWebApplicationFirewallAssociationArrayOutput)
+}
+
+// settings for security policy patterns to match
+type SecurityPolicyWebApplicationFirewallAssociationOutput struct{ *pulumi.OutputState }
+
+func (SecurityPolicyWebApplicationFirewallAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPolicyWebApplicationFirewallAssociation)(nil)).Elem()
+}
+
+func (o SecurityPolicyWebApplicationFirewallAssociationOutput) ToSecurityPolicyWebApplicationFirewallAssociationOutput() SecurityPolicyWebApplicationFirewallAssociationOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallAssociationOutput) ToSecurityPolicyWebApplicationFirewallAssociationOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallAssociationOutput {
+	return o
+}
+
+// List of domains.
+func (o SecurityPolicyWebApplicationFirewallAssociationOutput) Domains() ResourceReferenceArrayOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallAssociation) []ResourceReference { return v.Domains }).(ResourceReferenceArrayOutput)
+}
+
+// List of paths
+func (o SecurityPolicyWebApplicationFirewallAssociationOutput) PatternsToMatch() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallAssociation) []string { return v.PatternsToMatch }).(pulumi.StringArrayOutput)
+}
+
+type SecurityPolicyWebApplicationFirewallAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityPolicyWebApplicationFirewallAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityPolicyWebApplicationFirewallAssociation)(nil)).Elem()
+}
+
+func (o SecurityPolicyWebApplicationFirewallAssociationArrayOutput) ToSecurityPolicyWebApplicationFirewallAssociationArrayOutput() SecurityPolicyWebApplicationFirewallAssociationArrayOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallAssociationArrayOutput) ToSecurityPolicyWebApplicationFirewallAssociationArrayOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallAssociationArrayOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallAssociationArrayOutput) Index(i pulumi.IntInput) SecurityPolicyWebApplicationFirewallAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityPolicyWebApplicationFirewallAssociation {
+		return vs[0].([]SecurityPolicyWebApplicationFirewallAssociation)[vs[1].(int)]
+	}).(SecurityPolicyWebApplicationFirewallAssociationOutput)
+}
+
+// settings for security policy patterns to match
+type SecurityPolicyWebApplicationFirewallAssociationResponse struct {
+	// List of domains.
+	Domains []ResourceReferenceResponse `pulumi:"domains"`
+	// List of paths
+	PatternsToMatch []string `pulumi:"patternsToMatch"`
+}
+
+// SecurityPolicyWebApplicationFirewallAssociationResponseInput is an input type that accepts SecurityPolicyWebApplicationFirewallAssociationResponseArgs and SecurityPolicyWebApplicationFirewallAssociationResponseOutput values.
+// You can construct a concrete instance of `SecurityPolicyWebApplicationFirewallAssociationResponseInput` via:
+//
+//          SecurityPolicyWebApplicationFirewallAssociationResponseArgs{...}
+type SecurityPolicyWebApplicationFirewallAssociationResponseInput interface {
+	pulumi.Input
+
+	ToSecurityPolicyWebApplicationFirewallAssociationResponseOutput() SecurityPolicyWebApplicationFirewallAssociationResponseOutput
+	ToSecurityPolicyWebApplicationFirewallAssociationResponseOutputWithContext(context.Context) SecurityPolicyWebApplicationFirewallAssociationResponseOutput
+}
+
+// settings for security policy patterns to match
+type SecurityPolicyWebApplicationFirewallAssociationResponseArgs struct {
+	// List of domains.
+	Domains ResourceReferenceResponseArrayInput `pulumi:"domains"`
+	// List of paths
+	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
+}
+
+func (SecurityPolicyWebApplicationFirewallAssociationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPolicyWebApplicationFirewallAssociationResponse)(nil)).Elem()
+}
+
+func (i SecurityPolicyWebApplicationFirewallAssociationResponseArgs) ToSecurityPolicyWebApplicationFirewallAssociationResponseOutput() SecurityPolicyWebApplicationFirewallAssociationResponseOutput {
+	return i.ToSecurityPolicyWebApplicationFirewallAssociationResponseOutputWithContext(context.Background())
+}
+
+func (i SecurityPolicyWebApplicationFirewallAssociationResponseArgs) ToSecurityPolicyWebApplicationFirewallAssociationResponseOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallAssociationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyWebApplicationFirewallAssociationResponseOutput)
+}
+
+// SecurityPolicyWebApplicationFirewallAssociationResponseArrayInput is an input type that accepts SecurityPolicyWebApplicationFirewallAssociationResponseArray and SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput values.
+// You can construct a concrete instance of `SecurityPolicyWebApplicationFirewallAssociationResponseArrayInput` via:
+//
+//          SecurityPolicyWebApplicationFirewallAssociationResponseArray{ SecurityPolicyWebApplicationFirewallAssociationResponseArgs{...} }
+type SecurityPolicyWebApplicationFirewallAssociationResponseArrayInput interface {
+	pulumi.Input
+
+	ToSecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput() SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput
+	ToSecurityPolicyWebApplicationFirewallAssociationResponseArrayOutputWithContext(context.Context) SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput
+}
+
+type SecurityPolicyWebApplicationFirewallAssociationResponseArray []SecurityPolicyWebApplicationFirewallAssociationResponseInput
+
+func (SecurityPolicyWebApplicationFirewallAssociationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityPolicyWebApplicationFirewallAssociationResponse)(nil)).Elem()
+}
+
+func (i SecurityPolicyWebApplicationFirewallAssociationResponseArray) ToSecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput() SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput {
+	return i.ToSecurityPolicyWebApplicationFirewallAssociationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityPolicyWebApplicationFirewallAssociationResponseArray) ToSecurityPolicyWebApplicationFirewallAssociationResponseArrayOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput)
+}
+
+// settings for security policy patterns to match
+type SecurityPolicyWebApplicationFirewallAssociationResponseOutput struct{ *pulumi.OutputState }
+
+func (SecurityPolicyWebApplicationFirewallAssociationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPolicyWebApplicationFirewallAssociationResponse)(nil)).Elem()
+}
+
+func (o SecurityPolicyWebApplicationFirewallAssociationResponseOutput) ToSecurityPolicyWebApplicationFirewallAssociationResponseOutput() SecurityPolicyWebApplicationFirewallAssociationResponseOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallAssociationResponseOutput) ToSecurityPolicyWebApplicationFirewallAssociationResponseOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallAssociationResponseOutput {
+	return o
+}
+
+// List of domains.
+func (o SecurityPolicyWebApplicationFirewallAssociationResponseOutput) Domains() ResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallAssociationResponse) []ResourceReferenceResponse {
+		return v.Domains
+	}).(ResourceReferenceResponseArrayOutput)
+}
+
+// List of paths
+func (o SecurityPolicyWebApplicationFirewallAssociationResponseOutput) PatternsToMatch() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallAssociationResponse) []string { return v.PatternsToMatch }).(pulumi.StringArrayOutput)
+}
+
+type SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityPolicyWebApplicationFirewallAssociationResponse)(nil)).Elem()
+}
+
+func (o SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput) ToSecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput() SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput) ToSecurityPolicyWebApplicationFirewallAssociationResponseArrayOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput) Index(i pulumi.IntInput) SecurityPolicyWebApplicationFirewallAssociationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityPolicyWebApplicationFirewallAssociationResponse {
+		return vs[0].([]SecurityPolicyWebApplicationFirewallAssociationResponse)[vs[1].(int)]
+	}).(SecurityPolicyWebApplicationFirewallAssociationResponseOutput)
+}
+
+// The json object containing security policy waf parameters
+type SecurityPolicyWebApplicationFirewallParameters struct {
+	// Waf associations
+	Associations []SecurityPolicyWebApplicationFirewallAssociation `pulumi:"associations"`
+	// The type of the Security policy to create.
+	Type string `pulumi:"type"`
+	// Resource ID.
+	WafPolicy *ResourceReference `pulumi:"wafPolicy"`
+}
+
+// SecurityPolicyWebApplicationFirewallParametersInput is an input type that accepts SecurityPolicyWebApplicationFirewallParametersArgs and SecurityPolicyWebApplicationFirewallParametersOutput values.
+// You can construct a concrete instance of `SecurityPolicyWebApplicationFirewallParametersInput` via:
+//
+//          SecurityPolicyWebApplicationFirewallParametersArgs{...}
+type SecurityPolicyWebApplicationFirewallParametersInput interface {
+	pulumi.Input
+
+	ToSecurityPolicyWebApplicationFirewallParametersOutput() SecurityPolicyWebApplicationFirewallParametersOutput
+	ToSecurityPolicyWebApplicationFirewallParametersOutputWithContext(context.Context) SecurityPolicyWebApplicationFirewallParametersOutput
+}
+
+// The json object containing security policy waf parameters
+type SecurityPolicyWebApplicationFirewallParametersArgs struct {
+	// Waf associations
+	Associations SecurityPolicyWebApplicationFirewallAssociationArrayInput `pulumi:"associations"`
+	// The type of the Security policy to create.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Resource ID.
+	WafPolicy ResourceReferencePtrInput `pulumi:"wafPolicy"`
+}
+
+func (SecurityPolicyWebApplicationFirewallParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPolicyWebApplicationFirewallParameters)(nil)).Elem()
+}
+
+func (i SecurityPolicyWebApplicationFirewallParametersArgs) ToSecurityPolicyWebApplicationFirewallParametersOutput() SecurityPolicyWebApplicationFirewallParametersOutput {
+	return i.ToSecurityPolicyWebApplicationFirewallParametersOutputWithContext(context.Background())
+}
+
+func (i SecurityPolicyWebApplicationFirewallParametersArgs) ToSecurityPolicyWebApplicationFirewallParametersOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyWebApplicationFirewallParametersOutput)
+}
+
+func (i SecurityPolicyWebApplicationFirewallParametersArgs) ToSecurityPolicyWebApplicationFirewallParametersPtrOutput() SecurityPolicyWebApplicationFirewallParametersPtrOutput {
+	return i.ToSecurityPolicyWebApplicationFirewallParametersPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityPolicyWebApplicationFirewallParametersArgs) ToSecurityPolicyWebApplicationFirewallParametersPtrOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyWebApplicationFirewallParametersOutput).ToSecurityPolicyWebApplicationFirewallParametersPtrOutputWithContext(ctx)
+}
+
+// SecurityPolicyWebApplicationFirewallParametersPtrInput is an input type that accepts SecurityPolicyWebApplicationFirewallParametersArgs, SecurityPolicyWebApplicationFirewallParametersPtr and SecurityPolicyWebApplicationFirewallParametersPtrOutput values.
+// You can construct a concrete instance of `SecurityPolicyWebApplicationFirewallParametersPtrInput` via:
+//
+//          SecurityPolicyWebApplicationFirewallParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityPolicyWebApplicationFirewallParametersPtrInput interface {
+	pulumi.Input
+
+	ToSecurityPolicyWebApplicationFirewallParametersPtrOutput() SecurityPolicyWebApplicationFirewallParametersPtrOutput
+	ToSecurityPolicyWebApplicationFirewallParametersPtrOutputWithContext(context.Context) SecurityPolicyWebApplicationFirewallParametersPtrOutput
+}
+
+type securityPolicyWebApplicationFirewallParametersPtrType SecurityPolicyWebApplicationFirewallParametersArgs
+
+func SecurityPolicyWebApplicationFirewallParametersPtr(v *SecurityPolicyWebApplicationFirewallParametersArgs) SecurityPolicyWebApplicationFirewallParametersPtrInput {
+	return (*securityPolicyWebApplicationFirewallParametersPtrType)(v)
+}
+
+func (*securityPolicyWebApplicationFirewallParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityPolicyWebApplicationFirewallParameters)(nil)).Elem()
+}
+
+func (i *securityPolicyWebApplicationFirewallParametersPtrType) ToSecurityPolicyWebApplicationFirewallParametersPtrOutput() SecurityPolicyWebApplicationFirewallParametersPtrOutput {
+	return i.ToSecurityPolicyWebApplicationFirewallParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *securityPolicyWebApplicationFirewallParametersPtrType) ToSecurityPolicyWebApplicationFirewallParametersPtrOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyWebApplicationFirewallParametersPtrOutput)
+}
+
+// The json object containing security policy waf parameters
+type SecurityPolicyWebApplicationFirewallParametersOutput struct{ *pulumi.OutputState }
+
+func (SecurityPolicyWebApplicationFirewallParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPolicyWebApplicationFirewallParameters)(nil)).Elem()
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersOutput) ToSecurityPolicyWebApplicationFirewallParametersOutput() SecurityPolicyWebApplicationFirewallParametersOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersOutput) ToSecurityPolicyWebApplicationFirewallParametersOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersOutput) ToSecurityPolicyWebApplicationFirewallParametersPtrOutput() SecurityPolicyWebApplicationFirewallParametersPtrOutput {
+	return o.ToSecurityPolicyWebApplicationFirewallParametersPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersOutput) ToSecurityPolicyWebApplicationFirewallParametersPtrOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersPtrOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallParameters) *SecurityPolicyWebApplicationFirewallParameters {
+		return &v
+	}).(SecurityPolicyWebApplicationFirewallParametersPtrOutput)
+}
+
+// Waf associations
+func (o SecurityPolicyWebApplicationFirewallParametersOutput) Associations() SecurityPolicyWebApplicationFirewallAssociationArrayOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallParameters) []SecurityPolicyWebApplicationFirewallAssociation {
+		return v.Associations
+	}).(SecurityPolicyWebApplicationFirewallAssociationArrayOutput)
+}
+
+// The type of the Security policy to create.
+func (o SecurityPolicyWebApplicationFirewallParametersOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallParameters) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o SecurityPolicyWebApplicationFirewallParametersOutput) WafPolicy() ResourceReferencePtrOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallParameters) *ResourceReference { return v.WafPolicy }).(ResourceReferencePtrOutput)
+}
+
+type SecurityPolicyWebApplicationFirewallParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityPolicyWebApplicationFirewallParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityPolicyWebApplicationFirewallParameters)(nil)).Elem()
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersPtrOutput) ToSecurityPolicyWebApplicationFirewallParametersPtrOutput() SecurityPolicyWebApplicationFirewallParametersPtrOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersPtrOutput) ToSecurityPolicyWebApplicationFirewallParametersPtrOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersPtrOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersPtrOutput) Elem() SecurityPolicyWebApplicationFirewallParametersOutput {
+	return o.ApplyT(func(v *SecurityPolicyWebApplicationFirewallParameters) SecurityPolicyWebApplicationFirewallParameters {
+		return *v
+	}).(SecurityPolicyWebApplicationFirewallParametersOutput)
+}
+
+// Waf associations
+func (o SecurityPolicyWebApplicationFirewallParametersPtrOutput) Associations() SecurityPolicyWebApplicationFirewallAssociationArrayOutput {
+	return o.ApplyT(func(v *SecurityPolicyWebApplicationFirewallParameters) []SecurityPolicyWebApplicationFirewallAssociation {
+		if v == nil {
+			return nil
+		}
+		return v.Associations
+	}).(SecurityPolicyWebApplicationFirewallAssociationArrayOutput)
+}
+
+// The type of the Security policy to create.
+func (o SecurityPolicyWebApplicationFirewallParametersPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityPolicyWebApplicationFirewallParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o SecurityPolicyWebApplicationFirewallParametersPtrOutput) WafPolicy() ResourceReferencePtrOutput {
+	return o.ApplyT(func(v *SecurityPolicyWebApplicationFirewallParameters) *ResourceReference {
+		if v == nil {
+			return nil
+		}
+		return v.WafPolicy
+	}).(ResourceReferencePtrOutput)
+}
+
+// The json object containing security policy waf parameters
+type SecurityPolicyWebApplicationFirewallParametersResponse struct {
+	// Waf associations
+	Associations []SecurityPolicyWebApplicationFirewallAssociationResponse `pulumi:"associations"`
+	// The type of the Security policy to create.
+	Type string `pulumi:"type"`
+	// Resource ID.
+	WafPolicy *ResourceReferenceResponse `pulumi:"wafPolicy"`
+}
+
+// SecurityPolicyWebApplicationFirewallParametersResponseInput is an input type that accepts SecurityPolicyWebApplicationFirewallParametersResponseArgs and SecurityPolicyWebApplicationFirewallParametersResponseOutput values.
+// You can construct a concrete instance of `SecurityPolicyWebApplicationFirewallParametersResponseInput` via:
+//
+//          SecurityPolicyWebApplicationFirewallParametersResponseArgs{...}
+type SecurityPolicyWebApplicationFirewallParametersResponseInput interface {
+	pulumi.Input
+
+	ToSecurityPolicyWebApplicationFirewallParametersResponseOutput() SecurityPolicyWebApplicationFirewallParametersResponseOutput
+	ToSecurityPolicyWebApplicationFirewallParametersResponseOutputWithContext(context.Context) SecurityPolicyWebApplicationFirewallParametersResponseOutput
+}
+
+// The json object containing security policy waf parameters
+type SecurityPolicyWebApplicationFirewallParametersResponseArgs struct {
+	// Waf associations
+	Associations SecurityPolicyWebApplicationFirewallAssociationResponseArrayInput `pulumi:"associations"`
+	// The type of the Security policy to create.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Resource ID.
+	WafPolicy ResourceReferenceResponsePtrInput `pulumi:"wafPolicy"`
+}
+
+func (SecurityPolicyWebApplicationFirewallParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPolicyWebApplicationFirewallParametersResponse)(nil)).Elem()
+}
+
+func (i SecurityPolicyWebApplicationFirewallParametersResponseArgs) ToSecurityPolicyWebApplicationFirewallParametersResponseOutput() SecurityPolicyWebApplicationFirewallParametersResponseOutput {
+	return i.ToSecurityPolicyWebApplicationFirewallParametersResponseOutputWithContext(context.Background())
+}
+
+func (i SecurityPolicyWebApplicationFirewallParametersResponseArgs) ToSecurityPolicyWebApplicationFirewallParametersResponseOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyWebApplicationFirewallParametersResponseOutput)
+}
+
+func (i SecurityPolicyWebApplicationFirewallParametersResponseArgs) ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutput() SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+	return i.ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityPolicyWebApplicationFirewallParametersResponseArgs) ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyWebApplicationFirewallParametersResponseOutput).ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutputWithContext(ctx)
+}
+
+// SecurityPolicyWebApplicationFirewallParametersResponsePtrInput is an input type that accepts SecurityPolicyWebApplicationFirewallParametersResponseArgs, SecurityPolicyWebApplicationFirewallParametersResponsePtr and SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput values.
+// You can construct a concrete instance of `SecurityPolicyWebApplicationFirewallParametersResponsePtrInput` via:
+//
+//          SecurityPolicyWebApplicationFirewallParametersResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityPolicyWebApplicationFirewallParametersResponsePtrInput interface {
+	pulumi.Input
+
+	ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutput() SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput
+	ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutputWithContext(context.Context) SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput
+}
+
+type securityPolicyWebApplicationFirewallParametersResponsePtrType SecurityPolicyWebApplicationFirewallParametersResponseArgs
+
+func SecurityPolicyWebApplicationFirewallParametersResponsePtr(v *SecurityPolicyWebApplicationFirewallParametersResponseArgs) SecurityPolicyWebApplicationFirewallParametersResponsePtrInput {
+	return (*securityPolicyWebApplicationFirewallParametersResponsePtrType)(v)
+}
+
+func (*securityPolicyWebApplicationFirewallParametersResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityPolicyWebApplicationFirewallParametersResponse)(nil)).Elem()
+}
+
+func (i *securityPolicyWebApplicationFirewallParametersResponsePtrType) ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutput() SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+	return i.ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *securityPolicyWebApplicationFirewallParametersResponsePtrType) ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput)
+}
+
+// The json object containing security policy waf parameters
+type SecurityPolicyWebApplicationFirewallParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (SecurityPolicyWebApplicationFirewallParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPolicyWebApplicationFirewallParametersResponse)(nil)).Elem()
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersResponseOutput) ToSecurityPolicyWebApplicationFirewallParametersResponseOutput() SecurityPolicyWebApplicationFirewallParametersResponseOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersResponseOutput) ToSecurityPolicyWebApplicationFirewallParametersResponseOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersResponseOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersResponseOutput) ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutput() SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+	return o.ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersResponseOutput) ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallParametersResponse) *SecurityPolicyWebApplicationFirewallParametersResponse {
+		return &v
+	}).(SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput)
+}
+
+// Waf associations
+func (o SecurityPolicyWebApplicationFirewallParametersResponseOutput) Associations() SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallParametersResponse) []SecurityPolicyWebApplicationFirewallAssociationResponse {
+		return v.Associations
+	}).(SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput)
+}
+
+// The type of the Security policy to create.
+func (o SecurityPolicyWebApplicationFirewallParametersResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallParametersResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o SecurityPolicyWebApplicationFirewallParametersResponseOutput) WafPolicy() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v SecurityPolicyWebApplicationFirewallParametersResponse) *ResourceReferenceResponse {
+		return v.WafPolicy
+	}).(ResourceReferenceResponsePtrOutput)
+}
+
+type SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityPolicyWebApplicationFirewallParametersResponse)(nil)).Elem()
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput) ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutput() SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput) ToSecurityPolicyWebApplicationFirewallParametersResponsePtrOutputWithContext(ctx context.Context) SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+	return o
+}
+
+func (o SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput) Elem() SecurityPolicyWebApplicationFirewallParametersResponseOutput {
+	return o.ApplyT(func(v *SecurityPolicyWebApplicationFirewallParametersResponse) SecurityPolicyWebApplicationFirewallParametersResponse {
+		return *v
+	}).(SecurityPolicyWebApplicationFirewallParametersResponseOutput)
+}
+
+// Waf associations
+func (o SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput) Associations() SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput {
+	return o.ApplyT(func(v *SecurityPolicyWebApplicationFirewallParametersResponse) []SecurityPolicyWebApplicationFirewallAssociationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Associations
+	}).(SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput)
+}
+
+// The type of the Security policy to create.
+func (o SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityPolicyWebApplicationFirewallParametersResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput) WafPolicy() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *SecurityPolicyWebApplicationFirewallParametersResponse) *ResourceReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.WafPolicy
+	}).(ResourceReferenceResponsePtrOutput)
+}
+
+// Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+type SharedPrivateLinkResourceProperties struct {
+	// The group id from the provider of resource the shared private link resource is for.
+	GroupId *string `pulumi:"groupId"`
+	// The resource id of the resource the shared private link resource is for.
+	PrivateLink *ResourceReference `pulumi:"privateLink"`
+	// The location of the shared private link resource
+	PrivateLinkLocation *string `pulumi:"privateLinkLocation"`
+	// The request message for requesting approval of the shared private link resource.
+	RequestMessage *string `pulumi:"requestMessage"`
+	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+	Status *string `pulumi:"status"`
+}
+
+// SharedPrivateLinkResourcePropertiesInput is an input type that accepts SharedPrivateLinkResourcePropertiesArgs and SharedPrivateLinkResourcePropertiesOutput values.
+// You can construct a concrete instance of `SharedPrivateLinkResourcePropertiesInput` via:
+//
+//          SharedPrivateLinkResourcePropertiesArgs{...}
+type SharedPrivateLinkResourcePropertiesInput interface {
+	pulumi.Input
+
+	ToSharedPrivateLinkResourcePropertiesOutput() SharedPrivateLinkResourcePropertiesOutput
+	ToSharedPrivateLinkResourcePropertiesOutputWithContext(context.Context) SharedPrivateLinkResourcePropertiesOutput
+}
+
+// Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+type SharedPrivateLinkResourcePropertiesArgs struct {
+	// The group id from the provider of resource the shared private link resource is for.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// The resource id of the resource the shared private link resource is for.
+	PrivateLink ResourceReferencePtrInput `pulumi:"privateLink"`
+	// The location of the shared private link resource
+	PrivateLinkLocation pulumi.StringPtrInput `pulumi:"privateLinkLocation"`
+	// The request message for requesting approval of the shared private link resource.
+	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
+	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (SharedPrivateLinkResourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedPrivateLinkResourceProperties)(nil)).Elem()
+}
+
+func (i SharedPrivateLinkResourcePropertiesArgs) ToSharedPrivateLinkResourcePropertiesOutput() SharedPrivateLinkResourcePropertiesOutput {
+	return i.ToSharedPrivateLinkResourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i SharedPrivateLinkResourcePropertiesArgs) ToSharedPrivateLinkResourcePropertiesOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesOutput)
+}
+
+// SharedPrivateLinkResourcePropertiesArrayInput is an input type that accepts SharedPrivateLinkResourcePropertiesArray and SharedPrivateLinkResourcePropertiesArrayOutput values.
+// You can construct a concrete instance of `SharedPrivateLinkResourcePropertiesArrayInput` via:
+//
+//          SharedPrivateLinkResourcePropertiesArray{ SharedPrivateLinkResourcePropertiesArgs{...} }
+type SharedPrivateLinkResourcePropertiesArrayInput interface {
+	pulumi.Input
+
+	ToSharedPrivateLinkResourcePropertiesArrayOutput() SharedPrivateLinkResourcePropertiesArrayOutput
+	ToSharedPrivateLinkResourcePropertiesArrayOutputWithContext(context.Context) SharedPrivateLinkResourcePropertiesArrayOutput
+}
+
+type SharedPrivateLinkResourcePropertiesArray []SharedPrivateLinkResourcePropertiesInput
+
+func (SharedPrivateLinkResourcePropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedPrivateLinkResourceProperties)(nil)).Elem()
+}
+
+func (i SharedPrivateLinkResourcePropertiesArray) ToSharedPrivateLinkResourcePropertiesArrayOutput() SharedPrivateLinkResourcePropertiesArrayOutput {
+	return i.ToSharedPrivateLinkResourcePropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i SharedPrivateLinkResourcePropertiesArray) ToSharedPrivateLinkResourcePropertiesArrayOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesArrayOutput)
+}
+
+// Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+type SharedPrivateLinkResourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (SharedPrivateLinkResourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedPrivateLinkResourceProperties)(nil)).Elem()
+}
+
+func (o SharedPrivateLinkResourcePropertiesOutput) ToSharedPrivateLinkResourcePropertiesOutput() SharedPrivateLinkResourcePropertiesOutput {
+	return o
+}
+
+func (o SharedPrivateLinkResourcePropertiesOutput) ToSharedPrivateLinkResourcePropertiesOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesOutput {
+	return o
+}
+
+// The group id from the provider of resource the shared private link resource is for.
+func (o SharedPrivateLinkResourcePropertiesOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the resource the shared private link resource is for.
+func (o SharedPrivateLinkResourcePropertiesOutput) PrivateLink() ResourceReferencePtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *ResourceReference { return v.PrivateLink }).(ResourceReferencePtrOutput)
+}
+
+// The location of the shared private link resource
+func (o SharedPrivateLinkResourcePropertiesOutput) PrivateLinkLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.PrivateLinkLocation }).(pulumi.StringPtrOutput)
+}
+
+// The request message for requesting approval of the shared private link resource.
+func (o SharedPrivateLinkResourcePropertiesOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+func (o SharedPrivateLinkResourcePropertiesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type SharedPrivateLinkResourcePropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedPrivateLinkResourcePropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedPrivateLinkResourceProperties)(nil)).Elem()
+}
+
+func (o SharedPrivateLinkResourcePropertiesArrayOutput) ToSharedPrivateLinkResourcePropertiesArrayOutput() SharedPrivateLinkResourcePropertiesArrayOutput {
+	return o
+}
+
+func (o SharedPrivateLinkResourcePropertiesArrayOutput) ToSharedPrivateLinkResourcePropertiesArrayOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesArrayOutput {
+	return o
+}
+
+func (o SharedPrivateLinkResourcePropertiesArrayOutput) Index(i pulumi.IntInput) SharedPrivateLinkResourcePropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedPrivateLinkResourceProperties {
+		return vs[0].([]SharedPrivateLinkResourceProperties)[vs[1].(int)]
+	}).(SharedPrivateLinkResourcePropertiesOutput)
+}
+
+// Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+type SharedPrivateLinkResourcePropertiesResponse struct {
+	// The group id from the provider of resource the shared private link resource is for.
+	GroupId *string `pulumi:"groupId"`
+	// The resource id of the resource the shared private link resource is for.
+	PrivateLink *ResourceReferenceResponse `pulumi:"privateLink"`
+	// The location of the shared private link resource
+	PrivateLinkLocation *string `pulumi:"privateLinkLocation"`
+	// The request message for requesting approval of the shared private link resource.
+	RequestMessage *string `pulumi:"requestMessage"`
+	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+	Status *string `pulumi:"status"`
+}
+
+// SharedPrivateLinkResourcePropertiesResponseInput is an input type that accepts SharedPrivateLinkResourcePropertiesResponseArgs and SharedPrivateLinkResourcePropertiesResponseOutput values.
+// You can construct a concrete instance of `SharedPrivateLinkResourcePropertiesResponseInput` via:
+//
+//          SharedPrivateLinkResourcePropertiesResponseArgs{...}
+type SharedPrivateLinkResourcePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToSharedPrivateLinkResourcePropertiesResponseOutput() SharedPrivateLinkResourcePropertiesResponseOutput
+	ToSharedPrivateLinkResourcePropertiesResponseOutputWithContext(context.Context) SharedPrivateLinkResourcePropertiesResponseOutput
+}
+
+// Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+type SharedPrivateLinkResourcePropertiesResponseArgs struct {
+	// The group id from the provider of resource the shared private link resource is for.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// The resource id of the resource the shared private link resource is for.
+	PrivateLink ResourceReferenceResponsePtrInput `pulumi:"privateLink"`
+	// The location of the shared private link resource
+	PrivateLinkLocation pulumi.StringPtrInput `pulumi:"privateLinkLocation"`
+	// The request message for requesting approval of the shared private link resource.
+	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
+	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (SharedPrivateLinkResourcePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedPrivateLinkResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (i SharedPrivateLinkResourcePropertiesResponseArgs) ToSharedPrivateLinkResourcePropertiesResponseOutput() SharedPrivateLinkResourcePropertiesResponseOutput {
+	return i.ToSharedPrivateLinkResourcePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i SharedPrivateLinkResourcePropertiesResponseArgs) ToSharedPrivateLinkResourcePropertiesResponseOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesResponseOutput)
+}
+
+// SharedPrivateLinkResourcePropertiesResponseArrayInput is an input type that accepts SharedPrivateLinkResourcePropertiesResponseArray and SharedPrivateLinkResourcePropertiesResponseArrayOutput values.
+// You can construct a concrete instance of `SharedPrivateLinkResourcePropertiesResponseArrayInput` via:
+//
+//          SharedPrivateLinkResourcePropertiesResponseArray{ SharedPrivateLinkResourcePropertiesResponseArgs{...} }
+type SharedPrivateLinkResourcePropertiesResponseArrayInput interface {
+	pulumi.Input
+
+	ToSharedPrivateLinkResourcePropertiesResponseArrayOutput() SharedPrivateLinkResourcePropertiesResponseArrayOutput
+	ToSharedPrivateLinkResourcePropertiesResponseArrayOutputWithContext(context.Context) SharedPrivateLinkResourcePropertiesResponseArrayOutput
+}
+
+type SharedPrivateLinkResourcePropertiesResponseArray []SharedPrivateLinkResourcePropertiesResponseInput
+
+func (SharedPrivateLinkResourcePropertiesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedPrivateLinkResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (i SharedPrivateLinkResourcePropertiesResponseArray) ToSharedPrivateLinkResourcePropertiesResponseArrayOutput() SharedPrivateLinkResourcePropertiesResponseArrayOutput {
+	return i.ToSharedPrivateLinkResourcePropertiesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SharedPrivateLinkResourcePropertiesResponseArray) ToSharedPrivateLinkResourcePropertiesResponseArrayOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesResponseArrayOutput)
+}
+
+// Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+type SharedPrivateLinkResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SharedPrivateLinkResourcePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedPrivateLinkResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (o SharedPrivateLinkResourcePropertiesResponseOutput) ToSharedPrivateLinkResourcePropertiesResponseOutput() SharedPrivateLinkResourcePropertiesResponseOutput {
+	return o
+}
+
+func (o SharedPrivateLinkResourcePropertiesResponseOutput) ToSharedPrivateLinkResourcePropertiesResponseOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesResponseOutput {
+	return o
+}
+
+// The group id from the provider of resource the shared private link resource is for.
+func (o SharedPrivateLinkResourcePropertiesResponseOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the resource the shared private link resource is for.
+func (o SharedPrivateLinkResourcePropertiesResponseOutput) PrivateLink() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *ResourceReferenceResponse { return v.PrivateLink }).(ResourceReferenceResponsePtrOutput)
+}
+
+// The location of the shared private link resource
+func (o SharedPrivateLinkResourcePropertiesResponseOutput) PrivateLinkLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.PrivateLinkLocation }).(pulumi.StringPtrOutput)
+}
+
+// The request message for requesting approval of the shared private link resource.
+func (o SharedPrivateLinkResourcePropertiesResponseOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+func (o SharedPrivateLinkResourcePropertiesResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type SharedPrivateLinkResourcePropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedPrivateLinkResourcePropertiesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedPrivateLinkResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (o SharedPrivateLinkResourcePropertiesResponseArrayOutput) ToSharedPrivateLinkResourcePropertiesResponseArrayOutput() SharedPrivateLinkResourcePropertiesResponseArrayOutput {
+	return o
+}
+
+func (o SharedPrivateLinkResourcePropertiesResponseArrayOutput) ToSharedPrivateLinkResourcePropertiesResponseArrayOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesResponseArrayOutput {
+	return o
+}
+
+func (o SharedPrivateLinkResourcePropertiesResponseArrayOutput) Index(i pulumi.IntInput) SharedPrivateLinkResourcePropertiesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedPrivateLinkResourcePropertiesResponse {
+		return vs[0].([]SharedPrivateLinkResourcePropertiesResponse)[vs[1].(int)]
+	}).(SharedPrivateLinkResourcePropertiesResponseOutput)
+}
+
 // The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type Sku struct {
 	// Name of the pricing tier.
@@ -11169,6 +13744,235 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Read only system data
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC)
+	CreatedAt *string `pulumi:"createdAt"`
+	// An identifier for the identity that created the resource
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// An identifier for the identity that last modified the resource
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Read only system data
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC)
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// An identifier for the identity that created the resource
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// An identifier for the identity that last modified the resource
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Read only system data
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC)
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// An identifier for the identity that created the resource
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// An identifier for the identity that last modified the resource
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC)
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// An identifier for the identity that created the resource
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// An identifier for the identity that last modified the resource
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12394,11 +15198,7 @@ func (o UrlSigningActionOutput) Parameters() UrlSigningActionParametersOutput {
 type UrlSigningActionParameters struct {
 	// Algorithm to use for URL signing
 	Algorithm *string `pulumi:"algorithm"`
-	// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
-	IpSubnets []string `pulumi:"ipSubnets"`
-	// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
-	KeyId     string  `pulumi:"keyId"`
-	OdataType *string `pulumi:"odataType"`
+	OdataType string  `pulumi:"odataType"`
 	// Defines which query string parameters in the url to be considered for expires, key id etc.
 	ParameterNameOverride []UrlSigningParamIdentifier `pulumi:"parameterNameOverride"`
 }
@@ -12418,11 +15218,7 @@ type UrlSigningActionParametersInput interface {
 type UrlSigningActionParametersArgs struct {
 	// Algorithm to use for URL signing
 	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
-	// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
-	IpSubnets pulumi.StringArrayInput `pulumi:"ipSubnets"`
-	// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
-	KeyId     pulumi.StringInput    `pulumi:"keyId"`
-	OdataType pulumi.StringPtrInput `pulumi:"odataType"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
 	// Defines which query string parameters in the url to be considered for expires, key id etc.
 	ParameterNameOverride UrlSigningParamIdentifierArrayInput `pulumi:"parameterNameOverride"`
 }
@@ -12459,18 +15255,8 @@ func (o UrlSigningActionParametersOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UrlSigningActionParameters) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
 }
 
-// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
-func (o UrlSigningActionParametersOutput) IpSubnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UrlSigningActionParameters) []string { return v.IpSubnets }).(pulumi.StringArrayOutput)
-}
-
-// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
-func (o UrlSigningActionParametersOutput) KeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v UrlSigningActionParameters) string { return v.KeyId }).(pulumi.StringOutput)
-}
-
-func (o UrlSigningActionParametersOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UrlSigningActionParameters) *string { return v.OdataType }).(pulumi.StringPtrOutput)
+func (o UrlSigningActionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningActionParameters) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // Defines which query string parameters in the url to be considered for expires, key id etc.
@@ -12482,11 +15268,7 @@ func (o UrlSigningActionParametersOutput) ParameterNameOverride() UrlSigningPara
 type UrlSigningActionParametersResponse struct {
 	// Algorithm to use for URL signing
 	Algorithm *string `pulumi:"algorithm"`
-	// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
-	IpSubnets []string `pulumi:"ipSubnets"`
-	// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
-	KeyId     string  `pulumi:"keyId"`
-	OdataType *string `pulumi:"odataType"`
+	OdataType string  `pulumi:"odataType"`
 	// Defines which query string parameters in the url to be considered for expires, key id etc.
 	ParameterNameOverride []UrlSigningParamIdentifierResponse `pulumi:"parameterNameOverride"`
 }
@@ -12506,11 +15288,7 @@ type UrlSigningActionParametersResponseInput interface {
 type UrlSigningActionParametersResponseArgs struct {
 	// Algorithm to use for URL signing
 	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
-	// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
-	IpSubnets pulumi.StringArrayInput `pulumi:"ipSubnets"`
-	// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
-	KeyId     pulumi.StringInput    `pulumi:"keyId"`
-	OdataType pulumi.StringPtrInput `pulumi:"odataType"`
+	OdataType pulumi.StringInput    `pulumi:"odataType"`
 	// Defines which query string parameters in the url to be considered for expires, key id etc.
 	ParameterNameOverride UrlSigningParamIdentifierResponseArrayInput `pulumi:"parameterNameOverride"`
 }
@@ -12547,18 +15325,8 @@ func (o UrlSigningActionParametersResponseOutput) Algorithm() pulumi.StringPtrOu
 	return o.ApplyT(func(v UrlSigningActionParametersResponse) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
 }
 
-// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
-func (o UrlSigningActionParametersResponseOutput) IpSubnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UrlSigningActionParametersResponse) []string { return v.IpSubnets }).(pulumi.StringArrayOutput)
-}
-
-// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
-func (o UrlSigningActionParametersResponseOutput) KeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v UrlSigningActionParametersResponse) string { return v.KeyId }).(pulumi.StringOutput)
-}
-
-func (o UrlSigningActionParametersResponseOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UrlSigningActionParametersResponse) *string { return v.OdataType }).(pulumi.StringPtrOutput)
+func (o UrlSigningActionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningActionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // Defines which query string parameters in the url to be considered for expires, key id etc.
@@ -12739,6 +15507,170 @@ func (o UrlSigningKeyArrayOutput) Index(i pulumi.IntInput) UrlSigningKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UrlSigningKey {
 		return vs[0].([]UrlSigningKey)[vs[1].(int)]
 	}).(UrlSigningKeyOutput)
+}
+
+// Url signing key parameters
+type UrlSigningKeyParameters struct {
+	// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+	KeyId string `pulumi:"keyId"`
+	// Resource reference to the KV secret
+	SecretSource ResourceReference `pulumi:"secretSource"`
+	// Version of the secret to be used
+	SecretVersion *string `pulumi:"secretVersion"`
+	// The type of the Secret to create.
+	Type string `pulumi:"type"`
+}
+
+// UrlSigningKeyParametersInput is an input type that accepts UrlSigningKeyParametersArgs and UrlSigningKeyParametersOutput values.
+// You can construct a concrete instance of `UrlSigningKeyParametersInput` via:
+//
+//          UrlSigningKeyParametersArgs{...}
+type UrlSigningKeyParametersInput interface {
+	pulumi.Input
+
+	ToUrlSigningKeyParametersOutput() UrlSigningKeyParametersOutput
+	ToUrlSigningKeyParametersOutputWithContext(context.Context) UrlSigningKeyParametersOutput
+}
+
+// Url signing key parameters
+type UrlSigningKeyParametersArgs struct {
+	// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// Resource reference to the KV secret
+	SecretSource ResourceReferenceInput `pulumi:"secretSource"`
+	// Version of the secret to be used
+	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+	// The type of the Secret to create.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (UrlSigningKeyParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningKeyParameters)(nil)).Elem()
+}
+
+func (i UrlSigningKeyParametersArgs) ToUrlSigningKeyParametersOutput() UrlSigningKeyParametersOutput {
+	return i.ToUrlSigningKeyParametersOutputWithContext(context.Background())
+}
+
+func (i UrlSigningKeyParametersArgs) ToUrlSigningKeyParametersOutputWithContext(ctx context.Context) UrlSigningKeyParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyParametersOutput)
+}
+
+// Url signing key parameters
+type UrlSigningKeyParametersOutput struct{ *pulumi.OutputState }
+
+func (UrlSigningKeyParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningKeyParameters)(nil)).Elem()
+}
+
+func (o UrlSigningKeyParametersOutput) ToUrlSigningKeyParametersOutput() UrlSigningKeyParametersOutput {
+	return o
+}
+
+func (o UrlSigningKeyParametersOutput) ToUrlSigningKeyParametersOutputWithContext(ctx context.Context) UrlSigningKeyParametersOutput {
+	return o
+}
+
+// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+func (o UrlSigningKeyParametersOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningKeyParameters) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// Resource reference to the KV secret
+func (o UrlSigningKeyParametersOutput) SecretSource() ResourceReferenceOutput {
+	return o.ApplyT(func(v UrlSigningKeyParameters) ResourceReference { return v.SecretSource }).(ResourceReferenceOutput)
+}
+
+// Version of the secret to be used
+func (o UrlSigningKeyParametersOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlSigningKeyParameters) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
+}
+
+// The type of the Secret to create.
+func (o UrlSigningKeyParametersOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningKeyParameters) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Url signing key parameters
+type UrlSigningKeyParametersResponse struct {
+	// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+	KeyId string `pulumi:"keyId"`
+	// Resource reference to the KV secret
+	SecretSource ResourceReferenceResponse `pulumi:"secretSource"`
+	// Version of the secret to be used
+	SecretVersion *string `pulumi:"secretVersion"`
+	// The type of the Secret to create.
+	Type string `pulumi:"type"`
+}
+
+// UrlSigningKeyParametersResponseInput is an input type that accepts UrlSigningKeyParametersResponseArgs and UrlSigningKeyParametersResponseOutput values.
+// You can construct a concrete instance of `UrlSigningKeyParametersResponseInput` via:
+//
+//          UrlSigningKeyParametersResponseArgs{...}
+type UrlSigningKeyParametersResponseInput interface {
+	pulumi.Input
+
+	ToUrlSigningKeyParametersResponseOutput() UrlSigningKeyParametersResponseOutput
+	ToUrlSigningKeyParametersResponseOutputWithContext(context.Context) UrlSigningKeyParametersResponseOutput
+}
+
+// Url signing key parameters
+type UrlSigningKeyParametersResponseArgs struct {
+	// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// Resource reference to the KV secret
+	SecretSource ResourceReferenceResponseInput `pulumi:"secretSource"`
+	// Version of the secret to be used
+	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+	// The type of the Secret to create.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (UrlSigningKeyParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningKeyParametersResponse)(nil)).Elem()
+}
+
+func (i UrlSigningKeyParametersResponseArgs) ToUrlSigningKeyParametersResponseOutput() UrlSigningKeyParametersResponseOutput {
+	return i.ToUrlSigningKeyParametersResponseOutputWithContext(context.Background())
+}
+
+func (i UrlSigningKeyParametersResponseArgs) ToUrlSigningKeyParametersResponseOutputWithContext(ctx context.Context) UrlSigningKeyParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyParametersResponseOutput)
+}
+
+// Url signing key parameters
+type UrlSigningKeyParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlSigningKeyParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningKeyParametersResponse)(nil)).Elem()
+}
+
+func (o UrlSigningKeyParametersResponseOutput) ToUrlSigningKeyParametersResponseOutput() UrlSigningKeyParametersResponseOutput {
+	return o
+}
+
+func (o UrlSigningKeyParametersResponseOutput) ToUrlSigningKeyParametersResponseOutputWithContext(ctx context.Context) UrlSigningKeyParametersResponseOutput {
+	return o
+}
+
+// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+func (o UrlSigningKeyParametersResponseOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningKeyParametersResponse) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// Resource reference to the KV secret
+func (o UrlSigningKeyParametersResponseOutput) SecretSource() ResourceReferenceResponseOutput {
+	return o.ApplyT(func(v UrlSigningKeyParametersResponse) ResourceReferenceResponse { return v.SecretSource }).(ResourceReferenceResponseOutput)
+}
+
+// Version of the secret to be used
+func (o UrlSigningKeyParametersResponseOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlSigningKeyParametersResponse) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
+}
+
+// The type of the Secret to create.
+func (o UrlSigningKeyParametersResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningKeyParametersResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Url signing key
@@ -13069,12 +16001,20 @@ func (o UrlSigningParamIdentifierResponseArrayOutput) Index(i pulumi.IntInput) U
 }
 
 func init() {
+	pulumi.RegisterOutputType(AFDDomainHttpsParametersOutput{})
+	pulumi.RegisterOutputType(AFDDomainHttpsParametersPtrOutput{})
+	pulumi.RegisterOutputType(AFDDomainHttpsParametersResponseOutput{})
+	pulumi.RegisterOutputType(AFDDomainHttpsParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheExpirationActionParametersOutput{})
 	pulumi.RegisterOutputType(CacheExpirationActionParametersResponseOutput{})
 	pulumi.RegisterOutputType(CacheKeyQueryStringActionParametersOutput{})
 	pulumi.RegisterOutputType(CacheKeyQueryStringActionParametersResponseOutput{})
 	pulumi.RegisterOutputType(CdnEndpointResponseOutput{})
 	pulumi.RegisterOutputType(CdnEndpointResponseArrayOutput{})
+	pulumi.RegisterOutputType(CompressionSettingsOutput{})
+	pulumi.RegisterOutputType(CompressionSettingsArrayOutput{})
+	pulumi.RegisterOutputType(CompressionSettingsResponseOutput{})
+	pulumi.RegisterOutputType(CompressionSettingsResponseArrayOutput{})
 	pulumi.RegisterOutputType(CookiesMatchConditionParametersOutput{})
 	pulumi.RegisterOutputType(CookiesMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(CustomRuleOutput{})
@@ -13085,6 +16025,8 @@ func init() {
 	pulumi.RegisterOutputType(CustomRuleListResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomRuleResponseOutput{})
 	pulumi.RegisterOutputType(CustomRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(CustomerCertificateParametersOutput{})
+	pulumi.RegisterOutputType(CustomerCertificateParametersResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginArrayOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginGroupOutput{})
@@ -13133,6 +16075,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryRuleUrlFileNameConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionResponseOutput{})
+	pulumi.RegisterOutputType(DomainValidationPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(DomainValidationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput{})
@@ -13161,6 +16105,12 @@ func init() {
 	pulumi.RegisterOutputType(IsDeviceMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersOutput{})
 	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersResponseOutput{})
+	pulumi.RegisterOutputType(LoadBalancingSettingsParametersOutput{})
+	pulumi.RegisterOutputType(LoadBalancingSettingsParametersPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancingSettingsParametersResponseOutput{})
+	pulumi.RegisterOutputType(LoadBalancingSettingsParametersResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedCertificateParametersOutput{})
+	pulumi.RegisterOutputType(ManagedCertificateParametersResponseOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideResponseOutput{})
@@ -13181,6 +16131,10 @@ func init() {
 	pulumi.RegisterOutputType(MatchConditionArrayOutput{})
 	pulumi.RegisterOutputType(MatchConditionResponseOutput{})
 	pulumi.RegisterOutputType(MatchConditionResponseArrayOutput{})
+	pulumi.RegisterOutputType(OriginGroupOverrideActionOutput{})
+	pulumi.RegisterOutputType(OriginGroupOverrideActionParametersOutput{})
+	pulumi.RegisterOutputType(OriginGroupOverrideActionParametersResponseOutput{})
+	pulumi.RegisterOutputType(OriginGroupOverrideActionResponseOutput{})
 	pulumi.RegisterOutputType(PolicySettingsOutput{})
 	pulumi.RegisterOutputType(PolicySettingsPtrOutput{})
 	pulumi.RegisterOutputType(PolicySettingsResponseOutput{})
@@ -13219,10 +16173,24 @@ func init() {
 	pulumi.RegisterOutputType(ResponseBasedOriginErrorDetectionParametersPtrOutput{})
 	pulumi.RegisterOutputType(ResponseBasedOriginErrorDetectionParametersResponseOutput{})
 	pulumi.RegisterOutputType(ResponseBasedOriginErrorDetectionParametersResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecurityPolicyWebApplicationFirewallAssociationOutput{})
+	pulumi.RegisterOutputType(SecurityPolicyWebApplicationFirewallAssociationArrayOutput{})
+	pulumi.RegisterOutputType(SecurityPolicyWebApplicationFirewallAssociationResponseOutput{})
+	pulumi.RegisterOutputType(SecurityPolicyWebApplicationFirewallAssociationResponseArrayOutput{})
+	pulumi.RegisterOutputType(SecurityPolicyWebApplicationFirewallParametersOutput{})
+	pulumi.RegisterOutputType(SecurityPolicyWebApplicationFirewallParametersPtrOutput{})
+	pulumi.RegisterOutputType(SecurityPolicyWebApplicationFirewallParametersResponseOutput{})
+	pulumi.RegisterOutputType(SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput{})
+	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesOutput{})
+	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesArrayOutput{})
+	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UrlFileExtensionMatchConditionParametersOutput{})
 	pulumi.RegisterOutputType(UrlFileExtensionMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(UrlFileNameMatchConditionParametersOutput{})
@@ -13243,6 +16211,8 @@ func init() {
 	pulumi.RegisterOutputType(UrlSigningActionResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyArrayOutput{})
+	pulumi.RegisterOutputType(UrlSigningKeyParametersOutput{})
+	pulumi.RegisterOutputType(UrlSigningKeyParametersResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(UrlSigningParamIdentifierOutput{})

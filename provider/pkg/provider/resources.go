@@ -136,7 +136,7 @@ func ResourceProvider(path string) string {
 	return "Resources"
 }
 
-var verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "")
+var verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "", "list", "")
 var wellKnownNames = map[string]string{
 	"Redis":               "Redis",
 	"Caches":              "Cache",
@@ -147,7 +147,8 @@ var wellKnownNames = map[string]string{
 // ResourceName constructs a name of a resource based on Get or List operation ID,
 // e.g. "Managers_GetActivationKey" -> "ManagerActivationKey".
 func ResourceName(operationID string) string {
-	parts := strings.Split(operationID, "_")
+	normalizedID := strings.ReplaceAll(operationID, "-", "_")
+	parts := strings.Split(normalizedID, "_")
 	var name, verb string
 	if len(parts) == 1 {
 		verb = parts[0]

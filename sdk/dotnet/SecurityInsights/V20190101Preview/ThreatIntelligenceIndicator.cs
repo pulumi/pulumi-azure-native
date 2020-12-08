@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     /// <summary>
-    /// Threat intelligence resource.
+    /// Threat intelligence information object.
     /// </summary>
     public partial class ThreatIntelligenceIndicator : Pulumi.CustomResource
     {
@@ -204,7 +204,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Input<string>? Modified { get; set; }
 
         /// <summary>
-        /// Threat Intelligence Identifier
+        /// Threat intelligence indicator name field.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

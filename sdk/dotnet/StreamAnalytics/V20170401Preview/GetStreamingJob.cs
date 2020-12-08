@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
         /// </summary>
-        public readonly string ContentStoragePolicy;
+        public readonly string? ContentStoragePolicy;
         /// <summary>
         /// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 
             string? compatibilityLevel,
 
-            string contentStoragePolicy,
+            string? contentStoragePolicy,
 
             string createdDate,
 

@@ -12,7 +12,8 @@ import (
 
 type ArmIdentity struct {
 	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
-	IdentityType *string `pulumi:"identityType"`
+	IdentityType           *string                `pulumi:"identityType"`
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // ArmIdentityInput is an input type that accepts ArmIdentityArgs and ArmIdentityOutput values.
@@ -28,7 +29,8 @@ type ArmIdentityInput interface {
 
 type ArmIdentityArgs struct {
 	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned
-	IdentityType pulumi.StringPtrInput `pulumi:"identityType"`
+	IdentityType           pulumi.StringPtrInput `pulumi:"identityType"`
+	UserAssignedIdentities pulumi.MapInput       `pulumi:"userAssignedIdentities"`
 }
 
 func (ArmIdentityArgs) ElementType() reflect.Type {
@@ -113,6 +115,10 @@ func (o ArmIdentityOutput) IdentityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmIdentity) *string { return v.IdentityType }).(pulumi.StringPtrOutput)
 }
 
+func (o ArmIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v ArmIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
 type ArmIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ArmIdentityPtrOutput) ElementType() reflect.Type {
@@ -139,6 +145,15 @@ func (o ArmIdentityPtrOutput) IdentityType() pulumi.StringPtrOutput {
 		}
 		return v.IdentityType
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *ArmIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
 }
 
 type ArmIdentityResponse struct {

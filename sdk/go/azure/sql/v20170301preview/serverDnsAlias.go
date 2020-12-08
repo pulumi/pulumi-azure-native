@@ -38,6 +38,12 @@ func NewServerDnsAlias(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerDnsAliasArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerDnsAlias"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerDnsAlias
 	err := ctx.RegisterResource("azure-nextgen:sql/v20170301preview:ServerDnsAlias", name, args, &resource, opts...)
 	if err != nil {

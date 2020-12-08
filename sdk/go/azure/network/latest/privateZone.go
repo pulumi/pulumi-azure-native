@@ -17,6 +17,8 @@ type PrivateZone struct {
 
 	// The ETag of the zone.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Private zone internal Id
+	InternalId pulumi.StringOutput `pulumi:"internalId"`
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
@@ -57,6 +59,12 @@ func NewPrivateZone(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180901:PrivateZone"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200101:PrivateZone"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateZone"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateZone
@@ -83,6 +91,8 @@ func GetPrivateZone(ctx *pulumi.Context,
 type privateZoneState struct {
 	// The ETag of the zone.
 	Etag *string `pulumi:"etag"`
+	// Private zone internal Id
+	InternalId *string `pulumi:"internalId"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
@@ -110,6 +120,8 @@ type privateZoneState struct {
 type PrivateZoneState struct {
 	// The ETag of the zone.
 	Etag pulumi.StringPtrInput
+	// Private zone internal Id
+	InternalId pulumi.StringPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
