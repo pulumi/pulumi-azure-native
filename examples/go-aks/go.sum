@@ -154,7 +154,6 @@ github.com/pulumi/pulumi-random/sdk/v2 v2.2.0 h1:vnGwjJhoFCDXwRdItwVTtOl5Xk+U54+
 github.com/pulumi/pulumi-random/sdk/v2 v2.2.0/go.mod h1:PPzzdlKYXLuBjcl6T4FvvQgKBntKa9gMbZtgslBlVHc=
 github.com/pulumi/pulumi-tls/sdk/v2 v2.2.0 h1:2vIwoxx0h1Nqh6ly20iB20WQtFZ8sxjMh47X2mFqR3A=
 github.com/pulumi/pulumi-tls/sdk/v2 v2.2.0/go.mod h1:47w+J18WeJdqrMInlOWbNkf/fKby/IJ7e7oUtPZpSDU=
-github.com/pulumi/pulumi/sdk/v2 v2.0.0 h1:3VMXbEo3bqeaU+YDt8ufVBLD0WhLYE3tG3t/nIZ3Iac=
 github.com/pulumi/pulumi/sdk/v2 v2.0.0/go.mod h1:W7k1UDYerc5o97mHnlHHp5iQZKEby+oQrQefWt+2RF4=
 github.com/pulumi/pulumi/sdk/v2 v2.6.0 h1:YTxcncAsinsEdi0OO3U1WmewsNfijttrbIaM/Tr59SA=
 github.com/pulumi/pulumi/sdk/v2 v2.6.0/go.mod h1:llk6tmXss8kJrt3vEXAkwiwgZOuINEFmKIfMveVIwO8=
@@ -172,7 +171,6 @@ github.com/spaolacci/murmur3 v0.0.0-20180118202830-f09979ecbc72/go.mod h1:JwIasO
 github.com/spf13/afero v1.1.2/go.mod h1:j4pytiNVoe2o6bmDsKpLACNPDBIoEAkihy7loJ1B0CQ=
 github.com/spf13/cast v1.3.0/go.mod h1:Qx5cxh0v+4UWYiBimWS+eyWzqEqokIECu5etghLkUJE=
 github.com/spf13/cast v1.3.1/go.mod h1:Qx5cxh0v+4UWYiBimWS+eyWzqEqokIECu5etghLkUJE=
-github.com/spf13/cobra v0.0.6 h1:breEStsVwemnKh2/s6gMvSdMEkwW0sK8vGStnlVBMCs=
 github.com/spf13/cobra v0.0.6/go.mod h1:/6GTrnGXV9HjY+aR4k0oJ5tcvakLuG6EuKReYlHNrgE=
 github.com/spf13/cobra v1.0.0 h1:6m/oheQuQ13N9ks4hubMG6BnvwOeaJrqSPLahSnczz8=
 github.com/spf13/cobra v1.0.0/go.mod h1:/6GTrnGXV9HjY+aR4k0oJ5tcvakLuG6EuKReYlHNrgE=
