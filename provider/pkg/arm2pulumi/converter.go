@@ -1,9 +1,10 @@
 package arm2pulumi
 
 import (
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
-	"github.com/pulumi/pulumi/sdk/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -26,7 +27,7 @@ func newResourceTokenConverter(metadata *provider.AzureAPIMetadata) *resourceTok
 			continue
 		}
 		resourceTypeToTokenMap := stableResourceTypeToTokenWrapperSet
-		if strings.Contains(strings.ToLower(v.APIVersion), "preview") {
+		if openapi.IsPreview(v.APIVersion) {
 			resourceTypeToTokenMap = previewResourceTypeToTokenWrapperSet
 		}
 		existing := resourceTypeToTokenMap[armResourceType]
@@ -96,7 +97,7 @@ type resourceTokenConverter struct {
 
 func (r *resourceTokenConverter) convert(armResourceType string, apiVersion string) string {
 	resourceTypeToTokenMap := r.stableResourceTypeToTokenMap
-	if strings.Contains(strings.ToLower(apiVersion), "preview") {
+	if openapi.IsPreview(apiVersion) {
 		resourceTypeToTokenMap = r.previewResourceTypeToTokenMap
 	}
 	found := resourceTypeToTokenMap[strings.ToLower(armResourceType)]

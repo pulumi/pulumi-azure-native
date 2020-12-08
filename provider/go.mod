@@ -14,10 +14,8 @@ require (
 	github.com/golang/protobuf v1.4.2
 	github.com/hashicorp/go-azure-helpers v0.10.0
 	github.com/hashicorp/hcl/v2 v2.6.0
-	github.com/magiconair/properties v1.8.0
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/pkg/v2 v2.13.3-0.20201113095941-66c5cdb7a1bc
-	github.com/pulumi/pulumi/sdk v1.14.1
 	github.com/pulumi/pulumi/sdk/v2 v2.13.3-0.20201113095941-66c5cdb7a1bc
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
